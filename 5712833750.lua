@@ -495,7 +495,25 @@ local function stayNearPlayer()
         end
         local distance = (targetRoot.Position - humanoidRoot.Position).Magnitude
         if distance > (AnimalSim.State.followDistance or 10) then
-            humanoidRoot.CFrame = CFrame.new(targetRoot.Position - targetRoot.CFrame.LookVector * (AnimalSim.State.followDistance or 10))
+            local followDistance = AnimalSim.State.followDistance or 10
+            local velocity = targetRoot.AssemblyLinearVelocity or targetRoot.Velocity or Vector3.zero
+            local speed = velocity.Magnitude
+            local isMoving = speed > 1
+            if isMoving then
+                local predictedPosition = PredictPlayerPosition(selected, 0.2)
+                if predictedPosition then
+                    local forward = (speed > 0) and velocity.Unit or targetRoot.CFrame.LookVector
+                    local destination = predictedPosition - forward * followDistance
+                    humanoidRoot.CFrame = CFrame.new(destination, destination + forward)
+                else
+                    humanoidRoot.CFrame = targetRoot.CFrame
+                end
+            else
+                humanoidRoot.CFrame = CFrame.new(
+                    targetRoot.Position - targetRoot.CFrame.LookVector * followDistance,
+                    targetRoot.Position
+                )
+            end
         end
     end
 end
