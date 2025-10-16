@@ -37,6 +37,7 @@ local AnimalSim = {
     },
     State = {
         autoPVP = false,
+        killAura = false,
         autoJump = false,
         autoEat = false,
         autoFight = false,
@@ -46,6 +47,8 @@ local AnimalSim = {
         followTarget = false,
         followDistance = 10,
         selectedPlayer = nil,
+        legitMode = true,
+        autoSelectTarget = false,
     },
     Modules = {
         Utilities = {},
@@ -78,6 +81,12 @@ local SAFE_ZONE_POLYGON = {
 }
 
 AnimalSim.Data.SafeZones.Main = {polygon = SAFE_ZONE_POLYGON}
+
+Players.PlayerRemoving:Connect(function(player)
+    if AnimalSim.State.selectedPlayer == player then
+        AnimalSim.State.selectedPlayer = nil
+    end
+end)
 
 local MANTIS_TELEPORT_ENTRY = Vector3.new(200.921, 708.134, -16601.699)
 local MANTIS_RETURN_POSITION = Vector3.new(67.475, 641.687, 476.413)
@@ -120,12 +129,21 @@ local autoFireballTask
 local autoFireballEnabled = false
 local autoZoneTask
 local autoZoneEnabled = false
+local autoPVPTask
+local autoPVPEnabled = false
 local autoFlightChaseTask
 local autoFlightChaseEnabled = false
 local autoZoneBaseCF
 local autoZoneCancelToken = 0
+local followTaskRunning = false
+local autoJumpEnabled = false
+local autoJumpConnection
+local autoJumpCharacterConnection
 local mantisTeleportActive = false
 local mantisTeleportReturnCF
+
+local AUTO_PVP_POLL_RATE = 0.35
+local AUTO_ZONE_POLL_RATE = 0.6
 
 local function teamCheck(name)
     if not name then
@@ -266,7 +284,25 @@ local function teleportInFrontOfPlayer(targetPlayerName)
     local predictedPosition = targetRoot.Position + (targetRoot.Velocity or Vector3.zero)
     local character = LocalPlayer.Character
     if character and character.PrimaryPart then
-        character:SetPrimaryPartCFrame(CFrame.new(predictedPosition))
+        if LegitPathing then
+            defineNilLocals()
+            local humanoidInstance = humanoid
+            if humanoidInstance then
+                local ok, err = pcall(function()
+                    moveToTarget(predictedPosition, humanoidInstance, {
+                        cancelled = function()
+                            return not LegitPathing
+                        end,
+                        arrivalDistance = 6,
+                    })
+                end)
+                if not ok then
+                    warn("[AnimalSim] failed to walk in front of player", err)
+                end
+            end
+        else
+            character:SetPrimaryPartCFrame(CFrame.new(predictedPosition))
+        end
     end
 end
 
@@ -310,7 +346,7 @@ local rebirthValue
 local finding = false
 local pathfindingComplete = true
 local doneMoving = true
-local LegitPathing = false
+local LegitPathing = AnimalSim.State.legitMode
 
 local function waitForChar()
     while not Players.LocalPlayer.Character do
@@ -446,26 +482,99 @@ local function getPos()
 end
 
 local function stayNearPlayer()
-    local follow = true
-    while follow do
+    while AnimalSim.State.followTarget do
         task.wait()
         local selected = AnimalSim.State.selectedPlayer
         local character = LocalPlayer.Character
         if not (selected and character and humanoidRoot and selected.Character) then
-            follow = AnimalSim.State.followTarget
             continue
         end
         local targetRoot = selected.Character:FindFirstChild("HumanoidRootPart")
         if not targetRoot then
-            follow = AnimalSim.State.followTarget
             continue
         end
         local distance = (targetRoot.Position - humanoidRoot.Position).Magnitude
         if distance > (AnimalSim.State.followDistance or 10) then
             humanoidRoot.CFrame = CFrame.new(targetRoot.Position - targetRoot.CFrame.LookVector * (AnimalSim.State.followDistance or 10))
         end
-        follow = AnimalSim.State.followTarget
     end
+end
+
+local function runFollowLoop()
+    followTaskRunning = true
+    stayNearPlayer()
+    followTaskRunning = false
+end
+
+local function setFollowTargetEnabled(value)
+    AnimalSim.State.followTarget = value
+    AnimalSim.State.autoSelectTarget = value
+    if value then
+        if not followTaskRunning then
+            task.spawn(runFollowLoop)
+        end
+    else
+        local timeout = os.clock() + 2
+        while followTaskRunning and os.clock() < timeout do
+            task.wait()
+        end
+    end
+end
+
+local function setLegitMode(value)
+    LegitPathing = value
+    AnimalSim.State.legitMode = value
+end
+
+local function bindAutoJumpToHumanoid(humanoidInstance)
+    if autoJumpConnection then
+        autoJumpConnection:Disconnect()
+        autoJumpConnection = nil
+    end
+    if not humanoidInstance then
+        return
+    end
+    autoJumpConnection = humanoidInstance.StateChanged:Connect(function(_, newState)
+        if autoJumpEnabled and newState == Enum.HumanoidStateType.Landed then
+            task.delay(0.1, function()
+                if autoJumpEnabled and humanoidInstance.Parent then
+                    humanoidInstance.Jump = true
+                end
+            end)
+        end
+    end)
+end
+
+local function setAutoJump(value)
+    autoJumpEnabled = value
+    AnimalSim.State.autoJump = value
+    defineNilLocals()
+    local humanoidInstance = humanoid
+    if value then
+        if humanoidInstance then
+            bindAutoJumpToHumanoid(humanoidInstance)
+            humanoidInstance.Jump = true
+        end
+        if not autoJumpCharacterConnection then
+            autoJumpCharacterConnection = LocalPlayer.CharacterAdded:Connect(function(newCharacter)
+                if not autoJumpEnabled then
+                    return
+                end
+                local newHumanoid = newCharacter:WaitForChild("Humanoid")
+                bindAutoJumpToHumanoid(newHumanoid)
+                newHumanoid.Jump = true
+            end)
+        end
+    else
+        if autoJumpConnection then
+            autoJumpConnection:Disconnect()
+            autoJumpConnection = nil
+        end
+    end
+end
+
+local function setAutoFight(value)
+    AnimalSim.State.autoFight = value
 end
 
 local function isInsideSafeZone(position)
@@ -998,7 +1107,7 @@ local function setAuraActive(value)
         return
     end
     auraActive = value
-    AnimalSim.State.autoPVP = value
+    AnimalSim.State.killAura = value
     if value and not auraTask then
         auraTask = task.spawn(auraLoop)
     elseif not value and auraTask then
@@ -1040,6 +1149,131 @@ local function engageEnemy(enemyPlayer)
     tryTeleportRoute(humanoid, targetHumanoid.RootPart.Position, {margin = 30})
     followDynamicTarget(enemyPlayer, humanoid, {})
     hitHumanoid(targetHumanoid)
+end
+
+local function findZoneTarget()
+    local character = LocalPlayer.Character
+    local localRoot = character and character:FindFirstChild("HumanoidRootPart")
+    if not localRoot then
+        return nil
+    end
+    local closestPlayer
+    local closestDistance = math.huge
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and not teamCheck(player.Name) then
+            local targetCharacter = player.Character
+            local targetHumanoid = targetCharacter and targetCharacter:FindFirstChildOfClass("Humanoid")
+            local targetRoot = targetCharacter and targetCharacter:FindFirstChild("HumanoidRootPart")
+            if targetHumanoid and targetHumanoid.Health > 0 and targetRoot then
+                if not isInsideSafeZone(targetRoot.Position) then
+                    local distance = (targetRoot.Position - localRoot.Position).Magnitude
+                    if distance < closestDistance then
+                        closestDistance = distance
+                        closestPlayer = player
+                    end
+                end
+            end
+        end
+    end
+    return closestPlayer
+end
+
+local function autoPVPLoop()
+    while autoPVPEnabled do
+        defineNilLocals()
+        local target = findClosestEnemy()
+        if target then
+            local ok, err = pcall(function()
+                if AnimalSim.State.autoFight then
+                    damageplayer(target.Name)
+                else
+                    engageEnemy(target)
+                end
+            end)
+            if not ok then
+                warn("[AnimalSim] auto PVP failed", err)
+            end
+        end
+        task.wait(AUTO_PVP_POLL_RATE)
+    end
+    autoPVPTask = nil
+end
+
+local function setAutoPVP(value)
+    if autoPVPEnabled == value then
+        return
+    end
+    autoPVPEnabled = value
+    AnimalSim.State.autoPVP = value
+    if value then
+        if not autoPVPTask then
+            autoPVPTask = task.spawn(autoPVPLoop)
+        end
+    else
+        while autoPVPTask do
+            task.wait()
+        end
+    end
+end
+
+local function autoZoneLoop(myToken)
+    while autoZoneEnabled and autoZoneCancelToken == myToken do
+        defineNilLocals()
+        local target = findZoneTarget()
+        if target then
+            local ok, err = pcall(function()
+                if AnimalSim.State.autoFight then
+                    damageplayer(target.Name)
+                else
+                    engageEnemy(target)
+                end
+            end)
+            if not ok then
+                warn("[AnimalSim] auto zone error", err)
+            end
+        elseif autoZoneBaseCF and humanoidRoot then
+            moveToTarget(autoZoneBaseCF.Position, humanoid, {arrivalDistance = 8})
+        end
+        task.wait(AUTO_ZONE_POLL_RATE)
+    end
+    if autoZoneBaseCF and humanoidRoot then
+        pcall(function()
+            humanoidRoot.CFrame = autoZoneBaseCF
+        end)
+    end
+    autoZoneTask = nil
+end
+
+local function setAutoZone(value)
+    if value then
+        if autoZoneEnabled then
+            return
+        end
+        defineNilLocals()
+        autoZoneEnabled = true
+        AnimalSim.State.autoZone = true
+        autoZoneCancelToken += 1
+        local character = LocalPlayer.Character
+        local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+        if rootPart then
+            autoZoneBaseCF = rootPart.CFrame
+        end
+        local myToken = autoZoneCancelToken
+        autoZoneTask = task.spawn(function()
+            autoZoneLoop(myToken)
+        end)
+    else
+        if not autoZoneEnabled then
+            return
+        end
+        autoZoneEnabled = false
+        AnimalSim.State.autoZone = false
+        autoZoneCancelToken += 1
+        while autoZoneTask do
+            task.wait()
+        end
+        autoZoneBaseCF = nil
+    end
 end
 
 local function startAutoFlightChase()
@@ -1098,6 +1332,7 @@ AnimalSim.Modules.Utilities.waitDoneMove = waitDoneMove
 AnimalSim.Modules.Utilities.getClosest = getClosest
 AnimalSim.Modules.Utilities.getPos = getPos
 AnimalSim.Modules.Utilities.stayNearPlayer = stayNearPlayer
+AnimalSim.Modules.Utilities.setFollowTarget = setFollowTargetEnabled
 AnimalSim.Modules.Utilities.isInsideSafeZone = isInsideSafeZone
 AnimalSim.Modules.Utilities.registerTeleporter = registerTeleporter
 AnimalSim.Modules.Utilities.useTeleporter = useTeleporter
@@ -1120,6 +1355,11 @@ AnimalSim.Modules.Combat.startAutoFireball = startAutoFireball
 AnimalSim.Modules.Combat.stopAutoFireball = stopAutoFireball
 AnimalSim.Modules.Combat.startAutoFlightChase = startAutoFlightChase
 AnimalSim.Modules.Combat.stopAutoFlightChase = stopAutoFlightChase
+AnimalSim.Modules.Combat.setLegitMode = setLegitMode
+AnimalSim.Modules.Combat.setAutoJump = setAutoJump
+AnimalSim.Modules.Combat.setAutoFight = setAutoFight
+AnimalSim.Modules.Combat.setAutoPVP = setAutoPVP
+AnimalSim.Modules.Combat.setAutoZone = setAutoZone
 
 ---------------------------------------------------------------------
 -- Logging helpers
@@ -1191,9 +1431,16 @@ local function buildUI()
     local gameplayPage = ui:addPage({title = "Animal Sim"})
     local gameplaySection = gameplayPage:addSection({title = "Gameplay"})
 
+    local playerOptions = {}
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer then
+            table.insert(playerOptions, player.Name)
+        end
+    end
+
     gameplaySection:addDropdown({
         title = "Set Target Player",
-        list = {},
+        list = playerOptions,
         callback = function(playerName)
             AnimalSim.State.selectedPlayer = Players:FindFirstChild(playerName)
         end,
@@ -1201,16 +1448,37 @@ local function buildUI()
 
     gameplaySection:addToggle({
         title = "Auto EXP Farm",
+        toggled = farmActive,
         callback = setFarmActive,
     })
 
     gameplaySection:addToggle({
+        title = "Legit Mode",
+        toggled = AnimalSim.State.legitMode,
+        callback = setLegitMode,
+    })
+
+    gameplaySection:addToggle({
         title = "Kill aura",
+        toggled = AnimalSim.State.killAura,
         callback = setAuraActive,
     })
 
     gameplaySection:addToggle({
+        title = "Auto PVP",
+        toggled = AnimalSim.State.autoPVP,
+        callback = setAutoPVP,
+    })
+
+    gameplaySection:addToggle({
+        title = "Auto Jump",
+        toggled = AnimalSim.State.autoJump,
+        callback = setAutoJump,
+    })
+
+    gameplaySection:addToggle({
         title = "Auto Eat",
+        toggled = autoEatEnabled,
         callback = function(value)
             if value then
                 startAutoEat()
@@ -1221,7 +1489,14 @@ local function buildUI()
     })
 
     gameplaySection:addToggle({
+        title = "Auto Fight",
+        toggled = AnimalSim.State.autoFight,
+        callback = setAutoFight,
+    })
+
+    gameplaySection:addToggle({
         title = "autoFireball",
+        toggled = autoFireballEnabled,
         callback = function(value)
             if value then
                 startAutoFireball()
@@ -1232,7 +1507,14 @@ local function buildUI()
     })
 
     gameplaySection:addToggle({
+        title = "Auto Zone",
+        toggled = AnimalSim.State.autoZone,
+        callback = setAutoZone,
+    })
+
+    gameplaySection:addToggle({
         title = "Flight Chase",
+        toggled = autoFlightChaseEnabled,
         callback = function(value)
             if value then
                 startAutoFlightChase()
@@ -1240,6 +1522,12 @@ local function buildUI()
                 stopAutoFlightChase()
             end
         end,
+    })
+
+    gameplaySection:addToggle({
+        title = "Use target",
+        toggled = AnimalSim.State.followTarget,
+        callback = setFollowTargetEnabled,
     })
 
     gameplaySection:addButton({
