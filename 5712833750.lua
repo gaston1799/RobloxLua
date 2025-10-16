@@ -997,6 +997,7 @@ local function autoEatLoop()
         end
         task.wait(2)
     end
+    autoEatTask = nil
 end
 
 local function startAutoEat()
@@ -1053,12 +1054,18 @@ local DMGActive = false
 
 local function farmPassive()
     while farmActive do
-        local targetHumanoid = getClosestEnemyHumanoid()
-        if targetHumanoid then
-            hitHumanoid(targetHumanoid)
+        local ok, targetHumanoid = pcall(getClosestEnemyHumanoid)
+        if ok and targetHumanoid then
+            local hitOk, err = pcall(hitHumanoid, targetHumanoid)
+            if not hitOk then
+                warn("[AnimalSim] farmPassive hit failed:", err)
+            end
+        elseif not ok then
+            warn("[AnimalSim] farmPassive target lookup failed:", targetHumanoid)
         end
         task.wait(0.25)
     end
+    farmTask = nil
 end
 
 local function startFarmLoop()
@@ -1094,12 +1101,18 @@ end
 
 local function auraLoop()
     while auraActive do
-        local targetHumanoid = getClosestEnemyHumanoid()
-        if targetHumanoid then
-            hitHumanoid(targetHumanoid)
+        local ok, targetHumanoid = pcall(getClosestEnemyHumanoid)
+        if ok and targetHumanoid then
+            local hitOk, err = pcall(hitHumanoid, targetHumanoid)
+            if not hitOk then
+                warn("[AnimalSim] auraLoop hit failed:", err)
+            end
+        elseif not ok then
+            warn("[AnimalSim] auraLoop target lookup failed:", targetHumanoid)
         end
         task.wait(0.1)
     end
+    auraTask = nil
 end
 
 local function setAuraActive(value)
@@ -1337,6 +1350,8 @@ AnimalSim.Modules.Utilities.isInsideSafeZone = isInsideSafeZone
 AnimalSim.Modules.Utilities.registerTeleporter = registerTeleporter
 AnimalSim.Modules.Utilities.useTeleporter = useTeleporter
 AnimalSim.Modules.Utilities.clearTeleporters = clearTeleporters
+AnimalSim.Modules.Utilities.loadUraniumHub = loadUraniumHub
+AnimalSim.Modules.Utilities.loadAwScript = loadAwScript
 
 AnimalSim.Modules.Pathing.moveToTarget = moveToTarget
 AnimalSim.Modules.Pathing.followDynamicTarget = followDynamicTarget
@@ -1360,6 +1375,7 @@ AnimalSim.Modules.Combat.setAutoJump = setAutoJump
 AnimalSim.Modules.Combat.setAutoFight = setAutoFight
 AnimalSim.Modules.Combat.setAutoPVP = setAutoPVP
 AnimalSim.Modules.Combat.setAutoZone = setAutoZone
+AnimalSim.Modules.Combat.BloxFruit = loadUraniumHub
 
 ---------------------------------------------------------------------
 -- Logging helpers
@@ -1419,6 +1435,26 @@ AnimalSim.Modules.Logging.LogDamage = LogDamage
 AnimalSim.Modules.Logging.LogEvent = LogEvent
 AnimalSim.Modules.Logging.ConnectHealthChanged = ConnectHealthChanged
 AnimalSim.Modules.Logging.initialHealth = initialHealth
+
+local function loadUraniumHub()
+    local ok, err =
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniumKak.lua"))()
+        end)
+    if not ok then
+        warn("[AnimalSim] Failed to load Uranium Hub:", err)
+    end
+end
+
+local function loadAwScript()
+    local ok, err =
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AWdadwdwad2/net/refs/heads/main/h"))()
+        end)
+    if not ok then
+        warn("[AnimalSim] Failed to load AW script:", err)
+    end
+end
 
 ---------------------------------------------------------------------
 -- UI helpers
@@ -1539,6 +1575,68 @@ local function buildUI()
                 damageplayer()
             end
         end,
+    })
+
+    gameplaySection:addTextbox({
+        title = "Force Join Pack",
+        default = "Case Sensitive",
+        callback = function(value, focusLost)
+            if not focusLost or not value or value == "" then
+                return
+            end
+            local acceptEvent = ReplicatedStorage:FindFirstChild("acceptedEvent")
+            if not acceptEvent then
+                warn("[AnimalSim] acceptedEvent not found in ReplicatedStorage")
+                return
+            end
+            for _, team in ipairs(workspace.Teams:GetChildren()) do
+                if string.find(value, team.Name, 1, true) then
+                    acceptEvent:FireServer(team.Name)
+                end
+            end
+        end,
+    })
+
+    gameplaySection:addButton({
+        title = "Print All Teams (F9)",
+        callback = function()
+            for _, team in ipairs(workspace.Teams:GetChildren()) do
+                print(team.Name)
+            end
+        end,
+    })
+
+    gameplaySection:addTextbox({
+        title = "Force Player Ride",
+        default = "Case Sensitive",
+        callback = function(value, focusLost)
+            if not focusLost or not value or value == "" then
+                return
+            end
+            local rideEvents = ReplicatedStorage:FindFirstChild("RideEvents")
+            local acceptEvent = rideEvents and rideEvents:FindFirstChild("acceptEvent")
+            if not acceptEvent then
+                warn("[AnimalSim] RideEvents.acceptEvent not found in ReplicatedStorage")
+                return
+            end
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= LocalPlayer and string.find(player.Name, value, 1, true) then
+                    acceptEvent:FireServer(player.Name)
+                end
+            end
+        end,
+    })
+
+    local scriptsSection = gameplayPage:addSection({title = "Scripts/Hubs"})
+
+    scriptsSection:addButton({
+        title = "Uranium Hub",
+        callback = loadUraniumHub,
+    })
+
+    scriptsSection:addButton({
+        title = "Load AW Script",
+        callback = loadAwScript,
     })
 
     local themePage = ui:addPage({title = "Theme"})
