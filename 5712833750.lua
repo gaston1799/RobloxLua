@@ -1454,24 +1454,43 @@ AnimalSim.Modules.Logging.LogEvent = LogEvent
 AnimalSim.Modules.Logging.ConnectHealthChanged = ConnectHealthChanged
 AnimalSim.Modules.Logging.initialHealth = initialHealth
 
-local function loadUraniumHub()
-    local ok, err =
-        pcall(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniumKak.lua"))()
-        end)
-    if not ok then
-        warn("[AnimalSim] Failed to load Uranium Hub:", err)
+local function runRemoteScript(url, label)
+    local loader = rawget(getfenv(), "loadstring") or loadstring
+    if type(loader) ~= "function" then
+        warn(("[AnimalSim] %s requires an executor with loadstring support."):format(label))
+        return false
     end
+
+    local ok, source = pcall(game.HttpGet, game, url)
+    if not ok then
+        warn(("[AnimalSim] Failed to fetch %s: %s"):format(label, tostring(source)))
+        return false
+    end
+    if type(source) ~= "string" or source == "" then
+        warn(("[AnimalSim] Empty response while loading %s."):format(label))
+        return false
+    end
+
+    local chunk, compileErr = loader(source)
+    if not chunk then
+        warn(("[AnimalSim] Failed to compile %s: %s"):format(label, tostring(compileErr)))
+        return false
+    end
+
+    local ran, runtimeErr = pcall(chunk)
+    if not ran then
+        warn(("[AnimalSim] %s runtime error: %s"):format(label, tostring(runtimeErr)))
+        return false
+    end
+    return true
+end
+
+local function loadUraniumHub()
+    runRemoteScript("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniumKak.lua", "Uranium Hub")
 end
 
 local function loadAwScript()
-    local ok, err =
-        pcall(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/AWdadwdwad2/net/refs/heads/main/h"))()
-        end)
-    if not ok then
-        warn("[AnimalSim] Failed to load AW script:", err)
-    end
+    runRemoteScript("https://raw.githubusercontent.com/AWdadwdwad2/net/refs/heads/main/h", "AW script")
 end
 
 ---------------------------------------------------------------------
