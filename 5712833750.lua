@@ -1,6 +1,6 @@
 --[[
     Animal Simulator automation module extracted from RevampLua.lua.
-    Version: 1.01
+    Version: 1.03
 
     The goal of this split file is to retain only the functionality that is
     required when the loader detects we are inside Animal Simulator
@@ -52,7 +52,7 @@ local AnimalSim = {
         legitMode = true,
         autoSelectTarget = false,
         visualizerEnabled = false,
-        version = 1.01,
+        version = 1.03,
     },
     Modules = {
         Utilities = {},
@@ -438,6 +438,449 @@ local function drawLineBetweenPositions(fromPosition, toPosition, color, duratio
         return
     end
     drawSegment(fromPosition, toPosition, color, duration)
+end
+
+local function trimTrailingZeros(numberString)
+    local integer, fractional = numberString:match("^(%-?%d+)%.(%d+)$")
+    if not integer then
+        return numberString
+    end
+    fractional = fractional:gsub("0+$", "")
+    if fractional == "" then
+        return integer
+    end
+    return integer .. "." .. fractional
+end
+
+local function getPrefixNumber(entry)
+    if not entry then
+        return 1
+    end
+    return entry.Number or entry.number or entry.Value or entry.value or 1
+end
+
+local function getPrefixText(entry)
+    if not entry then
+        return ""
+    end
+    return entry.Prefix or entry.prefix or entry.Suffix or entry.suffix or ""
+end
+
+local function formatCombatNumber(value)
+    local number = tonumber(value)
+    if not number then
+        return value ~= nil and tostring(value) or "?"
+    end
+    local absNumber = math.abs(number)
+    local chosenPrefix
+    if prefixes and #prefixes > 0 then
+        chosenPrefix = prefixes[1]
+        for index = #prefixes, 1, -1 do
+            local candidate = prefixes[index]
+            if absNumber >= getPrefixNumber(candidate) then
+                chosenPrefix = candidate
+                break
+            end
+        end
+    end
+    local scale = getPrefixNumber(chosenPrefix)
+    if scale <= 0 then
+        scale = 1
+    end
+    local scaled = number / scale
+    local formatted
+    if absNumber < 1 then
+        formatted = string.format("%.2f", scaled)
+    elseif math.abs(scaled) >= 100 then
+        formatted = string.format("%.0f", scaled)
+    elseif math.abs(scaled) >= 10 then
+        formatted = string.format("%.1f", scaled)
+    else
+        formatted = string.format("%.2f", scaled)
+    end
+    formatted = trimTrailingZeros(formatted)
+    if formatted == "-0" then
+        formatted = "0"
+    end
+    local prefixText = getPrefixText(chosenPrefix)
+    if prefixText ~= "" then
+        formatted = formatted .. prefixText
+    end
+    return formatted
+end
+
+local DAMAGE_STAT_NAMES = {"Damage", "damage", "DMG", "Dmg"}
+
+local function getPlayerLevel(player)
+    if not player then
+        return nil
+    end
+    local stats = player:FindFirstChild("leaderstats")
+    if not stats then
+        return nil
+    end
+    local levelValue = stats:FindFirstChild("Level") or stats:FindFirstChild("level")
+    if not levelValue then
+        return nil
+    end
+    return tonumber(levelValue.Value)
+end
+
+local function getPlayerHumanoid(player)
+    local character = player and player.Character
+    if not character then
+        return nil
+    end
+    return character:FindFirstChildOfClass("Humanoid")
+end
+
+local function getCharacterHealth(player)
+    local humanoid = getPlayerHumanoid(player)
+    if humanoid then
+        local current = humanoid.Health
+        local max = humanoid.MaxHealth
+        if max <= 0 then
+            max = current
+        end
+        return current, math.max(current, max)
+    end
+    local level = getPlayerLevel(player)
+    if level then
+        local estimated = level * 20
+        return estimated, estimated
+    end
+    return nil, nil
+end
+
+local function estimatePlayerDamage(player)
+    if not player then
+        return nil
+    end
+    local stats = player:FindFirstChild("leaderstats")
+    if stats then
+        for _, name in ipairs(DAMAGE_STAT_NAMES) do
+            local stat = stats:FindFirstChild(name)
+            if stat then
+                local value = tonumber(stat.Value)
+                if value then
+                    return value
+                end
+            end
+        end
+    end
+    local level = getPlayerLevel(player)
+    if level then
+        return level * 2
+    end
+    local _, maxHealth = getCharacterHealth(player)
+    if maxHealth and maxHealth > 0 then
+        return maxHealth / 10
+    end
+    return nil
+end
+
+local function computeHitCount(health, damage)
+    if not health or health <= 0 or not damage or damage <= 0 then
+        return "?"
+    end
+    local hits = math.ceil(health / damage)
+    if hits < 1 then
+        hits = 1
+    end
+    return tostring(hits)
+end
+
+local OVERHEAD_TAG_NAME = "AnimalSimOverhead"
+local OVERHEAD_UPDATE_INTERVAL = 0.25
+local OverheadEntries = {}
+local OverheadConnections = {}
+local overheadAccumulator = 0
+
+local function destroyPlayerGui(player)
+    local entry = OverheadEntries[player]
+    if entry then
+        if entry.gui then
+            entry.gui:Destroy()
+        end
+        OverheadEntries[player] = nil
+    end
+end
+
+local function stopTrackingPlayer(player)
+    destroyPlayerGui(player)
+    local connections = OverheadConnections[player]
+    if connections then
+        for _, connection in pairs(connections) do
+            if typeof(connection) == "RBXScriptConnection" then
+                connection:Disconnect()
+            end
+        end
+        OverheadConnections[player] = nil
+    end
+end
+
+local function computeOverheadStats(targetPlayer)
+    local localPlayer = LocalPlayer
+    if not localPlayer or not targetPlayer then
+        return "?", "?", "?", 0
+    end
+    local localHealth, localMaxHealth = getCharacterHealth(localPlayer)
+    local enemyHealth, enemyMaxHealth = getCharacterHealth(targetPlayer)
+    local enemyDamage = estimatePlayerDamage(targetPlayer)
+    local localDamage = estimatePlayerDamage(localPlayer)
+
+    local hitsToKillEnemy = computeHitCount(enemyMaxHealth or enemyHealth, localDamage)
+    local hitsToKillYou = computeHitCount(localMaxHealth or localHealth, enemyDamage)
+    local hpValue = enemyHealth or enemyMaxHealth
+    local hpText = hpValue and formatCombatNumber(hpValue) or "?"
+    local ratio = 0
+    if enemyHealth and enemyMaxHealth and enemyMaxHealth > 0 then
+        ratio = math.clamp(enemyHealth / enemyMaxHealth, 0, 1)
+    end
+    return hitsToKillEnemy, hitsToKillYou, hpText, ratio
+end
+
+local function createGuiForCharacter(player, character)
+    if player == LocalPlayer then
+        return
+    end
+    if not character then
+        return
+    end
+    destroyPlayerGui(player)
+    local adornee = character:FindFirstChild("Head") or character:FindFirstChild("HumanoidRootPart")
+    if not adornee then
+        local ok, result = pcall(function()
+            return character:WaitForChild("Head", 2)
+        end)
+        if ok then
+            adornee = result
+        end
+    end
+    if not adornee then
+        return
+    end
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = OVERHEAD_TAG_NAME
+    billboard.Size = UDim2.new(0, 170, 0, 70)
+    billboard.StudsOffset = Vector3.new(0, 3.5, 0)
+    billboard.ExtentsOffset = Vector3.new(0, 3.5, 0)
+    billboard.AlwaysOnTop = true
+    billboard.LightInfluence = 0
+    billboard.MaxDistance = 250
+    billboard.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    billboard.Adornee = adornee
+    billboard.Parent = adornee
+
+    local frame = Instance.new("Frame")
+    frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    frame.BackgroundTransparency = 0.35
+    frame.BorderSizePixel = 0
+    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.Parent = billboard
+
+    local infoLabel = Instance.new("TextLabel")
+    infoLabel.Name = "Info"
+    infoLabel.BackgroundTransparency = 1
+    infoLabel.Size = UDim2.new(1, -10, 0, 32)
+    infoLabel.Position = UDim2.new(0, 5, 0, 5)
+    infoLabel.Font = Enum.Font.GothamSemibold
+    infoLabel.TextSize = 14
+    infoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    infoLabel.TextStrokeTransparency = 0.6
+    infoLabel.TextXAlignment = Enum.TextXAlignment.Left
+    infoLabel.TextYAlignment = Enum.TextYAlignment.Top
+    infoLabel.TextWrapped = true
+    infoLabel.Text = "Hits (You->Them): ?\nHits (Them->You): ?"
+    infoLabel.Parent = frame
+
+    local barBackground = Instance.new("Frame")
+    barBackground.Name = "HPBar"
+    barBackground.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    barBackground.BorderColor3 = Color3.fromRGB(10, 10, 10)
+    barBackground.BorderSizePixel = 0
+    barBackground.Size = UDim2.new(1, -10, 0, 10)
+    barBackground.Position = UDim2.new(0, 5, 0, 44)
+    barBackground.Parent = frame
+
+    local barFill = Instance.new("Frame")
+    barFill.Name = "Fill"
+    barFill.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+    barFill.BorderSizePixel = 0
+    barFill.Size = UDim2.new(0, 0, 1, 0)
+    barFill.Parent = barBackground
+
+    local hpLabel = Instance.new("TextLabel")
+    hpLabel.Name = "HPLabel"
+    hpLabel.BackgroundTransparency = 1
+    hpLabel.Size = UDim2.new(1, -10, 0, 16)
+    hpLabel.Position = UDim2.new(0, 5, 0, 56)
+    hpLabel.Font = Enum.Font.Gotham
+    hpLabel.TextSize = 12
+    hpLabel.TextColor3 = Color3.fromRGB(215, 215, 215)
+    hpLabel.TextStrokeTransparency = 0.8
+    hpLabel.TextXAlignment = Enum.TextXAlignment.Left
+    hpLabel.Text = "HP: ?"
+    hpLabel.Parent = frame
+
+    OverheadEntries[player] = {
+        gui = billboard,
+        info = infoLabel,
+        hpLabel = hpLabel,
+        barFill = barFill
+    }
+end
+
+local function trackPlayer(player)
+    if player == LocalPlayer then
+        return
+    end
+
+    stopTrackingPlayer(player)
+
+    local connections = {}
+    connections.characterAdded = player.CharacterAdded:Connect(function(character)
+        task.spawn(function()
+            createGuiForCharacter(player, character)
+        end)
+    end)
+    connections.characterRemoving = player.CharacterRemoving:Connect(function()
+        destroyPlayerGui(player)
+    end)
+    OverheadConnections[player] = connections
+
+    if player.Character then
+        task.spawn(function()
+            createGuiForCharacter(player, player.Character)
+        end)
+    end
+end
+
+RunService.Heartbeat:Connect(function(dt)
+    if next(OverheadEntries) == nil then
+        overheadAccumulator = 0
+        return
+    end
+
+    overheadAccumulator += dt
+    if overheadAccumulator < OVERHEAD_UPDATE_INTERVAL then
+        return
+    end
+    overheadAccumulator = 0
+
+    local toCleanup = {}
+    for player, entry in pairs(OverheadEntries) do
+        if not player.Parent then
+            table.insert(toCleanup, player)
+        elseif not entry.gui or not entry.gui.Parent then
+            table.insert(toCleanup, player)
+        else
+            local hitsToKillEnemy, hitsToKillYou, hpText, ratio = computeOverheadStats(player)
+            entry.info.Text = string.format("Hits (You->Them): %s\nHits (Them->You): %s", hitsToKillEnemy, hitsToKillYou)
+            entry.hpLabel.Text = "HP: " .. hpText
+            entry.barFill.Size = UDim2.new(ratio, 0, 1, 0)
+            if ratio > 0.6 then
+                entry.barFill.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+            elseif ratio > 0.3 then
+                entry.barFill.BackgroundColor3 = Color3.fromRGB(255, 200, 70)
+            else
+                entry.barFill.BackgroundColor3 = Color3.fromRGB(240, 80, 80)
+            end
+        end
+    end
+
+    for _, player in ipairs(toCleanup) do
+        stopTrackingPlayer(player)
+    end
+end)
+
+for _, otherPlayer in ipairs(Players:GetPlayers()) do
+    task.spawn(function()
+        trackPlayer(otherPlayer)
+    end)
+end
+
+Players.PlayerAdded:Connect(function(player)
+    task.spawn(function()
+        trackPlayer(player)
+    end)
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+    stopTrackingPlayer(player)
+end)
+
+local lastAttacker = {player = nil, timestamp = 0, damage = 0}
+local RECENT_ATTACK_WINDOW = 8
+
+local function recordRecentAttacker(player, damage)
+    if not player or player == LocalPlayer then
+        return
+    end
+    if teamCheck(player.Name) then
+        return
+    end
+    lastAttacker.player = player
+    lastAttacker.timestamp = os.clock()
+    lastAttacker.damage = damage or 0
+end
+
+local function clearRecentAttacker(player)
+    if not player or lastAttacker.player == player then
+        lastAttacker.player = nil
+        lastAttacker.timestamp = 0
+        lastAttacker.damage = 0
+    end
+end
+
+local function getRecentAttackerPlayer()
+    if lastAttacker.player and lastAttacker.player.Parent then
+        if os.clock() - lastAttacker.timestamp <= RECENT_ATTACK_WINDOW then
+            return lastAttacker.player
+        end
+    end
+    return nil
+end
+
+Players.PlayerRemoving:Connect(clearRecentAttacker)
+
+local function findAttackerByDamage(damageTaken)
+    if not damageTaken or damageTaken <= 0 then
+        return nil
+    end
+    local localCharacter = LocalPlayer.Character
+    local localRoot = localCharacter and localCharacter:FindFirstChild("HumanoidRootPart")
+    local bestPlayer
+    local bestScore = math.huge
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and not teamCheck(player.Name) then
+            local estimate = estimatePlayerDamage(player)
+            if estimate and estimate > 0 then
+                local diff = math.min(
+                    math.abs(estimate - damageTaken),
+                    math.abs((estimate + 10) - damageTaken),
+                    math.abs((math.max(0, estimate - 10)) - damageTaken)
+                )
+                local tolerance = math.max(20, estimate * 0.4)
+                if diff <= tolerance then
+                    local score = diff
+                    if localRoot then
+                        local enemyRoot = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+                        if enemyRoot then
+                            local distance = (enemyRoot.Position - localRoot.Position).Magnitude
+                            score = score + distance * 0.05
+                        end
+                    end
+                    if score < bestScore then
+                        bestScore = score
+                        bestPlayer = player
+                    end
+                end
+            end
+        end
+    end
+    return bestPlayer
 end
 
 local playersService
@@ -1089,6 +1532,40 @@ local function getClosestEnemyHumanoid()
     return humanoidInstance
 end
 
+local function getSelectedTargetPlayer()
+    local selected = AnimalSim.State.selectedPlayer
+    if not selected or not selected.Parent then
+        return nil
+    end
+    if teamCheck(selected.Name) then
+        return nil
+    end
+    local humanoid = getPlayerHumanoid(selected)
+    if humanoid and humanoid.Health > 0 then
+        return selected
+    end
+    return nil
+end
+
+local function getSelectedTargetHumanoid()
+    local selected = AnimalSim.State.selectedPlayer
+    if not selected then
+        return nil
+    end
+    if teamCheck(selected.Name) then
+        return nil
+    end
+    local character = selected.Character
+    if not character then
+        return nil
+    end
+    local humanoidInstance = character:FindFirstChildOfClass("Humanoid")
+    if humanoidInstance and humanoidInstance.Health > 0 then
+        return humanoidInstance
+    end
+    return nil
+end
+
 local function autoEatLoop()
     local function getFoodTool()
         local character = LocalPlayer.Character
@@ -1157,17 +1634,23 @@ local function hptp()
     end
     local oldHealth = localHumanoid.Health
     localHumanoid:GetPropertyChangedSignal("Health"):Connect(function()
-        if localHumanoid.Health < 1 then
+        local newHealth = localHumanoid.Health
+        if newHealth < 1 then
             deathPose = LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
             justDied = true
         end
-        if localHumanoid.Health < oldHealth then
-            local enemy = getClosestEnemyHumanoid()
-            if enemy then
-                hitHumanoid(enemy)
+        if newHealth < oldHealth then
+            local damageTaken = oldHealth - newHealth
+            local attacker = findAttackerByDamage(damageTaken) or getRecentAttackerPlayer()
+            if attacker then
+                recordRecentAttacker(attacker, damageTaken)
+                if AnimalSim.State.autoFight and canEngagePlayer(attacker) then
+                    damageplayer(attacker.Name)
+                    clearRecentAttacker(attacker)
+                end
             end
         end
-        oldHealth = localHumanoid.Health
+        oldHealth = newHealth
     end)
 end
 
@@ -1231,14 +1714,23 @@ end
 
 local function auraLoop()
     while auraActive do
-        local ok, targetHumanoid = pcall(getClosestEnemyHumanoid)
-        if ok and targetHumanoid then
+        local targetHumanoid
+        if AnimalSim.State.followTarget then
+            targetHumanoid = getSelectedTargetHumanoid()
+        end
+        if not targetHumanoid then
+            local ok, closest = pcall(getClosestEnemyHumanoid)
+            if ok then
+                targetHumanoid = closest
+            else
+                warn("[AnimalSim] auraLoop target lookup failed:", closest)
+            end
+        end
+        if targetHumanoid then
             local hitOk, err = pcall(hitHumanoid, targetHumanoid)
             if not hitOk then
                 warn("[AnimalSim] auraLoop hit failed:", err)
             end
-        elseif not ok then
-            warn("[AnimalSim] auraLoop target lookup failed:", targetHumanoid)
         end
         task.wait(0.1)
     end
@@ -1294,6 +1786,19 @@ local function engageEnemy(enemyPlayer)
     hitHumanoid(targetHumanoid)
 end
 
+local function canEngagePlayer(targetPlayer)
+    if not targetPlayer then
+        return false
+    end
+    local localLevel = getPlayerLevel(LocalPlayer)
+    local targetLevel = getPlayerLevel(targetPlayer)
+    if localLevel and targetLevel then
+        local allowedLevel = increaseByPercentage(localLevel, incDMG)
+        return allowedLevel >= targetLevel
+    end
+    return true
+end
+
 local function findZoneTarget()
     local character = LocalPlayer.Character
     local localRoot = character and character:FindFirstChild("HumanoidRootPart")
@@ -1324,17 +1829,22 @@ end
 local function autoPVPLoop()
     while autoPVPEnabled do
         defineNilLocals()
-        local target = findClosestEnemy()
+        local target = getRecentAttackerPlayer()
         if target then
-            local ok, err = pcall(function()
-                if AnimalSim.State.autoFight then
-                    damageplayer(target.Name)
-                else
-                    engageEnemy(target)
+            if canEngagePlayer(target) then
+                local ok, err = pcall(function()
+                    if AnimalSim.State.autoFight then
+                        damageplayer(target.Name)
+                        clearRecentAttacker(target)
+                    else
+                        engageEnemy(target)
+                    end
+                end)
+                if not ok then
+                    warn("[AnimalSim] auto PVP failed", err)
                 end
-            end)
-            if not ok then
-                warn("[AnimalSim] auto PVP failed", err)
+            else
+                clearRecentAttacker(target)
             end
         end
         task.wait(AUTO_PVP_POLL_RATE)
@@ -1362,17 +1872,22 @@ end
 local function autoZoneLoop(myToken)
     while autoZoneEnabled and autoZoneCancelToken == myToken do
         defineNilLocals()
-        local target = findZoneTarget()
+        local target = getRecentAttackerPlayer()
         if target then
-            local ok, err = pcall(function()
-                if AnimalSim.State.autoFight then
-                    damageplayer(target.Name)
-                else
-                    engageEnemy(target)
+            if canEngagePlayer(target) then
+                local ok, err = pcall(function()
+                    if AnimalSim.State.autoFight then
+                        damageplayer(target.Name)
+                        clearRecentAttacker(target)
+                    else
+                        engageEnemy(target)
+                    end
+                end)
+                if not ok then
+                    warn("[AnimalSim] auto zone error", err)
                 end
-            end)
-            if not ok then
-                warn("[AnimalSim] auto zone error", err)
+            else
+                clearRecentAttacker(target)
             end
         elseif autoZoneBaseCF and humanoidRoot then
             moveToTarget(autoZoneBaseCF.Position, humanoid, {arrivalDistance = 8})
@@ -1480,9 +1995,13 @@ AnimalSim.Modules.Utilities.isInsideSafeZone = isInsideSafeZone
 AnimalSim.Modules.Utilities.registerTeleporter = registerTeleporter
 AnimalSim.Modules.Utilities.useTeleporter = useTeleporter
 AnimalSim.Modules.Utilities.clearTeleporters = clearTeleporters
+AnimalSim.Modules.Utilities.getPlayerLevel = getPlayerLevel
+AnimalSim.Modules.Utilities.formatCombatNumber = formatCombatNumber
 AnimalSim.Modules.Utilities.setVisualizerEnabled = setVisualizerEnabled
 AnimalSim.Modules.Utilities.drawPath = drawPath
 AnimalSim.Modules.Utilities.drawSegment = drawSegment
+AnimalSim.Modules.Utilities.estimatePlayerDamage = estimatePlayerDamage
+AnimalSim.Modules.Utilities.computeHitCount = computeHitCount
 AnimalSim.Modules.Utilities.loadUraniumHub = loadUraniumHub
 AnimalSim.Modules.Utilities.loadAwScript = loadAwScript
 
@@ -1614,7 +2133,8 @@ end
 
 local function buildUI()
     local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
-    local ui = venyx.new({title = "Revamp - Animal Simulator"})
+    local versionString = AnimalSim.State.version and string.format("%.2f", AnimalSim.State.version) or "1.00"
+    local ui = venyx.new({title = ("Revamp - Animal Simulator v%s"):format(versionString)})
 
     local gameplayPage = ui:addPage({title = "Animal Sim"})
     local gameplaySection = gameplayPage:addSection({title = "Gameplay"})
