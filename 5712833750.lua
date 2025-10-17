@@ -1,5 +1,6 @@
 --[[
     Animal Simulator automation module extracted from RevampLua.lua.
+    Version: 1.01
 
     The goal of this split file is to retain only the functionality that is
     required when the loader detects we are inside Animal Simulator
@@ -17,6 +18,7 @@ local RunService = game:GetService("RunService")
 local PathfindingService = game:GetService("PathfindingService")
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Debris = game:GetService("Debris")
 
 local LocalPlayer = Players.LocalPlayer
 
@@ -49,6 +51,8 @@ local AnimalSim = {
         selectedPlayer = nil,
         legitMode = true,
         autoSelectTarget = false,
+        visualizerEnabled = false,
+        version = 1.01,
     },
     Modules = {
         Utilities = {},
@@ -284,6 +288,9 @@ local function teleportInFrontOfPlayer(targetPlayerName)
     local predictedPosition = targetRoot.Position + (targetRoot.Velocity or Vector3.zero)
     local character = LocalPlayer.Character
     if character and character.PrimaryPart then
+        if Visualizer.enabled then
+            drawLineBetweenPositions(character.PrimaryPart.Position, predictedPosition, Color3.fromRGB(170, 120, 255), 0.8)
+        end
         if LegitPathing then
             defineNilLocals()
             local humanoidInstance = humanoid
@@ -335,6 +342,102 @@ local function comparCash(a)
     local cashValue = leaderstats and leaderstats:FindFirstChild("Cash")
     local ownCash = cashValue and tonumber(string.split(cashValue.Value, "$")[2]) or 0
     return conv(a) < ownCash
+end
+
+local Visualizer = {
+    enabled = false,
+    folder = nil,
+    defaultColor = Color3.fromRGB(45, 170, 255),
+    defaultDuration = 1.25,
+}
+
+local function ensureVisualizerFolder()
+    if Visualizer.folder and Visualizer.folder.Parent then
+        return Visualizer.folder
+    end
+    local folder = Instance.new("Folder")
+    folder.Name = "AnimalSimVisualizer"
+    folder.Parent = workspace
+    Visualizer.folder = folder
+    return folder
+end
+
+local function clearVisualizerFolder()
+    if Visualizer.folder then
+        Visualizer.folder:Destroy()
+        Visualizer.folder = nil
+    end
+end
+
+local function setVisualizerEnabled(enabled)
+    if Visualizer.enabled == enabled then
+        return
+    end
+    Visualizer.enabled = enabled
+    AnimalSim.State.visualizerEnabled = enabled
+    if enabled then
+        ensureVisualizerFolder()
+    else
+        clearVisualizerFolder()
+    end
+end
+
+local function drawSegment(startPos, endPos, color, duration)
+    if not Visualizer.enabled then
+        return
+    end
+    local folder = ensureVisualizerFolder()
+    local offset = endPos - startPos
+    local length = offset.Magnitude
+    if length < 0.05 then
+        local point = Instance.new("Part")
+        point.Shape = Enum.PartType.Ball
+        point.Size = Vector3.new(0.45, 0.45, 0.45)
+        point.Anchored = true
+        point.CanCollide = false
+        point.Material = Enum.Material.Neon
+        point.Transparency = 0.25
+        point.Color = color or Visualizer.defaultColor
+        point.CFrame = CFrame.new(startPos)
+        point.Name = "VizPoint"
+        point.Parent = folder
+        Debris:AddItem(point, duration or Visualizer.defaultDuration)
+        return
+    end
+
+    local bar = Instance.new("Part")
+    bar.Anchored = true
+    bar.CanCollide = false
+    bar.Material = Enum.Material.Neon
+    bar.Transparency = 0.35
+    bar.Color = color or Visualizer.defaultColor
+    bar.Size = Vector3.new(0.18, 0.18, length)
+    bar.CFrame = CFrame.new(startPos, endPos) * CFrame.new(0, 0, -length / 2)
+    bar.Name = "VizSegment"
+    bar.Parent = folder
+    Debris:AddItem(bar, duration or Visualizer.defaultDuration)
+end
+
+local function drawPath(waypoints, color, duration)
+    if not Visualizer.enabled or not waypoints then
+        return
+    end
+    for index = 1, #waypoints - 1 do
+        local startWaypoint = waypoints[index]
+        local finishWaypoint = waypoints[index + 1]
+        local startPos = (startWaypoint and startWaypoint.Position) or startWaypoint
+        local endPos = (finishWaypoint and finishWaypoint.Position) or finishWaypoint
+        if startPos and endPos then
+            drawSegment(startPos, endPos, color, duration)
+        end
+    end
+end
+
+local function drawLineBetweenPositions(fromPosition, toPosition, color, duration)
+    if not Visualizer.enabled then
+        return
+    end
+    drawSegment(fromPosition, toPosition, color, duration)
 end
 
 local playersService
@@ -504,15 +607,15 @@ local function stayNearPlayer()
                 if predictedPosition then
                     local forward = (speed > 0) and velocity.Unit or targetRoot.CFrame.LookVector
                     local destination = predictedPosition - forward * followDistance
+                    drawLineBetweenPositions(humanoidRoot.Position, destination, Color3.fromRGB(255, 200, 90), 0.4)
                     humanoidRoot.CFrame = CFrame.new(destination, destination + forward)
                 else
                     humanoidRoot.CFrame = targetRoot.CFrame
                 end
             else
-                humanoidRoot.CFrame = CFrame.new(
-                    targetRoot.Position - targetRoot.CFrame.LookVector * followDistance,
-                    targetRoot.Position
-                )
+                local destination = targetRoot.Position - targetRoot.CFrame.LookVector * followDistance
+                drawLineBetweenPositions(humanoidRoot.Position, destination, Color3.fromRGB(255, 200, 90), 0.4)
+                humanoidRoot.CFrame = CFrame.new(destination, targetRoot.Position)
             end
         end
     end
@@ -655,6 +758,7 @@ local function moveToTarget(target, humanoidInstance, options)
         return false
     end
     doneMoving = false
+    drawPath(path:GetWaypoints(), Visualizer.defaultColor, 1.2)
     for _, waypoint in ipairs(path:GetWaypoints()) do
         if options.cancelled and options.cancelled() then
             break
@@ -816,6 +920,7 @@ local function followDynamicTarget(targetPlayer, humanoidInstance, options)
             task.wait(0.1)
             continue
         end
+        drawPath(path:GetWaypoints(), Color3.fromRGB(110, 90, 255), 0.9)
         for _, waypoint in ipairs(path:GetWaypoints()) do
             if options.cancelled and options.cancelled() then
                 break
@@ -875,6 +980,13 @@ local function tryTeleportRoute(humanoidInstance, targetPosition, options)
     end
     if not best then
         return false
+    end
+    if Visualizer.enabled then
+        local chosen = TELEPORTERS[best]
+        if chosen and humanoidInstance and humanoidInstance.RootPart then
+            drawLineBetweenPositions(humanoidInstance.RootPart.Position, chosen.entry, Color3.fromRGB(90, 255, 180), 1.2)
+            drawLineBetweenPositions(chosen.entry, chosen.destination, Color3.fromRGB(90, 255, 180), 1.2)
+        end
     end
     return useTeleporter(best, humanoidInstance, options)
 end
@@ -1368,6 +1480,9 @@ AnimalSim.Modules.Utilities.isInsideSafeZone = isInsideSafeZone
 AnimalSim.Modules.Utilities.registerTeleporter = registerTeleporter
 AnimalSim.Modules.Utilities.useTeleporter = useTeleporter
 AnimalSim.Modules.Utilities.clearTeleporters = clearTeleporters
+AnimalSim.Modules.Utilities.setVisualizerEnabled = setVisualizerEnabled
+AnimalSim.Modules.Utilities.drawPath = drawPath
+AnimalSim.Modules.Utilities.drawSegment = drawSegment
 AnimalSim.Modules.Utilities.loadUraniumHub = loadUraniumHub
 AnimalSim.Modules.Utilities.loadAwScript = loadAwScript
 
@@ -1598,6 +1713,12 @@ local function buildUI()
     })
 
     gameplaySection:addToggle({
+        title = "Movement Visualizer",
+        toggled = AnimalSim.State.visualizerEnabled,
+        callback = setVisualizerEnabled,
+    })
+
+    gameplaySection:addToggle({
         title = "Use target",
         toggled = AnimalSim.State.followTarget,
         callback = setFollowTargetEnabled,
@@ -1715,6 +1836,7 @@ function AnimalSim.init()
     for name, config in pairs(AnimalSim.Data.Teleporters) do
         registerTeleporter(name, config)
     end
+    setVisualizerEnabled(AnimalSim.State.visualizerEnabled)
     local ui = buildUI()
     if ui then
         ui:SelectPage(1)
