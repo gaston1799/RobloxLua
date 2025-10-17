@@ -664,11 +664,10 @@ local function createGuiForCharacter(player, character)
     local billboard = Instance.new("BillboardGui")
     billboard.Name = OVERHEAD_TAG_NAME
     billboard.Size = UDim2.new(0, 170, 0, 70)
-    billboard.StudsOffset = Vector3.new(0, 3.5, 0)
-    billboard.ExtentsOffset = Vector3.new(0, 3.5, 0)
+    billboard.StudsOffset = Vector3.new(0, 2.5, 0)
     billboard.AlwaysOnTop = true
     billboard.LightInfluence = 0
-    billboard.MaxDistance = 250
+    billboard.MaxDistance = 200
     billboard.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     billboard.Adornee = adornee
     billboard.Parent = adornee
@@ -769,6 +768,8 @@ RunService.Heartbeat:Connect(function(dt)
     end
     overheadAccumulator = 0
 
+    local localRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+
     local toCleanup = {}
     for player, entry in pairs(OverheadEntries) do
         if not player.Parent then
@@ -776,16 +777,25 @@ RunService.Heartbeat:Connect(function(dt)
         elseif not entry.gui or not entry.gui.Parent then
             table.insert(toCleanup, player)
         else
-            local hitsToKillEnemy, hitsToKillYou, hpText, ratio = computeOverheadStats(player)
-            entry.info.Text = string.format("Hits (You->Them): %s\nHits (Them->You): %s", hitsToKillEnemy, hitsToKillYou)
-            entry.hpLabel.Text = "HP: " .. hpText
-            entry.barFill.Size = UDim2.new(ratio, 0, 1, 0)
-            if ratio > 0.6 then
-                entry.barFill.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
-            elseif ratio > 0.3 then
-                entry.barFill.BackgroundColor3 = Color3.fromRGB(255, 200, 70)
-            else
-                entry.barFill.BackgroundColor3 = Color3.fromRGB(240, 80, 80)
+            local enemyRoot = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+            local distance = math.huge
+            if localRoot and enemyRoot then
+                distance = (enemyRoot.Position - localRoot.Position).Magnitude
+            end
+            local isVisible = distance <= 100
+            entry.gui.Enabled = isVisible
+            if isVisible then
+                local hitsToKillEnemy, hitsToKillYou, hpText, ratio = computeOverheadStats(player)
+                entry.info.Text = string.format("Hits (You->Them): %s\nHits (Them->You): %s", hitsToKillEnemy, hitsToKillYou)
+                entry.hpLabel.Text = "HP: " .. hpText
+                entry.barFill.Size = UDim2.new(ratio, 0, 1, 0)
+                if ratio > 0.6 then
+                    entry.barFill.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+                elseif ratio > 0.3 then
+                    entry.barFill.BackgroundColor3 = Color3.fromRGB(255, 200, 70)
+                else
+                    entry.barFill.BackgroundColor3 = Color3.fromRGB(240, 80, 80)
+                end
             end
         end
     end
