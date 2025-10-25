@@ -52,7 +52,7 @@ local AnimalSim = {
         legitMode = true,
         autoSelectTarget = false,
         visualizerEnabled = false,
-        version = 1.03,
+        version = 1.04,
     },
     Modules = {
         Utilities = {},
