@@ -1,6 +1,6 @@
 --[[
     Animal Simulator automation module extracted from RevampLua.lua.
-    Version: 1.03
+    Version: 1.04
 
     The goal of this split file is to retain only the functionality that is
     required when the loader detects we are inside Animal Simulator
@@ -143,6 +143,8 @@ local followTaskRunning = false
 local autoJumpEnabled = false
 local autoJumpConnection
 local autoJumpCharacterConnection
+local characterAddedConnection
+local characterRemovingConnection
 local mantisTeleportActive = false
 local mantisTeleportReturnCF
 
@@ -1040,6 +1042,7 @@ end
 local function stayNearPlayer()
     while AnimalSim.State.followTarget do
         task.wait()
+        defineNilLocals()
         local selected = AnimalSim.State.selectedPlayer
         local character = LocalPlayer.Character
         if not (selected and character and humanoidRoot and selected.Character) then
@@ -1084,6 +1087,7 @@ local function setFollowTargetEnabled(value)
     AnimalSim.State.followTarget = value
     AnimalSim.State.autoSelectTarget = value
     if value then
+        defineNilLocals()
         if not followTaskRunning then
             task.spawn(runFollowLoop)
         end
@@ -1662,6 +1666,51 @@ local function hptp()
         end
         oldHealth = newHealth
     end)
+end
+
+local function onLocalCharacterAdded(newCharacter)
+    if not newCharacter then
+        return
+    end
+
+    char = newCharacter
+    humanoid = nil
+    humanoidRoot = nil
+    defineNilLocals()
+
+    local successHumanoid, newHumanoid = pcall(function()
+        return newCharacter:WaitForChild("Humanoid", 5)
+    end)
+    if successHumanoid and newHumanoid then
+        humanoid = newHumanoid
+        if autoJumpEnabled then
+            bindAutoJumpToHumanoid(newHumanoid)
+            newHumanoid.Jump = true
+        end
+    end
+
+    local successRoot, newRoot = pcall(function()
+        return newCharacter:WaitForChild("HumanoidRootPart", 5)
+    end)
+    if successRoot and newRoot then
+        humanoidRoot = newRoot
+    end
+
+    hptp()
+
+    if AnimalSim.State.followTarget and not followTaskRunning then
+        task.spawn(runFollowLoop)
+    end
+end
+
+local function onLocalCharacterRemoving()
+    char = nil
+    humanoid = nil
+    humanoidRoot = nil
+    if autoJumpConnection then
+        autoJumpConnection:Disconnect()
+        autoJumpConnection = nil
+    end
 end
 
 ---------------------------------------------------------------------
@@ -2362,6 +2411,14 @@ function AnimalSim.init()
     end
     defineLocals()
     hptp()
+    if characterAddedConnection then
+        characterAddedConnection:Disconnect()
+    end
+    characterAddedConnection = LocalPlayer.CharacterAdded:Connect(onLocalCharacterAdded)
+    if characterRemovingConnection then
+        characterRemovingConnection:Disconnect()
+    end
+    characterRemovingConnection = LocalPlayer.CharacterRemoving:Connect(onLocalCharacterRemoving)
     clearTeleporters()
     for name, config in pairs(AnimalSim.Data.Teleporters) do
         registerTeleporter(name, config)
