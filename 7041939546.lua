@@ -29,6 +29,30 @@ local playerListenerConnection
 local dropdownUpdateDebounce = 0
 local playerRemovingConnection
 
+local function copyMotorTransforms(sourceCharacter, destinationCharacter)
+    if not (sourceCharacter and destinationCharacter) then
+        return
+    end
+
+    local sourceMotors = {}
+    for _, descendant in ipairs(sourceCharacter:GetDescendants()) do
+        if descendant:IsA("Motor6D") then
+            local parentName = descendant.Parent and descendant.Parent.Name or ""
+            sourceMotors[parentName .. ":" .. descendant.Name] = descendant
+        end
+    end
+
+    for _, motor in ipairs(destinationCharacter:GetDescendants()) do
+        if motor:IsA("Motor6D") then
+            local key = (motor.Parent and motor.Parent.Name or "") .. ":" .. motor.Name
+            local sourceMotor = sourceMotors[key]
+            if sourceMotor then
+                motor.Transform = sourceMotor.Transform
+            end
+        end
+    end
+end
+
 local function getCharacter(player)
     player = player or LocalPlayer
     return player and player.Character
@@ -125,6 +149,8 @@ local function startAttachLoop()
         if localHumanoid then
             localHumanoid.PlatformStand = true
         end
+
+        copyMotorTransforms(target.Character, localCharacter)
     end)
 end
 
