@@ -30,28 +30,26 @@ local dropdownUpdateDebounce = 0
 local playerRemovingConnection
 
 local function copyMotorTransforms(sourceCharacter, destinationCharacter)
-    if not (sourceCharacter and destinationCharacter) then
-        return
-    end
+	if not (sourceCharacter and destinationCharacter) then return end
 
-    local sourceMotors = {}
-    for _, descendant in ipairs(sourceCharacter:GetDescendants()) do
-        if descendant:IsA("Motor6D") then
-            local parentName = descendant.Parent and descendant.Parent.Name or ""
-            sourceMotors[parentName .. ":" .. descendant.Name] = descendant
-        end
-    end
+	local sourceMotors = {}
+	for _, m in ipairs(sourceCharacter:GetDescendants()) do
+		if m:IsA("Motor6D") then
+			sourceMotors[m.Name] = m
+		end
+	end
 
-    for _, motor in ipairs(destinationCharacter:GetDescendants()) do
-        if motor:IsA("Motor6D") then
-            local key = (motor.Parent and motor.Parent.Name or "") .. ":" .. motor.Name
-            local sourceMotor = sourceMotors[key]
-            if sourceMotor then
-                motor.Transform = sourceMotor.Transform
-            end
-        end
-    end
+	for _, m in ipairs(destinationCharacter:GetDescendants()) do
+		if m:IsA("Motor6D") and sourceMotors[m.Name] then
+			local sm = sourceMotors[m.Name]
+			-- Copy current animation pose by matching joint CFrames
+			local newC0 = sm.C0 * sm.Transform
+			m.C0 = newC0
+			m.C1 = sm.C1
+		end
+	end
 end
+
 
 local function getCharacter(player)
     player = player or LocalPlayer
