@@ -1,6 +1,6 @@
 --[[
     Animal Simulator automation module extracted from RevampLua.lua.
-    Version: 1.04
+    Version: 1.05
 
     The goal of this split file is to retain only the functionality that is
     required when the loader detects we are inside Animal Simulator
@@ -52,7 +52,7 @@ local AnimalSim = {
         legitMode = true,
         autoSelectTarget = false,
         visualizerEnabled = false,
-        version = 1.04,
+        version = 1.05,
     },
     Modules = {
         Utilities = {},
@@ -2198,20 +2198,47 @@ local function buildUI()
     local gameplayPage = ui:addPage({title = "Animal Sim"})
     local gameplaySection = gameplayPage:addSection({title = "Gameplay"})
 
-    local playerOptions = {}
-    for _, player in ipairs(Players:GetPlayers()) do
-        if player ~= LocalPlayer then
-            table.insert(playerOptions, player.Name)
+    local function collectPlayerNames()
+        local names = {}
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= LocalPlayer then
+                table.insert(names, player.Name)
+            end
         end
+        table.sort(names)
+        return names
     end
 
-    gameplaySection:addDropdown({
+    local targetDropdown
+    targetDropdown = gameplaySection:addDropdown({
         title = "Set Target Player",
-        list = playerOptions,
+        list = collectPlayerNames(),
         callback = function(playerName)
             AnimalSim.State.selectedPlayer = Players:FindFirstChild(playerName)
         end,
     })
+
+    local function refreshTargetDropdown()
+        if not (targetDropdown and targetDropdown.Options and targetDropdown.Options.Update) then
+            return
+        end
+        targetDropdown.Options:Update({
+            list = collectPlayerNames(),
+        })
+    end
+
+    Players.PlayerAdded:Connect(function()
+        refreshTargetDropdown()
+    end)
+
+    Players.PlayerRemoving:Connect(function(player)
+        refreshTargetDropdown()
+        if AnimalSim.State.selectedPlayer == player then
+            AnimalSim.State.selectedPlayer = nil
+        end
+    end)
+
+    AnimalSim.UI.instances.targetDropdown = targetDropdown
 
     gameplaySection:addToggle({
         title = "Auto EXP Farm",
