@@ -1,238 +1,373 @@
 --[[
-    Miner's Haven automation module.  This script extracts only the portions
-    of the original RevampLua file that are required when the loader detects
-    we are inside Miner's Haven (PlaceId 258258996).
-
-    The module keeps the public surface compatible with the previous
-    `Revamp` table so other scripts can migrate gradually while the monolithic
-    source is being retired.
+    Legend of Speed automation split.  Provides orb farming helpers extracted
+    from the original RevampLua monolith while keeping the public API
+    intentionally small while restoring the historical Auto Race toggle.
 ]]
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local PathfindingService = game:GetService("PathfindingService")
-local UserInputService = game:GetService("UserInputService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local LocalPlayer = Players.LocalPlayer
 
-local MinersHaven = {
-    PlaceId = 258258996,
+local DEFAULT_THEME = {
+    Background = Color3.fromRGB(24, 24, 24),
+    Glow = Color3.fromRGB(0, 0, 0),
+    Accent = Color3.fromRGB(10, 10, 10),
+    LightContrast = Color3.fromRGB(20, 20, 20),
+    DarkContrast = Color3.fromRGB(14, 14, 14),
+    TextColor = Color3.fromRGB(255, 255, 255),
+}
+
+local LegendOfSpeed = {
+    PlaceId = 3101667897,
     Services = {
         Players = Players,
         RunService = RunService,
         PathfindingService = PathfindingService,
-        UserInputService = UserInputService,
         ReplicatedStorage = ReplicatedStorage,
     },
     Data = {
-        SafeZones = {},
-        LayoutCosts = {},
-        Items = {},
-        Evolved = {},
+        OrbSpawns = {},
+        RebirthRemote = nil,
+        RebirthRequirement = nil,
+        RacePads = {},
     },
     State = {
-        collectBoxes = false,
-        autoOpenBoxes = false,
-        collectClovers = false,
-        legitPathing = false,
+        autoOrbs = false,
         autoRebirth = false,
+        autoRace = false,
     },
     Modules = {
         Utilities = {},
         Pathing = {},
-        Combat = {},
         Farming = {},
-        Inventory = {},
+        Combat = {},
         Logging = {},
     },
     UI = {
         instances = {},
+        defaults = {
+            theme = DEFAULT_THEME,
+        },
     },
 }
 
 ---------------------------------------------------------------------
--- Local cache and convenience references
+-- Utility helpers
 ---------------------------------------------------------------------
 
-local MoneyLibrary = nil
-local FetchItemModule = nil
-local touchedMHBoxes = {}
-local LegitPathing = false
-local pathfindingBusy = false
-local humanoid
 local humanoidRoot
-
-local function ensureLibraries()
-    if not FetchItemModule then
-        local ok, module = pcall(function()
-            return require(ReplicatedStorage:WaitForChild("FetchItem"))
-        end)
-        if ok then
-            FetchItemModule = module
-        else
-            warn("[MinersHaven] failed to resolve FetchItem", module)
-        end
-    end
-    if not MoneyLibrary then
-        local ok, module = pcall(function()
-            return require(ReplicatedStorage:WaitForChild("MoneyLib"))
-        end)
-        if ok then
-            MoneyLibrary = module
-        else
-            warn("[MinersHaven] failed to resolve MoneyLib", module)
-        end
-    end
-end
+local rebirthWarnedMissing = false
+local rebirthWarnedFailure = false
 
 local function refreshCharacter()
     local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-    humanoid = character:WaitForChild("Humanoid")
     humanoidRoot = character:WaitForChild("HumanoidRootPart")
 end
 
 refreshCharacter()
 LocalPlayer.CharacterAdded:Connect(refreshCharacter)
 
----------------------------------------------------------------------
--- Utilities
----------------------------------------------------------------------
-
-local function getItem(name)
-    ensureLibraries()
-    local success, item = pcall(function()
-        return ReplicatedStorage.Items[name]
-    end)
-    if not success then
-        warn("[MinersHaven] missing item", name, item)
+local function orbFolder()
+    local folder = workspace:FindFirstChild("orbFolder")
+    if not folder then
         return nil
     end
-    return item
+    return folder:FindFirstChild("City") or folder
 end
 
-local function ShopItems()
-    ensureLibraries()
-    for _, candidate in ipairs(getgc(true)) do
-        if type(candidate) == "table" and rawget(candidate, "Miscs") then
-            return candidate["All"]
-        end
+local function collectOrb(orbPart)
+    if not orbPart or not orbPart:IsA("BasePart") then
+        return
     end
-    return {}
+    local before = humanoidRoot.CFrame
+    humanoidRoot.CFrame = orbPart.CFrame
+    task.wait(0.05)
+    humanoidRoot.CFrame = before
 end
 
-local function HasItem(name, returnCount)
-    local owned = ReplicatedStorage:WaitForChild("HasItem"):InvokeServer(name) or 0
-    if returnCount then
-        return owned
+local function collectAllOrbs()
+    local container = orbFolder()
+    if not container then
+        warn("[LegendOfSpeed] orb folder not found")
+        return
     end
-    return owned > 0
-end
-
-local function IsShopItem(itemId)
-    for _, entry in ipairs(ShopItems()) do
-        if tonumber(entry.ItemId.Value) == tonumber(itemId) then
-            return true
-        end
-    end
-    return false
-end
-
-local minerHavenBoxIncludePatterns = {
-    "Box",
-    "Gift",
-    "Crate",
-}
-
-local minerHavenBoxExcludePatterns = {
-    "overlay",
-    "inside",
-    "Lava",
-    "Mine",
-    "Handle",
-    "Upgrade",
-    "Conv",
-    "Mesh",
-    "Terrain",
-}
-
-local function cleanupTouchedMHBoxes()
-    for box, timestamp in pairs(touchedMHBoxes) do
-        if not box or not box.Parent then
-            touchedMHBoxes[box] = nil
-        elseif timestamp + 30 < os.clock() then
-            touchedMHBoxes[box] = nil
-        end
-    end
-end
-
-local function getMinerHavenBoxKey(part)
-    if part.Parent and part.Parent:IsA("Model") then
-        return part.Parent
-    end
-    return part
-end
-
-local function isMinerHavenBox(part)
-    if not part or not part:IsA("BasePart") then
-        return false
-    end
-    for _, include in ipairs(minerHavenBoxIncludePatterns) do
-        if part.Name:match(include) then
-            for _, exclude in ipairs(minerHavenBoxExcludePatterns) do
-                if part.Name:match(exclude) then
-                    return false
+    for _, child in ipairs(container:GetChildren()) do
+        if child:IsA("Model") then
+            for _, part in ipairs(child:GetChildren()) do
+                if part:IsA("BasePart") and not part.Name:match("Union") then
+                    collectOrb(part)
                 end
             end
-            return true
+        elseif child:IsA("BasePart") then
+            collectOrb(child)
         end
     end
-    return false
 end
 
-local function getClosestPart(instances)
-    if not humanoidRoot then
-        return nil
+LegendOfSpeed.Modules.Utilities.orbFolder = orbFolder
+LegendOfSpeed.Modules.Utilities.collectOrb = collectOrb
+LegendOfSpeed.Modules.Utilities.collectAllOrbs = collectAllOrbs
+
+local function isRacePad(instance)
+    if not instance or not instance:IsA("BasePart") then
+        return false
     end
-    local closest
-    local closestDistance = math.huge
-    for _, instance in ipairs(instances) do
-        local candidate = instance
-        if candidate:IsA("Model") then
-            candidate = candidate.PrimaryPart or candidate:FindFirstChildWhichIsA("BasePart")
-        end
-        if candidate and candidate:IsA("BasePart") then
-            local distance = (candidate.Position - humanoidRoot.Position).Magnitude
-            if distance < closestDistance then
-                closestDistance = distance
-                closest = candidate
+    local name = instance.Name:lower()
+    if not name:find("race") then
+        return false
+    end
+    return name:find("pad") or name:find("join") or name:find("start")
+end
+
+local function rebuildRacePads()
+    local pads = {}
+    local seen = {}
+    local candidates = {
+        workspace:FindFirstChild("RacePads"),
+        workspace:FindFirstChild("RaceStarts"),
+        workspace:FindFirstChild("Races"),
+    }
+    for _, container in ipairs(candidates) do
+        if container then
+            for _, descendant in ipairs(container:GetDescendants()) do
+                if isRacePad(descendant) and not seen[descendant] then
+                    table.insert(pads, descendant)
+                    seen[descendant] = true
+                end
             end
         end
     end
-    return closest
+    if #pads == 0 then
+        for _, descendant in ipairs(workspace:GetDescendants()) do
+            if isRacePad(descendant) and not seen[descendant] then
+                table.insert(pads, descendant)
+                seen[descendant] = true
+            end
+        end
+    end
+    table.sort(pads, function(a, b)
+        return a.Name < b.Name
+    end)
+    LegendOfSpeed.Data.RacePads = pads
+    return pads
 end
 
+local function getRacePads()
+    if #LegendOfSpeed.Data.RacePads == 0 then
+        return rebuildRacePads()
+    end
+    local pads = {}
+    for _, pad in ipairs(LegendOfSpeed.Data.RacePads) do
+        if pad and pad:IsDescendantOf(workspace) then
+            table.insert(pads, pad)
+        end
+    end
+    if #pads == 0 then
+        return rebuildRacePads()
+    end
+    LegendOfSpeed.Data.RacePads = pads
+    return pads
+end
+
+LegendOfSpeed.Modules.Utilities.isRacePad = isRacePad
+LegendOfSpeed.Modules.Utilities.getRacePads = getRacePads
+LegendOfSpeed.Modules.Utilities.rebuildRacePads = rebuildRacePads
+
+---------------------------------------------------------------------
+-- Farming helpers
+---------------------------------------------------------------------
+
+local autoOrbTask
+local autoRebirthTask
+local autoRaceTask
+
+local function autoOrbsLoop()
+    while LegendOfSpeed.State.autoOrbs do
+        local success, err = pcall(collectAllOrbs)
+        if not success then
+            warn("[LegendOfSpeed] auto orb loop", err)
+            task.wait(1)
+        else
+            task.wait(0.3)
+        end
+    end
+    autoOrbTask = nil
+end
+
+local function startAutoOrbs(value)
+    LegendOfSpeed.State.autoOrbs = value
+    if value and not autoOrbTask then
+        autoOrbTask = task.spawn(autoOrbsLoop)
+    elseif not value and autoOrbTask then
+        while autoOrbTask do
+            task.wait()
+        end
+    end
+end
+
+local function getRebirthRequirement()
+    local requirement = LegendOfSpeed.Data.RebirthRequirement
+    if requirement and requirement > 0 then
+        return requirement
+    end
+    local containers = {
+        LocalPlayer:FindFirstChild("dataFolder"),
+        LocalPlayer:FindFirstChild("DataFolder"),
+        LocalPlayer:FindFirstChild("leaderstats"),
+    }
+    for _, folder in ipairs(containers) do
+        if folder then
+            local value = folder:FindFirstChild("RebirthRequirement") or folder:FindFirstChild("rebirthRequirement")
+            if value and typeof(value.Value) == "number" then
+                LegendOfSpeed.Data.RebirthRequirement = value.Value
+                return value.Value
+            end
+        end
+    end
+    return requirement
+end
+
+local function resolveRebirthRemote()
+    local cached = LegendOfSpeed.Data.RebirthRemote
+    if cached and cached.Parent then
+        return cached
+    end
+    for _, descendant in ipairs(ReplicatedStorage:GetDescendants()) do
+        if descendant:IsA("RemoteEvent") or descendant:IsA("RemoteFunction") then
+            if descendant.Name:lower():find("rebirth") then
+                LegendOfSpeed.Data.RebirthRemote = descendant
+                return descendant
+            end
+        end
+    end
+    LegendOfSpeed.Data.RebirthRemote = nil
+    return nil
+end
+
+local function tryRebirth()
+    local remote = resolveRebirthRemote()
+    if not remote then
+        if not rebirthWarnedMissing then
+            rebirthWarnedMissing = true
+            warn("[LegendOfSpeed] Unable to locate a rebirth remote. Auto rebirth will retry.")
+        end
+        return
+    end
+    rebirthWarnedMissing = false
+    local success, err
+    if remote:IsA("RemoteFunction") then
+        success, err = pcall(remote.InvokeServer, remote)
+    else
+        success, err = pcall(remote.FireServer, remote)
+    end
+    if not success and not rebirthWarnedFailure then
+        rebirthWarnedFailure = true
+        warn("[LegendOfSpeed] Rebirth remote rejected call:", err)
+    elseif success then
+        rebirthWarnedFailure = false
+    end
+end
+
+local function autoRebirthLoop()
+    while LegendOfSpeed.State.autoRebirth do
+        local stats = LocalPlayer:FindFirstChild("leaderstats")
+        local steps = stats and stats:FindFirstChild("Steps")
+        local requirement = getRebirthRequirement()
+        if steps and requirement and steps.Value >= requirement then
+            tryRebirth()
+        else
+            tryRebirth()
+        end
+        task.wait(5)
+    end
+    autoRebirthTask = nil
+end
+
+local function setAutoRebirth(value)
+    LegendOfSpeed.State.autoRebirth = value
+    if value and not autoRebirthTask then
+        autoRebirthTask = task.spawn(autoRebirthLoop)
+    elseif not value and autoRebirthTask then
+        while autoRebirthTask do
+            task.wait()
+        end
+    end
+end
+
+local function joinRacePad(pad)
+    if not pad or not pad:IsA("BasePart") then
+        return
+    end
+    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if not humanoid or not humanoidRoot then
+        return
+    end
+    local original = humanoidRoot.CFrame
+    local originalState = humanoid:GetState()
+    humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+    humanoidRoot.CFrame = pad.CFrame + Vector3.new(0, pad.Size.Y / 2 + 2, 0)
+    task.wait(0.25)
+    humanoidRoot.CFrame = original
+    humanoid:ChangeState(originalState)
+end
+
+LegendOfSpeed.Modules.Utilities.joinRacePad = joinRacePad
+
+local function autoRaceLoop()
+    local index = 1
+    while LegendOfSpeed.State.autoRace do
+        local pads = getRacePads()
+        if #pads == 0 then
+            task.wait(5)
+        else
+            if index > #pads then
+                index = 1
+            end
+            local pad = pads[index]
+            index = index + 1
+            local success, err = pcall(joinRacePad, pad)
+            if not success then
+                warn("[LegendOfSpeed] auto race join failed", err)
+            end
+            task.wait(2.5)
+        end
+    end
+    autoRaceTask = nil
+end
+
+local function setAutoRace(value)
+    LegendOfSpeed.State.autoRace = value
+    if value and not autoRaceTask then
+        autoRaceTask = task.spawn(autoRaceLoop)
+    elseif not value and autoRaceTask then
+        while autoRaceTask do
+            task.wait()
+        end
+    end
+end
+
+LegendOfSpeed.Modules.Farming.collectAllOrbs = collectAllOrbs
+LegendOfSpeed.Modules.Farming.startAutoOrbs = startAutoOrbs
+LegendOfSpeed.Modules.Farming.setAutoRebirth = setAutoRebirth
+LegendOfSpeed.Modules.Farming.setAutoRace = setAutoRace
+LegendOfSpeed.Modules.Farming.joinRacePad = joinRacePad
+
+---------------------------------------------------------------------
+-- Pathing helpers
+---------------------------------------------------------------------
+
 local function moveTo(position)
-    if not humanoid then
-        return false
-    end
-    if not LegitPathing then
-        humanoidRoot.CFrame = CFrame.new(position)
-        return true
-    end
-    if pathfindingBusy then
-        return false
-    end
-    pathfindingBusy = true
-    local path = PathfindingService:CreatePath({
-        AgentCanJump = true,
-        AgentHeight = humanoid.HipHeight,
-        AgentRadius = humanoid.HipHeight / 2,
-    })
+    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    local path = PathfindingService:CreatePath({AgentCanJump = true})
     path:ComputeAsync(humanoidRoot.Position, position)
     if path.Status ~= Enum.PathStatus.Success then
-        pathfindingBusy = false
-        return false
+        humanoidRoot.CFrame = CFrame.new(position)
+        return
     end
     for _, waypoint in ipairs(path:GetWaypoints()) do
         humanoid:MoveTo(waypoint.Position)
@@ -241,299 +376,78 @@ local function moveTo(position)
         end
         humanoid.MoveToFinished:Wait()
     end
-    pathfindingBusy = false
-    return true
 end
 
-MinersHaven.Modules.Utilities.getItem = getItem
-MinersHaven.Modules.Utilities.ShopItems = ShopItems
-MinersHaven.Modules.Utilities.HasItem = HasItem
-MinersHaven.Modules.Utilities.IsShopItem = IsShopItem
-MinersHaven.Modules.Utilities.getMinerHavenBoxKey = getMinerHavenBoxKey
-MinersHaven.Modules.Utilities.isMinerHavenBox = isMinerHavenBox
-MinersHaven.Modules.Utilities.getClosestPart = getClosestPart
-MinersHaven.Modules.Utilities.moveTo = moveTo
-MinersHaven.Modules.Pathing.moveTo = moveTo
-
----------------------------------------------------------------------
--- Farming helpers
----------------------------------------------------------------------
-
-local collectBoxesTask
-local collectCloversTask
-local openBoxesTask
-local rebirthTask
-
-local function collectBoxesLoop()
-    while MinersHaven.State.collectBoxes do
-        cleanupTouchedMHBoxes()
-        local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-        local rootPart = character:WaitForChild("HumanoidRootPart")
-        local candidateBoxes = {}
-        for _, descendant in ipairs(workspace:GetDescendants()) do
-            if isMinerHavenBox(descendant) then
-                local key = getMinerHavenBoxKey(descendant)
-                if not touchedMHBoxes[key] then
-                    table.insert(candidateBoxes, {part = descendant, key = key})
-                end
-            end
-        end
-        table.sort(candidateBoxes, function(a, b)
-            return (a.part.Position - rootPart.Position).Magnitude <
-                (b.part.Position - rootPart.Position).Magnitude
-        end)
-        for _, entry in ipairs(candidateBoxes) do
-            if not MinersHaven.State.collectBoxes then
-                break
-            end
-            if entry.part and entry.part.Parent then
-                local before = rootPart.CFrame
-                moveTo(entry.part.Position)
-                touchedMHBoxes[entry.key] = os.clock()
-                if not LegitPathing then
-                    task.wait(0.1)
-                    rootPart.CFrame = before
-                end
-            end
-        end
-        task.wait(0.35)
-    end
-    collectBoxesTask = nil
-end
-
-local function collectCloversLoop()
-    while MinersHaven.State.collectClovers do
-        local clovers = workspace:FindFirstChild("Clovers")
-        if not clovers then
-            task.wait(1)
-            continue
-        end
-        local target = getClosestPart(clovers:GetChildren())
-        if target then
-            local before = humanoidRoot.CFrame
-            moveTo(target.Position)
-            task.wait(1.2)
-            humanoidRoot.CFrame = before
-        else
-            task.wait(1)
-        end
-    end
-    collectCloversTask = nil
-end
-
-local function openBoxesLoop()
-    while MinersHaven.State.autoOpenBoxes do
-        for _, crate in ipairs(LocalPlayer.Crates:GetChildren()) do
-            ReplicatedStorage.MysteryBox:InvokeServer(crate.Name)
-            task.wait(0.05)
-        end
-        task.wait(0.5)
-    end
-    openBoxesTask = nil
-end
-
-local function destroyAll()
-    ReplicatedStorage.DestroyAll:InvokeServer()
-    task.wait(0.7)
-end
-
-local function autoRebirthLoop()
-    ensureLibraries()
-    while MinersHaven.State.autoRebirth do
-        local rebirths = LocalPlayer:FindFirstChild("Rebirths")
-        if rebirths and MoneyLibrary then
-            local nextCost = MoneyLibrary and MoneyLibrary.CalculateRebirthCost(rebirths.Value + 1)
-            if nextCost then
-                ReplicatedStorage.Rebirth:InvokeServer()
-            end
-        end
-        task.wait(5)
-    end
-    rebirthTask = nil
-end
-
-local function startCollectBoxes(value)
-    MinersHaven.State.collectBoxes = value
-    if value and not collectBoxesTask then
-        collectBoxesTask = task.spawn(collectBoxesLoop)
-    end
-end
-
-local function startCollectClovers(value)
-    MinersHaven.State.collectClovers = value
-    if value and not collectCloversTask then
-        collectCloversTask = task.spawn(collectCloversLoop)
-    end
-end
-
-local function startOpenBoxes(value)
-    MinersHaven.State.autoOpenBoxes = value
-    if value and not openBoxesTask then
-        openBoxesTask = task.spawn(openBoxesLoop)
-    end
-end
-
-local function startAutoRebirth(value)
-    MinersHaven.State.autoRebirth = value
-    if value and not rebirthTask then
-        rebirthTask = task.spawn(autoRebirthLoop)
-    end
-end
-
-MinersHaven.Modules.Farming.collectBoxes = startCollectBoxes
-MinersHaven.Modules.Farming.collectClovers = startCollectClovers
-MinersHaven.Modules.Farming.autoOpenBoxes = startOpenBoxes
-MinersHaven.Modules.Farming.destroyAll = destroyAll
-MinersHaven.Modules.Farming.autoRebirth = startAutoRebirth
-
----------------------------------------------------------------------
--- Inventory helpers
----------------------------------------------------------------------
-
-local catalysts = {
-    ["Catalyst of Thunder"] = {
-        name = "Draedon's Gauntlet",
-        items = {
-            "True Book of Knowledge",
-            "Tempest Refiner",
-            "Lightningbolt Predictor",
-            "Azure Purifier",
-        },
-    },
-}
-
-local function hasCatalyst(name)
-    return HasItem(name)
-end
-
-MinersHaven.Modules.Inventory.catalysts = catalysts
-MinersHaven.Modules.Inventory.hasCatalyst = hasCatalyst
+LegendOfSpeed.Modules.Pathing.moveTo = moveTo
 
 ---------------------------------------------------------------------
 -- UI
 ---------------------------------------------------------------------
 
-local function buildVenyxUI()
+local function buildUI()
     local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
-    local ui = venyx.new({title = "Revamp - Miner's Haven"})
+    local ui = venyx.new({title = "Revamp - Legend of Speed"})
 
-    local minersPage = ui:addPage({title = "Miner's Haven"})
-    local boxesSection = minersPage:addSection({title = "Boxes"})
+    local losPage = ui:addPage({title = "LoS"})
+    local orbsSection = losPage:addSection({title = "Orbs"})
 
-    boxesSection:addToggle({
-        title = "Collect Boxes",
-        callback = startCollectBoxes,
+    orbsSection:addButton({
+        title = "Get all",
+        callback = collectAllOrbs,
     })
 
-    boxesSection:addToggle({
-        title = "Auto open Boxes",
-        callback = startOpenBoxes,
+    orbsSection:addToggle({
+        title = "Auto Orbs",
+        toggled = LegendOfSpeed.State.autoOrbs,
+        callback = startAutoOrbs,
     })
 
-    boxesSection:addToggle({
-        title = "Collect Clovers",
-        callback = startCollectClovers,
+    local progressionSection = losPage:addSection({title = "Progression"})
+
+    progressionSection:addToggle({
+        title = "Auto Rebirth",
+        toggled = LegendOfSpeed.State.autoRebirth,
+        callback = setAutoRebirth,
     })
 
-    boxesSection:addToggle({
-        title = "Legit Pathing?",
-        callback = function(value)
-            LegitPathing = value
-            MinersHaven.State.legitPathing = value
-        end,
+    local racesSection = losPage:addSection({title = "Races"})
+
+    racesSection:addButton({
+        title = "Refresh pads",
+        callback = rebuildRacePads,
     })
 
-    boxesSection:addTextbox({
-        title = "layout 2 cost?",
-        default = MinersHaven.Data.LayoutCosts.first or "10M",
-        callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
-                return
-            end
-            MinersHaven.Data.LayoutCosts.first = value
-        end,
+    racesSection:addToggle({
+        title = "Auto Race",
+        toggled = LegendOfSpeed.State.autoRace,
+        callback = setAutoRace,
     })
 
-    boxesSection:addTextbox({
-        title = "layout 3 cost?",
-        default = MinersHaven.Data.LayoutCosts.second or "10qd",
-        callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
-                return
-            end
-            MinersHaven.Data.LayoutCosts.second = value
-        end,
-    })
-
-    boxesSection:addButton({
-        title = "Load AutoRebirth",
-        callback = function()
-            startAutoRebirth(true)
-        end,
-    })
-
-    local themePage = ui:addPage({title = "Theme"})
-    local colorsSection = themePage:addSection({title = "Colors"})
-    for theme, color in pairs({
-        Background = Color3.fromRGB(24, 24, 24),
-        Glow = Color3.fromRGB(0, 0, 0),
-        Accent = Color3.fromRGB(10, 10, 10),
-        LightContrast = Color3.fromRGB(20, 20, 20),
-        DarkContrast = Color3.fromRGB(14, 14, 14),
-        TextColor = Color3.fromRGB(255, 255, 255),
-    }) do
-        colorsSection:addColorPicker({
-            title = theme,
-            default = color,
-            callback = function(newColor)
-                venyx:setTheme(theme, newColor)
-            end,
-        })
-    end
-
-    MinersHaven.UI.instances.library = venyx
-    MinersHaven.UI.instances.ui = ui
-    return ui
-end
-
-local function buildAutoRebirthWindow()
-    local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wally%20ui%20library"))()
-    local window = library:CreateWindow("Miner's Haven")
-    local farmSection = window:CreateFolder("Farm")
-
-    farmSection:Toggle("Rebirth Farm", function(value)
-        startAutoRebirth(value)
-    end)
-
-    farmSection:Toggle("Auto Rebirth", function(value)
-        startAutoRebirth(value)
-    end)
-
-    farmSection:Box("Time first layout", function(value)
-        MinersHaven.Data.LayoutCosts.first = value
-    end)
-
-    farmSection:Box("Time second layout", function(value)
-        MinersHaven.Data.LayoutCosts.second = value
-    end)
-
-    MinersHaven.UI.instances.rebirthLibrary = library
-    MinersHaven.UI.instances.rebirthWindow = window
-    return window
+    LegendOfSpeed.UI.instances.library = venyx
+    LegendOfSpeed.UI.instances.ui = ui
+    return venyx, ui
 end
 
 ---------------------------------------------------------------------
 -- Initialisation
 ---------------------------------------------------------------------
 
-function MinersHaven.init()
-    if game.PlaceId ~= MinersHaven.PlaceId then
+function LegendOfSpeed.init()
+    if game.PlaceId ~= LegendOfSpeed.PlaceId then
         return
     end
-    ensureLibraries()
-    buildVenyxUI():SelectPage(1)
-    buildAutoRebirthWindow()
+    rebuildRacePads()
+    local venyx, ui = buildUI()
+    if venyx and ui then
+        return {
+            library = venyx,
+            ui = ui,
+            defaultTheme = DEFAULT_THEME,
+            defaultPageIndex = 1,
+            module = LegendOfSpeed,
+        }
+    end
 end
 
-return MinersHaven
+return LegendOfSpeed
 
