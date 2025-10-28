@@ -1,6 +1,6 @@
 --[[
     Animal Simulator automation module extracted from RevampLua.lua.
-    Version: 1.05
+    Version: 1.03
 
     The goal of this split file is to retain only the functionality that is
     required when the loader detects we are inside Animal Simulator
@@ -21,6 +21,15 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Debris = game:GetService("Debris")
 
 local LocalPlayer = Players.LocalPlayer
+
+local DEFAULT_THEME = {
+    Background = Color3.fromRGB(24, 24, 24),
+    Glow = Color3.fromRGB(0, 0, 0),
+    Accent = Color3.fromRGB(10, 10, 10),
+    LightContrast = Color3.fromRGB(20, 20, 20),
+    DarkContrast = Color3.fromRGB(14, 14, 14),
+    TextColor = Color3.fromRGB(255, 255, 255),
+}
 
 local AnimalSim = {
     PlaceId = 5712833750,
@@ -52,7 +61,7 @@ local AnimalSim = {
         legitMode = true,
         autoSelectTarget = false,
         visualizerEnabled = false,
-        version = 1.05,
+        version = 1.03,
     },
     Modules = {
         Utilities = {},
@@ -64,6 +73,9 @@ local AnimalSim = {
     },
     UI = {
         instances = {},
+        defaults = {
+            theme = DEFAULT_THEME,
+        },
     },
 }
 
@@ -2403,29 +2415,10 @@ local function buildUI()
         callback = loadAwScript,
     })
 
-    local themePage = ui:addPage({title = "Theme"})
-    local colorsSection = themePage:addSection({title = "Colors"})
-    for theme, color in pairs({
-        Background = Color3.fromRGB(24, 24, 24),
-        Glow = Color3.fromRGB(0, 0, 0),
-        Accent = Color3.fromRGB(10, 10, 10),
-        LightContrast = Color3.fromRGB(20, 20, 20),
-        DarkContrast = Color3.fromRGB(14, 14, 14),
-        TextColor = Color3.fromRGB(255, 255, 255),
-    }) do
-        colorsSection:addColorPicker({
-            title = theme,
-            default = color,
-            callback = function(newColor)
-                venyx:setTheme(theme, newColor)
-            end,
-        })
-    end
-
     AnimalSim.UI.instances.library = venyx
     AnimalSim.UI.instances.ui = ui
 
-    return ui
+    return venyx, ui
 end
 
 ---------------------------------------------------------------------
@@ -2451,9 +2444,15 @@ function AnimalSim.init()
         registerTeleporter(name, config)
     end
     setVisualizerEnabled(AnimalSim.State.visualizerEnabled)
-    local ui = buildUI()
-    if ui then
-        ui:SelectPage(1)
+    local venyx, ui = buildUI()
+    if venyx and ui then
+        return {
+            library = venyx,
+            ui = ui,
+            defaultTheme = DEFAULT_THEME,
+            defaultPageIndex = 1,
+            module = AnimalSim,
+        }
     end
 end
 
