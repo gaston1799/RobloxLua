@@ -11,6 +11,15 @@ local RunService = game:GetService("RunService")
 
 local LocalPlayer = Players.LocalPlayer
 
+local DEFAULT_THEME = {
+    Background = Color3.fromRGB(24, 24, 24),
+    Glow = Color3.fromRGB(0, 0, 0),
+    Accent = Color3.fromRGB(10, 10, 10),
+    LightContrast = Color3.fromRGB(20, 20, 20),
+    DarkContrast = Color3.fromRGB(14, 14, 14),
+    TextColor = Color3.fromRGB(255, 255, 255),
+}
+
 local CatalogCreator = {
     PlaceId = 7041939546,
     State = {
@@ -20,6 +29,9 @@ local CatalogCreator = {
     },
     UI = {
         instances = {},
+        defaults = {
+            theme = DEFAULT_THEME,
+        },
     },
 }
 
@@ -286,7 +298,7 @@ local function buildUI()
     CatalogCreator.UI.instances.ui = ui
     CatalogCreator.UI.instances.playerDropdown = playerDropdown
 
-    return ui
+    return venyx, ui
 end
 
 local function disconnectPlayerListener()
@@ -327,10 +339,7 @@ function CatalogCreator.init()
         return
     end
 
-    local ui = buildUI()
-    if ui then
-        ui:SelectPage(1)
-    end
+    local venyx, ui = buildUI()
 
     local dropdown = CatalogCreator.UI.instances.playerDropdown
     setupPlayerListener(dropdown)
@@ -347,6 +356,16 @@ function CatalogCreator.init()
             humanoid.PlatformStand = false
         end
     end)
+
+    if venyx and ui then
+        return {
+            library = venyx,
+            ui = ui,
+            defaultTheme = DEFAULT_THEME,
+            defaultPageIndex = 1,
+            module = CatalogCreator,
+        }
+    end
 end
 
 return CatalogCreator
