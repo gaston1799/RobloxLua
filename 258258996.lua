@@ -16,6 +16,15 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local LocalPlayer = Players.LocalPlayer
 
+local DEFAULT_THEME = {
+    Background = Color3.fromRGB(24, 24, 24),
+    Glow = Color3.fromRGB(0, 0, 0),
+    Accent = Color3.fromRGB(10, 10, 10),
+    LightContrast = Color3.fromRGB(20, 20, 20),
+    DarkContrast = Color3.fromRGB(14, 14, 14),
+    TextColor = Color3.fromRGB(255, 255, 255),
+}
+
 local MinersHaven = {
     PlaceId = 258258996,
     Services = {
@@ -48,6 +57,9 @@ local MinersHaven = {
     },
     UI = {
         instances = {},
+        defaults = {
+            theme = DEFAULT_THEME,
+        },
     },
 }
 
@@ -443,6 +455,28 @@ local function buildVenyxUI()
         end,
     })
 
+    boxesSection:addTextbox({
+        title = "layout 2 cost?",
+        default = MinersHaven.Data.LayoutCosts.first or "10M",
+        callback = function(value, focusLost)
+            if not focusLost or not value or value == "" then
+                return
+            end
+            MinersHaven.Data.LayoutCosts.first = value
+        end,
+    })
+
+    boxesSection:addTextbox({
+        title = "layout 3 cost?",
+        default = MinersHaven.Data.LayoutCosts.second or "10qd",
+        callback = function(value, focusLost)
+            if not focusLost or not value or value == "" then
+                return
+            end
+            MinersHaven.Data.LayoutCosts.second = value
+        end,
+    })
+
     boxesSection:addButton({
         title = "Load AutoRebirth",
         callback = function()
@@ -450,28 +484,9 @@ local function buildVenyxUI()
         end,
     })
 
-    local themePage = ui:addPage({title = "Theme"})
-    local colorsSection = themePage:addSection({title = "Colors"})
-    for theme, color in pairs({
-        Background = Color3.fromRGB(24, 24, 24),
-        Glow = Color3.fromRGB(0, 0, 0),
-        Accent = Color3.fromRGB(10, 10, 10),
-        LightContrast = Color3.fromRGB(20, 20, 20),
-        DarkContrast = Color3.fromRGB(14, 14, 14),
-        TextColor = Color3.fromRGB(255, 255, 255),
-    }) do
-        colorsSection:addColorPicker({
-            title = theme,
-            default = color,
-            callback = function(newColor)
-                venyx:setTheme(theme, newColor)
-            end,
-        })
-    end
-
     MinersHaven.UI.instances.library = venyx
     MinersHaven.UI.instances.ui = ui
-    return ui
+    return venyx, ui
 end
 
 local function buildAutoRebirthWindow()
@@ -509,8 +524,20 @@ function MinersHaven.init()
         return
     end
     ensureLibraries()
-    buildVenyxUI():SelectPage(1)
-    buildAutoRebirthWindow()
+    local venyx, ui = buildVenyxUI()
+    if venyx and ui then
+        local rebirthWindow = buildAutoRebirthWindow()
+        return {
+            library = venyx,
+            ui = ui,
+            defaultTheme = DEFAULT_THEME,
+            defaultPageIndex = 1,
+            module = MinersHaven,
+            extras = {
+                rebirthWindow = rebirthWindow,
+            },
+        }
+    end
 end
 
 return MinersHaven
