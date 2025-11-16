@@ -425,6 +425,8 @@ MinersHaven.Modules.Inventory.hasCatalyst = hasCatalyst
 -- UI
 ---------------------------------------------------------------------
 
+local loadAutoRebirthUI
+
 local function buildVenyxUI()
     local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
     local ui = venyx.new({title = "Revamp - Miner's Haven"})
@@ -480,7 +482,7 @@ local function buildVenyxUI()
     boxesSection:addButton({
         title = "Load AutoRebirth",
         callback = function()
-            startAutoRebirth(true)
+            loadAutoRebirthUI()
         end,
     })
 
@@ -490,7 +492,28 @@ local function buildVenyxUI()
 end
 
 local function buildAutoRebirthWindow()
-    local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wally%20ui%20library"))()
+    local source, gotSource = nil, false
+    -- Fetch Wally UI library (previous URL missed the .lua extension and returned 404).
+    local ok, err = pcall(function()
+        source = game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wally%20ui%20library.lua")
+        gotSource = source and source ~= ""
+    end)
+    if not ok or not gotSource then
+        warn("[MinersHaven] Failed to fetch Wally UI library for AutoRebirth:", err or "empty response")
+        return nil
+    end
+
+    local loader = loadstring(source)
+    if type(loader) ~= "function" then
+        warn("[MinersHaven] AutoRebirth UI loadstring failed.")
+        return nil
+    end
+
+    local library = loader()
+    if not library then
+        warn("[MinersHaven] AutoRebirth UI library did not return a module.")
+        return nil
+    end
     local window = library:CreateWindow("Miner's Haven")
     local farmSection = window:CreateFolder("Farm")
 
@@ -515,6 +538,27 @@ local function buildAutoRebirthWindow()
     return window
 end
 
+local function loadAutoRebirthUI()
+    -- Build on demand so the button actually spawns the legacy window.
+    if not MinersHaven.UI.instances.rebirthWindow then
+        local window = buildAutoRebirthWindow()
+        if not window then
+            warn("[MinersHaven] AutoRebirth UI failed to build; check network/URL.")
+            return nil
+        end
+        local lib = MinersHaven.UI.instances.rebirthLibrary
+        if lib and lib.Init then
+            lib:Init()
+        end
+    else
+        local lib = MinersHaven.UI.instances.rebirthLibrary
+        if lib and lib.ToggleUI then
+            lib:ToggleUI()
+        end
+    end
+    return MinersHaven.UI.instances.rebirthWindow
+end
+
 ---------------------------------------------------------------------
 -- Initialisation
 ---------------------------------------------------------------------
@@ -526,7 +570,6 @@ function MinersHaven.init()
     ensureLibraries()
     local venyx, ui = buildVenyxUI()
     if venyx and ui then
-        local rebirthWindow = buildAutoRebirthWindow()
         return {
             library = venyx,
             ui = ui,
@@ -534,7 +577,7 @@ function MinersHaven.init()
             defaultPageIndex = 1,
             module = MinersHaven,
             extras = {
-                rebirthWindow = rebirthWindow,
+                rebirthWindow = MinersHaven.UI.instances.rebirthWindow,
             },
         }
     end
