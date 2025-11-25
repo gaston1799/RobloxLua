@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 110492380369727,
+  "jobId": "0ae62b66-fcde-451f-873d-0d008ec3f17e",
+  "join": "roblox://placeId=110492380369727&gameInstanceId=0ae62b66-fcde-451f-873d-0d008ec3f17e",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764065169423
+  "web": "https://www.roblox.com/games/start?placeId=110492380369727&gameInstanceId=0ae62b66-fcde-451f-873d-0d008ec3f17e",
+  "location": "[🤖] Sky AI",
+  "updatedAt": 1764065318432
 }
