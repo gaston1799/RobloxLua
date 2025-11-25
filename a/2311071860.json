@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 119015508627868,
-  "jobId": "dbacbb7f-eace-4484-842c-b1391e75d171",
-  "join": "roblox://placeId=119015508627868&gameInstanceId=dbacbb7f-eace-4484-842c-b1391e75d171",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=119015508627868&gameInstanceId=dbacbb7f-eace-4484-842c-b1391e75d171",
-  "location": "💥 Tank Game!",
-  "updatedAt": 1764074768460
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764074828424
 }
