@@ -1,12 +1,12 @@
 {
   "userId": 2423430148,
   "displayName": "WhosGaston",
-  "status": "in-game",
-  "placeId": 126884695634066,
-  "jobId": "f8c41673-989e-4d71-a7a4-13b902cc6f70",
-  "join": "roblox://placeId=126884695634066&gameInstanceId=f8c41673-989e-4d71-a7a4-13b902cc6f70",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2423430148",
-  "web": "https://www.roblox.com/games/start?placeId=126884695634066&gameInstanceId=f8c41673-989e-4d71-a7a4-13b902cc6f70",
-  "location": "[📜] Grow a Garden 🌶️",
-  "updatedAt": 1764052147388
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764052477443
 }
