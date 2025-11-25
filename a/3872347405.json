@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 98664161516921,
+  "jobId": "6c2a16f4-a914-41e2-87c1-515b06dda175",
+  "join": "roblox://placeId=98664161516921&gameInstanceId=6c2a16f4-a914-41e2-87c1-515b06dda175",
   "follow": "roblox://followUserId=3872347405",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764061237507
+  "web": "https://www.roblox.com/games/start?placeId=98664161516921&gameInstanceId=6c2a16f4-a914-41e2-87c1-515b06dda175",
+  "location": "[Fixed] Catch a Monster [BETA]",
+  "updatedAt": 1764061747532
 }
