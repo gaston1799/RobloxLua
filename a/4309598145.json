@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 6884319169,
-  "jobId": "ff097e41-61cd-4ee8-88fa-39c10ead61dc",
-  "join": "roblox://placeId=6884319169&gameInstanceId=ff097e41-61cd-4ee8-88fa-39c10ead61dc",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=6884319169&gameInstanceId=ff097e41-61cd-4ee8-88fa-39c10ead61dc",
-  "location": "MIC UP 🔊",
-  "updatedAt": 1764071047768
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764071527761
 }
