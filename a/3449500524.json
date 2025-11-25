@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 10449761463,
-  "jobId": "3c948794-d7ae-4567-9af6-e53b8da5cf1e",
-  "join": "roblox://placeId=10449761463&gameInstanceId=3c948794-d7ae-4567-9af6-e53b8da5cf1e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=10449761463&gameInstanceId=3c948794-d7ae-4567-9af6-e53b8da5cf1e",
-  "location": "The Strongest Battlegrounds",
-  "updatedAt": 1764097389085
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764098499175
 }
