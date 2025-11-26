@@ -1,12 +1,12 @@
 {
   "userId": 8315231560,
   "displayName": "YZ_ISoloAli",
-  "status": "in-game",
-  "placeId": 16077935683,
-  "jobId": "66521fc6-aafe-4051-911e-4a05f0f00924",
-  "join": "roblox://placeId=16077935683&gameInstanceId=66521fc6-aafe-4051-911e-4a05f0f00924",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=8315231560",
-  "web": "https://www.roblox.com/games/start?placeId=16077935683&gameInstanceId=66521fc6-aafe-4051-911e-4a05f0f00924",
-  "location": "[CAR RACE] Drive X",
-  "updatedAt": 1764147129485
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764149439712
 }
