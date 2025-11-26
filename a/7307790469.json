@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 137348939547802,
-  "jobId": "76887e42-8773-4757-bf63-7718e0d5b178",
-  "join": "roblox://placeId=137348939547802&gameInstanceId=76887e42-8773-4757-bf63-7718e0d5b178",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=137348939547802&gameInstanceId=76887e42-8773-4757-bf63-7718e0d5b178",
-  "location": "Baseplate Drifting",
-  "updatedAt": 1764165219817
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764165257841
 }
