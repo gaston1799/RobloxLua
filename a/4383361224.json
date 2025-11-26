@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 78203975332712,
-  "jobId": "10b9d12f-f49c-4716-b495-e89284d1900a",
-  "join": "roblox://placeId=78203975332712&gameInstanceId=10b9d12f-f49c-4716-b495-e89284d1900a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=78203975332712&gameInstanceId=10b9d12f-f49c-4716-b495-e89284d1900a",
-  "location": "Bird Buddy [2 Player Obby]",
-  "updatedAt": 1764160601877
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764161504928
 }
