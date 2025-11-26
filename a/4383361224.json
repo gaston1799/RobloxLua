@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 75432687606174,
-  "jobId": "b749f2ed-c414-4bf7-aad1-c6205ce768d8",
-  "join": "roblox://placeId=75432687606174&gameInstanceId=b749f2ed-c414-4bf7-aad1-c6205ce768d8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=75432687606174&gameInstanceId=b749f2ed-c414-4bf7-aad1-c6205ce768d8",
-  "location": "Be baby pursuer[Bling]",
-  "updatedAt": 1764166989480
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764167049429
 }
