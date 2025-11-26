@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4864763388,
+  "jobId": "3668c1c6-012f-46c5-8b98-0a7070a97425",
+  "join": "roblox://placeId=4864763388&gameInstanceId=3668c1c6-012f-46c5-8b98-0a7070a97425",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764164199972
+  "web": "https://www.roblox.com/games/start?placeId=4864763388&gameInstanceId=3668c1c6-012f-46c5-8b98-0a7070a97425",
+  "location": "[New Car!] Project Trackday ",
+  "updatedAt": 1764164259876
 }
