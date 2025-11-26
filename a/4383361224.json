@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 15564827526,
-  "jobId": "6bf17b03-9c4f-403f-8c58-b4977687c4d3",
-  "join": "roblox://placeId=15564827526&gameInstanceId=6bf17b03-9c4f-403f-8c58-b4977687c4d3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=15564827526&gameInstanceId=6bf17b03-9c4f-403f-8c58-b4977687c4d3",
-  "location": "Block Puzzle (REWARDS)",
-  "updatedAt": 1764152409697
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764153551026
 }
