@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 107175140535005,
-  "jobId": "326337c9-d6ea-4cb1-8bc1-c7692478db63",
-  "join": "roblox://placeId=107175140535005&gameInstanceId=326337c9-d6ea-4cb1-8bc1-c7692478db63",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=107175140535005&gameInstanceId=326337c9-d6ea-4cb1-8bc1-c7692478db63",
-  "location": "Gold Hunters",
-  "updatedAt": 1764160569147
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764160599170
 }
