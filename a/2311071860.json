@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 79189799490564,
-  "jobId": "0d0b2000-ae4e-4ce9-bce3-c99127f9d79a",
-  "join": "roblox://placeId=79189799490564&gameInstanceId=0d0b2000-ae4e-4ce9-bce3-c99127f9d79a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=79189799490564&gameInstanceId=0d0b2000-ae4e-4ce9-bce3-c99127f9d79a",
-  "location": "[ DEMON RANKS ] Anime Weapons",
-  "updatedAt": 1764145749605
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764146439666
 }
