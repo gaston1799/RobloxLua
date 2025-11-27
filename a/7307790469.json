@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5041144419,
+  "jobId": "0ccbff37-cfd0-405e-b222-9de452927d4b",
+  "join": "roblox://placeId=5041144419&gameInstanceId=0ccbff37-cfd0-405e-b222-9de452927d4b",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764224801350
+  "web": "https://www.roblox.com/games/start?placeId=5041144419&gameInstanceId=0ccbff37-cfd0-405e-b222-9de452927d4b",
+  "location": "SCP: Roleplay",
+  "updatedAt": 1764224831333
 }
