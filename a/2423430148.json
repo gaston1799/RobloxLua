@@ -1,12 +1,12 @@
 {
   "userId": 2423430148,
   "displayName": "WhosGaston",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "5f77cc32-024d-40bf-b7ca-e5e9b6f43fe5",
-  "join": "roblox://placeId=7041939546&gameInstanceId=5f77cc32-024d-40bf-b7ca-e5e9b6f43fe5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2423430148",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=5f77cc32-024d-40bf-b7ca-e5e9b6f43fe5",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1764270851441
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764272531466
 }
