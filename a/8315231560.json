@@ -1,12 +1,12 @@
 {
   "userId": 8315231560,
   "displayName": "YZ_ISoloAli",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 17236692255,
+  "jobId": "7b8fd24f-e76c-4ba5-8b1f-d24bbee401c2",
+  "join": "roblox://placeId=17236692255&gameInstanceId=7b8fd24f-e76c-4ba5-8b1f-d24bbee401c2",
   "follow": "roblox://followUserId=8315231560",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764241901768
+  "web": "https://www.roblox.com/games/start?placeId=17236692255&gameInstanceId=7b8fd24f-e76c-4ba5-8b1f-d24bbee401c2",
+  "location": "[EVENT] Ascender Incremental! ⚡",
+  "updatedAt": 1764241961664
 }
