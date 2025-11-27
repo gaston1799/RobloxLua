@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2916899287,
+  "jobId": "e25611c3-d367-4889-8833-5bae9c715c1f",
+  "join": "roblox://placeId=2916899287&gameInstanceId=e25611c3-d367-4889-8833-5bae9c715c1f",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764215891177
+  "web": "https://www.roblox.com/games/start?placeId=2916899287&gameInstanceId=e25611c3-d367-4889-8833-5bae9c715c1f",
+  "location": "Blackhawk Rescue Mission 5",
+  "updatedAt": 1764215951224
 }
