@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 89206408334540,
+  "jobId": "e741443a-506f-4f65-ba02-dad7a948d625",
+  "join": "roblox://placeId=89206408334540&gameInstanceId=e741443a-506f-4f65-ba02-dad7a948d625",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764276672195
+  "web": "https://www.roblox.com/games/start?placeId=89206408334540&gameInstanceId=e741443a-506f-4f65-ba02-dad7a948d625",
+  "location": "GLS25| Grinding Legends Simulator [release event!]",
+  "updatedAt": 1764276702204
 }
