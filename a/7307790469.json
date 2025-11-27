@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 8848607186,
-  "jobId": "487968b5-ad83-492d-b851-14ce5d161d2e",
-  "join": "roblox://placeId=8848607186&gameInstanceId=487968b5-ad83-492d-b851-14ce5d161d2e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=8848607186&gameInstanceId=487968b5-ad83-492d-b851-14ce5d161d2e",
-  "location": "Digital Piano 🎹",
-  "updatedAt": 1764223091371
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764224111946
 }
