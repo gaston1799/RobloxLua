@@ -1,12 +1,12 @@
 {
   "userId": 8315231560,
   "displayName": "YZ_ISoloAli",
-  "status": "in-game",
-  "placeId": 106858792987134,
-  "jobId": "4c99a667-b636-44c1-b5ff-4a2b16a360c5",
-  "join": "roblox://placeId=106858792987134&gameInstanceId=4c99a667-b636-44c1-b5ff-4a2b16a360c5",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=8315231560",
-  "web": "https://www.roblox.com/games/start?placeId=106858792987134&gameInstanceId=4c99a667-b636-44c1-b5ff-4a2b16a360c5",
-  "location": "[UPD 0.5] Running Incremental",
-  "updatedAt": 1764241481555
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764241721619
 }
