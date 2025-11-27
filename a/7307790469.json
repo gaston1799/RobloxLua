@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 12262613610,
-  "jobId": "f4325021-04d9-47da-98e4-d55bdddd8193",
-  "join": "roblox://placeId=12262613610&gameInstanceId=f4325021-04d9-47da-98e4-d55bdddd8193",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=12262613610&gameInstanceId=f4325021-04d9-47da-98e4-d55bdddd8193",
-  "location": "[VC] Karaoke karoke ",
-  "updatedAt": 1764222761315
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764222881270
 }
