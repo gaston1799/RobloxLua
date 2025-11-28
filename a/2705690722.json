@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "5a5a6829-38ca-41b0-b674-cdac366409e7",
+  "join": "roblox://placeId=5712833750&gameInstanceId=5a5a6829-38ca-41b0-b674-cdac366409e7",
   "follow": "roblox://followUserId=2705690722",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764350946050
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=5a5a6829-38ca-41b0-b674-cdac366409e7",
+  "location": "🎃 Animal Simulator",
+  "updatedAt": 1764350976075
 }
