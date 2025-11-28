@@ -1,12 +1,12 @@
 {
   "userId": 3026015790,
   "displayName": "KAOsxAKT_Kitkat",
-  "status": "in-game",
-  "placeId": 6456351776,
-  "jobId": "66e9833a-3db8-4006-a201-6296737d6b75",
-  "join": "roblox://placeId=6456351776&gameInstanceId=66e9833a-3db8-4006-a201-6296737d6b75",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3026015790",
-  "web": "https://www.roblox.com/games/start?placeId=6456351776&gameInstanceId=66e9833a-3db8-4006-a201-6296737d6b75",
-  "location": "Kaiju Paradise",
-  "updatedAt": 1764304480179
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1764304704899
 }
