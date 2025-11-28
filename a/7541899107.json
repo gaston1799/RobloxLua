@@ -1,12 +1,12 @@
 {
   "userId": 7541899107,
   "displayName": "TheGlitchQueen",
-  "status": "in-game",
-  "placeId": 109644231059364,
-  "jobId": "fe8aa327-f9bc-4ee8-b589-3ce9eabbf9b0",
-  "join": "roblox://placeId=109644231059364&gameInstanceId=fe8aa327-f9bc-4ee8-b589-3ce9eabbf9b0",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7541899107",
-  "web": "https://www.roblox.com/games/start?placeId=109644231059364&gameInstanceId=fe8aa327-f9bc-4ee8-b589-3ce9eabbf9b0",
-  "location": "Maze Simulator",
-  "updatedAt": 1764348845936
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764349507270
 }
