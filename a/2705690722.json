@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 108235899254530,
+  "jobId": "3a29abdd-1f40-4086-a46f-b3763dea84c5",
+  "join": "roblox://placeId=108235899254530&gameInstanceId=3a29abdd-1f40-4086-a46f-b3763dea84c5",
   "follow": "roblox://followUserId=2705690722",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764424566808
+  "web": "https://www.roblox.com/games/start?placeId=108235899254530&gameInstanceId=3a29abdd-1f40-4086-a46f-b3763dea84c5",
+  "location": "Sniper Tag 🎯",
+  "updatedAt": 1764424626789
 }
