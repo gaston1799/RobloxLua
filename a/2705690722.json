@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 119522252073470,
+  "jobId": "b7dcce00-7f4c-4398-9ca6-04cf4a1d6e64",
+  "join": "roblox://placeId=119522252073470&gameInstanceId=b7dcce00-7f4c-4398-9ca6-04cf4a1d6e64",
   "follow": "roblox://followUserId=2705690722",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764424900418
+  "web": "https://www.roblox.com/games/start?placeId=119522252073470&gameInstanceId=b7dcce00-7f4c-4398-9ca6-04cf4a1d6e64",
+  "location": "Sticky Bees🐝 [2 Player Obby]",
+  "updatedAt": 1764424929182
 }
