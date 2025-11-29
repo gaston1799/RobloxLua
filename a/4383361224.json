@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "da1e1fd8-5d34-4a5f-88ad-795fb0faf357",
-  "join": "roblox://placeId=5712833750&gameInstanceId=da1e1fd8-5d34-4a5f-88ad-795fb0faf357",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=da1e1fd8-5d34-4a5f-88ad-795fb0faf357",
-  "location": "🎃 Animal Simulator",
-  "updatedAt": 1764385806466
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764385926464
 }
