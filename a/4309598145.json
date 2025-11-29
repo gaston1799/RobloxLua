@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 6990129309,
-  "jobId": "e84aa95d-c04a-41f0-b01c-c2ad5e9f86b8",
-  "join": "roblox://placeId=6990129309&gameInstanceId=e84aa95d-c04a-41f0-b01c-c2ad5e9f86b8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=6990129309&gameInstanceId=e84aa95d-c04a-41f0-b01c-c2ad5e9f86b8",
-  "location": "[⭐2X] Anime Dimensions Simulator",
-  "updatedAt": 1764427446368
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764427566371
 }
