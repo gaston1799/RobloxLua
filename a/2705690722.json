@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "in-game",
-  "placeId": 137826330724902,
-  "jobId": "97d8eba9-1a81-4bc2-96b1-577715ab4835",
-  "join": "roblox://placeId=137826330724902&gameInstanceId=97d8eba9-1a81-4bc2-96b1-577715ab4835",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2705690722",
-  "web": "https://www.roblox.com/games/start?placeId=137826330724902&gameInstanceId=97d8eba9-1a81-4bc2-96b1-577715ab4835",
-  "location": "Scary Shawarma Kiosk: the ANOMALY [horror]",
-  "updatedAt": 1764411006737
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764411276785
 }
