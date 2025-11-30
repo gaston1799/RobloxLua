@@ -611,7 +611,7 @@ end
 local function startRebirthFarm(value)
     MinersHaven.State.rebirthFarm = value
     needsLayoutNextRebirth = value
-    if not MinersHaven.State.autoRebirth and value then
+    if value then
         runLayoutPrep()
     end
 end
@@ -629,36 +629,42 @@ end
 
 local function autoRebirthLoop()
     ensureLibraries()
-    while MinersHaven.State.autoRebirth do
-        if MinersHaven.State.rebirthFarm and needsLayoutNextRebirth then
-            runLayoutPrep()
-        end
 
-        local targetCost = getRebirthPriceFromUI()
-        if not targetCost or targetCost <= 0 then
+    while MinersHaven.State.autoRebirth do
+        -- 1) Get current rebirth cost from UI
+        local priceNumber = getRebirthPriceFromUI()
+
+        if not priceNumber or priceNumber <= 0 then
+            -- Couldn't read price, try again in a bit
             task.wait(1)
             continue
         end
 
-        while MinersHaven.State.autoRebirth and getPlayerCash() < targetCost do
-            task.wait(1)
-        end
-        if not MinersHaven.State.autoRebirth then
-            break
-        end
+        -- 2) Check if we have enough money yet
+        local currentCash = getPlayerCash()
 
-        if prepareRebirthLayout() then
+        if currentCash >= priceNumber then
+            -- We can rebirth
+
+            -- If rebirth farm is ON, load layouts before/around the rebirth
+            if MinersHaven.State.rebirthFarm then
+                runLayoutSequence()
+            end
+
+            -- 3) Actually rebirth
             ReplicatedStorage.Rebirth:InvokeServer()
-            repeat
-                task.wait(0.5)
-            until not MinersHaven.State.autoRebirth or getPlayerCash() < targetCost
-            needsLayoutNextRebirth = MinersHaven.State.rebirthFarm
+
+            -- Small cooldown so we don't spam
+            task.wait(1.5)
         else
-            task.wait(1)
+            -- Not enough money yet, poll again soon
+            task.wait(0.5)
         end
     end
+
     rebirthTask = nil
 end
+
 
 local function startCollectBoxes(value)
     MinersHaven.State.collectBoxes = value
