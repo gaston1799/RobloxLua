@@ -149,6 +149,11 @@ local MinersHaven = {
             rebirthWithLayout = false,
             rebirthLayout = "Layout1",
             rebirthWithdraw = false,
+            layoutSelections = {
+                first = "Layout1",
+                second = "Layout2",
+                third = "Layout3",
+            },
         },
     },
     State = {
@@ -570,7 +575,8 @@ local function runLayoutSequence()
         return
     end
     local config = MinersHaven.Data.LayoutAutomation
-    loadLayout(LAYOUT_OPTIONS[1])
+    local firstLayout = config.layoutSelections.first or LAYOUT_OPTIONS[1]
+    loadLayout(firstLayout)
     if config.layout2Enabled and MinersHaven.State.rebirthFarm then
         if not waitForCashThreshold(config.layout2Cost) then
             return
@@ -578,7 +584,8 @@ local function runLayoutSequence()
         if config.layout2Withdraw then
             destroyAll()
         end
-        loadLayout(LAYOUT_OPTIONS[2])
+        local secondLayout = config.layoutSelections.second or LAYOUT_OPTIONS[2]
+        loadLayout(secondLayout)
     end
     if config.layout3Enabled and MinersHaven.State.rebirthFarm then
         if not waitForCashThreshold(config.layout3Cost) then
@@ -587,7 +594,8 @@ local function runLayoutSequence()
         if config.layout3Withdraw then
             destroyAll()
         end
-        loadLayout(LAYOUT_OPTIONS[3])
+        local thirdLayout = config.layoutSelections.third or LAYOUT_OPTIONS[3]
+        loadLayout(thirdLayout)
     end
 end
 
@@ -749,6 +757,33 @@ local function buildVenyxUI()
         title = "Auto Rebirth",
         default = MinersHaven.State.autoRebirth,
         callback = startAutoRebirth,
+    })
+
+    autoRebirthSection:addDropdown({
+        title = "First layout",
+        list = LAYOUT_OPTIONS,
+        default = layoutConfig.layoutSelections.first,
+        callback = function(selection)
+            layoutConfig.layoutSelections.first = selection
+        end,
+    })
+
+    autoRebirthSection:addDropdown({
+        title = "Second layout",
+        list = LAYOUT_OPTIONS,
+        default = layoutConfig.layoutSelections.second,
+        callback = function(selection)
+            layoutConfig.layoutSelections.second = selection
+        end,
+    })
+
+    autoRebirthSection:addDropdown({
+        title = "Third layout",
+        list = LAYOUT_OPTIONS,
+        default = layoutConfig.layoutSelections.third,
+        callback = function(selection)
+            layoutConfig.layoutSelections.third = selection
+        end,
     })
 
     autoRebirthSection:addToggle({
