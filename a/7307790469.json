@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 6884319169,
-  "jobId": "ac4a5337-e755-463f-8dc5-1949f0579382",
-  "join": "roblox://placeId=6884319169&gameInstanceId=ac4a5337-e755-463f-8dc5-1949f0579382",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=6884319169&gameInstanceId=ac4a5337-e755-463f-8dc5-1949f0579382",
-  "location": "MIC UP 🔊",
-  "updatedAt": 1764496850503
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764498320527
 }
