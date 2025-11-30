@@ -461,74 +461,6 @@ MinersHaven.Modules.Inventory.hasCatalyst = hasCatalyst
 -- UI
 ---------------------------------------------------------------------
 
-local function buildAutoRebirthWindow()
-    local source, gotSource = nil, false
-    -- Fetch Wally UI library (previous URL missed the .lua extension and returned 404).
-    local ok, err = pcall(function()
-        source = game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wally%20ui%20library.lua")
-        gotSource = source and source ~= ""
-    end)
-    if not ok or not gotSource then
-        warn("[MinersHaven] Failed to fetch Wally UI library for AutoRebirth:", err or "empty response")
-        return nil
-    end
-
-    local loader = loadstring(source)
-    if type(loader) ~= "function" then
-        warn("[MinersHaven] AutoRebirth UI loadstring failed.")
-        return nil
-    end
-
-    local library = loader()
-    if not library then
-        warn("[MinersHaven] AutoRebirth UI library did not return a module.")
-        return nil
-    end
-    local window = library:CreateWindow("Miner's Haven")
-    local farmSection = window:CreateFolder("Farm")
-
-    farmSection:Toggle("Rebirth Farm", function(value)
-        startAutoRebirth(value)
-    end)
-
-    farmSection:Toggle("Auto Rebirth", function(value)
-        startAutoRebirth(value)
-    end)
-
-    farmSection:Box("Time first layout", function(value)
-        MinersHaven.Data.LayoutCosts.first = value
-    end)
-
-    farmSection:Box("Time second layout", function(value)
-        MinersHaven.Data.LayoutCosts.second = value
-    end)
-
-    MinersHaven.UI.instances.rebirthLibrary = library
-    MinersHaven.UI.instances.rebirthWindow = window
-    return window
-end
-
-local function loadAutoRebirthUI()
-    -- Build on demand so the button actually spawns the legacy window.
-    if not MinersHaven.UI.instances.rebirthWindow then
-        local window = buildAutoRebirthWindow()
-        if not window then
-            warn("[MinersHaven] AutoRebirth UI failed to build; check network/URL.")
-            return nil
-        end
-        local lib = MinersHaven.UI.instances.rebirthLibrary
-        if lib and lib.Init then
-            lib:Init()
-        end
-    else
-        local lib = MinersHaven.UI.instances.rebirthLibrary
-        if lib and lib.ToggleUI then
-            lib:ToggleUI()
-        end
-    end
-    return MinersHaven.UI.instances.rebirthWindow
-end
-
 local function buildVenyxUI()
     local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
     local ui = venyx.new({title = "Revamp - Miner's Haven"})
@@ -581,10 +513,37 @@ local function buildVenyxUI()
         end,
     })
 
-    boxesSection:addButton({
-        title = "Load AutoRebirth",
-        callback = function()
-            loadAutoRebirthUI()
+    local autoRebirthSection = minersPage:addSection({title = "Auto Rebirth"})
+
+    autoRebirthSection:addToggle({
+        title = "Rebirth Farm",
+        callback = startAutoRebirth,
+    })
+
+    autoRebirthSection:addToggle({
+        title = "Auto Rebirth",
+        callback = startAutoRebirth,
+    })
+
+    autoRebirthSection:addTextbox({
+        title = "Time first layout",
+        default = MinersHaven.Data.LayoutCosts.first or "10M",
+        callback = function(value, focusLost)
+            if not focusLost or not value or value == "" then
+                return
+            end
+            MinersHaven.Data.LayoutCosts.first = value
+        end,
+    })
+
+    autoRebirthSection:addTextbox({
+        title = "Time second layout",
+        default = MinersHaven.Data.LayoutCosts.second or "10qd",
+        callback = function(value, focusLost)
+            if not focusLost or not value or value == "" then
+                return
+            end
+            MinersHaven.Data.LayoutCosts.second = value
         end,
     })
 
@@ -610,9 +569,6 @@ function MinersHaven.init()
             defaultTheme = DEFAULT_THEME,
             defaultPageIndex = 1,
             module = MinersHaven,
-            extras = {
-                rebirthWindow = MinersHaven.UI.instances.rebirthWindow,
-            },
         }
     end
 end
