@@ -25,6 +25,8 @@ local DEFAULT_THEME = {
     TextColor = Color3.fromRGB(255, 255, 255),
 }
 
+local AUTO_REBIRTH_DATA_URL = "https://raw.githubusercontent.com/gaston1799/RobloxLua/refs/heads/main/autoRebirthData.lua"
+
 local MinersHaven = {
     PlaceId = 258258996,
     Services = {
@@ -106,6 +108,37 @@ end
 
 refreshCharacter()
 LocalPlayer.CharacterAdded:Connect(refreshCharacter)
+
+local function fetchAutoRebirthCatalog()
+    local ok, source = pcall(function()
+        return game:HttpGet(AUTO_REBIRTH_DATA_URL)
+    end)
+    if not ok then
+        warn("[MinersHaven] Failed to download AutoRebirth catalog:", source)
+        return nil
+    end
+    if not source or source == "" then
+        warn("[MinersHaven] AutoRebirth catalog returned empty response.")
+        return nil
+    end
+
+    local chunk, compileErr = loadstring(source)
+    if not chunk then
+        warn("[MinersHaven] AutoRebirth catalog compile error:", compileErr)
+        return nil
+    end
+
+    local success, data = pcall(chunk)
+    if not success then
+        warn("[MinersHaven] AutoRebirth catalog execution failed:", data)
+        return nil
+    end
+    if type(data) ~= "table" then
+        warn("[MinersHaven] AutoRebirth catalog returned invalid type:", typeof(data))
+        return nil
+    end
+    return data
+end
 
 ---------------------------------------------------------------------
 -- Utilities
@@ -402,7 +435,7 @@ MinersHaven.Modules.Farming.autoRebirth = startAutoRebirth
 -- Inventory helpers
 ---------------------------------------------------------------------
 
-local catalysts = {
+local defaultCatalysts = {
     ["Catalyst of Thunder"] = {
         name = "Draedon's Gauntlet",
         items = {
@@ -414,6 +447,9 @@ local catalysts = {
     },
 }
 
+local catalysts = fetchAutoRebirthCatalog() or defaultCatalysts
+MinersHaven.Data.Catalysts = catalysts
+
 local function hasCatalyst(name)
     return HasItem(name)
 end
@@ -424,72 +460,6 @@ MinersHaven.Modules.Inventory.hasCatalyst = hasCatalyst
 ---------------------------------------------------------------------
 -- UI
 ---------------------------------------------------------------------
-
-local loadAutoRebirthUI
-
-local function buildVenyxUI()
-    local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
-    local ui = venyx.new({title = "Revamp - Miner's Haven"})
-
-    local minersPage = ui:addPage({title = "Miner's Haven"})
-    local boxesSection = minersPage:addSection({title = "Boxes"})
-
-    boxesSection:addToggle({
-        title = "Collect Boxes",
-        callback = startCollectBoxes,
-    })
-
-    boxesSection:addToggle({
-        title = "Auto open Boxes",
-        callback = startOpenBoxes,
-    })
-
-    boxesSection:addToggle({
-        title = "Collect Clovers",
-        callback = startCollectClovers,
-    })
-
-    boxesSection:addToggle({
-        title = "Legit Pathing?",
-        callback = function(value)
-            LegitPathing = value
-            MinersHaven.State.legitPathing = value
-        end,
-    })
-
-    boxesSection:addTextbox({
-        title = "layout 2 cost?",
-        default = MinersHaven.Data.LayoutCosts.first or "10M",
-        callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
-                return
-            end
-            MinersHaven.Data.LayoutCosts.first = value
-        end,
-    })
-
-    boxesSection:addTextbox({
-        title = "layout 3 cost?",
-        default = MinersHaven.Data.LayoutCosts.second or "10qd",
-        callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
-                return
-            end
-            MinersHaven.Data.LayoutCosts.second = value
-        end,
-    })
-
-    boxesSection:addButton({
-        title = "Load AutoRebirth",
-        callback = function()
-            loadAutoRebirthUI()
-        end,
-    })
-
-    MinersHaven.UI.instances.library = venyx
-    MinersHaven.UI.instances.ui = ui
-    return venyx, ui
-end
 
 local function buildAutoRebirthWindow()
     local source, gotSource = nil, false
@@ -557,6 +527,70 @@ local function loadAutoRebirthUI()
         end
     end
     return MinersHaven.UI.instances.rebirthWindow
+end
+
+local function buildVenyxUI()
+    local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
+    local ui = venyx.new({title = "Revamp - Miner's Haven"})
+
+    local minersPage = ui:addPage({title = "Miner's Haven"})
+    local boxesSection = minersPage:addSection({title = "Boxes"})
+
+    boxesSection:addToggle({
+        title = "Collect Boxes",
+        callback = startCollectBoxes,
+    })
+
+    boxesSection:addToggle({
+        title = "Auto open Boxes",
+        callback = startOpenBoxes,
+    })
+
+    boxesSection:addToggle({
+        title = "Collect Clovers",
+        callback = startCollectClovers,
+    })
+
+    boxesSection:addToggle({
+        title = "Legit Pathing?",
+        callback = function(value)
+            LegitPathing = value
+            MinersHaven.State.legitPathing = value
+        end,
+    })
+
+    boxesSection:addTextbox({
+        title = "layout 2 cost?",
+        default = MinersHaven.Data.LayoutCosts.first or "10M",
+        callback = function(value, focusLost)
+            if not focusLost or not value or value == "" then
+                return
+            end
+            MinersHaven.Data.LayoutCosts.first = value
+        end,
+    })
+
+    boxesSection:addTextbox({
+        title = "layout 3 cost?",
+        default = MinersHaven.Data.LayoutCosts.second or "10qd",
+        callback = function(value, focusLost)
+            if not focusLost or not value or value == "" then
+                return
+            end
+            MinersHaven.Data.LayoutCosts.second = value
+        end,
+    })
+
+    boxesSection:addButton({
+        title = "Load AutoRebirth",
+        callback = function()
+            loadAutoRebirthUI()
+        end,
+    })
+
+    MinersHaven.UI.instances.library = venyx
+    MinersHaven.UI.instances.ui = ui
+    return venyx, ui
 end
 
 ---------------------------------------------------------------------
