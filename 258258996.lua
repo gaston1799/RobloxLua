@@ -630,18 +630,29 @@ end
 local function autoRebirthLoop()
     ensureLibraries()
     while MinersHaven.State.autoRebirth do
-        local rebirths = LocalPlayer:FindFirstChild("Rebirths")
-        if rebirths then
-            local nextCost = getRebirthPriceFromUI()
-            if nextCost and getPlayerCash() >= nextCost then
-                if prepareRebirthLayout() then
-                    ReplicatedStorage.Rebirth:InvokeServer()
-                else
-                    task.wait(1)
-                end
-            end
+        local targetCost = getRebirthPriceFromUI()
+        if not targetCost or targetCost <= 0 then
+            task.wait(1)
+            continue
         end
-        task.wait(5)
+
+        runLayoutSequence()
+
+        while MinersHaven.State.autoRebirth and getPlayerCash() < targetCost do
+            task.wait(1)
+        end
+        if not MinersHaven.State.autoRebirth then
+            break
+        end
+
+        if prepareRebirthLayout() then
+            ReplicatedStorage.Rebirth:InvokeServer()
+            repeat
+                task.wait(0.5)
+            until not MinersHaven.State.autoRebirth or getPlayerCash() < targetCost
+        else
+            task.wait(1)
+        end
     end
     rebirthTask = nil
 end
