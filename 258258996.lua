@@ -646,19 +646,17 @@ local function autoRebirthLoop()
         if currentCash >= priceNumber then
             -- We can rebirth
 
+            -- 3) Actually rebirth
+            ReplicatedStorage.Rebirth:InvokeServer()
+            -- Small cooldown so we don't spam
+            task.wait(0.5)
             -- If rebirth farm is ON, load layouts before/around the rebirth
             if MinersHaven.State.rebirthFarm then
                 runLayoutSequence()
             end
-
-            -- 3) Actually rebirth
-            ReplicatedStorage.Rebirth:InvokeServer()
-
-            -- Small cooldown so we don't spam
-            task.wait(1.5)
         else
             -- Not enough money yet, poll again soon
-            task.wait(0.5)
+            task.wait(0.1)
         end
     end
 
