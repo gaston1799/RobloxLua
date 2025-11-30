@@ -26,6 +26,105 @@ local DEFAULT_THEME = {
 }
 
 local AUTO_REBIRTH_DATA_URL = "https://raw.githubusercontent.com/gaston1799/RobloxLua/refs/heads/main/autoRebirthData.lua"
+local PREFIX_TABLE_URL = "https://raw.githubusercontent.com/gaston1799/HostedFiles/refs/heads/main/table.lua"
+
+local prefixEntries = {}
+do
+    local ok, chunk = pcall(function()
+        return loadstring(game:HttpGet(PREFIX_TABLE_URL))
+    end)
+    if ok and type(chunk) == "function" then
+        local success, result = pcall(chunk)
+        if success and type(result) == "table" then
+            prefixEntries = result
+        end
+    end
+end
+
+local prefixScale = {[""] = 1}
+local sortedPrefixes = {}
+for _, entry in ipairs(prefixEntries or {}) do
+    local prefix = entry.prefix or ""
+    local number = entry.number or 1
+    prefixScale[prefix:lower()] = number
+    if prefix ~= "" then
+        table.insert(sortedPrefixes, {prefix = prefix, number = number})
+    end
+end
+table.sort(sortedPrefixes, function(a, b)
+    return #a.prefix > #b.prefix
+end)
+
+local function parseCurrency(value)
+    if type(value) == "number" then
+        return value
+    end
+    if not value then
+        return 0
+    end
+    local normalized = tostring(value)
+    normalized = normalized:gsub("[%$,]", "")
+    local base = normalized
+    local suffix = ""
+    for _, entry in ipairs(sortedPrefixes) do
+        local prefix = entry.prefix
+        if prefix ~= "" and #base >= #prefix then
+            local candidate = base:sub(-#prefix)
+            if candidate:lower() == prefix:lower() then
+                suffix = candidate
+                base = base:sub(1, -#prefix - 1)
+                break
+            end
+        end
+    end
+    base = (base and base:match("^%s*(.-)%s*$")) or ""
+    if base == "" then
+        return 0
+    end
+    local amount = tonumber(base)
+    if not amount then
+        return 0
+    end
+    local multiplier = 1
+    if suffix ~= "" then
+        multiplier = prefixScale[suffix:lower()] or 1
+    end
+    return amount * multiplier
+end
+
+local REBIRTH_UI_TAIL =
+    "PlayerGui.Rebirth.Frame.Rebirth_Content.Content.Rebirth.Frame.Bottom.Reborn"
+
+local function getInstanceFromTail(tail)
+    local current = Players.LocalPlayer
+    if not current then
+        return nil
+    end
+    for part in tail:gmatch("[^%.]+") do
+        current = current:FindFirstChild(part)
+        if not current then
+            return nil
+        end
+    end
+    return current
+end
+
+local function getRebirthPriceFromUI()
+    local ui = getInstanceFromTail(REBIRTH_UI_TAIL)
+    if not ui then
+        return nil, nil, nil, nil
+    end
+    if not (ui:IsA("TextLabel") or ui:IsA("TextButton")) then
+        ui = ui:FindFirstChildWhichIsA("TextLabel") or ui:FindFirstChildWhichIsA("TextButton")
+        if not ui then
+            return nil, nil, nil, nil
+        end
+    end
+    local fullText = ui.Text or ""
+    local valueStr = fullText:match(":%s*(.+)$") or fullText
+    local priceNumber = parseCurrency(valueStr)
+    return priceNumber, ui, valueStr, fullText
+end
 
 local MinersHaven = {
     PlaceId = 258258996,
@@ -38,9 +137,19 @@ local MinersHaven = {
     },
     Data = {
         SafeZones = {},
-        LayoutCosts = {},
         Items = {},
         Evolved = {},
+        LayoutAutomation = {
+            layout2Enabled = false,
+            layout3Enabled = false,
+            layout2Cost = "10M",
+            layout3Cost = "10qd",
+            layout2Withdraw = false,
+            layout3Withdraw = false,
+            rebirthWithLayout = false,
+            rebirthLayout = "Layout1",
+            rebirthWithdraw = false,
+        },
     },
     State = {
         collectBoxes = false,
@@ -48,6 +157,7 @@ local MinersHaven = {
         collectClovers = false,
         legitPathing = false,
         autoRebirth = false,
+        rebirthFarm = false,
     },
     Modules = {
         Utilities = {},
@@ -69,7 +179,6 @@ local MinersHaven = {
 -- Local cache and convenience references
 ---------------------------------------------------------------------
 
-local MoneyLibrary = nil
 local FetchItemModule = nil
 local touchedMHBoxes = {}
 local LegitPathing = false
@@ -86,16 +195,6 @@ local function ensureLibraries()
             FetchItemModule = module
         else
             warn("[MinersHaven] failed to resolve FetchItem", module)
-        end
-    end
-    if not MoneyLibrary then
-        local ok, module = pcall(function()
-            return require(ReplicatedStorage:WaitForChild("MoneyLib"))
-        end)
-        if ok then
-            MoneyLibrary = module
-        else
-            warn("[MinersHaven] failed to resolve MoneyLib", module)
         end
     end
 end
@@ -298,6 +397,7 @@ MinersHaven.Modules.Utilities.getMinerHavenBoxKey = getMinerHavenBoxKey
 MinersHaven.Modules.Utilities.isMinerHavenBox = isMinerHavenBox
 MinersHaven.Modules.Utilities.getClosestPart = getClosestPart
 MinersHaven.Modules.Utilities.moveTo = moveTo
+MinersHaven.Modules.Utilities.parseCurrency = parseCurrency
 MinersHaven.Modules.Pathing.moveTo = moveTo
 
 ---------------------------------------------------------------------
@@ -382,14 +482,155 @@ local function destroyAll()
     task.wait(0.7)
 end
 
+local LAYOUT_OPTIONS = {"Layout1", "Layout2", "Layout3"}
+local LayoutsService = ReplicatedStorage:WaitForChild("Layouts")
+local rebirthFarmTask
+local savedLayoutPosition
+
+local function getTycoonBase()
+    local tycoonValue = LocalPlayer:FindFirstChild("PlayerTycoon")
+    if not tycoonValue or not tycoonValue.Value then
+        return nil
+    end
+    return tycoonValue.Value:FindFirstChild("Base") or tycoonValue.Value.Base
+end
+
+local function executeAtTycoonBase(action)
+    if type(action) ~= "function" then
+        return false, "missing action"
+    end
+    local base = getTycoonBase()
+    if not base then
+        warn("[MinersHaven] Unable to locate tycoon base for layout work.")
+        return false, "no base"
+    end
+    local targetPart
+    if base:IsA("BasePart") then
+        targetPart = base
+    elseif base.PrimaryPart then
+        targetPart = base.PrimaryPart
+    else
+        targetPart = base:FindFirstChildWhichIsA("BasePart")
+    end
+    if not targetPart then
+        warn("[MinersHaven] Tycoon base has no usable part.")
+        return false, "no surface"
+    end
+    if humanoidRoot then
+        savedLayoutPosition = humanoidRoot.CFrame
+        moveTo(targetPart.Position)
+    end
+    local ok, result = pcall(action)
+    if savedLayoutPosition then
+        moveTo(savedLayoutPosition.Position)
+        savedLayoutPosition = nil
+    end
+    return ok, result
+end
+
+local function loadLayout(layoutName)
+    if not layoutName or layoutName == "" then
+        return false
+    end
+    if not LayoutsService then
+        warn("[MinersHaven] Layout service unavailable.")
+        return false
+    end
+    local ok, err = executeAtTycoonBase(function()
+        LayoutsService:InvokeServer("Load", layoutName)
+    end)
+    if not ok then
+        warn("[MinersHaven] Failed to load layout:", layoutName, err)
+    end
+    return ok
+end
+
+local function getPlayerCash()
+    local stats = LocalPlayer:FindFirstChild("leaderstats")
+    local cashStat = stats and stats:FindFirstChild("Cash")
+    if not cashStat then
+        return 0
+    end
+    return parseCurrency(cashStat.Value)
+end
+
+local function waitForCashThreshold(cost)
+    local required = parseCurrency(cost)
+    if required <= 0 then
+        return true
+    end
+    while MinersHaven.State.rebirthFarm and getPlayerCash() < required do
+        task.wait(0.25)
+    end
+    return MinersHaven.State.rebirthFarm
+end
+
+local function runLayoutSequence()
+    if not MinersHaven.State.rebirthFarm then
+        return
+    end
+    local config = MinersHaven.Data.LayoutAutomation
+    loadLayout(LAYOUT_OPTIONS[1])
+    if config.layout2Enabled and MinersHaven.State.rebirthFarm then
+        if not waitForCashThreshold(config.layout2Cost) then
+            return
+        end
+        if config.layout2Withdraw then
+            destroyAll()
+        end
+        loadLayout(LAYOUT_OPTIONS[2])
+    end
+    if config.layout3Enabled and MinersHaven.State.rebirthFarm then
+        if not waitForCashThreshold(config.layout3Cost) then
+            return
+        end
+        if config.layout3Withdraw then
+            destroyAll()
+        end
+        loadLayout(LAYOUT_OPTIONS[3])
+    end
+end
+
+local function startRebirthFarm(value)
+    MinersHaven.State.rebirthFarm = value
+    if not value then
+        return
+    end
+    if rebirthFarmTask then
+        return
+    end
+    rebirthFarmTask = task.spawn(function()
+        while MinersHaven.State.rebirthFarm do
+            runLayoutSequence()
+            task.wait(1)
+        end
+        rebirthFarmTask = nil
+    end)
+end
+
+local function prepareRebirthLayout()
+    local config = MinersHaven.Data.LayoutAutomation
+    if not config.rebirthWithLayout or not config.rebirthLayout or config.rebirthLayout == "" then
+        return true
+    end
+    if config.rebirthWithdraw then
+        destroyAll()
+    end
+    return loadLayout(config.rebirthLayout)
+end
+
 local function autoRebirthLoop()
     ensureLibraries()
     while MinersHaven.State.autoRebirth do
         local rebirths = LocalPlayer:FindFirstChild("Rebirths")
-        if rebirths and MoneyLibrary then
-            local nextCost = MoneyLibrary and MoneyLibrary.CalculateRebirthCost(rebirths.Value + 1)
-            if nextCost then
-                ReplicatedStorage.Rebirth:InvokeServer()
+        if rebirths then
+            local nextCost = getRebirthPriceFromUI()
+            if nextCost and getPlayerCash() >= nextCost then
+                if prepareRebirthLayout() then
+                    ReplicatedStorage.Rebirth:InvokeServer()
+                else
+                    task.wait(1)
+                end
             end
         end
         task.wait(5)
@@ -430,6 +671,9 @@ MinersHaven.Modules.Farming.collectClovers = startCollectClovers
 MinersHaven.Modules.Farming.autoOpenBoxes = startOpenBoxes
 MinersHaven.Modules.Farming.destroyAll = destroyAll
 MinersHaven.Modules.Farming.autoRebirth = startAutoRebirth
+MinersHaven.Modules.Farming.rebirthFarm = startRebirthFarm
+MinersHaven.Modules.Farming.loadLayouts = runLayoutSequence
+MinersHaven.Modules.Farming.prepareRebirthLayout = prepareRebirthLayout
 
 ---------------------------------------------------------------------
 -- Inventory helpers
@@ -491,59 +735,98 @@ local function buildVenyxUI()
         end,
     })
 
-    boxesSection:addTextbox({
-        title = "layout 2 cost?",
-        default = MinersHaven.Data.LayoutCosts.first or "10M",
-        callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
-                return
-            end
-            MinersHaven.Data.LayoutCosts.first = value
-        end,
-    })
 
-    boxesSection:addTextbox({
-        title = "layout 3 cost?",
-        default = MinersHaven.Data.LayoutCosts.second or "10qd",
-        callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
-                return
-            end
-            MinersHaven.Data.LayoutCosts.second = value
-        end,
-    })
-
+    local layoutConfig = MinersHaven.Data.LayoutAutomation
     local autoRebirthSection = minersPage:addSection({title = "Auto Rebirth"})
 
     autoRebirthSection:addToggle({
         title = "Rebirth Farm",
-        callback = startAutoRebirth,
+        default = MinersHaven.State.rebirthFarm,
+        callback = startRebirthFarm,
     })
 
     autoRebirthSection:addToggle({
         title = "Auto Rebirth",
+        default = MinersHaven.State.autoRebirth,
         callback = startAutoRebirth,
     })
 
-    autoRebirthSection:addTextbox({
-        title = "Time first layout",
-        default = MinersHaven.Data.LayoutCosts.first or "10M",
-        callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
-                return
-            end
-            MinersHaven.Data.LayoutCosts.first = value
+    autoRebirthSection:addToggle({
+        title = "Load Layout 2",
+        default = layoutConfig.layout2Enabled,
+        callback = function(value)
+            layoutConfig.layout2Enabled = value
         end,
     })
 
     autoRebirthSection:addTextbox({
-        title = "Time second layout",
-        default = MinersHaven.Data.LayoutCosts.second or "10qd",
+        title = "Layout 2 cost",
+        default = layoutConfig.layout2Cost,
         callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
+            if not focusLost or not value then
                 return
             end
-            MinersHaven.Data.LayoutCosts.second = value
+            layoutConfig.layout2Cost = value
+        end,
+    })
+
+    autoRebirthSection:addToggle({
+        title = "Withdraw before Layout 2",
+        default = layoutConfig.layout2Withdraw,
+        callback = function(value)
+            layoutConfig.layout2Withdraw = value
+        end,
+    })
+
+    autoRebirthSection:addToggle({
+        title = "Load Layout 3",
+        default = layoutConfig.layout3Enabled,
+        callback = function(value)
+            layoutConfig.layout3Enabled = value
+        end,
+    })
+
+    autoRebirthSection:addTextbox({
+        title = "Layout 3 cost",
+        default = layoutConfig.layout3Cost,
+        callback = function(value, focusLost)
+            if not focusLost or not value then
+                return
+            end
+            layoutConfig.layout3Cost = value
+        end,
+    })
+
+    autoRebirthSection:addToggle({
+        title = "Withdraw before Layout 3",
+        default = layoutConfig.layout3Withdraw,
+        callback = function(value)
+            layoutConfig.layout3Withdraw = value
+        end,
+    })
+
+    autoRebirthSection:addToggle({
+        title = "Rebirth with layout",
+        default = layoutConfig.rebirthWithLayout,
+        callback = function(value)
+            layoutConfig.rebirthWithLayout = value
+        end,
+    })
+
+    autoRebirthSection:addDropdown({
+        title = "Rebirth layout",
+        list = LAYOUT_OPTIONS,
+        default = layoutConfig.rebirthLayout,
+        callback = function(selection)
+            layoutConfig.rebirthLayout = selection
+        end,
+    })
+
+    autoRebirthSection:addToggle({
+        title = "Withdraw before rebirth layout",
+        default = layoutConfig.rebirthWithdraw,
+        callback = function(value)
+            layoutConfig.rebirthWithdraw = value
         end,
     })
 
