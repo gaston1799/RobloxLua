@@ -629,14 +629,18 @@ end
 
 local function autoRebirthLoop()
     ensureLibraries()
+    local needsLayout = true
     while MinersHaven.State.autoRebirth do
+        if needsLayout then
+            runLayoutSequence()
+            needsLayout = false
+        end
+
         local targetCost = getRebirthPriceFromUI()
         if not targetCost or targetCost <= 0 then
             task.wait(1)
             continue
         end
-
-        runLayoutSequence()
 
         while MinersHaven.State.autoRebirth and getPlayerCash() < targetCost do
             task.wait(1)
@@ -650,6 +654,7 @@ local function autoRebirthLoop()
             repeat
                 task.wait(0.5)
             until not MinersHaven.State.autoRebirth or getPlayerCash() < targetCost
+            needsLayout = true
         else
             task.wait(1)
         end
