@@ -1,12 +1,12 @@
 {
   "userId": 4077159793,
   "displayName": "SleepyAtychi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "3dfe1ec4-fd53-4aeb-82e7-26fe53291779",
+  "join": "roblox://placeId=7041939546&gameInstanceId=3dfe1ec4-fd53-4aeb-82e7-26fe53291779",
   "follow": "roblox://followUserId=4077159793",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764545722425
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=3dfe1ec4-fd53-4aeb-82e7-26fe53291779",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1764545811523
 }
