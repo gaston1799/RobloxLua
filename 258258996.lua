@@ -490,6 +490,7 @@ end
 local LAYOUT_OPTIONS = {"Layout1", "Layout2", "Layout3"}
 local LayoutsService = ReplicatedStorage:WaitForChild("Layouts")
 local needsLayoutNextRebirth = false
+local layoutPrepRunning = false
 local savedLayoutPosition
 
 local function getTycoonBase()
@@ -599,9 +600,20 @@ local function runLayoutSequence()
     end
 end
 
+local function runLayoutPrep()
+    if not MinersHaven.State.rebirthFarm or not needsLayoutNextRebirth then
+        return
+    end
+    runLayoutSequence()
+    needsLayoutNextRebirth = false
+end
+
 local function startRebirthFarm(value)
     MinersHaven.State.rebirthFarm = value
     needsLayoutNextRebirth = value
+    if not MinersHaven.State.autoRebirth and value then
+        runLayoutPrep()
+    end
 end
 
 local function prepareRebirthLayout()
@@ -619,8 +631,7 @@ local function autoRebirthLoop()
     ensureLibraries()
     while MinersHaven.State.autoRebirth do
         if MinersHaven.State.rebirthFarm and needsLayoutNextRebirth then
-            runLayoutSequence()
-            needsLayoutNextRebirth = false
+            runLayoutPrep()
         end
 
         local targetCost = getRebirthPriceFromUI()
