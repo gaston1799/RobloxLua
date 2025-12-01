@@ -1,12 +1,12 @@
 {
   "userId": 8931173888,
   "displayName": "Kee",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "1469dc0f-808f-44ba-b118-4d763d06e510",
+  "join": "roblox://placeId=5712833750&gameInstanceId=1469dc0f-808f-44ba-b118-4d763d06e510",
   "follow": "roblox://followUserId=8931173888",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764603142470
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=1469dc0f-808f-44ba-b118-4d763d06e510",
+  "location": "🎃 Animal Simulator",
+  "updatedAt": 1764603234230
 }
