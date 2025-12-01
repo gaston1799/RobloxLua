@@ -1,12 +1,12 @@
 {
   "userId": 5683626646,
   "displayName": "UNKOWN",
-  "status": "in-game",
-  "placeId": 109399716520867,
-  "jobId": "a2b99411-ffb8-464b-b9a1-963519376134",
-  "join": "roblox://placeId=109399716520867&gameInstanceId=a2b99411-ffb8-464b-b9a1-963519376134",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5683626646",
-  "web": "https://www.roblox.com/games/start?placeId=109399716520867&gameInstanceId=a2b99411-ffb8-464b-b9a1-963519376134",
-  "location": "WEAPON SIMULATOR",
-  "updatedAt": 1764576502221
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764576832403
 }
