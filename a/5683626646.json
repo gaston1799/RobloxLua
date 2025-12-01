@@ -1,12 +1,12 @@
 {
   "userId": 5683626646,
   "displayName": "UNKOWN",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 127391603520196,
+  "jobId": "be951a47-e31f-49e2-b095-8a663f97be34",
+  "join": "roblox://placeId=127391603520196&gameInstanceId=be951a47-e31f-49e2-b095-8a663f97be34",
   "follow": "roblox://followUserId=5683626646",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764588323019
+  "web": "https://www.roblox.com/games/start?placeId=127391603520196&gameInstanceId=be951a47-e31f-49e2-b095-8a663f97be34",
+  "location": "(PROP HUNT) Blood Debt Gun System: REVAMP",
+  "updatedAt": 1764588352144
 }
