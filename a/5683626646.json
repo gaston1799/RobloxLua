@@ -1,12 +1,12 @@
 {
   "userId": 5683626646,
   "displayName": "UNKOWN",
-  "status": "in-game",
-  "placeId": 79152511746013,
-  "jobId": "05a2adfc-fd44-4931-ae36-309f3c33cc3e",
-  "join": "roblox://placeId=79152511746013&gameInstanceId=05a2adfc-fd44-4931-ae36-309f3c33cc3e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5683626646",
-  "web": "https://www.roblox.com/games/start?placeId=79152511746013&gameInstanceId=05a2adfc-fd44-4931-ae36-309f3c33cc3e",
-  "location": "Defend the Castle! 🏰",
-  "updatedAt": 1764577222213
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764577252291
 }
