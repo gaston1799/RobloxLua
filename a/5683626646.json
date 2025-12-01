@@ -1,12 +1,12 @@
 {
   "userId": 5683626646,
   "displayName": "UNKOWN",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 136801880565837,
+  "jobId": "83a317f3-83bc-4562-b5fc-50aa921f59a2",
+  "join": "roblox://placeId=136801880565837&gameInstanceId=83a317f3-83bc-4562-b5fc-50aa921f59a2",
   "follow": "roblox://followUserId=5683626646",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764576832403
+  "web": "https://www.roblox.com/games/start?placeId=136801880565837&gameInstanceId=83a317f3-83bc-4562-b5fc-50aa921f59a2",
+  "location": "[FPS] Flick",
+  "updatedAt": 1764576862240
 }
