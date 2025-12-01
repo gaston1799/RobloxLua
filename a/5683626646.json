@@ -1,12 +1,12 @@
 {
   "userId": 5683626646,
   "displayName": "UNKOWN",
-  "status": "in-game",
-  "placeId": 130258583407940,
-  "jobId": "83a54b24-e997-4900-b70a-5886cfe1074e",
-  "join": "roblox://placeId=130258583407940&gameInstanceId=83a54b24-e997-4900-b70a-5886cfe1074e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5683626646",
-  "web": "https://www.roblox.com/games/start?placeId=130258583407940&gameInstanceId=83a54b24-e997-4900-b70a-5886cfe1074e",
-  "location": "Build a Noob Swarm!",
-  "updatedAt": 1764600172248
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764600353447
 }
