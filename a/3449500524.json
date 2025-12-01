@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 94829677822882,
-  "jobId": "f7c83374-6854-4072-8d0a-8ab6d5e25fc8",
-  "join": "roblox://placeId=94829677822882&gameInstanceId=f7c83374-6854-4072-8d0a-8ab6d5e25fc8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=94829677822882&gameInstanceId=f7c83374-6854-4072-8d0a-8ab6d5e25fc8",
-  "location": "Nen Arena",
-  "updatedAt": 1764557631837
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764558351845
 }
