@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 13110267312,
-  "jobId": "b81f6825-f519-4d3a-ada1-9dbba875d6d0",
-  "join": "roblox://placeId=13110267312&gameInstanceId=b81f6825-f519-4d3a-ada1-9dbba875d6d0",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=13110267312&gameInstanceId=b81f6825-f519-4d3a-ada1-9dbba875d6d0",
-  "location": "Animal Sim: Underwater",
-  "updatedAt": 1764561353452
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764561411969
 }
