@@ -1,12 +1,12 @@
 {
   "userId": 5683626646,
   "displayName": "UNKOWN",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 78819907140078,
+  "jobId": "13ad002f-d862-4c82-ad4a-18d0dcb49f5c",
+  "join": "roblox://placeId=78819907140078&gameInstanceId=13ad002f-d862-4c82-ad4a-18d0dcb49f5c",
   "follow": "roblox://followUserId=5683626646",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764610404553
+  "web": "https://www.roblox.com/games/start?placeId=78819907140078&gameInstanceId=13ad002f-d862-4c82-ad4a-18d0dcb49f5c",
+  "location": "Paralysis [HORROR]",
+  "updatedAt": 1764610434494
 }
