@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "d4faa685-d1f3-416c-a268-9f6d09b61d03",
-  "join": "roblox://placeId=5712833750&gameInstanceId=d4faa685-d1f3-416c-a268-9f6d09b61d03",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=d4faa685-d1f3-416c-a268-9f6d09b61d03",
-  "location": "🎃 Animal Simulator",
-  "updatedAt": 1764564802663
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764565972081
 }
