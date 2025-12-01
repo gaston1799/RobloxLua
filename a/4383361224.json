@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 120326651186196,
-  "jobId": "a3bcd90a-7355-4d94-9a92-a4d5fecb7c1d",
-  "join": "roblox://placeId=120326651186196&gameInstanceId=a3bcd90a-7355-4d94-9a92-a4d5fecb7c1d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=120326651186196&gameInstanceId=a3bcd90a-7355-4d94-9a92-a4d5fecb7c1d",
-  "location": "JUMP INTO MESSI FAMILY ",
-  "updatedAt": 1764562162104
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764563063027
 }
