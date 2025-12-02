@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13506552738,
+  "jobId": "793f36e8-6c73-4658-9ed0-6c0a338bf4f5",
+  "join": "roblox://placeId=13506552738&gameInstanceId=793f36e8-6c73-4658-9ed0-6c0a338bf4f5",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764638365557
+  "web": "https://www.roblox.com/games/start?placeId=13506552738&gameInstanceId=793f36e8-6c73-4658-9ed0-6c0a338bf4f5",
+  "location": "Every Second You Get +1 Sword",
+  "updatedAt": 1764638395549
 }
