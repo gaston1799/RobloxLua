@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 13076380114,
-  "jobId": "02f25b8d-1017-4b1e-a8b9-c4e86ddfdecb",
-  "join": "roblox://placeId=13076380114&gameInstanceId=02f25b8d-1017-4b1e-a8b9-c4e86ddfdecb",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=13076380114&gameInstanceId=02f25b8d-1017-4b1e-a8b9-c4e86ddfdecb",
-  "location": "[🎃BOSS] Heroes Battlegrounds",
-  "updatedAt": 1764718713902
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764718880915
 }
