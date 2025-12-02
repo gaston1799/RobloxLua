@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 94387906606820,
-  "jobId": "979df3c4-69bf-4c1d-9e37-41863676af61",
-  "join": "roblox://placeId=94387906606820&gameInstanceId=979df3c4-69bf-4c1d-9e37-41863676af61",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=94387906606820&gameInstanceId=979df3c4-69bf-4c1d-9e37-41863676af61",
-  "location": "[QOL] Diverse Piece",
-  "updatedAt": 1764690781447
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764691130191
 }
