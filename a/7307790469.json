@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12077443856,
+  "jobId": "d2cf65a2-94f0-44bc-94a7-9b49d6ded7ba",
+  "join": "roblox://placeId=12077443856&gameInstanceId=d2cf65a2-94f0-44bc-94a7-9b49d6ded7ba",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764646616511
+  "web": "https://www.roblox.com/games/start?placeId=12077443856&gameInstanceId=d2cf65a2-94f0-44bc-94a7-9b49d6ded7ba",
+  "location": "Cali Shootout 💥",
+  "updatedAt": 1764649836599
 }
