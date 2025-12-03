@@ -1,12 +1,12 @@
 {
   "userId": 3944132478,
   "displayName": "Aikoauraa",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "6653cdc6-c3f5-4c53-8b30-18bcc84666f6",
+  "join": "roblox://placeId=5712833750&gameInstanceId=6653cdc6-c3f5-4c53-8b30-18bcc84666f6",
   "follow": "roblox://followUserId=3944132478",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764741831077
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=6653cdc6-c3f5-4c53-8b30-18bcc84666f6",
+  "location": "🎃 Animal Simulator",
+  "updatedAt": 1764741861101
 }
