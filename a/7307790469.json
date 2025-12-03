@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 12699642568,
-  "jobId": "f78c20c6-550f-4db1-aaa2-993962d4ce25",
-  "join": "roblox://placeId=12699642568&gameInstanceId=f78c20c6-550f-4db1-aaa2-993962d4ce25",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=12699642568&gameInstanceId=f78c20c6-550f-4db1-aaa2-993962d4ce25",
-  "location": "Neighbors 🔊",
-  "updatedAt": 1764767304331
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764767421927
 }
