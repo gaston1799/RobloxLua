@@ -1,12 +1,12 @@
 {
   "userId": 5683626646,
   "displayName": "UNKOWN",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 93170017014495,
+  "jobId": "070b6025-8167-4abd-9751-7eb4be76b095",
+  "join": "roblox://placeId=93170017014495&gameInstanceId=070b6025-8167-4abd-9751-7eb4be76b095",
   "follow": "roblox://followUserId=5683626646",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764782903896
+  "web": "https://www.roblox.com/games/start?placeId=93170017014495&gameInstanceId=070b6025-8167-4abd-9751-7eb4be76b095",
+  "location": "[CONSOLE] Nun Massacre",
+  "updatedAt": 1764782932081
 }
