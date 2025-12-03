@@ -1,12 +1,12 @@
 {
   "userId": 5683626646,
   "displayName": "UNKOWN",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99085985484384,
+  "jobId": "a2d4c45f-4768-428b-9232-7e58429721a1",
+  "join": "roblox://placeId=99085985484384&gameInstanceId=a2d4c45f-4768-428b-9232-7e58429721a1",
   "follow": "roblox://followUserId=5683626646",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764783262094
+  "web": "https://www.roblox.com/games/start?placeId=99085985484384&gameInstanceId=a2d4c45f-4768-428b-9232-7e58429721a1",
+  "location": "Movie Massacre 📼 [HORROR]",
+  "updatedAt": 1764783292016
 }
