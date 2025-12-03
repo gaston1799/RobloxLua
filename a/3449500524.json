@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 84988808589910,
+  "jobId": "8142c045-1626-4d46-9606-da070cfcd1a0",
+  "join": "roblox://placeId=84988808589910&gameInstanceId=8142c045-1626-4d46-9606-da070cfcd1a0",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764789862486
+  "web": "https://www.roblox.com/games/start?placeId=84988808589910&gameInstanceId=8142c045-1626-4d46-9606-da070cfcd1a0",
+  "location": "[QOL] Rogue Piece",
+  "updatedAt": 1764790372452
 }
