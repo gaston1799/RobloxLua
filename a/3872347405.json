@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99758842280353,
+  "jobId": "7b04ed71-351d-4165-8e0b-b352d8b9c2ac",
+  "join": "roblox://placeId=99758842280353&gameInstanceId=7b04ed71-351d-4165-8e0b-b352d8b9c2ac",
   "follow": "roblox://followUserId=3872347405",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764729139605
+  "web": "https://www.roblox.com/games/start?placeId=99758842280353&gameInstanceId=7b04ed71-351d-4165-8e0b-b352d8b9c2ac",
+  "location": "Dog Walk 🐶 [2 Player Obby]",
+  "updatedAt": 1764729351255
 }
