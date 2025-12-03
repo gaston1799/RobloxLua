@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 129383437233533,
-  "jobId": "56359dcd-6fa6-4b73-84ef-9fac0ba48aad",
-  "join": "roblox://placeId=129383437233533&gameInstanceId=56359dcd-6fa6-4b73-84ef-9fac0ba48aad",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=129383437233533&gameInstanceId=56359dcd-6fa6-4b73-84ef-9fac0ba48aad",
-  "location": "⭐ Work at a Dentist!",
-  "updatedAt": 1764794467699
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1764794735081
 }
