@@ -1,12 +1,12 @@
 {
   "userId": 7093616470,
   "displayName": "GastonIsDead",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 104074872972372,
+  "jobId": "414a27a5-b98e-483c-a135-e212b83baec7",
+  "join": "roblox://placeId=104074872972372&gameInstanceId=414a27a5-b98e-483c-a135-e212b83baec7",
   "follow": "roblox://followUserId=7093616470",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764733789589
+  "web": "https://www.roblox.com/games/start?placeId=104074872972372&gameInstanceId=414a27a5-b98e-483c-a135-e212b83baec7",
+  "location": "Cat and Mouse [2 Player Obby]",
+  "updatedAt": 1764733819582
 }
