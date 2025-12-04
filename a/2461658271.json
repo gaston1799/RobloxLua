@@ -1,12 +1,12 @@
 {
   "userId": 2461658271,
   "displayName": "Bay_Xit",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 17360443692,
+  "jobId": "e6054bb9-c0a8-4cc8-b5ec-426557e12787",
+  "join": "roblox://placeId=17360443692&gameInstanceId=e6054bb9-c0a8-4cc8-b5ec-426557e12787",
   "follow": "roblox://followUserId=2461658271",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764845813828
+  "web": "https://www.roblox.com/games/start?placeId=17360443692&gameInstanceId=e6054bb9-c0a8-4cc8-b5ec-426557e12787",
+  "location": "Animal Race Simulator",
+  "updatedAt": 1764845843884
 }
