@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "435f5da3-1879-4897-8721-00473dab8c8e",
-  "join": "roblox://placeId=7041939546&gameInstanceId=435f5da3-1879-4897-8721-00473dab8c8e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3872347405",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=435f5da3-1879-4897-8721-00473dab8c8e",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1764827963750
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764828832637
 }
