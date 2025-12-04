@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 78699621133325,
+  "jobId": "b559d109-8954-4db1-8d90-266e308f08c3",
+  "join": "roblox://placeId=78699621133325&gameInstanceId=b559d109-8954-4db1-8d90-266e308f08c3",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764823253284
+  "web": "https://www.roblox.com/games/start?placeId=78699621133325&gameInstanceId=b559d109-8954-4db1-8d90-266e308f08c3",
+  "location": "[🎄] Meet People Across The World 🔊",
+  "updatedAt": 1764823283330
 }
