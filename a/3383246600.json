@@ -1,12 +1,12 @@
 {
   "userId": 3383246600,
   "displayName": "PX_ AssassinCROW",
-  "status": "in-game",
-  "placeId": 5814304937,
-  "jobId": "aa600b6d-84b7-4463-a092-309e51ccc899",
-  "join": "roblox://placeId=5814304937&gameInstanceId=aa600b6d-84b7-4463-a092-309e51ccc899",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3383246600",
-  "web": "https://www.roblox.com/games/start?placeId=5814304937&gameInstanceId=aa600b6d-84b7-4463-a092-309e51ccc899",
-  "location": "Outfit Loader Testing Place",
-  "updatedAt": 1764820942435
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764821332433
 }
