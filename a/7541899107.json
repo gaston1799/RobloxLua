@@ -1,12 +1,12 @@
 {
   "userId": 7541899107,
   "displayName": "TheGlitchQueen",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "2a848228-3969-4929-9876-dfe4dda0df0d",
-  "join": "roblox://placeId=7041939546&gameInstanceId=2a848228-3969-4929-9876-dfe4dda0df0d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7541899107",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=2a848228-3969-4929-9876-dfe4dda0df0d",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1764848363874
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764857154215
 }
