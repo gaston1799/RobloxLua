@@ -142,6 +142,7 @@ local MinersHaven = {
         Settings = {
             teleportFallback = true,
             returnHomeOnIdle = true,
+            teleportToBoxOnPathFail = false,
         },
         LayoutAutomation = {
             layout2Enabled = false,
@@ -227,10 +228,12 @@ local simplifyWaypoints
 local getSegmentSlopeInfo
 local createSlopeHud
 local updateSlopeHud
+local ensurePositionedAtBaseForBoxes
 
 local STUCK_DISTANCE_THRESHOLD = 0.2
 local STUCK_TIME_THRESHOLD = 0.75
-local STEEP_UP_ANGLE_THRESHOLD = 25
+local STEEP_UP_ANGLE_THRESHOLD = 30
+local BOX_FARM_BASE_RADIUS = 30
 
 local function simplifyCharacterCollisions(character)
     local coreParts = {
@@ -722,7 +725,12 @@ local function getClosestPart(instances)
     return closest
 end
 
-local function moveTo(position)
+local function moveTo(position, options)
+    options = options or {}
+    local allowTeleportFallback = options.allowTeleportFallback
+    if allowTeleportFallback == nil then
+        allowTeleportFallback = true
+    end
     if not humanoid or not humanoidRoot then
         return false
     end
@@ -759,7 +767,7 @@ local function moveTo(position)
         local fallbackTarget = currentGoalPosition or position
         currentGoalPosition = nil
         currentWaypointPosition = nil
-        if Settings.teleportFallback and fallbackTarget then
+        if Settings.teleportFallback and allowTeleportFallback and fallbackTarget then
             humanoidRoot.CFrame = CFrame.new(fallbackTarget)
             updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
             clearPathVisualizer()
@@ -826,7 +834,7 @@ local function moveTo(position)
                 local fallbackTarget = currentGoalPosition or position
                 currentGoalPosition = nil
                 currentWaypointPosition = nil
-                if Settings.teleportFallback and fallbackTarget then
+                if Settings.teleportFallback and allowTeleportFallback and fallbackTarget then
                     humanoidRoot.CFrame = CFrame.new(fallbackTarget)
                     updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
                     clearPathVisualizer()
@@ -840,9 +848,25 @@ local function moveTo(position)
         end
 
         if not reached then
-            if humanoidRoot then
-                humanoidRoot.CFrame = CFrame.new(waypoint.Position + Vector3.new(0, 4, 0))
+            -- Treat as interrupted: recompute the path instead of teleporting
+            pathObj, status, waypoints = computePath()
+            if status ~= Enum.PathStatus.Success or #waypoints == 0 then
+                pathfindingBusy = false
+                local fallbackTarget = currentGoalPosition or position
+                currentGoalPosition = nil
+                currentWaypointPosition = nil
+                if Settings.teleportFallback and allowTeleportFallback and fallbackTarget then
+                    humanoidRoot.CFrame = CFrame.new(fallbackTarget)
+                    updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
+                    clearPathVisualizer()
+                    return true
+                end
+                return false
             end
+            addPathVisualizer(waypoints)
+            prevWaypoint = nil
+            i = 0
+            continue
         end
         prevWaypoint = waypoint
     end
@@ -924,6 +948,7 @@ local function collectBoxesLoop()
         cleanupBoxHuds()
         local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
         local rootPart = character:WaitForChild("HumanoidRootPart")
+        ensurePositionedAtBaseForBoxes()
     local candidateBoxes = {}
     local boxContainer = getBoxesContainer()
 
@@ -977,7 +1002,7 @@ local function collectBoxesLoop()
             end
             if targetPart and targetPart:IsA("BasePart") then
                 updateBoxHud(targetPart, entry.key, "Pathing...", Color3.fromRGB(60, 170, 255))
-                local success = moveTo(targetPart.Position)
+                local success = moveTo(targetPart.Position, {allowTeleportFallback = Settings.teleportToBoxOnPathFail})
                 if success then
                     waitForBoxTouch(targetPart)
                     updateBoxHud(targetPart, entry.key, "Collected", Color3.fromRGB(160, 160, 160))
@@ -1088,6 +1113,26 @@ returnToTycoonBaseIfIdle = function()
 end
 
 MinersHaven.Modules.Pathing.goToTycoonBase = goToTycoonBase
+
+ensurePositionedAtBaseForBoxes = function()
+    local basePart = getTycoonBasePart()
+    if not basePart or not humanoidRoot then
+        return
+    end
+    local distance = (humanoidRoot.Position - basePart.Position).Magnitude
+    if distance <= BOX_FARM_BASE_RADIUS then
+        return
+    end
+    if LegitPathing then
+        moveTo(basePart.Position)
+    else
+        humanoidRoot.CFrame = CFrame.new(basePart.Position)
+    end
+    task.wait(2)
+    local layoutConfig = MinersHaven.Data.LayoutAutomation
+    local firstLayout = layoutConfig.layoutSelections.first or LAYOUT_OPTIONS[1]
+    loadLayout(firstLayout, false)
+end
 
 local function executeAtTycoonBase(action, allowTeleport)
     if type(action) ~= "function" then
@@ -1363,6 +1408,14 @@ local function buildVenyxUI()
         default = Settings.returnHomeOnIdle,
         callback = function(value)
             Settings.returnHomeOnIdle = value
+        end,
+    })
+
+    boxesSection:addToggle({
+        title = "Teleport to box on path fail",
+        default = Settings.teleportToBoxOnPathFail,
+        callback = function(value)
+            Settings.teleportToBoxOnPathFail = value
         end,
     })
 
