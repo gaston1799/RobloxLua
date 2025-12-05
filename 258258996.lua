@@ -236,12 +236,15 @@ local ensurePositionedAtBaseForBoxes
 local ensureOnBaseForLayouts
 local ensureRebirthHud
 local updateRebirthHud
+local getPlayerCash
 
 local STUCK_DISTANCE_THRESHOLD = 0.2
 local STUCK_TIME_THRESHOLD = 0.75
 local STEEP_UP_ANGLE_THRESHOLD = 20
 local BOX_FARM_BASE_RADIUS = 30
 local BASE_ON_TOP_RADIUS = 10
+local BASE_ON_TOP_MARGIN = 2
+local BASE_ON_TOP_HEIGHT_PAD = 10
 
 local function simplifyCharacterCollisions(character)
     local coreParts = {
@@ -408,7 +411,7 @@ updateSlopeHud = function(info, part, label)
     end
     part.Position = info.midpoint
     label.Text = string.format(
-        "Slope: %.1f°  dy=%.2f  horiz=%.2f",
+        "Slope: %.1f deg  dy=%.2f  horiz=%.2f",
         info.angleDeg,
         info.dy,
         info.horizontalDist
@@ -416,6 +419,9 @@ updateSlopeHud = function(info, part, label)
 end
 
 ensureRebirthHud = function()
+    if type(getTycoonBasePart) ~= "function" then
+        return
+    end
     local basePart = getTycoonBasePart()
     if not basePart then
         return
@@ -1151,6 +1157,9 @@ local function getTycoonBasePart()
     return base:FindFirstChildWhichIsA("BasePart")
 end
 
+-- Initialize the rebirth HUD once base info is resolvable
+ensureRebirthHud()
+
 goToTycoonBase = function()
     local targetPart = getTycoonBasePart()
     if not targetPart or not targetPart:IsA("BasePart") then
@@ -1200,8 +1209,15 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
         if not basePart or not humanoidRoot then
             return false
         end
-        local distance = (humanoidRoot.Position - basePart.Position).Magnitude
-        if distance > BASE_ON_TOP_RADIUS then
+        local localPos = basePart.CFrame:PointToObjectSpace(humanoidRoot.Position)
+        local halfSize = basePart.Size * 0.5
+        local onTop =
+            math.abs(localPos.X) <= halfSize.X + BASE_ON_TOP_MARGIN and
+            math.abs(localPos.Z) <= halfSize.Z + BASE_ON_TOP_MARGIN and
+            localPos.Y >= 0 and
+            localPos.Y <= basePart.Size.Y + BASE_ON_TOP_HEIGHT_PAD
+
+        if not onTop then
             stableStart = nil
             if LegitPathing then
                 moveTo(basePart.Position, {allowTeleportFallback = false})
