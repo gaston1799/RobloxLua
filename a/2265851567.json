@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 1242235469,
-  "jobId": "01e50a55-50a0-42ac-8333-0857ca928b20",
-  "join": "roblox://placeId=1242235469&gameInstanceId=01e50a55-50a0-42ac-8333-0857ca928b20",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=1242235469&gameInstanceId=01e50a55-50a0-42ac-8333-0857ca928b20",
-  "location": "ball and axe",
-  "updatedAt": 1764957499547
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764957620944
 }
