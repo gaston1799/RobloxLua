@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 121304848213419,
-  "jobId": "c1928555-92f6-47a7-864f-db92b2d01a9b",
-  "join": "roblox://placeId=121304848213419&gameInstanceId=c1928555-92f6-47a7-864f-db92b2d01a9b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=121304848213419&gameInstanceId=c1928555-92f6-47a7-864f-db92b2d01a9b",
-  "location": "Connect the Dots",
-  "updatedAt": 1764908988494
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764909228636
 }
