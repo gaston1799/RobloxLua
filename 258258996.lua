@@ -197,6 +197,7 @@ local LegitPathing = false
 local pathfindingBusy = false
 local humanoid
 local humanoidRoot
+local pathSegments = {}
 local lastReturnHome = 0
 local goToTycoonBase
 local returnToTycoonBaseIfIdle
@@ -220,6 +221,7 @@ local simplifyCharacterCollisions
 local createWaypointVisualizer
 local updateWaypointVisualizer
 local attachStuckDetection
+local getBoxesContainer
 
 local STUCK_DISTANCE_THRESHOLD = 0.2
 local STUCK_TIME_THRESHOLD = 0.75
@@ -295,6 +297,38 @@ updateWaypointVisualizer = function(label, humanoidObj, root, waypointIndex, way
         distance,
         eta
     )
+end
+
+local function clearPathVisualizer()
+    for _, part in ipairs(pathSegments) do
+        if part and part.Parent then
+            part:Destroy()
+        end
+    end
+    table.clear(pathSegments)
+end
+
+local function addPathVisualizer(waypoints)
+    clearPathVisualizer()
+    if not waypoints or #waypoints < 2 then
+        return
+    end
+    for i = 1, #waypoints - 1 do
+        local fromPos = waypoints[i].Position
+        local toPos = waypoints[i + 1].Position
+        local segment = Instance.new("Part")
+        segment.Name = "MH_PathSegment"
+        segment.Anchored = true
+        segment.CanCollide = false
+        segment.Material = Enum.Material.Neon
+        segment.Color = Color3.fromRGB(60, 170, 255)
+        segment.Transparency = 0.3
+        local distance = (toPos - fromPos).Magnitude
+        segment.Size = Vector3.new(0.15, 0.15, distance)
+        segment.CFrame = CFrame.new(fromPos, toPos) * CFrame.new(0, 0, -distance / 2)
+        segment.Parent = workspace
+        table.insert(pathSegments, segment)
+    end
 end
 
 attachStuckDetection = function()
@@ -451,6 +485,22 @@ local minerHavenBoxExcludePatterns = {
     "Terrain",
 }
 
+local boxesFolder = workspace:FindFirstChild("Boxes")
+
+getBoxesContainer = function()
+    if boxesFolder and boxesFolder.Parent then
+        return boxesFolder
+    end
+    local ok, folder = pcall(function()
+        return workspace:WaitForChild("Boxes", 2)
+    end)
+    if ok and folder then
+        boxesFolder = folder
+        return boxesFolder
+    end
+    return nil
+end
+
 local function cleanupTouchedMHBoxes()
     for box, timestamp in pairs(touchedMHBoxes) do
         if not box or not box.Parent then
@@ -514,6 +564,7 @@ local function moveTo(position)
     if not LegitPathing then
         humanoidRoot.CFrame = CFrame.new(position)
         updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
+        clearPathVisualizer()
         return true
     end
     if pathfindingBusy then
@@ -521,6 +572,7 @@ local function moveTo(position)
     end
     lastRootPosition = humanoidRoot.Position
     pathfindingBusy = true
+    clearPathVisualizer()
     currentGoalPosition = position
     stuckRepathRequested = false
 
@@ -544,10 +596,12 @@ local function moveTo(position)
         if Settings.teleportFallback and fallbackTarget then
             humanoidRoot.CFrame = CFrame.new(fallbackTarget)
             updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
+            clearPathVisualizer()
             return true
         end
         return false
     end
+    addPathVisualizer(waypoints)
 
     local i = 0
     while i < #waypoints do
@@ -576,6 +630,10 @@ local function moveTo(position)
             if stuckRepathRequested then
                 break
             end
+            if (humanoidRoot.Position - waypoint.Position).Magnitude < 2 then
+                reached = true
+                break
+            end
         end
 
         if connection and connection.Connected then
@@ -593,10 +651,12 @@ local function moveTo(position)
                 if Settings.teleportFallback and fallbackTarget then
                     humanoidRoot.CFrame = CFrame.new(fallbackTarget)
                     updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
+                    clearPathVisualizer()
                     return true
                 end
                 return false
             end
+            addPathVisualizer(waypoints)
             i = 0
             continue
         end
@@ -611,6 +671,7 @@ local function moveTo(position)
     currentGoalPosition = nil
     currentWaypointPosition = nil
     updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
+    clearPathVisualizer()
     return true
 end
 
@@ -680,15 +741,17 @@ local function collectBoxesLoop()
         cleanupTouchedMHBoxes()
         local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
         local rootPart = character:WaitForChild("HumanoidRootPart")
-        local candidateBoxes = {}
-        for _, descendant in ipairs(workspace:GetDescendants()) do
-            if isMinerHavenBox(descendant) then
-                local key = getMinerHavenBoxKey(descendant)
-                if not touchedMHBoxes[key] then
-                    table.insert(candidateBoxes, {part = descendant, key = key})
-                end
+    local candidateBoxes = {}
+    local boxContainer = getBoxesContainer()
+    local searchSpace = boxContainer and boxContainer:GetDescendants() or workspace:GetDescendants()
+    for _, descendant in ipairs(searchSpace) do
+        if isMinerHavenBox(descendant) then
+            local key = getMinerHavenBoxKey(descendant)
+            if not touchedMHBoxes[key] then
+                table.insert(candidateBoxes, {part = descendant, key = key})
             end
         end
+    end
         if #candidateBoxes == 0 then
             returnToTycoonBaseIfIdle()
             task.wait(0.35)
@@ -698,19 +761,25 @@ local function collectBoxesLoop()
             return (a.part.Position - rootPart.Position).Magnitude <
                 (b.part.Position - rootPart.Position).Magnitude
         end)
-        for _, entry in ipairs(candidateBoxes) do
-            if not MinersHaven.State.collectBoxes then
-                break
+    for _, entry in ipairs(candidateBoxes) do
+        if not MinersHaven.State.collectBoxes then
+            break
+        end
+        if entry.part and entry.part.Parent then
+            local before = rootPart.CFrame
+            local targetPart = entry.part
+            if targetPart:IsA("Model") then
+                targetPart = targetPart.PrimaryPart or targetPart:FindFirstChildWhichIsA("BasePart")
             end
-            if entry.part and entry.part.Parent then
-                local before = rootPart.CFrame
-                moveTo(entry.part.Position)
-                waitForBoxTouch(entry.part)
-                touchedMHBoxes[entry.key] = os.clock()
-                if not LegitPathing then
-                    task.wait(0.1)
-                    rootPart.CFrame = before
-                end
+            if targetPart and targetPart:IsA("BasePart") then
+                moveTo(targetPart.Position)
+                waitForBoxTouch(targetPart)
+            end
+            touchedMHBoxes[entry.key] = os.clock()
+            if not LegitPathing then
+                task.wait(0.1)
+                rootPart.CFrame = before
+            end
             end
         end
         task.wait(0.35)
