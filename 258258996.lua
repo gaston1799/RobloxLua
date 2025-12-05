@@ -203,6 +203,8 @@ local boxHudLookup = {}
 local rebirthHudBillboard
 local rebirthHudLabel
 local rebirthHudConnection
+local baseDetectorPart
+local baseDetectorLabel
 local lastReturnHome = 0
 local goToTycoonBase
 local getTycoonBasePart
@@ -237,6 +239,9 @@ local ensureOnBaseForLayouts
 local ensureRebirthHud
 local updateRebirthHud
 local getPlayerCash
+local loadLayout
+local ensureBaseDetector
+local updateBaseDetectorHud
 
 local STUCK_DISTANCE_THRESHOLD = 0.2
 local STUCK_TIME_THRESHOLD = 0.75
@@ -245,6 +250,7 @@ local BOX_FARM_BASE_RADIUS = 30
 local BASE_ON_TOP_RADIUS = 10
 local BASE_ON_TOP_MARGIN = 2
 local BASE_ON_TOP_HEIGHT_PAD = 10
+local BASE_DETECTOR_EXTRA_HEIGHT = 100
 
 local function simplifyCharacterCollisions(character)
     local coreParts = {
@@ -473,6 +479,73 @@ updateRebirthHud = function()
     end
     local progress = math.clamp((currentCash or 0) / priceNumber, 0, 1)
     rebirthHudLabel.Text = string.format("Rebirth %.2f%% | Cash: %.2e / %.2e", progress * 100, currentCash or 0, priceNumber)
+end
+
+ensureBaseDetector = function()
+    local basePart = getTycoonBasePart()
+    if not basePart then
+        return nil
+    end
+    -- Recreate if base changed
+    if baseDetectorPart and baseDetectorPart.Parent and baseDetectorPart:GetAttribute("BaseId") ~= basePart:GetDebugId() then
+        baseDetectorPart:Destroy()
+        baseDetectorPart = nil
+        baseDetectorLabel = nil
+    end
+    if not baseDetectorPart or not baseDetectorPart.Parent then
+        local detector = Instance.new("Part")
+        detector.Name = "MH_BaseDetector"
+        detector.Anchored = true
+        detector.CanCollide = false
+        detector.CanTouch = false
+        detector.Material = Enum.Material.ForceField
+        detector.Color = Color3.fromRGB(0, 200, 255)
+        detector.Transparency = 0.85
+        detector:SetAttribute("BaseId", basePart:GetDebugId())
+        baseDetectorPart = detector
+
+        local hud = Instance.new("BillboardGui")
+        hud.Name = "BaseDetectorHud"
+        hud.Adornee = detector
+        hud.Size = UDim2.new(0, 180, 0, 40)
+        hud.StudsOffset = Vector3.new(0, 3, 0)
+        hud.AlwaysOnTop = true
+        hud.Parent = detector
+
+        local label = Instance.new("TextLabel")
+        label.BackgroundTransparency = 1
+        label.Size = UDim2.new(1, 0, 1, 0)
+        label.Font = Enum.Font.SourceSansBold
+        label.TextScaled = true
+        label.TextColor3 = Color3.new(1, 1, 1)
+        label.TextStrokeTransparency = 0.25
+        label.Name = "State"
+        label.Text = "Base checker"
+        label.Parent = hud
+        baseDetectorLabel = label
+    end
+
+    -- Size and position: match base footprint, extend height
+    local sizeY = basePart.Size.Y + BASE_DETECTOR_EXTRA_HEIGHT
+    baseDetectorPart.Size = Vector3.new(basePart.Size.X + BASE_ON_TOP_MARGIN * 2, sizeY, basePart.Size.Z + BASE_ON_TOP_MARGIN * 2)
+    -- Center the detector so its bottom sits on the base and extends upward
+    local yOffset = (sizeY / 2) + (basePart.Size.Y / 2)
+    baseDetectorPart.CFrame = basePart.CFrame * CFrame.new(0, yOffset, 0)
+    baseDetectorPart.Parent = workspace
+    return baseDetectorPart
+end
+
+updateBaseDetectorHud = function(isInside)
+    if not baseDetectorLabel then
+        return
+    end
+    if isInside then
+        baseDetectorLabel.Text = "On Base"
+        baseDetectorLabel.TextColor3 = Color3.fromRGB(120, 255, 120)
+    else
+        baseDetectorLabel.Text = "Off Base"
+        baseDetectorLabel.TextColor3 = Color3.fromRGB(255, 140, 140)
+    end
 end
 
 simplifyWaypoints = function(waypoints, dotThreshold)
@@ -1205,17 +1278,17 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
     minSeconds = minSeconds or 1
     local stableStart = nil
     while true do
-        local basePart = getTycoonBasePart()
+        local basePart = ensureBaseDetector()
         if not basePart or not humanoidRoot then
             return false
         end
         local localPos = basePart.CFrame:PointToObjectSpace(humanoidRoot.Position)
         local halfSize = basePart.Size * 0.5
         local onTop =
-            math.abs(localPos.X) <= halfSize.X + BASE_ON_TOP_MARGIN and
-            math.abs(localPos.Z) <= halfSize.Z + BASE_ON_TOP_MARGIN and
-            localPos.Y >= 0 and
-            localPos.Y <= basePart.Size.Y + BASE_ON_TOP_HEIGHT_PAD
+            math.abs(localPos.X) <= halfSize.X and
+            math.abs(localPos.Z) <= halfSize.Z and
+            localPos.Y >= -halfSize.Y and
+            localPos.Y <= halfSize.Y
 
         if not onTop then
             stableStart = nil
@@ -1227,11 +1300,13 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
                 moveTo(basePart.Position, {allowTeleportFallback = true})
             end
             task.wait(0.2)
+            updateBaseDetectorHud(false)
         else
             if not stableStart then
                 stableStart = os.clock()
             end
             if os.clock() - stableStart >= minSeconds then
+                updateBaseDetectorHud(true)
                 ensureRebirthHud()
                 return true
             end
