@@ -223,9 +223,14 @@ local createWaypointVisualizer
 local updateWaypointVisualizer
 local attachStuckDetection
 local getBoxesContainer
+local simplifyWaypoints
+local getSegmentSlopeInfo
+local createSlopeHud
+local updateSlopeHud
 
 local STUCK_DISTANCE_THRESHOLD = 0.2
 local STUCK_TIME_THRESHOLD = 0.75
+local STEEP_UP_ANGLE_THRESHOLD = 25
 
 local function simplifyCharacterCollisions(character)
     local coreParts = {
@@ -330,6 +335,106 @@ local function addPathVisualizer(waypoints)
         segment.Parent = workspace
         table.insert(pathSegments, segment)
     end
+end
+
+getSegmentSlopeInfo = function(a, b)
+    if not a or not b or not a.Position or not b.Position then
+        return nil
+    end
+    local p1 = a.Position
+    local p2 = b.Position
+    local dy = p2.Y - p1.Y
+    local horizontalVec = Vector3.new(p2.X - p1.X, 0, p2.Z - p1.Z)
+    local horizontalDist = horizontalVec.Magnitude
+    local angleDeg
+    if horizontalDist <= 0.0001 then
+        angleDeg = 90
+    else
+        angleDeg = math.deg(math.atan2(dy, horizontalDist))
+    end
+    local midpoint = (p1 + p2) * 0.5
+    return {
+        dy = dy,
+        horizontalDist = horizontalDist,
+        angleDeg = angleDeg,
+        midpoint = midpoint,
+    }
+end
+
+createSlopeHud = function()
+    local part = Instance.new("Part")
+    part.Anchored = true
+    part.CanCollide = false
+    part.Transparency = 1
+    part.Size = Vector3.new(0.5, 0.5, 0.5)
+    part.Name = "SegmentSlopeMarker"
+    part.Parent = workspace
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = "SegmentSlopeHud"
+    billboard.Size = UDim2.new(0, 160, 0, 40)
+    billboard.AlwaysOnTop = true
+    billboard.Adornee = part
+    billboard.StudsOffset = Vector3.new(0, 2, 0)
+    billboard.Parent = part
+
+    local label = Instance.new("TextLabel")
+    label.BackgroundTransparency = 1
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.Font = Enum.Font.SourceSansBold
+    label.TextScaled = true
+    label.TextColor3 = Color3.new(1, 1, 1)
+    label.TextStrokeTransparency = 0.3
+    label.Name = "SlopeLabel"
+    label.Parent = billboard
+
+    return part, label
+end
+
+updateSlopeHud = function(info, part, label)
+    if not info or not part or not label then
+        return
+    end
+    part.Position = info.midpoint
+    label.Text = string.format(
+        "Slope: %.1f°  dy=%.2f  horiz=%.2f",
+        info.angleDeg,
+        info.dy,
+        info.horizontalDist
+    )
+end
+
+simplifyWaypoints = function(waypoints, dotThreshold)
+    dotThreshold = dotThreshold or 0.995
+    local count = #waypoints
+    if count <= 2 then
+        return waypoints
+    end
+    local simplified = {}
+    table.insert(simplified, waypoints[1])
+    for i = 2, count - 1 do
+        local prev = waypoints[i - 1]
+        local curr = waypoints[i]
+        local nextWp = waypoints[i + 1]
+
+        local v1 = (curr.Position - prev.Position)
+        local v2 = (nextWp.Position - curr.Position)
+
+        if v1.Magnitude == 0 or v2.Magnitude == 0 then
+            table.insert(simplified, curr)
+        else
+            local dir1 = v1.Unit
+            local dir2 = v2.Unit
+            local dot = dir1:Dot(dir2)
+            if dot < dotThreshold then
+                table.insert(simplified, curr)
+            else
+                -- Same direction; skip curr
+            end
+        end
+    end
+    table.insert(simplified, waypoints[count])
+    return simplified
 end
 
 attachStuckDetection = function()
@@ -538,7 +643,7 @@ local function updateBoxHud(part, key, text, color)
         billboard.Size = UDim2.new(0, 140, 0, 36)
         billboard.StudsOffset = Vector3.new(0, 3, 0)
         billboard.AlwaysOnTop = true
-        billboard.Parent = basePart
+        billboard.Parent = workspace
 
         local label = Instance.new("TextLabel")
         label.BackgroundTransparency = 1
@@ -562,8 +667,11 @@ end
 local function cleanupBoxHuds()
     for key, entry in pairs(boxHudLookup) do
         local billboard = entry.billboard
-        if not billboard or not billboard.Parent then
+        if not billboard or not billboard.Parent or not billboard.Adornee or not billboard.Adornee.Parent then
             boxHudLookup[key] = nil
+            if billboard and billboard.Parent then
+                billboard:Destroy()
+            end
         end
     end
 end
@@ -638,6 +746,7 @@ local function moveTo(position)
         pathObj:ComputeAsync(humanoidRoot.Position, currentGoalPosition)
         local status = pathObj.Status
         local waypoints = pathObj:GetWaypoints()
+        waypoints = simplifyWaypoints(waypoints)
         totalWaypoints = #waypoints
         currentWaypointIndex = 0
         return pathObj, status, waypoints
@@ -660,6 +769,8 @@ local function moveTo(position)
     end
     addPathVisualizer(waypoints)
 
+    local slopeHudPart, slopeHudLabel = createSlopeHud()
+    local prevWaypoint = nil
     local i = 0
     while i < #waypoints do
         i += 1
@@ -667,6 +778,16 @@ local function moveTo(position)
         currentWaypointIndex = i
         currentWaypointPosition = waypoint.Position
         updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, currentWaypointIndex, totalWaypoints, currentWaypointPosition)
+
+        if prevWaypoint then
+            local slopeInfo = getSegmentSlopeInfo(prevWaypoint, waypoint)
+            if slopeInfo then
+                updateSlopeHud(slopeInfo, slopeHudPart, slopeHudLabel)
+                if slopeInfo.dy > 0 and slopeInfo.angleDeg >= STEEP_UP_ANGLE_THRESHOLD then
+                    humanoid.Jump = true
+                end
+            end
+        end
 
         if waypoint.Action == Enum.PathWaypointAction.Jump then
             humanoid.Jump = true
@@ -723,12 +844,16 @@ local function moveTo(position)
                 humanoidRoot.CFrame = CFrame.new(waypoint.Position + Vector3.new(0, 4, 0))
             end
         end
+        prevWaypoint = waypoint
     end
     pathfindingBusy = false
     currentGoalPosition = nil
     currentWaypointPosition = nil
     updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
     clearPathVisualizer()
+    if slopeHudPart then
+        slopeHudPart:Destroy()
+    end
     return true
 end
 
@@ -801,15 +926,33 @@ local function collectBoxesLoop()
         local rootPart = character:WaitForChild("HumanoidRootPart")
     local candidateBoxes = {}
     local boxContainer = getBoxesContainer()
-    local searchSpace = boxContainer and boxContainer:GetDescendants() or workspace:GetDescendants()
-    for _, descendant in ipairs(searchSpace) do
-        if isMinerHavenBox(descendant) then
-            local key = getMinerHavenBoxKey(descendant)
-            if not touchedMHBoxes[key] then
-                table.insert(candidateBoxes, {part = descendant, key = key})
-                updateBoxHud(descendant, key, "Ready", Color3.fromRGB(85, 255, 127))
-            else
-                updateBoxHud(descendant, key, "Collected", Color3.fromRGB(160, 160, 160))
+
+    if boxContainer then
+        -- NEW BEHAVIOR: treat ALL children inside workspace.Boxes as boxes
+        for _, child in ipairs(boxContainer:GetChildren()) do
+            local basePart = getBoxBasePart(child)
+            if basePart then
+                local key = getMinerHavenBoxKey(child)
+                if not touchedMHBoxes[key] then
+                    table.insert(candidateBoxes, {part = child, key = key})
+                    updateBoxHud(child, key, "Ready", Color3.fromRGB(85, 255, 127))
+                else
+                    updateBoxHud(child, key, "Collected", Color3.fromRGB(160, 160, 160))
+                end
+            end
+        end
+    else
+        -- fallback to the original name-based detection system
+        local searchSpace = workspace:GetDescendants()
+        for _, descendant in ipairs(searchSpace) do
+            if isMinerHavenBox(descendant) then
+                local key = getMinerHavenBoxKey(descendant)
+                if not touchedMHBoxes[key] then
+                    table.insert(candidateBoxes, {part = descendant, key = key})
+                    updateBoxHud(descendant, key, "Ready", Color3.fromRGB(85, 255, 127))
+                else
+                    updateBoxHud(descendant, key, "Collected", Color3.fromRGB(160, 160, 160))
+                end
             end
         end
     end
