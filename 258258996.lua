@@ -143,6 +143,7 @@ local MinersHaven = {
             teleportFallback = true,
             returnHomeOnIdle = true,
             teleportToBoxOnPathFail = false,
+            jumpOnDownSlope = false,
         },
         LayoutAutomation = {
             layout2Enabled = false,
@@ -339,15 +340,23 @@ local function addPathVisualizer(waypoints)
     if not waypoints or #waypoints < 2 then
         return
     end
+    local baseColor = Color3.fromRGB(60, 170, 255)
+    local darkRed = Color3.fromRGB(180, 40, 40)
     for i = 1, #waypoints - 1 do
         local fromPos = waypoints[i].Position
         local toPos = waypoints[i + 1].Position
+        local slopeInfo = getSegmentSlopeInfo(waypoints[i], waypoints[i + 1])
+        local segmentColor = baseColor
+        if slopeInfo and slopeInfo.dy > 0 then
+            local factor = math.clamp(math.abs(slopeInfo.angleDeg) / 45, 0, 1)
+            segmentColor = baseColor:lerp(darkRed, factor)
+        end
         local segment = Instance.new("Part")
         segment.Name = "MH_PathSegment"
         segment.Anchored = true
         segment.CanCollide = false
         segment.Material = Enum.Material.Neon
-        segment.Color = Color3.fromRGB(60, 170, 255)
+        segment.Color = segmentColor
         segment.Transparency = 0.3
         local distance = (toPos - fromPos).Magnitude
         segment.Size = Vector3.new(0.15, 0.15, distance)
@@ -497,10 +506,11 @@ ensureBaseDetector = function()
         detector.Name = "MH_BaseDetector"
         detector.Anchored = true
         detector.CanCollide = false
-        detector.CanTouch = false
+        detector.CanTouch = true
+        detector.CanQuery = true
         detector.Material = Enum.Material.ForceField
         detector.Color = Color3.fromRGB(0, 200, 255)
-        detector.Transparency = 0.85
+        detector.Transparency = 0.7
         detector:SetAttribute("BaseId", basePart:GetDebugId())
         baseDetectorPart = detector
 
@@ -933,7 +943,9 @@ local function moveTo(position, options)
             local slopeInfo = getSegmentSlopeInfo(prevWaypoint, waypoint)
             if slopeInfo then
                 updateSlopeHud(slopeInfo, slopeHudPart, slopeHudLabel)
-                if slopeInfo.dy > 0 and slopeInfo.angleDeg >= STEEP_UP_ANGLE_THRESHOLD then
+                local goingUp = slopeInfo.dy > 0
+                local goingDown = slopeInfo.dy < 0
+                if goingUp or (Settings.jumpOnDownSlope and goingDown) then
                     humanoid.Jump = true
                 end
             end
@@ -1604,6 +1616,14 @@ local function buildVenyxUI()
         default = Settings.teleportToBoxOnPathFail,
         callback = function(value)
             Settings.teleportToBoxOnPathFail = value
+        end,
+    })
+
+    boxesSection:addToggle({
+        title = "Jump on down slopes",
+        default = Settings.jumpOnDownSlope,
+        callback = function(value)
+            Settings.jumpOnDownSlope = value
         end,
     })
 
