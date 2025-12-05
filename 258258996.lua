@@ -200,8 +200,12 @@ local humanoid
 local humanoidRoot
 local pathSegments = {}
 local boxHudLookup = {}
+local rebirthHudBillboard
+local rebirthHudLabel
+local rebirthHudConnection
 local lastReturnHome = 0
 local goToTycoonBase
+local getTycoonBasePart
 local returnToTycoonBaseIfIdle
 local startCollectBoxes
 local startCollectClovers
@@ -229,11 +233,15 @@ local getSegmentSlopeInfo
 local createSlopeHud
 local updateSlopeHud
 local ensurePositionedAtBaseForBoxes
+local ensureOnBaseForLayouts
+local ensureRebirthHud
+local updateRebirthHud
 
 local STUCK_DISTANCE_THRESHOLD = 0.2
 local STUCK_TIME_THRESHOLD = 0.75
-local STEEP_UP_ANGLE_THRESHOLD = 30
+local STEEP_UP_ANGLE_THRESHOLD = 20
 local BOX_FARM_BASE_RADIUS = 30
+local BASE_ON_TOP_RADIUS = 10
 
 local function simplifyCharacterCollisions(character)
     local coreParts = {
@@ -407,6 +415,60 @@ updateSlopeHud = function(info, part, label)
     )
 end
 
+ensureRebirthHud = function()
+    local basePart = getTycoonBasePart()
+    if not basePart then
+        return
+    end
+    if rebirthHudBillboard and rebirthHudBillboard.Adornee ~= basePart then
+        rebirthHudBillboard:Destroy()
+        rebirthHudBillboard = nil
+        rebirthHudLabel = nil
+    end
+    if not rebirthHudBillboard or not rebirthHudLabel or not rebirthHudBillboard.Parent then
+        local billboard = Instance.new("BillboardGui")
+        billboard.Name = "RebirthProgressHud"
+        billboard.AlwaysOnTop = true
+        billboard.Size = UDim2.new(0, 220, 0, 50)
+        billboard.StudsOffset = Vector3.new(0, 6, 0)
+        billboard.Adornee = basePart
+        billboard.Parent = basePart
+
+        local label = Instance.new("TextLabel")
+        label.BackgroundTransparency = 1
+        label.Size = UDim2.new(1, 0, 1, 0)
+        label.Font = Enum.Font.SourceSansBold
+        label.TextScaled = true
+        label.TextColor3 = Color3.new(1, 1, 1)
+        label.TextStrokeTransparency = 0.2
+        label.Name = "RebirthInfo"
+        label.Parent = billboard
+
+        rebirthHudBillboard = billboard
+        rebirthHudLabel = label
+    end
+    if rebirthHudConnection then
+        return
+    end
+    rebirthHudConnection = RunService.Heartbeat:Connect(function()
+        updateRebirthHud()
+    end)
+end
+
+updateRebirthHud = function()
+    if not rebirthHudLabel then
+        return
+    end
+    local priceNumber = getRebirthPriceFromUI()
+    local currentCash = getPlayerCash()
+    if not priceNumber or priceNumber <= 0 then
+        rebirthHudLabel.Text = string.format("Cash: %.2e | Rebirth: --", currentCash or 0)
+        return
+    end
+    local progress = math.clamp((currentCash or 0) / priceNumber, 0, 1)
+    rebirthHudLabel.Text = string.format("Rebirth %.2f%% | Cash: %.2e / %.2e", progress * 100, currentCash or 0, priceNumber)
+end
+
 simplifyWaypoints = function(waypoints, dotThreshold)
     dotThreshold = dotThreshold or 0.995
     local count = #waypoints
@@ -497,6 +559,7 @@ local function refreshCharacter()
     end
     waypointBillboard, waypointLabel = createWaypointVisualizer(character)
     attachStuckDetection()
+    ensureRebirthHud()
 end
 
 refreshCharacter()
@@ -1123,15 +1186,42 @@ ensurePositionedAtBaseForBoxes = function()
     if distance <= BOX_FARM_BASE_RADIUS then
         return
     end
-    if LegitPathing then
-        moveTo(basePart.Position)
-    else
-        humanoidRoot.CFrame = CFrame.new(basePart.Position)
-    end
-    task.wait(2)
+    ensureOnBaseForLayouts(1, true)
     local layoutConfig = MinersHaven.Data.LayoutAutomation
     local firstLayout = layoutConfig.layoutSelections.first or LAYOUT_OPTIONS[1]
     loadLayout(firstLayout, false)
+end
+
+ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
+    minSeconds = minSeconds or 1
+    local stableStart = nil
+    while true do
+        local basePart = getTycoonBasePart()
+        if not basePart or not humanoidRoot then
+            return false
+        end
+        local distance = (humanoidRoot.Position - basePart.Position).Magnitude
+        if distance > BASE_ON_TOP_RADIUS then
+            stableStart = nil
+            if LegitPathing then
+                moveTo(basePart.Position, {allowTeleportFallback = false})
+            elseif allowTeleport then
+                humanoidRoot.CFrame = CFrame.new(basePart.Position)
+            else
+                moveTo(basePart.Position, {allowTeleportFallback = true})
+            end
+            task.wait(0.2)
+        else
+            if not stableStart then
+                stableStart = os.clock()
+            end
+            if os.clock() - stableStart >= minSeconds then
+                ensureRebirthHud()
+                return true
+            end
+            task.wait(0.1)
+        end
+    end
 end
 
 local function executeAtTycoonBase(action, allowTeleport)
@@ -1155,9 +1245,16 @@ local function executeAtTycoonBase(action, allowTeleport)
     local teleported = false
     savedLayoutPosition = nil
     if shouldTeleport and humanoidRoot then
-        savedLayoutPosition = humanoidRoot.CFrame
-        moveTo(targetPart.Position)
-        teleported = true
+        local distance = (humanoidRoot.Position - targetPart.Position).Magnitude
+        if distance > BASE_ON_TOP_RADIUS then
+            savedLayoutPosition = humanoidRoot.CFrame
+            moveTo(targetPart.Position, {allowTeleportFallback = true})
+            teleported = true
+        end
+    end
+    local positioned = ensureOnBaseForLayouts(1, shouldTeleport)
+    if not positioned then
+        return false, "not on base"
     end
     local ok, result = pcall(action)
     if teleported and savedLayoutPosition then
