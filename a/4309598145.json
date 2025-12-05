@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6872265039,
+  "jobId": "8342e6a2-3cef-4dcc-acd3-872c3ac0bf25",
+  "join": "roblox://placeId=6872265039&gameInstanceId=8342e6a2-3cef-4dcc-acd3-872c3ac0bf25",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764904367507
+  "web": "https://www.roblox.com/games/start?placeId=6872265039&gameInstanceId=8342e6a2-3cef-4dcc-acd3-872c3ac0bf25",
+  "location": "BedWars [⛏️MINE WARS]",
+  "updatedAt": 1764905057536
 }
