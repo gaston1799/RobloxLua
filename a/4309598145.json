@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 75566430380254,
+  "jobId": "6b6891b3-f0c3-496c-93bc-38b11bf13208",
+  "join": "roblox://placeId=75566430380254&gameInstanceId=6b6891b3-f0c3-496c-93bc-38b11bf13208",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764925037906
+  "web": "https://www.roblox.com/games/start?placeId=75566430380254&gameInstanceId=6b6891b3-f0c3-496c-93bc-38b11bf13208",
+  "location": "Death Ball",
+  "updatedAt": 1764925067954
 }
