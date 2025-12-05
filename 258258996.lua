@@ -139,6 +139,10 @@ local MinersHaven = {
         SafeZones = {},
         Items = {},
         Evolved = {},
+        Settings = {
+            teleportFallback = true,
+            returnHomeOnIdle = true,
+        },
         LayoutAutomation = {
             layout2Enabled = false,
             layout3Enabled = false,
@@ -149,11 +153,13 @@ local MinersHaven = {
             rebirthWithLayout = false,
             rebirthLayout = "Layout1",
             rebirthWithdraw = false,
+            teleportForAutoRebirth = true,
             layoutSelections = {
                 first = "Layout1",
                 second = "Layout2",
                 third = "Layout3",
             },
+            teleportToTycoon = true,
         },
     },
     State = {
@@ -184,12 +190,145 @@ local MinersHaven = {
 -- Local cache and convenience references
 ---------------------------------------------------------------------
 
+local Settings = MinersHaven.Data.Settings
 local FetchItemModule = nil
 local touchedMHBoxes = {}
 local LegitPathing = false
 local pathfindingBusy = false
 local humanoid
 local humanoidRoot
+local lastReturnHome = 0
+local goToTycoonBase
+local returnToTycoonBaseIfIdle
+local startCollectBoxes
+local startCollectClovers
+local startOpenBoxes
+local startAutoRebirth
+local startRebirthFarm
+local waypointBillboard
+local waypointLabel
+local currentWaypointIndex = 0
+local totalWaypoints = 0
+local currentWaypointPosition
+local currentGoalPosition
+local stuckTimer = 0
+local lastRootPosition
+local stuckRepathRequested = false
+local stuckConnection
+local createPathForHumanoid
+local simplifyCharacterCollisions
+local createWaypointVisualizer
+local updateWaypointVisualizer
+local attachStuckDetection
+
+local STUCK_DISTANCE_THRESHOLD = 0.2
+local STUCK_TIME_THRESHOLD = 0.75
+
+local function simplifyCharacterCollisions(character)
+    local coreParts = {
+        HumanoidRootPart = true,
+        UpperTorso = true,
+        LowerTorso = true,
+        Torso = true,
+        Head = true,
+    }
+
+    for _, part in ipairs(character:GetDescendants()) do
+        if part:IsA("BasePart") and not coreParts[part.Name] then
+            part.CanCollide = false
+        end
+    end
+end
+
+createPathForHumanoid = function(humanoidObj)
+    local agentHeight = humanoidObj and humanoidObj.HipHeight and (humanoidObj.HipHeight * 2 + 2) or 8
+    local pathParams = {
+        AgentRadius = 3.5,
+        AgentHeight = agentHeight,
+        AgentCanJump = true,
+        AgentCanClimb = true,
+    }
+    return PathfindingService:CreatePath(pathParams)
+end
+
+local function createWaypointVisualizer(character)
+    local root = character:WaitForChild("HumanoidRootPart")
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = "WaypointVisualizer"
+    billboard.Adornee = root
+    billboard.Size = UDim2.new(0, 200, 0, 50)
+    billboard.StudsOffset = Vector3.new(0, 4, 0)
+    billboard.AlwaysOnTop = true
+    billboard.Parent = character
+
+    local label = Instance.new("TextLabel")
+    label.BackgroundTransparency = 1
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.Font = Enum.Font.SourceSansBold
+    label.TextScaled = true
+    label.TextColor3 = Color3.new(1, 1, 1)
+    label.TextStrokeTransparency = 0.3
+    label.Name = "InfoLabel"
+    label.Text = "Idle"
+    label.Parent = billboard
+
+    return billboard, label
+end
+
+updateWaypointVisualizer = function(label, humanoidObj, root, waypointIndex, waypointTotal, waypointPosition)
+    if not label or not humanoidObj or not root then
+        return
+    end
+    if not waypointPosition then
+        label.Text = "No path"
+        return
+    end
+    local distance = (waypointPosition - root.Position).Magnitude
+    local speed = humanoidObj.WalkSpeed > 0 and humanoidObj.WalkSpeed or 1
+    local eta = distance / speed
+
+    label.Text = string.format(
+        "WP %d/%d | Dist: %.1f | ETA: %.2fs",
+        waypointIndex or 0,
+        waypointTotal or 0,
+        distance,
+        eta
+    )
+end
+
+attachStuckDetection = function()
+    if stuckConnection then
+        stuckConnection:Disconnect()
+        stuckConnection = nil
+    end
+    stuckTimer = 0
+    stuckConnection = RunService.Heartbeat:Connect(function(dt)
+        if not humanoidRoot then
+            return
+        end
+        if not lastRootPosition then
+            lastRootPosition = humanoidRoot.Position
+            return
+        end
+        if not currentGoalPosition or not pathfindingBusy then
+            lastRootPosition = humanoidRoot.Position
+            stuckTimer = 0
+            return
+        end
+        local currentPos = humanoidRoot.Position
+        if (currentPos - lastRootPosition).Magnitude < STUCK_DISTANCE_THRESHOLD then
+            stuckTimer += dt
+            if stuckTimer > STUCK_TIME_THRESHOLD then
+                stuckTimer = 0
+                stuckRepathRequested = true
+            end
+        else
+            stuckTimer = 0
+        end
+        lastRootPosition = currentPos
+    end)
+end
 
 local function ensureLibraries()
     if not FetchItemModule then
@@ -208,6 +347,13 @@ local function refreshCharacter()
     local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
     humanoid = character:WaitForChild("Humanoid")
     humanoidRoot = character:WaitForChild("HumanoidRootPart")
+    simplifyCharacterCollisions(character)
+    lastRootPosition = humanoidRoot.Position
+    if waypointBillboard then
+        waypointBillboard:Destroy()
+    end
+    waypointBillboard, waypointLabel = createWaypointVisualizer(character)
+    attachStuckDetection()
 end
 
 refreshCharacter()
@@ -362,36 +508,143 @@ local function getClosestPart(instances)
 end
 
 local function moveTo(position)
-    if not humanoid then
+    if not humanoid or not humanoidRoot then
         return false
     end
     if not LegitPathing then
         humanoidRoot.CFrame = CFrame.new(position)
+        updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
         return true
     end
     if pathfindingBusy then
         return false
     end
+    lastRootPosition = humanoidRoot.Position
     pathfindingBusy = true
-    local path = PathfindingService:CreatePath({
-        AgentCanJump = true,
-        AgentHeight = humanoid.HipHeight,
-        AgentRadius = humanoid.HipHeight / 2,
-    })
-    path:ComputeAsync(humanoidRoot.Position, position)
-    if path.Status ~= Enum.PathStatus.Success then
+    currentGoalPosition = position
+    stuckRepathRequested = false
+
+    local function computePath()
+        local pathObj = createPathForHumanoid(humanoid)
+        pathObj:ComputeAsync(humanoidRoot.Position, currentGoalPosition)
+        local status = pathObj.Status
+        local waypoints = pathObj:GetWaypoints()
+        totalWaypoints = #waypoints
+        currentWaypointIndex = 0
+        return pathObj, status, waypoints
+    end
+
+    currentWaypointPosition = nil
+    local pathObj, status, waypoints = computePath()
+    if status ~= Enum.PathStatus.Success or #waypoints == 0 then
         pathfindingBusy = false
+        local fallbackTarget = currentGoalPosition or position
+        currentGoalPosition = nil
+        currentWaypointPosition = nil
+        if Settings.teleportFallback and fallbackTarget then
+            humanoidRoot.CFrame = CFrame.new(fallbackTarget)
+            updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
+            return true
+        end
         return false
     end
-    for _, waypoint in ipairs(path:GetWaypoints()) do
-        humanoid:MoveTo(waypoint.Position)
+
+    local i = 0
+    while i < #waypoints do
+        i += 1
+        local waypoint = waypoints[i]
+        currentWaypointIndex = i
+        currentWaypointPosition = waypoint.Position
+        updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, currentWaypointIndex, totalWaypoints, currentWaypointPosition)
+
         if waypoint.Action == Enum.PathWaypointAction.Jump then
             humanoid.Jump = true
+            task.wait(0.25)
         end
-        humanoid.MoveToFinished:Wait()
+
+        local reached = false
+        local connection
+        connection = humanoid.MoveToFinished:Connect(function(success)
+            reached = success
+        end)
+
+        humanoid:MoveTo(waypoint.Position)
+        local startTime = os.clock()
+        while not reached and os.clock() - startTime < 2 do
+            task.wait(0.05)
+            updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, currentWaypointIndex, totalWaypoints, currentWaypointPosition)
+            if stuckRepathRequested then
+                break
+            end
+        end
+
+        if connection and connection.Connected then
+            connection:Disconnect()
+        end
+
+        if stuckRepathRequested then
+            stuckRepathRequested = false
+            pathObj, status, waypoints = computePath()
+            if status ~= Enum.PathStatus.Success or #waypoints == 0 then
+                pathfindingBusy = false
+                local fallbackTarget = currentGoalPosition or position
+                currentGoalPosition = nil
+                currentWaypointPosition = nil
+                if Settings.teleportFallback and fallbackTarget then
+                    humanoidRoot.CFrame = CFrame.new(fallbackTarget)
+                    updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
+                    return true
+                end
+                return false
+            end
+            i = 0
+            continue
+        end
+
+        if not reached then
+            if humanoidRoot then
+                humanoidRoot.CFrame = CFrame.new(waypoint.Position + Vector3.new(0, 4, 0))
+            end
+        end
     end
     pathfindingBusy = false
+    currentGoalPosition = nil
+    currentWaypointPosition = nil
+    updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
     return true
+end
+
+local function waitForBoxTouch(target)
+    if not target then
+        return
+    end
+    if target:IsA("Model") then
+        target = target.PrimaryPart or target:FindFirstChildWhichIsA("BasePart")
+    end
+    if not target or not target:IsA("BasePart") then
+        return
+    end
+    local touched = false
+    local connection
+    connection = target.Touched:Connect(function(hit)
+        local character = LocalPlayer.Character
+        if not hit or not character then
+            return
+        end
+        if hit:IsDescendantOf(character) then
+            touched = true
+            if connection then
+                connection:Disconnect()
+            end
+        end
+    end)
+    local deadline = os.clock() + 2
+    while not touched and os.clock() < deadline do
+        task.wait(0.05)
+    end
+    if connection and connection.Connected then
+        connection:Disconnect()
+    end
 end
 
 MinersHaven.Modules.Utilities.getItem = getItem
@@ -414,6 +667,14 @@ local collectCloversTask
 local openBoxesTask
 local rebirthTask
 
+local function stopAllAutomation()
+    startCollectBoxes(false)
+    startCollectClovers(false)
+    startOpenBoxes(false)
+    startAutoRebirth(false)
+    startRebirthFarm(false)
+end
+
 local function collectBoxesLoop()
     while MinersHaven.State.collectBoxes do
         cleanupTouchedMHBoxes()
@@ -428,6 +689,11 @@ local function collectBoxesLoop()
                 end
             end
         end
+        if #candidateBoxes == 0 then
+            returnToTycoonBaseIfIdle()
+            task.wait(0.35)
+            continue
+        end
         table.sort(candidateBoxes, function(a, b)
             return (a.part.Position - rootPart.Position).Magnitude <
                 (b.part.Position - rootPart.Position).Magnitude
@@ -439,6 +705,7 @@ local function collectBoxesLoop()
             if entry.part and entry.part.Parent then
                 local before = rootPart.CFrame
                 moveTo(entry.part.Position)
+                waitForBoxTouch(entry.part)
                 touchedMHBoxes[entry.key] = os.clock()
                 if not LegitPathing then
                     task.wait(0.1)
@@ -455,6 +722,7 @@ local function collectCloversLoop()
     while MinersHaven.State.collectClovers do
         local clovers = workspace:FindFirstChild("Clovers")
         if not clovers then
+            returnToTycoonBaseIfIdle()
             task.wait(1)
             continue
         end
@@ -465,6 +733,7 @@ local function collectCloversLoop()
             task.wait(1.2)
             humanoidRoot.CFrame = before
         else
+            returnToTycoonBaseIfIdle()
             task.wait(1)
         end
     end
@@ -501,40 +770,80 @@ local function getTycoonBase()
     return tycoonValue.Value:FindFirstChild("Base") or tycoonValue.Value.Base
 end
 
-local function executeAtTycoonBase(action)
+local function getTycoonBasePart()
+    local base = getTycoonBase()
+    if not base then
+        return nil
+    end
+    if base:IsA("BasePart") then
+        return base
+    end
+    if base.PrimaryPart then
+        return base.PrimaryPart
+    end
+    return base:FindFirstChildWhichIsA("BasePart")
+end
+
+goToTycoonBase = function()
+    local targetPart = getTycoonBasePart()
+    if not targetPart or not targetPart:IsA("BasePart") then
+        return false
+    end
+    if not humanoidRoot then
+        return false
+    end
+    return moveTo(targetPart.Position)
+end
+
+returnToTycoonBaseIfIdle = function()
+    if not Settings.returnHomeOnIdle then
+        return
+    end
+    local now = os.clock()
+    if now - lastReturnHome < 2 then
+        return
+    end
+    if goToTycoonBase() then
+        lastReturnHome = now
+    end
+end
+
+MinersHaven.Modules.Pathing.goToTycoonBase = goToTycoonBase
+
+local function executeAtTycoonBase(action, allowTeleport)
     if type(action) ~= "function" then
         return false, "missing action"
+    end
+    local shouldTeleport = MinersHaven.Data.LayoutAutomation.teleportToTycoon ~= false
+    if allowTeleport ~= nil then
+        shouldTeleport = allowTeleport
     end
     local base = getTycoonBase()
     if not base then
         warn("[MinersHaven] Unable to locate tycoon base for layout work.")
         return false, "no base"
     end
-    local targetPart
-    if base:IsA("BasePart") then
-        targetPart = base
-    elseif base.PrimaryPart then
-        targetPart = base.PrimaryPart
-    else
-        targetPart = base:FindFirstChildWhichIsA("BasePart")
-    end
+    local targetPart = getTycoonBasePart()
     if not targetPart then
         warn("[MinersHaven] Tycoon base has no usable part.")
         return false, "no surface"
     end
-    if humanoidRoot then
+    local teleported = false
+    savedLayoutPosition = nil
+    if shouldTeleport and humanoidRoot then
         savedLayoutPosition = humanoidRoot.CFrame
         moveTo(targetPart.Position)
+        teleported = true
     end
     local ok, result = pcall(action)
-    if savedLayoutPosition then
+    if teleported and savedLayoutPosition then
         moveTo(savedLayoutPosition.Position)
         savedLayoutPosition = nil
     end
     return ok, result
 end
 
-local function loadLayout(layoutName)
+local function loadLayout(layoutName, allowTeleport)
     if not layoutName or layoutName == "" then
         return false
     end
@@ -544,7 +853,7 @@ local function loadLayout(layoutName)
     end
     local ok, err = executeAtTycoonBase(function()
         LayoutsService:InvokeServer("Load", layoutName)
-    end)
+    end, allowTeleport)
     if not ok then
         warn("[MinersHaven] Failed to load layout:", layoutName, err)
     end
@@ -571,13 +880,13 @@ local function waitForCashThreshold(cost)
     return MinersHaven.State.rebirthFarm
 end
 
-local function runLayoutSequence()
+local function runLayoutSequence(teleportOverride)
     if not MinersHaven.State.rebirthFarm then
         return
     end
     local config = MinersHaven.Data.LayoutAutomation
     local firstLayout = config.layoutSelections.first or LAYOUT_OPTIONS[1]
-    loadLayout(firstLayout)
+    loadLayout(firstLayout, teleportOverride)
     if config.layout2Enabled and MinersHaven.State.rebirthFarm then
         if not waitForCashThreshold(config.layout2Cost) then
             return
@@ -586,7 +895,7 @@ local function runLayoutSequence()
             destroyAll()
         end
         local secondLayout = config.layoutSelections.second or LAYOUT_OPTIONS[2]
-        loadLayout(secondLayout)
+        loadLayout(secondLayout, teleportOverride)
     end
     if config.layout3Enabled and MinersHaven.State.rebirthFarm then
         if not waitForCashThreshold(config.layout3Cost) then
@@ -596,7 +905,7 @@ local function runLayoutSequence()
             destroyAll()
         end
         local thirdLayout = config.layoutSelections.third or LAYOUT_OPTIONS[3]
-        loadLayout(thirdLayout)
+        loadLayout(thirdLayout, teleportOverride)
     end
 end
 
@@ -652,7 +961,7 @@ local function autoRebirthLoop()
             task.wait(0.5)
             -- If rebirth farm is ON, load layouts before/around the rebirth
             if MinersHaven.State.rebirthFarm then
-                runLayoutSequence()
+                runLayoutSequence(MinersHaven.Data.LayoutAutomation.teleportForAutoRebirth)
             end
         else
             -- Not enough money yet, poll again soon
@@ -700,6 +1009,7 @@ MinersHaven.Modules.Farming.autoRebirth = startAutoRebirth
 MinersHaven.Modules.Farming.rebirthFarm = startRebirthFarm
 MinersHaven.Modules.Farming.loadLayouts = runLayoutSequence
 MinersHaven.Modules.Farming.prepareRebirthLayout = prepareRebirthLayout
+MinersHaven.Modules.Farming.stopAll = stopAllAutomation
 
 ---------------------------------------------------------------------
 -- Inventory helpers
@@ -761,6 +1071,22 @@ local function buildVenyxUI()
         end,
     })
 
+    boxesSection:addToggle({
+        title = "Teleport fallback on path fail",
+        default = Settings.teleportFallback,
+        callback = function(value)
+            Settings.teleportFallback = value
+        end,
+    })
+
+    boxesSection:addToggle({
+        title = "Return home when idle",
+        default = Settings.returnHomeOnIdle,
+        callback = function(value)
+            Settings.returnHomeOnIdle = value
+        end,
+    })
+
 
     local layoutConfig = MinersHaven.Data.LayoutAutomation
     local autoRebirthSection = minersPage:addSection({title = "Auto Rebirth"})
@@ -775,6 +1101,22 @@ local function buildVenyxUI()
         title = "Auto Rebirth",
         default = MinersHaven.State.autoRebirth,
         callback = startAutoRebirth,
+    })
+
+    autoRebirthSection:addToggle({
+        title = "Teleport to Tycoon for layouts",
+        default = layoutConfig.teleportToTycoon,
+        callback = function(value)
+            layoutConfig.teleportToTycoon = value
+        end,
+    })
+
+    autoRebirthSection:addToggle({
+        title = "Teleport to Tycoon during Auto Rebirth",
+        default = layoutConfig.teleportForAutoRebirth,
+        callback = function(value)
+            layoutConfig.teleportForAutoRebirth = value
+        end,
     })
 
     autoRebirthSection:addDropdown({
@@ -883,6 +1225,20 @@ local function buildVenyxUI()
         end,
     })
 
+    local utilitiesSection = minersPage:addSection({title = "Utilities"})
+
+    utilitiesSection:addButton({
+        title = "Return to Tycoon",
+        callback = function()
+            goToTycoonBase()
+        end,
+    })
+
+    utilitiesSection:addButton({
+        title = "Stop all automation",
+        callback = stopAllAutomation,
+    })
+
     MinersHaven.UI.instances.library = venyx
     MinersHaven.UI.instances.ui = ui
     return venyx, ui
@@ -910,4 +1266,3 @@ function MinersHaven.init()
 end
 
 return MinersHaven
-
