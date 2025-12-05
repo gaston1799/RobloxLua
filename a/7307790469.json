@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "447045b0-474d-4def-be0e-dc6fdc15307c",
+  "join": "roblox://placeId=7041939546&gameInstanceId=447045b0-474d-4def-be0e-dc6fdc15307c",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764951170202
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=447045b0-474d-4def-be0e-dc6fdc15307c",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1764951200142
 }
