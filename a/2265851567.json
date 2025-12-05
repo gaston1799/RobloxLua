@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 124398083342642,
-  "jobId": "227df65e-f884-46cd-bf5b-f2311f8630bb",
-  "join": "roblox://placeId=124398083342642&gameInstanceId=227df65e-f884-46cd-bf5b-f2311f8630bb",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=124398083342642&gameInstanceId=227df65e-f884-46cd-bf5b-f2311f8630bb",
-  "location": "Ride A Cart Down A Slide",
-  "updatedAt": 1764964825317
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764965539759
 }
