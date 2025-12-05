@@ -198,6 +198,7 @@ local pathfindingBusy = false
 local humanoid
 local humanoidRoot
 local pathSegments = {}
+local boxHudLookup = {}
 local lastReturnHome = 0
 local goToTycoonBase
 local returnToTycoonBaseIfIdle
@@ -511,6 +512,62 @@ local function cleanupTouchedMHBoxes()
     end
 end
 
+local function getBoxBasePart(part)
+    if not part then
+        return nil
+    end
+    if part:IsA("Model") then
+        return part.PrimaryPart or part:FindFirstChildWhichIsA("BasePart")
+    end
+    if part:IsA("BasePart") then
+        return part
+    end
+    return nil
+end
+
+local function updateBoxHud(part, key, text, color)
+    local basePart = getBoxBasePart(part)
+    if not basePart then
+        return
+    end
+    local entry = boxHudLookup[key]
+    if not entry or not entry.billboard or not entry.label or not entry.billboard.Parent then
+        local billboard = Instance.new("BillboardGui")
+        billboard.Name = "MH_BoxStatus"
+        billboard.Adornee = basePart
+        billboard.Size = UDim2.new(0, 140, 0, 36)
+        billboard.StudsOffset = Vector3.new(0, 3, 0)
+        billboard.AlwaysOnTop = true
+        billboard.Parent = basePart
+
+        local label = Instance.new("TextLabel")
+        label.BackgroundTransparency = 1
+        label.Size = UDim2.new(1, 0, 1, 0)
+        label.Font = Enum.Font.SourceSansBold
+        label.TextScaled = true
+        label.TextStrokeTransparency = 0.3
+        label.TextColor3 = Color3.new(1, 1, 1)
+        label.Name = "Status"
+        label.Parent = billboard
+
+        entry = {billboard = billboard, label = label}
+        boxHudLookup[key] = entry
+    end
+    entry.label.Text = text or ""
+    if color then
+        entry.label.TextColor3 = color
+    end
+end
+
+local function cleanupBoxHuds()
+    for key, entry in pairs(boxHudLookup) do
+        local billboard = entry.billboard
+        if not billboard or not billboard.Parent then
+            boxHudLookup[key] = nil
+        end
+    end
+end
+
 local function getMinerHavenBoxKey(part)
     if part.Parent and part.Parent:IsA("Model") then
         return part.Parent
@@ -739,6 +796,7 @@ end
 local function collectBoxesLoop()
     while MinersHaven.State.collectBoxes do
         cleanupTouchedMHBoxes()
+        cleanupBoxHuds()
         local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
         local rootPart = character:WaitForChild("HumanoidRootPart")
     local candidateBoxes = {}
@@ -749,6 +807,9 @@ local function collectBoxesLoop()
             local key = getMinerHavenBoxKey(descendant)
             if not touchedMHBoxes[key] then
                 table.insert(candidateBoxes, {part = descendant, key = key})
+                updateBoxHud(descendant, key, "Ready", Color3.fromRGB(85, 255, 127))
+            else
+                updateBoxHud(descendant, key, "Collected", Color3.fromRGB(160, 160, 160))
             end
         end
     end
@@ -772,8 +833,14 @@ local function collectBoxesLoop()
                 targetPart = targetPart.PrimaryPart or targetPart:FindFirstChildWhichIsA("BasePart")
             end
             if targetPart and targetPart:IsA("BasePart") then
-                moveTo(targetPart.Position)
-                waitForBoxTouch(targetPart)
+                updateBoxHud(targetPart, entry.key, "Pathing...", Color3.fromRGB(60, 170, 255))
+                local success = moveTo(targetPart.Position)
+                if success then
+                    waitForBoxTouch(targetPart)
+                    updateBoxHud(targetPart, entry.key, "Collected", Color3.fromRGB(160, 160, 160))
+                else
+                    updateBoxHud(targetPart, entry.key, "No path", Color3.fromRGB(255, 120, 120))
+                end
             end
             touchedMHBoxes[entry.key] = os.clock()
             if not LegitPathing then
