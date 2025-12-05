@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 15101393044,
-  "jobId": "4a481db5-aaa9-4529-829d-d0d9b0e93f46",
-  "join": "roblox://placeId=15101393044&gameInstanceId=4a481db5-aaa9-4529-829d-d0d9b0e93f46",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=15101393044&gameInstanceId=4a481db5-aaa9-4529-829d-d0d9b0e93f46",
-  "location": " Dress To Impress✨",
-  "updatedAt": 1764956359527
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764957109798
 }
