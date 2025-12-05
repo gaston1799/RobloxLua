@@ -207,6 +207,7 @@ local rebirthHudLabel
 local rebirthHudConnection
 local baseDetectorPart
 local baseDetectorLabel
+local baseVisualsWatcherConnection
 local lastReturnHome = 0
 local goToTycoonBase
 local getTycoonBasePart
@@ -244,6 +245,7 @@ local getPlayerCash
 local loadLayout
 local ensureBaseDetector
 local updateBaseDetectorHud
+local ensureBaseVisuals
 
 local STUCK_DISTANCE_THRESHOLD = 0.2
 local STUCK_TIME_THRESHOLD = 0.75
@@ -566,6 +568,11 @@ updateBaseDetectorHud = function(isInside)
     end
 end
 
+ensureBaseVisuals = function()
+    ensureRebirthHud()
+    ensureBaseDetector()
+end
+
 simplifyWaypoints = function(waypoints, dotThreshold)
     dotThreshold = dotThreshold or 0.995
     local count = #waypoints
@@ -656,7 +663,7 @@ local function refreshCharacter()
     end
     waypointBillboard, waypointLabel = createWaypointVisualizer(character)
     attachStuckDetection()
-    ensureRebirthHud()
+    ensureBaseVisuals()
 end
 
 refreshCharacter()
@@ -1135,80 +1142,96 @@ local function collectBoxesLoop()
         local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
         local rootPart = character:WaitForChild("HumanoidRootPart")
         ensurePositionedAtBaseForBoxes()
-    local candidateBoxes = {}
-    local boxContainer = getBoxesContainer()
+        local candidateBoxes = {}
+        local boxContainer = getBoxesContainer()
 
-    if boxContainer then
-        -- NEW BEHAVIOR: treat ALL children inside workspace.Boxes as boxes
-        for _, child in ipairs(boxContainer:GetChildren()) do
-            local basePart = getBoxBasePart(child)
-            if basePart then
-                local key = getMinerHavenBoxKey(child)
-                if not touchedMHBoxes[key] then
-                    table.insert(candidateBoxes, {part = child, key = key})
-                    updateBoxHud(child, key, "Ready", Color3.fromRGB(85, 255, 127))
-                else
-                    updateBoxHud(child, key, "Collected", Color3.fromRGB(160, 160, 160))
+        if boxContainer then
+            -- NEW BEHAVIOR: treat ALL children inside workspace.Boxes as boxes
+            for _, child in ipairs(boxContainer:GetChildren()) do
+                local basePart = getBoxBasePart(child)
+                if basePart then
+                    local key = getMinerHavenBoxKey(child)
+                    if not touchedMHBoxes[key] then
+                        table.insert(candidateBoxes, {
+                            part = child,
+                            key = key,
+                            basePart = basePart,
+                        })
+                        updateBoxHud(child, key, "Ready", Color3.fromRGB(85, 255, 127))
+                    else
+                        updateBoxHud(child, key, "Collected", Color3.fromRGB(160, 160, 160))
+                    end
+                end
+            end
+        else
+            -- fallback to the original name-based detection system
+            local searchSpace = workspace:GetDescendants()
+            for _, descendant in ipairs(searchSpace) do
+                if isMinerHavenBox(descendant) then
+                    local key = getMinerHavenBoxKey(descendant)
+                    local basePart = getBoxBasePart(descendant)
+                    if basePart then
+                        if not touchedMHBoxes[key] then
+                            table.insert(candidateBoxes, {
+                                part = descendant,
+                                key = key,
+                                basePart = basePart,
+                            })
+                            updateBoxHud(descendant, key, "Ready", Color3.fromRGB(85, 255, 127))
+                        else
+                            updateBoxHud(descendant, key, "Collected", Color3.fromRGB(160, 160, 160))
+                        end
+                    end
                 end
             end
         end
-    else
-        -- fallback to the original name-based detection system
-        local searchSpace = workspace:GetDescendants()
-        for _, descendant in ipairs(searchSpace) do
-            if isMinerHavenBox(descendant) then
-                local key = getMinerHavenBoxKey(descendant)
-                if not touchedMHBoxes[key] then
-                    table.insert(candidateBoxes, {part = descendant, key = key})
-                    updateBoxHud(descendant, key, "Ready", Color3.fromRGB(85, 255, 127))
-                else
-                    updateBoxHud(descendant, key, "Collected", Color3.fromRGB(160, 160, 160))
-                end
-            end
-        end
-    end
+
         if #candidateBoxes == 0 then
             returnToTycoonBaseIfIdle()
             task.wait(0.35)
             continue
         end
+
         table.sort(candidateBoxes, function(a, b)
-            return (a.part.Position - rootPart.Position).Magnitude <
-                (b.part.Position - rootPart.Position).Magnitude
+            local ap = a.basePart or getBoxBasePart(a.part)
+            local bp = b.basePart or getBoxBasePart(b.part)
+            if not ap or not bp then
+                return false
+            end
+            return (ap.Position - rootPart.Position).Magnitude <
+                (bp.Position - rootPart.Position).Magnitude
         end)
-    for _, entry in ipairs(candidateBoxes) do
-        if not MinersHaven.State.collectBoxes then
-            break
-        end
-        if entry.part and entry.part.Parent then
-            local fails = boxFailCounts[entry.key] or 0
-            if fails >= 10 and not Settings.teleportToBoxOnPathFail then
-                updateBoxHud(entry.part, entry.key, "No path (skipped)", Color3.fromRGB(255, 120, 120))
-                continue
+
+        for _, entry in ipairs(candidateBoxes) do
+            if not MinersHaven.State.collectBoxes then
+                break
             end
-            local before = rootPart.CFrame
-            local targetPart = entry.part
-            if targetPart:IsA("Model") then
-                targetPart = targetPart.PrimaryPart or targetPart:FindFirstChildWhichIsA("BasePart")
-            end
-            if targetPart and targetPart:IsA("BasePart") then
-                updateBoxHud(targetPart, entry.key, "Pathing...", Color3.fromRGB(60, 170, 255))
-                local success = moveTo(targetPart.Position, {allowTeleportFallback = Settings.teleportToBoxOnPathFail})
-                if success then
-                    boxFailCounts[entry.key] = 0
-                    waitForBoxTouch(targetPart)
-                    updateBoxHud(targetPart, entry.key, "Collected", Color3.fromRGB(160, 160, 160))
-                else
-                    fails = fails + 1
-                    boxFailCounts[entry.key] = fails
-                    updateBoxHud(targetPart, entry.key, "No path", Color3.fromRGB(255, 120, 120))
+            if entry.part and entry.part.Parent then
+                local fails = boxFailCounts[entry.key] or 0
+                if fails >= 10 and not Settings.teleportToBoxOnPathFail then
+                    updateBoxHud(entry.part, entry.key, "No path (skipped)", Color3.fromRGB(255, 120, 120))
+                    continue
                 end
-            end
-            touchedMHBoxes[entry.key] = os.clock()
-            if not LegitPathing then
-                task.wait(0.1)
-                rootPart.CFrame = before
-            end
+                local before = rootPart.CFrame
+                local targetPart = entry.basePart or getBoxBasePart(entry.part)
+                if targetPart and targetPart:IsA("BasePart") then
+                    updateBoxHud(targetPart, entry.key, "Pathing...", Color3.fromRGB(60, 170, 255))
+                    local success = moveTo(targetPart.Position, {allowTeleportFallback = Settings.teleportToBoxOnPathFail})
+                    if success then
+                        boxFailCounts[entry.key] = 0
+                        waitForBoxTouch(targetPart)
+                        updateBoxHud(targetPart, entry.key, "Collected", Color3.fromRGB(160, 160, 160))
+                    else
+                        fails = fails + 1
+                        boxFailCounts[entry.key] = fails
+                        updateBoxHud(targetPart, entry.key, "No path", Color3.fromRGB(255, 120, 120))
+                    end
+                end
+                touchedMHBoxes[entry.key] = os.clock()
+                if not LegitPathing then
+                    task.wait(0.1)
+                    rootPart.CFrame = before
+                end
             end
         end
         task.wait(0.35)
@@ -1835,6 +1858,25 @@ function MinersHaven.init()
     ensureLibraries()
     local venyx, ui = buildVenyxUI()
     if venyx and ui then
+        if not baseVisualsWatcherConnection then
+            baseVisualsWatcherConnection = RunService.Heartbeat:Connect(function()
+                local basePart = getTycoonBasePart()
+                if basePart then
+                    ensureBaseVisuals()
+                end
+
+                local ready = rebirthHudLabel ~= nil
+                    and rebirthHudBillboard ~= nil
+                    and rebirthHudBillboard.Parent ~= nil
+                    and baseDetectorPart ~= nil
+                    and baseDetectorPart.Parent ~= nil
+
+                if ready then
+                    baseVisualsWatcherConnection:Disconnect()
+                    baseVisualsWatcherConnection = nil
+                end
+            end)
+        end
         return {
             library = venyx,
             ui = ui,
