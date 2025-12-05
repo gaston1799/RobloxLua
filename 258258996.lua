@@ -195,6 +195,7 @@ local MinersHaven = {
 local Settings = MinersHaven.Data.Settings
 local FetchItemModule = nil
 local touchedMHBoxes = {}
+local boxFailCounts = {}
 local LegitPathing = false
 local pathfindingBusy = false
 local humanoid
@@ -491,12 +492,19 @@ updateRebirthHud = function()
 end
 
 ensureBaseDetector = function()
-    local basePart = getTycoonBasePart()
+    local basePart = getTycoonBasePart and getTycoonBasePart()
     if not basePart then
         return nil
     end
+    -- Use a robust id for detecting base changes; avoid methods that may be unavailable
+    local ok, baseId = pcall(function()
+        return typeof(basePart.GetDebugId) == "function" and basePart:GetDebugId() or tostring(basePart)
+    end)
+    if not ok then
+        baseId = tostring(basePart)
+    end
     -- Recreate if base changed
-    if baseDetectorPart and baseDetectorPart.Parent and baseDetectorPart:GetAttribute("BaseId") ~= basePart:GetDebugId() then
+    if baseDetectorPart and baseDetectorPart.Parent and baseDetectorPart:GetAttribute("BaseId") ~= baseId then
         baseDetectorPart:Destroy()
         baseDetectorPart = nil
         baseDetectorLabel = nil
@@ -511,7 +519,7 @@ ensureBaseDetector = function()
         detector.Material = Enum.Material.ForceField
         detector.Color = Color3.fromRGB(0, 200, 255)
         detector.Transparency = 0.7
-        detector:SetAttribute("BaseId", basePart:GetDebugId())
+        detector:SetAttribute("BaseId", baseId)
         baseDetectorPart = detector
 
         local hud = Instance.new("BillboardGui")
@@ -766,8 +774,14 @@ local function cleanupTouchedMHBoxes()
     for box, timestamp in pairs(touchedMHBoxes) do
         if not box or not box.Parent then
             touchedMHBoxes[box] = nil
+            boxFailCounts[box] = nil
         elseif timestamp + 30 < os.clock() then
             touchedMHBoxes[box] = nil
+        end
+    end
+    for box, _ in pairs(boxFailCounts) do
+        if not box or not box.Parent then
+            boxFailCounts[box] = nil
         end
     end
 end
@@ -939,15 +953,20 @@ local function moveTo(position, options)
         currentWaypointPosition = waypoint.Position
         updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, currentWaypointIndex, totalWaypoints, currentWaypointPosition)
 
-        if prevWaypoint then
-            local slopeInfo = getSegmentSlopeInfo(prevWaypoint, waypoint)
-            if slopeInfo then
-                updateSlopeHud(slopeInfo, slopeHudPart, slopeHudLabel)
-                local goingUp = slopeInfo.dy > 0
-                local goingDown = slopeInfo.dy < 0
-                if goingUp or (Settings.jumpOnDownSlope and goingDown) then
-                    humanoid.Jump = true
-                end
+        local slopeInfo
+        local forceJumpThisSegment = false
+        if waypoints[i + 1] then
+            slopeInfo = getSegmentSlopeInfo(waypoint, waypoints[i + 1])
+        elseif prevWaypoint then
+            slopeInfo = getSegmentSlopeInfo(prevWaypoint, waypoint)
+        end
+        if slopeInfo then
+            updateSlopeHud(slopeInfo, slopeHudPart, slopeHudLabel)
+            local goingUp = slopeInfo.dy > 0
+            local goingDown = slopeInfo.dy < 0
+            local steepEnough = math.abs(slopeInfo.angleDeg) >= STEEP_UP_ANGLE_THRESHOLD
+            if steepEnough and (goingUp or (Settings.jumpOnDownSlope and goingDown)) then
+                forceJumpThisSegment = true
             end
         end
 
@@ -964,11 +983,24 @@ local function moveTo(position, options)
 
         humanoid:MoveTo(waypoint.Position)
         local startTime = os.clock()
+        local jumpedForSlope = false
         while not reached and os.clock() - startTime < 2 do
             task.wait(0.05)
             updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, currentWaypointIndex, totalWaypoints, currentWaypointPosition)
             if stuckRepathRequested then
                 break
+            end
+            if forceJumpThisSegment and not jumpedForSlope then
+                local distanceToWaypoint = (humanoidRoot.Position - waypoint.Position).Magnitude
+                if distanceToWaypoint <= 6 then
+                    humanoid.UseJumpPower = true
+                    if humanoid.JumpPower <= 0 then
+                        humanoid.JumpPower = 50
+                    end
+                    humanoid.Jump = true
+                    humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                    jumpedForSlope = true
+                end
             end
             if (humanoidRoot.Position - waypoint.Position).Magnitude < 2 then
                 reached = true
@@ -1149,6 +1181,11 @@ local function collectBoxesLoop()
             break
         end
         if entry.part and entry.part.Parent then
+            local fails = boxFailCounts[entry.key] or 0
+            if fails >= 10 and not Settings.teleportToBoxOnPathFail then
+                updateBoxHud(entry.part, entry.key, "No path (skipped)", Color3.fromRGB(255, 120, 120))
+                continue
+            end
             local before = rootPart.CFrame
             local targetPart = entry.part
             if targetPart:IsA("Model") then
@@ -1158,9 +1195,12 @@ local function collectBoxesLoop()
                 updateBoxHud(targetPart, entry.key, "Pathing...", Color3.fromRGB(60, 170, 255))
                 local success = moveTo(targetPart.Position, {allowTeleportFallback = Settings.teleportToBoxOnPathFail})
                 if success then
+                    boxFailCounts[entry.key] = 0
                     waitForBoxTouch(targetPart)
                     updateBoxHud(targetPart, entry.key, "Collected", Color3.fromRGB(160, 160, 160))
                 else
+                    fails = fails + 1
+                    boxFailCounts[entry.key] = fails
                     updateBoxHud(targetPart, entry.key, "No path", Color3.fromRGB(255, 120, 120))
                 end
             end
