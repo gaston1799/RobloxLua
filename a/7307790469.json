@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 14835828495,
+  "jobId": "32e1a789-14fb-4a82-84e0-b02dbee6ca00",
+  "join": "roblox://placeId=14835828495&gameInstanceId=32e1a789-14fb-4a82-84e0-b02dbee6ca00",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764949159420
+  "web": "https://www.roblox.com/games/start?placeId=14835828495&gameInstanceId=32e1a789-14fb-4a82-84e0-b02dbee6ca00",
+  "location": "[KIMMY!] Dudes Battlegrounds",
+  "updatedAt": 1764949610274
 }
