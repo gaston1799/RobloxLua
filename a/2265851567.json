@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 78699621133325,
+  "jobId": "d776e374-d554-4e01-84ca-a46b1b8ec713",
+  "join": "roblox://placeId=78699621133325&gameInstanceId=d776e374-d554-4e01-84ca-a46b1b8ec713",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1764962299879
+  "web": "https://www.roblox.com/games/start?placeId=78699621133325&gameInstanceId=d776e374-d554-4e01-84ca-a46b1b8ec713",
+  "location": "[🎄] Meet People Across The World 🔊",
+  "updatedAt": 1764962359879
 }
