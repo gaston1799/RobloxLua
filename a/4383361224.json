@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 113552022224040,
-  "jobId": "77f42709-7163-479b-862e-094bca32ce7d",
-  "join": "roblox://placeId=113552022224040&gameInstanceId=77f42709-7163-479b-862e-094bca32ce7d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=113552022224040&gameInstanceId=77f42709-7163-479b-862e-094bca32ce7d",
-  "location": "It's Raining Tacos!",
-  "updatedAt": 1764907698556
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764907790284
 }
