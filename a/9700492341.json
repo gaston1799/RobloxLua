@@ -1,12 +1,12 @@
 {
   "userId": 9700492341,
   "displayName": "ParadoxGhoul",
-  "status": "in-game",
-  "placeId": 93579217841822,
-  "jobId": "fc0b2254-e7a6-427d-8e52-ca621a906a45",
-  "join": "roblox://placeId=93579217841822&gameInstanceId=fc0b2254-e7a6-427d-8e52-ca621a906a45",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9700492341",
-  "web": "https://www.roblox.com/games/start?placeId=93579217841822&gameInstanceId=fc0b2254-e7a6-427d-8e52-ca621a906a45",
-  "location": "Flame Hood",
-  "updatedAt": 1764990891073
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1764991610848
 }
