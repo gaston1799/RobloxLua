@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 15330858308,
-  "jobId": "5b29b95c-111e-40af-8cfe-c7c0fc2662ac",
-  "join": "roblox://placeId=15330858308&gameInstanceId=5b29b95c-111e-40af-8cfe-c7c0fc2662ac",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=15330858308&gameInstanceId=5b29b95c-111e-40af-8cfe-c7c0fc2662ac",
-  "location": "[Martial Master!] Chakra Battlegrounds",
-  "updatedAt": 1765033070674
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765033610628
 }
