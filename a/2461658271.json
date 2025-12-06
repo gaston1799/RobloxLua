@@ -1,12 +1,12 @@
 {
   "userId": 2461658271,
   "displayName": "Bay_Xit",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 98664161516921,
+  "jobId": "b7769b18-dff9-456a-aa79-ed69e924320e",
+  "join": "roblox://placeId=98664161516921&gameInstanceId=b7769b18-dff9-456a-aa79-ed69e924320e",
   "follow": "roblox://followUserId=2461658271",
-  "web": null,
-  "location": "Offline",
-  "updatedAt": 1765049762597
+  "web": "https://www.roblox.com/games/start?placeId=98664161516921&gameInstanceId=b7769b18-dff9-456a-aa79-ed69e924320e",
+  "location": "Catch a Monster [BETA]",
+  "updatedAt": 1765049793095
 }
