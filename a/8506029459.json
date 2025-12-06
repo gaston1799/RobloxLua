@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "merip",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "12c9feec-186a-414d-bb51-35c64ac1d0b9",
+  "join": "roblox://placeId=5712833750&gameInstanceId=12c9feec-186a-414d-bb51-35c64ac1d0b9",
   "follow": "roblox://followUserId=8506029459",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765039310594
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=12c9feec-186a-414d-bb51-35c64ac1d0b9",
+  "location": "🎃 Animal Simulator",
+  "updatedAt": 1765039340658
 }
