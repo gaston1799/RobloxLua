@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 81419032505045,
+  "jobId": "fee54840-9b17-4245-aac1-fb4db0b71682",
+  "join": "roblox://placeId=81419032505045&gameInstanceId=fee54840-9b17-4245-aac1-fb4db0b71682",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765002710860
+  "web": "https://www.roblox.com/games/start?placeId=81419032505045&gameInstanceId=fee54840-9b17-4245-aac1-fb4db0b71682",
+  "location": "Airsoft Battles",
+  "updatedAt": 1765013751083
 }
