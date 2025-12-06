@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15532962292,
+  "jobId": "28af8ccc-1599-44fc-9597-d5d990ba36e9",
+  "join": "roblox://placeId=15532962292&gameInstanceId=28af8ccc-1599-44fc-9597-d5d990ba36e9",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765012911032
+  "web": "https://www.roblox.com/games/start?placeId=15532962292&gameInstanceId=28af8ccc-1599-44fc-9597-d5d990ba36e9",
+  "location": "Sol's RNG [Heaven🪽]",
+  "updatedAt": 1765012940839
 }
