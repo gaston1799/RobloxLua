@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6872265039,
+  "jobId": "8c182044-fd17-40ca-81d9-d315d7a7fb38",
+  "join": "roblox://placeId=6872265039&gameInstanceId=8c182044-fd17-40ca-81d9-d315d7a7fb38",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765031899831
+  "web": "https://www.roblox.com/games/start?placeId=6872265039&gameInstanceId=8c182044-fd17-40ca-81d9-d315d7a7fb38",
+  "location": "BedWars [❄️BATTLEPASS]",
+  "updatedAt": 1765031929772
 }
