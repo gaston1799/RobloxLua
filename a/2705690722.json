@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "in-game",
-  "placeId": 18152595062,
-  "jobId": "6c14e0c9-b68d-44d8-b717-ac707b3e8a42",
-  "join": "roblox://placeId=18152595062&gameInstanceId=6c14e0c9-b68d-44d8-b717-ac707b3e8a42",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2705690722",
-  "web": "https://www.roblox.com/games/start?placeId=18152595062&gameInstanceId=6c14e0c9-b68d-44d8-b717-ac707b3e8a42",
-  "location": "Chained Together [2-3-4-5 PLAYER]",
-  "updatedAt": 1765212425567
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765212725937
 }
