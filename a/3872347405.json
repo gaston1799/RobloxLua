@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 136723874788185,
+  "jobId": "d45577fc-26bb-4383-82d9-db7395a5166b",
+  "join": "roblox://placeId=136723874788185&gameInstanceId=d45577fc-26bb-4383-82d9-db7395a5166b",
   "follow": "roblox://followUserId=3872347405",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765159773355
+  "web": "https://www.roblox.com/games/start?placeId=136723874788185&gameInstanceId=d45577fc-26bb-4383-82d9-db7395a5166b",
+  "location": "My Boba Stand",
+  "updatedAt": 1765159803442
 }
