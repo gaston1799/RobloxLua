@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 118758941554698,
+  "jobId": "0ea0ff91-225a-485d-bc3c-b3b7621905c7",
+  "join": "roblox://placeId=118758941554698&gameInstanceId=0ea0ff91-225a-485d-bc3c-b3b7621905c7",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765182964395
+  "web": "https://www.roblox.com/games/start?placeId=118758941554698&gameInstanceId=0ea0ff91-225a-485d-bc3c-b3b7621905c7",
+  "location": "fight in a school",
+  "updatedAt": 1765183264991
 }
