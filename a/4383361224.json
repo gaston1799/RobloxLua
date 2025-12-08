@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 86010925325369,
+  "jobId": "3d43e7bd-2bcf-4150-aa89-f8ba4bd8f5a5",
+  "join": "roblox://placeId=86010925325369&gameInstanceId=3d43e7bd-2bcf-4150-aa89-f8ba4bd8f5a5",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765197485751
+  "web": "https://www.roblox.com/games/start?placeId=86010925325369&gameInstanceId=3d43e7bd-2bcf-4150-aa89-f8ba4bd8f5a5",
+  "location": "The Vale (Beta)",
+  "updatedAt": 1765198175238
 }
