@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 129009554587176,
-  "jobId": "334b8b33-382b-4f1d-935d-4f5cd89e3e3b",
-  "join": "roblox://placeId=129009554587176&gameInstanceId=334b8b33-382b-4f1d-935d-4f5cd89e3e3b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=129009554587176&gameInstanceId=334b8b33-382b-4f1d-935d-4f5cd89e3e3b",
-  "location": "The Forge [BETA]",
-  "updatedAt": 1765221365106
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765221875182
 }
