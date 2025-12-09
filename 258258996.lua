@@ -261,6 +261,7 @@ local BASE_ON_TOP_RADIUS = 10
 local BASE_ON_TOP_MARGIN = 2
 local BASE_ON_TOP_HEIGHT_PAD = 10
 local BASE_DETECTOR_EXTRA_HEIGHT = 100
+local OVERLAY_HEIGHT = 100
 
 local function isWithinBaseFootprint(basePart, root)
     root = root or humanoidRoot
@@ -623,6 +624,7 @@ end
 
 local function ensureTycoonOverlay()
     -- Keep the overlay stable like the standalone snippet: create once and reuse
+    -- Reuse existing overlay if present (as in the standalone snippet)
     local existing = workspace:FindFirstChild("TycoonOverlayBox")
     if existing and existing:IsA("BasePart") then
         tycoonOverlayPart = existing
@@ -630,7 +632,20 @@ local function ensureTycoonOverlay()
 
     local basePart = getTycoonBasePart and getTycoonBasePart()
     if not basePart then
-        return nil
+        -- Attempt a short wait for the base to appear
+        local ok, waited = pcall(function()
+            local tycoon = getTycoonBase()
+            if tycoon then
+                return tycoon:WaitForChild("Base", 3)
+            end
+            return nil
+        end)
+        if ok then
+            basePart = waited
+        end
+        if not basePart then
+            return nil
+        end
     end
 
     if not tycoonOverlayPart or not tycoonOverlayPart.Parent then
@@ -649,9 +664,8 @@ local function ensureTycoonOverlay()
         overlayHudLabel = nil
     end
 
-    local height = 100
-    tycoonOverlayPart.Size = Vector3.new(basePart.Size.X, height, basePart.Size.Z)
-    tycoonOverlayPart.CFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (height * 0.5), 0)
+    tycoonOverlayPart.Size = Vector3.new(basePart.Size.X, OVERLAY_HEIGHT, basePart.Size.Z)
+    tycoonOverlayPart.CFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (OVERLAY_HEIGHT * 0.5), 0)
     tycoonOverlayPart.Parent = workspace
 
     if not overlayHudBillboard or not overlayHudBillboard.Parent then
@@ -659,7 +673,7 @@ local function ensureTycoonOverlay()
         billboard.Name = "TycoonOverlayHud"
         billboard.AlwaysOnTop = true
         billboard.Size = UDim2.new(0, 260, 0, 50)
-        billboard.StudsOffsetWorldSpace = Vector3.new(0, height * 0.5 + 2, 0)
+        billboard.StudsOffsetWorldSpace = Vector3.new(0, OVERLAY_HEIGHT * 0.5 + 2, 0)
         billboard.Adornee = tycoonOverlayPart
         billboard.Parent = tycoonOverlayPart
 
@@ -1489,10 +1503,18 @@ local savedLayoutPosition
 
 local function getTycoonBase()
     local tycoonValue = LocalPlayer:FindFirstChild("PlayerTycoon")
+    if not tycoonValue then
+        local ok, val = pcall(function()
+            return LocalPlayer:WaitForChild("PlayerTycoon", 3)
+        end)
+        if ok then
+            tycoonValue = val
+        end
+    end
     if not tycoonValue or not tycoonValue.Value then
         return nil
     end
-    return tycoonValue.Value:FindFirstChild("Base") or tycoonValue.Value.Base
+    return tycoonValue.Value
 end
 
 local function getTycoonBasePart()
@@ -1500,13 +1522,28 @@ local function getTycoonBasePart()
     if not base then
         return nil
     end
-    if base:IsA("BasePart") then
-        return base
+    local surface = base:FindFirstChild("Base")
+    if not surface then
+        local ok, val = pcall(function()
+            return base:WaitForChild("Base", 3)
+        end)
+        if ok then
+            surface = val
+        end
     end
-    if base.PrimaryPart then
-        return base.PrimaryPart
+    if not surface then
+        surface = base.Base
     end
-    return base:FindFirstChildWhichIsA("BasePart")
+    if not surface then
+        surface = base.PrimaryPart
+    end
+    if not surface then
+        surface = base:FindFirstChildWhichIsA("BasePart")
+    end
+    if surface and surface:IsA("Model") then
+        surface = surface.PrimaryPart or surface:FindFirstChildWhichIsA("BasePart")
+    end
+    return surface
 end
 
 -- Initialize the rebirth HUD once base info is resolvable
