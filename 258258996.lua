@@ -1421,7 +1421,11 @@ ensurePositionedAtBaseForBoxes = function()
     ensureOnBaseForLayouts(1, true)
     local layoutConfig = MinersHaven.Data.LayoutAutomation
     local firstLayout = layoutConfig.layoutSelections.first or LAYOUT_OPTIONS[1]
-    loadLayout(firstLayout, false)
+    if type(loadLayout) == "function" and firstLayout then
+        loadLayout(firstLayout, false)
+    else
+        warn("[MinersHaven] loadLayout unavailable while positioning for boxes.")
+    end
 end
 
 ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
