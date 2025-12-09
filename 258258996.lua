@@ -262,7 +262,7 @@ local BASE_ON_TOP_RADIUS = 10
 local BASE_ON_TOP_MARGIN = 2
 local BASE_ON_TOP_HEIGHT_PAD = 10
 local BASE_DETECTOR_EXTRA_HEIGHT = 100
-local OVERLAY_HEIGHT = 100
+local OVERLAY_HEIGHT = 20
 
 -- One-time overlay checklist logger (runs at load)
 do
@@ -771,9 +771,12 @@ local function ensureTycoonOverlay()
 
         overlayHudBillboard = billboard
         overlayHudLabel = label
-    else
+    end
+    -- Refresh HUD bindings even if it already existed
+    if overlayHudBillboard then
         overlayHudBillboard.StudsOffsetWorldSpace = Vector3.new(0, tycoonOverlayPart.Size.Y * 0.5 + 2, 0)
         overlayHudBillboard.Adornee = tycoonOverlayPart
+        overlayHudBillboard.AlwaysOnTop = true
     end
     return basePart
 end
