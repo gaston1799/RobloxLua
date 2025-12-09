@@ -262,7 +262,7 @@ local BASE_ON_TOP_RADIUS = 10
 local BASE_ON_TOP_MARGIN = 2
 local BASE_ON_TOP_HEIGHT_PAD = 10
 local BASE_DETECTOR_EXTRA_HEIGHT = 100
-local OVERLAY_HEIGHT = 250
+local OVERLAY_HEIGHT = 100
 
 -- One-time overlay checklist logger (runs at load)
 do
@@ -316,9 +316,10 @@ do
                 overlay.Anchored = true
                 overlay.CanCollide = false
                 overlay.CanQuery = false
-                overlay.Transparency = 0.7
+                overlay.Transparency = 0.45
                 overlay.Color = Color3.fromRGB(255, 70, 70)
                 overlay.Material = Enum.Material.ForceField
+                overlay.CastShadow = false
                 overlay.Parent = workspace
                 log("Overlay created", true, overlay:GetFullName())
             end
@@ -734,9 +735,10 @@ local function ensureTycoonOverlay()
         overlay.Anchored = true
         overlay.CanCollide = false
         overlay.CanQuery = false
-        overlay.Transparency = 0.7
+        overlay.Transparency = 0.45
         overlay.Color = Color3.fromRGB(255, 70, 70)
         overlay.Material = Enum.Material.ForceField
+        overlay.CastShadow = false
         tycoonOverlayPart = overlay
         overlayState = "off"
         overlayEnterTime = 0
