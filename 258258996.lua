@@ -208,6 +208,10 @@ local rebirthHudConnection
 local baseDetectorPart
 local baseDetectorLabel
 local baseVisualsWatcherConnection
+local tycoonOverlayPart
+local overlayState = "off"
+local overlayEnterTime = 0
+local overlayWatcherConnection
 local lastReturnHome = 0
 local goToTycoonBase
 local getTycoonBasePart
@@ -255,6 +259,19 @@ local BASE_ON_TOP_RADIUS = 10
 local BASE_ON_TOP_MARGIN = 2
 local BASE_ON_TOP_HEIGHT_PAD = 10
 local BASE_DETECTOR_EXTRA_HEIGHT = 100
+
+local function isWithinBaseFootprint(basePart, root)
+    root = root or humanoidRoot
+    if not basePart or not root then
+        return false
+    end
+    local localPos = basePart.CFrame:PointToObjectSpace(root.Position)
+    local halfSize = basePart.Size * 0.5
+    return math.abs(localPos.X) <= halfSize.X
+        and math.abs(localPos.Z) <= halfSize.Z
+        and localPos.Y >= -BASE_ON_TOP_MARGIN
+        and localPos.Y <= halfSize.Y + BASE_ON_TOP_HEIGHT_PAD
+end
 
 local function isCharacterReady()
     if not LocalPlayer.Character then
@@ -602,9 +619,86 @@ updateBaseDetectorHud = function(isInside)
     end
 end
 
+local function ensureTycoonOverlay()
+    local basePart = getTycoonBasePart and getTycoonBasePart()
+    if not basePart then
+        if tycoonOverlayPart and tycoonOverlayPart.Parent then
+            tycoonOverlayPart:Destroy()
+        end
+        tycoonOverlayPart = nil
+        return nil
+    end
+    local ok, baseId = pcall(function()
+        return typeof(basePart.GetDebugId) == "function" and basePart:GetDebugId() or tostring(basePart)
+    end)
+    if not ok then
+        baseId = tostring(basePart)
+    end
+    if not tycoonOverlayPart or not tycoonOverlayPart.Parent or tycoonOverlayPart:GetAttribute("BaseId") ~= baseId then
+        if tycoonOverlayPart and tycoonOverlayPart.Parent then
+            tycoonOverlayPart:Destroy()
+        end
+        local overlay = Instance.new("Part")
+        overlay.Name = "TycoonOverlayBox"
+        overlay.Anchored = true
+        overlay.CanCollide = false
+        overlay.CanQuery = false
+        overlay.Transparency = 0.7
+        overlay.Color = Color3.fromRGB(255, 70, 70)
+        overlay.Material = Enum.Material.ForceField
+        overlay:SetAttribute("BaseId", baseId)
+        tycoonOverlayPart = overlay
+        overlayState = "off"
+    end
+    tycoonOverlayPart.Size = Vector3.new(basePart.Size.X, 1, basePart.Size.Z)
+    tycoonOverlayPart.CFrame = basePart.CFrame * CFrame.new(0, basePart.Size.Y * 0.5 + 0.5, 0)
+    tycoonOverlayPart.Parent = workspace
+    return basePart
+end
+
+local function updateTycoonOverlayState(onBase)
+    if not tycoonOverlayPart or not tycoonOverlayPart.Parent then
+        return
+    end
+    if onBase then
+        if overlayState ~= "arming" and overlayState ~= "on" then
+            tycoonOverlayPart.Color = Color3.fromRGB(255, 255, 80)
+            overlayEnterTime = os.clock()
+            overlayState = "arming"
+        elseif overlayState == "arming" and os.clock() - overlayEnterTime >= 1 then
+            tycoonOverlayPart.Color = Color3.fromRGB(120, 255, 120)
+            overlayState = "on"
+        end
+    else
+        tycoonOverlayPart.Color = Color3.fromRGB(255, 70, 70)
+        overlayState = "off"
+    end
+end
+
+local function ensureOverlayWatcher()
+    if overlayWatcherConnection then
+        return
+    end
+    overlayWatcherConnection = RunService.Heartbeat:Connect(function()
+        if not isCharacterReady() then
+            updateTycoonOverlayState(false)
+            return
+        end
+        local basePart = ensureTycoonOverlay()
+        if not basePart then
+            updateTycoonOverlayState(false)
+            return
+        end
+        local onBase = isWithinBaseFootprint(basePart, humanoidRoot)
+        updateTycoonOverlayState(onBase)
+    end)
+end
+
 ensureBaseVisuals = function()
     ensureRebirthHud()
     ensureBaseDetector()
+    ensureTycoonOverlay()
+    ensureOverlayWatcher()
 end
 
 simplifyWaypoints = function(waypoints, dotThreshold)
@@ -1421,11 +1515,7 @@ ensurePositionedAtBaseForBoxes = function()
     ensureOnBaseForLayouts(1, true)
     local layoutConfig = MinersHaven.Data.LayoutAutomation
     local firstLayout = layoutConfig.layoutSelections.first or LAYOUT_OPTIONS[1]
-    if type(loadLayout) == "function" and firstLayout then
-        loadLayout(firstLayout, false)
-    else
-        warn("[MinersHaven] loadLayout unavailable while positioning for boxes.")
-    end
+    loadLayout(firstLayout, false)
 end
 
 ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
@@ -1439,14 +1529,7 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
         if not basePart or not humanoidRoot then
             return false
         end
-        local localPos = basePart.CFrame:PointToObjectSpace(humanoidRoot.Position)
-        local halfSize = basePart.Size * 0.5
-        local onTop =
-            math.abs(localPos.X) <= halfSize.X and
-            math.abs(localPos.Z) <= halfSize.Z and
-            localPos.Y >= -halfSize.Y and
-            localPos.Y <= halfSize.Y
-
+        local onTop = isWithinBaseFootprint(basePart, humanoidRoot)
         if not onTop then
             stableStart = nil
             if LegitPathing then
