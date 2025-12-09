@@ -214,6 +214,7 @@ local overlayEnterTime = 0
 local overlayWatcherConnection
 local overlayHudBillboard
 local overlayHudLabel
+local overlayChecklistLogged = false
 local lastReturnHome = 0
 local goToTycoonBase
 local getTycoonBasePart
@@ -261,7 +262,86 @@ local BASE_ON_TOP_RADIUS = 10
 local BASE_ON_TOP_MARGIN = 2
 local BASE_ON_TOP_HEIGHT_PAD = 10
 local BASE_DETECTOR_EXTRA_HEIGHT = 100
-local OVERLAY_HEIGHT = 100
+local OVERLAY_HEIGHT = 250
+
+-- One-time overlay checklist logger (runs at load)
+do
+    local ok, err = pcall(function()
+        local Players = game:GetService("Players")
+        local lp = Players.LocalPlayer
+
+        local function log(step, success, detail)
+            local status = success and "[OK]" or "[FAIL]"
+            print(("%s %s%s"):format(status, step, detail and (" - " .. detail) or ""))
+        end
+
+        local function getTycoon()
+            local tv = lp:FindFirstChild("PlayerTycoon")
+            log("PlayerTycoon instance", tv ~= nil)
+            if not tv then
+                return nil
+            end
+            log("PlayerTycoon.Value (tycoon model)", tv.Value ~= nil, tv.Value and tv.Value:GetFullName())
+            return tv.Value
+        end
+
+        local function getBasePart(tycoon)
+            if not tycoon then
+                return nil
+            end
+            local base = tycoon:FindFirstChild("Base") or tycoon.Base
+            log("Tycoon has Base child", base ~= nil, base and base:GetFullName())
+            if not base then
+                base = tycoon.PrimaryPart
+                log("Fallback to PrimaryPart", base ~= nil, base and base:GetFullName())
+            end
+            if base and base:IsA("Model") then
+                base = base.PrimaryPart or base:FindFirstChildWhichIsA("BasePart")
+                log("Resolved BasePart from Model", base ~= nil, base and base:GetFullName())
+            end
+            log("Base is a BasePart", base ~= nil and base:IsA("BasePart"))
+            return base
+        end
+
+        local function ensureOverlay(basePart)
+            if not basePart then
+                log("Overlay creation skipped (no base)", false)
+                return nil
+            end
+            local overlay = workspace:FindFirstChild("TycoonOverlayBox")
+            log("Existing overlay in workspace", overlay ~= nil, overlay and overlay:GetFullName())
+            if not overlay then
+                overlay = Instance.new("Part")
+                overlay.Name = "TycoonOverlayBox"
+                overlay.Anchored = true
+                overlay.CanCollide = false
+                overlay.CanQuery = false
+                overlay.Transparency = 0.7
+                overlay.Color = Color3.fromRGB(255, 70, 70)
+                overlay.Material = Enum.Material.ForceField
+                overlay.Parent = workspace
+                log("Overlay created", true, overlay:GetFullName())
+            end
+            local height = OVERLAY_HEIGHT or 250
+            overlay.Size = Vector3.new(basePart.Size.X, height, basePart.Size.Z)
+            overlay.CFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (height * 0.5), 0)
+            log("Overlay sized/positioned", true, ("Size=%s"):format(tostring(overlay.Size)))
+            return overlay
+        end
+
+        local function runChecklist()
+            local tycoon = getTycoon()
+            local basePart = getBasePart(tycoon)
+            local overlay = ensureOverlay(basePart)
+            log("Overlay parented to workspace", overlay and overlay.Parent == workspace, overlay and overlay:GetFullName())
+        end
+
+        runChecklist()
+    end)
+    if not ok then
+        warn("[OverlayChecklist] Failed:", err)
+    end
+end
 
 local function isWithinBaseFootprint(basePart, root)
     root = root or humanoidRoot
