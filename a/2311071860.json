@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 18649596490,
-  "jobId": "313b5679-1aa0-4b0b-b528-72f8e1b3e45f",
-  "join": "roblox://placeId=18649596490&gameInstanceId=313b5679-1aa0-4b0b-b528-72f8e1b3e45f",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=18649596490&gameInstanceId=313b5679-1aa0-4b0b-b528-72f8e1b3e45f",
-  "location": "[RELAPSE] Are you lonely?",
-  "updatedAt": 1765315596722
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765316226680
 }
