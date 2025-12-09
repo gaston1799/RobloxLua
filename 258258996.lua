@@ -256,6 +256,40 @@ local BASE_ON_TOP_MARGIN = 2
 local BASE_ON_TOP_HEIGHT_PAD = 10
 local BASE_DETECTOR_EXTRA_HEIGHT = 100
 
+local function isCharacterReady()
+    if not LocalPlayer.Character then
+        return false
+    end
+    if not humanoid or not humanoidRoot then
+        return false
+    end
+    if not humanoid.Parent or not humanoidRoot.Parent then
+        return false
+    end
+    if humanoid.Health <= 0 then
+        return false
+    end
+    local ok, inWorkspace = pcall(function()
+        return humanoidRoot:IsDescendantOf(workspace)
+    end)
+    return ok and inWorkspace
+end
+
+local function resetBoxTracking()
+    for key in pairs(touchedMHBoxes) do
+        touchedMHBoxes[key] = nil
+    end
+    for key in pairs(boxFailCounts) do
+        boxFailCounts[key] = nil
+    end
+    for key, entry in pairs(boxHudLookup) do
+        if entry.billboard and entry.billboard.Parent then
+            entry.billboard:Destroy()
+        end
+        boxHudLookup[key] = nil
+    end
+end
+
 local function simplifyCharacterCollisions(character)
     local coreParts = {
         HumanoidRootPart = true,
@@ -613,7 +647,8 @@ attachStuckDetection = function()
     end
     stuckTimer = 0
     stuckConnection = RunService.Heartbeat:Connect(function(dt)
-        if not humanoidRoot then
+        if not isCharacterReady() then
+            lastRootPosition = nil
             return
         end
         if not lastRootPosition then
@@ -664,6 +699,9 @@ local function refreshCharacter()
     waypointBillboard, waypointLabel = createWaypointVisualizer(character)
     attachStuckDetection()
     ensureBaseVisuals()
+    if MinersHaven.State.collectBoxes then
+        resetBoxTracking()
+    end
 end
 
 refreshCharacter()
@@ -784,6 +822,7 @@ local function cleanupTouchedMHBoxes()
             boxFailCounts[box] = nil
         elseif timestamp + 30 < os.clock() then
             touchedMHBoxes[box] = nil
+            boxFailCounts[box] = nil
         end
     end
     for box, _ in pairs(boxFailCounts) do
@@ -877,7 +916,7 @@ local function isMinerHavenBox(part)
 end
 
 local function getClosestPart(instances)
-    if not humanoidRoot then
+    if not isCharacterReady() then
         return nil
     end
     local closest
@@ -907,6 +946,9 @@ local function moveTo(position, options)
     if not humanoid or not humanoidRoot then
         return false
     end
+    if not isCharacterReady() then
+        return false
+    end
     if not LegitPathing then
         humanoidRoot.CFrame = CFrame.new(position)
         updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
@@ -923,6 +965,9 @@ local function moveTo(position, options)
     stuckRepathRequested = false
 
     local function computePath()
+        if not isCharacterReady() then
+            return nil, Enum.PathStatus.NoPath, {}
+        end
         local pathObj = createPathForHumanoid(humanoid)
         pathObj:ComputeAsync(humanoidRoot.Position, currentGoalPosition)
         local status = pathObj.Status
@@ -954,6 +999,17 @@ local function moveTo(position, options)
     local prevWaypoint = nil
     local i = 0
     while i < #waypoints do
+        if not isCharacterReady() then
+            pathfindingBusy = false
+            currentGoalPosition = nil
+            currentWaypointPosition = nil
+            updateWaypointVisualizer(waypointLabel, humanoid, humanoidRoot, 0, 0, nil)
+            clearPathVisualizer()
+            if slopeHudPart then
+                slopeHudPart:Destroy()
+            end
+            return false
+        end
         i += 1
         local waypoint = waypoints[i]
         currentWaypointIndex = i
@@ -1137,10 +1193,21 @@ end
 
 local function collectBoxesLoop()
     while MinersHaven.State.collectBoxes do
+        if not isCharacterReady() then
+            resetBoxTracking()
+            refreshCharacter()
+            task.wait(0.2)
+            continue
+        end
         cleanupTouchedMHBoxes()
         cleanupBoxHuds()
         local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
         local rootPart = character:WaitForChild("HumanoidRootPart")
+        if not isCharacterReady() or not rootPart or not rootPart.Parent then
+            resetBoxTracking()
+            task.wait(0.2)
+            continue
+        end
         ensurePositionedAtBaseForBoxes()
         local candidateBoxes = {}
         local boxContainer = getBoxesContainer()
@@ -1187,7 +1254,9 @@ local function collectBoxesLoop()
         end
 
         if #candidateBoxes == 0 then
-            returnToTycoonBaseIfIdle()
+            if isCharacterReady() then
+                returnToTycoonBaseIfIdle()
+            end
             task.wait(0.35)
             continue
         end
@@ -1195,7 +1264,7 @@ local function collectBoxesLoop()
         table.sort(candidateBoxes, function(a, b)
             local ap = a.basePart or getBoxBasePart(a.part)
             local bp = b.basePart or getBoxBasePart(b.part)
-            if not ap or not bp then
+            if not ap or not bp or not rootPart or not rootPart.Parent then
                 return false
             end
             return (ap.Position - rootPart.Position).Magnitude <
@@ -1204,6 +1273,9 @@ local function collectBoxesLoop()
 
         for _, entry in ipairs(candidateBoxes) do
             if not MinersHaven.State.collectBoxes then
+                break
+            end
+            if not isCharacterReady() then
                 break
             end
             if entry.part and entry.part.Parent then
@@ -1309,18 +1381,18 @@ end
 ensureRebirthHud()
 
 goToTycoonBase = function()
-    local targetPart = getTycoonBasePart()
-    if not targetPart or not targetPart:IsA("BasePart") then
+    if not isCharacterReady() then
         return false
     end
-    if not humanoidRoot then
+    local targetPart = getTycoonBasePart()
+    if not targetPart or not targetPart:IsA("BasePart") then
         return false
     end
     return moveTo(targetPart.Position)
 end
 
 returnToTycoonBaseIfIdle = function()
-    if not Settings.returnHomeOnIdle then
+    if not Settings.returnHomeOnIdle or not isCharacterReady() then
         return
     end
     local now = os.clock()
@@ -1335,6 +1407,9 @@ end
 MinersHaven.Modules.Pathing.goToTycoonBase = goToTycoonBase
 
 ensurePositionedAtBaseForBoxes = function()
+    if not isCharacterReady() then
+        return
+    end
     local basePart = getTycoonBasePart()
     if not basePart or not humanoidRoot then
         return
@@ -1353,6 +1428,9 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
     minSeconds = minSeconds or 1
     local stableStart = nil
     while true do
+        if not isCharacterReady() then
+            return false
+        end
         local basePart = ensureBaseDetector()
         if not basePart or not humanoidRoot then
             return false
@@ -1562,8 +1640,13 @@ end
 
 local function startCollectBoxes(value)
     MinersHaven.State.collectBoxes = value
-    if value and not collectBoxesTask then
-        collectBoxesTask = task.spawn(collectBoxesLoop)
+    if value then
+        resetBoxTracking()
+        if not collectBoxesTask then
+            collectBoxesTask = task.spawn(collectBoxesLoop)
+        end
+    else
+        resetBoxTracking()
     end
 end
 
