@@ -622,26 +622,18 @@ updateBaseDetectorHud = function(isInside)
 end
 
 local function ensureTycoonOverlay()
+    -- Keep the overlay stable like the standalone snippet: create once and reuse
+    local existing = workspace:FindFirstChild("TycoonOverlayBox")
+    if existing and existing:IsA("BasePart") then
+        tycoonOverlayPart = existing
+    end
+
     local basePart = getTycoonBasePart and getTycoonBasePart()
     if not basePart then
-        if tycoonOverlayPart and tycoonOverlayPart.Parent then
-            tycoonOverlayPart:Destroy()
-        end
-        tycoonOverlayPart = nil
-        overlayHudBillboard = nil
-        overlayHudLabel = nil
         return nil
     end
-    local ok, baseId = pcall(function()
-        return typeof(basePart.GetDebugId) == "function" and basePart:GetDebugId() or tostring(basePart)
-    end)
-    if not ok then
-        baseId = tostring(basePart)
-    end
-    if not tycoonOverlayPart or not tycoonOverlayPart.Parent or tycoonOverlayPart:GetAttribute("BaseId") ~= baseId then
-        if tycoonOverlayPart and tycoonOverlayPart.Parent then
-            tycoonOverlayPart:Destroy()
-        end
+
+    if not tycoonOverlayPart or not tycoonOverlayPart.Parent then
         local overlay = Instance.new("Part")
         overlay.Name = "TycoonOverlayBox"
         overlay.Anchored = true
@@ -650,21 +642,24 @@ local function ensureTycoonOverlay()
         overlay.Transparency = 0.7
         overlay.Color = Color3.fromRGB(255, 70, 70)
         overlay.Material = Enum.Material.ForceField
-        overlay:SetAttribute("BaseId", baseId)
         tycoonOverlayPart = overlay
         overlayState = "off"
+        overlayEnterTime = 0
         overlayHudBillboard = nil
         overlayHudLabel = nil
     end
-    tycoonOverlayPart.Size = Vector3.new(basePart.Size.X, 100, basePart.Size.Z)
-    tycoonOverlayPart.CFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (tycoonOverlayPart.Size.Y * 0.5), 0)
+
+    local height = 100
+    tycoonOverlayPart.Size = Vector3.new(basePart.Size.X, height, basePart.Size.Z)
+    tycoonOverlayPart.CFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (height * 0.5), 0)
     tycoonOverlayPart.Parent = workspace
+
     if not overlayHudBillboard or not overlayHudBillboard.Parent then
         local billboard = Instance.new("BillboardGui")
         billboard.Name = "TycoonOverlayHud"
         billboard.AlwaysOnTop = true
         billboard.Size = UDim2.new(0, 260, 0, 50)
-        billboard.StudsOffsetWorldSpace = Vector3.new(0, tycoonOverlayPart.Size.Y * 0.5 + 2, 0)
+        billboard.StudsOffsetWorldSpace = Vector3.new(0, height * 0.5 + 2, 0)
         billboard.Adornee = tycoonOverlayPart
         billboard.Parent = tycoonOverlayPart
 
@@ -682,6 +677,7 @@ local function ensureTycoonOverlay()
         overlayHudLabel = label
     else
         overlayHudBillboard.StudsOffsetWorldSpace = Vector3.new(0, tycoonOverlayPart.Size.Y * 0.5 + 2, 0)
+        overlayHudBillboard.Adornee = tycoonOverlayPart
     end
     return basePart
 end
@@ -719,18 +715,18 @@ local function ensureOverlayWatcher()
         return
     end
     overlayWatcherConnection = RunService.Heartbeat:Connect(function()
-        if not isCharacterReady() then
-            updateTycoonOverlayState(false)
-            updateTycoonOverlayHud(false)
-            return
-        end
         local basePart = ensureTycoonOverlay()
         if not basePart then
             updateTycoonOverlayState(false)
             updateTycoonOverlayHud(false)
             return
         end
-        local onBase = isWithinBaseFootprint(basePart, humanoidRoot)
+        local root = humanoidRoot
+            or (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart"))
+        local onBase = false
+        if root then
+            onBase = isWithinBaseFootprint(basePart, root)
+        end
         updateTycoonOverlayState(onBase)
         updateTycoonOverlayHud(onBase)
     end)
