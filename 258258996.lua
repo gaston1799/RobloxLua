@@ -171,6 +171,7 @@ local MinersHaven = {
         legitPathing = false,
         autoRebirth = false,
         rebirthFarm = false,
+        onBase = false,
     },
     Modules = {
         Utilities = {},
@@ -785,6 +786,7 @@ local function updateTycoonOverlayState(onBase)
     if not tycoonOverlayPart or not tycoonOverlayPart.Parent then
         return
     end
+    MinersHaven.State.onBase = onBase and true or false
     if onBase then
         if overlayState ~= "arming" and overlayState ~= "on" then
             tycoonOverlayPart.Color = Color3.fromRGB(255, 255, 80)
