@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2413927524,
+  "jobId": "2795af6e-4932-47d1-bc86-b985a08e810f",
+  "join": "roblox://placeId=2413927524&gameInstanceId=2795af6e-4932-47d1-bc86-b985a08e810f",
   "follow": "roblox://followUserId=2311071860",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765251156128
+  "web": "https://www.roblox.com/games/start?placeId=2413927524&gameInstanceId=2795af6e-4932-47d1-bc86-b985a08e810f",
+  "location": "The Rake REMASTERED",
+  "updatedAt": 1765251275997
 }
