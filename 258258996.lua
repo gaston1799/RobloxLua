@@ -212,6 +212,8 @@ local tycoonOverlayPart
 local overlayState = "off"
 local overlayEnterTime = 0
 local overlayWatcherConnection
+local overlayHudBillboard
+local overlayHudLabel
 local lastReturnHome = 0
 local goToTycoonBase
 local getTycoonBasePart
@@ -626,6 +628,8 @@ local function ensureTycoonOverlay()
             tycoonOverlayPart:Destroy()
         end
         tycoonOverlayPart = nil
+        overlayHudBillboard = nil
+        overlayHudLabel = nil
         return nil
     end
     local ok, baseId = pcall(function()
@@ -649,10 +653,36 @@ local function ensureTycoonOverlay()
         overlay:SetAttribute("BaseId", baseId)
         tycoonOverlayPart = overlay
         overlayState = "off"
+        overlayHudBillboard = nil
+        overlayHudLabel = nil
     end
-    tycoonOverlayPart.Size = Vector3.new(basePart.Size.X, 1, basePart.Size.Z)
-    tycoonOverlayPart.CFrame = basePart.CFrame * CFrame.new(0, basePart.Size.Y * 0.5 + 0.5, 0)
+    tycoonOverlayPart.Size = Vector3.new(basePart.Size.X, 100, basePart.Size.Z)
+    tycoonOverlayPart.CFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (tycoonOverlayPart.Size.Y * 0.5), 0)
     tycoonOverlayPart.Parent = workspace
+    if not overlayHudBillboard or not overlayHudBillboard.Parent then
+        local billboard = Instance.new("BillboardGui")
+        billboard.Name = "TycoonOverlayHud"
+        billboard.AlwaysOnTop = true
+        billboard.Size = UDim2.new(0, 260, 0, 50)
+        billboard.StudsOffsetWorldSpace = Vector3.new(0, tycoonOverlayPart.Size.Y * 0.5 + 2, 0)
+        billboard.Adornee = tycoonOverlayPart
+        billboard.Parent = tycoonOverlayPart
+
+        local label = Instance.new("TextLabel")
+        label.Name = "Status"
+        label.BackgroundTransparency = 1
+        label.Size = UDim2.new(1, 0, 1, 0)
+        label.Font = Enum.Font.SourceSansBold
+        label.TextScaled = true
+        label.TextColor3 = Color3.new(1, 1, 1)
+        label.TextStrokeTransparency = 0.3
+        label.Parent = billboard
+
+        overlayHudBillboard = billboard
+        overlayHudLabel = label
+    else
+        overlayHudBillboard.StudsOffsetWorldSpace = Vector3.new(0, tycoonOverlayPart.Size.Y * 0.5 + 2, 0)
+    end
     return basePart
 end
 
@@ -675,6 +705,15 @@ local function updateTycoonOverlayState(onBase)
     end
 end
 
+local function updateTycoonOverlayHud(onBase)
+    if not overlayHudLabel or not overlayHudBillboard or not overlayHudBillboard.Parent then
+        return
+    end
+    local posText = onBase and "On base" or "Off base"
+    local rebirthText = MinersHaven.State.autoRebirth and "Rebirth: ON" or "Rebirth: OFF"
+    overlayHudLabel.Text = string.format("%s | %s", posText, rebirthText)
+end
+
 local function ensureOverlayWatcher()
     if overlayWatcherConnection then
         return
@@ -682,15 +721,18 @@ local function ensureOverlayWatcher()
     overlayWatcherConnection = RunService.Heartbeat:Connect(function()
         if not isCharacterReady() then
             updateTycoonOverlayState(false)
+            updateTycoonOverlayHud(false)
             return
         end
         local basePart = ensureTycoonOverlay()
         if not basePart then
             updateTycoonOverlayState(false)
+            updateTycoonOverlayHud(false)
             return
         end
         local onBase = isWithinBaseFootprint(basePart, humanoidRoot)
         updateTycoonOverlayState(onBase)
+        updateTycoonOverlayHud(onBase)
     end)
 end
 
