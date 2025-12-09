@@ -172,6 +172,9 @@ local MinersHaven = {
         autoRebirth = false,
         rebirthFarm = false,
         onBase = false,
+        currentTask = "Idle",
+        taskDetail = "",
+        lastRebirthProgress = 0,
     },
     Modules = {
         Utilities = {},
@@ -254,6 +257,7 @@ local loadLayout
 local ensureBaseDetector
 local updateBaseDetectorHud
 local ensureBaseVisuals
+local setTaskState
 
 local STUCK_DISTANCE_THRESHOLD = 0.2
 local STUCK_TIME_THRESHOLD = 0.75
@@ -263,7 +267,15 @@ local BASE_ON_TOP_RADIUS = 10
 local BASE_ON_TOP_MARGIN = 2
 local BASE_ON_TOP_HEIGHT_PAD = 10
 local BASE_DETECTOR_EXTRA_HEIGHT = 100
-local OVERLAY_HEIGHT = 20
+local OVERLAY_HEIGHT = 250
+
+setTaskState = function(task, detail)
+    MinersHaven.State.currentTask = task or "Idle"
+    MinersHaven.State.taskDetail = detail or ""
+    if updateTycoonOverlayHud then
+        pcall(updateTycoonOverlayHud, MinersHaven.State.onBase)
+    end
+end
 
 -- One-time overlay checklist logger (runs at load)
 do
@@ -622,11 +634,15 @@ updateRebirthHud = function()
     local priceNumber = getRebirthPriceFromUI()
     local currentCash = getPlayerCash()
     if not priceNumber or priceNumber <= 0 then
+        MinersHaven.State.lastRebirthProgress = 0
         rebirthHudLabel.Text = string.format("Cash: %.2e | Rebirth: --", currentCash or 0)
+        updateTycoonOverlayHud(MinersHaven.State.onBase)
         return
     end
     local progress = math.clamp((currentCash or 0) / priceNumber, 0, 1)
+    MinersHaven.State.lastRebirthProgress = progress
     rebirthHudLabel.Text = string.format("Rebirth %.2f%% | Cash: %.2e / %.2e", progress * 100, currentCash or 0, priceNumber)
+    updateTycoonOverlayHud(MinersHaven.State.onBase)
 end
 
 ensureBaseDetector = function()
@@ -806,9 +822,34 @@ local function updateTycoonOverlayHud(onBase)
     if not overlayHudLabel or not overlayHudBillboard or not overlayHudBillboard.Parent then
         return
     end
+    local state = MinersHaven.State
     local posText = onBase and "On base" or "Off base"
-    local rebirthText = MinersHaven.State.autoRebirth and "Rebirth: ON" or "Rebirth: OFF"
-    overlayHudLabel.Text = string.format("%s | %s", posText, rebirthText)
+    local progress = state.lastRebirthProgress or 0
+    local rebirthText
+    local labelColor = Color3.new(1, 1, 1)
+
+    if state.autoRebirth then
+        if progress > 0 then
+            rebirthText = string.format("Rebirth: %.0f%%", progress * 100)
+            labelColor = Color3.fromRGB(120, 255, 120)
+        else
+            rebirthText = "Rebirth: waiting"
+            labelColor = Color3.fromRGB(255, 255, 120)
+        end
+        if state.currentTask == "Rebirth" or state.currentTask == "Layouts" then
+            labelColor = Color3.fromRGB(120, 255, 120)
+        end
+    else
+        rebirthText = "Rebirth: OFF"
+    end
+
+    local taskText = state.currentTask or "Idle"
+    if state.taskDetail and state.taskDetail ~= "" then
+        taskText = string.format("%s (%s)", taskText, state.taskDetail)
+    end
+
+    overlayHudLabel.Text = string.format("%s | %s | %s", posText, rebirthText, taskText)
+    overlayHudLabel.TextColor3 = labelColor
 end
 
 local function ensureOverlayWatcher()
@@ -1676,8 +1717,10 @@ ensurePositionedAtBaseForBoxes = function()
     end
     ensureOnBaseForLayouts(1, true)
     local layoutConfig = MinersHaven.Data.LayoutAutomation
-    local firstLayout = layoutConfig.layoutSelections.first or LAYOUT_OPTIONS[1]
-    loadLayout(firstLayout, false)
+    local firstLayout = (layoutConfig and layoutConfig.layoutSelections and layoutConfig.layoutSelections.first) or LAYOUT_OPTIONS[1]
+    if type(loadLayout) == "function" and firstLayout then
+        loadLayout(firstLayout, false)
+    end
 end
 
 ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
@@ -1800,27 +1843,33 @@ local function runLayoutSequence(teleportOverride)
     end
     local config = MinersHaven.Data.LayoutAutomation
     local firstLayout = config.layoutSelections.first or LAYOUT_OPTIONS[1]
+    setTaskState("Layouts", "First layout")
     loadLayout(firstLayout, teleportOverride)
     if config.layout2Enabled and MinersHaven.State.rebirthFarm then
         if not waitForCashThreshold(config.layout2Cost) then
+            setTaskState("Idle", "")
             return
         end
         if config.layout2Withdraw then
             destroyAll()
         end
         local secondLayout = config.layoutSelections.second or LAYOUT_OPTIONS[2]
+        setTaskState("Layouts", "Second layout")
         loadLayout(secondLayout, teleportOverride)
     end
     if config.layout3Enabled and MinersHaven.State.rebirthFarm then
         if not waitForCashThreshold(config.layout3Cost) then
+            setTaskState("Idle", "")
             return
         end
         if config.layout3Withdraw then
             destroyAll()
         end
         local thirdLayout = config.layoutSelections.third or LAYOUT_OPTIONS[3]
+        setTaskState("Layouts", "Third layout")
         loadLayout(thirdLayout, teleportOverride)
     end
+    setTaskState("Idle", "")
 end
 
 local function runLayoutPrep()
@@ -1835,8 +1884,12 @@ local function startRebirthFarm(value)
     MinersHaven.State.rebirthFarm = value
     needsLayoutNextRebirth = value
     if value then
+        setTaskState("Layouts", "Preparing")
         runLayoutPrep()
+    elseif not MinersHaven.State.autoRebirth and not MinersHaven.State.collectBoxes and not MinersHaven.State.collectClovers then
+        setTaskState("Idle", "")
     end
+    updateTycoonOverlayHud(MinersHaven.State.onBase)
 end
 
 local function prepareRebirthLayout()
@@ -1853,11 +1906,16 @@ end
 local function autoRebirthLoop()
     ensureLibraries()
 
+    setTaskState("Rebirth", "Watching cash")
+
     while MinersHaven.State.autoRebirth do
         -- 1) Get current rebirth cost from UI
         local priceNumber = getRebirthPriceFromUI()
 
         if not priceNumber or priceNumber <= 0 then
+            MinersHaven.State.lastRebirthProgress = 0
+            setTaskState("Rebirth", "Waiting for price")
+            updateTycoonOverlayHud(MinersHaven.State.onBase)
             -- Couldn't read price, try again in a bit
             task.wait(1)
             continue
@@ -1865,24 +1923,48 @@ local function autoRebirthLoop()
 
         -- 2) Check if we have enough money yet
         local currentCash = getPlayerCash()
+        local progress = math.clamp((currentCash or 0) / priceNumber, 0, 1)
+        MinersHaven.State.lastRebirthProgress = progress
+        setTaskState("Rebirth", string.format("Progress %.2f%%", progress * 100))
+        updateTycoonOverlayHud(MinersHaven.State.onBase)
 
         if currentCash >= priceNumber then
             -- We can rebirth
 
+            local wasCollectingBoxes = MinersHaven.State.collectBoxes
+            local wasCollectingClovers = MinersHaven.State.collectClovers
+            if wasCollectingBoxes or wasCollectingClovers then
+                setTaskState("Rebirth", "Pausing box farm")
+                startCollectBoxes(false)
+                startCollectClovers(false)
+            end
+
             -- 3) Actually rebirth
+            setTaskState("Rebirth", "Invoking")
             ReplicatedStorage.Rebirth:InvokeServer()
             -- Small cooldown so we don't spam
             task.wait(0.5)
             -- If rebirth farm is ON, load layouts before/around the rebirth
             if MinersHaven.State.rebirthFarm then
+                setTaskState("Rebirth", "Layouts")
                 runLayoutSequence(MinersHaven.Data.LayoutAutomation.teleportForAutoRebirth)
             end
+            if wasCollectingBoxes then
+                startCollectBoxes(true)
+            end
+            if wasCollectingClovers then
+                startCollectClovers(true)
+            end
+            setTaskState("Rebirth", "Cooldown")
+            task.wait(0.25)
         else
             -- Not enough money yet, poll again soon
             task.wait(0.1)
         end
     end
 
+    MinersHaven.State.lastRebirthProgress = 0
+    setTaskState("Idle", "")
     rebirthTask = nil
 end
 
@@ -1894,9 +1976,14 @@ local function startCollectBoxes(value)
         if not collectBoxesTask then
             collectBoxesTask = task.spawn(collectBoxesLoop)
         end
+        setTaskState("BoxFarm", "Collecting boxes")
     else
         resetBoxTracking()
+        if not MinersHaven.State.collectClovers and not MinersHaven.State.autoRebirth and not MinersHaven.State.rebirthFarm then
+            setTaskState("Idle", "")
+        end
     end
+    updateTycoonOverlayHud(MinersHaven.State.onBase)
 end
 
 local function startCollectClovers(value)
@@ -1904,6 +1991,12 @@ local function startCollectClovers(value)
     if value and not collectCloversTask then
         collectCloversTask = task.spawn(collectCloversLoop)
     end
+    if value then
+        setTaskState("BoxFarm", "Collecting clovers")
+    elseif not MinersHaven.State.collectBoxes and not MinersHaven.State.autoRebirth and not MinersHaven.State.rebirthFarm then
+        setTaskState("Idle", "")
+    end
+    updateTycoonOverlayHud(MinersHaven.State.onBase)
 end
 
 local function startOpenBoxes(value)
@@ -1916,8 +2009,13 @@ end
 local function startAutoRebirth(value)
     MinersHaven.State.autoRebirth = value
     if value and not rebirthTask then
+        setTaskState("Rebirth", "Watching cash")
         rebirthTask = task.spawn(autoRebirthLoop)
+    elseif not value and not MinersHaven.State.rebirthFarm and not MinersHaven.State.collectBoxes and not MinersHaven.State.collectClovers then
+        MinersHaven.State.lastRebirthProgress = 0
+        setTaskState("Idle", "")
     end
+    updateTycoonOverlayHud(MinersHaven.State.onBase)
 end
 
 MinersHaven.Modules.Farming.collectBoxes = startCollectBoxes
