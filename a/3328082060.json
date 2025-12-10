@@ -1,12 +1,12 @@
 {
   "userId": 3328082060,
   "displayName": "ParadoxGhoul",
-  "status": "in-game",
-  "placeId": 109397169461300,
-  "jobId": "278111ce-1b4a-4838-9029-94649301fe87",
-  "join": "roblox://placeId=109397169461300&gameInstanceId=278111ce-1b4a-4838-9029-94649301fe87",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3328082060",
-  "web": "https://www.roblox.com/games/start?placeId=109397169461300&gameInstanceId=278111ce-1b4a-4838-9029-94649301fe87",
-  "location": "[ NEW MAP ] SNIPER DUELS",
-  "updatedAt": 1765348481005
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765350640419
 }
