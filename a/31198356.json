@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "in-game",
-  "placeId": 99758842280353,
-  "jobId": "05b56a39-c9b1-4ad1-b7bf-835d5a74721c",
-  "join": "roblox://placeId=99758842280353&gameInstanceId=05b56a39-c9b1-4ad1-b7bf-835d5a74721c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=31198356",
-  "web": "https://www.roblox.com/games/start?placeId=99758842280353&gameInstanceId=05b56a39-c9b1-4ad1-b7bf-835d5a74721c",
-  "location": "Dog Walk 🐶 [2 Player Obby]",
-  "updatedAt": 1765343679599
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765345209559
 }
