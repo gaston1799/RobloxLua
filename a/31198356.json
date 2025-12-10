@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92310193505934,
+  "jobId": "f80b364d-19c4-48ae-a163-746deaec2a84",
+  "join": "roblox://placeId=92310193505934&gameInstanceId=f80b364d-19c4-48ae-a163-746deaec2a84",
   "follow": "roblox://followUserId=31198356",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765348539638
+  "web": "https://www.roblox.com/games/start?placeId=92310193505934&gameInstanceId=f80b364d-19c4-48ae-a163-746deaec2a84",
+  "location": "Better Avatar? 👕",
+  "updatedAt": 1765348569616
 }
