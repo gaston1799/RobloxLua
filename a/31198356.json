@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "in-game",
-  "placeId": 6358567974,
-  "jobId": "fbb8f7dd-f4af-41d8-ad34-f63ec6c0b879",
-  "join": "roblox://placeId=6358567974&gameInstanceId=fbb8f7dd-f4af-41d8-ad34-f63ec6c0b879",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=31198356",
-  "web": "https://www.roblox.com/games/start?placeId=6358567974&gameInstanceId=fbb8f7dd-f4af-41d8-ad34-f63ec6c0b879",
-  "location": "Salon de Fiestas",
-  "updatedAt": 1765337229533
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765338819506
 }
