@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13703839980,
+  "jobId": "0293a1e5-4079-40dd-b1db-5aa518ecf684",
+  "join": "roblox://placeId=13703839980&gameInstanceId=0293a1e5-4079-40dd-b1db-5aa518ecf684",
   "follow": "roblox://followUserId=31198356",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765345209559
+  "web": "https://www.roblox.com/games/start?placeId=13703839980&gameInstanceId=0293a1e5-4079-40dd-b1db-5aa518ecf684",
+  "location": "[UPD] Team Daycare Escape! (TEAMWORK OBBY)",
+  "updatedAt": 1765345269555
 }
