@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "in-game",
-  "placeId": 74779072921656,
-  "jobId": "dd1ab96d-6760-4152-9a4b-dfbc6d469abf",
-  "join": "roblox://placeId=74779072921656&gameInstanceId=dd1ab96d-6760-4152-9a4b-dfbc6d469abf",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=31198356",
-  "web": "https://www.roblox.com/games/start?placeId=74779072921656&gameInstanceId=dd1ab96d-6760-4152-9a4b-dfbc6d469abf",
-  "location": "🐝 Spelling Bee",
-  "updatedAt": 1765347699573
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765348539638
 }
