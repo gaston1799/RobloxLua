@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "in-game",
-  "placeId": 16480898254,
-  "jobId": "ffa26899-cb54-481c-b298-d7c6352a1a16",
-  "join": "roblox://placeId=16480898254&gameInstanceId=ffa26899-cb54-481c-b298-d7c6352a1a16",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=31198356",
-  "web": "https://www.roblox.com/games/start?placeId=16480898254&gameInstanceId=ffa26899-cb54-481c-b298-d7c6352a1a16",
-  "location": "Eat the World",
-  "updatedAt": 1765342149550
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765342659919
 }
