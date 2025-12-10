@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "in-game",
-  "placeId": 16446180574,
-  "jobId": "6068043f-65b3-49cf-9664-222a4a337062",
-  "join": "roblox://placeId=16446180574&gameInstanceId=6068043f-65b3-49cf-9664-222a4a337062",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=31198356",
-  "web": "https://www.roblox.com/games/start?placeId=16446180574&gameInstanceId=6068043f-65b3-49cf-9664-222a4a337062",
-  "location": "♠ Twenty One",
-  "updatedAt": 1765351749685
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765352709673
 }
