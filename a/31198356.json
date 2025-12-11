@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 79546208627805,
+  "jobId": "fa93d21c-41d8-4a58-95b9-32070bc8a700",
+  "join": "roblox://placeId=79546208627805&gameInstanceId=fa93d21c-41d8-4a58-95b9-32070bc8a700",
   "follow": "roblox://followUserId=31198356",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765413430670
+  "web": "https://www.roblox.com/games/start?placeId=79546208627805&gameInstanceId=fa93d21c-41d8-4a58-95b9-32070bc8a700",
+  "location": "99 Nights in the Forest 🔦",
+  "updatedAt": 1765413460694
 }
