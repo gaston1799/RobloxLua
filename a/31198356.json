@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "in-game",
-  "placeId": 14373879477,
-  "jobId": "6848376c-29d8-4423-8423-e00af3a5426b",
-  "join": "roblox://placeId=14373879477&gameInstanceId=6848376c-29d8-4423-8423-e00af3a5426b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=31198356",
-  "web": "https://www.roblox.com/games/start?placeId=14373879477&gameInstanceId=6848376c-29d8-4423-8423-e00af3a5426b",
-  "location": "Carry Me! [2 Player Obby] ",
-  "updatedAt": 1765410940665
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765412561679
 }
