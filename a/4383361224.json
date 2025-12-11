@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 79268222731089,
+  "jobId": "5c1a97a7-1178-4558-91af-ec6b4daab468",
+  "join": "roblox://placeId=79268222731089&gameInstanceId=5c1a97a7-1178-4558-91af-ec6b4daab468",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765429063354
+  "web": "https://www.roblox.com/games/start?placeId=79268222731089&gameInstanceId=5c1a97a7-1178-4558-91af-ec6b4daab468",
+  "location": "Facility of Redemption [V3+]",
+  "updatedAt": 1765429093047
 }
