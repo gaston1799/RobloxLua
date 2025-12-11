@@ -1,12 +1,12 @@
 {
   "userId": 1222416095,
   "displayName": "HollowTheOG",
-  "status": "in-game",
-  "placeId": 14979402479,
-  "jobId": "f995d6d9-030d-4bad-b11c-cd5ac6d0d3f6",
-  "join": "roblox://placeId=14979402479&gameInstanceId=f995d6d9-030d-4bad-b11c-cd5ac6d0d3f6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1222416095",
-  "web": "https://www.roblox.com/games/start?placeId=14979402479&gameInstanceId=f995d6d9-030d-4bad-b11c-cd5ac6d0d3f6",
-  "location": "HAZE PIECE",
-  "updatedAt": 1765488244666
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765489315139
 }
