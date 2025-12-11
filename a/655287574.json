@@ -1,12 +1,12 @@
 {
   "userId": 655287574,
   "displayName": "SleepyAtelo",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "bcd8c0f0-9748-417f-a1fe-c795ecd0fedf",
-  "join": "roblox://placeId=5712833750&gameInstanceId=bcd8c0f0-9748-417f-a1fe-c795ecd0fedf",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=655287574",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=bcd8c0f0-9748-417f-a1fe-c795ecd0fedf",
-  "location": "🎃 Animal Simulator",
-  "updatedAt": 1765463559608
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765475035842
 }
