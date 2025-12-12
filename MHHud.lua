@@ -1,42 +1,62 @@
--- Simple external overlay color controller.
--- This script ONLY changes the overlay Color based on whether the player is on their base.
--- The main Miner's Haven script is responsible for HUD + sizing/positioning.
+-- Simple standalone overlay + HUD demo with color cycling.
+-- Drop into an executor to verify overlay creation without the full Miner's Haven script.
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local lp = Players.LocalPlayer
-if not lp then
-    warn("[OverlayDemo] No LocalPlayer; aborting.")
-    return
+local OVERLAY_HEIGHT = 80
+local MARGIN = 2
+local ARMED_TIME = 1
+
+local function createOverlay(basePosition)
+    local part = Instance.new("Part")
+    part.Name = "DemoOverlayBox"
+    part.Anchored = true
+    part.CanCollide = false
+    part.CanQuery = false
+    part.Transparency = 0.45
+    part.Color = Color3.fromRGB(255, 70, 70)
+    part.Material = Enum.Material.ForceField
+    part.CastShadow = false
+    part.Size = Vector3.new(60, OVERLAY_HEIGHT, 60)
+    part.CFrame = CFrame.new(basePosition) * CFrame.new(0, OVERLAY_HEIGHT * 0.5, 0)
+    part.Parent = workspace
+    return part
 end
 
-local OVERLAY_HEIGHT = 80
+local function attachHud(overlay)
+    local hud = Instance.new("BillboardGui")
+    hud.Name = "DemoOverlayHud"
+    hud.AlwaysOnTop = true
+    hud.Size = UDim2.new(0, 240, 0, 50)
+    hud.StudsOffsetWorldSpace = Vector3.new(0, overlay.Size.Y * 0.5 + 2, 0)
+    hud.Adornee = overlay
+    hud.Parent = overlay
 
-local COLORS = {
-    OFF   = Color3.fromRGB(255, 70, 70),   -- red
-    EARLY = Color3.fromRGB(255, 255, 80),  -- yellow
-    STABLE= Color3.fromRGB(120, 255, 120), -- green
-}
+    local label = Instance.new("TextLabel")
+    label.Name = "Status"
+    label.BackgroundTransparency = 1
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.Font = Enum.Font.SourceSansBold
+    label.TextScaled = true
+    label.TextColor3 = Color3.new(1, 1, 1)
+    label.TextStrokeTransparency = 0.3
+    label.Text = "Overlay demo"
+    label.Parent = hud
 
--- ////////////////////////////////////////////////////////////
--- Tycoon / base helpers
--- ////////////////////////////////////////////////////////////
-
-local function getTycoon()
-    local tv = lp:FindFirstChild("PlayerTycoon")
-    if not tv then
-        return nil
-    end
-    return tv.Value
+    return hud, label
 end
 
 local function getBasePart()
-    local tycoon = getTycoon()
+    local lp = Players.LocalPlayer
+    if not lp then
+        return nil
+    end
+    local tycoonValue = lp:FindFirstChild("PlayerTycoon")
+    local tycoon = tycoonValue and tycoonValue.Value
     if not tycoon then
         return nil
     end
-
     local base = tycoon:FindFirstChild("Base") or tycoon.Base or tycoon.PrimaryPart
     if base and base:IsA("Model") then
         base = base.PrimaryPart or base:FindFirstChildWhichIsA("BasePart")
@@ -44,127 +64,73 @@ local function getBasePart()
     return base
 end
 
-local function getHRP()
-    local char = lp.Character or lp.CharacterAdded:Wait()
-    return char:FindFirstChild("HumanoidRootPart")
+local basePart = getBasePart()
+if not basePart then
+    warn("overlay_demo.lua: could not resolve base part; overlay will not render")
+    return
 end
 
--- ////////////////////////////////////////////////////////////
--- Overlay resolution / creation
--- ////////////////////////////////////////////////////////////
+local overlay = createOverlay(basePart.Position)
+local hud, label = attachHud(overlay)
 
-local function findExistingOverlay()
-    local overlay = workspace:FindFirstChild("TycoonOverlayBox")
-    if overlay and overlay:IsA("BasePart") then
-        return overlay
-    end
-    overlay = workspace:FindFirstChild("DemoOverlayBox")
-    if overlay and overlay:IsA("BasePart") then
-        return overlay
-    end
-    return nil
-end
+local overlayState = "off"
+local overlayEnterTime = 0
 
-local function createOverlay(basePart)
-    local part = Instance.new("Part")
-    part.Name = "DemoOverlayBox"
-    part.Anchored = true
-    part.CanCollide = false
-    part.CanQuery = false
-    part.Transparency = 0.45
-    part.Color = COLORS.OFF
-    part.Material = Enum.Material.ForceField
-    part.CastShadow = false
-    part.Size = Vector3.new(60, OVERLAY_HEIGHT, 60)
-    part.CFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (OVERLAY_HEIGHT * 0.5), 0)
-    part.Parent = workspace
-    return part
-end
-
-local overlay = findExistingOverlay()
-if not overlay then
-    local basePart = getBasePart()
-    if not basePart then
-        warn("[OverlayDemo] Could not resolve base part; overlay will not be created.")
-        return
-    end
-    overlay = createOverlay(basePart)
-end
-
--- ////////////////////////////////////////////////////////////
--- "On base" detection (footprint check)
--- ////////////////////////////////////////////////////////////
-
-local function isOnBase(basePart, hrp)
-    if not basePart or not hrp then
+local function isWithinBase(base, point)
+    if not base or not point then
         return false
     end
-    local localPos = basePart.CFrame:PointToObjectSpace(hrp.Position)
-    local halfSize = basePart.Size * 0.5
-
-    -- Small margins so it's a bit forgiving
-    local marginXZ = 2
-    local heightPad = math.max(OVERLAY_HEIGHT, 10)
-
-    local inX = math.abs(localPos.X) <= halfSize.X + marginXZ
-    local inZ = math.abs(localPos.Z) <= halfSize.Z + marginXZ
-    local inY = localPos.Y >= -marginXZ and localPos.Y <= halfSize.Y + heightPad
-
-    return inX and inZ and inY
+    local localPos = base.CFrame:PointToObjectSpace(point)
+    local half = base.Size * 0.5
+    return math.abs(localPos.X) <= half.X + MARGIN
+        and math.abs(localPos.Z) <= half.Z + MARGIN
+        and localPos.Y >= -MARGIN
+        and localPos.Y <= half.Y + OVERLAY_HEIGHT + MARGIN
 end
 
--- ////////////////////////////////////////////////////////////
--- Color state machine
--- ////////////////////////////////////////////////////////////
-
-local onBase = false
-local enterTime = 0
-local currentColorState = "OFF"
-
-RunService.Heartbeat:Connect(function()
+RunService.Heartbeat:Connect(function(step)
     if not overlay or not overlay.Parent then
-        -- Try to re-resolve it if something deleted/replaced it
-        overlay = findExistingOverlay()
-        if not overlay then
-            return
-        end
+        return
+    end
+    local base = getBasePart()
+    if base then
+        overlay.Size = Vector3.new(base.Size.X, OVERLAY_HEIGHT, base.Size.Z)
+        overlay.CFrame = base.CFrame * CFrame.new(0, (base.Size.Y * 0.5) + (OVERLAY_HEIGHT * 0.5), 0)
+        hud.Adornee = overlay
+        hud.StudsOffsetWorldSpace = Vector3.new(0, overlay.Size.Y * 0.5 + 2, 0)
     end
 
-    local basePart = getBasePart()
-    local hrp = getHRP()
-    if not basePart or not hrp then
-        -- If we can't read state, treat as off base
-        onBase = false
-    else
-        onBase = isOnBase(basePart, hrp)
-    end
-
-    local now = tick()
-    local newState
+    local root = Players.LocalPlayer.Character and Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    local onBase = root and base and isWithinBase(base, root.Position)
 
     if onBase then
-        if enterTime == 0 then
-            enterTime = now
-        end
-        local elapsed = now - enterTime
-        if elapsed >= 1 then
-            newState = "STABLE"
-        else
-            newState = "EARLY"
+        if overlayState ~= "arming" and overlayState ~= "on" then
+            overlayState = "arming"
+            overlayEnterTime = os.clock()
+        elseif overlayState == "arming" and os.clock() - overlayEnterTime >= ARMED_TIME then
+            overlayState = "on"
         end
     else
-        enterTime = 0
-        newState = "OFF"
+        overlayState = "off"
     end
 
-    if newState ~= currentColorState then
-        currentColorState = newState
-        if newState == "OFF" then
-            overlay.Color = COLORS.OFF
-        elseif newState == "EARLY" then
-            overlay.Color = COLORS.EARLY
-        elseif newState == "STABLE" then
-            overlay.Color = COLORS.STABLE
-        end
+    local partColor = Color3.fromRGB(255, 70, 70)
+    local textColor = Color3.fromRGB(255, 180, 180)
+    local msg = "Off base"
+
+    if overlayState == "arming" then
+        partColor = Color3.fromRGB(255, 255, 80)
+        textColor = Color3.fromRGB(255, 255, 180)
+        msg = "Arming"
+    elseif overlayState == "on" then
+        partColor = Color3.fromRGB(120, 255, 120)
+        textColor = Color3.fromRGB(170, 255, 170)
+        msg = "On base"
+    end
+
+    overlay.Color = partColor
+    if label then
+        label.TextColor3 = textColor
+        label.Text = string.format("Overlay demo: %s", msg)
     end
 end)
