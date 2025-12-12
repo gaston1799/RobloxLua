@@ -1,12 +1,12 @@
 {
   "userId": 1222416095,
   "displayName": "HollowTheOG",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7449423635,
+  "jobId": "d9b24156-4a23-407e-af76-8cdd4dab4547",
+  "join": "roblox://placeId=7449423635&gameInstanceId=d9b24156-4a23-407e-af76-8cdd4dab4547",
   "follow": "roblox://followUserId=1222416095",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765567345640
+  "web": "https://www.roblox.com/games/start?placeId=7449423635&gameInstanceId=d9b24156-4a23-407e-af76-8cdd4dab4547",
+  "location": "Blox Fruits",
+  "updatedAt": 1765567405698
 }
