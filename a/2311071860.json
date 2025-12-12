@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 110829983956014,
-  "jobId": "7e44e1f6-4632-4b19-83eb-d21a363fad83",
-  "join": "roblox://placeId=110829983956014&gameInstanceId=7e44e1f6-4632-4b19-83eb-d21a363fad83",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=110829983956014&gameInstanceId=7e44e1f6-4632-4b19-83eb-d21a363fad83",
-  "location": "[🍀4.3] Anime Card Clash",
-  "updatedAt": 1765508366222
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765510495151
 }
