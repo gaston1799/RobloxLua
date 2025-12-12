@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 133332370456812,
-  "jobId": "bc982554-c864-41a3-99d9-a13abf9095ff",
-  "join": "roblox://placeId=133332370456812&gameInstanceId=bc982554-c864-41a3-99d9-a13abf9095ff",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=133332370456812&gameInstanceId=bc982554-c864-41a3-99d9-a13abf9095ff",
-  "location": "Climb Into Metroman",
-  "updatedAt": 1765557145996
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765557324907
 }
