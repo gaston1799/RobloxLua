@@ -230,6 +230,10 @@ local overlayLastBaseResolved
 local overlayLastOnBaseLogged
 local overlayAvailabilityLogged
 local overlayHudAvailabilityLogged
+local overlayMissingBaseLastLog = 0
+local overlayLogCooldown = 2
+local overlayCachedBasePart
+local overlayEnsureLastLog = 0
 local lastReturnHome = 0
 local goToTycoonBase
 local getTycoonBasePart
@@ -802,7 +806,11 @@ local function ensureTycoonOverlay()
             overlayLog("Base part resolved immediately", basePart:GetFullName(), ("Size=%s"):format(tostring(basePart.Size)))
         end
     else
-        overlayLog("Waiting briefly for base part to appear")
+        local now = os.clock()
+        if now - overlayMissingBaseLastLog >= overlayLogCooldown then
+            overlayLog("Waiting briefly for base part to appear")
+            overlayMissingBaseLastLog = now
+        end
         local ok, waited = pcall(function()
             local tycoon = getTycoonBase()
             if tycoon then
@@ -814,7 +822,22 @@ local function ensureTycoonOverlay()
             overlayLog("Base part resolved after wait", waited:GetFullName())
             basePart = waited
         else
-            overlayLog("Base part still missing after wait", ok)
+            if now - overlayMissingBaseLastLog >= overlayLogCooldown then
+                overlayLog("Base part still missing after wait", ok)
+                overlayMissingBaseLastLog = now
+            end
+        end
+        if not basePart and overlayCachedBasePart then
+            if overlayCachedBasePart ~= overlayLastBasePart then
+                overlayLog("Reusing cached base part", overlayCachedBasePart:GetFullName())
+            end
+            basePart = overlayCachedBasePart
+        elseif not basePart and tycoonOverlayPart and tycoonOverlayPart.Parent then
+            if os.clock() - overlayMissingBaseLastLog >= overlayLogCooldown then
+                overlayLog("Using overlay part as fallback base", tycoonOverlayPart:GetFullName())
+                overlayMissingBaseLastLog = os.clock()
+            end
+            basePart = tycoonOverlayPart
         end
         if not basePart then
             overlayLastBaseResolved = false
@@ -823,6 +846,7 @@ local function ensureTycoonOverlay()
     end
 
     overlayLastBasePart = basePart
+    overlayCachedBasePart = basePart
     if overlayLastBaseResolved ~= true then
         overlayLog("Overlay setup proceeding with base part", basePart:GetFullName())
         overlayLastBaseResolved = true
@@ -1022,8 +1046,10 @@ local function ensureOverlayWatcher()
     overlayWatcherConnection = RunService.Heartbeat:Connect(function()
         local basePart = ensureTycoonOverlay()
         if not basePart then
-            if overlayLastBaseResolved ~= false then
+            local now = os.clock()
+            if overlayLastBaseResolved ~= false and now - overlayMissingBaseLastLog >= overlayLogCooldown then
                 overlayLog("Overlay watcher heartbeat: base part unavailable")
+                overlayMissingBaseLastLog = now
                 overlayLastBaseResolved = false
             end
             updateTycoonOverlayState(false)
@@ -1052,15 +1078,27 @@ local function ensureOverlayWatcher()
 end
 
 ensureBaseVisuals = function()
-    overlayLog("ensureBaseVisuals start")
+    local now = os.clock()
+    if now - overlayEnsureLastLog >= overlayLogCooldown then
+        overlayLog("ensureBaseVisuals start")
+        overlayEnsureLastLog = now
+    end
     ensureRebirthHud()
     ensureBaseDetector()
     local basePart = ensureTycoonOverlay()
     if not basePart then
-        overlayLog("ensureBaseVisuals: base part unresolved during overlay setup")
+        local t = os.clock()
+        if t - overlayEnsureLastLog >= overlayLogCooldown then
+            overlayLog("ensureBaseVisuals: base part unresolved during overlay setup")
+            overlayEnsureLastLog = t
+        end
     end
     ensureOverlayWatcher()
-    overlayLog("ensureBaseVisuals complete")
+    local t = os.clock()
+    if t - overlayEnsureLastLog >= overlayLogCooldown then
+        overlayLog("ensureBaseVisuals complete")
+        overlayEnsureLastLog = t
+    end
 end
 
 simplifyWaypoints = function(waypoints, dotThreshold)
