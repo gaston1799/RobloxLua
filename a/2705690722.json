@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 109983668079237,
+  "jobId": "bb090f36-a29e-4322-9407-cd23391114ef",
+  "join": "roblox://placeId=109983668079237&gameInstanceId=bb090f36-a29e-4322-9407-cd23391114ef",
   "follow": "roblox://followUserId=2705690722",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765536445377
+  "web": "https://www.roblox.com/games/start?placeId=109983668079237&gameInstanceId=bb090f36-a29e-4322-9407-cd23391114ef",
+  "location": "[🎄] Steal a Brainrot",
+  "updatedAt": 1765536475567
 }
