@@ -1873,6 +1873,7 @@ end
 ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
     minSeconds = minSeconds or 1
     local stableStart = nil
+    local attemptStart = os.clock()
     while true do
         if not isCharacterReady() then
             return false
@@ -1909,6 +1910,10 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
                 return true
             end
             task.wait(0.1)
+            if os.clock() - attemptStart > 5 then
+                setTaskState("Rebirth", "Still pathing to base")
+                attemptStart = os.clock()
+            end
         end
     end
 end
@@ -2127,8 +2132,10 @@ local function autoRebirthLoop()
             else
                 setTaskState("Rebirth", "Walking to base")
             end
-            if not MinersHaven.State.onBase then
-                ensureOnBaseForLayouts(0.5, false)
+            local reached = MinersHaven.State.onBase or ensureOnBaseForLayouts(1, false)
+            if not reached then
+                setTaskState("Rebirth", "Failed to reach base")
+                task.wait(0.5)
             end
             if wasCollectingBoxes then
                 startCollectBoxes(true)
