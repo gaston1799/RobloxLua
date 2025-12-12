@@ -1,12 +1,12 @@
 {
   "userId": 1222416095,
   "displayName": "HollowTheOG",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "cb177564-591c-421e-b7db-38795b6aac93",
-  "join": "roblox://placeId=5712833750&gameInstanceId=cb177564-591c-421e-b7db-38795b6aac93",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1222416095",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=cb177564-591c-421e-b7db-38795b6aac93",
-  "location": "🎃 Animal Simulator",
-  "updatedAt": 1765526935463
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765537795421
 }
