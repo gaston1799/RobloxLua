@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 12986400307,
-  "jobId": "bf4a790f-9b65-487b-bc59-5c303d233683",
-  "join": "roblox://placeId=12986400307&gameInstanceId=bf4a790f-9b65-487b-bc59-5c303d233683",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=12986400307&gameInstanceId=bf4a790f-9b65-487b-bc59-5c303d233683",
-  "location": "[🚽Free Titan!][🎁Event!]⚔Sword Warriors!",
-  "updatedAt": 1765496394980
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765498195119
 }
