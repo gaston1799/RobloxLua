@@ -239,6 +239,9 @@ local overlayExternalLoaded = false
 local overlayExternalLastAttempt = 0
 local OVERLAY_EXTERNAL_COOLDOWN = 5
 local overlayDetectedLastLog = 0
+local overlaySnapshot
+local overlayDetectThrottle = 1.5
+local baseVisualsInitialized = false
 local lastReturnHome = 0
 local goToTycoonBase
 local getTycoonBasePart
@@ -367,6 +370,50 @@ local function detectOverlay()
     local label = hud and findFirstOfNames(hud, LABEL_NAMES, "TextLabel") or nil
     if hud and not label then
         label = hud:FindFirstChildWhichIsA("TextLabel", true)
+    end
+    return overlay, hud, label
+end
+
+local function overlaySnapshotEqual(a, b)
+    if not a or not b then
+        return false
+    end
+    return a.overlay == b.overlay
+        and a.hud == b.hud
+        and a.label == b.label
+        and tostring(a.overlayCFrame) == tostring(b.overlayCFrame)
+        and tostring(a.overlaySize) == tostring(b.overlaySize)
+        and tostring(a.hudAdornee) == tostring(b.hudAdornee)
+        and tostring(a.hudOffset) == tostring(b.hudOffset)
+        and a.labelText == b.labelText
+        and tostring(a.labelColor) == tostring(b.labelColor)
+end
+
+local function detectOverlayAndLog()
+    local overlay, hud, label = detectOverlay()
+    local snap = {
+        overlay = overlay,
+        hud = hud,
+        label = label,
+        overlayCFrame = overlay and overlay.CFrame,
+        overlaySize = overlay and overlay.Size,
+        hudAdornee = hud and hud.Adornee,
+        hudOffset = hud and hud.StudsOffsetWorldSpace,
+        labelText = label and label.Text,
+        labelColor = label and label.TextColor3,
+    }
+
+    local now = os.clock()
+    local changed = not overlaySnapshot or not overlaySnapshotEqual(overlaySnapshot, snap)
+    if changed and now - overlayDetectedLastLog >= overlayDetectThrottle then
+        overlayDetectedLastLog = now
+        overlaySnapshot = snap
+        overlayLog(
+            "Overlay detect",
+            overlay and overlay:GetFullName() or "nil",
+            hud and hud:GetFullName() or "nil",
+            label and label.Text or "nil"
+        )
     end
     return overlay, hud, label
 end
@@ -850,21 +897,10 @@ local function ensureTycoonOverlay()
     local basePart = getTycoonBasePart and getTycoonBasePart()
     overlayLastBasePart = basePart or overlayLastBasePart
     overlayCachedBasePart = overlayLastBasePart
-    return basePart
+    return tycoonOverlayPart, overlayHudBillboard, overlayHudLabel, basePart
 end
 
 local function updateTycoonOverlayState(onBase)
-    if not tycoonOverlayPart or not tycoonOverlayPart.Parent then
-        if overlayAvailabilityLogged ~= false then
-            overlayLog("Overlay state update skipped (overlay missing)", tycoonOverlayPart, tycoonOverlayPart and tycoonOverlayPart.Parent)
-            overlayAvailabilityLogged = false
-        end
-        return
-    end
-    if overlayAvailabilityLogged ~= true then
-        overlayLog("Overlay state ready", tycoonOverlayPart:GetFullName())
-        overlayAvailabilityLogged = true
-    end
     MinersHaven.State.onBase = onBase and true or false
     local previousState = overlayState
     if onBase then
@@ -888,19 +924,7 @@ end
 
 local function updateTycoonOverlayHud(onBase)
     if not overlayHudLabel or not overlayHudBillboard or not overlayHudBillboard.Parent then
-        if overlayHudAvailabilityLogged ~= false then
-            overlayLog(
-                "Overlay HUD update skipped (missing billboard/label)",
-                overlayHudLabel and overlayHudLabel.Name,
-                overlayHudBillboard and overlayHudBillboard.Parent
-            )
-            overlayHudAvailabilityLogged = false
-        end
         return
-    end
-    if overlayHudAvailabilityLogged ~= true then
-        overlayLog("Overlay HUD ready", overlayHudBillboard:GetFullName())
-        overlayHudAvailabilityLogged = true
     end
     local state = MinersHaven.State
     local posText = onBase and "On base" or "Off base"
@@ -930,7 +954,6 @@ local function updateTycoonOverlayHud(onBase)
 
     local newText = string.format("%s | %s | %s", posText, rebirthText, taskText)
     if overlayLastHudText ~= newText or overlayLastHudColor ~= labelColor then
-        overlayLog("Overlay HUD text update", newText, ("Color=%s"):format(tostring(labelColor)))
         overlayLastHudText = newText
         overlayLastHudColor = labelColor
     end
@@ -942,63 +965,40 @@ local function ensureOverlayWatcher()
     if overlayWatcherConnection then
         return
     end
-    overlayLog("Creating overlay watcher connection")
     overlayWatcherConnection = RunService.Heartbeat:Connect(function()
-        local basePart = ensureTycoonOverlay()
+        local overlay, hud, label, basePart = ensureTycoonOverlay()
+        if hud then
+            overlayHudBillboard = hud
+        end
+        if label then
+            overlayHudLabel = label
+        end
         if not basePart then
-            local now = os.clock()
-            if overlayLastBaseResolved ~= false and now - overlayMissingBaseLastLog >= overlayLogCooldown then
-                overlayLog("Overlay watcher heartbeat: base part unavailable")
-                overlayMissingBaseLastLog = now
-                overlayLastBaseResolved = false
-            end
             updateTycoonOverlayState(false)
             updateTycoonOverlayHud(false)
             return
-        elseif overlayLastBaseResolved ~= true then
-            overlayLog("Overlay watcher heartbeat: base part available", basePart:GetFullName())
-            overlayLastBaseResolved = true
         end
         local root = humanoidRoot
             or (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart"))
         local onBase = false
         if root then
             onBase = isWithinBaseFootprint(basePart, root)
-        else
-            overlayLog("Overlay watcher: HumanoidRootPart missing")
-        end
-        if overlayLastOnBaseLogged ~= onBase then
-            overlayLog("Overlay watcher onBase changed", tostring(onBase), root and root.Position)
-            overlayLastOnBaseLogged = onBase
         end
         updateTycoonOverlayState(onBase)
         updateTycoonOverlayHud(onBase)
     end)
-    overlayLog("Overlay watcher connection established")
 end
 
 ensureBaseVisuals = function()
-    local now = os.clock()
-    if now - overlayEnsureLastLog >= overlayLogCooldown then
-        overlayLog("ensureBaseVisuals start")
-        overlayEnsureLastLog = now
+    if baseVisualsInitialized then
+        detectOverlayAndLog()
+        return
     end
     ensureRebirthHud()
     ensureBaseDetector()
-    local basePart = ensureTycoonOverlay()
-    if not basePart then
-        local t = os.clock()
-        if t - overlayEnsureLastLog >= overlayLogCooldown then
-            overlayLog("ensureBaseVisuals: base part unresolved during overlay setup")
-            overlayEnsureLastLog = t
-        end
-    end
+    detectOverlayAndLog()
     ensureOverlayWatcher()
-    local t = os.clock()
-    if t - overlayEnsureLastLog >= overlayLogCooldown then
-        overlayLog("ensureBaseVisuals complete")
-        overlayEnsureLastLog = t
-    end
+    baseVisualsInitialized = true
 end
 
 simplifyWaypoints = function(waypoints, dotThreshold)
@@ -1092,6 +1092,7 @@ local function refreshCharacter()
     end
     waypointBillboard, waypointLabel = createWaypointVisualizer(character)
     attachStuckDetection()
+    baseVisualsInitialized = false
     ensureBaseVisuals()
     if MinersHaven.State.collectBoxes then
         resetBoxTracking()
@@ -2458,25 +2459,6 @@ function MinersHaven.init()
     ensureLibraries()
     local venyx, ui = buildVenyxUI()
     if venyx and ui then
-        if not baseVisualsWatcherConnection then
-            baseVisualsWatcherConnection = RunService.Heartbeat:Connect(function()
-                local basePart = getTycoonBasePart()
-                if basePart then
-                    ensureBaseVisuals()
-                end
-
-                local ready = rebirthHudLabel ~= nil
-                    and rebirthHudBillboard ~= nil
-                    and rebirthHudBillboard.Parent ~= nil
-                    and baseDetectorPart ~= nil
-                    and baseDetectorPart.Parent ~= nil
-
-                if ready then
-                    baseVisualsWatcherConnection:Disconnect()
-                    baseVisualsWatcherConnection = nil
-                end
-            end)
-        end
         return {
             library = venyx,
             ui = ui,
