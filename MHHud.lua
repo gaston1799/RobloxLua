@@ -4,23 +4,24 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local OVERLAY_PAD = 20
+local OVERLAY_PAD = 0.5   -- thickness of overlay box
 local MARGIN = 2
 local ARMED_TIME = 1
 
 local function getOverlayHeight(base)
-    local baseY = (base and base.Size and base.Size.Y) or 0
-    return math.max(baseY + OVERLAY_PAD, 12)
+    -- thin plate overlay; tweak OVERLAY_PAD for thickness
+    return OVERLAY_PAD
 end
 
 local function sizeAndPositionOverlay(part, base)
-    if not part or not base or not base.Size then
+    if not part or not base then
         return
     end
     local height = getOverlayHeight(base)
     part.Size = Vector3.new(base.Size.X, height, base.Size.Z)
-    -- Keep overlay centered on the base so it wraps it instead of floating above.
-    part.CFrame = base.CFrame
+    -- bottom of overlay = top of base
+    local offsetY = (base.Size.Y + height) * 0.5
+    part.CFrame = base.CFrame * CFrame.new(0, offsetY, 0)
 end
 
 local function createOverlay(base)
@@ -37,6 +38,7 @@ local function createOverlay(base)
         sizeAndPositionOverlay(part, base)
     else
         part.Size = Vector3.new(60, getOverlayHeight(), 60)
+        part.CFrame = CFrame.new(0, part.Size.Y * 0.5, 0)
     end
     part.Parent = workspace
     return part
@@ -123,6 +125,9 @@ RunService.Heartbeat:Connect(function(step)
         sizeAndPositionOverlay(overlay, base)
         hud.Adornee = overlay
         hud.StudsOffsetWorldSpace = Vector3.new(0, overlay.Size.Y * 0.5 + 2, 0)
+    else
+        -- keep overlay at origin if base disappears
+        overlay.CFrame = CFrame.new(0, overlay.Size.Y * 0.5, 0)
     end
 
     local root = Players.LocalPlayer.Character and Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
