@@ -27,6 +27,7 @@ local DEFAULT_THEME = {
 
 local AUTO_REBIRTH_DATA_URL = "https://raw.githubusercontent.com/gaston1799/RobloxLua/refs/heads/main/autoRebirthData.lua"
 local PREFIX_TABLE_URL = "https://raw.githubusercontent.com/gaston1799/HostedFiles/refs/heads/main/table.lua"
+local OVERLAY_DEMO_URL = "https://raw.githubusercontent.com/gaston1799/RobloxLua/refs/heads/main/MHHud.lua"
 
 local prefixEntries = {}
 do
@@ -234,6 +235,10 @@ local overlayMissingBaseLastLog = 0
 local overlayLogCooldown = 2
 local overlayCachedBasePart
 local overlayEnsureLastLog = 0
+local overlayExternalLoaded = false
+local overlayExternalLastAttempt = 0
+local OVERLAY_EXTERNAL_COOLDOWN = 5
+local overlayDetectedLastLog = 0
 local lastReturnHome = 0
 local goToTycoonBase
 local getTycoonBasePart
@@ -304,6 +309,68 @@ local function overlayLog(step, ...)
     end
 end
 
+local function ensureExternalOverlay()
+    if overlayExternalLoaded then
+        return true
+    end
+    local now = os.clock()
+    if now - overlayExternalLastAttempt < OVERLAY_EXTERNAL_COOLDOWN then
+        return false
+    end
+    overlayExternalLastAttempt = now
+    local ok, err = pcall(function()
+        local source = game:HttpGet(OVERLAY_DEMO_URL)
+        if not source or source == "" then
+            error("empty overlay demo source")
+        end
+        local fn = loadstring(source)
+        if not fn then
+            error("failed to compile overlay demo")
+        end
+        fn()
+    end)
+    overlayExternalLoaded = ok
+    overlayLog("External overlay loadstring", ok, err)
+    return ok
+end
+
+local OVERLAY_NAMES = {"TycoonOverlayBox", "DemoOverlayBox"}
+local HUD_NAMES = {"TycoonOverlayHud", "DemoOverlayHud"}
+local LABEL_NAMES = {"Status"}
+
+local function findFirstOfNames(root, names, className)
+    for _, name in ipairs(names) do
+        local found = root:FindFirstChild(name, true)
+        if found and (not className or found:IsA(className)) then
+            return found
+        end
+    end
+    return nil
+end
+
+local function detectOverlay()
+    local overlay = nil
+    for _, name in ipairs(OVERLAY_NAMES) do
+        local candidate = workspace:FindFirstChild(name)
+        if candidate and candidate:IsA("BasePart") then
+            overlay = candidate
+            break
+        end
+    end
+    if not overlay then
+        return nil, nil, nil
+    end
+    local hud = findFirstOfNames(overlay, HUD_NAMES, "BillboardGui")
+    if not hud then
+        hud = overlay:FindFirstChildWhichIsA("BillboardGui", true)
+    end
+    local label = hud and findFirstOfNames(hud, LABEL_NAMES, "TextLabel") or nil
+    if hud and not label then
+        label = hud:FindFirstChildWhichIsA("TextLabel", true)
+    end
+    return overlay, hud, label
+end
+
 setTaskState = function(task, detail)
     MinersHaven.State.currentTask = task or "Idle"
     MinersHaven.State.taskDetail = detail or ""
@@ -353,57 +420,24 @@ do
 
         local function ensureOverlay(basePart)
             if not basePart then
-                log("Overlay creation skipped (no base)", false)
+                log("Overlay skipped (no base)", false)
                 return nil
             end
             local overlay = workspace:FindFirstChild("TycoonOverlayBox")
             log("Existing overlay in workspace", overlay ~= nil, overlay and overlay:GetFullName())
-        if not overlay then
-            overlay = Instance.new("Part")
-            overlay.Name = "TycoonOverlayBox"
-            overlay.Anchored = true
-            overlay.CanCollide = false
-            overlay.CanQuery = false
-            overlay.Transparency = 0.45
-            overlay.Color = Color3.fromRGB(255, 70, 70)
-            overlay.Material = Enum.Material.ForceField
-            overlay.CastShadow = false
-            overlay.Parent = workspace
-            log("Overlay created", true, overlay:GetFullName())
+            if not overlay or not overlay:IsA("BasePart") then
+                log("Overlay not present or wrong type; skipping creation", false)
+                return nil
+            end
+            local height = OVERLAY_HEIGHT or 250
+            log(
+                "Overlay present; leaving size/position untouched",
+                true,
+                ("CurrentSize=%s"):format(tostring(overlay.Size))
+            )
+            -- HUD is not created here anymore
+            return overlay
         end
-        local height = OVERLAY_HEIGHT or 250
-        overlay.Size = Vector3.new(basePart.Size.X, height, basePart.Size.Z)
-        overlay.CFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (height * 0.5), 0)
-        log("Overlay sized/positioned", true, ("Size=%s"):format(tostring(overlay.Size)))
-
-        -- Ensure HUD is created alongside the overlay
-        local hud = overlay:FindFirstChild("TycoonOverlayHud")
-        if not hud then
-            hud = Instance.new("BillboardGui")
-            hud.Name = "TycoonOverlayHud"
-            hud.AlwaysOnTop = true
-            hud.Size = UDim2.new(0, 260, 0, 50)
-            hud.StudsOffsetWorldSpace = Vector3.new(0, height * 0.5 + 2, 0)
-            hud.Adornee = overlay
-            hud.Parent = overlay
-
-            local label = Instance.new("TextLabel")
-            label.Name = "Status"
-            label.BackgroundTransparency = 1
-            label.Size = UDim2.new(1, 0, 1, 0)
-            label.Font = Enum.Font.SourceSansBold
-            label.TextScaled = true
-            label.TextColor3 = Color3.new(1, 1, 1)
-            label.TextStrokeTransparency = 0.3
-            label.Parent = hud
-        else
-            hud.StudsOffsetWorldSpace = Vector3.new(0, height * 0.5 + 2, 0)
-            hud.Adornee = overlay
-            hud.AlwaysOnTop = true
-        end
-
-        return overlay
-    end
 
         local function runChecklist()
             local tycoon = getTycoon()
@@ -788,165 +822,34 @@ updateBaseDetectorHud = function(isInside)
 end
 
 local function ensureTycoonOverlay()
-    local existing = workspace:FindFirstChild("TycoonOverlayBox")
+    local existing, hud, label = detectOverlay()
+    if not existing then
+        overlayLog("No overlay detected; attempting external loader")
+        ensureExternalOverlay()
+        existing, hud, label = detectOverlay()
+    end
+
     if existing and existing:IsA("BasePart") then
         if tycoonOverlayPart ~= existing then
-            overlayLog("Reusing existing overlay part from workspace", existing:GetFullName())
+            overlayLog("Overlay detected", existing:GetFullName())
         end
         tycoonOverlayPart = existing
     elseif existing then
-        overlayLog("Found non-BasePart overlay placeholder", existing.ClassName)
-    else
-        overlayLog("No existing overlay part detected in workspace")
-    end
-
-    local basePart = getTycoonBasePart and getTycoonBasePart()
-    if basePart then
-        if basePart ~= overlayLastBasePart then
-            overlayLog("Base part resolved immediately", basePart:GetFullName(), ("Size=%s"):format(tostring(basePart.Size)))
-        end
+        overlayLog("Overlay detected but not a BasePart", existing.ClassName)
     else
         local now = os.clock()
-        if now - overlayMissingBaseLastLog >= overlayLogCooldown then
-            overlayLog("Waiting briefly for base part to appear")
-            overlayMissingBaseLastLog = now
-        end
-        local ok, waited = pcall(function()
-            local tycoon = getTycoonBase()
-            if tycoon then
-                return tycoon:WaitForChild("Base", 3)
-            end
-            return nil
-        end)
-        if ok and waited then
-            overlayLog("Base part resolved after wait", waited:GetFullName())
-            basePart = waited
-        else
-            if now - overlayMissingBaseLastLog >= overlayLogCooldown then
-                overlayLog("Base part still missing after wait", ok)
-                overlayMissingBaseLastLog = now
-            end
-        end
-        if not basePart and overlayCachedBasePart then
-            if overlayCachedBasePart ~= overlayLastBasePart then
-                overlayLog("Reusing cached base part", overlayCachedBasePart:GetFullName())
-            end
-            basePart = overlayCachedBasePart
-        elseif not basePart and tycoonOverlayPart and tycoonOverlayPart.Parent then
-            if os.clock() - overlayMissingBaseLastLog >= overlayLogCooldown then
-                overlayLog("Using overlay part as fallback base", tycoonOverlayPart:GetFullName())
-                overlayMissingBaseLastLog = os.clock()
-            end
-            basePart = tycoonOverlayPart
-        end
-        if not basePart then
-            overlayLastBaseResolved = false
-            return nil
+        if now - overlayDetectedLastLog >= overlayLogCooldown then
+            overlayLog("Overlay still missing after external attempt")
+            overlayDetectedLastLog = now
         end
     end
 
-    overlayLastBasePart = basePart
-    overlayCachedBasePart = basePart
-    if overlayLastBaseResolved ~= true then
-        overlayLog("Overlay setup proceeding with base part", basePart:GetFullName())
-        overlayLastBaseResolved = true
-    end
+    overlayHudBillboard = hud or overlayHudBillboard
+    overlayHudLabel = label or overlayHudLabel
 
-    if not tycoonOverlayPart or not tycoonOverlayPart.Parent then
-        overlayLog("Creating overlay part instance")
-        local overlay = Instance.new("Part")
-        overlay.Name = "TycoonOverlayBox"
-        overlayLog("Overlay name assigned", overlay.Name)
-        overlay.Anchored = true
-        overlay.CanCollide = false
-        overlay.CanQuery = false
-        overlay.Transparency = 0.45
-        overlay.Color = Color3.fromRGB(255, 70, 70)
-        overlay.Material = Enum.Material.ForceField
-        overlay.CastShadow = false
-        overlayLog(
-            "Overlay defaults applied",
-            ("Anchored=%s"):format(tostring(overlay.Anchored)),
-            ("CanCollide=%s"):format(tostring(overlay.CanCollide)),
-            ("Transparency=%s"):format(tostring(overlay.Transparency))
-        )
-        tycoonOverlayPart = overlay
-        overlayState = "off"
-        overlayEnterTime = 0
-        overlayHudBillboard = nil
-        overlayHudLabel = nil
-        overlayLog("Overlay state reset", ("State=%s"):format(overlayState))
-    else
-        overlayLog("Overlay instance already exists", tycoonOverlayPart:GetFullName())
-    end
-
-    local desiredSize = Vector3.new(basePart.Size.X, OVERLAY_HEIGHT, basePart.Size.Z)
-    if not overlayLastSize or desiredSize ~= overlayLastSize then
-        overlayLog("Applying overlay size", tostring(desiredSize))
-        overlayLastSize = desiredSize
-    end
-    tycoonOverlayPart.Size = desiredSize
-
-    local desiredCFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (OVERLAY_HEIGHT * 0.5), 0)
-    if not overlayLastCFrame or desiredCFrame ~= overlayLastCFrame then
-        overlayLog("Applying overlay CFrame", tostring(desiredCFrame))
-        overlayLastCFrame = desiredCFrame
-    end
-    tycoonOverlayPart.CFrame = desiredCFrame
-
-    if tycoonOverlayPart.Parent ~= workspace then
-        overlayLog("Parenting overlay to workspace")
-        tycoonOverlayPart.Parent = workspace
-        overlayLog("Overlay parent confirmed", tycoonOverlayPart.Parent and tycoonOverlayPart.Parent:GetFullName())
-    end
-
-    if not overlayHudBillboard or not overlayHudBillboard.Parent then
-        overlayLog("Creating overlay HUD billboard")
-        local billboard = Instance.new("BillboardGui")
-        billboard.Name = "TycoonOverlayHud"
-        billboard.AlwaysOnTop = true
-        billboard.Size = UDim2.new(0, 260, 0, 50)
-        billboard.StudsOffsetWorldSpace = Vector3.new(0, OVERLAY_HEIGHT * 0.5 + 2, 0)
-        billboard.Adornee = tycoonOverlayPart
-        billboard.Parent = tycoonOverlayPart
-        overlayLog(
-            "HUD billboard configured",
-            ("Size=%s"):format(tostring(billboard.Size)),
-            ("Offset=%s"):format(tostring(billboard.StudsOffsetWorldSpace))
-        )
-
-        local label = Instance.new("TextLabel")
-        label.Name = "Status"
-        label.BackgroundTransparency = 1
-        label.Size = UDim2.new(1, 0, 1, 0)
-        label.Font = Enum.Font.SourceSansBold
-        label.TextScaled = true
-        label.TextColor3 = Color3.new(1, 1, 1)
-        label.TextStrokeTransparency = 0.3
-        label.Parent = billboard
-        overlayLog(
-            "HUD label created",
-            ("Font=%s"):format(tostring(label.Font)),
-            ("TextColor=%s"):format(tostring(label.TextColor3))
-        )
-
-        overlayHudBillboard = billboard
-        overlayHudLabel = label
-        overlayLog("HUD references cached", overlayHudBillboard.Name, overlayHudLabel.Name)
-    else
-        overlayLog("Reusing existing overlay HUD", overlayHudBillboard:GetFullName())
-    end
-    -- Refresh HUD bindings even if it already existed
-    if overlayHudBillboard then
-        local newOffset = Vector3.new(0, tycoonOverlayPart.Size.Y * 0.5 + 2, 0)
-        if not overlayLastHudOffset or newOffset ~= overlayLastHudOffset then
-            overlayLog("Updating HUD offset/adornee", tostring(newOffset), tycoonOverlayPart:GetFullName())
-            overlayLastHudOffset = newOffset
-        end
-        overlayHudBillboard.StudsOffsetWorldSpace = newOffset
-        overlayHudBillboard.Adornee = tycoonOverlayPart
-        overlayHudBillboard.AlwaysOnTop = true
-    end
+    local basePart = getTycoonBasePart and getTycoonBasePart()
+    overlayLastBasePart = basePart or overlayLastBasePart
+    overlayCachedBasePart = overlayLastBasePart
     return basePart
 end
 
@@ -966,15 +869,12 @@ local function updateTycoonOverlayState(onBase)
     local previousState = overlayState
     if onBase then
         if overlayState ~= "arming" and overlayState ~= "on" then
-            tycoonOverlayPart.Color = Color3.fromRGB(255, 255, 80)
             overlayEnterTime = os.clock()
             overlayState = "arming"
         elseif overlayState == "arming" and os.clock() - overlayEnterTime >= 1 then
-            tycoonOverlayPart.Color = Color3.fromRGB(120, 255, 120)
             overlayState = "on"
         end
     else
-        tycoonOverlayPart.Color = Color3.fromRGB(255, 70, 70)
         overlayState = "off"
     end
     if overlayState ~= previousState then
