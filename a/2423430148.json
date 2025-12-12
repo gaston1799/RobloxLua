@@ -1,12 +1,12 @@
 {
   "userId": 2423430148,
   "displayName": "WhosGaston",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "0d259c10-1821-412b-95bc-2652e27ec620",
-  "join": "roblox://placeId=5712833750&gameInstanceId=0d259c10-1821-412b-95bc-2652e27ec620",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2423430148",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=0d259c10-1821-412b-95bc-2652e27ec620",
-  "location": "🎃 Animal Simulator",
-  "updatedAt": 1765573624910
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765573656379
 }
