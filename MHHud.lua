@@ -5,8 +5,12 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
 local OVERLAY_HEIGHT = 80
-local MARGIN = 2
-local ARMED_TIME = 1
+local COLOR_CYCLE = {
+    Color3.fromRGB(255, 70, 70),
+    Color3.fromRGB(255, 255, 80),
+    Color3.fromRGB(120, 255, 120),
+}
+local COLOR_STEP = 1.5
 
 local function createOverlay(basePosition)
     local part = Instance.new("Part")
@@ -73,27 +77,19 @@ end
 local overlay = createOverlay(basePart.Position)
 local hud, label = attachHud(overlay)
 
-local function isWithinBase(base, point)
-    if not base or not point then
-        return false
-    end
-    local localPos = base.CFrame:PointToObjectSpace(point)
-    local half = base.Size * 0.5
-    return math.abs(localPos.X) <= half.X + MARGIN
-        and math.abs(localPos.Z) <= half.Z + MARGIN
-        and localPos.Y >= -MARGIN
-        and localPos.Y <= half.Y + OVERLAY_HEIGHT + MARGIN
-end
-
 RunService.Heartbeat:Connect(function(step)
     if not overlay or not overlay.Parent then
         return
     end
     local base = getBasePart()
-    if not base then
-        return
+    if base then
+        overlay.Size = Vector3.new(base.Size.X, OVERLAY_HEIGHT, base.Size.Z)
+        overlay.CFrame = base.CFrame * CFrame.new(0, (base.Size.Y * 0.5) + (OVERLAY_HEIGHT * 0.5), 0)
+        hud.Adornee = overlay
+        hud.StudsOffsetWorldSpace = Vector3.new(0, overlay.Size.Y * 0.5 + 2, 0)
     end
-    overlay.Size = Vector3.new(base.Size.X, OVERLAY_HEIGHT, base.Size.Z)
-    overlay.CFrame = base.CFrame * CFrame.new(0, (base.Size.Y * 0.5) + (OVERLAY_HEIGHT * 0.5), 0)
-
+    if COLOR_STEP and COLOR_STEP > 0 then
+        local idx = math.floor((tick() / COLOR_STEP) % #COLOR_CYCLE) + 1
+        overlay.Color = COLOR_CYCLE[idx]
+    end
 end)
