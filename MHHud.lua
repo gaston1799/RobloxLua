@@ -93,6 +93,14 @@ end
 local overlay = createOverlay(basePart)
 local hud, label = attachHud(overlay)
 
+-- Expose a getter so external scripts can reuse the instances without re-detecting.
+pcall(function()
+    local env = getgenv and getgenv() or _G
+    env.MHOverlayGetter = function()
+        return overlay, hud, label
+    end
+end)
+
 local overlayState = "off"
 local overlayEnterTime = 0
 
