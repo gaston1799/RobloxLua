@@ -510,8 +510,8 @@ local function isWithinBaseFootprint(basePart, root)
     end
     local localPos = basePart.CFrame:PointToObjectSpace(root.Position)
     local halfSize = basePart.Size * 0.5
-    local margin = BASE_ON_TOP_MARGIN or 0
-    local heightPad = BASE_ON_TOP_HEIGHT_PAD or 0
+    local margin = (BASE_ON_TOP_MARGIN or 0) + 2
+    local heightPad = math.max(BASE_ON_TOP_HEIGHT_PAD or 0, OVERLAY_HEIGHT or 0)
     return math.abs(localPos.X) <= halfSize.X + margin
         and math.abs(localPos.Z) <= halfSize.Z + margin
         and localPos.Y >= -margin
@@ -876,8 +876,15 @@ end
 local function ensureTycoonOverlay()
     local existing, hud, label = detectOverlay()
     if not existing then
-        overlayLog("No overlay detected; attempting external loader")
-        ensureExternalOverlay()
+        local now = os.clock()
+        if now - overlayDetectedLastLog >= overlayLogCooldown then
+            overlayLog("No overlay detected; attempting external loader")
+            overlayDetectedLastLog = now
+        end
+        local loaded = ensureExternalOverlay()
+        if not loaded then
+            return nil, hud, label, getTycoonBasePart and getTycoonBasePart()
+        end
         existing, hud, label = detectOverlay()
     end
 
@@ -902,7 +909,7 @@ local function ensureTycoonOverlay()
     local basePart = getTycoonBasePart and getTycoonBasePart()
     overlayLastBasePart = basePart or overlayLastBasePart
     overlayCachedBasePart = overlayLastBasePart
-    return tycoonOverlayPart, overlayHudBillboard, overlayHudLabel, basePart
+    return tycoonOverlayPart, overlayHudBillboard, overlayHudLabel, basePart or tycoonOverlayPart
 end
 
 local function updateTycoonOverlayState(onBase)
@@ -986,9 +993,7 @@ local function ensureOverlayWatcher()
                 overlayHudBillboard.StudsOffsetWorldSpace = Vector3.new(0, overlay.Size.Y * 0.5 + 2, 0)
             end
         end
-        if not basePart and overlay then
-            basePart = overlay
-        end
+        basePart = basePart or overlay
         if not basePart then
             updateTycoonOverlayState(false)
             updateTycoonOverlayHud(false)
@@ -996,6 +1001,10 @@ local function ensureOverlayWatcher()
         end
         local root = humanoidRoot
             or (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart"))
+        if not root and LocalPlayer.Character then
+            root = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+            humanoidRoot = root or humanoidRoot
+        end
         local onBase = false
         if root then
             onBase = isWithinBaseFootprint(basePart, root)
