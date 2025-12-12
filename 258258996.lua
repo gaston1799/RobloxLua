@@ -243,6 +243,9 @@ local overlaySnapshot
 local overlayDetectThrottle = 1.5
 local baseVisualsInitialized = false
 local lastReturnHome = 0
+local pathDebugEnabled = true
+local pathDebugCooldown = 0.75
+local pathDebugLast = 0
 local goToTycoonBase
 local getTycoonBasePart
 local returnToTycoonBaseIfIdle
@@ -416,6 +419,23 @@ local function detectOverlayAndLog()
         )
     end
     return overlay, hud, label
+end
+
+local function pathLog(step, ...)
+    if not pathDebugEnabled then
+        return
+    end
+    local now = os.clock()
+    if now - pathDebugLast < pathDebugCooldown then
+        return
+    end
+    pathDebugLast = now
+    local parts = {("[Path] %s"):format(step)}
+    for i = 1, select("#", ...) do
+        local v = select(i, ...)
+        parts[#parts + 1] = tostring(v)
+    end
+    print(table.concat(parts, " | "))
 end
 
 setTaskState = function(task, detail)
@@ -1719,6 +1739,7 @@ local function collectBoxesLoop()
                 local targetPart = entry.basePart or getBoxBasePart(entry.part)
                 if targetPart and targetPart:IsA("BasePart") then
                     updateBoxHud(targetPart, entry.key, "Pathing...", Color3.fromRGB(60, 170, 255))
+                    pathLog("Box path", targetPart:GetFullName(), ("teleportFallback=%s"):format(tostring(Settings.teleportToBoxOnPathFail)))
                     local success = moveTo(targetPart.Position, {allowTeleportFallback = Settings.teleportToBoxOnPathFail})
                     if success then
                         boxFailCounts[entry.key] = 0
@@ -1900,12 +1921,15 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
         if not onTop then
             stableStart = nil
             if LegitPathing then
+                pathLog("Pathing to base (legit)", basePart:GetFullName())
                 moveTo(basePart.Position, {allowTeleportFallback = false})
             elseif allowTeleport then
+                pathLog("Teleporting to base (allowed)", basePart:GetFullName())
                 humanoidRoot.CFrame = CFrame.new(basePart.Position)
             else
                 local prev = LegitPathing
                 LegitPathing = true
+                pathLog("Pathing to base (forced legit)", basePart:GetFullName())
                 moveTo(basePart.Position, {allowTeleportFallback = false})
                 LegitPathing = prev
             end
@@ -1923,10 +1947,12 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
             task.wait(0.1)
             if os.clock() - attemptStart > 5 then
                 setTaskState("Rebirth", "Still pathing to base")
+                pathLog("Still pathing to base", basePart:GetFullName())
                 attemptStart = os.clock()
             end
             if os.clock() > deadline then
                 setTaskState("Rebirth", "Path to base timed out")
+                pathLog("Path to base timed out", basePart:GetFullName())
                 return false
             end
         end
