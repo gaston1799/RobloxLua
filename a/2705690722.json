@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "in-game",
-  "placeId": 6884319169,
-  "jobId": "caf67024-88cf-4457-b343-6102158b1295",
-  "join": "roblox://placeId=6884319169&gameInstanceId=caf67024-88cf-4457-b343-6102158b1295",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2705690722",
-  "web": "https://www.roblox.com/games/start?placeId=6884319169&gameInstanceId=caf67024-88cf-4457-b343-6102158b1295",
-  "location": "MIC UP 🔊",
-  "updatedAt": 1765536745292
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765536955542
 }
