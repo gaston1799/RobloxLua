@@ -246,6 +246,7 @@ local lastReturnHome = 0
 local pathDebugEnabled = true
 local pathDebugCooldown = 0.75
 local pathDebugLast = 0
+local lastBoxBaseCheck = 0
 local goToTycoonBase
 local getTycoonBasePart
 local returnToTycoonBaseIfIdle
@@ -1659,7 +1660,18 @@ local function collectBoxesLoop()
             task.wait(0.2)
             continue
         end
-        ensurePositionedAtBaseForBoxes()
+        local now = os.clock()
+        if now - lastBoxBaseCheck > 2 then
+            lastBoxBaseCheck = now
+            local basePart = getTycoonBasePart()
+                or tycoonOverlayPart
+                or (overlayHudBillboard and overlayHudBillboard.Adornee)
+            local onBase = basePart and isWithinBaseFootprint(basePart, humanoidRoot)
+            if not onBase then
+                pathLog("Box farm: returning to base", basePart and basePart:GetFullName())
+                ensureOnBaseForLayouts(1, true)
+            end
+        end
         local candidateBoxes = {}
         local boxContainer = getBoxesContainer()
 
@@ -1910,10 +1922,10 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
         if not isCharacterReady() then
             return false
         end
-        local basePart = ensureBaseDetector()
-        if not basePart then
-            basePart = tycoonOverlayPart or (overlayHudBillboard and overlayHudBillboard.Adornee) or getTycoonBasePart()
-        end
+        local basePart = getTycoonBasePart()
+            or ensureBaseDetector()
+            or tycoonOverlayPart
+            or (overlayHudBillboard and overlayHudBillboard.Adornee)
         if not basePart or not humanoidRoot then
             return false
         end
