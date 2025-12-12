@@ -1,12 +1,12 @@
 {
   "userId": 7541899107,
   "displayName": "TheGlitchQueen",
-  "status": "in-game",
-  "placeId": 5233782396,
-  "jobId": "22839020-55d1-494c-b519-185156d992e0",
-  "join": "roblox://placeId=5233782396&gameInstanceId=22839020-55d1-494c-b519-185156d992e0",
+  "status": "unknown",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7541899107",
-  "web": "https://www.roblox.com/games/start?placeId=5233782396&gameInstanceId=22839020-55d1-494c-b519-185156d992e0",
-  "location": "❄️ Creatures of Sonaria ✨ Survive Kaiju Animals",
-  "updatedAt": 1765556574831
+  "web": null,
+  "location": "Studio",
+  "updatedAt": 1765563806890
 }
