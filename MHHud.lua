@@ -4,11 +4,26 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local OVERLAY_HEIGHT = 80
+local OVERLAY_PAD = 4
 local MARGIN = 2
 local ARMED_TIME = 1
 
-local function createOverlay(basePosition)
+local function getOverlayHeight(base)
+    local baseY = base and base.Size.Y or 0
+    return math.max(baseY + OVERLAY_PAD, 8)
+end
+
+local function sizeAndPositionOverlay(part, base)
+    if not part or not base then
+        return
+    end
+    local height = getOverlayHeight(base)
+    part.Size = Vector3.new(base.Size.X, height, base.Size.Z)
+    local offsetY = (height - base.Size.Y) * 0.5
+    part.CFrame = base.CFrame * CFrame.new(0, offsetY, 0)
+end
+
+local function createOverlay(base)
     local part = Instance.new("Part")
     part.Name = "DemoOverlayBox"
     part.Anchored = true
@@ -18,8 +33,11 @@ local function createOverlay(basePosition)
     part.Color = Color3.fromRGB(255, 70, 70)
     part.Material = Enum.Material.ForceField
     part.CastShadow = false
-    part.Size = Vector3.new(60, OVERLAY_HEIGHT, 60)
-    part.CFrame = CFrame.new(basePosition) * CFrame.new(0, OVERLAY_HEIGHT * 0.5, 0)
+    if base then
+        sizeAndPositionOverlay(part, base)
+    else
+        part.Size = Vector3.new(60, getOverlayHeight(), 60)
+    end
     part.Parent = workspace
     return part
 end
@@ -85,7 +103,7 @@ local function isWithinBase(base, point)
     return math.abs(localPos.X) <= half.X + MARGIN
         and math.abs(localPos.Z) <= half.Z + MARGIN
         and localPos.Y >= -MARGIN
-        and localPos.Y <= half.Y + OVERLAY_HEIGHT + MARGIN
+        and localPos.Y <= half.Y + OVERLAY_PAD + MARGIN
 end
 
 RunService.Heartbeat:Connect(function(step)
@@ -94,8 +112,7 @@ RunService.Heartbeat:Connect(function(step)
     end
     local base = getBasePart()
     if base then
-        overlay.Size = Vector3.new(base.Size.X, OVERLAY_HEIGHT, base.Size.Z)
-        overlay.CFrame = base.CFrame * CFrame.new(0, (base.Size.Y * 0.5) + (OVERLAY_HEIGHT * 0.5), 0)
+        sizeAndPositionOverlay(overlay, base)
         hud.Adornee = overlay
         hud.StudsOffsetWorldSpace = Vector3.new(0, overlay.Size.Y * 0.5 + 2, 0)
     end
