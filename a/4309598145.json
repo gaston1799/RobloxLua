@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 126884695634066,
-  "jobId": "7b6955ea-800f-497d-a3a1-c5364c0982f3",
-  "join": "roblox://placeId=126884695634066&gameInstanceId=7b6955ea-800f-497d-a3a1-c5364c0982f3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=126884695634066&gameInstanceId=7b6955ea-800f-497d-a3a1-c5364c0982f3",
-  "location": "[🎅] Grow a Garden 🌶️",
-  "updatedAt": 1765550514013
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765550783945
 }
