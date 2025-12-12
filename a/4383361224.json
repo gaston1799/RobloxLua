@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 120619123349243,
+  "jobId": "7ebd004f-81bf-41d8-b2d2-d71b362178cd",
+  "join": "roblox://placeId=120619123349243&gameInstanceId=7ebd004f-81bf-41d8-b2d2-d71b362178cd",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765577647373
+  "web": "https://www.roblox.com/games/start?placeId=120619123349243&gameInstanceId=7ebd004f-81bf-41d8-b2d2-d71b362178cd",
+  "location": "Merge Chiikawa",
+  "updatedAt": 1765577676148
 }
