@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 129009554587176,
+  "jobId": "11735fc6-5a09-4b5d-b471-3d13ad6cce82",
+  "join": "roblox://placeId=129009554587176&gameInstanceId=11735fc6-5a09-4b5d-b471-3d13ad6cce82",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765507046136
+  "web": "https://www.roblox.com/games/start?placeId=129009554587176&gameInstanceId=11735fc6-5a09-4b5d-b471-3d13ad6cce82",
+  "location": "The Forge [BETA]",
+  "updatedAt": 1765507075291
 }
