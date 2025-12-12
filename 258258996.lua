@@ -510,8 +510,8 @@ local function isWithinBaseFootprint(basePart, root)
     end
     local localPos = basePart.CFrame:PointToObjectSpace(root.Position)
     local halfSize = basePart.Size * 0.5
-    local margin = (BASE_ON_TOP_MARGIN or 0) + 2
-    local heightPad = math.max(BASE_ON_TOP_HEIGHT_PAD or 0, OVERLAY_HEIGHT or 0)
+    local margin = (BASE_ON_TOP_MARGIN or 0) + 6
+    local heightPad = math.max(BASE_ON_TOP_HEIGHT_PAD or 0, OVERLAY_HEIGHT or 0) + 4
     return math.abs(localPos.X) <= halfSize.X + margin
         and math.abs(localPos.Z) <= halfSize.Z + margin
         and localPos.Y >= -margin
@@ -1874,6 +1874,7 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
     minSeconds = minSeconds or 1
     local stableStart = nil
     local attemptStart = os.clock()
+    local deadline = os.clock() + 12
     while true do
         if not isCharacterReady() then
             return false
@@ -1913,6 +1914,10 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
             if os.clock() - attemptStart > 5 then
                 setTaskState("Rebirth", "Still pathing to base")
                 attemptStart = os.clock()
+            end
+            if os.clock() > deadline then
+                setTaskState("Rebirth", "Path to base timed out")
+                return false
             end
         end
     end
