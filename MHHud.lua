@@ -4,23 +4,23 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local OVERLAY_PAD = 4
+local OVERLAY_PAD = 6
 local MARGIN = 2
 local ARMED_TIME = 1
 
 local function getOverlayHeight(base)
-    local baseY = base and base.Size.Y or 0
-    return math.max(baseY + OVERLAY_PAD, 8)
+    local baseY = (base and base.Size and base.Size.Y) or 0
+    return math.max(baseY + OVERLAY_PAD, 12)
 end
 
 local function sizeAndPositionOverlay(part, base)
-    if not part or not base then
+    if not part or not base or not base.Size then
         return
     end
     local height = getOverlayHeight(base)
     part.Size = Vector3.new(base.Size.X, height, base.Size.Z)
-    local offsetY = (height - base.Size.Y) * 0.5
-    part.CFrame = base.CFrame * CFrame.new(0, offsetY, 0)
+    -- Keep overlay centered on the base so it wraps it instead of floating above.
+    part.CFrame = base.CFrame
 end
 
 local function createOverlay(base)
@@ -33,7 +33,7 @@ local function createOverlay(base)
     part.Color = Color3.fromRGB(255, 70, 70)
     part.Material = Enum.Material.ForceField
     part.CastShadow = false
-    if base then
+    if base and base.Size then
         sizeAndPositionOverlay(part, base)
     else
         part.Size = Vector3.new(60, getOverlayHeight(), 60)
@@ -88,7 +88,7 @@ if not basePart then
     return
 end
 
-local overlay = createOverlay(basePart.Position)
+local overlay = createOverlay(basePart)
 local hud, label = attachHud(overlay)
 
 local overlayState = "off"
