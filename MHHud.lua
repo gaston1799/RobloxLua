@@ -4,7 +4,7 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local OVERLAY_PAD = 6
+local OVERLAY_PAD = 20
 local MARGIN = 2
 local ARMED_TIME = 1
 
