@@ -247,6 +247,7 @@ local pathDebugEnabled = true
 local pathDebugCooldown = 0.75
 local pathDebugLast = 0
 local lastBoxBaseCheck = 0
+local getExternalOverlayRefs
 local goToTycoonBase
 local getTycoonBasePart
 local returnToTycoonBaseIfIdle
@@ -420,6 +421,26 @@ local function detectOverlayAndLog()
         )
     end
     return overlay, hud, label
+end
+
+getExternalOverlayRefs = function()
+    -- If the external loader exposes a getter (overlay_demo.lua sets MHOverlayGetter), use it.
+    local getter
+    local ok, env = pcall(function()
+        return getgenv and getgenv() or _G
+    end)
+    if ok and env then
+        getter = env.MHOverlayGetter or (env.MHOverlay and env.MHOverlay.get)
+    end
+    if getter then
+        local success, o, h, l = pcall(function()
+            return getter()
+        end)
+        if success and o then
+            return o, h, l
+        end
+    end
+    return nil, nil, nil
 end
 
 local function pathLog(step, ...)
@@ -905,7 +926,10 @@ updateBaseDetectorHud = function(isInside)
 end
 
 local function ensureTycoonOverlay()
-    local existing, hud, label = detectOverlay()
+    local existing, hud, label = getExternalOverlayRefs()
+    if not existing then
+        existing, hud, label = detectOverlay()
+    end
     if not existing then
         local now = os.clock()
         if now - overlayDetectedLastLog >= overlayLogCooldown then
