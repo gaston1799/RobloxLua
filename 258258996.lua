@@ -502,15 +502,20 @@ end
 
 local function isWithinBaseFootprint(basePart, root)
     root = root or humanoidRoot
+    basePart = basePart
+        or tycoonOverlayPart
+        or (overlayHudBillboard and overlayHudBillboard.Adornee)
     if not basePart or not root then
         return false
     end
     local localPos = basePart.CFrame:PointToObjectSpace(root.Position)
     local halfSize = basePart.Size * 0.5
-    return math.abs(localPos.X) <= halfSize.X
-        and math.abs(localPos.Z) <= halfSize.Z
-        and localPos.Y >= -BASE_ON_TOP_MARGIN
-        and localPos.Y <= halfSize.Y + BASE_ON_TOP_HEIGHT_PAD
+    local margin = BASE_ON_TOP_MARGIN or 0
+    local heightPad = BASE_ON_TOP_HEIGHT_PAD or 0
+    return math.abs(localPos.X) <= halfSize.X + margin
+        and math.abs(localPos.Z) <= halfSize.Z + margin
+        and localPos.Y >= -margin
+        and localPos.Y <= halfSize.Y + heightPad
 end
 
 local function isCharacterReady()
@@ -980,6 +985,9 @@ local function ensureOverlayWatcher()
                 overlayHudBillboard.Adornee = overlay
                 overlayHudBillboard.StudsOffsetWorldSpace = Vector3.new(0, overlay.Size.Y * 0.5 + 2, 0)
             end
+        end
+        if not basePart and overlay then
+            basePart = overlay
         end
         if not basePart then
             updateTycoonOverlayState(false)
