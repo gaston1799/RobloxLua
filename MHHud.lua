@@ -73,9 +73,6 @@ end
 local overlay = createOverlay(basePart.Position)
 local hud, label = attachHud(overlay)
 
-local overlayState = "off"
-local overlayEnterTime = 0
-
 local function isWithinBase(base, point)
     if not base or not point then
         return false
@@ -99,35 +96,4 @@ RunService.Heartbeat:Connect(function(step)
     overlay.Size = Vector3.new(base.Size.X, OVERLAY_HEIGHT, base.Size.Z)
     overlay.CFrame = base.CFrame * CFrame.new(0, (base.Size.Y * 0.5) + (OVERLAY_HEIGHT * 0.5), 0)
 
-    local root = Players.LocalPlayer.Character and Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-    local onBase = root and isWithinBase(base, root.Position)
-
-    if onBase then
-        if overlayState ~= "arming" and overlayState ~= "on" then
-            overlayState = "arming"
-            overlayEnterTime = os.clock()
-        elseif overlayState == "arming" and os.clock() - overlayEnterTime >= ARMED_TIME then
-            overlayState = "on"
-        end
-    else
-        overlayState = "off"
-    end
-
-    local partColor = Color3.fromRGB(255, 70, 70)
-    local textColor = Color3.fromRGB(255, 180, 180)
-    local msg = "Off base"
-
-    if overlayState == "arming" then
-        partColor = Color3.fromRGB(255, 255, 80)
-        textColor = Color3.fromRGB(255, 255, 180)
-        msg = "Arming"
-    elseif overlayState == "on" then
-        partColor = Color3.fromRGB(120, 255, 120)
-        textColor = Color3.fromRGB(170, 255, 170)
-        msg = "On base"
-    end
-
-    overlay.Color = partColor
-    label.TextColor3 = textColor
-    label.Text = string.format("Overlay demo: %s", msg)
 end)
