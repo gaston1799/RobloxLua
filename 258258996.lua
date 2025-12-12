@@ -973,6 +973,14 @@ local function ensureOverlayWatcher()
         if label then
             overlayHudLabel = label
         end
+        if overlay and basePart then
+            overlay.Size = Vector3.new(basePart.Size.X, OVERLAY_HEIGHT, basePart.Size.Z)
+            overlay.CFrame = basePart.CFrame * CFrame.new(0, (basePart.Size.Y * 0.5) + (OVERLAY_HEIGHT * 0.5), 0)
+            if overlayHudBillboard and overlayHudBillboard.Parent then
+                overlayHudBillboard.Adornee = overlay
+                overlayHudBillboard.StudsOffsetWorldSpace = Vector3.new(0, overlay.Size.Y * 0.5 + 2, 0)
+            end
+        end
         if not basePart then
             updateTycoonOverlayState(false)
             updateTycoonOverlayHud(false)
@@ -984,6 +992,7 @@ local function ensureOverlayWatcher()
         if root then
             onBase = isWithinBaseFootprint(basePart, root)
         end
+        updateBaseDetectorHud(onBase)
         updateTycoonOverlayState(onBase)
         updateTycoonOverlayHud(onBase)
     end)
