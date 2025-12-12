@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 18349621252,
-  "jobId": "35de6da6-4b48-4979-868a-9259cc120cfc",
-  "join": "roblox://placeId=18349621252&gameInstanceId=35de6da6-4b48-4979-868a-9259cc120cfc",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=18349621252&gameInstanceId=35de6da6-4b48-4979-868a-9259cc120cfc",
-  "location": "Kiss",
-  "updatedAt": 1765547005408
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765547665838
 }
