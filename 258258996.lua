@@ -1878,6 +1878,9 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
             return false
         end
         local basePart = ensureBaseDetector()
+        if not basePart then
+            basePart = tycoonOverlayPart or (overlayHudBillboard and overlayHudBillboard.Adornee) or getTycoonBasePart()
+        end
         if not basePart or not humanoidRoot then
             return false
         end
@@ -1889,7 +1892,10 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
             elseif allowTeleport then
                 humanoidRoot.CFrame = CFrame.new(basePart.Position)
             else
-                moveTo(basePart.Position, {allowTeleportFallback = true})
+                local prev = LegitPathing
+                LegitPathing = true
+                moveTo(basePart.Position, {allowTeleportFallback = false})
+                LegitPathing = prev
             end
             task.wait(0.2)
             updateBaseDetectorHud(false)
@@ -2106,6 +2112,31 @@ local function autoRebirthLoop()
     setTaskState("Rebirth", "Watching cash")
 
     while MinersHaven.State.autoRebirth do
+        local layoutConfig = MinersHaven.Data.LayoutAutomation
+        if layoutConfig and layoutConfig.teleportToTycoon == false then
+            local wasCollectingBoxes = MinersHaven.State.collectBoxes
+            local wasCollectingClovers = MinersHaven.State.collectClovers
+            if wasCollectingBoxes or wasCollectingClovers then
+                setTaskState("Rebirth", "Walking to base (pausing farms)")
+                if wasCollectingBoxes then
+                    startCollectBoxes(false)
+                end
+                if wasCollectingClovers then
+                    startCollectClovers(false)
+                end
+            else
+                setTaskState("Rebirth", "Walking to base")
+            end
+            if not MinersHaven.State.onBase then
+                ensureOnBaseForLayouts(0.5, false)
+            end
+            if wasCollectingBoxes then
+                startCollectBoxes(true)
+            end
+            if wasCollectingClovers then
+                startCollectClovers(true)
+            end
+        end
         -- 1) Get current rebirth cost from UI
         local priceNumber = getRebirthPriceFromUI()
 
