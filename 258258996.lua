@@ -512,10 +512,20 @@ local function isWithinBaseFootprint(basePart, root)
     local halfSize = basePart.Size * 0.5
     local margin = (BASE_ON_TOP_MARGIN or 0) + 6
     local heightPad = math.max(BASE_ON_TOP_HEIGHT_PAD or 0, OVERLAY_HEIGHT or 0) + 4
-    return math.abs(localPos.X) <= halfSize.X + margin
+    local horizontalInside = math.abs(localPos.X) <= halfSize.X + margin
         and math.abs(localPos.Z) <= halfSize.Z + margin
-        and localPos.Y >= -margin
-        and localPos.Y <= halfSize.Y + heightPad
+    if not horizontalInside then
+        return false
+    end
+    -- Consider on-base even if hovering above the hitbox while within the footprint.
+    if localPos.Y < -margin then
+        return false
+    end
+    if localPos.Y <= halfSize.Y + heightPad then
+        return true
+    end
+    -- Allow generous overhead tolerance when centered on the footprint.
+    return localPos.Y <= halfSize.Y + heightPad + 200
 end
 
 local function isCharacterReady()
