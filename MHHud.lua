@@ -100,10 +100,18 @@ local function isWithinBase(base, point)
     end
     local localPos = base.CFrame:PointToObjectSpace(point)
     local half = base.Size * 0.5
-    return math.abs(localPos.X) <= half.X + MARGIN
+    local horizontalInside = math.abs(localPos.X) <= half.X + MARGIN
         and math.abs(localPos.Z) <= half.Z + MARGIN
-        and localPos.Y >= -MARGIN
-        and localPos.Y <= half.Y + OVERLAY_PAD + MARGIN
+    if not horizontalInside then
+        return false
+    end
+    if localPos.Y < -MARGIN then
+        return false
+    end
+    if localPos.Y <= half.Y + OVERLAY_PAD + MARGIN then
+        return true
+    end
+    return localPos.Y <= half.Y + OVERLAY_PAD + MARGIN + 200
 end
 
 RunService.Heartbeat:Connect(function(step)
