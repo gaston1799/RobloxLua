@@ -1040,6 +1040,17 @@ local function ensureOverlayWatcher()
         if root then
             onBase = isWithinBaseFootprint(basePart, root)
         end
+        -- If overlay is found, force onBase true so HUD matches overlay cue
+        if overlay then
+            onBase = true
+            if overlayLastOnBaseLogged ~= true then
+                overlayLog("Overlay present; forcing onBase=true", overlay:GetFullName())
+                overlayLastOnBaseLogged = true
+            end
+        elseif overlayLastOnBaseLogged ~= false then
+            overlayLog("No overlay present; using footprint check", tostring(onBase))
+            overlayLastOnBaseLogged = false
+        end
         updateBaseDetectorHud(onBase)
         updateTycoonOverlayState(onBase)
         updateTycoonOverlayHud(onBase)
