@@ -391,11 +391,23 @@ local function overlaySnapshotEqual(a, b)
         and tostring(a.hudAdornee) == tostring(b.hudAdornee)
         and tostring(a.hudOffset) == tostring(b.hudOffset)
         and a.labelText == b.labelText
-        and tostring(a.labelColor) == tostring(b.labelColor)
+        and a.labelColorR == b.labelColorR
+        and a.labelColorG == b.labelColorG
+        and a.labelColorB == b.labelColorB
 end
 
-local function detectOverlayAndLog()
-    local overlay, hud, label = detectOverlay()
+local function detectOverlayAndLog(overlay, hud, label)
+    if not overlay and not hud and not label then
+        overlay, hud, label = detectOverlay()
+    end
+
+    local labelColorR, labelColorG, labelColorB = nil, nil, nil
+    if label and label.TextColor3 then
+        labelColorR = math.floor(label.TextColor3.R * 255 + 0.5)
+        labelColorG = math.floor(label.TextColor3.G * 255 + 0.5)
+        labelColorB = math.floor(label.TextColor3.B * 255 + 0.5)
+    end
+
     local snap = {
         overlay = overlay,
         hud = hud,
@@ -405,19 +417,31 @@ local function detectOverlayAndLog()
         hudAdornee = hud and hud.Adornee,
         hudOffset = hud and hud.StudsOffsetWorldSpace,
         labelText = label and label.Text,
-        labelColor = label and label.TextColor3,
+        labelColorR = labelColorR,
+        labelColorG = labelColorG,
+        labelColorB = labelColorB,
     }
 
     local now = os.clock()
     local changed = not overlaySnapshot or not overlaySnapshotEqual(overlaySnapshot, snap)
     if changed and now - overlayDetectedLastLog >= overlayDetectThrottle then
         overlayDetectedLastLog = now
+        local prev = overlaySnapshot
         overlaySnapshot = snap
+
+        local function fmtColor(s)
+            if not s or s.labelColorR == nil then
+                return "nil"
+            end
+            return ("%s,%s,%s"):format(tostring(s.labelColorR), tostring(s.labelColorG), tostring(s.labelColorB))
+        end
+
         overlayLog(
             "Overlay detect",
             overlay and overlay:GetFullName() or "nil",
             hud and hud:GetFullName() or "nil",
-            label and label.Text or "nil"
+            label and label.Text or "nil",
+            ("color %s -> %s"):format(fmtColor(prev), fmtColor(snap))
         )
     end
     return overlay, hud, label
@@ -1078,6 +1102,7 @@ local function ensureOverlayWatcher()
         updateBaseDetectorHud(onBase)
         updateTycoonOverlayState(onBase)
         updateTycoonOverlayHud(onBase)
+        detectOverlayAndLog(overlay, overlayHudBillboard, overlayHudLabel)
     end)
 end
 
