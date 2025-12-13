@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 5664458047,
-  "jobId": "71744290-1435-4525-af6c-f602a9ecbc6d",
-  "join": "roblox://placeId=5664458047&gameInstanceId=71744290-1435-4525-af6c-f602a9ecbc6d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=5664458047&gameInstanceId=71744290-1435-4525-af6c-f602a9ecbc6d",
-  "location": "[VR Exclusive] EdgeWorks",
-  "updatedAt": 1765637948218
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765638067960
 }
