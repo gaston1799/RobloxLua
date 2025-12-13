@@ -296,7 +296,8 @@ local BASE_ON_TOP_RADIUS = 10
 local BASE_ON_TOP_MARGIN = 2
 local BASE_ON_TOP_HEIGHT_PAD = 10
 local BASE_DETECTOR_EXTRA_HEIGHT = 100
-local OVERLAY_HEIGHT = 100
+-- Match `MHHud.lua` / `overlay_demo.lua`: thin plate that sits on top of the base.
+local OVERLAY_HEIGHT = 0.5
 
 -- Verbose overlay/HUD setup logging
 local function overlayLog(step, ...)
@@ -984,13 +985,16 @@ ensureBaseDetector = function()
     return surfacePart
 end
 
-updateBaseDetectorHud = function(isInside)
+updateBaseDetectorHud = function(isInside, isUnstable)
     if not baseDetectorLabel then
         return
     end
     if isInside then
         baseDetectorLabel.Text = "On Base"
         baseDetectorLabel.TextColor3 = Color3.fromRGB(120, 255, 120)
+    elseif isUnstable then
+        baseDetectorLabel.Text = "Stabilizing"
+        baseDetectorLabel.TextColor3 = Color3.fromRGB(255, 255, 120)
     else
         baseDetectorLabel.Text = "Off Base"
         baseDetectorLabel.TextColor3 = Color3.fromRGB(255, 140, 140)
@@ -1042,13 +1046,10 @@ end
 local function updateTycoonOverlayState(onBase)
     MinersHaven.State.onBase = onBase and true or false
     local previousState = overlayState
-    if onBase then
-        if overlayState ~= "arming" and overlayState ~= "on" then
-            overlayEnterTime = os.clock()
-            overlayState = "arming"
-        elseif overlayState == "arming" and os.clock() - overlayEnterTime >= 1 then
-            overlayState = "on"
-        end
+    if MinersHaven.State.onBase then
+        overlayState = "on"
+    elseif MinersHaven.State.onBaseUnstable then
+        overlayState = "arming"
     else
         overlayState = "off"
     end
@@ -1063,6 +1064,8 @@ local function updateTycoonOverlayState(onBase)
     pcall(function()
         local env = getgenv and getgenv() or _G
         env.MHOnBase = MinersHaven.State.onBase
+        env.MHOnBaseUnstable = MinersHaven.State.onBaseUnstable or false
+        env.MHOnBaseState = MinersHaven.State.onBaseState or "unknown"
         env.MHOnBaseSource = MinersHaven.State.onBaseSource or "unknown"
     end)
 end
@@ -1072,7 +1075,7 @@ local function updateTycoonOverlayHud(onBase)
         return
     end
     local state = MinersHaven.State
-    local posText = onBase and "On base" or "Off base"
+    local posText = onBase and "On base" or (state.onBaseUnstable and "On base (stabilizing)" or "Off base")
     local progress = state.lastRebirthProgress or 0
     local rebirthText
     local labelColor = Color3.new(1, 1, 1)
@@ -1132,20 +1135,24 @@ local function ensureOverlayWatcher()
             updateTycoonOverlayHud(false)
             return
         end
-        local root = humanoidRoot
-            or (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart"))
+    local root = humanoidRoot
+        or (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart"))
         if not root and LocalPlayer.Character then
             root = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
             humanoidRoot = root or humanoidRoot
         end
-        local onBase = false
-        local onBaseSource = "footprint"
+        local footprintOnBase = false
         if root then
-            onBase = isWithinBaseFootprint(basePart, root)
+            footprintOnBase = isWithinBaseFootprint(basePart, root)
         end
 
+        local stableOnBase = footprintOnBase
+        local unstableOnBase = false
+        local onBaseState = stableOnBase and "on" or "off"
+        local onBaseSource = "footprint"
+
         -- Map external overlay color (from `MHHud.lua`) to on-base state:
-        -- off (red 255,70,70) => false, arming (yellow 255,255,80) => true, on (green 120,255,120) => true
+        -- off (red 255,70,70) => off, arming (yellow 255,255,80) => unstable, on (green 120,255,120) => stable
         if overlay and overlay:IsA("BasePart") then
             local r = math.floor(overlay.Color.R * 255 + 0.5)
             local g = math.floor(overlay.Color.G * 255 + 0.5)
@@ -1155,26 +1162,36 @@ local function ensureOverlayWatcher()
             local isYellow = math.abs(r - 255) <= tol and math.abs(g - 255) <= tol and math.abs(b - 80) <= tol
             local isGreen = math.abs(r - 120) <= tol and math.abs(g - 255) <= tol and math.abs(b - 120) <= tol
             if isRed or isYellow or isGreen then
-                onBase = not isRed
                 if isGreen then
-                    onBaseSource = "overlayColor:on"
+                    stableOnBase = true
+                    unstableOnBase = false
+                    onBaseState = "on"
                 elseif isYellow then
-                    onBaseSource = "overlayColor:arming"
+                    stableOnBase = false
+                    unstableOnBase = true
+                    onBaseState = "arming"
                 else
-                    onBaseSource = "overlayColor:off"
+                    stableOnBase = false
+                    unstableOnBase = false
+                    onBaseState = "off"
                 end
+                onBaseSource = ("overlayColor:%s"):format(onBaseState)
             end
         end
 
+        MinersHaven.State.onBaseUnstable = unstableOnBase
+        MinersHaven.State.onBaseState = onBaseState
         MinersHaven.State.onBaseSource = onBaseSource
-        local sig = ("%s:%s"):format(onBaseSource, tostring(onBase))
+
+        local sig = ("%s:%s"):format(onBaseSource, onBaseState)
         if overlayLastOnBaseLogged ~= sig then
             overlayLog("onBase resolved", sig)
             overlayLastOnBaseLogged = sig
         end
-        updateBaseDetectorHud(onBase)
-        updateTycoonOverlayState(onBase)
-        updateTycoonOverlayHud(onBase)
+
+        updateBaseDetectorHud(stableOnBase, unstableOnBase)
+        updateTycoonOverlayState(stableOnBase)
+        updateTycoonOverlayHud(stableOnBase)
         detectOverlayAndLog(overlay, overlayHudBillboard, overlayHudLabel)
     end)
 end
@@ -2047,25 +2064,28 @@ ensurePositionedAtBaseForBoxes = function()
 end
 
 ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
-    minSeconds = minSeconds or 1
+    minSeconds = minSeconds or 0.35
+    if type(ensureBaseVisuals) == "function" then
+        pcall(ensureBaseVisuals)
+    end
     local stableStart = nil
     local attemptStart = os.clock()
     local deadline = os.clock() + 12
+    local waitedForExistingPath = false
+    local lastMoveRequest = 0
     while true do
         if not isCharacterReady() then
             return false
         end
         if MinersHaven.State.onBase then
-            if not stableStart then
-                stableStart = os.clock()
-            end
-            if os.clock() - stableStart >= minSeconds then
-                updateBaseDetectorHud(true)
-                ensureRebirthHud()
-                return true
-            end
+            stableStart = stableStart or os.clock()
         else
             stableStart = nil
+        end
+        if stableStart and os.clock() - stableStart >= minSeconds then
+            updateBaseDetectorHud(true)
+            ensureRebirthHud()
+            return true
         end
         local basePart = getTycoonBasePart()
             or ensureBaseDetector()
@@ -2074,44 +2094,71 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
         if not basePart or not humanoidRoot then
             return false
         end
-        local onTop = isWithinBaseFootprint(basePart, humanoidRoot)
-        if not onTop then
+
+        -- If something else is currently pathing (e.g. a farm loop), wait for it to finish once.
+        if not waitedForExistingPath and pathfindingBusy then
+            local waitDeadline = os.clock() + 6
+            while pathfindingBusy and os.clock() < waitDeadline do
+                task.wait(0.05)
+            end
+            waitedForExistingPath = true
+        end
+
+        -- Prefer the external overlay state when it is available; only fallback to footprint if overlay is missing.
+        local useOverlay = type(MinersHaven.State.onBaseSource) == "string"
+            and MinersHaven.State.onBaseSource:match("^overlayColor") ~= nil
+        local footprintOnBase = isWithinBaseFootprint(basePart, humanoidRoot)
+        local stableNow = MinersHaven.State.onBase or ((not useOverlay) and footprintOnBase)
+        if stableNow then
+            stableStart = stableStart or os.clock()
+            if os.clock() - stableStart >= minSeconds then
+                updateBaseDetectorHud(true)
+                ensureRebirthHud()
+                return true
+            end
+        else
             stableStart = nil
+        end
+
+        if MinersHaven.State.onBaseUnstable then
+            updateBaseDetectorHud(false, true)
+        else
+            updateBaseDetectorHud(false)
+        end
+
+        -- Don't block on the path; request it (once per cooldown) and wait for the overlay to turn green.
+        local now = os.clock()
+        if not stableNow and not pathfindingBusy and now - lastMoveRequest >= 0.6 then
+            lastMoveRequest = now
             if LegitPathing then
-                pathLog("Pathing to base (legit)", basePart:GetFullName())
-                moveTo(basePart.Position, {allowTeleportFallback = false})
+                pathLog("Request move to base (legit)", basePart:GetFullName())
+                task.spawn(function()
+                    moveTo(basePart.Position, {allowTeleportFallback = false})
+                end)
             elseif allowTeleport then
                 pathLog("Teleporting to base (allowed)", basePart:GetFullName())
                 humanoidRoot.CFrame = CFrame.new(basePart.Position)
             else
                 local prev = LegitPathing
                 LegitPathing = true
-                pathLog("Pathing to base (forced legit)", basePart:GetFullName())
-                moveTo(basePart.Position, {allowTeleportFallback = false})
+                pathLog("Request move to base (forced legit)", basePart:GetFullName())
+                task.spawn(function()
+                    moveTo(basePart.Position, {allowTeleportFallback = false})
+                end)
                 LegitPathing = prev
             end
-            task.wait(0.2)
-            updateBaseDetectorHud(false)
-        else
-            if not stableStart then
-                stableStart = os.clock()
-            end
-            if os.clock() - stableStart >= minSeconds then
-                updateBaseDetectorHud(true)
-                ensureRebirthHud()
-                return true
-            end
-            task.wait(0.1)
-            if os.clock() - attemptStart > 5 then
-                setTaskState("Rebirth", "Still pathing to base")
-                pathLog("Still pathing to base", basePart:GetFullName())
-                attemptStart = os.clock()
-            end
-            if os.clock() > deadline then
-                setTaskState("Rebirth", "Path to base timed out")
-                pathLog("Path to base timed out", basePart:GetFullName())
-                return false
-            end
+        end
+
+        task.wait(0.1)
+        if os.clock() - attemptStart > 5 then
+            setTaskState("Rebirth", "Still moving to base")
+            pathLog("Still moving to base", basePart:GetFullName())
+            attemptStart = os.clock()
+        end
+        if os.clock() > deadline then
+            setTaskState("Rebirth", "Move to base timed out")
+            pathLog("Move to base timed out", basePart:GetFullName())
+            return false
         end
     end
 end
@@ -2120,6 +2167,25 @@ local function executeAtTycoonBase(action, allowTeleport)
     if type(action) ~= "function" then
         return false, "missing action"
     end
+
+    -- If any farm toggles are on, temporarily turn them off while we do base-sensitive actions (layouts).
+    -- This prevents box farm pathing from fighting the layout travel, and restores the toggles afterward.
+    local hadBoxes = MinersHaven.State.collectBoxes
+    local hadClovers = MinersHaven.State.collectClovers
+    if hadBoxes then
+        setTaskState("BoxFarm", "Pausing for layout")
+        startCollectBoxes(false)
+    end
+    if hadClovers then
+        startCollectClovers(false)
+    end
+    if hadBoxes or hadClovers then
+        local pauseDeadline = os.clock() + 6
+        while pathfindingBusy and os.clock() < pauseDeadline do
+            task.wait(0.05)
+        end
+    end
+
     local shouldTeleport = MinersHaven.Data.LayoutAutomation.teleportToTycoon ~= false
     if allowTeleport ~= nil then
         shouldTeleport = allowTeleport
@@ -2140,18 +2206,36 @@ local function executeAtTycoonBase(action, allowTeleport)
         local distance = (humanoidRoot.Position - targetPart.Position).Magnitude
         if distance > BASE_ON_TOP_RADIUS then
             savedLayoutPosition = humanoidRoot.CFrame
-            moveTo(targetPart.Position, {allowTeleportFallback = true})
+            task.spawn(function()
+                moveTo(targetPart.Position, {allowTeleportFallback = true})
+            end)
             teleported = true
         end
     end
-    local positioned = ensureOnBaseForLayouts(1, shouldTeleport)
+    local positioned = ensureOnBaseForLayouts(0.35, shouldTeleport)
     if not positioned then
+        if hadBoxes then
+            startCollectBoxes(true)
+        end
+        if hadClovers then
+            startCollectClovers(true)
+        end
         return false, "not on base"
     end
     local ok, result = pcall(action)
     if teleported and savedLayoutPosition then
+        local returnDeadline = os.clock() + 6
+        while pathfindingBusy and os.clock() < returnDeadline do
+            task.wait(0.05)
+        end
         moveTo(savedLayoutPosition.Position)
         savedLayoutPosition = nil
+    end
+    if hadBoxes then
+        startCollectBoxes(true)
+    end
+    if hadClovers then
+        startCollectClovers(true)
     end
     return ok, result
 end
@@ -2207,6 +2291,14 @@ local function withTemporarilyPausedFarming(reason, action)
     end
     if hadClovers then
         startCollectClovers(false)
+    end
+
+    -- If we just paused box farming, let any in-flight path finish before we start layout/base work.
+    if hadBoxes or hadClovers then
+        local deadline = os.clock() + 6
+        while pathfindingBusy and os.clock() < deadline do
+            task.wait(0.05)
+        end
     end
 
     local ok, result = pcall(action)
