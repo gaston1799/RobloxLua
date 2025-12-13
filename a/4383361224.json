@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 8575989077,
-  "jobId": "451d383e-1a53-4962-8b97-efabf5df4d8a",
-  "join": "roblox://placeId=8575989077&gameInstanceId=451d383e-1a53-4962-8b97-efabf5df4d8a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=8575989077&gameInstanceId=451d383e-1a53-4962-8b97-efabf5df4d8a",
-  "location": "The Apartment",
-  "updatedAt": 1765635997843
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765636087941
 }
