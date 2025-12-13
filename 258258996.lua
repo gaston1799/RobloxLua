@@ -368,13 +368,40 @@ local function detectOverlay()
     if not overlay then
         return nil, nil, nil
     end
-    local hud = findFirstOfNames(overlay, HUD_NAMES, "BillboardGui")
+
+    -- Hard-coded paths that match `overlay_demo.lua`/`MHHud.lua`:
+    -- `workspace.DemoOverlayBox.DemoOverlayHud.Status` (TextLabel) and the Part's `.Color`.
+    local hud = nil
+    for _, name in ipairs(HUD_NAMES) do
+        local direct = overlay:FindFirstChild(name)
+        if direct and direct:IsA("BillboardGui") then
+            hud = direct
+            break
+        end
+        local deep = overlay:FindFirstChild(name, true)
+        if deep and deep:IsA("BillboardGui") then
+            hud = deep
+            break
+        end
+    end
     if not hud then
         hud = overlay:FindFirstChildWhichIsA("BillboardGui", true)
     end
-    local label = hud and findFirstOfNames(hud, LABEL_NAMES, "TextLabel") or nil
-    if hud and not label then
-        label = hud:FindFirstChildWhichIsA("TextLabel", true)
+
+    local label = nil
+    if hud then
+        local status = hud:FindFirstChild("Status")
+        if status and status:IsA("TextLabel") then
+            label = status
+        else
+            local deep = hud:FindFirstChild("Status", true)
+            if deep and deep:IsA("TextLabel") then
+                label = deep
+            end
+        end
+        if not label then
+            label = findFirstOfNames(hud, LABEL_NAMES, "TextLabel") or hud:FindFirstChildWhichIsA("TextLabel", true)
+        end
     end
     return overlay, hud, label
 end
@@ -388,6 +415,9 @@ local function overlaySnapshotEqual(a, b)
         and a.label == b.label
         and tostring(a.overlayCFrame) == tostring(b.overlayCFrame)
         and tostring(a.overlaySize) == tostring(b.overlaySize)
+        and a.overlayColorR == b.overlayColorR
+        and a.overlayColorG == b.overlayColorG
+        and a.overlayColorB == b.overlayColorB
         and tostring(a.hudAdornee) == tostring(b.hudAdornee)
         and tostring(a.hudOffset) == tostring(b.hudOffset)
         and a.labelText == b.labelText
@@ -399,6 +429,13 @@ end
 local function detectOverlayAndLog(overlay, hud, label)
     if not overlay and not hud and not label then
         overlay, hud, label = detectOverlay()
+    end
+
+    local overlayColorR, overlayColorG, overlayColorB = nil, nil, nil
+    if overlay and overlay:IsA("BasePart") and overlay.Color then
+        overlayColorR = math.floor(overlay.Color.R * 255 + 0.5)
+        overlayColorG = math.floor(overlay.Color.G * 255 + 0.5)
+        overlayColorB = math.floor(overlay.Color.B * 255 + 0.5)
     end
 
     local labelColorR, labelColorG, labelColorB = nil, nil, nil
@@ -414,6 +451,9 @@ local function detectOverlayAndLog(overlay, hud, label)
         label = label,
         overlayCFrame = overlay and overlay.CFrame,
         overlaySize = overlay and overlay.Size,
+        overlayColorR = overlayColorR,
+        overlayColorG = overlayColorG,
+        overlayColorB = overlayColorB,
         hudAdornee = hud and hud.Adornee,
         hudOffset = hud and hud.StudsOffsetWorldSpace,
         labelText = label and label.Text,
@@ -429,7 +469,14 @@ local function detectOverlayAndLog(overlay, hud, label)
         local prev = overlaySnapshot
         overlaySnapshot = snap
 
-        local function fmtColor(s)
+        local function fmtOverlayColor(s)
+            if not s or s.overlayColorR == nil then
+                return "nil"
+            end
+            return ("%s,%s,%s"):format(tostring(s.overlayColorR), tostring(s.overlayColorG), tostring(s.overlayColorB))
+        end
+
+        local function fmtLabelColor(s)
             if not s or s.labelColorR == nil then
                 return "nil"
             end
@@ -441,7 +488,8 @@ local function detectOverlayAndLog(overlay, hud, label)
             overlay and overlay:GetFullName() or "nil",
             hud and hud:GetFullName() or "nil",
             label and label.Text or "nil",
-            ("color %s -> %s"):format(fmtColor(prev), fmtColor(snap))
+            ("overlayColor %s -> %s"):format(fmtOverlayColor(prev), fmtOverlayColor(snap)),
+            ("labelColor %s -> %s"):format(fmtLabelColor(prev), fmtLabelColor(snap))
         )
     end
     return overlay, hud, label
