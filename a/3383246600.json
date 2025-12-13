@@ -1,12 +1,12 @@
 {
   "userId": 3383246600,
   "displayName": "PX_ AssassinCROW",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15599653678,
+  "jobId": "c664014c-931c-4c41-a552-f465796fe983",
+  "join": "roblox://placeId=15599653678&gameInstanceId=c664014c-931c-4c41-a552-f465796fe983",
   "follow": "roblox://followUserId=3383246600",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765612235612
+  "web": "https://www.roblox.com/games/start?placeId=15599653678&gameInstanceId=c664014c-931c-4c41-a552-f465796fe983",
+  "location": "Dan's Karaoke",
+  "updatedAt": 1765612685769
 }
