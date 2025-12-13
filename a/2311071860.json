@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 18668065416,
-  "jobId": "24d37617-c8ce-4458-b9d8-db67c9dcfeba",
-  "join": "roblox://placeId=18668065416&gameInstanceId=24d37617-c8ce-4458-b9d8-db67c9dcfeba",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=18668065416&gameInstanceId=24d37617-c8ce-4458-b9d8-db67c9dcfeba",
-  "location": "[NOW] Blue Lock: Rivals",
-  "updatedAt": 1765649294119
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765649498130
 }
