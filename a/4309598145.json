@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 124082555806669,
-  "jobId": "5002ee59-2c81-4a88-bef1-7b35f0a68474",
-  "join": "roblox://placeId=124082555806669&gameInstanceId=5002ee59-2c81-4a88-bef1-7b35f0a68474",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=124082555806669&gameInstanceId=5002ee59-2c81-4a88-bef1-7b35f0a68474",
-  "location": "Don't Get Crushed By 67",
-  "updatedAt": 1765631075886
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765631255887
 }
