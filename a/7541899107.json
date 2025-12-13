@@ -1,12 +1,12 @@
 {
   "userId": 7541899107,
   "displayName": "TheGlitchQueen",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10253248401,
+  "jobId": "fc0b6698-9f55-40e6-b8c7-1cb3720cc198",
+  "join": "roblox://placeId=10253248401&gameInstanceId=fc0b6698-9f55-40e6-b8c7-1cb3720cc198",
   "follow": "roblox://followUserId=7541899107",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765664108629
+  "web": "https://www.roblox.com/games/start?placeId=10253248401&gameInstanceId=fc0b6698-9f55-40e6-b8c7-1cb3720cc198",
+  "location": "Elemental Powers Tycoon",
+  "updatedAt": 1765664168786
 }
