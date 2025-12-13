@@ -1,12 +1,12 @@
 {
   "userId": 7541899107,
   "displayName": "TheGlitchQueen",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7250769796,
+  "jobId": "a02cd820-ff9a-4f53-a5bd-81106efa4dcc",
+  "join": "roblox://placeId=7250769796&gameInstanceId=a02cd820-ff9a-4f53-a5bd-81106efa4dcc",
   "follow": "roblox://followUserId=7541899107",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765663150212
+  "web": "https://www.roblox.com/games/start?placeId=7250769796&gameInstanceId=a02cd820-ff9a-4f53-a5bd-81106efa4dcc",
+  "location": "Build to Survive!",
+  "updatedAt": 1765663540246
 }
