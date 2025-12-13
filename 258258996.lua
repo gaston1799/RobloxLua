@@ -1059,6 +1059,12 @@ local function updateTycoonOverlayState(onBase)
             ("onBase=%s"):format(tostring(onBase))
         )
     end
+
+    pcall(function()
+        local env = getgenv and getgenv() or _G
+        env.MHOnBase = MinersHaven.State.onBase
+        env.MHOnBaseSource = MinersHaven.State.onBaseSource or "unknown"
+    end)
 end
 
 local function updateTycoonOverlayHud(onBase)
@@ -1133,19 +1139,38 @@ local function ensureOverlayWatcher()
             humanoidRoot = root or humanoidRoot
         end
         local onBase = false
+        local onBaseSource = "footprint"
         if root then
             onBase = isWithinBaseFootprint(basePart, root)
         end
-        -- If overlay is found, force onBase true so HUD matches overlay cue
-        if overlay then
-            onBase = true
-            if overlayLastOnBaseLogged ~= true then
-                overlayLog("Overlay present; forcing onBase=true", overlay:GetFullName())
-                overlayLastOnBaseLogged = true
+
+        -- Map external overlay color (from `MHHud.lua`) to on-base state:
+        -- off (red 255,70,70) => false, arming (yellow 255,255,80) => true, on (green 120,255,120) => true
+        if overlay and overlay:IsA("BasePart") then
+            local r = math.floor(overlay.Color.R * 255 + 0.5)
+            local g = math.floor(overlay.Color.G * 255 + 0.5)
+            local b = math.floor(overlay.Color.B * 255 + 0.5)
+            local tol = 6
+            local isRed = math.abs(r - 255) <= tol and math.abs(g - 70) <= tol and math.abs(b - 70) <= tol
+            local isYellow = math.abs(r - 255) <= tol and math.abs(g - 255) <= tol and math.abs(b - 80) <= tol
+            local isGreen = math.abs(r - 120) <= tol and math.abs(g - 255) <= tol and math.abs(b - 120) <= tol
+            if isRed or isYellow or isGreen then
+                onBase = not isRed
+                if isGreen then
+                    onBaseSource = "overlayColor:on"
+                elseif isYellow then
+                    onBaseSource = "overlayColor:arming"
+                else
+                    onBaseSource = "overlayColor:off"
+                end
             end
-        elseif overlayLastOnBaseLogged ~= false then
-            overlayLog("No overlay present; using footprint check", tostring(onBase))
-            overlayLastOnBaseLogged = false
+        end
+
+        MinersHaven.State.onBaseSource = onBaseSource
+        local sig = ("%s:%s"):format(onBaseSource, tostring(onBase))
+        if overlayLastOnBaseLogged ~= sig then
+            overlayLog("onBase resolved", sig)
+            overlayLastOnBaseLogged = sig
         end
         updateBaseDetectorHud(onBase)
         updateTycoonOverlayState(onBase)
@@ -2029,6 +2054,18 @@ ensureOnBaseForLayouts = function(minSeconds, allowTeleport)
     while true do
         if not isCharacterReady() then
             return false
+        end
+        if MinersHaven.State.onBase then
+            if not stableStart then
+                stableStart = os.clock()
+            end
+            if os.clock() - stableStart >= minSeconds then
+                updateBaseDetectorHud(true)
+                ensureRebirthHud()
+                return true
+            end
+        else
+            stableStart = nil
         end
         local basePart = getTycoonBasePart()
             or ensureBaseDetector()
