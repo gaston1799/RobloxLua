@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "ace",
-  "status": "in-game",
-  "placeId": 134354795189883,
-  "jobId": "24680670-88bd-4403-89cd-af65c45bfe4c",
-  "join": "roblox://placeId=134354795189883&gameInstanceId=24680670-88bd-4403-89cd-af65c45bfe4c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4725438245",
-  "web": "https://www.roblox.com/games/start?placeId=134354795189883&gameInstanceId=24680670-88bd-4403-89cd-af65c45bfe4c",
-  "location": "[UPD] Mow Ur Snow ❄️",
-  "updatedAt": 1765648237990
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765648928249
 }
