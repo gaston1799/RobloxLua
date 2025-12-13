@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 130819991445897,
-  "jobId": "c903eef9-a8dc-4d3e-b545-34c62b9e3a10",
-  "join": "roblox://placeId=130819991445897&gameInstanceId=c903eef9-a8dc-4d3e-b545-34c62b9e3a10",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=130819991445897&gameInstanceId=c903eef9-a8dc-4d3e-b545-34c62b9e3a10",
-  "location": "[ABILITIES] Troll Tower",
-  "updatedAt": 1765638157941
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765638188151
 }
