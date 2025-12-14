@@ -1737,7 +1737,7 @@ local function startAutoFireball()
             end
             local ok, err = pcall(function()
                 if target and canEngagePlayer(target) then
-                    aimAndFireAtPlayer(target, indicator)
+                    aimAndFireAtPlayer(target, indicator, true)
                     if autoZoneDesiredAimPoint then
                         pcall(function()
                             indicator.Parent = workspace
@@ -2302,7 +2302,8 @@ local function findZoneProjectileTool()
     return scan(character) or scan(backpack)
 end
 
-aimAndFireAtPlayer = function(targetPlayer, indicatorPart)
+aimAndFireAtPlayer = function(targetPlayer, indicatorPart, allowProjectile)
+    allowProjectile = (allowProjectile ~= false)
     local targetRoot = targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
     if not targetRoot then
         return false
@@ -2330,89 +2331,86 @@ aimAndFireAtPlayer = function(targetPlayer, indicatorPart)
 
     local character = LocalPlayer.Character
     local humanoidInstance = character and character:FindFirstChildOfClass("Humanoid")
-    local tool = findZoneProjectileTool()
-    if humanoidInstance and tool then
-        if tool.Parent ~= character then
-            pcall(function()
-                humanoidInstance:EquipTool(tool)
-            end)
-            task.wait(0.05)
-        end
-        local activatedOk = pcall(function()
-            tool:Activate()
-        end)
 
-        if activatedOk and indicatorPart then
-            do
-                local aimState = AnimalSim.Modules.Combat._autoAimState or {}
-                aimState.flashToken = (aimState.flashToken or 0) + 1
-                local flashToken = aimState.flashToken
-                AnimalSim.Modules.Combat._autoAimState = aimState
-
+    if allowProjectile then
+        local tool = findZoneProjectileTool()
+        if humanoidInstance and tool then
+            if tool.Parent ~= character then
                 pcall(function()
-                    indicatorPart.Color = Color3.fromRGB(80, 255, 80)
+                    humanoidInstance:EquipTool(tool)
                 end)
-                task.delay(0.12, function()
-                    local stateNow = AnimalSim.Modules.Combat._autoAimState
-                    if stateNow and stateNow.flashToken == flashToken and autoZoneIndicatorPart == indicatorPart then
-                        pcall(function()
-                            indicatorPart.Color = Color3.fromRGB(255, 80, 80)
-                        end)
-                    end
-                end)
+                task.wait(0.05)
             end
+            pcall(function()
+                tool:Activate()
+            end)
+        end
+    end
 
-            do
-                local now = os.clock()
-                local aimState = AnimalSim.Modules.Combat._autoAimState or {}
-                local lastAt = aimState.shovelLastAt or 0
-                if (now - lastAt) >= (1 / 1.7) then
-                    local myRoot = character and character:FindFirstChild("HumanoidRootPart")
-                    if myRoot and (myRoot.Position - targetRoot.Position).Magnitude <= 14 then
-                        local targetHumanoid = targetPlayer.Character and targetPlayer.Character:FindFirstChildOfClass("Humanoid")
-                        if targetHumanoid and targetHumanoid.Health > 0 then
-                            local shovelTool
-                            local backpack = LocalPlayer:FindFirstChild("Backpack") or LocalPlayer.Backpack
-                            for _, container in ipairs({character, backpack}) do
-                                if container then
-                                    for _, child in ipairs(container:GetChildren()) do
-                                        if child:IsA("Tool") and string.lower(child.Name) == "shovel" then
-                                            shovelTool = child
-                                            break
-                                        end
-                                    end
-                                end
-                                if shovelTool then
+    if indicatorPart then
+        local now = os.clock()
+        local aimState = AnimalSim.Modules.Combat._autoAimState or {}
+        local lastAt = aimState.shovelLastAt or 0
+        if (now - lastAt) >= (1 / 1.7) then
+            local myRoot = character and character:FindFirstChild("HumanoidRootPart")
+            if myRoot and (myRoot.Position - targetRoot.Position).Magnitude <= 14 then
+                local targetHumanoid = targetPlayer.Character and targetPlayer.Character:FindFirstChildOfClass("Humanoid")
+                if targetHumanoid and targetHumanoid.Health > 0 then
+                    aimState.flashToken = (aimState.flashToken or 0) + 1
+                    local flashToken = aimState.flashToken
+                    AnimalSim.Modules.Combat._autoAimState = aimState
+
+                    pcall(function()
+                        indicatorPart.Color = Color3.fromRGB(80, 255, 80)
+                    end)
+                    task.delay(0.12, function()
+                        local stateNow = AnimalSim.Modules.Combat._autoAimState
+                        if stateNow and stateNow.flashToken == flashToken and autoZoneIndicatorPart == indicatorPart then
+                            pcall(function()
+                                indicatorPart.Color = Color3.fromRGB(255, 80, 80)
+                            end)
+                        end
+                    end)
+
+                    local shovelTool
+                    local backpack = LocalPlayer:FindFirstChild("Backpack") or LocalPlayer.Backpack
+                    for _, container in ipairs({character, backpack}) do
+                        if container then
+                            for _, child in ipairs(container:GetChildren()) do
+                                if child:IsA("Tool") and string.lower(child.Name) == "shovel" then
+                                    shovelTool = child
                                     break
                                 end
                             end
-
-                            if shovelTool then
-                                if shovelTool.Parent ~= character then
-                                    pcall(function()
-                                        humanoidInstance:EquipTool(shovelTool)
-                                    end)
-                                    task.wait(0.03)
-                                end
-                                pcall(function()
-                                    shovelTool:Activate()
-                                end)
-                            end
-
-                            pcall(function()
-                                hitHumanoid(targetHumanoid)
-                            end)
-                            aimState.shovelLastAt = now
-                            AnimalSim.Modules.Combat._autoAimState = aimState
+                        end
+                        if shovelTool then
+                            break
                         end
                     end
+
+                    if shovelTool and humanoidInstance then
+                        if shovelTool.Parent ~= character then
+                            pcall(function()
+                                humanoidInstance:EquipTool(shovelTool)
+                            end)
+                            task.wait(0.03)
+                        end
+                        pcall(function()
+                            shovelTool:Activate()
+                        end)
+                    end
+
+                    pcall(function()
+                        hitHumanoid(targetHumanoid)
+                    end)
+                    aimState.shovelLastAt = now
+                    AnimalSim.Modules.Combat._autoAimState = aimState
                 end
             end
         end
-        return true
     end
 
-    return false
+    return true
 end
 
 local function autoPVPLoop()
@@ -2428,7 +2426,7 @@ local function autoPVPLoop()
             end
             if canEngagePlayer(target) then
                 local ok, err = pcall(function()
-                    local fired = aimAndFireAtPlayer(target, nil)
+                    local fired = aimAndFireAtPlayer(target, nil, true)
                     if not fired then
                         if AnimalSim.State.autoFight then
                             damageplayer(target.Name)
@@ -2475,7 +2473,7 @@ local function autoZoneLoop(myToken)
 
         local target = findZoneTarget()
         local indicator = ensureAutoZoneIndicator()
-        local fired = target and aimAndFireAtPlayer(target, indicator)
+        local fired = target and aimAndFireAtPlayer(target, indicator, false)
         if not fired then
             hideAutoZoneIndicator()
             if not autoFireballEnabled then
