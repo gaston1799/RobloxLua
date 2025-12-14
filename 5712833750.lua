@@ -189,8 +189,9 @@ local function isInsideSafeZone(position)
     for i = 1, #polygon do
         local pi = polygon[i]
         local pj = polygon[j]
+        local denom = pj.Y - pi.Y
         local condition = ((pi.Y > z) ~= (pj.Y > z)) and
-            (x < (pj.X - pi.X) * (z - pi.Y) / math.max(pj.Y - pi.Y, 1e-9) + pi.X)
+            (x < (pj.X - pi.X) * (z - pi.Y) / denom + pi.X)
         if condition then
             inside = not inside
         end
