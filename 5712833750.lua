@@ -53,6 +53,7 @@ local AnimalSim = {
         autoEat = false,
         autoFight = false,
         autoZone = false,
+        autoZoneFakeouts = false,
         autoFlightChase = false,
         autoFireball = false,
         followTarget = false,
@@ -163,15 +164,27 @@ local AUTO_PVP_POLL_RATE = 0.35
 local AUTO_ZONE_POLL_RATE = 0.35
 local AUTO_ZONE_PREDICTION_TIME = 0.25
 local AUTO_ZONE_CAMERA_LERP = 0.4
+local AUTO_ZONE_RENDER_LERP = 0.22
+local AUTO_ZONE_CHASE_DISTANCE = 10
 local DEBUG_DAMAGE_LOG = true
 local FALLBACK_ATTACKER_RADIUS = 45
 
 local autoZoneIndicatorPart
+local autoZoneDesiredAimPoint
+local autoZoneRenderConnection
+local autoZoneLastIndicatorCF
 local autoAimOldCameraType
 local autoAimOldCameraSubject
 local autoAimOldMouseBehavior
 local autoAimOldMouseIconEnabled
 local autoAimLockCount = 0
+
+local ensureAutoZoneIndicator
+local hideAutoZoneIndicator
+local findZoneTarget
+local aimAndFireAtPlayer
+local acquireAimLock
+local releaseAimLock
 
 local canEngagePlayer
 local damageplayer
@@ -1707,26 +1720,48 @@ local function startAutoFireball()
     end
     autoFireballEnabled = true
     AnimalSim.State.autoFireball = true
+    acquireAimLock()
     if autoFireballTask then
         return
     end
     autoFireballTask = task.spawn(function()
         while autoFireballEnabled do
-            local waitTime = 0.4
-            local ok, fired = pcall(function()
-                local targetPosition = getAutoFireballTargetPosition()
-                if not targetPosition then
-                    return false
+            defineNilLocals()
+            local indicator = ensureAutoZoneIndicator()
+            local target = AnimalSim.State.selectedPlayer
+            if target and (not target.Parent or target == LocalPlayer or teamCheck(target.Name)) then
+                target = nil
+            end
+            if not target then
+                target = findZoneTarget()
+            end
+            local ok, err = pcall(function()
+                if target and canEngagePlayer(target) then
+                    aimAndFireAtPlayer(target, indicator)
+                    if autoZoneDesiredAimPoint then
+                        pcall(function()
+                            indicator.Parent = workspace
+                            indicator.CFrame = CFrame.new(autoZoneDesiredAimPoint)
+                        end)
+                        local camera = workspace.CurrentCamera
+                        if camera then
+                            local desired = CFrame.lookAt(camera.CFrame.Position, autoZoneDesiredAimPoint)
+                            camera.CFrame = camera.CFrame:Lerp(desired, AUTO_ZONE_CAMERA_LERP)
+                        end
+                    end
+                else
+                    if not autoZoneEnabled then
+                        autoZoneDesiredAimPoint = nil
+                    end
+                    hideAutoZoneIndicator()
                 end
-                return fireFireballAtPosition(targetPosition)
             end)
             if not ok then
-                warn("[AutoFireball]", fired)
-                waitTime = 0.8
-            elseif not fired then
-                waitTime = 0.6
+                warn("[AutoFire] failed", err)
+                task.wait(0.3)
+            else
+                task.wait(0.08)
             end
-            task.wait(waitTime)
         end
         autoFireballTask = nil
     end)
@@ -1740,6 +1775,15 @@ local function stopAutoFireball()
     AnimalSim.State.autoFireball = false
     while autoFireballTask do
         task.wait()
+    end
+    if not autoZoneEnabled then
+        autoZoneDesiredAimPoint = nil
+        hideAutoZoneIndicator()
+    end
+    releaseAimLock()
+    if not autoZoneEnabled and autoZoneRenderConnection then
+        autoZoneRenderConnection:Disconnect()
+        autoZoneRenderConnection = nil
     end
 end
 
@@ -2116,7 +2160,7 @@ canEngagePlayer = function(targetPlayer)
     return true
 end
 
-local function findZoneTarget()
+findZoneTarget = function()
     local character = LocalPlayer.Character
     local localRoot = character and character:FindFirstChild("HumanoidRootPart")
     if not localRoot then
@@ -2143,7 +2187,7 @@ local function findZoneTarget()
     return closestPlayer
 end
 
-local function acquireAimLock()
+acquireAimLock = function()
     autoAimLockCount += 1
     if autoAimLockCount > 1 then
         return
@@ -2162,7 +2206,7 @@ local function acquireAimLock()
     UserInputService.MouseIconEnabled = true
 end
 
-local function releaseAimLock()
+releaseAimLock = function()
     if autoAimLockCount <= 0 then
         autoAimLockCount = 0
         return
@@ -2195,8 +2239,9 @@ local function releaseAimLock()
     autoAimOldMouseIconEnabled = nil
 end
 
-local function ensureAutoZoneIndicator()
-    if autoZoneIndicatorPart and autoZoneIndicatorPart.Parent then
+ensureAutoZoneIndicator = function()
+    if autoZoneIndicatorPart then
+        autoZoneIndicatorPart.Parent = workspace
         return autoZoneIndicatorPart
     end
     local part = Instance.new("Part")
@@ -2212,7 +2257,7 @@ local function ensureAutoZoneIndicator()
     return part
 end
 
-local function hideAutoZoneIndicator()
+hideAutoZoneIndicator = function()
     if autoZoneIndicatorPart then
         autoZoneIndicatorPart.Parent = nil
     end
@@ -2225,6 +2270,7 @@ local function destroyAutoZoneIndicator()
         end)
         autoZoneIndicatorPart = nil
     end
+    autoZoneLastIndicatorCF = nil
 end
 
 local function findZoneProjectileTool()
@@ -2256,7 +2302,7 @@ local function findZoneProjectileTool()
     return scan(character) or scan(backpack)
 end
 
-local function aimAndFireAtPlayer(targetPlayer, indicatorPart)
+aimAndFireAtPlayer = function(targetPlayer, indicatorPart)
     local targetRoot = targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
     if not targetRoot then
         return false
@@ -2270,15 +2316,16 @@ local function aimAndFireAtPlayer(targetPlayer, indicatorPart)
         return false
     end
 
+    autoZoneDesiredAimPoint = predicted
     if indicatorPart then
         indicatorPart.Parent = workspace
-        indicatorPart.CFrame = CFrame.new(predicted)
     end
 
-    local camera = workspace.CurrentCamera
-    if camera then
-        local desired = CFrame.lookAt(camera.CFrame.Position, predicted)
-        camera.CFrame = camera.CFrame:Lerp(desired, AUTO_ZONE_CAMERA_LERP)
+    do
+        local walkState = AnimalSim.Modules.Combat._autoZoneWalk
+        if walkState then
+            walkState.targetPlayer = targetPlayer
+        end
     end
 
     local character = LocalPlayer.Character
@@ -2291,9 +2338,77 @@ local function aimAndFireAtPlayer(targetPlayer, indicatorPart)
             end)
             task.wait(0.05)
         end
-        pcall(function()
+        local activatedOk = pcall(function()
             tool:Activate()
         end)
+
+        if activatedOk and indicatorPart then
+            do
+                local aimState = AnimalSim.Modules.Combat._autoAimState or {}
+                aimState.flashToken = (aimState.flashToken or 0) + 1
+                local flashToken = aimState.flashToken
+                AnimalSim.Modules.Combat._autoAimState = aimState
+
+                pcall(function()
+                    indicatorPart.Color = Color3.fromRGB(80, 255, 80)
+                end)
+                task.delay(0.12, function()
+                    local stateNow = AnimalSim.Modules.Combat._autoAimState
+                    if stateNow and stateNow.flashToken == flashToken and autoZoneIndicatorPart == indicatorPart then
+                        pcall(function()
+                            indicatorPart.Color = Color3.fromRGB(255, 80, 80)
+                        end)
+                    end
+                end)
+            end
+
+            do
+                local now = os.clock()
+                local aimState = AnimalSim.Modules.Combat._autoAimState or {}
+                local lastAt = aimState.shovelLastAt or 0
+                if (now - lastAt) >= (1 / 1.7) then
+                    local myRoot = character and character:FindFirstChild("HumanoidRootPart")
+                    if myRoot and (myRoot.Position - targetRoot.Position).Magnitude <= 14 then
+                        local targetHumanoid = targetPlayer.Character and targetPlayer.Character:FindFirstChildOfClass("Humanoid")
+                        if targetHumanoid and targetHumanoid.Health > 0 then
+                            local shovelTool
+                            local backpack = LocalPlayer:FindFirstChild("Backpack") or LocalPlayer.Backpack
+                            for _, container in ipairs({character, backpack}) do
+                                if container then
+                                    for _, child in ipairs(container:GetChildren()) do
+                                        if child:IsA("Tool") and string.lower(child.Name) == "shovel" then
+                                            shovelTool = child
+                                            break
+                                        end
+                                    end
+                                end
+                                if shovelTool then
+                                    break
+                                end
+                            end
+
+                            if shovelTool then
+                                if shovelTool.Parent ~= character then
+                                    pcall(function()
+                                        humanoidInstance:EquipTool(shovelTool)
+                                    end)
+                                    task.wait(0.03)
+                                end
+                                pcall(function()
+                                    shovelTool:Activate()
+                                end)
+                            end
+
+                            pcall(function()
+                                hitHumanoid(targetHumanoid)
+                            end)
+                            aimState.shovelLastAt = now
+                            AnimalSim.Modules.Combat._autoAimState = aimState
+                        end
+                    end
+                end
+            end
+        end
         return true
     end
 
@@ -2363,12 +2478,18 @@ local function autoZoneLoop(myToken)
         local fired = target and aimAndFireAtPlayer(target, indicator)
         if not fired then
             hideAutoZoneIndicator()
+            if not autoFireballEnabled then
+                autoZoneDesiredAimPoint = nil
+            end
         end
 
         task.wait(AUTO_ZONE_POLL_RATE)
     end
 
-    destroyAutoZoneIndicator()
+    if not autoFireballEnabled then
+        destroyAutoZoneIndicator()
+        autoZoneDesiredAimPoint = nil
+    end
     autoZoneTask = nil
 end
 
@@ -2383,6 +2504,291 @@ local function setAutoZone(value)
         autoZoneCancelToken += 1
         acquireAimLock()
 
+        do
+            local walkState = AnimalSim.Modules.Combat._autoZoneWalk or {}
+            walkState.enabled = true
+            walkState.cancelToken = (walkState.cancelToken or 0) + 1
+            walkState.pathPoints = walkState.pathPoints or table.create(18)
+            walkState.targetPlayer = nil
+            walkState.fakeout = walkState.fakeout or {}
+            AnimalSim.Modules.Combat._autoZoneWalk = walkState
+
+            if not walkState.task then
+                local function startWalkTask()
+                    local myToken = walkState.cancelToken
+                    walkState.task = task.spawn(function()
+                        local PATH_POINTS = 18
+                        local WAYPOINT_RADIUS = 2.5
+                        local WAYPOINT_TIMEOUT = 1.4
+                        local LOOP_DELAY = 0.03
+
+                        while autoZoneEnabled and walkState.enabled and walkState.cancelToken == myToken do
+                            local character = LocalPlayer.Character
+                            local humanoidInstance = character and character:FindFirstChildOfClass("Humanoid")
+                            local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+                            if not (humanoidInstance and rootPart) then
+                                task.wait(0.25)
+                                continue
+                            end
+
+                            if not autoZoneDesiredAimPoint then
+                                task.wait(0.06)
+                                continue
+                            end
+
+                            for index = 2, PATH_POINTS do
+                                if not (autoZoneEnabled and walkState.enabled and walkState.cancelToken == myToken) then
+                                    break
+                                end
+
+                                local waypoint = walkState.pathPoints[index]
+                                if not waypoint then
+                                    break
+                                end
+                                if isInsideSafeZone(waypoint) then
+                                    continue
+                                end
+
+                                humanoidInstance:MoveTo(waypoint)
+                                local timeoutAt = os.clock() + WAYPOINT_TIMEOUT
+                                while autoZoneEnabled and walkState.enabled and walkState.cancelToken == myToken and os.clock() < timeoutAt do
+                                    local currentRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                    if not currentRoot then
+                                        break
+                                    end
+                                    if (currentRoot.Position - waypoint).Magnitude <= WAYPOINT_RADIUS then
+                                        break
+                                    end
+                                    task.wait(LOOP_DELAY)
+                                end
+                            end
+
+                            task.wait(LOOP_DELAY)
+                        end
+
+                        walkState.task = nil
+                    end)
+                end
+
+                startWalkTask()
+            end
+        end
+
+        if not autoZoneRenderConnection then
+            autoZoneRenderConnection = RunService.RenderStepped:Connect(function(dt)
+                if not autoZoneEnabled then
+                    return
+                end
+                local aimPoint = autoZoneDesiredAimPoint
+                if not aimPoint then
+                    return
+                end
+
+                local indicator = ensureAutoZoneIndicator()
+                indicator.Parent = workspace
+
+                local targetCF = CFrame.new(aimPoint)
+                if not autoZoneLastIndicatorCF then
+                    autoZoneLastIndicatorCF = targetCF
+                else
+                    autoZoneLastIndicatorCF = autoZoneLastIndicatorCF:Lerp(targetCF, AUTO_ZONE_RENDER_LERP)
+                end
+                indicator.CFrame = autoZoneLastIndicatorCF
+
+                do
+                    local walkState = AnimalSim.Modules.Combat._autoZoneWalk
+                    if walkState and walkState.enabled and walkState.pathPoints then
+                        local character = LocalPlayer.Character
+                        local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+                        if rootPart then
+                            local startPos = rootPart.Position
+                            local endPos = aimPoint
+                            local delta = endPos - startPos
+                            local distance = delta.Magnitude
+                            if distance > 1e-3 then
+                                local forward = delta.Unit
+                                local up = Vector3.new(0, 1, 0)
+                                local right = forward:Cross(up)
+                                if right.Magnitude < 1e-3 then
+                                    right = Vector3.new(1, 0, 0)
+                                else
+                                    right = right.Unit
+                                end
+                                local amplitude = math.clamp(distance * 0.18, 4, 18)
+
+                                local function pointAt(t, sideSign)
+                                    local baseStart = startPos
+                                    local baseEnd = endPos
+                                    local mode = walkState.fakeout and walkState.fakeout.mode
+
+                                    if mode == "overshoot" then
+                                        local cutT = (walkState.fakeout and walkState.fakeout.cutT) or 0.83
+                                        local ghost = walkState.fakeout and walkState.fakeout.ghostEnd
+                                        if ghost and typeof(ghost) == "Vector3" then
+                                            if t < cutT then
+                                                baseEnd = ghost
+                                                t = t / cutT
+                                            else
+                                                baseStart = ghost
+                                                t = (t - cutT) / (1 - cutT)
+                                            end
+                                        end
+                                    elseif mode == "stutter" then
+                                        local slowT = (walkState.fakeout and walkState.fakeout.slowT) or 0.26
+                                        if t < slowT then
+                                            t = t * ((walkState.fakeout and walkState.fakeout.slowScale) or 0.42)
+                                        end
+                                    end
+
+                                    local base = baseStart:Lerp(baseEnd, t)
+                                    local lateral = math.sin((math.pi * 2) * t)
+                                    local forwardWiggle = math.sin((math.pi * 4) * t)
+
+                                    local signedSide = sideSign
+                                    if mode == "swap" then
+                                        local swapT = (walkState.fakeout and walkState.fakeout.swapT) or 0.46
+                                        local width = (walkState.fakeout and walkState.fakeout.swapWidth) or 0.09
+                                        local blend = math.clamp(((t - swapT) / width) * 0.5 + 0.5, 0, 1)
+                                        blend = blend * blend * (3 - 2 * blend)
+                                        signedSide = sideSign * (1 - 2 * blend)
+                                    end
+
+                                    local extra = Vector3.zero
+                                    if mode == "juke" then
+                                        local center = (walkState.fakeout and walkState.fakeout.jukeCenter) or 0.28
+                                        local width = (walkState.fakeout and walkState.fakeout.jukeWidth) or 0.16
+                                        local u = 1 - math.abs((t - center) / width)
+                                        if u > 0 then
+                                            u = u * u * (3 - 2 * u)
+                                            extra = extra + right * (sideSign * ((walkState.fakeout and walkState.fakeout.jukeMag) or (amplitude * 0.75)) * u)
+                                        end
+                                    elseif mode == "stutter" then
+                                        local center = (walkState.fakeout and walkState.fakeout.backCenter) or 0.12
+                                        local width = (walkState.fakeout and walkState.fakeout.backWidth) or 0.09
+                                        local u = 1 - math.abs((t - center) / width)
+                                        if u > 0 then
+                                            u = u * u * (3 - 2 * u)
+                                            extra = extra - forward * (((walkState.fakeout and walkState.fakeout.backMag) or math.clamp(distance * 0.06, 2, 6)) * u)
+                                        end
+                                    end
+                                    return base
+                                        + right * (signedSide * amplitude * lateral)
+                                        + forward * (amplitude * 0.35 * forwardWiggle)
+                                        + extra
+                                end
+
+                                local sideSign = 1
+                                local enemyPlayer = walkState.targetPlayer
+
+                                do
+                                    local fake = walkState.fakeout
+                                    if AnimalSim.State.autoZoneFakeouts then
+                                        if not fake then
+                                            fake = {}
+                                            walkState.fakeout = fake
+                                        end
+                                        if not fake.rng then
+                                            fake.rng = Random.new()
+                                        end
+
+                                        local now = os.clock()
+                                        local targetId = enemyPlayer and enemyPlayer.UserId or 0
+                                        if fake.targetId ~= targetId then
+                                            fake.targetId = targetId
+                                            fake.untilAt = 0
+                                            fake.mode = nil
+                                        end
+
+                                        if now >= (fake.untilAt or 0) then
+                                            local roll = fake.rng:NextNumber()
+                                            local mode
+                                            if roll < 0.25 then
+                                                mode = nil
+                                            elseif roll < 0.52 then
+                                                mode = "swap"
+                                                fake.swapT = fake.rng:NextNumber(0.32, 0.62)
+                                                fake.swapWidth = fake.rng:NextNumber(0.07, 0.11)
+                                            elseif roll < 0.73 then
+                                                mode = "juke"
+                                                fake.jukeCenter = fake.rng:NextNumber(0.18, 0.42)
+                                                fake.jukeWidth = fake.rng:NextNumber(0.12, 0.22)
+                                                fake.jukeMag = amplitude * fake.rng:NextNumber(0.65, 1.05)
+                                            elseif roll < 0.88 then
+                                                mode = "overshoot"
+                                                fake.cutT = fake.rng:NextNumber(0.78, 0.88)
+                                                local overshootDist = math.clamp(distance * 0.22, 6, 22) * fake.rng:NextNumber(0.8, 1.15)
+                                                local ghostEnd = endPos + forward * overshootDist
+                                                if not isInsideSafeZone(ghostEnd) then
+                                                    fake.ghostEnd = ghostEnd
+                                                else
+                                                    mode = "swap"
+                                                    fake.swapT = fake.rng:NextNumber(0.32, 0.62)
+                                                    fake.swapWidth = fake.rng:NextNumber(0.07, 0.11)
+                                                    fake.ghostEnd = nil
+                                                end
+                                            else
+                                                mode = "stutter"
+                                                fake.slowT = fake.rng:NextNumber(0.20, 0.32)
+                                                fake.slowScale = fake.rng:NextNumber(0.35, 0.55)
+                                                fake.backCenter = fake.rng:NextNumber(0.09, 0.16)
+                                                fake.backWidth = fake.rng:NextNumber(0.07, 0.12)
+                                                fake.backMag = math.clamp(distance * 0.06, 2, 6) * fake.rng:NextNumber(0.8, 1.2)
+                                            end
+
+                                            fake.mode = mode
+                                            fake.untilAt = now + fake.rng:NextNumber(0.65, 1.35)
+                                        end
+                                    elseif fake then
+                                        fake.mode = nil
+                                        fake.untilAt = 0
+                                    end
+                                end
+
+                                local enemyRoot = enemyPlayer and enemyPlayer.Character and enemyPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                local enemyPos = enemyRoot and enemyRoot.Position or nil
+                                if enemyPos then
+                                    local enemyMove = endPos - enemyPos
+                                    enemyMove = Vector3.new(enemyMove.X, 0, enemyMove.Z)
+                                    if enemyMove.Magnitude > 1 then
+                                        local enemyRight = enemyMove.Unit:Cross(up)
+                                        enemyRight = Vector3.new(enemyRight.X, 0, enemyRight.Z)
+                                        if enemyRight.Magnitude > 1e-3 then
+                                            enemyRight = enemyRight.Unit
+                                            local side = (startPos - enemyPos):Dot(enemyRight)
+                                            sideSign = (side >= 0) and 1 or -1
+                                        end
+                                    end
+                                else
+                                    local lv = rootPart.AssemblyLinearVelocity or rootPart.Velocity or Vector3.zero
+                                    lv = Vector3.new(lv.X, 0, lv.Z)
+                                    if lv.Magnitude > 2 then
+                                        local lvUnit = lv.Unit
+                                        local tProbe = 0.18
+                                        local dirPlus = (pointAt(tProbe, 1) - startPos)
+                                        local dirMinus = (pointAt(tProbe, -1) - startPos)
+                                        local plusScore = (dirPlus.Magnitude > 1e-3) and lvUnit:Dot(dirPlus.Unit) or -1
+                                        local minusScore = (dirMinus.Magnitude > 1e-3) and lvUnit:Dot(dirMinus.Unit) or -1
+                                        sideSign = (minusScore > plusScore) and -1 or 1
+                                    end
+                                end
+
+                                for index = 1, 18 do
+                                    local t = (index - 1) / 17
+                                    walkState.pathPoints[index] = pointAt(t, sideSign)
+                                end
+                            end
+                        end
+                    end
+                end
+
+                local camera = workspace.CurrentCamera
+                if camera then
+                    local desired = CFrame.lookAt(camera.CFrame.Position, aimPoint)
+                    camera.CFrame = camera.CFrame:Lerp(desired, AUTO_ZONE_CAMERA_LERP)
+                end
+            end)
+        end
+
         local myToken = autoZoneCancelToken
         autoZoneTask = task.spawn(function()
             autoZoneLoop(myToken)
@@ -2396,6 +2802,18 @@ local function setAutoZone(value)
         autoZoneCancelToken += 1
         while autoZoneTask do
             task.wait()
+        end
+        if autoZoneRenderConnection and not autoFireballEnabled then
+            autoZoneRenderConnection:Disconnect()
+            autoZoneRenderConnection = nil
+        end
+        do
+            local walkState = AnimalSim.Modules.Combat._autoZoneWalk
+            if walkState then
+                walkState.enabled = false
+                walkState.cancelToken = (walkState.cancelToken or 0) + 1
+                walkState.targetPlayer = nil
+            end
         end
         releaseAimLock()
     end
@@ -2703,7 +3121,7 @@ local function buildUI()
     })
 
     gameplaySection:addToggle({
-        title = "autoFireball",
+        title = "Auto Fire",
         toggled = autoFireballEnabled,
         callback = function(value)
             if value then
@@ -2718,6 +3136,14 @@ local function buildUI()
         title = "Auto Zone",
         toggled = AnimalSim.State.autoZone,
         callback = setAutoZone,
+    })
+
+    gameplaySection:addToggle({
+        title = "Auto Zone Fakeouts",
+        toggled = AnimalSim.State.autoZoneFakeouts,
+        callback = function(value)
+            AnimalSim.State.autoZoneFakeouts = value
+        end,
     })
 
     gameplaySection:addToggle({
