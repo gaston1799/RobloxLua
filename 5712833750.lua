@@ -2407,7 +2407,12 @@ aimAndFireAtPlayer = function(targetPlayer, indicatorPart, allowProjectile)
         local lastAt = aimState.shovelLastAt or 0
         if (now - lastAt) >= (1 / 1.7) then
             local myRoot = character and character:FindFirstChild("HumanoidRootPart")
-            if myRoot and (myRoot.Position - targetRoot.Position).Magnitude <= 14 then
+            if myRoot then
+                local delta = myRoot.Position - targetRoot.Position
+                delta = Vector3.new(delta.X, 0, delta.Z)
+                if delta.Magnitude > 14 then
+                    return true
+                end
                 local targetHumanoid = targetPlayer.Character and targetPlayer.Character:FindFirstChildOfClass("Humanoid")
                 if targetHumanoid and targetHumanoid.Health > 0 then
                     aimState.flashToken = (aimState.flashToken or 0) + 1
@@ -2662,8 +2667,10 @@ local function setAutoZone(value)
                         local character = LocalPlayer.Character
                         local rootPart = character and character:FindFirstChild("HumanoidRootPart")
                         if rootPart then
-                            local startPos = rootPart.Position
-                            local endPos = aimPoint
+                            local startPos3 = rootPart.Position
+                            local startY = startPos3.Y
+                            local startPos = Vector3.new(startPos3.X, startY, startPos3.Z)
+                            local endPos = Vector3.new(aimPoint.X, startY, aimPoint.Z)
                             local delta = endPos - startPos
                             local distance = delta.Magnitude
                             if distance > 1e-3 then
@@ -2836,6 +2843,11 @@ local function setAutoZone(value)
                                 for index = 1, 18 do
                                     local t = (index - 1) / 17
                                     walkState.pathPoints[index] = pointAt(t, sideSign)
+                                end
+                            end
+                            if distance <= 1e-3 then
+                                for index = 1, 18 do
+                                    walkState.pathPoints[index] = startPos
                                 end
                             end
                         end
