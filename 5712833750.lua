@@ -166,6 +166,8 @@ local AUTO_ZONE_PREDICTION_TIME = 0.25
 local AUTO_ZONE_CAMERA_LERP = 0.4
 local AUTO_ZONE_RENDER_LERP = 0.22
 local AUTO_ZONE_CHASE_DISTANCE = 10
+local AUTO_ZONE_INDICATOR_TRANSPARENCY = 0.85
+local AUTO_ZONE_INDICATOR_PADDING = Vector3.new(0.25, 0.25, 0.25)
 local DEBUG_DAMAGE_LOG = true
 local FALLBACK_ATTACKER_RADIUS = 45
 
@@ -1758,9 +1760,15 @@ local function startAutoFireball()
                 if target and canEngagePlayer(target) then
                     aimAndFireAtPlayer(target, indicator, true)
                     if autoZoneDesiredAimPoint then
+                        local targetCF, targetSize = computeAutoZoneIndicatorBounds(target, autoZoneDesiredAimPoint)
                         pcall(function()
                             indicator.Parent = workspace
-                            indicator.CFrame = CFrame.new(autoZoneDesiredAimPoint)
+                            if targetSize then
+                                indicator.Size = targetSize
+                            end
+                            if targetCF then
+                                indicator.CFrame = targetCF
+                            end
                         end)
                         local camera = workspace.CurrentCamera
                         if camera then
@@ -2258,6 +2266,33 @@ releaseAimLock = function()
     autoAimOldMouseIconEnabled = nil
 end
 
+local function computeAutoZoneIndicatorBounds(targetPlayer, predictedPosition)
+    if not predictedPosition then
+        return nil, nil
+    end
+
+    local character = targetPlayer and targetPlayer.Character
+    if not character then
+        return CFrame.new(predictedPosition), Vector3.new(3, 3, 3)
+    end
+
+    local ok, cf, size = pcall(function()
+        return character:GetBoundingBox()
+    end)
+    if not ok or not cf or not size then
+        return CFrame.new(predictedPosition), Vector3.new(3, 3, 3)
+    end
+
+    local root = character:FindFirstChild("HumanoidRootPart") or character.PrimaryPart
+    local shift = Vector3.zero
+    if root then
+        shift = predictedPosition - root.Position
+    end
+
+    local rotationOnly = cf - cf.Position
+    return rotationOnly + (cf.Position + shift), size + AUTO_ZONE_INDICATOR_PADDING
+end
+
 ensureAutoZoneIndicator = function()
     if autoZoneIndicatorPart then
         autoZoneIndicatorPart.Parent = workspace
@@ -2270,7 +2305,7 @@ ensureAutoZoneIndicator = function()
     part.Size = Vector3.new(3, 3, 3)
     part.Material = Enum.Material.Neon
     part.Color = Color3.fromRGB(255, 80, 80)
-    part.Transparency = 0.2
+    part.Transparency = AUTO_ZONE_INDICATOR_TRANSPARENCY
     part.Parent = workspace
     autoZoneIndicatorPart = part
     return part
@@ -2604,7 +2639,16 @@ local function setAutoZone(value)
                 local indicator = ensureAutoZoneIndicator()
                 indicator.Parent = workspace
 
-                local targetCF = CFrame.new(aimPoint)
+                local targetPlayer
+                do
+                    local walkState = AnimalSim.Modules.Combat._autoZoneWalk
+                    targetPlayer = walkState and walkState.targetPlayer or nil
+                end
+
+                local targetCF, targetSize = computeAutoZoneIndicatorBounds(targetPlayer, aimPoint)
+                if targetSize then
+                    indicator.Size = targetSize
+                end
                 if not autoZoneLastIndicatorCF then
                     autoZoneLastIndicatorCF = targetCF
                 else
