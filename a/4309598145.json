@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4898652375,
+  "jobId": "5b44360a-cd33-4134-8efd-0ddbaa80cbd5",
+  "join": "roblox://placeId=4898652375&gameInstanceId=5b44360a-cd33-4134-8efd-0ddbaa80cbd5",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765700919758
+  "web": "https://www.roblox.com/games/start?placeId=4898652375&gameInstanceId=5b44360a-cd33-4134-8efd-0ddbaa80cbd5",
+  "location": "💪 No Limit Lifting Simulator",
+  "updatedAt": 1765700949824
 }
