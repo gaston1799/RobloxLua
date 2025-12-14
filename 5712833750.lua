@@ -212,48 +212,67 @@ local function isInsideSafeZone(position)
     end
     return inside
 end
-local function teamCheck(name)
-    if not name then
-        return false
-    end
-    local playerTeam
-    for _, team in ipairs(workspace.Teams:GetChildren()) do
-        if team:FindFirstChild(LocalPlayer.Name) then
-            playerTeam = team
-            break
-        end
-    end
-    if not playerTeam then
-        return false
-    end
-    return playerTeam:FindFirstChild(name) ~= nil
-end
 
-local function myTeam(name)
-    name = name or LocalPlayer.Name
-    local foundLeader
-    local foundTeam
-    for _, team in ipairs(workspace.Teams:GetChildren()) do
+local function getPackInfo(playerName)
+    local teamsFolder = workspace:FindFirstChild("Teams")
+    if not teamsFolder then
+        return nil, nil
+    end
+
+    for _, team in ipairs(teamsFolder:GetChildren()) do
         local teamLeader
         local hasMember = false
+
         for _, member in ipairs(team:GetChildren()) do
             local ok, value = pcall(function()
                 return member.Value
             end)
-            if member.Name == "leader" and ok then
-                teamLeader = typeof(value) == "Instance" and value.Name or value
-            end
-            if ok and (value == name or (typeof(value) == "Instance" and value.Name == name)) then
-                hasMember = true
+            if ok then
+                local resolvedName = value
+                if typeof(value) == "Instance" then
+                    resolvedName = value.Name
+                end
+
+                if member.Name == "leader" then
+                    teamLeader = resolvedName
+                end
+
+                if resolvedName == playerName then
+                    hasMember = true
+                end
             end
         end
+
         if hasMember then
-            foundLeader = teamLeader
-            foundTeam = team.Name
-            break
+            return teamLeader, team.Name
         end
     end
-    return {foundLeader, foundTeam}
+
+    return nil, nil
+end
+
+local function teamCheck(name)
+    if not name then
+        return false
+    end
+
+    local myLeader, myTeamName = getPackInfo(LocalPlayer.Name)
+    local otherLeader, otherTeamName = getPackInfo(name)
+
+    if myLeader and otherLeader and myLeader == otherLeader then
+        return true
+    end
+    if myTeamName and otherTeamName and myTeamName == otherTeamName then
+        return true
+    end
+
+    return false
+end
+
+local function myTeam(name)
+    name = name or LocalPlayer.Name
+    local leader, teamName = getPackInfo(name)
+    return {leader, teamName}
 end
 
 local function findClosestPlayer()
