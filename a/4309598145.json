@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3652625463,
+  "jobId": "ea9c9e2c-b038-471b-b49f-e8df799aad8d",
+  "join": "roblox://placeId=3652625463&gameInstanceId=ea9c9e2c-b038-471b-b49f-e8df799aad8d",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765684957379
+  "web": "https://www.roblox.com/games/start?placeId=3652625463&gameInstanceId=ea9c9e2c-b038-471b-b49f-e8df799aad8d",
+  "location": "💪🏻 Lifting Simulator",
+  "updatedAt": 1765685047351
 }
