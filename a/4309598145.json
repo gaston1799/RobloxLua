@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 3956818381,
-  "jobId": "60381d05-9ca3-4875-86dd-54ea5480c0b8",
-  "join": "roblox://placeId=3956818381&gameInstanceId=60381d05-9ca3-4875-86dd-54ea5480c0b8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=3956818381&gameInstanceId=60381d05-9ca3-4875-86dd-54ea5480c0b8",
-  "location": "⚡Ninja Legends",
-  "updatedAt": 1765718800206
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765720060220
 }
