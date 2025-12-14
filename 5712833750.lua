@@ -177,7 +177,27 @@ local canEngagePlayer
 local damageplayer
 local loadUraniumHub
 local loadAwScript
-
+local function isInsideSafeZone(position)
+    local polygon = AnimalSim.Data.SafeZones.Main.polygon
+    if not polygon or #polygon < 3 then
+        return false
+    end
+    local x = position.X
+    local z = position.Z
+    local inside = false
+    local j = #polygon
+    for i = 1, #polygon do
+        local pi = polygon[i]
+        local pj = polygon[j]
+        local condition = ((pi.Y > z) ~= (pj.Y > z)) and
+            (x < (pj.X - pi.X) * (z - pi.Y) / math.max(pj.Y - pi.Y, 1e-9) + pi.X)
+        if condition then
+            inside = not inside
+        end
+        j = i
+    end
+    return inside
+end
 local function teamCheck(name)
     if not name then
         return false
@@ -1218,29 +1238,11 @@ end
 
 local function setAutoFight(value)
     AnimalSim.State.autoFight = value
+    if DEBUG_DAMAGE_LOG then
+        print(("[AnimalSim][Damage] AutoFight set to %s"):format(tostring(value)))
+    end
 end
 
-local function isInsideSafeZone(position)
-    local polygon = AnimalSim.Data.SafeZones.Main.polygon
-    if not polygon or #polygon < 3 then
-        return false
-    end
-    local x = position.X
-    local z = position.Z
-    local inside = false
-    local j = #polygon
-    for i = 1, #polygon do
-        local pi = polygon[i]
-        local pj = polygon[j]
-        local condition = ((pi.Y > z) ~= (pj.Y > z)) and
-            (x < (pj.X - pi.X) * (z - pi.Y) / math.max(pj.Y - pi.Y, 1e-9) + pi.X)
-        if condition then
-            inside = not inside
-        end
-        j = i
-    end
-    return inside
-end
 
 local function getPathToPosition(targetPosition, humanoidInstance)
     local startPosition = humanoidInstance.RootPart.Position
@@ -1756,9 +1758,18 @@ local function hptp()
                         print("[AnimalSim][Damage] Attacker in safe zone; ignoring:", attacker.Name)
                     end
                     clearRecentAttacker(attacker)
-                elseif AnimalSim.State.autoFight and canEngagePlayer(attacker) then
-                    damageplayer(attacker.Name)
-                    clearRecentAttacker(attacker)
+                else
+                    local engageAllowed = canEngagePlayer(attacker)
+                    if DEBUG_DAMAGE_LOG then
+                        print(("[AnimalSim][Damage] teamCheck=%s canEngage=%s"):format(
+                            tostring(teamCheck(attacker.Name)),
+                            tostring(engageAllowed)
+                        ))
+                    end
+                    if AnimalSim.State.autoFight and engageAllowed then
+                        damageplayer(attacker.Name)
+                        clearRecentAttacker(attacker)
+                    end
                 end
             end
         end
