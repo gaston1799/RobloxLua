@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 12792997364,
-  "jobId": "a3b70619-2923-4fdf-99ee-8322304735c7",
-  "join": "roblox://placeId=12792997364&gameInstanceId=a3b70619-2923-4fdf-99ee-8322304735c7",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=12792997364&gameInstanceId=a3b70619-2923-4fdf-99ee-8322304735c7",
-  "location": "the attic [update]",
-  "updatedAt": 1765703412889
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765703442896
 }
