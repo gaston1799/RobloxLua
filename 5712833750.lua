@@ -406,6 +406,15 @@ Visualizer = {
     defaultDuration = 1.25,
 }
 
+local SAFE_ZONE_VIZ_COLOR = Color3.fromRGB(80, 255, 120)
+local SAFE_ZONE_VIZ_TRANSPARENCY = 0.78
+local SAFE_ZONE_VIZ_THICKNESS = 0.15
+local SAFE_ZONE_EDGE_THICKNESS = 0.22
+
+local safeZoneVizPlane
+local safeZoneVizEdges = {}
+local safeZoneVizY
+
 local function ensureVisualizerFolder()
     if Visualizer.folder and Visualizer.folder.Parent then
         return Visualizer.folder
@@ -417,11 +426,143 @@ local function ensureVisualizerFolder()
     return folder
 end
 
+local function computeSafeZoneBounds()
+    local polygon = AnimalSim.Data.SafeZones.Main and AnimalSim.Data.SafeZones.Main.polygon
+    if not polygon or #polygon < 3 then
+        return nil
+    end
+
+    local minX = math.huge
+    local maxX = -math.huge
+    local minZ = math.huge
+    local maxZ = -math.huge
+
+    for _, point in ipairs(polygon) do
+        minX = math.min(minX, point.X)
+        maxX = math.max(maxX, point.X)
+        minZ = math.min(minZ, point.Y)
+        maxZ = math.max(maxZ, point.Y)
+    end
+
+    return minX, maxX, minZ, maxZ
+end
+
+local function sampleGroundYAt(x, z)
+    local raycastParams = RaycastParams.new()
+    raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+    raycastParams.IgnoreWater = true
+
+    local blacklist = {}
+    if Visualizer.folder then
+        table.insert(blacklist, Visualizer.folder)
+    end
+    if LocalPlayer.Character then
+        table.insert(blacklist, LocalPlayer.Character)
+    end
+    raycastParams.FilterDescendantsInstances = blacklist
+
+    local origin = Vector3.new(x, 5000, z)
+    local ok, result = pcall(function()
+        return workspace:Raycast(origin, Vector3.new(0, -10000, 0), raycastParams)
+    end)
+    if ok and result then
+        return result.Position.Y
+    end
+
+    local fallback = (humanoidRoot and humanoidRoot.Position.Y) or 0
+    return fallback
+end
+
+local function ensureSafeZoneVisualization()
+    if not Visualizer.enabled then
+        return
+    end
+
+    local minX, maxX, minZ, maxZ = computeSafeZoneBounds()
+    if not minX then
+        return
+    end
+
+    local folder = ensureVisualizerFolder()
+
+    local centerX = (minX + maxX) / 2
+    local centerZ = (minZ + maxZ) / 2
+    if not safeZoneVizY then
+        safeZoneVizY = sampleGroundYAt(centerX, centerZ)
+    end
+
+    if not safeZoneVizPlane then
+        safeZoneVizPlane = Instance.new("Part")
+        safeZoneVizPlane.Name = "SafeZonePlane"
+        safeZoneVizPlane.Anchored = true
+        safeZoneVizPlane.CanCollide = false
+        safeZoneVizPlane.CanQuery = false
+        safeZoneVizPlane.CanTouch = false
+        safeZoneVizPlane.Material = Enum.Material.Neon
+    end
+
+    safeZoneVizPlane.Color = SAFE_ZONE_VIZ_COLOR
+    safeZoneVizPlane.Transparency = SAFE_ZONE_VIZ_TRANSPARENCY
+    safeZoneVizPlane.Size = Vector3.new(
+        math.max(1, maxX - minX),
+        SAFE_ZONE_VIZ_THICKNESS,
+        math.max(1, maxZ - minZ)
+    )
+    safeZoneVizPlane.CFrame = CFrame.new(centerX, safeZoneVizY + SAFE_ZONE_VIZ_THICKNESS / 2, centerZ)
+    safeZoneVizPlane.Parent = folder
+
+    local polygon = AnimalSim.Data.SafeZones.Main.polygon
+    local edgeY = safeZoneVizY + SAFE_ZONE_VIZ_THICKNESS + 0.03
+    for index = 1, #polygon do
+        local a2 = polygon[index]
+        local b2 = polygon[(index % #polygon) + 1]
+        local a = Vector3.new(a2.X, edgeY, a2.Y)
+        local b = Vector3.new(b2.X, edgeY, b2.Y)
+        local offset = b - a
+        local length = offset.Magnitude
+        local edge = safeZoneVizEdges[index]
+        if not edge then
+            edge = Instance.new("Part")
+            edge.Name = ("SafeZoneEdge_%02d"):format(index)
+            edge.Anchored = true
+            edge.CanCollide = false
+            edge.CanQuery = false
+            edge.CanTouch = false
+            edge.Material = Enum.Material.Neon
+            edge.Transparency = 0.15
+            edge.Color = SAFE_ZONE_VIZ_COLOR
+            safeZoneVizEdges[index] = edge
+        end
+        edge.Size = Vector3.new(SAFE_ZONE_EDGE_THICKNESS, SAFE_ZONE_EDGE_THICKNESS, math.max(0.1, length))
+        edge.CFrame = CFrame.new(a, b) * CFrame.new(0, 0, -length / 2)
+        edge.Parent = folder
+    end
+end
+
+local function clearSafeZoneVisualization()
+    safeZoneVizY = nil
+    if safeZoneVizPlane then
+        pcall(function()
+            safeZoneVizPlane:Destroy()
+        end)
+        safeZoneVizPlane = nil
+    end
+    for index, edge in pairs(safeZoneVizEdges) do
+        if edge then
+            pcall(function()
+                edge:Destroy()
+            end)
+        end
+        safeZoneVizEdges[index] = nil
+    end
+end
+
 local function clearVisualizerFolder()
     if Visualizer.folder then
         Visualizer.folder:Destroy()
         Visualizer.folder = nil
     end
+    clearSafeZoneVisualization()
 end
 
 local function setVisualizerEnabled(enabled)
@@ -432,6 +573,7 @@ local function setVisualizerEnabled(enabled)
     AnimalSim.State.visualizerEnabled = enabled
     if enabled then
         ensureVisualizerFolder()
+        ensureSafeZoneVisualization()
     else
         clearVisualizerFolder()
     end
