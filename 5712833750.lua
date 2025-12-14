@@ -163,6 +163,8 @@ local AUTO_PVP_POLL_RATE = 0.35
 local AUTO_ZONE_POLL_RATE = 0.35
 local AUTO_ZONE_PREDICTION_TIME = 0.25
 local AUTO_ZONE_CAMERA_LERP = 0.4
+local DEBUG_DAMAGE_LOG = true
+local FALLBACK_ATTACKER_RADIUS = 45
 
 local autoZoneIndicatorPart
 local autoAimOldCameraType
@@ -603,6 +605,9 @@ local function estimatePlayerDamage(player)
     end
     local level = getPlayerLevel(player)
     if level then
+        if level < 40 then
+            return (level * 2) + 10
+        end
         return level * 2
     end
     local _, maxHealth = getCharacterHealth(player)
@@ -924,6 +929,36 @@ local function findAttackerByDamage(damageTaken)
         end
     end
     return bestPlayer
+end
+
+local function findClosestEnemyOutsideSafeZone(maxDistance)
+    local localCharacter = LocalPlayer.Character
+    local localRoot = localCharacter and localCharacter:FindFirstChild("HumanoidRootPart")
+    if not localRoot then
+        return nil
+    end
+
+    local closestPlayer
+    local closestDistance = maxDistance or math.huge
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and not teamCheck(player.Name) then
+            local character = player.Character
+            local humanoidInstance = character and character:FindFirstChildOfClass("Humanoid")
+            local root = character and character:FindFirstChild("HumanoidRootPart")
+            if humanoidInstance and humanoidInstance.Health > 0 and root then
+                if not isInsideSafeZone(root.Position) then
+                    local distance = (root.Position - localRoot.Position).Magnitude
+                    if distance < closestDistance then
+                        closestDistance = distance
+                        closestPlayer = player
+                    end
+                end
+            end
+        end
+    end
+
+    return closestPlayer
 end
 
 local playersService
@@ -1677,18 +1712,51 @@ local function hptp()
         return
     end
     local oldHealth = localHumanoid.Health
+    if DEBUG_DAMAGE_LOG then
+        print(("[AnimalSim][Damage] Bound health listener. HP=%.1f/%.1f"):format(oldHealth, localHumanoid.MaxHealth))
+    end
     localHumanoid:GetPropertyChangedSignal("Health"):Connect(function()
         local newHealth = localHumanoid.Health
         if newHealth < 1 then
             deathPose = LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
             justDied = true
+            if DEBUG_DAMAGE_LOG then
+                print("[AnimalSim][Damage] Died; captured deathPose")
+            end
         end
         if newHealth < oldHealth then
             local damageTaken = oldHealth - newHealth
-            local attacker = findAttackerByDamage(damageTaken) or getRecentAttackerPlayer()
+            local attackerByDamage = findAttackerByDamage(damageTaken)
+            local recentAttacker = getRecentAttackerPlayer()
+            local fallbackAttacker = findClosestEnemyOutsideSafeZone(FALLBACK_ATTACKER_RADIUS)
+            local attacker = attackerByDamage or recentAttacker or fallbackAttacker
+            if DEBUG_DAMAGE_LOG then
+                print(("[AnimalSim][Damage] Took %.1f damage (%.1f -> %.1f). attacker=%s autoFight=%s"):format(
+                    damageTaken,
+                    oldHealth,
+                    newHealth,
+                    attacker and attacker.Name or "nil",
+                    tostring(AnimalSim.State.autoFight)
+                ))
+                if attackerByDamage then
+                    print("[AnimalSim][Damage] attackerByDamage:", attackerByDamage.Name)
+                end
+                if recentAttacker then
+                    print("[AnimalSim][Damage] recentAttacker:", recentAttacker.Name)
+                end
+                if fallbackAttacker then
+                    print("[AnimalSim][Damage] fallbackClosest:", fallbackAttacker.Name)
+                end
+            end
             if attacker then
                 recordRecentAttacker(attacker, damageTaken)
-                if AnimalSim.State.autoFight and canEngagePlayer(attacker) then
+                local attackerRoot = attacker.Character and attacker.Character:FindFirstChild("HumanoidRootPart")
+                if attackerRoot and isInsideSafeZone(attackerRoot.Position) then
+                    if DEBUG_DAMAGE_LOG then
+                        print("[AnimalSim][Damage] Attacker in safe zone; ignoring:", attacker.Name)
+                    end
+                    clearRecentAttacker(attacker)
+                elseif AnimalSim.State.autoFight and canEngagePlayer(attacker) then
                     damageplayer(attacker.Name)
                     clearRecentAttacker(attacker)
                 end
