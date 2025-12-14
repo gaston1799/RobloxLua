@@ -1733,7 +1733,7 @@ local function startAutoFireball()
                 target = nil
             end
             if not target then
-                target = findZoneTarget()
+                target = findZoneTarget(false)
             end
             local ok, err = pcall(function()
                 if target and canEngagePlayer(target) then
@@ -2160,7 +2160,7 @@ canEngagePlayer = function(targetPlayer)
     return true
 end
 
-findZoneTarget = function()
+findZoneTarget = function(ignoreTeamCheck)
     local character = LocalPlayer.Character
     local localRoot = character and character:FindFirstChild("HumanoidRootPart")
     if not localRoot then
@@ -2169,7 +2169,7 @@ findZoneTarget = function()
     local closestPlayer
     local closestDistance = math.huge
     for _, player in ipairs(Players:GetPlayers()) do
-        if player ~= LocalPlayer and not teamCheck(player.Name) then
+        if player ~= LocalPlayer and (ignoreTeamCheck or not teamCheck(player.Name)) then
             local targetCharacter = player.Character
             local targetHumanoid = targetCharacter and targetCharacter:FindFirstChildOfClass("Humanoid")
             local targetRoot = targetCharacter and targetCharacter:FindFirstChild("HumanoidRootPart")
@@ -2471,7 +2471,7 @@ local function autoZoneLoop(myToken)
     while autoZoneEnabled and autoZoneCancelToken == myToken do
         defineNilLocals()
 
-        local target = findZoneTarget()
+        local target = findZoneTarget(false)
         local indicator = ensureAutoZoneIndicator()
         local fired = target and aimAndFireAtPlayer(target, indicator, false)
         if not fired then
