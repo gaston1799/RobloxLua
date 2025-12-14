@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 15288629078,
-  "jobId": "900caab8-6445-4ecc-9307-7879a4eaa1bf",
-  "join": "roblox://placeId=15288629078&gameInstanceId=900caab8-6445-4ecc-9307-7879a4eaa1bf",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=15288629078&gameInstanceId=900caab8-6445-4ecc-9307-7879a4eaa1bf",
-  "location": "[NEW CARS🚗] Highway Legends",
-  "updatedAt": 1765750072672
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765750432430
 }
