@@ -952,6 +952,11 @@ local function findAttackerByDamage(damageTaken)
 end
 
 local function findClosestEnemyOutsideSafeZone(maxDistance)
+    if typeof(isInsideSafeZone) ~= "function" then
+        print('WTH? isInsideSafeZone is not a function', typeof(isInsideSafeZone))
+        return nil
+    end
+
     local localCharacter = LocalPlayer.Character
     local localRoot = localCharacter and localCharacter:FindFirstChild("HumanoidRootPart")
     if not localRoot then
@@ -980,6 +985,7 @@ local function findClosestEnemyOutsideSafeZone(maxDistance)
 
     return closestPlayer
 end
+
 
 local playersService
 local selfPlayer
