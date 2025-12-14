@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 13772394625,
-  "jobId": "98a6c871-753a-483b-879c-9dbbd85fa8f9",
-  "join": "roblox://placeId=13772394625&gameInstanceId=98a6c871-753a-483b-879c-9dbbd85fa8f9",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=98a6c871-753a-483b-879c-9dbbd85fa8f9",
-  "location": "Blade Ball",
-  "updatedAt": 1765722774526
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765723912160
 }
