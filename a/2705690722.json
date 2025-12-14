@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "in-game",
-  "placeId": 1962086868,
-  "jobId": "cb72ccc1-593c-452a-a630-31aced6f8489",
-  "join": "roblox://placeId=1962086868&gameInstanceId=cb72ccc1-593c-452a-a630-31aced6f8489",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2705690722",
-  "web": "https://www.roblox.com/games/start?placeId=1962086868&gameInstanceId=cb72ccc1-593c-452a-a630-31aced6f8489",
-  "location": "Tower of Hell",
-  "updatedAt": 1765714722639
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765714932532
 }
