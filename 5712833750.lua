@@ -157,17 +157,19 @@ local autoJumpConnection
 local autoJumpCharacterConnection
 local characterAddedConnection
 local characterRemovingConnection
-local mantisTeleportActive = false
-local mantisTeleportReturnCF
 
 local AUTO_PVP_POLL_RATE = 0.35
 local AUTO_ZONE_POLL_RATE = 0.35
 local AUTO_ZONE_PREDICTION_TIME = 0.25
-local AUTO_ZONE_CAMERA_LERP = 0.4
 local AUTO_ZONE_RENDER_LERP = 0.22
-local AUTO_ZONE_CHASE_DISTANCE = 10
-local AUTO_ZONE_INDICATOR_TRANSPARENCY = 0.85
-local AUTO_ZONE_INDICATOR_PADDING = Vector3.new(0.25, 0.25, 0.25)
+AnimalSim.Modules.Combat.AutoZoneConfig = AnimalSim.Modules.Combat.AutoZoneConfig or {
+    cameraDistance = 10,
+    cameraHeight = 7,
+    cameraPosLerp = 0.35,
+    indicatorTransparency = 0.85,
+    indicatorPadding = Vector3.new(0.25, 0.25, 0.25),
+    projectileCooldown = 1.8,
+}
 local DEBUG_DAMAGE_LOG = true
 local FALLBACK_ATTACKER_RADIUS = 45
 
@@ -177,8 +179,6 @@ local autoZoneRenderConnection
 local autoZoneLastIndicatorCF
 local autoAimOldCameraType
 local autoAimOldCameraSubject
-local autoAimOldMouseBehavior
-local autoAimOldMouseIconEnabled
 local autoAimLockCount = 0
 
 local ensureAutoZoneIndicator
@@ -1698,43 +1698,6 @@ local function tryTeleportRoute(humanoidInstance, targetPosition, options)
     return useTeleporter(best, humanoidInstance, options)
 end
 
-local function fireFireballAtPosition(targetPosition)
-    local character = LocalPlayer.Character
-    if not character then
-        return false
-    end
-    local backpack = LocalPlayer:FindFirstChild("Backpack") or LocalPlayer.Backpack
-    local tool = character:FindFirstChildWhichIsA("Tool") or (backpack and backpack:FindFirstChildWhichIsA("Tool"))
-    if not tool then
-        return false
-    end
-    local remote = tool:FindFirstChildOfClass("RemoteEvent")
-    if not remote then
-        return false
-    end
-    local ok, err = pcall(remote.FireServer, remote, targetPosition)
-    if not ok then
-        warn("Failed to fire projectile", err)
-        return false
-    end
-    return true
-end
-
-local function getAutoFireballTargetPosition()
-    local selected = AnimalSim.State.selectedPlayer
-    if selected and selected.Character and selected.Character.PrimaryPart then
-        return PredictPlayerPosition(selected)
-    end
-    local closest = findClosestPlayer()
-    if closest then
-        return PredictPlayerPosition(closest)
-    end
-    if LocalPlayer.Character and LocalPlayer.Character.PrimaryPart then
-        return LocalPlayer.Character.PrimaryPart.Position + LocalPlayer.Character.PrimaryPart.CFrame.LookVector * 60
-    end
-    return nil
-end
-
 local function startAutoFireball()
     if autoFireballEnabled then
         return
@@ -1760,7 +1723,7 @@ local function startAutoFireball()
                 if target and canEngagePlayer(target) then
                     aimAndFireAtPlayer(target, indicator, true)
                     if autoZoneDesiredAimPoint then
-                        local targetCF, targetSize = computeAutoZoneIndicatorBounds(target, autoZoneDesiredAimPoint)
+                        local targetCF, targetSize = AnimalSim.Modules.Combat.computeAutoZoneIndicatorBounds(target, autoZoneDesiredAimPoint)
                         pcall(function()
                             indicator.Parent = workspace
                             if targetSize then
@@ -1771,9 +1734,16 @@ local function startAutoFireball()
                             end
                         end)
                         local camera = workspace.CurrentCamera
-                        if camera then
-                            local desired = CFrame.lookAt(camera.CFrame.Position, autoZoneDesiredAimPoint)
-                            camera.CFrame = camera.CFrame:Lerp(desired, AUTO_ZONE_CAMERA_LERP)
+                        local myChar = LocalPlayer.Character
+                        local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
+                        if camera and myRoot then
+                            local rootPos = myRoot.Position
+                            local delta = autoZoneDesiredAimPoint - rootPos
+                            local dir = delta.Magnitude > 1e-3 and delta.Unit or myRoot.CFrame.LookVector
+                            local config = AnimalSim.Modules.Combat.AutoZoneConfig
+                            local desiredPos = rootPos - dir * config.cameraDistance + Vector3.new(0, config.cameraHeight, 0)
+                            local desired = CFrame.lookAt(desiredPos, autoZoneDesiredAimPoint)
+                            camera.CFrame = camera.CFrame:Lerp(desired, config.cameraPosLerp)
                         end
                     end
                 else
@@ -1831,21 +1801,6 @@ local function getClosestEnemyHumanoid()
     local character = enemy and enemy.Character
     local humanoidInstance = character and character:FindFirstChildOfClass("Humanoid")
     return humanoidInstance
-end
-
-local function getSelectedTargetPlayer()
-    local selected = AnimalSim.State.selectedPlayer
-    if not selected or not selected.Parent then
-        return nil
-    end
-    if teamCheck(selected.Name) then
-        return nil
-    end
-    local humanoid = getPlayerHumanoid(selected)
-    if humanoid and humanoid.Health > 0 then
-        return selected
-    end
-    return nil
 end
 
 local function getSelectedTargetHumanoid()
@@ -2050,8 +2005,6 @@ local auraTask
 local auraActive = false
 local farmTask
 local farmActive = false
-local DMGTask
-local DMGActive = false
 
 local function farmPassive()
     while farmActive do
@@ -2226,11 +2179,6 @@ acquireAimLock = function()
         autoAimOldCameraSubject = camera.CameraSubject
         camera.CameraType = Enum.CameraType.Scriptable
     end
-
-    autoAimOldMouseBehavior = UserInputService.MouseBehavior
-    autoAimOldMouseIconEnabled = UserInputService.MouseIconEnabled
-    UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
-    UserInputService.MouseIconEnabled = true
 end
 
 releaseAimLock = function()
@@ -2251,22 +2199,11 @@ releaseAimLock = function()
         end
     end
 
-    if autoAimOldMouseBehavior then
-        UserInputService.MouseBehavior = autoAimOldMouseBehavior
-    else
-        UserInputService.MouseBehavior = Enum.MouseBehavior.Default
-    end
-    if autoAimOldMouseIconEnabled ~= nil then
-        UserInputService.MouseIconEnabled = autoAimOldMouseIconEnabled
-    end
-
     autoAimOldCameraType = nil
     autoAimOldCameraSubject = nil
-    autoAimOldMouseBehavior = nil
-    autoAimOldMouseIconEnabled = nil
 end
 
-local function computeAutoZoneIndicatorBounds(targetPlayer, predictedPosition)
+AnimalSim.Modules.Combat.computeAutoZoneIndicatorBounds = function(targetPlayer, predictedPosition)
     if not predictedPosition then
         return nil, nil
     end
@@ -2290,7 +2227,8 @@ local function computeAutoZoneIndicatorBounds(targetPlayer, predictedPosition)
     end
 
     local rotationOnly = cf - cf.Position
-    return rotationOnly + (cf.Position + shift), size + AUTO_ZONE_INDICATOR_PADDING
+    local config = AnimalSim.Modules.Combat.AutoZoneConfig
+    return rotationOnly + (cf.Position + shift), size + config.indicatorPadding
 end
 
 ensureAutoZoneIndicator = function()
@@ -2305,7 +2243,7 @@ ensureAutoZoneIndicator = function()
     part.Size = Vector3.new(3, 3, 3)
     part.Material = Enum.Material.Neon
     part.Color = Color3.fromRGB(255, 80, 80)
-    part.Transparency = AUTO_ZONE_INDICATOR_TRANSPARENCY
+    part.Transparency = AnimalSim.Modules.Combat.AutoZoneConfig.indicatorTransparency
     part.Parent = workspace
     autoZoneIndicatorPart = part
     return part
@@ -2387,17 +2325,24 @@ aimAndFireAtPlayer = function(targetPlayer, indicatorPart, allowProjectile)
     local humanoidInstance = character and character:FindFirstChildOfClass("Humanoid")
 
     if allowProjectile then
-        local tool = findZoneProjectileTool()
-        if humanoidInstance and tool then
-            if tool.Parent ~= character then
+        local now = os.clock()
+        local aimState = AnimalSim.Modules.Combat._autoAimState or {}
+        local lastAt = aimState.projectileLastAt or 0
+        if (now - lastAt) >= AnimalSim.Modules.Combat.AutoZoneConfig.projectileCooldown then
+            local tool = findZoneProjectileTool()
+            if humanoidInstance and tool then
+                if tool.Parent ~= character then
+                    pcall(function()
+                        humanoidInstance:EquipTool(tool)
+                    end)
+                    task.wait(0.05)
+                end
                 pcall(function()
-                    humanoidInstance:EquipTool(tool)
+                    tool:Activate()
                 end)
-                task.wait(0.05)
+                aimState.projectileLastAt = now
+                AnimalSim.Modules.Combat._autoAimState = aimState
             end
-            pcall(function()
-                tool:Activate()
-            end)
         end
     end
 
@@ -2514,7 +2459,6 @@ local function setAutoPVP(value)
     autoPVPEnabled = value
     AnimalSim.State.autoPVP = value
     if value then
-        acquireAimLock()
         if not autoPVPTask then
             autoPVPTask = task.spawn(autoPVPLoop)
         end
@@ -2522,7 +2466,6 @@ local function setAutoPVP(value)
         while autoPVPTask do
             task.wait()
         end
-        releaseAimLock()
     end
 end
 
@@ -2559,7 +2502,6 @@ local function setAutoZone(value)
         autoZoneEnabled = true
         AnimalSim.State.autoZone = true
         autoZoneCancelToken += 1
-        acquireAimLock()
 
         do
             local walkState = AnimalSim.Modules.Combat._autoZoneWalk or {}
@@ -2650,7 +2592,7 @@ local function setAutoZone(value)
                     targetPlayer = walkState and walkState.targetPlayer or nil
                 end
 
-                local targetCF, targetSize = computeAutoZoneIndicatorBounds(targetPlayer, aimPoint)
+                local targetCF, targetSize = AnimalSim.Modules.Combat.computeAutoZoneIndicatorBounds(targetPlayer, aimPoint)
                 if targetSize then
                     indicator.Size = targetSize
                 end
@@ -2855,9 +2797,18 @@ local function setAutoZone(value)
                 end
 
                 local camera = workspace.CurrentCamera
-                if camera then
-                    local desired = CFrame.lookAt(camera.CFrame.Position, aimPoint)
-                    camera.CFrame = camera.CFrame:Lerp(desired, AUTO_ZONE_CAMERA_LERP)
+                if camera and autoFireballEnabled then
+                    local character = LocalPlayer.Character
+                    local rootPart = character and character:FindFirstChild("HumanoidRootPart")
+                    if rootPart then
+                        local rootPos = rootPart.Position
+                        local delta = aimPoint - rootPos
+                        local dir = delta.Magnitude > 1e-3 and delta.Unit or rootPart.CFrame.LookVector
+                        local config = AnimalSim.Modules.Combat.AutoZoneConfig
+                        local desiredPos = rootPos - dir * config.cameraDistance + Vector3.new(0, config.cameraHeight, 0)
+                        local desired = CFrame.lookAt(desiredPos, aimPoint)
+                        camera.CFrame = camera.CFrame:Lerp(desired, config.cameraPosLerp)
+                    end
                 end
             end)
         end
@@ -2888,7 +2839,6 @@ local function setAutoZone(value)
                 walkState.targetPlayer = nil
             end
         end
-        releaseAimLock()
     end
 end
 
@@ -3010,9 +2960,10 @@ local selectedPlayers = {
     "SpongeBobStartFish", "HeyNo_ThatsBa", "PeanutNox2180", "Tsubakidoki",
 }
 
-local initialHealth = {}
+AnimalSim.Modules.Logging.selectedPlayers = selectedPlayers
+AnimalSim.Modules.Logging.initialHealth = AnimalSim.Modules.Logging.initialHealth or {}
 
-local function LogDamage(player, damageAmount)
+AnimalSim.Modules.Logging.LogDamage = function(player, damageAmount)
     if damageAmount < 0 then
         damageAmount = -damageAmount
     end
@@ -3023,36 +2974,31 @@ local function LogDamage(player, damageAmount)
     end
 end
 
-local function LogEvent(player, event)
+AnimalSim.Modules.Logging.LogEvent = function(player, event)
     print(player.Name .. " " .. event)
 end
 
-local function ConnectHealthChanged(player)
+AnimalSim.Modules.Logging.ConnectHealthChanged = function(player)
     local function bind()
         repeat task.wait() until player.Character and player.Character:FindFirstChild("Humanoid")
         local humanoidInstance = player.Character:FindFirstChild("Humanoid")
         if not humanoidInstance then
             return
         end
-        initialHealth[player] = humanoidInstance.Health
+        local log = AnimalSim.Modules.Logging
+        log.initialHealth[player] = humanoidInstance.Health
         humanoidInstance:GetPropertyChangedSignal("Health"):Connect(function()
             local current = humanoidInstance.Health
-            local previous = initialHealth[player] or current
-            LogDamage(player, previous - current)
-            LogEvent(player, "health changed by " .. (previous - current))
-            initialHealth[player] = current
+            local previous = log.initialHealth[player] or current
+            log.LogDamage(player, previous - current)
+            log.LogEvent(player, "health changed by " .. (previous - current))
+            log.initialHealth[player] = current
         end)
     end
     task.spawn(bind)
 end
 
-AnimalSim.Modules.Logging.selectedPlayers = selectedPlayers
-AnimalSim.Modules.Logging.LogDamage = LogDamage
-AnimalSim.Modules.Logging.LogEvent = LogEvent
-AnimalSim.Modules.Logging.ConnectHealthChanged = ConnectHealthChanged
-AnimalSim.Modules.Logging.initialHealth = initialHealth
-
-local function runRemoteScript(url, label)
+AnimalSim.Modules.Utilities.runRemoteScript = function(url, label)
     local loader = rawget(getfenv(), "loadstring") or loadstring
     if type(loader) ~= "function" then
         warn(("[AnimalSim] %s requires an executor with loadstring support."):format(label))
@@ -3084,18 +3030,18 @@ local function runRemoteScript(url, label)
 end
 
 loadUraniumHub = function()
-    runRemoteScript("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniumKak.lua", "Uranium Hub")
+    AnimalSim.Modules.Utilities.runRemoteScript("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniumKak.lua", "Uranium Hub")
 end
 
 loadAwScript = function()
-    runRemoteScript("https://raw.githubusercontent.com/AWdadwdwad2/net/refs/heads/main/h", "AW script")
+    AnimalSim.Modules.Utilities.runRemoteScript("https://raw.githubusercontent.com/AWdadwdwad2/net/refs/heads/main/h", "AW script")
 end
 
 ---------------------------------------------------------------------
 -- UI helpers
 ---------------------------------------------------------------------
 
-local function buildUI()
+AnimalSim.UI.buildUI = function()
     local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
     local versionString = AnimalSim.State.version and string.format("%.2f", AnimalSim.State.version) or "1.00"
     local ui = venyx.new({title = ("Revamp - Animal Simulator v%s"):format(versionString)})
@@ -3345,7 +3291,7 @@ function AnimalSim.init()
         registerTeleporter(name, config)
     end
     setVisualizerEnabled(AnimalSim.State.visualizerEnabled)
-    local venyx, ui = buildUI()
+    local venyx, ui = AnimalSim.UI.buildUI()
     if venyx and ui then
         return {
             library = venyx,
