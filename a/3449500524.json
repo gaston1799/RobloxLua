@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 14998028337,
+  "jobId": "7f7439a3-c4fb-46b7-865c-bb4d4880f14a",
+  "join": "roblox://placeId=14998028337&gameInstanceId=7f7439a3-c4fb-46b7-865c-bb4d4880f14a",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765822673629
+  "web": "https://www.roblox.com/games/start?placeId=14998028337&gameInstanceId=7f7439a3-c4fb-46b7-865c-bb4d4880f14a",
+  "location": "Training Center",
+  "updatedAt": 1765822703636
 }
