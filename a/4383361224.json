@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 71000936793663,
+  "jobId": "87ccc1ed-5f5c-4956-934b-7082c8855589",
+  "join": "roblox://placeId=71000936793663&gameInstanceId=87ccc1ed-5f5c-4956-934b-7082c8855589",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765809353176
+  "web": "https://www.roblox.com/games/start?placeId=71000936793663&gameInstanceId=87ccc1ed-5f5c-4956-934b-7082c8855589",
+  "location": "Death Ball",
+  "updatedAt": 1765809893241
 }
