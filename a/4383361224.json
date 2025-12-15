@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 6456351776,
-  "jobId": "51a3dc99-de83-4165-9432-9fccae6b5817",
-  "join": "roblox://placeId=6456351776&gameInstanceId=51a3dc99-de83-4165-9432-9fccae6b5817",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=6456351776&gameInstanceId=51a3dc99-de83-4165-9432-9fccae6b5817",
-  "location": "Kaiju Paradise",
-  "updatedAt": 1765796842899
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765797082893
 }
