@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "in-game",
-  "placeId": 1204965839,
-  "jobId": "39ab6598-6925-4fd2-aff3-bd9393e29207",
-  "join": "roblox://placeId=1204965839&gameInstanceId=39ab6598-6925-4fd2-aff3-bd9393e29207",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3872347405",
-  "web": "https://www.roblox.com/games/start?placeId=1204965839&gameInstanceId=39ab6598-6925-4fd2-aff3-bd9393e29207",
-  "location": "Wolves' Life 3",
-  "updatedAt": 1765848706005
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765851315989
 }
