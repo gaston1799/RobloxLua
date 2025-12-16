@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "ace",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 122543305541623,
+  "jobId": "9d14bcba-9f18-4b0a-9401-c6613cd27ad6",
+  "join": "roblox://placeId=122543305541623&gameInstanceId=9d14bcba-9f18-4b0a-9401-c6613cd27ad6",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765900812120
+  "web": "https://www.roblox.com/games/start?placeId=122543305541623&gameInstanceId=9d14bcba-9f18-4b0a-9401-c6613cd27ad6",
+  "location": "Become A Snowball",
+  "updatedAt": 1765906810771
 }
