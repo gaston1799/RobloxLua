@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4566572536,
+  "jobId": "9c276462-e099-41f0-b2eb-6a3efec871fd",
+  "join": "roblox://placeId=4566572536&gameInstanceId=9c276462-e099-41f0-b2eb-6a3efec871fd",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765925861566
+  "web": "https://www.roblox.com/games/start?placeId=4566572536&gameInstanceId=9c276462-e099-41f0-b2eb-6a3efec871fd",
+  "location": "[🏙️Map!] Vehicle Legends 🏎️ Cars!",
+  "updatedAt": 1765925921573
 }
