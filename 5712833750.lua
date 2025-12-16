@@ -1712,12 +1712,26 @@ local function startAutoFireball()
         while autoFireballEnabled do
             defineNilLocals()
             local indicator = ensureAutoZoneIndicator()
-            local target = AnimalSim.State.selectedPlayer
-            if target and (not target.Parent or target == LocalPlayer or teamCheck(target.Name)) then
-                target = nil
-            end
-            if not target then
-                target = findZoneTarget(false)
+            local target
+            if AnimalSim.State.followTarget then
+                local selected = AnimalSim.State.selectedPlayer
+                if selected and selected.Parent and selected ~= LocalPlayer and not teamCheck(selected.Name) then
+                    local humanoidInstance = getPlayerHumanoid(selected)
+                    if humanoidInstance and humanoidInstance.Health > 0 then
+                        target = selected
+                    end
+                end
+            else
+                local selected = AnimalSim.State.selectedPlayer
+                if selected and selected.Parent and selected ~= LocalPlayer and not teamCheck(selected.Name) then
+                    local humanoidInstance = getPlayerHumanoid(selected)
+                    if humanoidInstance and humanoidInstance.Health > 0 then
+                        target = selected
+                    end
+                end
+                if not target then
+                    target = findZoneTarget(false)
+                end
             end
             local ok, err = pcall(function()
                 if target and canEngagePlayer(target) then
@@ -2473,7 +2487,18 @@ local function autoZoneLoop(myToken)
     while autoZoneEnabled and autoZoneCancelToken == myToken do
         defineNilLocals()
 
-        local target = findZoneTarget(false)
+        local target
+        if AnimalSim.State.followTarget then
+            local selected = AnimalSim.State.selectedPlayer
+            if selected and selected.Parent and selected ~= LocalPlayer and not teamCheck(selected.Name) then
+                local humanoidInstance = getPlayerHumanoid(selected)
+                if humanoidInstance and humanoidInstance.Health > 0 then
+                    target = selected
+                end
+            end
+        else
+            target = findZoneTarget(false)
+        end
         local indicator = ensureAutoZoneIndicator()
         local fired = target and aimAndFireAtPlayer(target, indicator, false)
         if not fired then
@@ -2502,6 +2527,7 @@ local function setAutoZone(value)
         autoZoneEnabled = true
         AnimalSim.State.autoZone = true
         autoZoneCancelToken += 1
+        acquireAimLock()
 
         do
             local walkState = AnimalSim.Modules.Combat._autoZoneWalk or {}
@@ -2797,7 +2823,7 @@ local function setAutoZone(value)
                 end
 
                 local camera = workspace.CurrentCamera
-                if camera and autoFireballEnabled then
+                if camera then
                     local character = LocalPlayer.Character
                     local rootPart = character and character:FindFirstChild("HumanoidRootPart")
                     if rootPart then
@@ -2839,6 +2865,7 @@ local function setAutoZone(value)
                 walkState.targetPlayer = nil
             end
         end
+        releaseAimLock()
     end
 end
 
