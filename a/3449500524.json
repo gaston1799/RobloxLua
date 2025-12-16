@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10313997786,
+  "jobId": "e01248fc-c8cf-4da2-b3c4-faa357e3b4a5",
+  "join": "roblox://placeId=10313997786&gameInstanceId=e01248fc-c8cf-4da2-b3c4-faa357e3b4a5",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765905371322
+  "web": "https://www.roblox.com/games/start?placeId=10313997786&gameInstanceId=e01248fc-c8cf-4da2-b3c4-faa357e3b4a5",
+  "location": "Sealed Judgement",
+  "updatedAt": 1765905461265
 }
