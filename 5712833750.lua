@@ -1,6 +1,6 @@
 --[[
-    Animal Simulator automation module extracted from RevampLua.lua.
-    Version: 1.03
+	Animal Simulator automation module extracted from RevampLua.lua.
+    Version: 1.04
 
     The goal of this split file is to retain only the functionality that is
     required when the loader detects we are inside Animal Simulator
@@ -59,11 +59,11 @@ local AnimalSim = {
         followTarget = false,
         followDistance = 10,
         selectedPlayer = nil,
-        legitMode = true,
-        autoSelectTarget = false,
-        visualizerEnabled = false,
-        version = 1.03,
-    },
+	        legitMode = true,
+	        autoSelectTarget = false,
+	        visualizerEnabled = false,
+	        version = 1.04,
+	    },
     Modules = {
         Utilities = {},
         Pathing = {},
@@ -169,6 +169,7 @@ AnimalSim.Modules.Combat.AutoZoneConfig = AnimalSim.Modules.Combat.AutoZoneConfi
     indicatorTransparency = 0.85,
     indicatorPadding = Vector3.new(0.25, 0.25, 0.25),
     projectileCooldown = 1.8,
+    fireballMouseLockDuration = 0.12,
 }
 local DEBUG_DAMAGE_LOG = true
 local FALLBACK_ATTACKER_RADIUS = 45
@@ -180,6 +181,8 @@ local autoZoneLastIndicatorCF
 local autoAimOldCameraType
 local autoAimOldCameraSubject
 local autoAimLockCount = 0
+local fireballMouseLockCount = 0
+local fireballOldMouseBehavior
 
 local ensureAutoZoneIndicator
 local hideAutoZoneIndicator
@@ -187,10 +190,10 @@ local findZoneTarget
 local aimAndFireAtPlayer
 local acquireAimLock
 local releaseAimLock
+local flashFireballMouseLock
 
 local canEngagePlayer
 local damageplayer
-local loadUraniumHub
 local loadAwScript
 local function isInsideSafeZone(position)
     local polygon = AnimalSim.Data.SafeZones.Main.polygon
@@ -2217,6 +2220,42 @@ releaseAimLock = function()
     autoAimOldCameraSubject = nil
 end
 
+flashFireballMouseLock = function(durationSeconds)
+    durationSeconds = tonumber(durationSeconds) or 0.12
+    if durationSeconds <= 0 then
+        durationSeconds = 0.12
+    end
+
+    fireballMouseLockCount += 1
+    if fireballMouseLockCount == 1 then
+        pcall(function()
+            fireballOldMouseBehavior = UserInputService.MouseBehavior
+            UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+        end)
+    end
+
+    task.delay(durationSeconds, function()
+        if fireballMouseLockCount <= 0 then
+            fireballMouseLockCount = 0
+            return
+        end
+        fireballMouseLockCount -= 1
+        if fireballMouseLockCount > 0 then
+            return
+        end
+        pcall(function()
+            if UserInputService.MouseBehavior == Enum.MouseBehavior.LockCenter then
+                if fireballOldMouseBehavior then
+                    UserInputService.MouseBehavior = fireballOldMouseBehavior
+                else
+                    UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+                end
+            end
+        end)
+        fireballOldMouseBehavior = nil
+    end)
+end
+
 AnimalSim.Modules.Combat.computeAutoZoneIndicatorBounds = function(targetPlayer, predictedPosition)
     if not predictedPosition then
         return nil, nil
@@ -2338,19 +2377,20 @@ aimAndFireAtPlayer = function(targetPlayer, indicatorPart, allowProjectile)
     local character = LocalPlayer.Character
     local humanoidInstance = character and character:FindFirstChildOfClass("Humanoid")
 
-    if allowProjectile then
-        local now = os.clock()
-        local aimState = AnimalSim.Modules.Combat._autoAimState or {}
-        local lastAt = aimState.projectileLastAt or 0
-        if (now - lastAt) >= AnimalSim.Modules.Combat.AutoZoneConfig.projectileCooldown then
-            local tool = findZoneProjectileTool()
-            if humanoidInstance and tool then
-                if tool.Parent ~= character then
-                    pcall(function()
-                        humanoidInstance:EquipTool(tool)
-                    end)
-                    task.wait(0.05)
-                end
+	    if allowProjectile then
+	        local now = os.clock()
+	        local aimState = AnimalSim.Modules.Combat._autoAimState or {}
+	        local lastAt = aimState.projectileLastAt or 0
+	        if (now - lastAt) >= AnimalSim.Modules.Combat.AutoZoneConfig.projectileCooldown then
+	            local tool = findZoneProjectileTool()
+	            if humanoidInstance and tool then
+	                pcall(flashFireballMouseLock, AnimalSim.Modules.Combat.AutoZoneConfig.fireballMouseLockDuration)
+	                if tool.Parent ~= character then
+	                    pcall(function()
+	                        humanoidInstance:EquipTool(tool)
+	                    end)
+	                    task.wait(0.05)
+	                end
                 pcall(function()
                     tool:Activate()
                 end)
@@ -2937,9 +2977,6 @@ AnimalSim.Modules.Utilities.drawPath = drawPath
 AnimalSim.Modules.Utilities.drawSegment = drawSegment
 AnimalSim.Modules.Utilities.estimatePlayerDamage = estimatePlayerDamage
 AnimalSim.Modules.Utilities.computeHitCount = computeHitCount
-AnimalSim.Modules.Utilities.loadUraniumHub = function(...)
-    return loadUraniumHub(...)
-end
 AnimalSim.Modules.Utilities.loadAwScript = function(...)
     return loadAwScript(...)
 end
@@ -2966,9 +3003,6 @@ AnimalSim.Modules.Combat.setAutoJump = setAutoJump
 AnimalSim.Modules.Combat.setAutoFight = setAutoFight
 AnimalSim.Modules.Combat.setAutoPVP = setAutoPVP
 AnimalSim.Modules.Combat.setAutoZone = setAutoZone
-AnimalSim.Modules.Combat.BloxFruit = function(...)
-    return loadUraniumHub(...)
-end
 
 ---------------------------------------------------------------------
 -- Logging helpers
@@ -3056,10 +3090,6 @@ AnimalSim.Modules.Utilities.runRemoteScript = function(url, label)
     return true
 end
 
-loadUraniumHub = function()
-    AnimalSim.Modules.Utilities.runRemoteScript("https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniumKak.lua", "Uranium Hub")
-end
-
 loadAwScript = function()
     AnimalSim.Modules.Utilities.runRemoteScript("https://raw.githubusercontent.com/AWdadwdwad2/net/refs/heads/main/h", "AW script")
 end
@@ -3069,7 +3099,7 @@ end
 ---------------------------------------------------------------------
 
 AnimalSim.UI.buildUI = function()
-    local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
+    local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/refs/heads/main/libRebound/Venyx.lua"))()
     local versionString = AnimalSim.State.version and string.format("%.2f", AnimalSim.State.version) or "1.00"
     local ui = venyx.new({title = ("Revamp - Animal Simulator v%s"):format(versionString)})
 
@@ -3278,11 +3308,6 @@ AnimalSim.UI.buildUI = function()
     })
 
     local scriptsSection = gameplayPage:addSection({title = "Scripts/Hubs"})
-
-    scriptsSection:addButton({
-        title = "Uranium Hub",
-        callback = loadUraniumHub,
-    })
 
     scriptsSection:addButton({
         title = "Load AW Script",
