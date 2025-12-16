@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 11391873439,
+  "jobId": "62d186ac-d102-4e4c-aae4-9a4a031ccb20",
+  "join": "roblox://placeId=11391873439&gameInstanceId=62d186ac-d102-4e4c-aae4-9a4a031ccb20",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765923161541
+  "web": "https://www.roblox.com/games/start?placeId=11391873439&gameInstanceId=62d186ac-d102-4e4c-aae4-9a4a031ccb20",
+  "location": "ROBLOX Rally Racing",
+  "updatedAt": 1765923191671
 }
