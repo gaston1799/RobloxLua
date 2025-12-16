@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 103589142326933,
+  "jobId": "36237281-1d3e-49d1-8980-6f4e3e7cf55f",
+  "join": "roblox://placeId=103589142326933&gameInstanceId=36237281-1d3e-49d1-8980-6f4e3e7cf55f",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765923581441
+  "web": "https://www.roblox.com/games/start?placeId=103589142326933&gameInstanceId=36237281-1d3e-49d1-8980-6f4e3e7cf55f",
+  "location": "[CHRISTMAS] Car Crash Simulator V3",
+  "updatedAt": 1765923611944
 }
