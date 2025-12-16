@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13576455146,
+  "jobId": "900648a8-829c-4764-9494-457ad7d92525",
+  "join": "roblox://placeId=13576455146&gameInstanceId=900648a8-829c-4764-9494-457ad7d92525",
   "follow": "roblox://followUserId=3872347405",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765847475952
+  "web": "https://www.roblox.com/games/start?placeId=13576455146&gameInstanceId=900648a8-829c-4764-9494-457ad7d92525",
+  "location": "Dragons' Life Legacy",
+  "updatedAt": 1765847505980
 }
