@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92335941342119,
+  "jobId": "b06913b4-a233-48ca-b543-b8f1dcec44ac",
+  "join": "roblox://placeId=92335941342119&gameInstanceId=b06913b4-a233-48ca-b543-b8f1dcec44ac",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765923011591
+  "web": "https://www.roblox.com/games/start?placeId=92335941342119&gameInstanceId=b06913b4-a233-48ca-b543-b8f1dcec44ac",
+  "location": "Cars Physics Drive 2 ",
+  "updatedAt": 1765923071562
 }
