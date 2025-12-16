@@ -1,12 +1,12 @@
 {
   "userId": 3026015790,
   "displayName": "KAOsxAKT_Kitkat",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6447798030,
+  "jobId": "ac5d7296-f8ff-4cf6-9ab7-75717aea5288",
+  "join": "roblox://placeId=6447798030&gameInstanceId=ac5d7296-f8ff-4cf6-9ab7-75717aea5288",
   "follow": "roblox://followUserId=3026015790",
-  "web": null,
-  "location": "Offline",
-  "updatedAt": 1765926919038
+  "web": "https://www.roblox.com/games/start?placeId=6447798030&gameInstanceId=ac5d7296-f8ff-4cf6-9ab7-75717aea5288",
+  "location": "[MMv2] Funky Friday",
+  "updatedAt": 1765926949107
 }
