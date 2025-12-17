@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 6516141723,
-  "jobId": "a833f28f-172a-4b93-801c-ae6903e3ca20",
-  "join": "roblox://placeId=6516141723&gameInstanceId=a833f28f-172a-4b93-801c-ae6903e3ca20",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=6516141723&gameInstanceId=a833f28f-172a-4b93-801c-ae6903e3ca20",
-  "location": "DOORS [ADVENT CALENDAR❄️]",
-  "updatedAt": 1766004492758
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766004522631
 }
