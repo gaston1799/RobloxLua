@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 93059844516822,
-  "jobId": "5624d4eb-bac5-457b-8789-68a2279a7b74",
-  "join": "roblox://placeId=93059844516822&gameInstanceId=5624d4eb-bac5-457b-8789-68a2279a7b74",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=93059844516822&gameInstanceId=5624d4eb-bac5-457b-8789-68a2279a7b74",
-  "location": "The Minefields",
-  "updatedAt": 1766006264612
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766006383982
 }
