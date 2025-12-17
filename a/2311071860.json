@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 14184086618,
-  "jobId": "845adbac-4a85-4c1f-931c-372429166ef8",
-  "join": "roblox://placeId=14184086618&gameInstanceId=845adbac-4a85-4c1f-931c-372429166ef8",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=14184086618&gameInstanceId=845adbac-4a85-4c1f-931c-372429166ef8",
-  "location": "[W80] Obby But You’re On a Bike",
-  "updatedAt": 1766005422747
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766005482742
 }
