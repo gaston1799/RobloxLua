@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 2753915549,
-  "jobId": "16b4142c-d926-4ade-b823-53385a83ddf1",
-  "join": "roblox://placeId=2753915549&gameInstanceId=16b4142c-d926-4ade-b823-53385a83ddf1",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=2753915549&gameInstanceId=16b4142c-d926-4ade-b823-53385a83ddf1",
-  "location": "Blox Fruits",
-  "updatedAt": 1766015233258
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766015473313
 }
