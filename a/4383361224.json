@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 110018378852063,
+  "jobId": "415f0c66-9bbe-4db2-920e-94a97e08fe55",
+  "join": "roblox://placeId=110018378852063&gameInstanceId=415f0c66-9bbe-4db2-920e-94a97e08fe55",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765945002342
+  "web": "https://www.roblox.com/games/start?placeId=110018378852063&gameInstanceId=415f0c66-9bbe-4db2-920e-94a97e08fe55",
+  "location": "[2 Players] Just the Two of Us",
+  "updatedAt": 1765945031834
 }
