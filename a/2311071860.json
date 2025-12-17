@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 189707,
-  "jobId": "7a9fa284-da4f-4640-a683-31e2ce019ee7",
-  "join": "roblox://placeId=189707&gameInstanceId=7a9fa284-da4f-4640-a683-31e2ce019ee7",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=189707&gameInstanceId=7a9fa284-da4f-4640-a683-31e2ce019ee7",
-  "location": "Natural Disaster Survival",
-  "updatedAt": 1765958801631
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765959824404
 }
