@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6961824067,
+  "jobId": "7fe2db9e-be0c-455b-9ab7-323ea2058d34",
+  "join": "roblox://placeId=6961824067&gameInstanceId=7fe2db9e-be0c-455b-9ab7-323ea2058d34",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765988442225
+  "web": "https://www.roblox.com/games/start?placeId=6961824067&gameInstanceId=7fe2db9e-be0c-455b-9ab7-323ea2058d34",
+  "location": "Fling Things and People",
+  "updatedAt": 1765988683263
 }
