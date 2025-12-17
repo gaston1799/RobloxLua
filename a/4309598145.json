@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12355337193,
+  "jobId": "6cc6a9bc-de10-4208-8ba5-f670773d6ec3",
+  "join": "roblox://placeId=12355337193&gameInstanceId=6cc6a9bc-de10-4208-8ba5-f670773d6ec3",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765968851010
+  "web": "https://www.roblox.com/games/start?placeId=12355337193&gameInstanceId=6cc6a9bc-de10-4208-8ba5-f670773d6ec3",
+  "location": "Murderers VS Sheriffs DUELS",
+  "updatedAt": 1765968881004
 }
