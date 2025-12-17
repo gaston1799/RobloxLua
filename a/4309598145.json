@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "51d61fb4-1da5-453e-8292-305fcaf2ffdb",
+  "join": "roblox://placeId=142823291&gameInstanceId=51d61fb4-1da5-453e-8292-305fcaf2ffdb",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1765965791042
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=51d61fb4-1da5-453e-8292-305fcaf2ffdb",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1765967500973
 }
