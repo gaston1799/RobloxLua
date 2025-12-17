@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 9558986910,
-  "jobId": "53924686-3c6f-4827-b914-051172646e49",
-  "join": "roblox://placeId=9558986910&gameInstanceId=53924686-3c6f-4827-b914-051172646e49",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=9558986910&gameInstanceId=53924686-3c6f-4827-b914-051172646e49",
-  "location": "Hello Neighbor [3 Acts]",
-  "updatedAt": 1765965221107
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1765965491006
 }
