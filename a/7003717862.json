@@ -1,12 +1,12 @@
 {
   "userId": 7003717862,
   "displayName": "angelino",
-  "status": "in-game",
-  "placeId": 11302866821,
-  "jobId": "71634f43-ce9a-48d4-908e-7c7af1b52efc",
-  "join": "roblox://placeId=11302866821&gameInstanceId=71634f43-ce9a-48d4-908e-7c7af1b52efc",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7003717862",
-  "web": "https://www.roblox.com/games/start?placeId=11302866821&gameInstanceId=71634f43-ce9a-48d4-908e-7c7af1b52efc",
-  "location": "Every Second You Get Taller",
-  "updatedAt": 1766095034503
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766095064327
 }
