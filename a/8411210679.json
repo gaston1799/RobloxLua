@@ -1,12 +1,12 @@
 {
   "userId": 8411210679,
   "displayName": "NotoriousI",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "cecff339-31f1-4225-bfee-e70aff4fe36d",
-  "join": "roblox://placeId=5712833750&gameInstanceId=cecff339-31f1-4225-bfee-e70aff4fe36d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=8411210679",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=cecff339-31f1-4225-bfee-e70aff4fe36d",
-  "location": "🎃 Animal Simulator",
-  "updatedAt": 1766081054438
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766088974452
 }
