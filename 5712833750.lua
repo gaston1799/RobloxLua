@@ -1,15 +1,15 @@
 --[[
-	Animal Simulator automation module extracted from RevampLua.lua.
+\tAnimal Simulator automation module extracted from RevampLua.lua.
     Version: 1.04
 
     The goal of this split file is to retain only the functionality that is
     required when the loader detects we are inside Animal Simulator
-    (PlaceId 5712833750).  All helpers that were previously exposed through
+    (PlaceId 5712833750). All helpers that were previously exposed through
     the `Revamp` table are reorganised below under the `AnimalSim` namespace.
 
     The implementation is intentionally faithful to the original logic so the
-    in‑game behaviour remains unchanged while still keeping the local count of
-    this file well under Roblox's limit.  Shared helpers that are reused by the
+    in-game behaviour remains unchanged while still keeping the local count of
+    this file well under Roblox's limit. Shared helpers that are reused by the
     other games will be duplicated in their respective split files.
 ]]
 
@@ -178,6 +178,8 @@ local autoZoneIndicatorPart
 local autoZoneDesiredAimPoint
 local autoZoneRenderConnection
 local autoZoneLastIndicatorCF
+local autoZoneDebugMyBox
+local autoZoneDebugTargetBox
 local autoAimOldCameraType
 local autoAimOldCameraSubject
 local autoAimLockCount = 0
@@ -188,9 +190,78 @@ local ensureAutoZoneIndicator
 local hideAutoZoneIndicator
 local findZoneTarget
 local aimAndFireAtPlayer
-local acquireAimLock
-local releaseAimLock
-local flashFireballMouseLock
+
+local function acquireAimLock()
+    autoAimLockCount = autoAimLockCount + 1
+    if autoAimLockCount > 1 then
+        return
+    end
+
+    local camera = workspace.CurrentCamera
+    if camera then
+        autoAimOldCameraType = camera.CameraType
+        autoAimOldCameraSubject = camera.CameraSubject
+        camera.CameraType = Enum.CameraType.Scriptable
+    end
+end
+
+local function releaseAimLock()
+    if autoAimLockCount <= 0 then
+        autoAimLockCount = 0
+        return
+    end
+    autoAimLockCount = autoAimLockCount - 1
+    if autoAimLockCount > 0 then
+        return
+    end
+
+    local camera = workspace.CurrentCamera
+    if camera and autoAimOldCameraType then
+        camera.CameraType = autoAimOldCameraType
+        if autoAimOldCameraSubject then
+            camera.CameraSubject = autoAimOldCameraSubject
+        end
+    end
+
+    autoAimOldCameraType = nil
+    autoAimOldCameraSubject = nil
+end
+
+local function flashFireballMouseLock(durationSeconds)
+    durationSeconds = tonumber(durationSeconds) or 0.12
+    if durationSeconds <= 0 then
+        durationSeconds = 0.12
+    end
+
+    fireballMouseLockCount = fireballMouseLockCount + 1
+    if fireballMouseLockCount == 1 then
+        pcall(function()
+            fireballOldMouseBehavior = UserInputService.MouseBehavior
+            UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+        end)
+    end
+
+    task.delay(durationSeconds, function()
+        if fireballMouseLockCount <= 0 then
+            fireballMouseLockCount = 0
+            return
+        end
+        fireballMouseLockCount = fireballMouseLockCount - 1
+        if fireballMouseLockCount > 0 then
+            return
+        end
+        pcall(function()
+            if UserInputService.MouseBehavior == Enum.MouseBehavior.LockCenter then
+                if fireballOldMouseBehavior then
+                    UserInputService.MouseBehavior = fireballOldMouseBehavior
+                else
+                    UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+                end
+            end
+        end)
+        fireballOldMouseBehavior = nil
+    end)
+end
 
 local canEngagePlayer
 local damageplayer
@@ -208,8 +279,7 @@ local function isInsideSafeZone(position)
         local pi = polygon[i]
         local pj = polygon[j]
         local denom = pj.Y - pi.Y
-        local condition = ((pi.Y > z) ~= (pj.Y > z)) and
-            (x < (pj.X - pi.X) * (z - pi.Y) / denom + pi.X)
+        local condition = ((pi.Y > z) ~= (pj.Y > z)) and (x < (pj.X - pi.X) * (z - pi.Y) / denom + pi.X)
         if condition then
             inside = not inside
         end
@@ -1000,7 +1070,7 @@ RunService.Heartbeat:Connect(function(dt)
         return
     end
 
-    overheadAccumulator += dt
+    overheadAccumulator = overheadAccumulator + dt
     if overheadAccumulator < OVERHEAD_UPDATE_INTERVAL then
         return
     end
@@ -1316,33 +1386,31 @@ local function stayNearPlayer()
         defineNilLocals()
         local selected = AnimalSim.State.selectedPlayer
         local character = LocalPlayer.Character
-        if not (selected and character and humanoidRoot and selected.Character) then
-            continue
-        end
-        local targetRoot = selected.Character:FindFirstChild("HumanoidRootPart")
-        if not targetRoot then
-            continue
-        end
-        local distance = (targetRoot.Position - humanoidRoot.Position).Magnitude
-        if distance > (AnimalSim.State.followDistance or 10) then
-            local followDistance = AnimalSim.State.followDistance or 10
-            local velocity = targetRoot.AssemblyLinearVelocity or targetRoot.Velocity or Vector3.zero
-            local speed = velocity.Magnitude
-            local isMoving = speed > 1
-            if isMoving then
-                local predictedPosition = PredictPlayerPosition(selected, 0.2)
-                if predictedPosition then
-                    local forward = (speed > 0) and velocity.Unit or targetRoot.CFrame.LookVector
-                    local destination = predictedPosition - forward * followDistance
-                    drawLineBetweenPositions(humanoidRoot.Position, destination, Color3.fromRGB(255, 200, 90), 0.4)
-                    humanoidRoot.CFrame = CFrame.new(destination, destination + forward)
-                else
-                    humanoidRoot.CFrame = targetRoot.CFrame
+        if selected and character and humanoidRoot and selected.Character then
+            local targetRoot = selected.Character:FindFirstChild("HumanoidRootPart")
+            if targetRoot then
+                local distance = (targetRoot.Position - humanoidRoot.Position).Magnitude
+                if distance > (AnimalSim.State.followDistance or 10) then
+                    local followDistance = AnimalSim.State.followDistance or 10
+                    local velocity = targetRoot.AssemblyLinearVelocity or targetRoot.Velocity or Vector3.zero
+                    local speed = velocity.Magnitude
+                    local isMoving = speed > 1
+                    if isMoving then
+                        local predictedPosition = PredictPlayerPosition(selected, 0.2)
+                        if predictedPosition then
+                            local forward = (speed > 0) and velocity.Unit or targetRoot.CFrame.LookVector
+                            local destination = predictedPosition - forward * followDistance
+                            drawLineBetweenPositions(humanoidRoot.Position, destination, Color3.fromRGB(255, 200, 90), 0.4)
+                            humanoidRoot.CFrame = CFrame.new(destination, destination + forward)
+                        else
+                            humanoidRoot.CFrame = targetRoot.CFrame
+                        end
+                    else
+                        local destination = targetRoot.Position - targetRoot.CFrame.LookVector * followDistance
+                        drawLineBetweenPositions(humanoidRoot.Position, destination, Color3.fromRGB(255, 200, 90), 0.4)
+                        humanoidRoot.CFrame = CFrame.new(destination, targetRoot.Position)
+                    end
                 end
-            else
-                local destination = targetRoot.Position - targetRoot.CFrame.LookVector * followDistance
-                drawLineBetweenPositions(humanoidRoot.Position, destination, Color3.fromRGB(255, 200, 90), 0.4)
-                humanoidRoot.CFrame = CFrame.new(destination, targetRoot.Position)
             end
         end
     end
@@ -1605,7 +1673,7 @@ local function followDynamicTarget(targetPlayer, humanoidInstance, options)
     local iterations = 0
     local reachedGoal = false
     while iterations < maxIterations do
-        iterations += 1
+        iterations = iterations + 1
         if options.cancelled and options.cancelled() then
             break
         end
@@ -1628,32 +1696,32 @@ local function followDynamicTarget(targetPlayer, humanoidInstance, options)
         end
         if path.Status ~= Enum.PathStatus.Success then
             task.wait(0.1)
-            continue
-        end
-        drawPath(path:GetWaypoints(), Color3.fromRGB(110, 90, 255), 0.9)
-        for _, waypoint in ipairs(path:GetWaypoints()) do
-            if options.cancelled and options.cancelled() then
-                break
-            end
-            humanoidInstance:MoveTo(waypoint.Position)
-            if waypoint.Action == Enum.PathWaypointAction.Jump then
-                humanoidInstance.Jump = true
-            end
-            humanoidInstance.MoveToFinished:Wait()
-            rootPart = humanoidInstance.RootPart
-            targetCharacter = targetPlayer.Character
-            targetRoot = targetCharacter and targetCharacter:FindFirstChild("HumanoidRootPart")
-            if not (targetRoot and rootPart) then
-                break
-            end
-            currentDistance = (targetRoot.Position - rootPart.Position).Magnitude
-            if currentDistance <= arrivalDistance then
-                reachedGoal = true
-                humanoidInstance:Move(Vector3.new())
-                return true
-            end
-            if (targetRoot.Position - lastGoal).Magnitude >= repathDistance then
-                break
+        else
+            drawPath(path:GetWaypoints(), Color3.fromRGB(110, 90, 255), 0.9)
+            for _, waypoint in ipairs(path:GetWaypoints()) do
+                if options.cancelled and options.cancelled() then
+                    break
+                end
+                humanoidInstance:MoveTo(waypoint.Position)
+                if waypoint.Action == Enum.PathWaypointAction.Jump then
+                    humanoidInstance.Jump = true
+                end
+                humanoidInstance.MoveToFinished:Wait()
+                rootPart = humanoidInstance.RootPart
+                targetCharacter = targetPlayer.Character
+                targetRoot = targetCharacter and targetCharacter:FindFirstChild("HumanoidRootPart")
+                if not (targetRoot and rootPart) then
+                    break
+                end
+                currentDistance = (targetRoot.Position - rootPart.Position).Magnitude
+                if currentDistance <= arrivalDistance then
+                    reachedGoal = true
+                    humanoidInstance:Move(Vector3.new())
+                    return true
+                end
+                if (targetRoot.Position - lastGoal).Magnitude >= repathDistance then
+                    break
+                end
             end
         end
     end
@@ -1862,20 +1930,20 @@ local function autoEatLoop()
         local tool = getFoodTool()
         if not tool then
             task.wait(0.5)
-            continue
-        end
-        local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-        local humanoidInstance = character:FindFirstChildOfClass("Humanoid") or character:WaitForChild("Humanoid")
-        if humanoidInstance.Health < humanoidInstance.MaxHealth then
-            if tool.Parent == LocalPlayer.Backpack then
-                humanoidInstance:EquipTool(tool)
-                task.wait(0.1)
+        else
+            local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+            local humanoidInstance = character:FindFirstChildOfClass("Humanoid") or character:WaitForChild("Humanoid")
+            if humanoidInstance.Health < humanoidInstance.MaxHealth then
+                if tool.Parent == LocalPlayer.Backpack then
+                    humanoidInstance:EquipTool(tool)
+                    task.wait(0.1)
+                end
+                pcall(function()
+                    tool:Activate()
+                end)
             end
-            pcall(function()
-                tool:Activate()
-            end)
+            task.wait(2)
         end
-        task.wait(2)
     end
     autoEatTask = nil
 end
@@ -2184,78 +2252,6 @@ findZoneTarget = function(ignoreTeamCheck)
     return closestPlayer
 end
 
-acquireAimLock = function()
-    autoAimLockCount += 1
-    if autoAimLockCount > 1 then
-        return
-    end
-
-    local camera = workspace.CurrentCamera
-    if camera then
-        autoAimOldCameraType = camera.CameraType
-        autoAimOldCameraSubject = camera.CameraSubject
-        camera.CameraType = Enum.CameraType.Scriptable
-    end
-end
-
-releaseAimLock = function()
-    if autoAimLockCount <= 0 then
-        autoAimLockCount = 0
-        return
-    end
-    autoAimLockCount -= 1
-    if autoAimLockCount > 0 then
-        return
-    end
-
-    local camera = workspace.CurrentCamera
-    if camera and autoAimOldCameraType then
-        camera.CameraType = autoAimOldCameraType
-        if autoAimOldCameraSubject then
-            camera.CameraSubject = autoAimOldCameraSubject
-        end
-    end
-
-    autoAimOldCameraType = nil
-    autoAimOldCameraSubject = nil
-end
-
-flashFireballMouseLock = function(durationSeconds)
-    durationSeconds = tonumber(durationSeconds) or 0.12
-    if durationSeconds <= 0 then
-        durationSeconds = 0.12
-    end
-
-    fireballMouseLockCount += 1
-    if fireballMouseLockCount == 1 then
-        pcall(function()
-            fireballOldMouseBehavior = UserInputService.MouseBehavior
-            UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
-        end)
-    end
-
-    task.delay(durationSeconds, function()
-        if fireballMouseLockCount <= 0 then
-            fireballMouseLockCount = 0
-            return
-        end
-        fireballMouseLockCount -= 1
-        if fireballMouseLockCount > 0 then
-            return
-        end
-        pcall(function()
-            if UserInputService.MouseBehavior == Enum.MouseBehavior.LockCenter then
-                if fireballOldMouseBehavior then
-                    UserInputService.MouseBehavior = fireballOldMouseBehavior
-                else
-                    UserInputService.MouseBehavior = Enum.MouseBehavior.Default
-                end
-            end
-        end)
-        fireballOldMouseBehavior = nil
-    end)
-end
-
 AnimalSim.Modules.Combat.computeAutoZoneIndicatorBounds = function(targetPlayer, predictedPosition)
     if not predictedPosition then
         return nil, nil
@@ -2304,10 +2300,39 @@ ensureAutoZoneIndicator = function()
     return part
 end
 
+local function ensureAutoZoneDebugBox(existing, name, color)
+    if existing then
+        existing.Parent = workspace
+        return existing
+    end
+    local part = Instance.new("Part")
+    part.Name = name
+    part.Anchored = true
+    part.CanCollide = false
+    part.CanQuery = false
+    part.CanTouch = false
+    part.Size = Vector3.new(3, 3, 3)
+    part.Material = Enum.Material.Neon
+    part.Color = color
+    part.Transparency = 0.88
+    part.Parent = workspace
+    return part
+end
+
+local function hideAutoZoneDebugBoxes()
+    if autoZoneDebugMyBox then
+        autoZoneDebugMyBox.Parent = nil
+    end
+    if autoZoneDebugTargetBox then
+        autoZoneDebugTargetBox.Parent = nil
+    end
+end
+
 hideAutoZoneIndicator = function()
     if autoZoneIndicatorPart then
         autoZoneIndicatorPart.Parent = nil
     end
+    hideAutoZoneDebugBoxes()
 end
 
 local function destroyAutoZoneIndicator()
@@ -2318,6 +2343,18 @@ local function destroyAutoZoneIndicator()
         autoZoneIndicatorPart = nil
     end
     autoZoneLastIndicatorCF = nil
+    if autoZoneDebugMyBox then
+        pcall(function()
+            autoZoneDebugMyBox:Destroy()
+        end)
+        autoZoneDebugMyBox = nil
+    end
+    if autoZoneDebugTargetBox then
+        pcall(function()
+            autoZoneDebugTargetBox:Destroy()
+        end)
+        autoZoneDebugTargetBox = nil
+    end
 end
 
 local function findZoneProjectileTool()
@@ -2329,9 +2366,7 @@ local function findZoneProjectileTool()
             return false
         end
         local name = string.lower(tool.Name)
-        return name == "fireball" or name == "lightningball"
-            or string.find(name, "fireball", 1, true) ~= nil
-            or string.find(name, "lightningball", 1, true) ~= nil
+        return name == "fireball" or name == "lightningball" or string.find(name, "fireball", 1, true) ~= nil or string.find(name, "lightningball", 1, true) ~= nil
     end
 
     local function scan(container)
@@ -2349,12 +2384,102 @@ local function findZoneProjectileTool()
     return scan(character) or scan(backpack)
 end
 
+local function isCharacterOverlappingBox(characterModel, boxCF, boxSize, boxPart)
+    if not characterModel then
+        return false
+    end
+    if not (boxCF and boxSize) then
+        if not boxPart then
+            return false
+        end
+        boxCF = boxPart.CFrame
+        boxSize = boxPart.Size
+    end
+    if not (boxCF and boxSize) then
+        return false
+    end
+
+    do
+        local touching = false
+        pcall(function()
+            local params = OverlapParams.new()
+            params.FilterType = Enum.RaycastFilterType.Include
+            params.FilterDescendantsInstances = { characterModel }
+            params.RespectCanCollide = false
+
+            if workspace.GetPartBoundsInBox then
+                touching = #workspace:GetPartBoundsInBox(boxCF, boxSize, params) > 0
+                return
+            end
+
+            if boxPart and workspace.GetPartsInPart then
+                touching = #workspace:GetPartsInPart(boxPart, params) > 0
+                return
+            end
+
+            if boxPart and boxPart.GetTouchingParts then
+                for _, hit in ipairs(boxPart:GetTouchingParts()) do
+                    if hit and hit:IsDescendantOf(characterModel) then
+                        touching = true
+                        return
+                    end
+                end
+            end
+        end)
+        if touching then
+            return true
+        end
+    end
+
+    local half = (boxSize * 0.5) + Vector3.new(0.05, 0.05, 0.05)
+
+    for _, descendant in ipairs(characterModel:GetDescendants()) do
+        if descendant:IsA("BasePart") then
+            local partCF = descendant.CFrame
+            local partHalf = descendant.Size * 0.5
+
+            local minX, minY, minZ = math.huge, math.huge, math.huge
+            local maxX, maxY, maxZ = -math.huge, -math.huge, -math.huge
+
+            local signs = { -1, 1 }
+            for _, sx in ipairs(signs) do
+                for _, sy in ipairs(signs) do
+                    for _, sz in ipairs(signs) do
+                        local cornerWorld = partCF:PointToWorldSpace(Vector3.new(sx * partHalf.X, sy * partHalf.Y, sz * partHalf.Z))
+                        local cornerLocal = boxCF:PointToObjectSpace(cornerWorld)
+                        minX = math.min(minX, cornerLocal.X)
+                        minY = math.min(minY, cornerLocal.Y)
+                        minZ = math.min(minZ, cornerLocal.Z)
+                        maxX = math.max(maxX, cornerLocal.X)
+                        maxY = math.max(maxY, cornerLocal.Y)
+                        maxZ = math.max(maxZ, cornerLocal.Z)
+                    end
+                end
+            end
+
+            if (minX <= half.X and maxX >= -half.X) and (minY <= half.Y and maxY >= -half.Y) and (minZ <= half.Z and maxZ >= -half.Z) then
+                return true
+            end
+
+            local boxCenterInPart = partCF:PointToObjectSpace(boxCF.Position)
+            if math.abs(boxCenterInPart.X) <= partHalf.X and math.abs(boxCenterInPart.Y) <= partHalf.Y and math.abs(boxCenterInPart.Z) <= partHalf.Z then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
 aimAndFireAtPlayer = function(targetPlayer, indicatorPart, allowProjectile)
     allowProjectile = (allowProjectile ~= false)
     local targetRoot = targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
     if not targetRoot then
         return false
     end
+
+    AnimalSim.Modules.Combat._debugEngageTarget = targetPlayer
+    AnimalSim.Modules.Combat._debugEngageAt = os.clock()
     if isInsideSafeZone(targetRoot.Position) then
         return false
     end
@@ -2406,85 +2531,58 @@ aimAndFireAtPlayer = function(targetPlayer, indicatorPart, allowProjectile)
         local now = os.clock()
         local aimState = AnimalSim.Modules.Combat._autoAimState or {}
         local lastAt = aimState.shovelLastAt or 0
-        if (now - lastAt) >= (1 / 1.7) then
-            local myRoot = character and character:FindFirstChild("HumanoidRootPart")
-            if myRoot then
-                if isInsideSafeZone(myRoot.Position) then
-                    return true
-                end
-                local touchingHitbox = false
-                pcall(function()
-                    local params = OverlapParams.new()
-                    params.FilterType = Enum.RaycastFilterType.Include
-                    params.FilterDescendantsInstances = { character }
-                    if workspace.GetPartsInPart then
-                        touchingHitbox = #workspace:GetPartsInPart(indicatorPart, params) > 0
-                        return
-                    end
-                    if indicatorPart.GetTouchingParts then
-                        for _, hit in ipairs(indicatorPart:GetTouchingParts()) do
-                            if hit and hit:IsDescendantOf(character) then
-                                touchingHitbox = true
-                                return
+        local myRoot = character and character:FindFirstChild("HumanoidRootPart")
+        if myRoot then
+            if isInsideSafeZone(myRoot.Position) then
+                return true
+            end
+            local touchingHitbox = isCharacterOverlappingBox(character, nil, nil, indicatorPart)
+            pcall(function()
+                indicatorPart.Color = touchingHitbox and Color3.fromRGB(80, 255, 80) or Color3.fromRGB(255, 80, 80)
+            end)
+            if not touchingHitbox then
+                return true
+            end
+            if (now - lastAt) < (1 / 1.7) then
+                return true
+            end
+            local targetHumanoid = targetPlayer.Character and targetPlayer.Character:FindFirstChildOfClass("Humanoid")
+            if targetHumanoid and targetHumanoid.Health > 0 then
+                AnimalSim.Modules.Combat._autoAimState = aimState
+
+                local shovelTool
+                local backpack = LocalPlayer:FindFirstChild("Backpack") or LocalPlayer.Backpack
+                for _, container in ipairs({character, backpack}) do
+                    if container then
+                        for _, child in ipairs(container:GetChildren()) do
+                            if child:IsA("Tool") and string.lower(child.Name) == "shovel" then
+                                shovelTool = child
+                                break
                             end
                         end
                     end
-                end)
-                if not touchingHitbox then
-                    return true
-                end
-                local targetHumanoid = targetPlayer.Character and targetPlayer.Character:FindFirstChildOfClass("Humanoid")
-                if targetHumanoid and targetHumanoid.Health > 0 then
-                    aimState.flashToken = (aimState.flashToken or 0) + 1
-                    local flashToken = aimState.flashToken
-                    AnimalSim.Modules.Combat._autoAimState = aimState
-
-                    pcall(function()
-                        indicatorPart.Color = Color3.fromRGB(80, 255, 80)
-                    end)
-                    task.delay(0.12, function()
-                        local stateNow = AnimalSim.Modules.Combat._autoAimState
-                        if stateNow and stateNow.flashToken == flashToken and autoZoneIndicatorPart == indicatorPart then
-                            pcall(function()
-                                indicatorPart.Color = Color3.fromRGB(255, 80, 80)
-                            end)
-                        end
-                    end)
-
-                    local shovelTool
-                    local backpack = LocalPlayer:FindFirstChild("Backpack") or LocalPlayer.Backpack
-                    for _, container in ipairs({character, backpack}) do
-                        if container then
-                            for _, child in ipairs(container:GetChildren()) do
-                                if child:IsA("Tool") and string.lower(child.Name) == "shovel" then
-                                    shovelTool = child
-                                    break
-                                end
-                            end
-                        end
-                        if shovelTool then
-                            break
-                        end
+                    if shovelTool then
+                        break
                     end
+                end
 
-                    if shovelTool and humanoidInstance then
-                        if shovelTool.Parent ~= character then
-                            pcall(function()
-                                humanoidInstance:EquipTool(shovelTool)
-                            end)
-                            task.wait(0.03)
-                        end
+                if shovelTool and humanoidInstance then
+                    if shovelTool.Parent ~= character then
                         pcall(function()
-                            shovelTool:Activate()
+                            humanoidInstance:EquipTool(shovelTool)
                         end)
+                        task.wait(0.03)
                     end
-
                     pcall(function()
-                        hitHumanoid(targetHumanoid)
+                        shovelTool:Activate()
                     end)
-                    aimState.shovelLastAt = now
-                    AnimalSim.Modules.Combat._autoAimState = aimState
                 end
+
+                pcall(function()
+                    hitHumanoid(targetHumanoid)
+                end)
+                aimState.shovelLastAt = now
+                AnimalSim.Modules.Combat._autoAimState = aimState
             end
         end
     end
@@ -2500,26 +2598,25 @@ local function autoPVPLoop()
             local targetRoot = target.Character and target.Character:FindFirstChild("HumanoidRootPart")
             if targetRoot and isInsideSafeZone(targetRoot.Position) then
                 clearRecentAttacker(target)
-                task.wait(AUTO_PVP_POLL_RATE)
-                continue
-            end
-            if canEngagePlayer(target) then
-                local ok, err = pcall(function()
-                    local fired = aimAndFireAtPlayer(target, nil, true)
-                    if not fired then
-                        if AnimalSim.State.autoFight then
-                            damageplayer(target.Name)
-                            clearRecentAttacker(target)
-                        else
-                            engageEnemy(target)
-                        end
-                    end
-                end)
-                if not ok then
-                    warn("[AnimalSim] auto PVP failed", err)
-                end
             else
-                clearRecentAttacker(target)
+                if canEngagePlayer(target) then
+                    local ok, err = pcall(function()
+                        local fired = aimAndFireAtPlayer(target, nil, true)
+                        if not fired then
+                            if AnimalSim.State.autoFight then
+                                damageplayer(target.Name)
+                                clearRecentAttacker(target)
+                            else
+                                engageEnemy(target)
+                            end
+                        end
+                    end)
+                    if not ok then
+                        warn("[AnimalSim] auto PVP failed", err)
+                    end
+                else
+                    clearRecentAttacker(target)
+                end
             end
         end
         task.wait(AUTO_PVP_POLL_RATE)
@@ -2587,7 +2684,7 @@ local function setAutoZone(value)
         defineNilLocals()
         autoZoneEnabled = true
         AnimalSim.State.autoZone = true
-        autoZoneCancelToken += 1
+        autoZoneCancelToken = autoZoneCancelToken + 1
         acquireAimLock()
 
         do
@@ -2614,42 +2711,36 @@ local function setAutoZone(value)
                             local rootPart = character and character:FindFirstChild("HumanoidRootPart")
                             if not (humanoidInstance and rootPart) then
                                 task.wait(0.25)
-                                continue
-                            end
-
-                            if not autoZoneDesiredAimPoint then
+                            elseif not autoZoneDesiredAimPoint then
                                 task.wait(0.06)
-                                continue
-                            end
-
-                            for index = 2, PATH_POINTS do
-                                if not (autoZoneEnabled and walkState.enabled and walkState.cancelToken == myToken) then
-                                    break
-                                end
-
-                                local waypoint = walkState.pathPoints[index]
-                                if not waypoint then
-                                    break
-                                end
-                                if isInsideSafeZone(waypoint) then
-                                    continue
-                                end
-
-                                humanoidInstance:MoveTo(waypoint)
-                                local timeoutAt = os.clock() + WAYPOINT_TIMEOUT
-                                while autoZoneEnabled and walkState.enabled and walkState.cancelToken == myToken and os.clock() < timeoutAt do
-                                    local currentRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-                                    if not currentRoot then
+                            else
+                                for index = 2, PATH_POINTS do
+                                    if not (autoZoneEnabled and walkState.enabled and walkState.cancelToken == myToken) then
                                         break
                                     end
-                                    if (currentRoot.Position - waypoint).Magnitude <= WAYPOINT_RADIUS then
+
+                                    local waypoint = walkState.pathPoints[index]
+                                    if not waypoint then
                                         break
                                     end
-                                    task.wait(LOOP_DELAY)
+                                    if not isInsideSafeZone(waypoint) then
+                                        humanoidInstance:MoveTo(waypoint)
+                                        local timeoutAt = os.clock() + WAYPOINT_TIMEOUT
+                                        while autoZoneEnabled and walkState.enabled and walkState.cancelToken == myToken and os.clock() < timeoutAt do
+                                            local currentRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                            if not currentRoot then
+                                                break
+                                            end
+                                            if (currentRoot.Position - waypoint).Magnitude <= WAYPOINT_RADIUS then
+                                                break
+                                            end
+                                            task.wait(LOOP_DELAY)
+                                        end
+                                    end
                                 end
-                            end
 
-                            task.wait(LOOP_DELAY)
+                                task.wait(LOOP_DELAY)
+                            end
                         end
 
                         walkState.task = nil
@@ -2689,6 +2780,39 @@ local function setAutoZone(value)
                     autoZoneLastIndicatorCF = autoZoneLastIndicatorCF:Lerp(targetCF, AUTO_ZONE_RENDER_LERP)
                 end
                 indicator.CFrame = autoZoneLastIndicatorCF
+
+                do
+                    local now = os.clock()
+                    local engagedAt = AnimalSim.Modules.Combat._debugEngageAt
+                    local engagedTarget = AnimalSim.Modules.Combat._debugEngageTarget
+                    if engagedAt and (now - engagedAt) < 1.25 and engagedTarget and engagedTarget.Parent then
+                        local myChar = LocalPlayer.Character
+                        if myChar then
+                            local ok, cf, size = pcall(function()
+                                return myChar:GetBoundingBox()
+                            end)
+                            if ok and cf and size then
+                                autoZoneDebugMyBox = ensureAutoZoneDebugBox(autoZoneDebugMyBox, "AutoZoneMyBox", Color3.fromRGB(80, 160, 255))
+                                autoZoneDebugMyBox.CFrame = cf
+                                autoZoneDebugMyBox.Size = size
+                            end
+                        end
+
+                        local targetChar = engagedTarget.Character
+                        if targetChar then
+                            local ok, cf, size = pcall(function()
+                                return targetChar:GetBoundingBox()
+                            end)
+                            if ok and cf and size then
+                                autoZoneDebugTargetBox = ensureAutoZoneDebugBox(autoZoneDebugTargetBox, "AutoZoneTargetBox", Color3.fromRGB(255, 220, 80))
+                                autoZoneDebugTargetBox.CFrame = cf
+                                autoZoneDebugTargetBox.Size = size
+                            end
+                        end
+                    else
+                        hideAutoZoneDebugBoxes()
+                    end
+                end
 
                 do
                     local walkState = AnimalSim.Modules.Combat._autoZoneWalk
@@ -2910,7 +3034,7 @@ local function setAutoZone(value)
         end
         autoZoneEnabled = false
         AnimalSim.State.autoZone = false
-        autoZoneCancelToken += 1
+        autoZoneCancelToken = autoZoneCancelToken + 1
         while autoZoneTask do
             task.wait()
         end
