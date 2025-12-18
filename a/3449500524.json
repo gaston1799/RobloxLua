@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "e97c92f8-84e6-4fae-957c-883ef9807776",
+  "join": "roblox://placeId=7041939546&gameInstanceId=e97c92f8-84e6-4fae-957c-883ef9807776",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766086814423
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=e97c92f8-84e6-4fae-957c-883ef9807776",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1766086845545
 }
