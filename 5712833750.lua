@@ -2293,6 +2293,8 @@ ensureAutoZoneIndicator = function()
     part.Name = "AutoZonePredicted"
     part.Anchored = true
     part.CanCollide = false
+    part.CanQuery = true
+    part.CanTouch = true
     part.Size = Vector3.new(3, 3, 3)
     part.Material = Enum.Material.Neon
     part.Color = Color3.fromRGB(255, 80, 80)
@@ -2407,9 +2409,28 @@ aimAndFireAtPlayer = function(targetPlayer, indicatorPart, allowProjectile)
         if (now - lastAt) >= (1 / 1.7) then
             local myRoot = character and character:FindFirstChild("HumanoidRootPart")
             if myRoot then
-                local delta = myRoot.Position - targetRoot.Position
-                delta = Vector3.new(delta.X, 0, delta.Z)
-                if delta.Magnitude > 14 then
+                if isInsideSafeZone(myRoot.Position) then
+                    return true
+                end
+                local touchingHitbox = false
+                pcall(function()
+                    local params = OverlapParams.new()
+                    params.FilterType = Enum.RaycastFilterType.Include
+                    params.FilterDescendantsInstances = { character }
+                    if workspace.GetPartsInPart then
+                        touchingHitbox = #workspace:GetPartsInPart(indicatorPart, params) > 0
+                        return
+                    end
+                    if indicatorPart.GetTouchingParts then
+                        for _, hit in ipairs(indicatorPart:GetTouchingParts()) do
+                            if hit and hit:IsDescendantOf(character) then
+                                touchingHitbox = true
+                                return
+                            end
+                        end
+                    end
+                end)
+                if not touchingHitbox then
                     return true
                 end
                 local targetHumanoid = targetPlayer.Character and targetPlayer.Character:FindFirstChildOfClass("Humanoid")
