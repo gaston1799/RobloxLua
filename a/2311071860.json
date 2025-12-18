@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "in-game",
-  "placeId": 82013336390273,
-  "jobId": "537b7167-88d3-4ebb-b592-a2fbd2c268a3",
-  "join": "roblox://placeId=82013336390273&gameInstanceId=537b7167-88d3-4ebb-b592-a2fbd2c268a3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2311071860",
-  "web": "https://www.roblox.com/games/start?placeId=82013336390273&gameInstanceId=537b7167-88d3-4ebb-b592-a2fbd2c268a3",
-  "location": "[🎄] Pickaxe Simulator! ⛏️",
-  "updatedAt": 1766090204049
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1766094017330
 }
