@@ -1,12 +1,12 @@
 {
   "userId": 7003717862,
   "displayName": "angelino",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "3865e88e-b59c-4f63-b412-e123f4661403",
-  "join": "roblox://placeId=5712833750&gameInstanceId=3865e88e-b59c-4f63-b412-e123f4661403",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7003717862",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=3865e88e-b59c-4f63-b412-e123f4661403",
-  "location": "🎃 Animal Simulator",
-  "updatedAt": 1766095124250
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766096115486
 }
