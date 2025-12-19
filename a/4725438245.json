@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "ace",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 79158642399172,
+  "jobId": "fe97d282-4469-4b16-8ec6-6ad5c2501cd1",
+  "join": "roblox://placeId=79158642399172&gameInstanceId=fe97d282-4469-4b16-8ec6-6ad5c2501cd1",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766159656095
+  "web": "https://www.roblox.com/games/start?placeId=79158642399172&gameInstanceId=fe97d282-4469-4b16-8ec6-6ad5c2501cd1",
+  "location": "[OFFLINE SNOW] Snow Gathering Simulator! ❄️",
+  "updatedAt": 1766159686075
 }
