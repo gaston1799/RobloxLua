@@ -1,12 +1,12 @@
 {
   "userId": 2311071860,
   "displayName": "IW_Shdw",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92122513197996,
+  "jobId": "0c06396c-482e-4ec7-ada8-80d9cd33ef94",
+  "join": "roblox://placeId=92122513197996&gameInstanceId=0c06396c-482e-4ec7-ada8-80d9cd33ef94",
   "follow": "roblox://followUserId=2311071860",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766109824320
+  "web": "https://www.roblox.com/games/start?placeId=92122513197996&gameInstanceId=0c06396c-482e-4ec7-ada8-80d9cd33ef94",
+  "location": "⛏️Dig to Escape",
+  "updatedAt": 1766111265339
 }
