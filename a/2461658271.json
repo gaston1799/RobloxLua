@@ -1,12 +1,12 @@
 {
   "userId": 2461658271,
   "displayName": "Bay_Xit",
-  "status": "in-game",
-  "placeId": 111989938562194,
-  "jobId": "306c2e07-b900-48a3-8885-10474ede34b7",
-  "join": "roblox://placeId=111989938562194&gameInstanceId=306c2e07-b900-48a3-8885-10474ede34b7",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2461658271",
-  "web": "https://www.roblox.com/games/start?placeId=111989938562194&gameInstanceId=306c2e07-b900-48a3-8885-10474ede34b7",
-  "location": "Brainrot Evolution",
-  "updatedAt": 1766146515361
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766148135366
 }
