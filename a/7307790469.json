@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4832438542,
+  "jobId": "c211d8e2-e932-4522-84f7-94aea629b5bb",
+  "join": "roblox://placeId=4832438542&gameInstanceId=c211d8e2-e932-4522-84f7-94aea629b5bb",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766163015318
+  "web": "https://www.roblox.com/games/start?placeId=4832438542&gameInstanceId=c211d8e2-e932-4522-84f7-94aea629b5bb",
+  "location": "VR Hands v3.1 🎙️",
+  "updatedAt": 1766163045093
 }
