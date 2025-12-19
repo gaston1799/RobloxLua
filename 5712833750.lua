@@ -53,6 +53,7 @@ local AnimalSim = {
         autoEat = false,
         autoFight = false,
         autoZone = false,
+        followAlly = false,
         autoZoneFakeouts = false,
         autoFlightChase = false,
         autoFireball = false,
@@ -170,6 +171,8 @@ AnimalSim.Modules.Combat.AutoZoneConfig = AnimalSim.Modules.Combat.AutoZoneConfi
     indicatorPadding = Vector3.new(0.25, 0.25, 0.25),
     projectileCooldown = 1.8,
     fireballMouseLockDuration = 0.12,
+    followAllyMinDistance = 100,
+    followAllyTargetRange = 120,
 }
 local DEBUG_DAMAGE_LOG = true
 local FALLBACK_ATTACKER_RADIUS = 45
@@ -2252,6 +2255,81 @@ findZoneTarget = function(ignoreTeamCheck)
     return closestPlayer
 end
 
+local function getClosestAllyWithin(range)
+    if not humanoidRoot then
+        return nil, nil, nil
+    end
+
+    local myPosition = humanoidRoot.Position
+    local bestPlayer = nil
+    local bestDistance = range or math.huge
+    local bestRoot = nil
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and teamCheck(player.Name) then
+            local character = player.Character
+            local allyRoot = character and character:FindFirstChild("HumanoidRootPart")
+            local allyHumanoid = character and character:FindFirstChildOfClass("Humanoid")
+            if allyRoot and allyHumanoid and allyHumanoid.Health > 0 then
+                local distance = (allyRoot.Position - myPosition).Magnitude
+                if distance <= bestDistance then
+                    bestDistance = distance
+                    bestPlayer = player
+                    bestRoot = allyRoot
+                end
+            end
+        end
+    end
+
+    return bestPlayer, bestDistance, bestRoot
+end
+
+local function followAllyStepForAutoZone()
+    if not (autoZoneEnabled and AnimalSim.State.followAlly) then
+        AnimalSim.Modules.Combat._followAllyAnchor = nil
+        return false
+    end
+    if not humanoidRoot then
+        return false
+    end
+
+    local config = AnimalSim.Modules.Combat.AutoZoneConfig
+    local minDistance = (config and config.followAllyMinDistance) or 100
+    local maxRange = (config and config.followAllyTargetRange) or 120
+
+    local allyPlayer, allyDistance, allyRoot = getClosestAllyWithin(maxRange)
+    AnimalSim.Modules.Combat._followAllyAnchor = allyPlayer
+    if not (allyPlayer and allyRoot and allyDistance) then
+        return false
+    end
+
+    if allyDistance > minDistance then
+        local destination = allyRoot.Position - allyRoot.CFrame.LookVector * minDistance
+        humanoidRoot.CFrame = CFrame.new(destination, allyRoot.Position)
+        return true
+    end
+
+    return false
+end
+
+local function isTargetAllowedByFollowAlly(targetPlayer)
+    if not AnimalSim.State.followAlly then
+        return true
+    end
+    local allyPlayer = AnimalSim.Modules.Combat._followAllyAnchor
+    if not allyPlayer or not allyPlayer.Parent then
+        return false
+    end
+    local allyRoot = allyPlayer.Character and allyPlayer.Character:FindFirstChild("HumanoidRootPart")
+    local targetRoot = targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+    if not (allyRoot and targetRoot) then
+        return false
+    end
+    local config = AnimalSim.Modules.Combat.AutoZoneConfig
+    local maxRange = (config and config.followAllyTargetRange) or 120
+    return (targetRoot.Position - allyRoot.Position).Magnitude <= maxRange
+end
+
 AnimalSim.Modules.Combat.computeAutoZoneIndicatorBounds = function(targetPlayer, predictedPosition)
     if not predictedPosition then
         return nil, nil
@@ -2477,6 +2555,9 @@ aimAndFireAtPlayer = function(targetPlayer, indicatorPart, allowProjectile)
     if not targetRoot then
         return false
     end
+    if not isTargetAllowedByFollowAlly(targetPlayer) then
+        return false
+    end
 
     AnimalSim.Modules.Combat._debugEngageTarget = targetPlayer
     AnimalSim.Modules.Combat._debugEngageAt = os.clock()
@@ -2645,6 +2726,8 @@ local function autoZoneLoop(myToken)
     while autoZoneEnabled and autoZoneCancelToken == myToken do
         defineNilLocals()
 
+        pcall(followAllyStepForAutoZone)
+
         local target
         if AnimalSim.State.followTarget then
             local selected = AnimalSim.State.selectedPlayer
@@ -2657,6 +2740,10 @@ local function autoZoneLoop(myToken)
         else
             target = findZoneTarget(false)
         end
+
+        if target and not isTargetAllowedByFollowAlly(target) then
+            target = nil
+        end
         local indicator = ensureAutoZoneIndicator()
         local fired = target and aimAndFireAtPlayer(target, indicator, false)
         if not fired then
@@ -2664,6 +2751,7 @@ local function autoZoneLoop(myToken)
             if not autoFireballEnabled then
                 autoZoneDesiredAimPoint = nil
             end
+            pcall(followAllyStepForAutoZone)
         end
 
         task.wait(AUTO_ZONE_POLL_RATE)
@@ -3357,6 +3445,14 @@ AnimalSim.UI.buildUI = function()
         title = "Auto Zone",
         toggled = AnimalSim.State.autoZone,
         callback = setAutoZone,
+    })
+
+    gameplaySection:addToggle({
+        title = "Follow Ally (AutoZone)",
+        toggled = AnimalSim.State.followAlly,
+        callback = function(value)
+            AnimalSim.State.followAlly = value
+        end,
     })
 
     gameplaySection:addToggle({
