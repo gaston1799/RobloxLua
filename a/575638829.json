@@ -1,12 +1,12 @@
 {
   "userId": 575638829,
   "displayName": "BaconMan",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "9c241fd7-6844-4914-a5eb-a18ded2839db",
+  "join": "roblox://placeId=5712833750&gameInstanceId=9c241fd7-6844-4914-a5eb-a18ded2839db",
   "follow": "roblox://followUserId=575638829",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766171145122
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=9c241fd7-6844-4914-a5eb-a18ded2839db",
+  "location": "🎃 Animal Simulator",
+  "updatedAt": 1766171595490
 }
