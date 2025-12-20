@@ -1,12 +1,12 @@
 {
   "userId": 8315231560,
   "displayName": "YZ_ISoloAli",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6766156863,
+  "jobId": "be1672c5-dbd3-44bf-9428-ed5f1a4dda7e",
+  "join": "roblox://placeId=6766156863&gameInstanceId=be1672c5-dbd3-44bf-9428-ed5f1a4dda7e",
   "follow": "roblox://followUserId=8315231560",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766252943969
+  "web": "https://www.roblox.com/games/start?placeId=6766156863&gameInstanceId=be1672c5-dbd3-44bf-9428-ed5f1a4dda7e",
+  "location": "[Xmas] Strongman Simulator",
+  "updatedAt": 1766252973964
 }
