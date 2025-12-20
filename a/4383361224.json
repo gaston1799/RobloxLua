@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 132768306953643,
-  "jobId": "da3d31db-519e-489c-ac9d-5b72a48f86ab",
-  "join": "roblox://placeId=132768306953643&gameInstanceId=da3d31db-519e-489c-ac9d-5b72a48f86ab",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=132768306953643&gameInstanceId=da3d31db-519e-489c-ac9d-5b72a48f86ab",
-  "location": "[🎄XMAS✨] 🎲 Emote RNG",
-  "updatedAt": 1766195463198
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766195643119
 }
