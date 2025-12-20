@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "b4d2ba16-5556-4e9d-9da8-a5fdcd09c056",
-  "join": "roblox://placeId=7041939546&gameInstanceId=b4d2ba16-5556-4e9d-9da8-a5fdcd09c056",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2705690722",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=b4d2ba16-5556-4e9d-9da8-a5fdcd09c056",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1766242625252
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766242655816
 }
