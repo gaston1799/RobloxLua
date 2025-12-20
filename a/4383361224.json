@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 115901714114688,
-  "jobId": "98a68382-6412-4680-a2f7-7d332cb266cb",
-  "join": "roblox://placeId=115901714114688&gameInstanceId=98a68382-6412-4680-a2f7-7d332cb266cb",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=115901714114688&gameInstanceId=98a68382-6412-4680-a2f7-7d332cb266cb",
-  "location": "[🧑‍🤝‍🧑] Find Tamagotchi",
-  "updatedAt": 1766195103212
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766195223109
 }
