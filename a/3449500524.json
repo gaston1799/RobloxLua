@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 125360984456525,
-  "jobId": "6bb77ff0-1475-40e5-ba2f-1a4fe3eb4f95",
-  "join": "roblox://placeId=125360984456525&gameInstanceId=6bb77ff0-1475-40e5-ba2f-1a4fe3eb4f95",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=125360984456525&gameInstanceId=6bb77ff0-1475-40e5-ba2f-1a4fe3eb4f95",
-  "location": "☕ Kumai Café",
-  "updatedAt": 1766258885031
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766259334428
 }
