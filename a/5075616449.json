@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 4841513322,
-  "jobId": "413e9363-1230-4f90-b146-91741e98e471",
-  "join": "roblox://placeId=4841513322&gameInstanceId=413e9363-1230-4f90-b146-91741e98e471",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=4841513322&gameInstanceId=413e9363-1230-4f90-b146-91741e98e471",
-  "location": "LIVE INSIDE A SPIDER CAGE!",
-  "updatedAt": 1766286785737
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766286844671
 }
