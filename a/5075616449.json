@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12805830692,
+  "jobId": "6d791e09-f19a-4067-ab62-e07bf2446ad1",
+  "join": "roblox://placeId=12805830692&gameInstanceId=6d791e09-f19a-4067-ab62-e07bf2446ad1",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766350385531
+  "web": "https://www.roblox.com/games/start?placeId=12805830692&gameInstanceId=6d791e09-f19a-4067-ab62-e07bf2446ad1",
+  "location": "IQ Obby",
+  "updatedAt": 1766350415412
 }
