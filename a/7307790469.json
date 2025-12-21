@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13772394625,
+  "jobId": "893d362c-32ab-491e-bb0f-43a5b7864668",
+  "join": "roblox://placeId=13772394625&gameInstanceId=893d362c-32ab-491e-bb0f-43a5b7864668",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766343485213
+  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=893d362c-32ab-491e-bb0f-43a5b7864668",
+  "location": "Blade Ball",
+  "updatedAt": 1766343515024
 }
