@@ -1,12 +1,12 @@
 {
   "userId": 9351018495,
   "displayName": "UnaliveU",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 136723874788185,
+  "jobId": "1a5077fb-b48a-46f0-9cbc-728bdfa79e6e",
+  "join": "roblox://placeId=136723874788185&gameInstanceId=1a5077fb-b48a-46f0-9cbc-728bdfa79e6e",
   "follow": "roblox://followUserId=9351018495",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766256663268
+  "web": "https://www.roblox.com/games/start?placeId=136723874788185&gameInstanceId=1a5077fb-b48a-46f0-9cbc-728bdfa79e6e",
+  "location": "My Boba Stand",
+  "updatedAt": 1766276133212
 }
