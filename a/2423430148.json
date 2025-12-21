@@ -1,12 +1,12 @@
 {
   "userId": 2423430148,
   "displayName": "WhosGaston",
-  "status": "in-game",
-  "placeId": 136723874788185,
-  "jobId": "1a5077fb-b48a-46f0-9cbc-728bdfa79e6e",
-  "join": "roblox://placeId=136723874788185&gameInstanceId=1a5077fb-b48a-46f0-9cbc-728bdfa79e6e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2423430148",
-  "web": "https://www.roblox.com/games/start?placeId=136723874788185&gameInstanceId=1a5077fb-b48a-46f0-9cbc-728bdfa79e6e",
-  "location": "My Boba Stand",
-  "updatedAt": 1766278833382
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766290594530
 }
