@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10427804764,
+  "jobId": "5cd557f6-a36d-4db0-ae3d-43d15457c7c1",
+  "join": "roblox://placeId=10427804764&gameInstanceId=5cd557f6-a36d-4db0-ae3d-43d15457c7c1",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766339585622
+  "web": "https://www.roblox.com/games/start?placeId=10427804764&gameInstanceId=5cd557f6-a36d-4db0-ae3d-43d15457c7c1",
+  "location": "[🎄] Soulmate Color 🎨",
+  "updatedAt": 1766342015187
 }
