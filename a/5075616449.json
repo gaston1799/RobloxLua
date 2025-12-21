@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3339374541,
+  "jobId": "33c70c30-4297-427a-91df-a4a835c6c0ec",
+  "join": "roblox://placeId=3339374541&gameInstanceId=33c70c30-4297-427a-91df-a4a835c6c0ec",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766346365273
+  "web": "https://www.roblox.com/games/start?placeId=3339374541&gameInstanceId=33c70c30-4297-427a-91df-a4a835c6c0ec",
+  "location": "[New Limited!] Midnight Racing: Tokyo",
+  "updatedAt": 1766346396096
 }
