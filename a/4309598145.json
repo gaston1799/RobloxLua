@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 74161468227974,
-  "jobId": "9cb606b3-a78c-4f7d-97ed-49ca9c8fbcc8",
-  "join": "roblox://placeId=74161468227974&gameInstanceId=9cb606b3-a78c-4f7d-97ed-49ca9c8fbcc8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=74161468227974&gameInstanceId=9cb606b3-a78c-4f7d-97ed-49ca9c8fbcc8",
-  "location": "Five Nights: Hunted",
-  "updatedAt": 1766315433723
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766315493742
 }
