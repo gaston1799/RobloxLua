@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 14520819520,
+  "jobId": "cb957abb-cb2d-4649-ad50-db8d9d8b09f4",
+  "join": "roblox://placeId=14520819520&gameInstanceId=cb957abb-cb2d-4649-ad50-db8d9d8b09f4",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766272012453
+  "web": "https://www.roblox.com/games/start?placeId=14520819520&gameInstanceId=cb957abb-cb2d-4649-ad50-db8d9d8b09f4",
+  "location": "[SLEIGH] Destroy Cars with Nitro",
+  "updatedAt": 1766279739343
 }
