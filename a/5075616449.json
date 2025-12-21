@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 6816975827,
-  "jobId": "fe643bd7-0f0c-4300-9d06-9af2ce5f1026",
-  "join": "roblox://placeId=6816975827&gameInstanceId=fe643bd7-0f0c-4300-9d06-9af2ce5f1026",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=6816975827&gameInstanceId=fe643bd7-0f0c-4300-9d06-9af2ce5f1026",
-  "location": "[BOATS] Car Suspension Test",
-  "updatedAt": 1766348375258
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766349485434
 }
