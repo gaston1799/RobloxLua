@@ -1,12 +1,12 @@
 {
   "userId": 7541899107,
   "displayName": "TheGlitchQueen",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "ab1a6da0-fafd-42b4-aaa7-412d5e4f12a3",
-  "join": "roblox://placeId=5712833750&gameInstanceId=ab1a6da0-fafd-42b4-aaa7-412d5e4f12a3",
+  "status": "unknown",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7541899107",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=ab1a6da0-fafd-42b4-aaa7-412d5e4f12a3",
-  "location": "🎃 Animal Simulator",
-  "updatedAt": 1766403761771
+  "web": null,
+  "location": "Studio",
+  "updatedAt": 1766405111743
 }
