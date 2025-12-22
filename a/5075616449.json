@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 17581668152,
+  "jobId": "2a25c97d-38b9-4f4e-8ee0-8408cd530216",
+  "join": "roblox://placeId=17581668152&gameInstanceId=2a25c97d-38b9-4f4e-8ee0-8408cd530216",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766366765557
+  "web": "https://www.roblox.com/games/start?placeId=17581668152&gameInstanceId=2a25c97d-38b9-4f4e-8ee0-8408cd530216",
+  "location": "Nitro Car ",
+  "updatedAt": 1766366825426
 }
