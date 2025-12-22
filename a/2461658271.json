@@ -1,12 +1,12 @@
 {
   "userId": 2461658271,
   "displayName": "Bay_Xit",
-  "status": "in-game",
-  "placeId": 4442272183,
-  "jobId": "4efe9343-df41-47ca-8032-767fb881a24d",
-  "join": "roblox://placeId=4442272183&gameInstanceId=4efe9343-df41-47ca-8032-767fb881a24d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2461658271",
-  "web": "https://www.roblox.com/games/start?placeId=4442272183&gameInstanceId=4efe9343-df41-47ca-8032-767fb881a24d",
-  "location": "Blox Fruits",
-  "updatedAt": 1766390562703
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766390651511
 }
