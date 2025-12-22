@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 110973579318843,
-  "jobId": "11219040-8f03-47ed-a890-ef3b20a41a29",
-  "join": "roblox://placeId=110973579318843&gameInstanceId=11219040-8f03-47ed-a890-ef3b20a41a29",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=110973579318843&gameInstanceId=11219040-8f03-47ed-a890-ef3b20a41a29",
-  "location": "[🌈BACK] Mango’s MM2",
-  "updatedAt": 1766367395706
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766367965575
 }
