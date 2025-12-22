@@ -2294,17 +2294,69 @@ local function followAllyStepForAutoZone()
     end
 
     local config = AnimalSim.Modules.Combat.AutoZoneConfig
-    local minDistance = (config and config.followAllyMinDistance) or 3
-    local maxRange = (config and config.followAllyTargetRange) or 20
+    local minDistance = tonumber(config and config.followAllyMinDistance) or 3
+    local maxRange = tonumber(config and config.followAllyTargetRange) or 20
+    minDistance = math.max(0, minDistance)
+    maxRange = math.max(minDistance, maxRange)
+    if config then
+        config.followAllyMinDistance = minDistance
+        config.followAllyTargetRange = maxRange
+    end
 
-    local allyPlayer, allyDistance, allyRoot = getClosestAllyWithin(maxRange)
-    AnimalSim.Modules.Combat._followAllyAnchor = allyPlayer
+    local acquireRange = math.max(maxRange, minDistance + 10, 50)
+    local keepRange = math.max(acquireRange * 2, 200)
+
+    local allyPlayer
+    local allyDistance
+    local allyRoot
+
+    do
+        local currentAnchor = AnimalSim.Modules.Combat._followAllyAnchor
+        if currentAnchor and currentAnchor.Parent and currentAnchor ~= LocalPlayer and teamCheck(currentAnchor.Name) then
+            local character = currentAnchor.Character
+            local root = character and character:FindFirstChild("HumanoidRootPart")
+            local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+            if root and humanoid and humanoid.Health > 0 then
+                local distance = (root.Position - humanoidRoot.Position).Magnitude
+                if distance <= keepRange then
+                    allyPlayer = currentAnchor
+                    allyDistance = distance
+                    allyRoot = root
+                end
+            end
+        end
+    end
+
+    if not allyPlayer then
+        allyPlayer, allyDistance, allyRoot = getClosestAllyWithin(acquireRange)
+        AnimalSim.Modules.Combat._followAllyAnchor = allyPlayer
+    end
+
+    if not allyPlayer then
+        local selected = AnimalSim.State.selectedPlayer
+        if selected and selected.Parent and selected ~= LocalPlayer then
+            local character = selected.Character
+            local root = character and character:FindFirstChild("HumanoidRootPart")
+            local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+            if root and humanoid and humanoid.Health > 0 then
+                local distance = (root.Position - humanoidRoot.Position).Magnitude
+                if distance <= keepRange then
+                    allyPlayer = selected
+                    allyDistance = distance
+                    allyRoot = root
+                    AnimalSim.Modules.Combat._followAllyAnchor = allyPlayer
+                end
+            end
+        end
+    end
+
     if not (allyPlayer and allyRoot and allyDistance) then
         return false
     end
 
-    if allyDistance > minDistance then
-        local destination = allyRoot.Position - allyRoot.CFrame.LookVector * minDistance
+    local destination = allyRoot.Position - allyRoot.CFrame.LookVector * minDistance
+    local threshold = math.max(0.2, minDistance * 0.1)
+    if (destination - humanoidRoot.Position).Magnitude > threshold then
         humanoidRoot.CFrame = CFrame.new(destination, allyRoot.Position)
         return true
     end
