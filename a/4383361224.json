@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 11353528705,
-  "jobId": "44f2d5e4-5ff3-465b-9a97-9fdcbe77cc69",
-  "join": "roblox://placeId=11353528705&gameInstanceId=44f2d5e4-5ff3-465b-9a97-9fdcbe77cc69",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=11353528705&gameInstanceId=44f2d5e4-5ff3-465b-9a97-9fdcbe77cc69",
-  "location": "🎄Evade🎄",
-  "updatedAt": 1766366705590
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766367125303
 }
