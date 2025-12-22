@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 126884695634066,
-  "jobId": "0131cf8d-6984-40c4-ba52-ab31194d44ff",
-  "join": "roblox://placeId=126884695634066&gameInstanceId=0131cf8d-6984-40c4-ba52-ab31194d44ff",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=126884695634066&gameInstanceId=0131cf8d-6984-40c4-ba52-ab31194d44ff",
-  "location": "[🎄] Grow a Garden 🍅",
-  "updatedAt": 1766367126436
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766367366822
 }
