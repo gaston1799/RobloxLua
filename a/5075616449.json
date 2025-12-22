@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5900529138,
+  "jobId": "bb3a7e97-583b-43e7-9c34-6098ee7813cc",
+  "join": "roblox://placeId=5900529138&gameInstanceId=bb3a7e97-583b-43e7-9c34-6098ee7813cc",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766430474237
+  "web": "https://www.roblox.com/games/start?placeId=5900529138&gameInstanceId=bb3a7e97-583b-43e7-9c34-6098ee7813cc",
+  "location": "The Fastest!  [PLANETS]",
+  "updatedAt": 1766446345783
 }
