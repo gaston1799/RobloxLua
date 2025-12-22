@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 93495954884547,
-  "jobId": "baac2ea2-0648-4f34-92a2-b18cad278eb4",
-  "join": "roblox://placeId=93495954884547&gameInstanceId=baac2ea2-0648-4f34-92a2-b18cad278eb4",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=93495954884547&gameInstanceId=baac2ea2-0648-4f34-92a2-b18cad278eb4",
-  "location": "The weirdest game on Roblox.",
-  "updatedAt": 1766368386473
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766369225449
 }
