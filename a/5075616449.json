@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 9924209123,
-  "jobId": "b601e7ab-a954-46f2-8f0a-00e4602eebb1",
-  "join": "roblox://placeId=9924209123&gameInstanceId=b601e7ab-a954-46f2-8f0a-00e4602eebb1",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=9924209123&gameInstanceId=b601e7ab-a954-46f2-8f0a-00e4602eebb1",
-  "location": "Aviation Airfield [FLY PLANES!]",
-  "updatedAt": 1766447784420
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766447905970
 }
