@@ -171,8 +171,8 @@ AnimalSim.Modules.Combat.AutoZoneConfig = AnimalSim.Modules.Combat.AutoZoneConfi
     indicatorPadding = Vector3.new(0.25, 0.25, 0.25),
     projectileCooldown = 1.8,
     fireballMouseLockDuration = 0.12,
-    followAllyMinDistance = 100,
-    followAllyTargetRange = 120,
+    followAllyMinDistance = 3,
+    followAllyTargetRange = 20,
 }
 local DEBUG_DAMAGE_LOG = true
 local FALLBACK_ATTACKER_RADIUS = 45
@@ -2294,8 +2294,8 @@ local function followAllyStepForAutoZone()
     end
 
     local config = AnimalSim.Modules.Combat.AutoZoneConfig
-    local minDistance = (config and config.followAllyMinDistance) or 100
-    local maxRange = (config and config.followAllyTargetRange) or 120
+    local minDistance = (config and config.followAllyMinDistance) or 3
+    local maxRange = (config and config.followAllyTargetRange) or 20
 
     local allyPlayer, allyDistance, allyRoot = getClosestAllyWithin(maxRange)
     AnimalSim.Modules.Combat._followAllyAnchor = allyPlayer
@@ -2313,7 +2313,7 @@ local function followAllyStepForAutoZone()
 end
 
 local function isTargetAllowedByFollowAlly(targetPlayer)
-    if not AnimalSim.State.followAlly then
+    if not (autoZoneEnabled and AnimalSim.State.followAlly) then
         return true
     end
     local allyPlayer = AnimalSim.Modules.Combat._followAllyAnchor
@@ -2326,7 +2326,7 @@ local function isTargetAllowedByFollowAlly(targetPlayer)
         return false
     end
     local config = AnimalSim.Modules.Combat.AutoZoneConfig
-    local maxRange = (config and config.followAllyTargetRange) or 120
+    local maxRange = (config and config.followAllyTargetRange) or 20
     return (targetRoot.Position - allyRoot.Position).Magnitude <= maxRange
 end
 
@@ -2726,32 +2726,44 @@ local function autoZoneLoop(myToken)
     while autoZoneEnabled and autoZoneCancelToken == myToken do
         defineNilLocals()
 
-        pcall(followAllyStepForAutoZone)
-
-        local target
-        if AnimalSim.State.followTarget then
-            local selected = AnimalSim.State.selectedPlayer
-            if selected and selected.Parent and selected ~= LocalPlayer and not teamCheck(selected.Name) then
-                local humanoidInstance = getPlayerHumanoid(selected)
-                if humanoidInstance and humanoidInstance.Health > 0 then
-                    target = selected
-                end
+        local movedTowardAlly = false
+        do
+            local ok, result = pcall(followAllyStepForAutoZone)
+            if ok and result then
+                movedTowardAlly = true
             end
-        else
-            target = findZoneTarget(false)
         end
 
-        if target and not isTargetAllowedByFollowAlly(target) then
-            target = nil
-        end
-        local indicator = ensureAutoZoneIndicator()
-        local fired = target and aimAndFireAtPlayer(target, indicator, false)
-        if not fired then
+        if movedTowardAlly then
             hideAutoZoneIndicator()
             if not autoFireballEnabled then
                 autoZoneDesiredAimPoint = nil
             end
-            pcall(followAllyStepForAutoZone)
+        else
+            local target
+            if AnimalSim.State.followTarget then
+                local selected = AnimalSim.State.selectedPlayer
+                if selected and selected.Parent and selected ~= LocalPlayer and not teamCheck(selected.Name) then
+                    local humanoidInstance = getPlayerHumanoid(selected)
+                    if humanoidInstance and humanoidInstance.Health > 0 then
+                        target = selected
+                    end
+                end
+            else
+                target = findZoneTarget(false)
+            end
+
+            if target and not isTargetAllowedByFollowAlly(target) then
+                target = nil
+            end
+            local indicator = ensureAutoZoneIndicator()
+            local fired = target and aimAndFireAtPlayer(target, indicator, false)
+            if not fired then
+                hideAutoZoneIndicator()
+                if not autoFireballEnabled then
+                    autoZoneDesiredAimPoint = nil
+                end
+            end
         end
 
         task.wait(AUTO_ZONE_POLL_RATE)
@@ -3452,6 +3464,47 @@ AnimalSim.UI.buildUI = function()
         toggled = AnimalSim.State.followAlly,
         callback = function(value)
             AnimalSim.State.followAlly = value
+        end,
+    })
+
+    local allyTargetRangeSlider
+
+    gameplaySection:addSlider({
+        title = "Ally Follow Min Dist",
+        min = 0,
+        max = 500,
+        default = AnimalSim.Modules.Combat.AutoZoneConfig.followAllyMinDistance or 3,
+        precision = 0,
+        callback = function(value)
+            local config = AnimalSim.Modules.Combat.AutoZoneConfig
+            config.followAllyMinDistance = math.max(0, tonumber(value) or 0)
+            if config.followAllyTargetRange and config.followAllyTargetRange < config.followAllyMinDistance then
+                config.followAllyTargetRange = config.followAllyMinDistance
+                if allyTargetRangeSlider then
+                    allyTargetRangeSlider.Options.value = config.followAllyTargetRange
+                    gameplaySection:updateSlider(allyTargetRangeSlider)
+                end
+            end
+        end,
+    })
+
+    allyTargetRangeSlider = gameplaySection:addSlider({
+        title = "Ally Target Range",
+        min = 0,
+        max = 500,
+        default = AnimalSim.Modules.Combat.AutoZoneConfig.followAllyTargetRange or 20,
+        precision = 0,
+        callback = function(value)
+            local config = AnimalSim.Modules.Combat.AutoZoneConfig
+            local newValue = math.max(0, tonumber(value) or 0)
+            if config.followAllyMinDistance and newValue < config.followAllyMinDistance then
+                newValue = config.followAllyMinDistance
+                if allyTargetRangeSlider then
+                    allyTargetRangeSlider.Options.value = newValue
+                    gameplaySection:updateSlider(allyTargetRangeSlider)
+                end
+            end
+            config.followAllyTargetRange = newValue
         end,
     })
 
