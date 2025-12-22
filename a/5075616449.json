@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 6585596170,
-  "jobId": "31a5f129-bf11-445f-a1df-98b55ace36b8",
-  "join": "roblox://placeId=6585596170&gameInstanceId=31a5f129-bf11-445f-a1df-98b55ace36b8",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=6585596170&gameInstanceId=31a5f129-bf11-445f-a1df-98b55ace36b8",
-  "location": "RO-DRONE",
-  "updatedAt": 1766366678200
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766366765557
 }
