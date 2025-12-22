@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "1139a8ac-fa3d-4e7c-bc7e-d00abc4eaa18",
+  "join": "roblox://placeId=5712833750&gameInstanceId=1139a8ac-fa3d-4e7c-bc7e-d00abc4eaa18",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766372921766
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=1139a8ac-fa3d-4e7c-bc7e-d00abc4eaa18",
+  "location": "🎃 Animal Simulator",
+  "updatedAt": 1766372951730
 }
