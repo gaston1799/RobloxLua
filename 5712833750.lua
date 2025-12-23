@@ -526,6 +526,14 @@ local safeZoneVizPlane
 local safeZoneVizEdges = {}
 local safeZoneVizY
 
+local FOLLOW_RANGE_MIN_COLOR = Color3.fromRGB(120, 185, 255)
+local FOLLOW_RANGE_MAX_COLOR = Color3.fromRGB(255, 215, 90)
+local FOLLOW_RANGE_VIZ_TRANSPARENCY = 0.84
+local FOLLOW_RANGE_VIZ_THICKNESS = 0.11
+
+local followRangeVizMin
+local followRangeVizMax
+
 local function ensureVisualizerFolder()
     if Visualizer.folder and Visualizer.folder.Parent then
         return Visualizer.folder
@@ -668,12 +676,75 @@ local function clearSafeZoneVisualization()
     end
 end
 
+local function clearFollowRangeVisualization()
+    if followRangeVizMin then
+        pcall(function()
+            followRangeVizMin:Destroy()
+        end)
+        followRangeVizMin = nil
+    end
+    if followRangeVizMax then
+        pcall(function()
+            followRangeVizMax:Destroy()
+        end)
+        followRangeVizMax = nil
+    end
+end
+
+local function ensureFollowRangeCircle(existing, name, color)
+    if existing and existing.Parent then
+        return existing
+    end
+    local folder = ensureVisualizerFolder()
+    local part = Instance.new("Part")
+    part.Name = name
+    part.Anchored = true
+    part.CanCollide = false
+    part.CanQuery = false
+    part.CanTouch = false
+    part.Shape = Enum.PartType.Cylinder
+    part.Material = Enum.Material.Neon
+    part.Transparency = FOLLOW_RANGE_VIZ_TRANSPARENCY
+    part.Color = color
+    part.Parent = folder
+    return part
+end
+
+local function updateFollowRangeVisualization(centerPosition, minDistance, maxRange)
+    if not Visualizer.enabled then
+        return
+    end
+    if not centerPosition then
+        clearFollowRangeVisualization()
+        return
+    end
+
+    minDistance = math.max(0, tonumber(minDistance) or 0)
+    maxRange = math.max(minDistance, tonumber(maxRange) or 0)
+    if maxRange <= 0 then
+        clearFollowRangeVisualization()
+        return
+    end
+
+    local thickness = FOLLOW_RANGE_VIZ_THICKNESS
+    local y = sampleGroundYAt(centerPosition.X, centerPosition.Z) + thickness / 2 + 0.03
+
+    followRangeVizMin = ensureFollowRangeCircle(followRangeVizMin, "FollowRangeMin", FOLLOW_RANGE_MIN_COLOR)
+    followRangeVizMax = ensureFollowRangeCircle(followRangeVizMax, "FollowRangeMax", FOLLOW_RANGE_MAX_COLOR)
+
+    followRangeVizMin.Size = Vector3.new(math.max(0.2, minDistance * 2), thickness, math.max(0.2, minDistance * 2))
+    followRangeVizMax.Size = Vector3.new(math.max(0.2, maxRange * 2), thickness, math.max(0.2, maxRange * 2))
+    followRangeVizMin.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z)
+    followRangeVizMax.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z)
+end
+
 local function clearVisualizerFolder()
     if Visualizer.folder then
         Visualizer.folder:Destroy()
         Visualizer.folder = nil
     end
     clearSafeZoneVisualization()
+    clearFollowRangeVisualization()
 end
 
 local function setVisualizerEnabled(enabled)
@@ -1094,6 +1165,22 @@ RunService.Heartbeat:Connect(function(dt)
                 distance = (enemyRoot.Position - localRoot.Position).Magnitude
             end
             local isVisible = distance <= 100
+            if isVisible and AnimalSim.State.autoZone and AnimalSim.State.followAlly and not teamCheck(player.Name) then
+                local config = AnimalSim.Modules.Combat.AutoZoneConfig
+                local anchor = AnimalSim.Modules.Combat._followAllyAnchor
+                local anchorRoot = anchor and anchor.Character and anchor.Character:FindFirstChild("HumanoidRootPart")
+                if AnimalSim.Modules.Combat._autoZoneLockedTarget ~= player then
+                    if anchorRoot and enemyRoot then
+                        local maxRange = tonumber(config and config.followAllyTargetRange) or 20
+                        local inRange = (enemyRoot.Position - anchorRoot.Position).Magnitude <= maxRange
+                        if not inRange then
+                            isVisible = false
+                        end
+                    else
+                        isVisible = false
+                    end
+                end
+            end
             entry.gui.Enabled = isVisible
             if isVisible then
                 local hitsToKillEnemy, hitsToKillYou, hpText, ratio = computeOverheadStats(player)
@@ -2287,10 +2374,10 @@ end
 local function followAllyStepForAutoZone()
     if not (autoZoneEnabled and AnimalSim.State.followAlly) then
         AnimalSim.Modules.Combat._followAllyAnchor = nil
-        return false
+        return nil, nil
     end
     if not humanoidRoot then
-        return false
+        return nil, nil
     end
 
     local config = AnimalSim.Modules.Combat.AutoZoneConfig
@@ -2351,23 +2438,49 @@ local function followAllyStepForAutoZone()
     end
 
     if not (allyPlayer and allyRoot and allyDistance) then
-        return false
+        return nil, nil
     end
 
-    local destination = allyRoot.Position - allyRoot.CFrame.LookVector * minDistance
-    local threshold = math.max(0.2, minDistance * 0.1)
-    if (destination - humanoidRoot.Position).Magnitude > threshold then
-        humanoidRoot.CFrame = CFrame.new(destination, allyRoot.Position)
-        return true
+    return allyPlayer, allyRoot
+end
+
+local function computeFollowAllyAimPoint(anchorRoot, radius)
+    if not (anchorRoot and humanoidRoot) then
+        return nil
     end
 
-    return false
+    radius = math.max(0.25, tonumber(radius) or 0)
+
+    local center = anchorRoot.Position
+    local delta = humanoidRoot.Position - center
+    delta = Vector3.new(delta.X, 0, delta.Z)
+
+    local baseDir
+    if delta.Magnitude > 0.35 then
+        baseDir = delta.Unit
+    else
+        local look = anchorRoot.CFrame.LookVector
+        look = Vector3.new(look.X, 0, look.Z)
+        baseDir = (look.Magnitude > 1e-3) and (-look.Unit) or Vector3.new(1, 0, 0)
+    end
+
+    local tangent = Vector3.new(-baseDir.Z, 0, baseDir.X)
+    local now = os.clock()
+    local wiggle = math.sin(now * 4.2) * math.min(math.max(1, radius * 0.6), 7)
+    local pushPull = math.sin(now * 2.1) * math.min(radius * 0.25, 3.5)
+
+    return center + baseDir * radius + tangent * wiggle + baseDir * pushPull
 end
 
 local function isTargetAllowedByFollowAlly(targetPlayer)
     if not (autoZoneEnabled and AnimalSim.State.followAlly) then
         return true
     end
+
+    if AnimalSim.Modules.Combat._autoZoneLockedTarget == targetPlayer then
+        return true
+    end
+
     local allyPlayer = AnimalSim.Modules.Combat._followAllyAnchor
     if not allyPlayer or not allyPlayer.Parent then
         return false
@@ -2778,39 +2891,79 @@ local function autoZoneLoop(myToken)
     while autoZoneEnabled and autoZoneCancelToken == myToken do
         defineNilLocals()
 
-        local movedTowardAlly = false
+        local allyRoot
+        if AnimalSim.State.followAlly then
+            local ok, anchorRoot = pcall(function()
+                local _, root = followAllyStepForAutoZone()
+                return root
+            end)
+            if ok then
+                allyRoot = anchorRoot
+            end
+        else
+            AnimalSim.Modules.Combat._followAllyAnchor = nil
+        end
+
+        local target
         do
-            local ok, result = pcall(followAllyStepForAutoZone)
-            if ok and result then
-                movedTowardAlly = true
+            local locked = AnimalSim.Modules.Combat._autoZoneLockedTarget
+            if locked and locked.Parent then
+                local lockedHumanoid = getPlayerHumanoid(locked)
+                local lockedRoot = locked.Character and locked.Character:FindFirstChild("HumanoidRootPart")
+                if lockedHumanoid and lockedHumanoid.Health > 0 and lockedRoot and not isInsideSafeZone(lockedRoot.Position) then
+                    target = locked
+                else
+                    AnimalSim.Modules.Combat._autoZoneLockedTarget = nil
+                end
+            elseif locked then
+                AnimalSim.Modules.Combat._autoZoneLockedTarget = nil
             end
         end
 
-        if movedTowardAlly then
-            hideAutoZoneIndicator()
-            if not autoFireballEnabled then
-                autoZoneDesiredAimPoint = nil
+        if AnimalSim.State.followTarget then
+            local selected = AnimalSim.State.selectedPlayer
+            if selected and selected.Parent and selected ~= LocalPlayer and not teamCheck(selected.Name) then
+                local humanoidInstance = getPlayerHumanoid(selected)
+                if humanoidInstance and humanoidInstance.Health > 0 then
+                    target = target or selected
+                end
             end
         else
-            local target
-            if AnimalSim.State.followTarget then
-                local selected = AnimalSim.State.selectedPlayer
-                if selected and selected.Parent and selected ~= LocalPlayer and not teamCheck(selected.Name) then
-                    local humanoidInstance = getPlayerHumanoid(selected)
-                    if humanoidInstance and humanoidInstance.Health > 0 then
-                        target = selected
+            target = target or findZoneTarget(false)
+        end
+
+        if target and AnimalSim.State.followAlly and AnimalSim.Modules.Combat._autoZoneLockedTarget ~= target and not isTargetAllowedByFollowAlly(target) then
+            target = nil
+        end
+
+        if target then
+            AnimalSim.Modules.Combat._autoZoneFollowMode = false
+            local indicator = ensureAutoZoneIndicator()
+            local fired = aimAndFireAtPlayer(target, indicator, false)
+            if fired then
+                AnimalSim.Modules.Combat._autoZoneLockedTarget = target
+            else
+                hideAutoZoneIndicator()
+                if AnimalSim.Modules.Combat._autoZoneLockedTarget == target then
+                    AnimalSim.Modules.Combat._autoZoneLockedTarget = nil
+                end
+                if not autoFireballEnabled then
+                    autoZoneDesiredAimPoint = nil
+                end
+            end
+        else
+            local followMode = AnimalSim.State.followAlly and allyRoot ~= nil
+            AnimalSim.Modules.Combat._autoZoneFollowMode = followMode
+            if followMode then
+                local config = AnimalSim.Modules.Combat.AutoZoneConfig
+                autoZoneDesiredAimPoint = computeFollowAllyAimPoint(allyRoot, config and config.followAllyMinDistance or 3)
+                do
+                    local walkState = AnimalSim.Modules.Combat._autoZoneWalk
+                    if walkState then
+                        walkState.targetPlayer = nil
                     end
                 end
             else
-                target = findZoneTarget(false)
-            end
-
-            if target and not isTargetAllowedByFollowAlly(target) then
-                target = nil
-            end
-            local indicator = ensureAutoZoneIndicator()
-            local fired = target and aimAndFireAtPlayer(target, indicator, false)
-            if not fired then
                 hideAutoZoneIndicator()
                 if not autoFireballEnabled then
                     autoZoneDesiredAimPoint = nil
@@ -2908,30 +3061,51 @@ local function setAutoZone(value)
                 if not autoZoneEnabled then
                     return
                 end
+                local walkState = AnimalSim.Modules.Combat._autoZoneWalk
+                local targetPlayer = walkState and walkState.targetPlayer or nil
+
+                local config = AnimalSim.Modules.Combat.AutoZoneConfig
+                local anchorPlayer = AnimalSim.Modules.Combat._followAllyAnchor
+                local anchorRoot = anchorPlayer and anchorPlayer.Character and anchorPlayer.Character:FindFirstChild("HumanoidRootPart")
+
+                if Visualizer.enabled and AnimalSim.State.followAlly then
+                    updateFollowRangeVisualization(
+                        anchorRoot and anchorRoot.Position or nil,
+                        config and config.followAllyMinDistance or 3,
+                        config and config.followAllyTargetRange or 20
+                    )
+                elseif followRangeVizMin or followRangeVizMax then
+                    clearFollowRangeVisualization()
+                end
+
+                local followMode = AnimalSim.State.followAlly and AnimalSim.Modules.Combat._autoZoneFollowMode
+                if followMode and anchorRoot then
+                    autoZoneDesiredAimPoint = computeFollowAllyAimPoint(anchorRoot, config and config.followAllyMinDistance or 3)
+                end
+
                 local aimPoint = autoZoneDesiredAimPoint
                 if not aimPoint then
+                    hideAutoZoneIndicator()
                     return
                 end
 
-                local indicator = ensureAutoZoneIndicator()
-                indicator.Parent = workspace
-
-                local targetPlayer
-                do
-                    local walkState = AnimalSim.Modules.Combat._autoZoneWalk
-                    targetPlayer = walkState and walkState.targetPlayer or nil
-                end
-
-                local targetCF, targetSize = AnimalSim.Modules.Combat.computeAutoZoneIndicatorBounds(targetPlayer, aimPoint)
-                if targetSize then
-                    indicator.Size = targetSize
-                end
-                if not autoZoneLastIndicatorCF then
-                    autoZoneLastIndicatorCF = targetCF
+                if not targetPlayer then
+                    hideAutoZoneIndicator()
                 else
-                    autoZoneLastIndicatorCF = autoZoneLastIndicatorCF:Lerp(targetCF, AUTO_ZONE_RENDER_LERP)
+                    local indicator = ensureAutoZoneIndicator()
+                    indicator.Parent = workspace
+
+                    local targetCF, targetSize = AnimalSim.Modules.Combat.computeAutoZoneIndicatorBounds(targetPlayer, aimPoint)
+                    if targetSize then
+                        indicator.Size = targetSize
+                    end
+                    if not autoZoneLastIndicatorCF then
+                        autoZoneLastIndicatorCF = targetCF
+                    else
+                        autoZoneLastIndicatorCF = autoZoneLastIndicatorCF:Lerp(targetCF, AUTO_ZONE_RENDER_LERP)
+                    end
+                    indicator.CFrame = autoZoneLastIndicatorCF
                 end
-                indicator.CFrame = autoZoneLastIndicatorCF
 
                 do
                     local now = os.clock()
@@ -3201,6 +3375,12 @@ local function setAutoZone(value)
                 walkState.cancelToken = (walkState.cancelToken or 0) + 1
                 walkState.targetPlayer = nil
             end
+        end
+        AnimalSim.Modules.Combat._autoZoneLockedTarget = nil
+        AnimalSim.Modules.Combat._autoZoneFollowMode = false
+        AnimalSim.Modules.Combat._followAllyAnchor = nil
+        if followRangeVizMin or followRangeVizMax then
+            clearFollowRangeVisualization()
         end
         releaseAimLock()
     end
