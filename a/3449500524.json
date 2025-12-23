@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 70970763145070,
-  "jobId": "733a10d2-4d37-4d56-889c-f579c97f84e3",
-  "join": "roblox://placeId=70970763145070&gameInstanceId=733a10d2-4d37-4d56-889c-f579c97f84e3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=70970763145070&gameInstanceId=733a10d2-4d37-4d56-889c-f579c97f84e3",
-  "location": "Choose Your Power",
-  "updatedAt": 1766464074398
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766464404372
 }
