@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "e71694e9-f6bf-45c0-a55d-211f0007f2ae",
-  "join": "roblox://placeId=5712833750&gameInstanceId=e71694e9-f6bf-45c0-a55d-211f0007f2ae",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3872347405",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=e71694e9-f6bf-45c0-a55d-211f0007f2ae",
-  "location": "🎃 Animal Simulator",
-  "updatedAt": 1766469743382
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766470823268
 }
