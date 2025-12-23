@@ -715,6 +715,10 @@ local function updateFollowRangeVisualization(centerPosition, minDistance, maxRa
         return
     end
     if not centerPosition then
+        local localRoot = humanoidRoot or (LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart"))
+        centerPosition = localRoot and localRoot.Position or nil
+    end
+    if not centerPosition then
         clearFollowRangeVisualization()
         return
     end
@@ -728,14 +732,17 @@ local function updateFollowRangeVisualization(centerPosition, minDistance, maxRa
 
     local thickness = FOLLOW_RANGE_VIZ_THICKNESS
     local y = sampleGroundYAt(centerPosition.X, centerPosition.Z) + thickness / 2 + 0.03
+    local rotation = CFrame.Angles(0, 0, math.rad(90))
 
     followRangeVizMin = ensureFollowRangeCircle(followRangeVizMin, "FollowRangeMin", FOLLOW_RANGE_MIN_COLOR)
     followRangeVizMax = ensureFollowRangeCircle(followRangeVizMax, "FollowRangeMax", FOLLOW_RANGE_MAX_COLOR)
 
-    followRangeVizMin.Size = Vector3.new(math.max(0.2, minDistance * 2), thickness, math.max(0.2, minDistance * 2))
-    followRangeVizMax.Size = Vector3.new(math.max(0.2, maxRange * 2), thickness, math.max(0.2, maxRange * 2))
-    followRangeVizMin.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z)
-    followRangeVizMax.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z)
+    local minDiameter = math.max(0.2, minDistance * 2)
+    local maxDiameter = math.max(0.2, maxRange * 2)
+    followRangeVizMin.Size = Vector3.new(thickness, minDiameter, minDiameter)
+    followRangeVizMax.Size = Vector3.new(thickness, maxDiameter, maxDiameter)
+    followRangeVizMin.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z) * rotation
+    followRangeVizMax.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z) * rotation
 end
 
 local function clearVisualizerFolder()
