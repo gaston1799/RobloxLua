@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 15784744207,
-  "jobId": "f54008e8-9493-47b1-8629-f1ac6eae52fd",
-  "join": "roblox://placeId=15784744207&gameInstanceId=f54008e8-9493-47b1-8629-f1ac6eae52fd",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=15784744207&gameInstanceId=f54008e8-9493-47b1-8629-f1ac6eae52fd",
-  "location": "❄️ Valley Prison",
-  "updatedAt": 1766448744492
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766448774562
 }
