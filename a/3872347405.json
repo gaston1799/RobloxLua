@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 123852068581512,
+  "jobId": "87c0865c-fc32-4661-b519-8ffd65f185b1",
+  "join": "roblox://placeId=123852068581512&gameInstanceId=87c0865c-fc32-4661-b519-8ffd65f185b1",
   "follow": "roblox://followUserId=3872347405",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766474603427
+  "web": "https://www.roblox.com/games/start?placeId=123852068581512&gameInstanceId=87c0865c-fc32-4661-b519-8ffd65f185b1",
+  "location": "[UPD 4 🎄] My Frog Pond! 🐸",
+  "updatedAt": 1766474753437
 }
