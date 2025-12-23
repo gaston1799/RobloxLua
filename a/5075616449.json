@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 82085771944278,
+  "jobId": "73ed8e99-15dd-40c1-bcbe-6ce350699e58",
+  "join": "roblox://placeId=82085771944278&gameInstanceId=73ed8e99-15dd-40c1-bcbe-6ce350699e58",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766447934425
+  "web": "https://www.roblox.com/games/start?placeId=82085771944278&gameInstanceId=73ed8e99-15dd-40c1-bcbe-6ce350699e58",
+  "location": "FPV Drone Simulator",
+  "updatedAt": 1766448024457
 }
