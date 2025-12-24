@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 537413528,
-  "jobId": "68e1dbf7-9959-4891-8825-2f9f58342c5a",
-  "join": "roblox://placeId=537413528&gameInstanceId=68e1dbf7-9959-4891-8825-2f9f58342c5a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=537413528&gameInstanceId=68e1dbf7-9959-4891-8825-2f9f58342c5a",
-  "location": "Build A Boat For Treasure",
-  "updatedAt": 1766542885558
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766542945733
 }
