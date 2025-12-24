@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 140481779622210,
-  "jobId": "0283ba95-9640-4536-98c5-717de127abfc",
-  "join": "roblox://placeId=140481779622210&gameInstanceId=0283ba95-9640-4536-98c5-717de127abfc",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=140481779622210&gameInstanceId=0283ba95-9640-4536-98c5-717de127abfc",
-  "location": "Escape The Lava 🔥",
-  "updatedAt": 1766576966778
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766577716782
 }
