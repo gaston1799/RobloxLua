@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6872265039,
+  "jobId": "66f10e81-c8e6-4035-98be-8500c9db2056",
+  "join": "roblox://placeId=6872265039&gameInstanceId=66f10e81-c8e6-4035-98be-8500c9db2056",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766544354890
+  "web": "https://www.roblox.com/games/start?placeId=6872265039&gameInstanceId=66f10e81-c8e6-4035-98be-8500c9db2056",
+  "location": "BedWars [🧊NEW KIT]",
+  "updatedAt": 1766544384867
 }
