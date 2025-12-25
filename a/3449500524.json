@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "in-game",
-  "placeId": 105157320897404,
-  "jobId": "089bd01b-7a27-4002-afff-2385692fdcd6",
-  "join": "roblox://placeId=105157320897404&gameInstanceId=089bd01b-7a27-4002-afff-2385692fdcd6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3449500524",
-  "web": "https://www.roblox.com/games/start?placeId=105157320897404&gameInstanceId=089bd01b-7a27-4002-afff-2385692fdcd6",
-  "location": "[BETA] Mornia: Borderline",
-  "updatedAt": 1766632471616
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766632977753
 }
