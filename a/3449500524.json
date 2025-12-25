@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 73423368274950,
+  "jobId": "86a2e003-d6ab-4636-b824-edc2d31c8cdf",
+  "join": "roblox://placeId=73423368274950&gameInstanceId=86a2e003-d6ab-4636-b824-edc2d31c8cdf",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766690848952
+  "web": "https://www.roblox.com/games/start?placeId=73423368274950&gameInstanceId=86a2e003-d6ab-4636-b824-edc2d31c8cdf",
+  "location": "Our Campus, Southend Academy",
+  "updatedAt": 1766691028984
 }
