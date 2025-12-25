@@ -1,12 +1,12 @@
 {
   "userId": 655287574,
   "displayName": "SleepyAtelo",
-  "status": "in-game",
-  "placeId": 12550651382,
-  "jobId": "5435f5ca-aa1e-4e0b-8a39-da60ecacf4cf",
-  "join": "roblox://placeId=12550651382&gameInstanceId=5435f5ca-aa1e-4e0b-8a39-da60ecacf4cf",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=655287574",
-  "web": "https://www.roblox.com/games/start?placeId=12550651382&gameInstanceId=5435f5ca-aa1e-4e0b-8a39-da60ecacf4cf",
-  "location": "Ecos: La Brea",
-  "updatedAt": 1766698680073
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766699100222
 }
