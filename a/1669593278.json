@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 82775216869079,
-  "jobId": "62ac1af0-d811-455b-8403-7ee5ed670746",
-  "join": "roblox://placeId=82775216869079&gameInstanceId=62ac1af0-d811-455b-8403-7ee5ed670746",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=82775216869079&gameInstanceId=62ac1af0-d811-455b-8403-7ee5ed670746",
-  "location": "[150] Find The Button! 🔴",
-  "updatedAt": 1766690968965
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766691419027
 }
