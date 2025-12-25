@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12215065479,
+  "jobId": "9613bd40-a479-4fb5-9c1a-2dda3eeaae41",
+  "join": "roblox://placeId=12215065479&gameInstanceId=9613bd40-a479-4fb5-9c1a-2dda3eeaae41",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766678309300
+  "web": "https://www.roblox.com/games/start?placeId=12215065479&gameInstanceId=9613bd40-a479-4fb5-9c1a-2dda3eeaae41",
+  "location": "RC Park",
+  "updatedAt": 1766678429375
 }
