@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 2338325648,
-  "jobId": "98d21d13-6028-471e-88e2-868d84966f08",
-  "join": "roblox://placeId=2338325648&gameInstanceId=98d21d13-6028-471e-88e2-868d84966f08",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=2338325648&gameInstanceId=98d21d13-6028-471e-88e2-868d84966f08",
-  "location": "[🎄EVENT] NFL Universe Football",
-  "updatedAt": 1766700178868
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766700208957
 }
