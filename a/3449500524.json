@@ -1,12 +1,12 @@
 {
   "userId": 3449500524,
   "displayName": "GOJOYT",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3082002798,
+  "jobId": "81b4df9b-c7d4-4dda-afaa-65ad456845e3",
+  "join": "roblox://placeId=3082002798&gameInstanceId=81b4df9b-c7d4-4dda-afaa-65ad456845e3",
   "follow": "roblox://followUserId=3449500524",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766629318991
+  "web": "https://www.roblox.com/games/start?placeId=3082002798&gameInstanceId=81b4df9b-c7d4-4dda-afaa-65ad456845e3",
+  "location": "T-Titans Battlegrounds",
+  "updatedAt": 1766629348730
 }
