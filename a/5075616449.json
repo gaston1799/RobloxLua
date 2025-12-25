@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 138384544898173,
-  "jobId": "025d15cc-f242-49ac-aa39-3af0cbe9bd5c",
-  "join": "roblox://placeId=138384544898173&gameInstanceId=025d15cc-f242-49ac-aa39-3af0cbe9bd5c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=138384544898173&gameInstanceId=025d15cc-f242-49ac-aa39-3af0cbe9bd5c",
-  "location": "[🎄] Trade a Brainrot",
-  "updatedAt": 1766677469446
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1766677799263
 }
