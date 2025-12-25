@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15351762625,
+  "jobId": "be9bf262-256c-4346-b8a9-2d05fc3332c4",
+  "join": "roblox://placeId=15351762625&gameInstanceId=be9bf262-256c-4346-b8a9-2d05fc3332c4",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1766622178601
+  "web": "https://www.roblox.com/games/start?placeId=15351762625&gameInstanceId=be9bf262-256c-4346-b8a9-2d05fc3332c4",
+  "location": "Blade Ball Test Server",
+  "updatedAt": 1766622209535
 }
