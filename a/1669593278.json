@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16998468076,
+  "jobId": "d2d91725-8aa1-44c5-93a4-9d0d3ef7ba7a",
+  "join": "roblox://placeId=16998468076&gameInstanceId=d2d91725-8aa1-44c5-93a4-9d0d3ef7ba7a",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767556365263
+  "web": "https://www.roblox.com/games/start?placeId=16998468076&gameInstanceId=d2d91725-8aa1-44c5-93a4-9d0d3ef7ba7a",
+  "location": "Mental [HORROR]",
+  "updatedAt": 1767556485353
 }
