@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13213964876,
+  "jobId": "4afbecb2-70c6-4e5b-bc31-7b7819c7d136",
+  "join": "roblox://placeId=13213964876&gameInstanceId=4afbecb2-70c6-4e5b-bc31-7b7819c7d136",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767491339755
+  "web": "https://www.roblox.com/games/start?placeId=13213964876&gameInstanceId=4afbecb2-70c6-4e5b-bc31-7b7819c7d136",
+  "location": "2 Player Sparta Tycoon ⚔️",
+  "updatedAt": 1767491402289
 }
