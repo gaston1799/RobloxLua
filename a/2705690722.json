@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4566572536,
+  "jobId": "2eae9a54-60a5-4dbd-b1a3-9ab07f7705c5",
+  "join": "roblox://placeId=4566572536&gameInstanceId=2eae9a54-60a5-4dbd-b1a3-9ab07f7705c5",
   "follow": "roblox://followUserId=2705690722",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767538270845
+  "web": "https://www.roblox.com/games/start?placeId=4566572536&gameInstanceId=2eae9a54-60a5-4dbd-b1a3-9ab07f7705c5",
+  "location": "[🎆NY] Vehicle Legends 🏎️ Cars!",
+  "updatedAt": 1767538332252
 }
