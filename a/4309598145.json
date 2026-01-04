@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 8560631822,
+  "jobId": "ea1436f9-6506-4b4f-b7df-4cd3ee69388e",
+  "join": "roblox://placeId=8560631822&gameInstanceId=ea1436f9-6506-4b4f-b7df-4cd3ee69388e",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767491398831
+  "web": "https://www.roblox.com/games/start?placeId=8560631822&gameInstanceId=ea1436f9-6506-4b4f-b7df-4cd3ee69388e",
+  "location": "BedWars [🔥2XP WEEKEND]",
+  "updatedAt": 1767491458732
 }
