@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "d6d9ed3e-eed0-42aa-bdb1-653b6fcb445b",
+  "join": "roblox://placeId=7041939546&gameInstanceId=d6d9ed3e-eed0-42aa-bdb1-653b6fcb445b",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767558045403
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=d6d9ed3e-eed0-42aa-bdb1-653b6fcb445b",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1767558105219
 }
