@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6243699076,
+  "jobId": "c45ea671-737e-41c0-bd80-a1474a8a4d76",
+  "join": "roblox://placeId=6243699076&gameInstanceId=c45ea671-737e-41c0-bd80-a1474a8a4d76",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767558465161
+  "web": "https://www.roblox.com/games/start?placeId=6243699076&gameInstanceId=c45ea671-737e-41c0-bd80-a1474a8a4d76",
+  "location": "The Mimic [EVENT]❄️",
+  "updatedAt": 1767558525404
 }
