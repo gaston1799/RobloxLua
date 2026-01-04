@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 91682502307783,
+  "jobId": "b5d4326b-1fff-465f-a75a-61270476da56",
+  "join": "roblox://placeId=91682502307783&gameInstanceId=b5d4326b-1fff-465f-a75a-61270476da56",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767565125955
+  "web": "https://www.roblox.com/games/start?placeId=91682502307783&gameInstanceId=b5d4326b-1fff-465f-a75a-61270476da56",
+  "location": "2 Player Fish Tycoon🦈",
+  "updatedAt": 1767565246020
 }
