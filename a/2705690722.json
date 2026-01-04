@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 80949673497851,
+  "jobId": "ad1ba254-b5ed-4720-9a23-ae496392bd63",
+  "join": "roblox://placeId=80949673497851&gameInstanceId=ad1ba254-b5ed-4720-9a23-ae496392bd63",
   "follow": "roblox://followUserId=2705690722",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767538570584
+  "web": "https://www.roblox.com/games/start?placeId=80949673497851&gameInstanceId=ad1ba254-b5ed-4720-9a23-ae496392bd63",
+  "location": "💸1 Step = $1",
+  "updatedAt": 1767538631033
 }
