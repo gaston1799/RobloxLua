@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 13803700135,
-  "jobId": "647d5009-3dd4-4acf-bbe4-91e963e0df55",
-  "join": "roblox://placeId=13803700135&gameInstanceId=647d5009-3dd4-4acf-bbe4-91e963e0df55",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=13803700135&gameInstanceId=647d5009-3dd4-4acf-bbe4-91e963e0df55",
-  "location": "Five Nights At Freddy's Doom",
-  "updatedAt": 1767498061624
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1767498301413
 }
