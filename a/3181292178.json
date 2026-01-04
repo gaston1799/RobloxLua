@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13601434903,
+  "jobId": "44a9904a-e69d-4a06-8e33-ea6059645ef7",
+  "join": "roblox://placeId=13601434903&gameInstanceId=44a9904a-e69d-4a06-8e33-ea6059645ef7",
   "follow": "roblox://followUserId=3181292178",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767536890534
+  "web": "https://www.roblox.com/games/start?placeId=13601434903&gameInstanceId=44a9904a-e69d-4a06-8e33-ea6059645ef7",
+  "location": "Sorcerer Battlegrounds",
+  "updatedAt": 1767536950796
 }
