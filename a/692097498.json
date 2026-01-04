@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 14835828495,
+  "jobId": "0c15c21b-3412-4f57-b2ff-9bb91fd181fb",
+  "join": "roblox://placeId=14835828495&gameInstanceId=0c15c21b-3412-4f57-b2ff-9bb91fd181fb",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767492419937
+  "web": "https://www.roblox.com/games/start?placeId=14835828495&gameInstanceId=0c15c21b-3412-4f57-b2ff-9bb91fd181fb",
+  "location": "Dudes Battlegrounds",
+  "updatedAt": 1767492479966
 }
