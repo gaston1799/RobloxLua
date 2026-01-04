@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15479016377,
+  "jobId": "adf19cfb-e4cb-4aa7-abbb-29b713ced295",
+  "join": "roblox://placeId=15479016377&gameInstanceId=adf19cfb-e4cb-4aa7-abbb-29b713ced295",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767503702781
+  "web": "https://www.roblox.com/games/start?placeId=15479016377&gameInstanceId=adf19cfb-e4cb-4aa7-abbb-29b713ced295",
+  "location": "[UPD] Snowboard Obby ❄ World 8",
+  "updatedAt": 1767503765026
 }
