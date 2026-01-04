@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 11708967881,
+  "jobId": "fc1017a9-dc84-40e6-9c8f-6eaff24866db",
+  "join": "roblox://placeId=11708967881&gameInstanceId=fc1017a9-dc84-40e6-9c8f-6eaff24866db",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767516785671
+  "web": "https://www.roblox.com/games/start?placeId=11708967881&gameInstanceId=fc1017a9-dc84-40e6-9c8f-6eaff24866db",
+  "location": "🥳 Yeet A Friend! ",
+  "updatedAt": 1767516847073
 }
