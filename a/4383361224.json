@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "2f48e98e-6267-4e6d-899c-d9edcc339872",
+  "join": "roblox://placeId=7041939546&gameInstanceId=2f48e98e-6267-4e6d-899c-d9edcc339872",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767539054023
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=2f48e98e-6267-4e6d-899c-d9edcc339872",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1767539231232
 }
