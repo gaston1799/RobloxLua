@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 123974602339071,
+  "jobId": "bc20a868-c995-4ec2-9623-37e821dff85f",
+  "join": "roblox://placeId=123974602339071&gameInstanceId=bc20a868-c995-4ec2-9623-37e821dff85f",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767491880096
+  "web": "https://www.roblox.com/games/start?placeId=123974602339071&gameInstanceId=bc20a868-c995-4ec2-9623-37e821dff85f",
+  "location": "[UP] Just a baseplate.",
+  "updatedAt": 1767491941495
 }
