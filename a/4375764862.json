@@ -1,12 +1,12 @@
 {
   "userId": 4375764862,
   "displayName": "Samxxz",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "e8ccb42f-42ab-41aa-90d6-c32b21c050a8",
+  "join": "roblox://placeId=7041939546&gameInstanceId=e8ccb42f-42ab-41aa-90d6-c32b21c050a8",
   "follow": "roblox://followUserId=4375764862",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1767567768038
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=e8ccb42f-42ab-41aa-90d6-c32b21c050a8",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1767568187418
 }
