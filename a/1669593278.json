@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 15242191665,
-  "jobId": "3659c796-775f-4204-8113-b1859168d389",
-  "join": "roblox://placeId=15242191665&gameInstanceId=3659c796-775f-4204-8113-b1859168d389",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=15242191665&gameInstanceId=3659c796-775f-4204-8113-b1859168d389",
-  "location": "Requiem [HORROR]",
-  "updatedAt": 1767570768023
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1767640447250
 }
