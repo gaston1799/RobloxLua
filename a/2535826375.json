@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10449761463,
+  "jobId": "0a7d80b7-d672-4599-8802-094c746befc7",
+  "join": "roblox://placeId=10449761463&gameInstanceId=0a7d80b7-d672-4599-8802-094c746befc7",
   "follow": "roblox://followUserId=2535826375",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768424138455
+  "web": "https://www.roblox.com/games/start?placeId=10449761463&gameInstanceId=0a7d80b7-d672-4599-8802-094c746befc7",
+  "location": "The Strongest Battlegrounds",
+  "updatedAt": 1768427925245
 }
