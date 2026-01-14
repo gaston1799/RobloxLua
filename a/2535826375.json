@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "in-game",
-  "placeId": 83948716312312,
-  "jobId": "c2e6db96-e668-450f-a482-62371163f370",
-  "join": "roblox://placeId=83948716312312&gameInstanceId=c2e6db96-e668-450f-a482-62371163f370",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2535826375",
-  "web": "https://www.roblox.com/games/start?placeId=83948716312312&gameInstanceId=c2e6db96-e668-450f-a482-62371163f370",
-  "location": "[🎍]Tokyo Claw Machine",
-  "updatedAt": 1768429954469
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768430134552
 }
