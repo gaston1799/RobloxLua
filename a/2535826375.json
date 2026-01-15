@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "7458d86c-9c38-4864-b760-b34a351ae06d",
+  "join": "roblox://placeId=7041939546&gameInstanceId=7458d86c-9c38-4864-b760-b34a351ae06d",
   "follow": "roblox://followUserId=2535826375",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768508865525
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=7458d86c-9c38-4864-b760-b34a351ae06d",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1768510076815
 }
