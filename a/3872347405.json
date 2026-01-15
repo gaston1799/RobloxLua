@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "in-game",
-  "placeId": 97883985639349,
-  "jobId": "befd5601-c467-458e-be52-3dc39f05a1cd",
-  "join": "roblox://placeId=97883985639349&gameInstanceId=befd5601-c467-458e-be52-3dc39f05a1cd",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3872347405",
-  "web": "https://www.roblox.com/games/start?placeId=97883985639349&gameInstanceId=befd5601-c467-458e-be52-3dc39f05a1cd",
-  "location": "🥚My Anime Egg Farm",
-  "updatedAt": 1768472475927
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768472895732
 }
