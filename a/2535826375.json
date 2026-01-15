@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "in-game",
-  "placeId": 111530421351096,
-  "jobId": "bdf04b98-59d4-4b3a-abc3-8eacc521161e",
-  "join": "roblox://placeId=111530421351096&gameInstanceId=bdf04b98-59d4-4b3a-abc3-8eacc521161e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2535826375",
-  "web": "https://www.roblox.com/games/start?placeId=111530421351096&gameInstanceId=bdf04b98-59d4-4b3a-abc3-8eacc521161e",
-  "location": " [UPD] You VS Homer",
-  "updatedAt": 1768442197793
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768442438385
 }
