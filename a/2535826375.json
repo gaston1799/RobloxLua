@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 94833182569049,
+  "jobId": "89c143df-300c-43bc-ac0b-2d0f15c4c092",
+  "join": "roblox://placeId=94833182569049&gameInstanceId=89c143df-300c-43bc-ac0b-2d0f15c4c092",
   "follow": "roblox://followUserId=2535826375",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768517638179
+  "web": "https://www.roblox.com/games/start?placeId=94833182569049&gameInstanceId=89c143df-300c-43bc-ac0b-2d0f15c4c092",
+  "location": "Fly A SEAL To SPACE",
+  "updatedAt": 1768517698067
 }
