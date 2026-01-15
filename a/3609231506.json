@@ -1,12 +1,12 @@
 {
   "userId": 3609231506,
   "displayName": "ParadiseCreek",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "1b54d4ce-4ad4-4cee-99f9-6ecc135a5b36",
-  "join": "roblox://placeId=5712833750&gameInstanceId=1b54d4ce-4ad4-4cee-99f9-6ecc135a5b36",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3609231506",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=1b54d4ce-4ad4-4cee-99f9-6ecc135a5b36",
-  "location": "🦝🎄 Animal Simulator",
-  "updatedAt": 1768517942989
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768520340819
 }
