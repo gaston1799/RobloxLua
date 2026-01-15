@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 124724203484856,
+  "jobId": "84322d14-0e93-47fa-8d19-a354edc20833",
+  "join": "roblox://placeId=124724203484856&gameInstanceId=84322d14-0e93-47fa-8d19-a354edc20833",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768518270371
+  "web": "https://www.roblox.com/games/start?placeId=124724203484856&gameInstanceId=84322d14-0e93-47fa-8d19-a354edc20833",
+  "location": "Path Dueling",
+  "updatedAt": 1768518330427
 }
