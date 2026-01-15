@@ -1,12 +1,12 @@
 {
   "userId": 9351018495,
   "displayName": "UnaliveU",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 119475918588940,
+  "jobId": "5b3c1243-391b-46ba-b3ec-9df6aeed534e",
+  "join": "roblox://placeId=119475918588940&gameInstanceId=5b3c1243-391b-46ba-b3ec-9df6aeed534e",
   "follow": "roblox://followUserId=9351018495",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768496952934
+  "web": "https://www.roblox.com/games/start?placeId=119475918588940&gameInstanceId=5b3c1243-391b-46ba-b3ec-9df6aeed534e",
+  "location": "WildFur Life 🐾",
+  "updatedAt": 1768508144126
 }
