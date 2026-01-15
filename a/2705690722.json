@@ -1,12 +1,12 @@
 {
   "userId": 2705690722,
   "displayName": "Cam",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "24539bc7-78cb-43aa-a408-f797df6640c4",
+  "join": "roblox://placeId=142823291&gameInstanceId=24539bc7-78cb-43aa-a408-f797df6640c4",
   "follow": "roblox://followUserId=2705690722",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768305243822
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=24539bc7-78cb-43aa-a408-f797df6640c4",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1768443039912
 }
