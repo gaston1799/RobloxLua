@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16331682055,
+  "jobId": "d027c43e-f9e3-4a34-bd89-f400969af0fc",
+  "join": "roblox://placeId=16331682055&gameInstanceId=d027c43e-f9e3-4a34-bd89-f400969af0fc",
   "follow": "roblox://followUserId=3872347405",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768471155258
+  "web": "https://www.roblox.com/games/start?placeId=16331682055&gameInstanceId=d027c43e-f9e3-4a34-bd89-f400969af0fc",
+  "location": "Poke Haven 🔊 18+",
+  "updatedAt": 1768471335341
 }
