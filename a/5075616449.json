@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "0aa05ea5-1603-469c-9f41-bfc9abdb3879",
+  "join": "roblox://placeId=5712833750&gameInstanceId=0aa05ea5-1603-469c-9f41-bfc9abdb3879",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768519953167
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=0aa05ea5-1603-469c-9f41-bfc9abdb3879",
+  "location": "🦝🎄 Animal Simulator",
+  "updatedAt": 1768520071785
 }
