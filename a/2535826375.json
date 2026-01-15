@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "in-game",
-  "placeId": 85907682116985,
-  "jobId": "f1ec7b05-7089-4dd9-acbc-b52669008075",
-  "join": "roblox://placeId=85907682116985&gameInstanceId=f1ec7b05-7089-4dd9-acbc-b52669008075",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2535826375",
-  "web": "https://www.roblox.com/games/start?placeId=85907682116985&gameInstanceId=f1ec7b05-7089-4dd9-acbc-b52669008075",
-  "location": "Easy To Hard Wall Hop Obby",
-  "updatedAt": 1768442498521
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768442978569
 }
