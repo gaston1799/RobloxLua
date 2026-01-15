@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 100040622766961,
-  "jobId": "5a97e0dc-a7f5-48ed-99a8-5ce5874b669b",
-  "join": "roblox://placeId=100040622766961&gameInstanceId=5a97e0dc-a7f5-48ed-99a8-5ce5874b669b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=100040622766961&gameInstanceId=5a97e0dc-a7f5-48ed-99a8-5ce5874b669b",
-  "location": "[🔥]  Hypershot",
-  "updatedAt": 1768451231545
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768451471483
 }
