@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3851622790,
+  "jobId": "c2701614-9531-4ab8-8297-0ed014ff153e",
+  "join": "roblox://placeId=3851622790&gameInstanceId=c2701614-9531-4ab8-8297-0ed014ff153e",
   "follow": "roblox://followUserId=2535826375",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768517758136
+  "web": "https://www.roblox.com/games/start?placeId=3851622790&gameInstanceId=c2701614-9531-4ab8-8297-0ed014ff153e",
+  "location": "Break In (Story)",
+  "updatedAt": 1768517818088
 }
