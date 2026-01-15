@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "in-game",
-  "placeId": 124311897657957,
-  "jobId": "4a09590d-a3b8-49ef-9fe6-6dd7e72e97d6",
-  "join": "roblox://placeId=124311897657957&gameInstanceId=4a09590d-a3b8-49ef-9fe6-6dd7e72e97d6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3872347405",
-  "web": "https://www.roblox.com/games/start?placeId=124311897657957&gameInstanceId=4a09590d-a3b8-49ef-9fe6-6dd7e72e97d6",
-  "location": "⛏️ Break a Lucky Block!",
-  "updatedAt": 1768475236338
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768475896568
 }
