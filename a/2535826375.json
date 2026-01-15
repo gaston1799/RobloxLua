@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 118467652729408,
+  "jobId": "a5ebd7a6-4092-40ab-b69d-64839b1a5f64",
+  "join": "roblox://placeId=118467652729408&gameInstanceId=a5ebd7a6-4092-40ab-b69d-64839b1a5f64",
   "follow": "roblox://followUserId=2535826375",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768521178791
+  "web": "https://www.roblox.com/games/start?placeId=118467652729408&gameInstanceId=a5ebd7a6-4092-40ab-b69d-64839b1a5f64",
+  "location": "🐶 2 Player Puppy Tycoon!",
+  "updatedAt": 1768521238804
 }
