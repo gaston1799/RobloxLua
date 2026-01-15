@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "in-game",
-  "placeId": 5814304937,
-  "jobId": "808ff77d-db28-4571-8450-bcb859faa1d1",
-  "join": "roblox://placeId=5814304937&gameInstanceId=808ff77d-db28-4571-8450-bcb859faa1d1",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2535826375",
-  "web": "https://www.roblox.com/games/start?placeId=5814304937&gameInstanceId=808ff77d-db28-4571-8450-bcb859faa1d1",
-  "location": "Outfit Loader Testing Place",
-  "updatedAt": 1768438416958
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768438537023
 }
