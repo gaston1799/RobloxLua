@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "in-game",
-  "placeId": 7426691371,
-  "jobId": "8aa4faa3-47eb-4d3f-92ba-c6e06e45b7ed",
-  "join": "roblox://placeId=7426691371&gameInstanceId=8aa4faa3-47eb-4d3f-92ba-c6e06e45b7ed",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2535826375",
-  "web": "https://www.roblox.com/games/start?placeId=7426691371&gameInstanceId=8aa4faa3-47eb-4d3f-92ba-c6e06e45b7ed",
-  "location": "The Mirror [Multiplayer Version]",
-  "updatedAt": 1768518118216
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768518178263
 }
