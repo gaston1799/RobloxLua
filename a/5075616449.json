@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 189707,
-  "jobId": "c2c8be75-5eb4-4fe8-8335-3ea965748f3b",
-  "join": "roblox://placeId=189707&gameInstanceId=c2c8be75-5eb4-4fe8-8335-3ea965748f3b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=189707&gameInstanceId=c2c8be75-5eb4-4fe8-8335-3ea965748f3b",
-  "location": "Natural Disaster Survival",
-  "updatedAt": 1768529945773
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768530004433
 }
