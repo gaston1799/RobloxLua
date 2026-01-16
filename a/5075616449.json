@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 135880624242201,
+  "jobId": "b3af98ce-b990-4349-b7cb-d998b2ba31f8",
+  "join": "roblox://placeId=135880624242201&gameInstanceId=b3af98ce-b990-4349-b7cb-d998b2ba31f8",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1768531625408
+  "web": "https://www.roblox.com/games/start?placeId=135880624242201&gameInstanceId=b3af98ce-b990-4349-b7cb-d998b2ba31f8",
+  "location": "Cut Trees",
+  "updatedAt": 1768531683987
 }
