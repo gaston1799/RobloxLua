@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "in-game",
-  "placeId": 17664585395,
-  "jobId": "e038a440-72d8-4844-bc85-4e4c93561408",
-  "join": "roblox://placeId=17664585395&gameInstanceId=e038a440-72d8-4844-bc85-4e4c93561408",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2535826375",
-  "web": "https://www.roblox.com/games/start?placeId=17664585395&gameInstanceId=e038a440-72d8-4844-bc85-4e4c93561408",
-  "location": "Spelling Race",
-  "updatedAt": 1768532041713
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768532942031
 }
