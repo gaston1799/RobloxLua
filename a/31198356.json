@@ -1,12 +1,12 @@
 {
   "userId": 31198356,
   "displayName": "umst",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 82013336390273,
+  "jobId": "e9c4cd7c-8ffc-4f3f-8549-539755e6fee5",
+  "join": "roblox://placeId=82013336390273&gameInstanceId=e9c4cd7c-8ffc-4f3f-8549-539755e6fee5",
   "follow": "roblox://followUserId=31198356",
-  "web": null,
-  "location": "Offline",
-  "updatedAt": 1768559669404
+  "web": "https://www.roblox.com/games/start?placeId=82013336390273&gameInstanceId=e9c4cd7c-8ffc-4f3f-8549-539755e6fee5",
+  "location": "[🎉EVENT] Pickaxe Simulator! ⛏️",
+  "updatedAt": 1768559710791
 }
