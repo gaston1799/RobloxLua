@@ -1,12 +1,12 @@
 {
   "userId": 2535826375,
   "displayName": "Dani",
-  "status": "in-game",
-  "placeId": 132388544979740,
-  "jobId": "fb5dce04-4a9b-42bd-8e71-5d7f363f175d",
-  "join": "roblox://placeId=132388544979740&gameInstanceId=fb5dce04-4a9b-42bd-8e71-5d7f363f175d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2535826375",
-  "web": "https://www.roblox.com/games/start?placeId=132388544979740&gameInstanceId=fb5dce04-4a9b-42bd-8e71-5d7f363f175d",
-  "location": "[🍍] Adopt Me!",
-  "updatedAt": 1768523369294
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768523969652
 }
