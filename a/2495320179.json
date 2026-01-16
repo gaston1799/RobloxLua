@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "in-game",
-  "placeId": 102574559184919,
-  "jobId": "27f8c746-f28c-4fb4-a728-cd8c4f13a271",
-  "join": "roblox://placeId=102574559184919&gameInstanceId=27f8c746-f28c-4fb4-a728-cd8c4f13a271",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2495320179",
-  "web": "https://www.roblox.com/games/start?placeId=102574559184919&gameInstanceId=27f8c746-f28c-4fb4-a728-cd8c4f13a271",
-  "location": "Craft Food",
-  "updatedAt": 1768560251367
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1768567153567
 }
