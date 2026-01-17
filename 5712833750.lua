@@ -528,8 +528,8 @@ local safeZoneVizY
 
 local FOLLOW_RANGE_MIN_COLOR = Color3.fromRGB(120, 185, 255)
 local FOLLOW_RANGE_MAX_COLOR = Color3.fromRGB(255, 215, 90)
-local FOLLOW_RANGE_VIZ_TRANSPARENCY = 0.84
-local FOLLOW_RANGE_VIZ_THICKNESS = 0.11
+local FOLLOW_RANGE_VIZ_TRANSPARENCY = 0.62
+local FOLLOW_RANGE_VIZ_THICKNESS = 0.2
 
 local followRangeVizMin
 local followRangeVizMax
@@ -706,6 +706,7 @@ local function ensureFollowRangeCircle(existing, name, color)
     part.Material = Enum.Material.Neon
     part.Transparency = FOLLOW_RANGE_VIZ_TRANSPARENCY
     part.Color = color
+    part.CastShadow = false
     part.Parent = folder
     return part
 end
@@ -731,18 +732,41 @@ local function updateFollowRangeVisualization(centerPosition, minDistance, maxRa
     end
 
     local thickness = FOLLOW_RANGE_VIZ_THICKNESS
-    local y = sampleGroundYAt(centerPosition.X, centerPosition.Z) + thickness / 2 + 0.03
-    local rotation = CFrame.Angles(0, 0, math.rad(90))
+    do
+        local raycastParams = RaycastParams.new()
+        raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+        raycastParams.IgnoreWater = true
+
+        local blacklist = {}
+        if Visualizer.folder then
+            table.insert(blacklist, Visualizer.folder)
+        end
+        if LocalPlayer.Character then
+            table.insert(blacklist, LocalPlayer.Character)
+        end
+        local anchor = AnimalSim.Modules.Combat._followAllyAnchor
+        if anchor and anchor.Character then
+            table.insert(blacklist, anchor.Character)
+        end
+        raycastParams.FilterDescendantsInstances = blacklist
+
+        local origin = centerPosition + Vector3.new(0, 80, 0)
+        local result = workspace:Raycast(origin, Vector3.new(0, -300, 0), raycastParams)
+        if result then
+            centerPosition = Vector3.new(centerPosition.X, result.Position.Y, centerPosition.Z)
+        end
+    end
+    local y = centerPosition.Y + thickness / 2 + 0.05
 
     followRangeVizMin = ensureFollowRangeCircle(followRangeVizMin, "FollowRangeMin", FOLLOW_RANGE_MIN_COLOR)
     followRangeVizMax = ensureFollowRangeCircle(followRangeVizMax, "FollowRangeMax", FOLLOW_RANGE_MAX_COLOR)
 
     local minDiameter = math.max(0.2, minDistance * 2)
     local maxDiameter = math.max(0.2, maxRange * 2)
-    followRangeVizMin.Size = Vector3.new(thickness, minDiameter, minDiameter)
-    followRangeVizMax.Size = Vector3.new(thickness, maxDiameter, maxDiameter)
-    followRangeVizMin.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z) * rotation
-    followRangeVizMax.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z) * rotation
+    followRangeVizMin.Size = Vector3.new(minDiameter, thickness, minDiameter)
+    followRangeVizMax.Size = Vector3.new(maxDiameter, thickness, maxDiameter)
+    followRangeVizMin.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z)
+    followRangeVizMax.CFrame = CFrame.new(centerPosition.X, y, centerPosition.Z)
 end
 
 local function clearVisualizerFolder()
@@ -2005,28 +2029,67 @@ local function getSelectedTargetHumanoid()
 end
 
 local function autoEatLoop()
-    local function getFoodTool()
+    local foodToolIndex = 1
+    local foodCooldowns = {}
+
+    local function collectFoodTools()
+        local tools = {}
         local character = LocalPlayer.Character
         if character then
-            local equipped = character:FindFirstChild("Food")
-            if equipped and equipped:IsA("Tool") then
-                return equipped
+            for _, tool in ipairs(character:GetChildren()) do
+                if tool:IsA("Tool") and tool.Name == "Food" then
+                    table.insert(tools, tool)
+                end
             end
         end
         local backpack = LocalPlayer:FindFirstChild("Backpack") or LocalPlayer.Backpack
         if backpack then
-            local tool = backpack:FindFirstChild("Food")
-            if tool and tool:IsA("Tool") then
-                return tool
+            for _, tool in ipairs(backpack:GetChildren()) do
+                if tool:IsA("Tool") and tool.Name == "Food" then
+                    table.insert(tools, tool)
+                end
             end
         end
-        return nil
+        return tools
+    end
+
+    local function getNextFoodTool()
+        local tools = collectFoodTools()
+        local toolCount = #tools
+        if toolCount == 0 then
+            return nil, 0.5
+        end
+        if foodToolIndex > toolCount then
+            foodToolIndex = 1
+        end
+
+        local now = os.clock()
+        local shortestWait = 2
+        for _ = 1, toolCount do
+            local tool = tools[foodToolIndex]
+            local lastUsed = foodCooldowns[tool]
+            local remaining = lastUsed and (2 - (now - lastUsed)) or 0
+
+            foodToolIndex = foodToolIndex + 1
+            if foodToolIndex > toolCount then
+                foodToolIndex = 1
+            end
+
+            if remaining <= 0 then
+                return tool, 0.1
+            end
+            if remaining < shortestWait then
+                shortestWait = remaining
+            end
+        end
+
+        return nil, math.max(shortestWait, 0.1)
     end
 
     while autoEatEnabled do
-        local tool = getFoodTool()
+        local tool, waitTime = getNextFoodTool()
         if not tool then
-            task.wait(0.5)
+            task.wait(waitTime or 0.5)
         else
             local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
             local humanoidInstance = character:FindFirstChildOfClass("Humanoid") or character:WaitForChild("Humanoid")
@@ -2038,8 +2101,9 @@ local function autoEatLoop()
                 pcall(function()
                     tool:Activate()
                 end)
+                foodCooldowns[tool] = os.clock()
             end
-            task.wait(2)
+            task.wait(waitTime or 0.1)
         end
     end
     autoEatTask = nil
