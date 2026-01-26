@@ -2057,14 +2057,14 @@ local function autoEatLoop()
         local tools = collectFoodTools()
         local toolCount = #tools
         if toolCount == 0 then
-            return nil, 0.5
+            return nil, 0.05
         end
         if foodToolIndex > toolCount then
             foodToolIndex = 1
         end
 
         local now = os.clock()
-        local shortestWait = 2
+        local shortestWait = 1.4
         for _ = 1, toolCount do
             local tool = tools[foodToolIndex]
             local lastUsed = foodCooldowns[tool]
@@ -2083,7 +2083,7 @@ local function autoEatLoop()
             end
         end
 
-        return nil, math.max(shortestWait, 0.1)
+        return nil, 0.1
     end
 
     while autoEatEnabled do
