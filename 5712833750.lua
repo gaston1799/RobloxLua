@@ -57,6 +57,7 @@ local AnimalSim = {
         autoZoneFakeouts = false,
         autoFlightChase = false,
         autoFireball = false,
+        holdFire = false,
         followTarget = false,
         followDistance = 10,
         selectedPlayer = nil,
@@ -143,14 +144,15 @@ local justDied = false
 local incDMG = 100
 local autoEatTask
 local autoEatEnabled = false
+local holdFireEnabled = false
 local autoFireballTask
 local autoFireballEnabled = false
 local autoZoneTask
 local autoZoneEnabled = false
 local autoPVPTask
 local autoPVPEnabled = false
-local autoFlightChaseTask
-local autoFlightChaseEnabled = false
+--local autoFlightChaseTask
+--local autoFlightChaseEnabled = false
 local autoZoneCancelToken = 0
 local followTaskRunning = false
 local autoJumpEnabled = false
@@ -191,6 +193,7 @@ local fireballOldMouseBehavior
 
 local ensureAutoZoneIndicator
 local hideAutoZoneIndicator
+local findZoneProjectileTool
 local findZoneTarget
 local aimAndFireAtPlayer
 
@@ -2028,9 +2031,26 @@ local function getSelectedTargetHumanoid()
     return nil
 end
 
+local function equipHoldFireTool(character, humanoidInstance)
+    if not holdFireEnabled then
+        return
+    end
+    if not (character and humanoidInstance) then
+        return
+    end
+    if type(findZoneProjectileTool) ~= "function" then
+        return
+    end
+    local tool = findZoneProjectileTool()
+    if tool and tool:IsA("Tool") and tool.Parent ~= character then
+        pcall(function()
+            humanoidInstance:EquipTool(tool)
+        end)
+    end
+end
+
 local function autoEatLoop()
     local foodToolIndex = 1
-    local foodCooldowns = {}
 
     local function collectFoodTools()
         local tools = {}
@@ -2053,57 +2073,37 @@ local function autoEatLoop()
         return tools
     end
 
-    local function getNextFoodTool()
+    while autoEatEnabled do
         local tools = collectFoodTools()
         local toolCount = #tools
         if toolCount == 0 then
-            return nil, 0.05
-        end
-        if foodToolIndex > toolCount then
-            foodToolIndex = 1
-        end
-
-        local now = os.clock()
-        local shortestWait = 1.4
-        for _ = 1, toolCount do
-            local tool = tools[foodToolIndex]
-            local lastUsed = foodCooldowns[tool]
-            local remaining = lastUsed and (2 - (now - lastUsed)) or 0
-
-            foodToolIndex = foodToolIndex + 1
+            local character = LocalPlayer.Character
+            local humanoidInstance = character and character:FindFirstChildOfClass("Humanoid")
+            equipHoldFireTool(character, humanoidInstance)
+            task.wait(0.1)
+        else
             if foodToolIndex > toolCount then
                 foodToolIndex = 1
             end
+            local tool = tools[foodToolIndex]
+            foodToolIndex = foodToolIndex + 1
 
-            if remaining <= 0 then
-                return tool, 0.1
-            end
-            if remaining < shortestWait then
-                shortestWait = remaining
-            end
-        end
-
-        return nil, 0.1
-    end
-
-    while autoEatEnabled do
-        local tool, waitTime = getNextFoodTool()
-        if not tool then
-            task.wait(waitTime or 0.5)
-        else
             local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
             local humanoidInstance = character:FindFirstChildOfClass("Humanoid") or character:WaitForChild("Humanoid")
-            if humanoidInstance.Health < humanoidInstance.MaxHealth then
+            if tool and humanoidInstance then
                 if tool.Parent == LocalPlayer.Backpack then
                     humanoidInstance:EquipTool(tool)
-                    task.wait(0.1)
+                    task.wait(0.05)
                 end
-                pcall(function()
-                    tool:Activate()
-                end)
-                foodCooldowns[tool] = os.clock()
+                if humanoidInstance.Health < humanoidInstance.MaxHealth then
+                    pcall(function()
+                        tool:Activate()
+                    end)
+                end
             end
-            task.wait(waitTime or 0.1)
+
+            equipHoldFireTool(character, humanoidInstance)
+            task.wait(0.05)
         end
     end
     autoEatTask = nil
@@ -2126,6 +2126,17 @@ local function stopAutoEat()
     AnimalSim.State.autoEat = false
     while autoEatTask do
         task.wait()
+    end
+end
+
+local function setHoldFire(value)
+    holdFireEnabled = value
+    AnimalSim.State.holdFire = value
+    if value and autoEatEnabled then
+        defineNilLocals()
+        local character = LocalPlayer.Character
+        local humanoidInstance = character and character:FindFirstChildOfClass("Humanoid")
+        equipHoldFireTool(character, humanoidInstance)
     end
 end
 
@@ -2671,7 +2682,7 @@ local function destroyAutoZoneIndicator()
     end
 end
 
-local function findZoneProjectileTool()
+findZoneProjectileTool = function()
     local character = LocalPlayer.Character
     local backpack = LocalPlayer:FindFirstChild("Backpack") or LocalPlayer.Backpack
 
@@ -3457,6 +3468,7 @@ local function setAutoZone(value)
     end
 end
 
+--[[ Flight chase (disabled for now)
 local function startAutoFlightChase()
     if autoFlightChaseEnabled then
         return
@@ -3496,6 +3508,7 @@ local function stopAutoFlightChase()
         task.wait()
     end
 end
+]]
 
 AnimalSim.Modules.Utilities.teamCheck = teamCheck
 AnimalSim.Modules.Utilities.myTeam = myTeam
@@ -3544,13 +3557,14 @@ AnimalSim.Modules.Combat.startAutoEat = startAutoEat
 AnimalSim.Modules.Combat.stopAutoEat = stopAutoEat
 AnimalSim.Modules.Combat.startAutoFireball = startAutoFireball
 AnimalSim.Modules.Combat.stopAutoFireball = stopAutoFireball
-AnimalSim.Modules.Combat.startAutoFlightChase = startAutoFlightChase
-AnimalSim.Modules.Combat.stopAutoFlightChase = stopAutoFlightChase
+-- AnimalSim.Modules.Combat.startAutoFlightChase = startAutoFlightChase
+-- AnimalSim.Modules.Combat.stopAutoFlightChase = stopAutoFlightChase
 AnimalSim.Modules.Combat.setLegitMode = setLegitMode
 AnimalSim.Modules.Combat.setAutoJump = setAutoJump
 AnimalSim.Modules.Combat.setAutoFight = setAutoFight
 AnimalSim.Modules.Combat.setAutoPVP = setAutoPVP
 AnimalSim.Modules.Combat.setAutoZone = setAutoZone
+AnimalSim.Modules.Combat.setHoldFire = setHoldFire
 
 ---------------------------------------------------------------------
 -- Logging helpers
@@ -3697,12 +3711,6 @@ AnimalSim.UI.buildUI = function()
     AnimalSim.UI.instances.targetDropdown = targetDropdown
 
     gameplaySection:addToggle({
-        title = "Auto EXP Farm",
-        toggled = farmActive,
-        callback = setFarmActive,
-    })
-
-    gameplaySection:addToggle({
         title = "Legit Mode",
         toggled = AnimalSim.State.legitMode,
         callback = setLegitMode,
@@ -3736,6 +3744,12 @@ AnimalSim.UI.buildUI = function()
                 stopAutoEat()
             end
         end,
+    })
+
+    gameplaySection:addToggle({
+        title = "Hold Fire (Auto Eat)",
+        toggled = holdFireEnabled,
+        callback = setHoldFire,
     })
 
     gameplaySection:addToggle({
@@ -3819,17 +3833,17 @@ AnimalSim.UI.buildUI = function()
         end,
     })
 
-    gameplaySection:addToggle({
-        title = "Flight Chase",
-        toggled = autoFlightChaseEnabled,
-        callback = function(value)
-            if value then
-                startAutoFlightChase()
-            else
-                stopAutoFlightChase()
-            end
-        end,
-    })
+    -- gameplaySection:addToggle({
+    --     title = "Flight Chase",
+    --     toggled = autoFlightChaseEnabled,
+    --     callback = function(value)
+    --         if value then
+    --             startAutoFlightChase()
+    --         else
+    --             stopAutoFlightChase()
+    --         end
+    --     end,
+    -- })
 
     gameplaySection:addToggle({
         title = "Movement Visualizer",
@@ -3879,27 +3893,6 @@ AnimalSim.UI.buildUI = function()
         callback = function()
             for _, team in ipairs(workspace.Teams:GetChildren()) do
                 print(team.Name)
-            end
-        end,
-    })
-
-    gameplaySection:addTextbox({
-        title = "Force Player Ride",
-        default = "Case Sensitive",
-        callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
-                return
-            end
-            local rideEvents = ReplicatedStorage:FindFirstChild("RideEvents")
-            local acceptEvent = rideEvents and rideEvents:FindFirstChild("acceptEvent")
-            if not acceptEvent then
-                warn("[AnimalSim] RideEvents.acceptEvent not found in ReplicatedStorage")
-                return
-            end
-            for _, player in ipairs(Players:GetPlayers()) do
-                if player ~= LocalPlayer and string.find(player.Name, value, 1, true) then
-                    acceptEvent:FireServer(player.Name)
-                end
             end
         end,
     })
