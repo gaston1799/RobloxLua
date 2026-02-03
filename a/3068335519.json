@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "c7852cb0-6ac3-4b6b-be90-b6e51cd97561",
+  "join": "roblox://placeId=5712833750&gameInstanceId=c7852cb0-6ac3-4b6b-be90-b6e51cd97561",
   "follow": "roblox://followUserId=3068335519",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770162173195
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=c7852cb0-6ac3-4b6b-be90-b6e51cd97561",
+  "location": "🦝🎄 Animal Simulator",
+  "updatedAt": 1770162231263
 }
