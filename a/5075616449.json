@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99606176102979,
+  "jobId": "24e88c82-2a5d-49cd-867e-25529d1530ac",
+  "join": "roblox://placeId=99606176102979&gameInstanceId=24e88c82-2a5d-49cd-867e-25529d1530ac",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770161507842
+  "web": "https://www.roblox.com/games/start?placeId=99606176102979&gameInstanceId=24e88c82-2a5d-49cd-867e-25529d1530ac",
+  "location": "[NOW] Steal a Brainrot",
+  "updatedAt": 1770161575169
 }
