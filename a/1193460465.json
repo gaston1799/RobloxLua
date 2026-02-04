@@ -1,12 +1,12 @@
 {
   "userId": 1193460465,
   "displayName": "mxlly",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 118768612035314,
+  "jobId": "70ab52ec-6723-4c06-a3fd-2f9088c58e48",
+  "join": "roblox://placeId=118768612035314&gameInstanceId=70ab52ec-6723-4c06-a3fd-2f9088c58e48",
   "follow": "roblox://followUserId=1193460465",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770223300586
+  "web": "https://www.roblox.com/games/start?placeId=118768612035314&gameInstanceId=70ab52ec-6723-4c06-a3fd-2f9088c58e48",
+  "location": "Clone Mining Tycoon [ALPHA]",
+  "updatedAt": 1770223359485
 }
