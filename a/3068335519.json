@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "in-game",
-  "placeId": 96645548064314,
-  "jobId": "53fffbde-d2dd-459f-a8a6-0f64ec7504e9",
-  "join": "roblox://placeId=96645548064314&gameInstanceId=53fffbde-d2dd-459f-a8a6-0f64ec7504e9",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3068335519",
-  "web": "https://www.roblox.com/games/start?placeId=96645548064314&gameInstanceId=53fffbde-d2dd-459f-a8a6-0f64ec7504e9",
-  "location": "Catch And Tame!",
-  "updatedAt": 1770178309591
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770179688089
 }
