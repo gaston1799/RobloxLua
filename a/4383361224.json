@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10449761463,
+  "jobId": "0d0e3c24-9865-4538-b9e7-cfafd76e40fe",
+  "join": "roblox://placeId=10449761463&gameInstanceId=0d0e3c24-9865-4538-b9e7-cfafd76e40fe",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770209959787
+  "web": "https://www.roblox.com/games/start?placeId=10449761463&gameInstanceId=0d0e3c24-9865-4538-b9e7-cfafd76e40fe",
+  "location": "The Strongest Battlegrounds",
+  "updatedAt": 1770210019093
 }
