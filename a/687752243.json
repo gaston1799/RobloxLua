@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 13434685356,
-  "jobId": "193601a9-a43c-4707-b83d-45b444dd68d2",
-  "join": "roblox://placeId=13434685356&gameInstanceId=193601a9-a43c-4707-b83d-45b444dd68d2",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=13434685356&gameInstanceId=193601a9-a43c-4707-b83d-45b444dd68d2",
-  "location": "[TEMP SAITAMA] DBZ Battlegrounds",
-  "updatedAt": 1770235900084
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770236079546
 }
