@@ -1,12 +1,12 @@
 {
   "userId": 2423430148,
   "displayName": "WhosGaston",
-  "status": "in-game",
-  "placeId": 98927955463992,
-  "jobId": "b54cc053-9d0b-401c-bf08-ed4d72d895fb",
-  "join": "roblox://placeId=98927955463992&gameInstanceId=b54cc053-9d0b-401c-bf08-ed4d72d895fb",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2423430148",
-  "web": "https://www.roblox.com/games/start?placeId=98927955463992&gameInstanceId=b54cc053-9d0b-401c-bf08-ed4d72d895fb",
-  "location": "[CLASSES] Survive Zombie Arena",
-  "updatedAt": 1770171287724
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770172486215
 }
