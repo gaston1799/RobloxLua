@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 126465989362904,
+  "jobId": "ebeac055-e8e9-47ae-b1d1-224acbc884a4",
+  "join": "roblox://placeId=126465989362904&gameInstanceId=ebeac055-e8e9-47ae-b1d1-224acbc884a4",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770214638591
+  "web": "https://www.roblox.com/games/start?placeId=126465989362904&gameInstanceId=ebeac055-e8e9-47ae-b1d1-224acbc884a4",
+  "location": "+1 Strength per Kill",
+  "updatedAt": 1770214698785
 }
