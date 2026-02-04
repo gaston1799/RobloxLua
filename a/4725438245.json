@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "in-game",
-  "placeId": 98927955463992,
-  "jobId": "f6285c75-b73f-4550-bb7d-2f54c071672c",
-  "join": "roblox://placeId=98927955463992&gameInstanceId=f6285c75-b73f-4550-bb7d-2f54c071672c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4725438245",
-  "web": "https://www.roblox.com/games/start?placeId=98927955463992&gameInstanceId=f6285c75-b73f-4550-bb7d-2f54c071672c",
-  "location": "[CLASSES] Survive Zombie Arena",
-  "updatedAt": 1770169037764
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770170477635
 }
