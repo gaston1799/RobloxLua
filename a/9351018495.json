@@ -1,12 +1,12 @@
 {
   "userId": 9351018495,
   "displayName": "UnaliveU",
-  "status": "in-game",
-  "placeId": 98927955463992,
-  "jobId": "3c0df74a-c641-4cce-992f-d849e473f27e",
-  "join": "roblox://placeId=98927955463992&gameInstanceId=3c0df74a-c641-4cce-992f-d849e473f27e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9351018495",
-  "web": "https://www.roblox.com/games/start?placeId=98927955463992&gameInstanceId=3c0df74a-c641-4cce-992f-d849e473f27e",
-  "location": "[CLASSES] Survive Zombie Arena",
-  "updatedAt": 1770224195737
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770225155441
 }
