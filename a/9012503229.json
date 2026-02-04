@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1428472551,
+  "jobId": "e69c09d6-6c58-42a8-894d-f3f8a8c2cf68",
+  "join": "roblox://placeId=1428472551&gameInstanceId=e69c09d6-6c58-42a8-894d-f3f8a8c2cf68",
   "follow": "roblox://followUserId=9012503229",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770228635736
+  "web": "https://www.roblox.com/games/start?placeId=1428472551&gameInstanceId=e69c09d6-6c58-42a8-894d-f3f8a8c2cf68",
+  "location": "Escape The Dentist Obby! (NEW!)",
+  "updatedAt": 1770228697274
 }
