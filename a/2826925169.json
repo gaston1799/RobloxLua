@@ -1,12 +1,12 @@
 {
   "userId": 2826925169,
   "displayName": "gxg",
-  "status": "in-game",
-  "placeId": 17625359962,
-  "jobId": "a54a008f-e132-4190-8c20-ab2be3301276",
-  "join": "roblox://placeId=17625359962&gameInstanceId=a54a008f-e132-4190-8c20-ab2be3301276",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2826925169",
-  "web": "https://www.roblox.com/games/start?placeId=17625359962&gameInstanceId=a54a008f-e132-4190-8c20-ab2be3301276",
-  "location": "RIVALS",
-  "updatedAt": 1770173869986
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770173991143
 }
