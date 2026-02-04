@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13488637865,
+  "jobId": "adf9be66-eee8-463b-89cf-a804af5ec054",
+  "join": "roblox://placeId=13488637865&gameInstanceId=adf9be66-eee8-463b-89cf-a804af5ec054",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770243341957
+  "web": "https://www.roblox.com/games/start?placeId=13488637865&gameInstanceId=adf9be66-eee8-463b-89cf-a804af5ec054",
+  "location": "Blood Engine",
+  "updatedAt": 1770243523198
 }
