@@ -1,12 +1,12 @@
 {
   "userId": 7454283042,
   "displayName": "DES_Rage",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 17625359962,
+  "jobId": "5386cb42-cc47-444e-ac61-5539fa9a83cf",
+  "join": "roblox://placeId=17625359962&gameInstanceId=5386cb42-cc47-444e-ac61-5539fa9a83cf",
   "follow": "roblox://followUserId=7454283042",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770209268036
+  "web": "https://www.roblox.com/games/start?placeId=17625359962&gameInstanceId=5386cb42-cc47-444e-ac61-5539fa9a83cf",
+  "location": "RIVALS",
+  "updatedAt": 1770212751338
 }
