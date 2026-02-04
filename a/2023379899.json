@@ -1,12 +1,12 @@
 {
   "userId": 2023379899,
   "displayName": "T_Kitten",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "860714f5-731f-4eb0-9736-8d2708abef1e",
+  "join": "roblox://placeId=5712833750&gameInstanceId=860714f5-731f-4eb0-9736-8d2708abef1e",
   "follow": "roblox://followUserId=2023379899",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770165230261
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=860714f5-731f-4eb0-9736-8d2708abef1e",
+  "location": "🦝🎄 Animal Simulator",
+  "updatedAt": 1770165289957
 }
