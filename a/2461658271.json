@@ -1,12 +1,12 @@
 {
   "userId": 2461658271,
   "displayName": "Bay_Xit",
-  "status": "in-game",
-  "placeId": 119579217517090,
-  "jobId": "a8d5a268-fffd-45de-821e-e903b0301695",
-  "join": "roblox://placeId=119579217517090&gameInstanceId=a8d5a268-fffd-45de-821e-e903b0301695",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2461658271",
-  "web": "https://www.roblox.com/games/start?placeId=119579217517090&gameInstanceId=a8d5a268-fffd-45de-821e-e903b0301695",
-  "location": "Escape Waves For Lucky Blocks",
-  "updatedAt": 1770164509766
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770164688453
 }
