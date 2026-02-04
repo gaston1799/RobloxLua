@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "in-game",
-  "placeId": 15049111150,
-  "jobId": "201127f1-6aeb-47ea-9889-a13dffc54d4e",
-  "join": "roblox://placeId=15049111150&gameInstanceId=201127f1-6aeb-47ea-9889-a13dffc54d4e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7745922411",
-  "web": "https://www.roblox.com/games/start?placeId=15049111150&gameInstanceId=201127f1-6aeb-47ea-9889-a13dffc54d4e",
-  "location": "[Solemn Lament] Second Piece",
-  "updatedAt": 1770232303368
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770232420103
 }
