@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 117113666261072,
+  "jobId": "13d3eee9-d895-4e92-af08-d3f086299bf0",
+  "join": "roblox://placeId=117113666261072&gameInstanceId=13d3eee9-d895-4e92-af08-d3f086299bf0",
   "follow": "roblox://followUserId=3068335519",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770187188377
+  "web": "https://www.roblox.com/games/start?placeId=117113666261072&gameInstanceId=13d3eee9-d895-4e92-af08-d3f086299bf0",
+  "location": "Number Memory 🧠",
+  "updatedAt": 1770187613051
 }
