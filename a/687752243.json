@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 90625015569871,
+  "jobId": "7414b443-8f9b-4a33-9af4-d59d3254d7ee",
+  "join": "roblox://placeId=90625015569871&gameInstanceId=7414b443-8f9b-4a33-9af4-d59d3254d7ee",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770176777848
+  "web": "https://www.roblox.com/games/start?placeId=90625015569871&gameInstanceId=7414b443-8f9b-4a33-9af4-d59d3254d7ee",
+  "location": "[FPS] Sniper Arena",
+  "updatedAt": 1770176837984
 }
