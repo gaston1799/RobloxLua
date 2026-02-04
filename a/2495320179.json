@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 116495829188952,
+  "jobId": "060502c1-dcb4-48bd-bf64-e9a162cdf29b",
+  "join": "roblox://placeId=116495829188952&gameInstanceId=060502c1-dcb4-48bd-bf64-e9a162cdf29b",
   "follow": "roblox://followUserId=2495320179",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770170179827
+  "web": "https://www.roblox.com/games/start?placeId=116495829188952&gameInstanceId=060502c1-dcb4-48bd-bf64-e9a162cdf29b",
+  "location": "Dead Rails [Beta]",
+  "updatedAt": 1770170298082
 }
