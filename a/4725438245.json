@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5991163185,
+  "jobId": "5ca3f7c2-92c8-4591-9d32-5d65f9ac59c7",
+  "join": "roblox://placeId=5991163185&gameInstanceId=5ca3f7c2-92c8-4591-9d32-5d65f9ac59c7",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770210318420
+  "web": "https://www.roblox.com/games/start?placeId=5991163185&gameInstanceId=5ca3f7c2-92c8-4591-9d32-5d65f9ac59c7",
+  "location": "Spray Paint!",
+  "updatedAt": 1770210378778
 }
