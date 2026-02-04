@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7029243758,
+  "jobId": "3ab275ab-d0fa-42d3-83f4-55de37fb0169",
+  "join": "roblox://placeId=7029243758&gameInstanceId=3ab275ab-d0fa-42d3-83f4-55de37fb0169",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770236079546
+  "web": "https://www.roblox.com/games/start?placeId=7029243758&gameInstanceId=3ab275ab-d0fa-42d3-83f4-55de37fb0169",
+  "location": "Pirates vs. Ninjas [ALPHA]",
+  "updatedAt": 1770236143013
 }
