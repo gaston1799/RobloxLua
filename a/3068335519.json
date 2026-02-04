@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "in-game",
-  "placeId": 108733713706190,
-  "jobId": "b8415068-3d99-48a4-b768-4b7dd4ea0eb4",
-  "join": "roblox://placeId=108733713706190&gameInstanceId=b8415068-3d99-48a4-b768-4b7dd4ea0eb4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3068335519",
-  "web": "https://www.roblox.com/games/start?placeId=108733713706190&gameInstanceId=b8415068-3d99-48a4-b768-4b7dd4ea0eb4",
-  "location": "Escape Tsunami for Horses! 🐴",
-  "updatedAt": 1770240500819
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770245265649
 }
