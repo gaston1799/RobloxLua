@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 13492239730,
-  "jobId": "06cc01b5-fb40-4b3c-a50c-267bb4b65452",
-  "join": "roblox://placeId=13492239730&gameInstanceId=06cc01b5-fb40-4b3c-a50c-267bb4b65452",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=13492239730&gameInstanceId=06cc01b5-fb40-4b3c-a50c-267bb4b65452",
-  "location": "[KILLER ULT!] Nen Battlegrounds",
-  "updatedAt": 1770236318440
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770236619427
 }
