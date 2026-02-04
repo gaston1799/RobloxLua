@@ -1,12 +1,12 @@
 {
   "userId": 7454283042,
   "displayName": "DES_Rage",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 79091703265657,
+  "jobId": "53bfe70c-afd3-4de7-9741-e7349974ff33",
+  "join": "roblox://placeId=79091703265657&gameInstanceId=53bfe70c-afd3-4de7-9741-e7349974ff33",
   "follow": "roblox://followUserId=7454283042",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770214788863
+  "web": "https://www.roblox.com/games/start?placeId=79091703265657&gameInstanceId=53bfe70c-afd3-4de7-9741-e7349974ff33",
+  "location": "Blox Fruits",
+  "updatedAt": 1770214849094
 }
