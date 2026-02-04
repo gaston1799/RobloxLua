@@ -1,12 +1,12 @@
 {
   "userId": 7454283042,
   "displayName": "DES_Rage",
-  "status": "in-game",
-  "placeId": 13110267312,
-  "jobId": "99ce34d7-dcd9-4281-8fdc-d2a7794c2ed1",
-  "join": "roblox://placeId=13110267312&gameInstanceId=99ce34d7-dcd9-4281-8fdc-d2a7794c2ed1",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7454283042",
-  "web": "https://www.roblox.com/games/start?placeId=13110267312&gameInstanceId=99ce34d7-dcd9-4281-8fdc-d2a7794c2ed1",
-  "location": "Animal Sim: Underwater",
-  "updatedAt": 1770205430549
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770205553374
 }
