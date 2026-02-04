@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 17377470250,
-  "jobId": "63ff9a4a-0f48-4ddb-9c54-28efda215957",
-  "join": "roblox://placeId=17377470250&gameInstanceId=63ff9a4a-0f48-4ddb-9c54-28efda215957",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=17377470250&gameInstanceId=63ff9a4a-0f48-4ddb-9c54-28efda215957",
-  "location": "❄️Scream Stream",
-  "updatedAt": 1770219095963
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770219816876
 }
