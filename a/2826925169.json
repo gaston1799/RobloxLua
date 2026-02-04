@@ -1,12 +1,12 @@
 {
   "userId": 2826925169,
   "displayName": "gxg",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 110838402822611,
+  "jobId": "3fdc6889-2865-400a-bfd4-f65a33cd4348",
+  "join": "roblox://placeId=110838402822611&gameInstanceId=3fdc6889-2865-400a-bfd4-f65a33cd4348",
   "follow": "roblox://followUserId=2826925169",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770243468823
+  "web": "https://www.roblox.com/games/start?placeId=110838402822611&gameInstanceId=3fdc6889-2865-400a-bfd4-f65a33cd4348",
+  "location": "Build A Snowplow",
+  "updatedAt": 1770243645472
 }
