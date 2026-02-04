@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 10450270085,
-  "jobId": "ef8d0f86-dba7-43a6-a74f-6780653a963f",
-  "join": "roblox://placeId=10450270085&gameInstanceId=ef8d0f86-dba7-43a6-a74f-6780653a963f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=10450270085&gameInstanceId=ef8d0f86-dba7-43a6-a74f-6780653a963f",
-  "location": "Jujutsu Infinite",
-  "updatedAt": 1770218378053
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770218735928
 }
