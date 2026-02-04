@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 9391468976,
+  "jobId": "1a233db9-2484-4433-9c8a-21dacc417edd",
+  "join": "roblox://placeId=9391468976&gameInstanceId=1a233db9-2484-4433-9c8a-21dacc417edd",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770221616564
+  "web": "https://www.roblox.com/games/start?placeId=9391468976&gameInstanceId=1a233db9-2484-4433-9c8a-21dacc417edd",
+  "location": "[HEAD OF HEI] Jujutsu Shenanigans",
+  "updatedAt": 1770221684801
 }
