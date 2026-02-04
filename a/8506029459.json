@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 286090429,
+  "jobId": "5b5c579f-d9bb-40f0-8f34-783b48a586c4",
+  "join": "roblox://placeId=286090429&gameInstanceId=5b5c579f-d9bb-40f0-8f34-783b48a586c4",
   "follow": "roblox://followUserId=8506029459",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770218437965
+  "web": "https://www.roblox.com/games/start?placeId=286090429&gameInstanceId=5b5c579f-d9bb-40f0-8f34-783b48a586c4",
+  "location": "Arsenal",
+  "updatedAt": 1770221620710
 }
