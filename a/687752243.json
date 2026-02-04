@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10087074695,
+  "jobId": "3be8c603-1a16-4c89-98bc-7fe4413d074d",
+  "join": "roblox://placeId=10087074695&gameInstanceId=3be8c603-1a16-4c89-98bc-7fe4413d074d",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770235418858
+  "web": "https://www.roblox.com/games/start?placeId=10087074695&gameInstanceId=3be8c603-1a16-4c89-98bc-7fe4413d074d",
+  "location": "Knife Strife 🔪",
+  "updatedAt": 1770235480878
 }
