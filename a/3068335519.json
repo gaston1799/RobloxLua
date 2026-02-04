@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 189707,
+  "jobId": "4f2da45e-a8ce-45d1-a396-07a04e62f47b",
+  "join": "roblox://placeId=189707&gameInstanceId=4f2da45e-a8ce-45d1-a396-07a04e62f47b",
   "follow": "roblox://followUserId=3068335519",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770189228390
+  "web": "https://www.roblox.com/games/start?placeId=189707&gameInstanceId=4f2da45e-a8ce-45d1-a396-07a04e62f47b",
+  "location": "Natural Disaster Survival",
+  "updatedAt": 1770189529891
 }
