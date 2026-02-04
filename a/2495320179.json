@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "in-game",
-  "placeId": 85056532479796,
-  "jobId": "6598fc59-94b6-4124-a681-2407e4102c69",
-  "join": "roblox://placeId=85056532479796&gameInstanceId=6598fc59-94b6-4124-a681-2407e4102c69",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2495320179",
-  "web": "https://www.roblox.com/games/start?placeId=85056532479796&gameInstanceId=6598fc59-94b6-4124-a681-2407e4102c69",
-  "location": "[UPD] Neo Tennis",
-  "updatedAt": 1770214758880
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770220477104
 }
