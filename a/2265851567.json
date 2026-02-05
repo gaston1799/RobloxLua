@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 133862653684768,
+  "jobId": "102bf13d-1024-48cd-9e58-f78a378f488c",
+  "join": "roblox://placeId=133862653684768&gameInstanceId=102bf13d-1024-48cd-9e58-f78a378f488c",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770331687719
+  "web": "https://www.roblox.com/games/start?placeId=133862653684768&gameInstanceId=102bf13d-1024-48cd-9e58-f78a378f488c",
+  "location": "[MAPS] Knockout! 🐧",
+  "updatedAt": 1770331748077
 }
