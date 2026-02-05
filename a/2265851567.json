@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 135721206418347,
+  "jobId": "444c3551-5c3c-419c-8bbf-fa11969db850",
+  "join": "roblox://placeId=135721206418347&gameInstanceId=444c3551-5c3c-419c-8bbf-fa11969db850",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770331994398
+  "web": "https://www.roblox.com/games/start?placeId=135721206418347&gameInstanceId=444c3551-5c3c-419c-8bbf-fa11969db850",
+  "location": "Unfair Flips [🪙]",
+  "updatedAt": 1770332170426
 }
