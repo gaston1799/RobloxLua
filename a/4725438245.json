@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "d6bab229-a701-432b-a988-1396ff67246a",
+  "join": "roblox://placeId=5712833750&gameInstanceId=d6bab229-a701-432b-a988-1396ff67246a",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770333247809
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=d6bab229-a701-432b-a988-1396ff67246a",
+  "location": "Animal Simulator",
+  "updatedAt": 1770333607864
 }
