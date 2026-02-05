@@ -1,12 +1,12 @@
 {
   "userId": 4139827928,
   "displayName": "JzKommtTravis",
-  "status": "in-game",
-  "placeId": 123804558118054,
-  "jobId": "444ec29b-aa0d-4b82-b440-9b3f739b7cd8",
-  "join": "roblox://placeId=123804558118054&gameInstanceId=444ec29b-aa0d-4b82-b440-9b3f739b7cd8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4139827928",
-  "web": "https://www.roblox.com/games/start?placeId=123804558118054&gameInstanceId=444ec29b-aa0d-4b82-b440-9b3f739b7cd8",
-  "location": "FRONTLINES VERSUS",
-  "updatedAt": 1770311889562
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770311952363
 }
