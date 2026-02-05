@@ -1,12 +1,12 @@
 {
   "userId": 9351018495,
   "displayName": "UnaliveU",
-  "status": "in-game",
-  "placeId": 4728805070,
-  "jobId": "9334be61-725b-44d9-b998-31c459d02d9c",
-  "join": "roblox://placeId=4728805070&gameInstanceId=9334be61-725b-44d9-b998-31c459d02d9c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9351018495",
-  "web": "https://www.roblox.com/games/start?placeId=4728805070&gameInstanceId=9334be61-725b-44d9-b998-31c459d02d9c",
-  "location": "[EVENT 🎉] Dragon Adventures 🐉",
-  "updatedAt": 1770314766310
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770315006389
 }
