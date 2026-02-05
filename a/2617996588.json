@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "d561a5d2-d00d-454e-8786-d2a3225b3bdd",
-  "join": "roblox://placeId=7041939546&gameInstanceId=d561a5d2-d00d-454e-8786-d2a3225b3bdd",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=d561a5d2-d00d-454e-8786-d2a3225b3bdd",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1770298086415
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770298747344
 }
