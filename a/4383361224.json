@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 189707,
-  "jobId": "35cd8daa-34b6-4323-88f4-c1a02ea7b7e3",
-  "join": "roblox://placeId=189707&gameInstanceId=35cd8daa-34b6-4323-88f4-c1a02ea7b7e3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=189707&gameInstanceId=35cd8daa-34b6-4323-88f4-c1a02ea7b7e3",
-  "location": "Natural Disaster Survival",
-  "updatedAt": 1770268268541
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770268748467
 }
