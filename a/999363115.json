@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 123911129955120,
-  "jobId": "142c352e-23b8-4f69-82a4-a5d80b1c6fac",
-  "join": "roblox://placeId=123911129955120&gameInstanceId=142c352e-23b8-4f69-82a4-a5d80b1c6fac",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=123911129955120&gameInstanceId=142c352e-23b8-4f69-82a4-a5d80b1c6fac",
-  "location": "Dungeon Hunters [UPD]",
-  "updatedAt": 1770273250868
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770273308692
 }
