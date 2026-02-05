@@ -1,12 +1,12 @@
 {
   "userId": 7454283042,
   "displayName": "DES_Rage",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12355337193,
+  "jobId": "a0c49bde-43bb-4986-bc70-5932aad7eff4",
+  "join": "roblox://placeId=12355337193&gameInstanceId=a0c49bde-43bb-4986-bc70-5932aad7eff4",
   "follow": "roblox://followUserId=7454283042",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770261974395
+  "web": "https://www.roblox.com/games/start?placeId=12355337193&gameInstanceId=a0c49bde-43bb-4986-bc70-5932aad7eff4",
+  "location": "Murderers VS Sheriffs DUELS",
+  "updatedAt": 1770262028962
 }
