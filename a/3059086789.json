@@ -1,12 +1,12 @@
 {
   "userId": 3059086789,
   "displayName": "asulKitsune",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 75566430380254,
+  "jobId": "7c5179dd-4ef1-4989-bcdf-c221dba3918b",
+  "join": "roblox://placeId=75566430380254&gameInstanceId=7c5179dd-4ef1-4989-bcdf-c221dba3918b",
   "follow": "roblox://followUserId=3059086789",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770335766629
+  "web": "https://www.roblox.com/games/start?placeId=75566430380254&gameInstanceId=7c5179dd-4ef1-4989-bcdf-c221dba3918b",
+  "location": "Death Ball",
+  "updatedAt": 1770335826685
 }
