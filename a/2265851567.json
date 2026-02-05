@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 103065556135755,
+  "jobId": "77f853bb-7785-4b30-be09-80d8fdbbd41c",
+  "join": "roblox://placeId=103065556135755&gameInstanceId=77f853bb-7785-4b30-be09-80d8fdbbd41c",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770335773673
+  "web": "https://www.roblox.com/games/start?placeId=103065556135755&gameInstanceId=77f853bb-7785-4b30-be09-80d8fdbbd41c",
+  "location": "+ 1 Speed Climb 1,000 Stairs",
+  "updatedAt": 1770335830096
 }
