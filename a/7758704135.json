@@ -1,12 +1,12 @@
 {
   "userId": 7758704135,
   "displayName": "PC_OnixAlt",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "51b92cf6-a593-4ee7-b178-cfeec77ed509",
-  "join": "roblox://placeId=7041939546&gameInstanceId=51b92cf6-a593-4ee7-b178-cfeec77ed509",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7758704135",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=51b92cf6-a593-4ee7-b178-cfeec77ed509",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1770315669190
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770317533050
 }
