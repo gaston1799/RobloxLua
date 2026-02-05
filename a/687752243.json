@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12456158615,
+  "jobId": "fab2cda1-a2e6-41a8-bb0f-fff001861fec",
+  "join": "roblox://placeId=12456158615&gameInstanceId=fab2cda1-a2e6-41a8-bb0f-fff001861fec",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770253782297
+  "web": "https://www.roblox.com/games/start?placeId=12456158615&gameInstanceId=fab2cda1-a2e6-41a8-bb0f-fff001861fec",
+  "location": "Black Hole Core",
+  "updatedAt": 1770266349289
 }
