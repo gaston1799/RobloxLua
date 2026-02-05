@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "d5b1830e-a201-4232-8c9c-ae585faaf879",
+  "join": "roblox://placeId=5712833750&gameInstanceId=d5b1830e-a201-4232-8c9c-ae585faaf879",
   "follow": "roblox://followUserId=2694035188",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770333006853
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=d5b1830e-a201-4232-8c9c-ae585faaf879",
+  "location": "Animal Simulator",
+  "updatedAt": 1770333368264
 }
