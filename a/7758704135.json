@@ -1,12 +1,12 @@
 {
   "userId": 7758704135,
   "displayName": "PC_OnixAlt",
-  "status": "in-game",
-  "placeId": 75992362647444,
-  "jobId": "02ee5ecb-c576-48ef-9d2f-8499e82cf477",
-  "join": "roblox://placeId=75992362647444&gameInstanceId=02ee5ecb-c576-48ef-9d2f-8499e82cf477",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7758704135",
-  "web": "https://www.roblox.com/games/start?placeId=75992362647444&gameInstanceId=02ee5ecb-c576-48ef-9d2f-8499e82cf477",
-  "location": "[🗿TOTEMS!] Tap Simulator ✨",
-  "updatedAt": 1770254115676
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770265210945
 }
