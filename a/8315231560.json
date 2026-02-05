@@ -1,12 +1,12 @@
 {
   "userId": 8315231560,
   "displayName": "YZ_ISoloAli",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "6d19ad2c-abf3-416e-8f16-43a2f1e6d712",
+  "join": "roblox://placeId=7041939546&gameInstanceId=6d19ad2c-abf3-416e-8f16-43a2f1e6d712",
   "follow": "roblox://followUserId=8315231560",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770316357696
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=6d19ad2c-abf3-416e-8f16-43a2f1e6d712",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1770316388231
 }
