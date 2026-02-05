@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 98084153764685,
+  "jobId": "e53829c7-223c-4536-a300-07d6fc946e9d",
+  "join": "roblox://placeId=98084153764685&gameInstanceId=e53829c7-223c-4536-a300-07d6fc946e9d",
   "follow": "roblox://followUserId=9012503229",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770297966369
+  "web": "https://www.roblox.com/games/start?placeId=98084153764685&gameInstanceId=e53829c7-223c-4536-a300-07d6fc946e9d",
+  "location": "Kitty Obby [New Levels🌸]",
+  "updatedAt": 1770298028408
 }
