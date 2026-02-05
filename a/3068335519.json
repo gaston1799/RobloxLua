@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "in-game",
-  "placeId": 132388544979740,
-  "jobId": "8fa7a158-6869-452b-b20b-fb8354a1b37b",
-  "join": "roblox://placeId=132388544979740&gameInstanceId=8fa7a158-6869-452b-b20b-fb8354a1b37b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3068335519",
-  "web": "https://www.roblox.com/games/start?placeId=132388544979740&gameInstanceId=8fa7a158-6869-452b-b20b-fb8354a1b37b",
-  "location": "[👒] Adopt Me!",
-  "updatedAt": 1770263170253
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770263348341
 }
