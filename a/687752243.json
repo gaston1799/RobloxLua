@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 82711177885745,
+  "jobId": "2184b149-9630-45a7-a8f9-41ea08e40b37",
+  "join": "roblox://placeId=82711177885745&gameInstanceId=2184b149-9630-45a7-a8f9-41ea08e40b37",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770253602921
+  "web": "https://www.roblox.com/games/start?placeId=82711177885745&gameInstanceId=2184b149-9630-45a7-a8f9-41ea08e40b37",
+  "location": "[EXPANSION] Shadow Battlegrounds",
+  "updatedAt": 1770253665405
 }
