@@ -1,12 +1,12 @@
 {
   "userId": 7758704135,
   "displayName": "PC_OnixAlt",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "c0fe6d09-39d7-4b4e-85c9-4bf9f65a3dea",
+  "join": "roblox://placeId=5712833750&gameInstanceId=c0fe6d09-39d7-4b4e-85c9-4bf9f65a3dea",
   "follow": "roblox://followUserId=7758704135",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770374064396
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=c0fe6d09-39d7-4b4e-85c9-4bf9f65a3dea",
+  "location": "Animal Simulator",
+  "updatedAt": 1770374305806
 }
