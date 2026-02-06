@@ -1,12 +1,12 @@
 {
   "userId": 2485660918,
   "displayName": "WiIIiamSoloAII",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "5c343753-9ce0-4e1c-b627-d08b493584c0",
-  "join": "roblox://placeId=5712833750&gameInstanceId=5c343753-9ce0-4e1c-b627-d08b493584c0",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2485660918",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=5c343753-9ce0-4e1c-b627-d08b493584c0",
-  "location": "Animal Simulator",
-  "updatedAt": 1770364642005
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770364943324
 }
