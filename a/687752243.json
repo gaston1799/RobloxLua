@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 14206387098,
-  "jobId": "436ec52a-2a80-4af8-a85b-4e15dd940b25",
-  "join": "roblox://placeId=14206387098&gameInstanceId=436ec52a-2a80-4af8-a85b-4e15dd940b25",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=14206387098&gameInstanceId=436ec52a-2a80-4af8-a85b-4e15dd940b25",
-  "location": "[Soul Punisher] Cursed Arena",
-  "updatedAt": 1770401422720
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770401662219
 }
