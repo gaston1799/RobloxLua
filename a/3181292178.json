@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 155615604,
-  "jobId": "7c890306-46ef-48e3-b352-fb4cc51e64dc",
-  "join": "roblox://placeId=155615604&gameInstanceId=7c890306-46ef-48e3-b352-fb4cc51e64dc",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=155615604&gameInstanceId=7c890306-46ef-48e3-b352-fb4cc51e64dc",
-  "location": "Prison Life",
-  "updatedAt": 1770419181481
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770420441562
 }
