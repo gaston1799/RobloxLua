@@ -1,12 +1,12 @@
 {
   "userId": 2826925169,
   "displayName": "gxg",
-  "status": "in-game",
-  "placeId": 891852901,
-  "jobId": "5ce5b46e-2141-46fc-94ba-6c76a7a1c8c0",
-  "join": "roblox://placeId=891852901&gameInstanceId=5ce5b46e-2141-46fc-94ba-6c76a7a1c8c0",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2826925169",
-  "web": "https://www.roblox.com/games/start?placeId=891852901&gameInstanceId=5ce5b46e-2141-46fc-94ba-6c76a7a1c8c0",
-  "location": "(🚘 LOTUS + SPRING) Greenville",
-  "updatedAt": 1770338173237
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1770339377038
 }
