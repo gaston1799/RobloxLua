@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "in-game",
-  "placeId": 4924922222,
-  "jobId": "b3b901f7-2768-4ac4-a0ae-d6cbb8fd548a",
-  "join": "roblox://placeId=4924922222&gameInstanceId=b3b901f7-2768-4ac4-a0ae-d6cbb8fd548a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2694035188",
-  "web": "https://www.roblox.com/games/start?placeId=4924922222&gameInstanceId=b3b901f7-2768-4ac4-a0ae-d6cbb8fd548a",
-  "location": "Brookhaven 🏡RP",
-  "updatedAt": 1770421580601
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770421760595
 }
