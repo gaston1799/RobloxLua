@@ -1,12 +1,12 @@
 {
   "userId": 3059086789,
   "displayName": "asulKitsune",
-  "status": "in-game",
-  "placeId": 9872472334,
-  "jobId": "449e070e-8042-4733-90f6-5bf642750451",
-  "join": "roblox://placeId=9872472334&gameInstanceId=449e070e-8042-4733-90f6-5bf642750451",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3059086789",
-  "web": "https://www.roblox.com/games/start?placeId=9872472334&gameInstanceId=449e070e-8042-4733-90f6-5bf642750451",
-  "location": "Evade",
-  "updatedAt": 1770344449335
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1770344509500
 }
