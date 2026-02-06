@@ -1,12 +1,12 @@
 {
   "userId": 7758704135,
   "displayName": "PC_OnixAlt",
-  "status": "in-game",
-  "placeId": 75992362647444,
-  "jobId": "84916e77-f997-450d-9084-15c074b05b2b",
-  "join": "roblox://placeId=75992362647444&gameInstanceId=84916e77-f997-450d-9084-15c074b05b2b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7758704135",
-  "web": "https://www.roblox.com/games/start?placeId=75992362647444&gameInstanceId=84916e77-f997-450d-9084-15c074b05b2b",
-  "location": "[🍀EVENT!] Tap Simulator ✨",
-  "updatedAt": 1770415041720
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770415161582
 }
