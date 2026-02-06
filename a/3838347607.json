@@ -1,12 +1,12 @@
 {
   "userId": 3838347607,
   "displayName": "Kamilime",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "a2b489ac-0d22-4478-90a3-a2376a96344b",
+  "join": "roblox://placeId=7041939546&gameInstanceId=a2b489ac-0d22-4478-90a3-a2376a96344b",
   "follow": "roblox://followUserId=3838347607",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770317229660
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=a2b489ac-0d22-4478-90a3-a2376a96344b",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1770362004986
 }
