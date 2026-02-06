@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 137064773215574,
-  "jobId": "e867604c-029b-411c-88e8-d0f12891bcb3",
-  "join": "roblox://placeId=137064773215574&gameInstanceId=e867604c-029b-411c-88e8-d0f12891bcb3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=137064773215574&gameInstanceId=e867604c-029b-411c-88e8-d0f12891bcb3",
-  "location": "Blackout: Revival [FREE ZOMBIES]",
-  "updatedAt": 1770395065372
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770395243782
 }
