@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 72199011570996,
-  "jobId": "6d998e48-98cb-4c41-aa2c-4b325a7ef2ad",
-  "join": "roblox://placeId=72199011570996&gameInstanceId=6d998e48-98cb-4c41-aa2c-4b325a7ef2ad",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=72199011570996&gameInstanceId=6d998e48-98cb-4c41-aa2c-4b325a7ef2ad",
-  "location": "[⚔️UPDATE 1⚔️] BLADES",
-  "updatedAt": 1770398486188
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770398664149
 }
