@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "fdee5108-43b0-4ab2-a948-1af494c69c2c",
-  "join": "roblox://placeId=7041939546&gameInstanceId=fdee5108-43b0-4ab2-a948-1af494c69c2c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=fdee5108-43b0-4ab2-a948-1af494c69c2c",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1770393682674
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770394227581
 }
