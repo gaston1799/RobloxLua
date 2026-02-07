@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16732694052,
+  "jobId": "898592b1-fa57-45cd-b791-72533da553db",
+  "join": "roblox://placeId=16732694052&gameInstanceId=898592b1-fa57-45cd-b791-72533da553db",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770483686557
+  "web": "https://www.roblox.com/games/start?placeId=16732694052&gameInstanceId=898592b1-fa57-45cd-b791-72533da553db",
+  "location": "Fisch 💘 [VALENTIDES]",
+  "updatedAt": 1770483865075
 }
