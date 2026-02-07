@@ -1,12 +1,12 @@
 {
   "userId": 2826925169,
   "displayName": "gxg",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16646849903,
+  "jobId": "7bc3d908-6ff2-42f1-979d-1d904c12a834",
+  "join": "roblox://placeId=16646849903&gameInstanceId=7bc3d908-6ff2-42f1-979d-1d904c12a834",
   "follow": "roblox://followUserId=2826925169",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770435052508
+  "web": "https://www.roblox.com/games/start?placeId=16646849903&gameInstanceId=7bc3d908-6ff2-42f1-979d-1d904c12a834",
+  "location": "[W11] Pogo Obby",
+  "updatedAt": 1770435113685
 }
