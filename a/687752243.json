@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13601434903,
+  "jobId": "b1feeb26-3c53-4f9c-add0-3f58c9cb0325",
+  "join": "roblox://placeId=13601434903&gameInstanceId=b1feeb26-3c53-4f9c-add0-3f58c9cb0325",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770442222205
+  "web": "https://www.roblox.com/games/start?placeId=13601434903&gameInstanceId=b1feeb26-3c53-4f9c-add0-3f58c9cb0325",
+  "location": "Sorcerer Battlegrounds",
+  "updatedAt": 1770442282162
 }
