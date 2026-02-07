@@ -1,12 +1,12 @@
 {
   "userId": 2780660034,
   "displayName": "AiHee",
-  "status": "in-game",
-  "placeId": 85094158141349,
-  "jobId": "1e062ddf-4229-4603-a015-f66ce8a12daa",
-  "join": "roblox://placeId=85094158141349&gameInstanceId=1e062ddf-4229-4603-a015-f66ce8a12daa",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2780660034",
-  "web": "https://www.roblox.com/games/start?placeId=85094158141349&gameInstanceId=1e062ddf-4229-4603-a015-f66ce8a12daa",
-  "location": "[NEW] Jungle Life",
-  "updatedAt": 1770470333761
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770470453801
 }
