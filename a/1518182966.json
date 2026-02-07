@@ -1,12 +1,12 @@
 {
   "userId": 1518182966,
   "displayName": "Destroyer",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "fc9cd2f1-0241-482c-8b1d-69751c459318",
+  "join": "roblox://placeId=5712833750&gameInstanceId=fc9cd2f1-0241-482c-8b1d-69751c459318",
   "follow": "roblox://followUserId=1518182966",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770478587504
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=fc9cd2f1-0241-482c-8b1d-69751c459318",
+  "location": "Animal Simulator",
+  "updatedAt": 1770478704841
 }
