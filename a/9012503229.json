@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 75663528075786,
-  "jobId": "ed512629-264e-4a96-95c1-a417b1511199",
-  "join": "roblox://placeId=75663528075786&gameInstanceId=ed512629-264e-4a96-95c1-a417b1511199",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=75663528075786&gameInstanceId=ed512629-264e-4a96-95c1-a417b1511199",
-  "location": "HOW TO TRAIN YOUR DRAGON",
-  "updatedAt": 1770480144595
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770481410804
 }
