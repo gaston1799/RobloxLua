@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 84529258884762,
+  "jobId": "fd3e3d01-4dd8-40a9-8429-73aec1555742",
+  "join": "roblox://placeId=84529258884762&gameInstanceId=fd3e3d01-4dd8-40a9-8429-73aec1555742",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770493162767
+  "web": "https://www.roblox.com/games/start?placeId=84529258884762&gameInstanceId=fd3e3d01-4dd8-40a9-8429-73aec1555742",
+  "location": "Dodgeball Legends",
+  "updatedAt": 1770493222552
 }
