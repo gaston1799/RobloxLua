@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 125719459917532,
-  "jobId": "5ec1124e-e17a-434b-b1b9-64bb99fd05f5",
-  "join": "roblox://placeId=125719459917532&gameInstanceId=5ec1124e-e17a-434b-b1b9-64bb99fd05f5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=125719459917532&gameInstanceId=5ec1124e-e17a-434b-b1b9-64bb99fd05f5",
-  "location": "Would you rather but it actually happen ",
-  "updatedAt": 1770465204094
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770465684108
 }
