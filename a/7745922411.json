@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 94217045453265,
+  "jobId": "6548429c-ae11-4d6f-8db7-6c8923bde4cf",
+  "join": "roblox://placeId=94217045453265&gameInstanceId=6548429c-ae11-4d6f-8db7-6c8923bde4cf",
   "follow": "roblox://followUserId=7745922411",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770426411548
+  "web": "https://www.roblox.com/games/start?placeId=94217045453265&gameInstanceId=6548429c-ae11-4d6f-8db7-6c8923bde4cf",
+  "location": "Dueling Grounds ⚔️ ",
+  "updatedAt": 1770426713124
 }
