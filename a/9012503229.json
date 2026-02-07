@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 17516596118,
-  "jobId": "f696864b-da13-4385-a91d-309a37cf002c",
-  "join": "roblox://placeId=17516596118&gameInstanceId=f696864b-da13-4385-a91d-309a37cf002c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=17516596118&gameInstanceId=f696864b-da13-4385-a91d-309a37cf002c",
-  "location": "🔥Hypershot",
-  "updatedAt": 1770481586046
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770482845128
 }
