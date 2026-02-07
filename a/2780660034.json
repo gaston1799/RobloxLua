@@ -1,12 +1,12 @@
 {
   "userId": 2780660034,
   "displayName": "AiHee",
-  "status": "in-game",
-  "placeId": 13772394625,
-  "jobId": "4dc8655c-3693-4466-b119-aca6a48de1b3",
-  "join": "roblox://placeId=13772394625&gameInstanceId=4dc8655c-3693-4466-b119-aca6a48de1b3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2780660034",
-  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=4dc8655c-3693-4466-b119-aca6a48de1b3",
-  "location": "Blade Ball",
-  "updatedAt": 1770483866160
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770483926603
 }
