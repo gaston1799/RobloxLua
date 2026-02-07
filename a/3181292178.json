@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 8444591321,
-  "jobId": "571e6092-e66f-4f4e-b955-f3932f133d26",
-  "join": "roblox://placeId=8444591321&gameInstanceId=571e6092-e66f-4f4e-b955-f3932f133d26",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=8444591321&gameInstanceId=571e6092-e66f-4f4e-b955-f3932f133d26",
-  "location": "BedWars",
-  "updatedAt": 1770431003690
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770431362572
 }
