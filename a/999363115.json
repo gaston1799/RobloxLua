@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 14086581572,
-  "jobId": "3fdc3a37-a424-455c-b922-e1a33cfe6848",
-  "join": "roblox://placeId=14086581572&gameInstanceId=3fdc3a37-a424-455c-b922-e1a33cfe6848",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=14086581572&gameInstanceId=3fdc3a37-a424-455c-b922-e1a33cfe6848",
-  "location": "Altitorture [2 Player Obby]",
-  "updatedAt": 1770466165679
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770467062400
 }
