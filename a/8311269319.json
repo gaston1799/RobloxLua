@@ -1,12 +1,12 @@
 {
   "userId": 8311269319,
   "displayName": "PIXELCROWOG",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "a09cb8d1-18a6-4fae-8594-f554b42959b2",
+  "join": "roblox://placeId=7041939546&gameInstanceId=a09cb8d1-18a6-4fae-8594-f554b42959b2",
   "follow": "roblox://followUserId=8311269319",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770445464074
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=a09cb8d1-18a6-4fae-8594-f554b42959b2",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1770445523874
 }
