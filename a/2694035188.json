@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "in-game",
-  "placeId": 12828227139,
-  "jobId": "09765076-33b9-4481-be2f-120c7442591c",
-  "join": "roblox://placeId=12828227139&gameInstanceId=09765076-33b9-4481-be2f-120c7442591c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2694035188",
-  "web": "https://www.roblox.com/games/start?placeId=12828227139&gameInstanceId=09765076-33b9-4481-be2f-120c7442591c",
-  "location": "[2x] War Machines",
-  "updatedAt": 1770423080642
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770424580655
 }
