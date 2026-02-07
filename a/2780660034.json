@@ -1,12 +1,12 @@
 {
   "userId": 2780660034,
   "displayName": "AiHee",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7871169780,
+  "jobId": "aa9049a5-182b-4475-841d-ae7bcfd6dc33",
+  "join": "roblox://placeId=7871169780&gameInstanceId=aa9049a5-182b-4475-841d-ae7bcfd6dc33",
   "follow": "roblox://followUserId=2780660034",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770465833343
+  "web": "https://www.roblox.com/games/start?placeId=7871169780&gameInstanceId=aa9049a5-182b-4475-841d-ae7bcfd6dc33",
+  "location": "bLockerman's Minesweeper",
+  "updatedAt": 1770466194370
 }
