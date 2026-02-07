@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 73708914208963,
+  "jobId": "9a959ce3-c7ab-4988-9640-71cfab974cd8",
+  "join": "roblox://placeId=73708914208963&gameInstanceId=9a959ce3-c7ab-4988-9640-71cfab974cd8",
   "follow": "roblox://followUserId=7745922411",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770479065566
+  "web": "https://www.roblox.com/games/start?placeId=73708914208963&gameInstanceId=9a959ce3-c7ab-4988-9640-71cfab974cd8",
+  "location": "Basketball: Zero",
+  "updatedAt": 1770479131969
 }
