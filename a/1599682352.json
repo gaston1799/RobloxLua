@@ -1,12 +1,12 @@
 {
   "userId": 1599682352,
   "displayName": "ZxA",
-  "status": "in-game",
-  "placeId": 75843683571426,
-  "jobId": "cc17b94d-eed6-4566-a924-b2ce9c705e9b",
-  "join": "roblox://placeId=75843683571426&gameInstanceId=cc17b94d-eed6-4566-a924-b2ce9c705e9b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1599682352",
-  "web": "https://www.roblox.com/games/start?placeId=75843683571426&gameInstanceId=cc17b94d-eed6-4566-a924-b2ce9c705e9b",
-  "location": "My Cat Army 🐱",
-  "updatedAt": 1770500242633
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770500961457
 }
