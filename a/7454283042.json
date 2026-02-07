@@ -1,12 +1,12 @@
 {
   "userId": 7454283042,
   "displayName": "DES_Rage",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "fc5a1afc-a970-4e27-83ea-da12473dbaae",
-  "join": "roblox://placeId=5712833750&gameInstanceId=fc5a1afc-a970-4e27-83ea-da12473dbaae",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7454283042",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=fc5a1afc-a970-4e27-83ea-da12473dbaae",
-  "location": "Animal Simulator",
-  "updatedAt": 1770429113661
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770429531717
 }
