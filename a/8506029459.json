@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 119257931081578,
+  "jobId": "5c7fbd3b-3b91-4d1c-a7c7-179bcff2483a",
+  "join": "roblox://placeId=119257931081578&gameInstanceId=5c7fbd3b-3b91-4d1c-a7c7-179bcff2483a",
   "follow": "roblox://followUserId=8506029459",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770482606348
+  "web": "https://www.roblox.com/games/start?placeId=119257931081578&gameInstanceId=5c7fbd3b-3b91-4d1c-a7c7-179bcff2483a",
+  "location": "Mount HepHep",
+  "updatedAt": 1770482669613
 }
