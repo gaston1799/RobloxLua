@@ -1,12 +1,12 @@
 {
   "userId": 2780660034,
   "displayName": "AiHee",
-  "status": "in-game",
-  "placeId": 7991339063,
-  "jobId": "7f056202-74cc-4c5f-a039-d99ad24e7f38",
-  "join": "roblox://placeId=7991339063&gameInstanceId=7f056202-74cc-4c5f-a039-d99ad24e7f38",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2780660034",
-  "web": "https://www.roblox.com/games/start?placeId=7991339063&gameInstanceId=7f056202-74cc-4c5f-a039-d99ad24e7f38",
-  "location": "Rainbow Friends",
-  "updatedAt": 1770465594141
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770465653118
 }
