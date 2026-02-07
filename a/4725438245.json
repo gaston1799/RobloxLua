@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "in-game",
-  "placeId": 12177325772,
-  "jobId": "859cecc5-ef3b-41d2-90a5-08bb9323c88c",
-  "join": "roblox://placeId=12177325772&gameInstanceId=859cecc5-ef3b-41d2-90a5-08bb9323c88c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4725438245",
-  "web": "https://www.roblox.com/games/start?placeId=12177325772&gameInstanceId=859cecc5-ef3b-41d2-90a5-08bb9323c88c",
-  "location": "FIFA Super Soccer!",
-  "updatedAt": 1770494062286
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770494184712
 }
