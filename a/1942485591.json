@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 16732694052,
-  "jobId": "4cb1e7df-5e7a-416d-ac5a-a345dead03cf",
-  "join": "roblox://placeId=16732694052&gameInstanceId=4cb1e7df-5e7a-416d-ac5a-a345dead03cf",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=16732694052&gameInstanceId=4cb1e7df-5e7a-416d-ac5a-a345dead03cf",
-  "location": "Fisch 🐟",
-  "updatedAt": 1770475106136
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770475703908
 }
