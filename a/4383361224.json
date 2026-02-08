@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 18687417158,
-  "jobId": "4144a720-9370-44b8-ab2c-e67818d587ec",
-  "join": "roblox://placeId=18687417158&gameInstanceId=4144a720-9370-44b8-ab2c-e67818d587ec",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=18687417158&gameInstanceId=4144a720-9370-44b8-ab2c-e67818d587ec",
-  "location": "Forsaken",
-  "updatedAt": 1770542365238
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770542722325
 }
