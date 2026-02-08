@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "d4f55476-35d9-4bd1-93ee-886d9c5a6071",
-  "join": "roblox://placeId=5712833750&gameInstanceId=d4f55476-35d9-4bd1-93ee-886d9c5a6071",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=d4f55476-35d9-4bd1-93ee-886d9c5a6071",
-  "location": "Animal Simulator",
-  "updatedAt": 1770530485121
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770530664156
 }
