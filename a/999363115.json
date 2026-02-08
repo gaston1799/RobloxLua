@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 17604974397,
+  "jobId": "1cd89062-b0d9-46a6-a8f7-29d4849d606b",
+  "join": "roblox://placeId=17604974397&gameInstanceId=1cd89062-b0d9-46a6-a8f7-29d4849d606b",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770538461692
+  "web": "https://www.roblox.com/games/start?placeId=17604974397&gameInstanceId=1cd89062-b0d9-46a6-a8f7-29d4849d606b",
+  "location": "[TWO PLAYER] Start Survey 2",
+  "updatedAt": 1770538522942
 }
