@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "in-game",
-  "placeId": 74395953411817,
-  "jobId": "f8d42934-d459-49a5-8f21-f1fd66ad2862",
-  "join": "roblox://placeId=74395953411817&gameInstanceId=f8d42934-d459-49a5-8f21-f1fd66ad2862",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3872347405",
-  "web": "https://www.roblox.com/games/start?placeId=74395953411817&gameInstanceId=f8d42934-d459-49a5-8f21-f1fd66ad2862",
-  "location": "Dreamville 🏡 RP [Kids! 👶]",
-  "updatedAt": 1770536660744
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770536780550
 }
