@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "in-game",
-  "placeId": 79546208627805,
-  "jobId": "04a81980-725b-42c3-bd87-ba9949d86d56",
-  "join": "roblox://placeId=79546208627805&gameInstanceId=04a81980-725b-42c3-bd87-ba9949d86d56",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2495320179",
-  "web": "https://www.roblox.com/games/start?placeId=79546208627805&gameInstanceId=04a81980-725b-42c3-bd87-ba9949d86d56",
-  "location": "[💥] 99 Nights in the Forest 🔦",
-  "updatedAt": 1770520283739
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770522141441
 }
