@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "in-game",
-  "placeId": 75197885906902,
-  "jobId": "859707df-7fd2-4321-a902-4aff9d238999",
-  "join": "roblox://placeId=75197885906902&gameInstanceId=859707df-7fd2-4321-a902-4aff9d238999",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2694035188",
-  "web": "https://www.roblox.com/games/start?placeId=75197885906902&gameInstanceId=859707df-7fd2-4321-a902-4aff9d238999",
-  "location": "My Mining Brainrots",
-  "updatedAt": 1770585022605
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770585082795
 }
