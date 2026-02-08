@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 189707,
-  "jobId": "c4f370c5-e157-45df-b8ee-6110ced3e386",
-  "join": "roblox://placeId=189707&gameInstanceId=c4f370c5-e157-45df-b8ee-6110ced3e386",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=189707&gameInstanceId=c4f370c5-e157-45df-b8ee-6110ced3e386",
-  "location": "Natural Disaster Survival",
-  "updatedAt": 1770584245521
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770585625469
 }
