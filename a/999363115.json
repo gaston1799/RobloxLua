@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 17017365254,
-  "jobId": "e2b40a26-e296-46b8-919e-5da7981558c9",
-  "join": "roblox://placeId=17017365254&gameInstanceId=e2b40a26-e296-46b8-919e-5da7981558c9",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=17017365254&gameInstanceId=e2b40a26-e296-46b8-919e-5da7981558c9",
-  "location": "[🚢 NEW MAP] BODYCAM",
-  "updatedAt": 1770547222100
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770547342104
 }
