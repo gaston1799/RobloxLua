@@ -1,12 +1,12 @@
 {
   "userId": 9351018495,
   "displayName": "UnaliveU",
-  "status": "in-game",
-  "placeId": 96554960408457,
-  "jobId": "d096bdc2-c437-41b7-aec3-bcb9f8a7b366",
-  "join": "roblox://placeId=96554960408457&gameInstanceId=d096bdc2-c437-41b7-aec3-bcb9f8a7b366",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9351018495",
-  "web": "https://www.roblox.com/games/start?placeId=96554960408457&gameInstanceId=d096bdc2-c437-41b7-aec3-bcb9f8a7b366",
-  "location": "[🎈] Pop a Balloon",
-  "updatedAt": 1770511220337
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770511880335
 }
