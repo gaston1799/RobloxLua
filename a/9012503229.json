@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 113909829646571,
-  "jobId": "591312c9-773c-43d4-bd1e-ade8bb4d6272",
-  "join": "roblox://placeId=113909829646571&gameInstanceId=591312c9-773c-43d4-bd1e-ade8bb4d6272",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=113909829646571&gameInstanceId=591312c9-773c-43d4-bd1e-ade8bb4d6272",
-  "location": "Become a Deep Sea Explorer",
-  "updatedAt": 1770582625297
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770582685276
 }
