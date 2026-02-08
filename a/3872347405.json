@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "in-game",
-  "placeId": 12550651382,
-  "jobId": "911c77dc-a417-4229-a30a-900575e6d3ac",
-  "join": "roblox://placeId=12550651382&gameInstanceId=911c77dc-a417-4229-a30a-900575e6d3ac",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3872347405",
-  "web": "https://www.roblox.com/games/start?placeId=12550651382&gameInstanceId=911c77dc-a417-4229-a30a-900575e6d3ac",
-  "location": "Ecos: La Brea",
-  "updatedAt": 1770515000355
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770517523181
 }
