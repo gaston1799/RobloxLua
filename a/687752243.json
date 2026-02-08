@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131048399685555,
+  "jobId": "a81ad735-8635-4482-b69d-e92becb1a28a",
+  "join": "roblox://placeId=131048399685555&gameInstanceId=a81ad735-8635-4482-b69d-e92becb1a28a",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770514941469
+  "web": "https://www.roblox.com/games/start?placeId=131048399685555&gameInstanceId=a81ad735-8635-4482-b69d-e92becb1a28a",
+  "location": "The Strongest Battlegrounds",
+  "updatedAt": 1770515301575
 }
