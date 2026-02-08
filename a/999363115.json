@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7773158712,
+  "jobId": "7ab6621b-7fa9-4871-aea1-92306920b911",
+  "join": "roblox://placeId=7773158712&gameInstanceId=7ab6621b-7fa9-4871-aea1-92306920b911",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770544401730
+  "web": "https://www.roblox.com/games/start?placeId=7773158712&gameInstanceId=7ab6621b-7fa9-4871-aea1-92306920b911",
+  "location": "Home Alone 🏠 (STORY)",
+  "updatedAt": 1770544882857
 }
