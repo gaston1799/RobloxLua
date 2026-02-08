@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 124157596473184,
-  "jobId": "db91dceb-f02e-4ed9-a1fa-dab67eadb3ef",
-  "join": "roblox://placeId=124157596473184&gameInstanceId=db91dceb-f02e-4ed9-a1fa-dab67eadb3ef",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=124157596473184&gameInstanceId=db91dceb-f02e-4ed9-a1fa-dab67eadb3ef",
-  "location": "⛸️ Skate Off! [BETA]",
-  "updatedAt": 1770545904167
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770546027303
 }
