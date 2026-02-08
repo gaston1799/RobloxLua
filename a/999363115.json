@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 17765822702,
-  "jobId": "c8171f73-495c-49b6-a516-c0329e178d24",
-  "join": "roblox://placeId=17765822702&gameInstanceId=c8171f73-495c-49b6-a516-c0329e178d24",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=17765822702&gameInstanceId=c8171f73-495c-49b6-a516-c0329e178d24",
-  "location": "2 Player IQ Test",
-  "updatedAt": 1770537562747
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770538461692
 }
