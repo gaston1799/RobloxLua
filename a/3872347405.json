@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6358567974,
+  "jobId": "6990a787-a81a-4f6c-85c9-299f0c5c89f0",
+  "join": "roblox://placeId=6358567974&gameInstanceId=6990a787-a81a-4f6c-85c9-299f0c5c89f0",
   "follow": "roblox://followUserId=3872347405",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770586102768
+  "web": "https://www.roblox.com/games/start?placeId=6358567974&gameInstanceId=6990a787-a81a-4f6c-85c9-299f0c5c89f0",
+  "location": "Salon de Fiestas",
+  "updatedAt": 1770586162752
 }
