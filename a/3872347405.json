@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "in-game",
-  "placeId": 12054551325,
-  "jobId": "d45e9422-d969-4f31-ba4f-0dca61827272",
-  "join": "roblox://placeId=12054551325&gameInstanceId=d45e9422-d969-4f31-ba4f-0dca61827272",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3872347405",
-  "web": "https://www.roblox.com/games/start?placeId=12054551325&gameInstanceId=d45e9422-d969-4f31-ba4f-0dca61827272",
-  "location": "[🎃] Yellowstone Unleashed",
-  "updatedAt": 1770519020347
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770524180448
 }
