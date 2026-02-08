@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 119579217517090,
-  "jobId": "304d2206-ef70-4894-805d-dfaf36441a89",
-  "join": "roblox://placeId=119579217517090&gameInstanceId=304d2206-ef70-4894-805d-dfaf36441a89",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=119579217517090&gameInstanceId=304d2206-ef70-4894-805d-dfaf36441a89",
-  "location": "[🦀] Escape Waves For Lucky Blocks",
-  "updatedAt": 1770541523787
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770542183043
 }
