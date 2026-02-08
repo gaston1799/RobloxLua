@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 5802642341,
-  "jobId": "2c428c03-c203-4a68-b377-15fc013ce6e4",
-  "join": "roblox://placeId=5802642341&gameInstanceId=2c428c03-c203-4a68-b377-15fc013ce6e4",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=5802642341&gameInstanceId=2c428c03-c203-4a68-b377-15fc013ce6e4",
-  "location": "City Life [New Job!]",
-  "updatedAt": 1770548604299
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770549204754
 }
