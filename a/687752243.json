@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 73956553001240,
+  "jobId": "32830a2a-1b1e-4cd8-954d-08ad8f9bf8c6",
+  "join": "roblox://placeId=73956553001240&gameInstanceId=32830a2a-1b1e-4cd8-954d-08ad8f9bf8c6",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770442522187
+  "web": "https://www.roblox.com/games/start?placeId=73956553001240&gameInstanceId=32830a2a-1b1e-4cd8-954d-08ad8f9bf8c6",
+  "location": "[UPD] Volleyball Legends",
+  "updatedAt": 1770513741767
 }
