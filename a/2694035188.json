@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "in-game",
-  "placeId": 71000936793663,
-  "jobId": "b1d299ee-65ab-4982-aa24-385c91a8d296",
-  "join": "roblox://placeId=71000936793663&gameInstanceId=b1d299ee-65ab-4982-aa24-385c91a8d296",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2694035188",
-  "web": "https://www.roblox.com/games/start?placeId=71000936793663&gameInstanceId=b1d299ee-65ab-4982-aa24-385c91a8d296",
-  "location": "[❤️]Death Ball",
-  "updatedAt": 1770563721499
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770563784140
 }
