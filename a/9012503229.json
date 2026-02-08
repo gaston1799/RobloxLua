@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 10449761463,
-  "jobId": "d7a13b6f-44c9-4341-933f-e6a854d9ae8b",
-  "join": "roblox://placeId=10449761463&gameInstanceId=d7a13b6f-44c9-4341-933f-e6a854d9ae8b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=10449761463&gameInstanceId=d7a13b6f-44c9-4341-933f-e6a854d9ae8b",
-  "location": "The Strongest Battlegrounds",
-  "updatedAt": 1770546083021
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770546442010
 }
