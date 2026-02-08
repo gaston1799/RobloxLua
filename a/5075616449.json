@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 109017413606543,
+  "jobId": "112c2ee2-5886-4bc6-a760-350c15c63bac",
+  "join": "roblox://placeId=109017413606543&gameInstanceId=112c2ee2-5886-4bc6-a760-350c15c63bac",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770513381494
+  "web": "https://www.roblox.com/games/start?placeId=109017413606543&gameInstanceId=112c2ee2-5886-4bc6-a760-350c15c63bac",
+  "location": "Balloons And Ropes",
+  "updatedAt": 1770513743385
 }
