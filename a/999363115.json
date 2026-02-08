@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15077422637,
+  "jobId": "812e0d52-ed33-4b36-be8a-79bb6e5c147b",
+  "join": "roblox://placeId=15077422637&gameInstanceId=812e0d52-ed33-4b36-be8a-79bb6e5c147b",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770569304480
+  "web": "https://www.roblox.com/games/start?placeId=15077422637&gameInstanceId=812e0d52-ed33-4b36-be8a-79bb6e5c147b",
+  "location": "The Curse [PART 3]",
+  "updatedAt": 1770569482435
 }
