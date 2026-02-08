@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 13416514259,
-  "jobId": "f89ced87-c592-4982-9109-8ecb83a04bd4",
-  "join": "roblox://placeId=13416514259&gameInstanceId=f89ced87-c592-4982-9109-8ecb83a04bd4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=13416514259&gameInstanceId=f89ced87-c592-4982-9109-8ecb83a04bd4",
-  "location": "Shadow Boxing Battles",
-  "updatedAt": 1770525502829
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770526405952
 }
