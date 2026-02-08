@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 1224212277,
-  "jobId": "d03c3890-897d-47b6-a3ab-4badbfce0bc7",
-  "join": "roblox://placeId=1224212277&gameInstanceId=d03c3890-897d-47b6-a3ab-4badbfce0bc7",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=1224212277&gameInstanceId=d03c3890-897d-47b6-a3ab-4badbfce0bc7",
-  "location": "Mad City: Chapter 2",
-  "updatedAt": 1770517285570
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770517823803
 }
