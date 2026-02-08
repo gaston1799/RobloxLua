@@ -1,12 +1,12 @@
 {
   "userId": 607137025,
   "displayName": "YoSway",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "87eb1a83-377b-49b0-9b84-fa5a7f2d70e1",
-  "join": "roblox://placeId=5712833750&gameInstanceId=87eb1a83-377b-49b0-9b84-fa5a7f2d70e1",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=607137025",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=87eb1a83-377b-49b0-9b84-fa5a7f2d70e1",
-  "location": "Animal Simulator",
-  "updatedAt": 1770557663746
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770573683775
 }
