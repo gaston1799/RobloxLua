@@ -1,12 +1,12 @@
 {
   "userId": 3872347405,
   "displayName": "IW_Altz",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 85094158141349,
+  "jobId": "fd9575ec-252f-4d05-a33a-a38e5ad6c1ed",
+  "join": "roblox://placeId=85094158141349&gameInstanceId=fd9575ec-252f-4d05-a33a-a38e5ad6c1ed",
   "follow": "roblox://followUserId=3872347405",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770511760289
+  "web": "https://www.roblox.com/games/start?placeId=85094158141349&gameInstanceId=fd9575ec-252f-4d05-a33a-a38e5ad6c1ed",
+  "location": "[NEW] Jungle Life",
+  "updatedAt": 1770512180299
 }
