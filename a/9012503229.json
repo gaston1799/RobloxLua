@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 105555311806207,
-  "jobId": "d0c4f772-7ca4-4e1d-9d34-a4446bd83e01",
-  "join": "roblox://placeId=105555311806207&gameInstanceId=d0c4f772-7ca4-4e1d-9d34-a4446bd83e01",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=105555311806207&gameInstanceId=d0c4f772-7ca4-4e1d-9d34-a4446bd83e01",
-  "location": "[💘]Build a Zoo🌊",
-  "updatedAt": 1770582265188
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770582325170
 }
