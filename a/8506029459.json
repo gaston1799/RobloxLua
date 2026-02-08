@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 126240460711962,
+  "jobId": "acab4ed0-09fb-4fce-a3f4-6d114dbbd36e",
+  "join": "roblox://placeId=126240460711962&gameInstanceId=acab4ed0-09fb-4fce-a3f4-6d114dbbd36e",
   "follow": "roblox://followUserId=8506029459",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770549325015
+  "web": "https://www.roblox.com/games/start?placeId=126240460711962&gameInstanceId=acab4ed0-09fb-4fce-a3f4-6d114dbbd36e",
+  "location": "Трамвай Села Молочное (Бета)",
+  "updatedAt": 1770549384912
 }
