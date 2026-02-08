@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 14826510707,
-  "jobId": "f2afb209-b3e0-42ca-b435-21ddf43db59e",
-  "join": "roblox://placeId=14826510707&gameInstanceId=f2afb209-b3e0-42ca-b435-21ddf43db59e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=14826510707&gameInstanceId=f2afb209-b3e0-42ca-b435-21ddf43db59e",
-  "location": "The Logo Quiz! ⭐ [46]",
-  "updatedAt": 1770542421693
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770544401730
 }
