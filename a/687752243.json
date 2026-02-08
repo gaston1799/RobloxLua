@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 98274370174426,
+  "jobId": "4dfea649-e720-4aa3-ba74-f17469a0cf96",
+  "join": "roblox://placeId=98274370174426&gameInstanceId=4dfea649-e720-4aa3-ba74-f17469a0cf96",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770515661442
+  "web": "https://www.roblox.com/games/start?placeId=98274370174426&gameInstanceId=4dfea649-e720-4aa3-ba74-f17469a0cf96",
+  "location": "SUITBORN [BLOODBATH]",
+  "updatedAt": 1770516742547
 }
