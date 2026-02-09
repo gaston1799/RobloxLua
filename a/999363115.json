@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 6218169544,
-  "jobId": "114f8555-b14a-47a2-9c7e-16eed346e075",
-  "join": "roblox://placeId=6218169544&gameInstanceId=114f8555-b14a-47a2-9c7e-16eed346e075",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=6218169544&gameInstanceId=114f8555-b14a-47a2-9c7e-16eed346e075",
-  "location": "Korblox & Headless Hangout",
-  "updatedAt": 1770630327401
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770630866151
 }
