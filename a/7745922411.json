@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "in-game",
-  "placeId": 13235714973,
-  "jobId": "6e3b0553-6f20-44bc-9a6c-891207acec95",
-  "join": "roblox://placeId=13235714973&gameInstanceId=6e3b0553-6f20-44bc-9a6c-891207acec95",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7745922411",
-  "web": "https://www.roblox.com/games/start?placeId=13235714973&gameInstanceId=6e3b0553-6f20-44bc-9a6c-891207acec95",
-  "location": "The Butchery",
-  "updatedAt": 1770670709251
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770673348809
 }
