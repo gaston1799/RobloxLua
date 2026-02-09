@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "in-game",
-  "placeId": 100196093959495,
-  "jobId": "ae949e8c-bafc-4124-a273-443501533b11",
-  "join": "roblox://placeId=100196093959495&gameInstanceId=ae949e8c-bafc-4124-a273-443501533b11",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7745922411",
-  "web": "https://www.roblox.com/games/start?placeId=100196093959495&gameInstanceId=ae949e8c-bafc-4124-a273-443501533b11",
-  "location": "Burrowed Fears [HORROR]",
-  "updatedAt": 1770673469728
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770674368889
 }
