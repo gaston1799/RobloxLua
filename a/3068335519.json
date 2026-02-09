@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "in-game",
-  "placeId": 124485474634182,
-  "jobId": "e7613244-da56-4a36-9a1a-899360eeb486",
-  "join": "roblox://placeId=124485474634182&gameInstanceId=e7613244-da56-4a36-9a1a-899360eeb486",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3068335519",
-  "web": "https://www.roblox.com/games/start?placeId=124485474634182&gameInstanceId=e7613244-da56-4a36-9a1a-899360eeb486",
-  "location": "Context: Guess the Word 💬",
-  "updatedAt": 1770605429661
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770606448486
 }
