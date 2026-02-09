@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 134757873036097,
+  "jobId": "29c006d4-fa3b-4a30-878f-5f47a331aa86",
+  "join": "roblox://placeId=134757873036097&gameInstanceId=29c006d4-fa3b-4a30-878f-5f47a331aa86",
   "follow": "roblox://followUserId=8506029459",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770647008979
+  "web": "https://www.roblox.com/games/start?placeId=134757873036097&gameInstanceId=29c006d4-fa3b-4a30-878f-5f47a331aa86",
+  "location": "Bangali Hood",
+  "updatedAt": 1770660091782
 }
