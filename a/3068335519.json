@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "in-game",
-  "placeId": 13772394625,
-  "jobId": "9937e73b-a086-4feb-ba05-8976673dca1e",
-  "join": "roblox://placeId=13772394625&gameInstanceId=9937e73b-a086-4feb-ba05-8976673dca1e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3068335519",
-  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=9937e73b-a086-4feb-ba05-8976673dca1e",
-  "location": "Blade Ball",
-  "updatedAt": 1770605249904
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770605368320
 }
