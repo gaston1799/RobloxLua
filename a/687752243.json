@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 14835828495,
-  "jobId": "33fb257f-afaa-4b16-a2a1-671b9136b4f5",
-  "join": "roblox://placeId=14835828495&gameInstanceId=33fb257f-afaa-4b16-a2a1-671b9136b4f5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=14835828495&gameInstanceId=33fb257f-afaa-4b16-a2a1-671b9136b4f5",
-  "location": "[PINS! 📌] Dudes Battlegrounds",
-  "updatedAt": 1770679137660
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770679260798
 }
