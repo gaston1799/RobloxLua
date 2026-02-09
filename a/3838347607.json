@@ -1,12 +1,12 @@
 {
   "userId": 3838347607,
   "displayName": "Kamilime",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "95b7f5f3-e6cf-46e0-a4ba-b8e03912ba5c",
+  "join": "roblox://placeId=5712833750&gameInstanceId=95b7f5f3-e6cf-46e0-a4ba-b8e03912ba5c",
   "follow": "roblox://followUserId=3838347607",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770671729673
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=95b7f5f3-e6cf-46e0-a4ba-b8e03912ba5c",
+  "location": "Animal Simulator",
+  "updatedAt": 1770671853604
 }
