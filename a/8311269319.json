@@ -1,12 +1,12 @@
 {
   "userId": 8311269319,
   "displayName": "PIXELCROWOG",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "5890a999-a15d-455c-9248-053cd7497227",
+  "join": "roblox://placeId=5712833750&gameInstanceId=5890a999-a15d-455c-9248-053cd7497227",
   "follow": "roblox://followUserId=8311269319",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770598943939
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=5890a999-a15d-455c-9248-053cd7497227",
+  "location": "Animal Simulator",
+  "updatedAt": 1770599663948
 }
