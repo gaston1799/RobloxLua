@@ -61,11 +61,12 @@ local AnimalSim = {
         followTarget = false,
         followDistance = 10,
         selectedPlayer = nil,
-	        legitMode = true,
-	        autoSelectTarget = false,
-	        visualizerEnabled = false,
-	        version = 1.04,
-	    },
+        rememberWalkspeed = false,
+        legitMode = true,
+        autoSelectTarget = false,
+        visualizerEnabled = false,
+        version = 1.04,
+    },
     Modules = {
         Utilities = {},
         Pathing = {},
@@ -139,7 +140,7 @@ local TELEPORTERS = {}
 local humanoid
 local humanoidRoot
 local prefixesBySuffix = prefixes
-local deathPose
+--local deathPose
 local justDied = false
 local incDMG = 100
 local autoEatTask
@@ -160,6 +161,32 @@ local autoJumpConnection
 local autoJumpCharacterConnection
 local characterAddedConnection
 local characterRemovingConnection
+
+local function cacheLastWalkSpeed(humanoidInstance)
+    if not AnimalSim.State.rememberWalkspeed then
+        return
+    end
+    local speed = humanoidInstance and tonumber(humanoidInstance.WalkSpeed)
+    if not speed or speed <= 0 then
+        return
+    end
+    _G.lastWalkSpeed = speed
+    _G.lastwalkspeed = speed
+    _G["last walkspeed"] = speed
+end
+
+local function applyLastWalkSpeed(humanoidInstance)
+    if not AnimalSim.State.rememberWalkspeed then
+        return
+    end
+    if not humanoidInstance then
+        return
+    end
+    local speed = tonumber(_G.lastWalkSpeed) or tonumber(_G.lastwalkspeed) or tonumber(_G["last walkspeed"])
+    if speed and speed > 0 then
+        humanoidInstance.WalkSpeed = speed
+    end
+end
 
 local AUTO_PVP_POLL_RATE = 0.35
 local AUTO_ZONE_POLL_RATE = 0.35
@@ -2152,6 +2179,7 @@ local function hptp()
     localHumanoid:GetPropertyChangedSignal("Health"):Connect(function()
         local newHealth = localHumanoid.Health
         if newHealth < 1 then
+            cacheLastWalkSpeed(localHumanoid)
             deathPose = LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
             justDied = true
             if DEBUG_DAMAGE_LOG then
@@ -2224,6 +2252,7 @@ local function onLocalCharacterAdded(newCharacter)
     end)
     if successHumanoid and newHumanoid then
         humanoid = newHumanoid
+        applyLastWalkSpeed(newHumanoid)
         if autoJumpEnabled then
             bindAutoJumpToHumanoid(newHumanoid)
             newHumanoid.Jump = true
@@ -2245,6 +2274,7 @@ local function onLocalCharacterAdded(newCharacter)
 end
 
 local function onLocalCharacterRemoving()
+    cacheLastWalkSpeed(humanoid)
     char = nil
     humanoid = nil
     humanoidRoot = nil
@@ -3893,6 +3923,21 @@ AnimalSim.UI.buildUI = function()
         callback = function()
             for _, team in ipairs(workspace.Teams:GetChildren()) do
                 print(team.Name)
+            end
+        end,
+    })
+
+    local miscSection = gameplayPage:addSection({title = "Misc"})
+
+    miscSection:addToggle({
+        title = "remeber walkspeed",
+        toggled = AnimalSim.State.rememberWalkspeed,
+        callback = function(value)
+            AnimalSim.State.rememberWalkspeed = value
+            if value then
+                local currentHumanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+                cacheLastWalkSpeed(currentHumanoid)
+                applyLastWalkSpeed(currentHumanoid)
             end
         end,
     })
