@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 81210336803875,
+  "jobId": "fe684f87-9b90-464f-8a6a-01b32c910e43",
+  "join": "roblox://placeId=81210336803875&gameInstanceId=fe684f87-9b90-464f-8a6a-01b32c910e43",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770603205824
+  "web": "https://www.roblox.com/games/start?placeId=81210336803875&gameInstanceId=fe684f87-9b90-464f-8a6a-01b32c910e43",
+  "location": "1 Click = 1 Grow! 💪",
+  "updatedAt": 1770603325525
 }
