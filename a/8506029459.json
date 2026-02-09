@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "in-game",
-  "placeId": 101594267628114,
-  "jobId": "4a9c6cdd-4e8f-436b-b804-d64e4fd71825",
-  "join": "roblox://placeId=101594267628114&gameInstanceId=4a9c6cdd-4e8f-436b-b804-d64e4fd71825",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=8506029459",
-  "web": "https://www.roblox.com/games/start?placeId=101594267628114&gameInstanceId=4a9c6cdd-4e8f-436b-b804-d64e4fd71825",
-  "location": "[🙏] Climb Stairs to Ascend",
-  "updatedAt": 1770660272215
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770660390120
 }
