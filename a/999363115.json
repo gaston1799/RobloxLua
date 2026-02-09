@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 129827112113663,
-  "jobId": "43152a91-5357-4140-afff-d0a32c7b9493",
-  "join": "roblox://placeId=129827112113663&gameInstanceId=43152a91-5357-4140-afff-d0a32c7b9493",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=129827112113663&gameInstanceId=43152a91-5357-4140-afff-d0a32c7b9493",
-  "location": "[✨] Prospecting! 💎",
-  "updatedAt": 1770633356095
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770633416128
 }
