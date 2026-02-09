@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 9372570969,
-  "jobId": "20695986-e019-460c-9a5c-d31408e56313",
-  "join": "roblox://placeId=9372570969&gameInstanceId=20695986-e019-460c-9a5c-d31408e56313",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=9372570969&gameInstanceId=20695986-e019-460c-9a5c-d31408e56313",
-  "location": "GRUMPY GRAN! (SCARY OBBY)",
-  "updatedAt": 1770647036825
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770647157097
 }
