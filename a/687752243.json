@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99980525020256,
+  "jobId": "13983ce2-8e32-4745-bbbc-a4b70a99a676",
+  "join": "roblox://placeId=99980525020256&gameInstanceId=13983ce2-8e32-4745-bbbc-a4b70a99a676",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770668337455
+  "web": "https://www.roblox.com/games/start?placeId=99980525020256&gameInstanceId=13983ce2-8e32-4745-bbbc-a4b70a99a676",
+  "location": "[UPDATE 2.1] Soulbound",
+  "updatedAt": 1770668397199
 }
