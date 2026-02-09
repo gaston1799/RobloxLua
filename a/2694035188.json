@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99457855080430,
+  "jobId": "66d4512e-0e82-41da-8974-8795f1cd2108",
+  "join": "roblox://placeId=99457855080430&gameInstanceId=66d4512e-0e82-41da-8974-8795f1cd2108",
   "follow": "roblox://followUserId=2694035188",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770595883573
+  "web": "https://www.roblox.com/games/start?placeId=99457855080430&gameInstanceId=66d4512e-0e82-41da-8974-8795f1cd2108",
+  "location": "+1 Speed Barrel Escape ",
+  "updatedAt": 1770597023877
 }
