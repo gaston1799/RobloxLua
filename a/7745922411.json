@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "in-game",
-  "placeId": 2418863943,
-  "jobId": "b7c34a7b-f578-4a5b-96c6-494c81a92e63",
-  "join": "roblox://placeId=2418863943&gameInstanceId=b7c34a7b-f578-4a5b-96c6-494c81a92e63",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7745922411",
-  "web": "https://www.roblox.com/games/start?placeId=2418863943&gameInstanceId=b7c34a7b-f578-4a5b-96c6-494c81a92e63",
-  "location": "[BIG UPDATE] Roanoke, VA Driving RP",
-  "updatedAt": 1770750149726
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770750869549
 }
