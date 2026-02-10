@@ -1,12 +1,12 @@
 {
   "userId": 575638829,
   "displayName": "Grr",
-  "status": "in-game",
-  "placeId": 96554960408457,
-  "jobId": "097e36c6-b2da-4bb9-a943-dd8233db2323",
-  "join": "roblox://placeId=96554960408457&gameInstanceId=097e36c6-b2da-4bb9-a943-dd8233db2323",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=575638829",
-  "web": "https://www.roblox.com/games/start?placeId=96554960408457&gameInstanceId=097e36c6-b2da-4bb9-a943-dd8233db2323",
-  "location": "[🎈] Pop a Balloon",
-  "updatedAt": 1770661465500
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770692096011
 }
