@@ -1,12 +1,12 @@
 {
   "userId": 2780660034,
   "displayName": "AiHee",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "6d6d15f8-8bd6-4f90-8a4e-7dc84e532e57",
+  "join": "roblox://placeId=5712833750&gameInstanceId=6d6d15f8-8bd6-4f90-8a4e-7dc84e532e57",
   "follow": "roblox://followUserId=2780660034",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770741990698
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=6d6d15f8-8bd6-4f90-8a4e-7dc84e532e57",
+  "location": "Animal Simulator",
+  "updatedAt": 1770742050595
 }
