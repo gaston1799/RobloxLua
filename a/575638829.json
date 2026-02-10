@@ -1,12 +1,12 @@
 {
   "userId": 575638829,
   "displayName": "Grr",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "a8d3a25e-017b-44dc-a833-897835b482ae",
-  "join": "roblox://placeId=5712833750&gameInstanceId=a8d3a25e-017b-44dc-a833-897835b482ae",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=575638829",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=a8d3a25e-017b-44dc-a833-897835b482ae",
-  "location": "Animal Simulator",
-  "updatedAt": 1770741686404
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770743426360
 }
