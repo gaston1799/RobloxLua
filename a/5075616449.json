@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 138365924124161,
-  "jobId": "45035c4f-4aec-496a-9b40-d1784ae4c371",
-  "join": "roblox://placeId=138365924124161&gameInstanceId=45035c4f-4aec-496a-9b40-d1784ae4c371",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=138365924124161&gameInstanceId=45035c4f-4aec-496a-9b40-d1784ae4c371",
-  "location": "Backrooms Drift [🚗]",
-  "updatedAt": 1770762961056
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770763024138
 }
