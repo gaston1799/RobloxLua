@@ -1,12 +1,12 @@
 {
   "userId": 1599682352,
   "displayName": "ZxA",
-  "status": "in-game",
-  "placeId": 17516596118,
-  "jobId": "6e8bacdd-79f9-46f8-acdb-3197dc44d265",
-  "join": "roblox://placeId=17516596118&gameInstanceId=6e8bacdd-79f9-46f8-acdb-3197dc44d265",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1599682352",
-  "web": "https://www.roblox.com/games/start?placeId=17516596118&gameInstanceId=6e8bacdd-79f9-46f8-acdb-3197dc44d265",
-  "location": "🔥Hypershot",
-  "updatedAt": 1770695938729
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770695998078
 }
