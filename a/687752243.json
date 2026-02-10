@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5229285987,
+  "jobId": "70b39989-fbf9-46ce-8dfb-ace40c893099",
+  "join": "roblox://placeId=5229285987&gameInstanceId=70b39989-fbf9-46ce-8dfb-ace40c893099",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770683277073
+  "web": "https://www.roblox.com/games/start?placeId=5229285987&gameInstanceId=70b39989-fbf9-46ce-8dfb-ace40c893099",
+  "location": "[NEW!] Peterson Air Force Base",
+  "updatedAt": 1770683697907
 }
