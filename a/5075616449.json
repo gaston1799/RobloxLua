@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 135792276734493,
+  "jobId": "4cf6d3b4-4d95-4a85-951f-01037041b9a7",
+  "join": "roblox://placeId=135792276734493&gameInstanceId=4cf6d3b4-4d95-4a85-951f-01037041b9a7",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770757259920
+  "web": "https://www.roblox.com/games/start?placeId=135792276734493&gameInstanceId=4cf6d3b4-4d95-4a85-951f-01037041b9a7",
+  "location": "a true baseplate",
+  "updatedAt": 1770762839299
 }
