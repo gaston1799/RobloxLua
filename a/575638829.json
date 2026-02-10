@@ -1,12 +1,12 @@
 {
   "userId": 575638829,
   "displayName": "Grr",
-  "status": "in-game",
-  "placeId": 92371631484540,
-  "jobId": "91622740-7609-4bd9-b67e-38ab59ef852a",
-  "join": "roblox://placeId=92371631484540&gameInstanceId=91622740-7609-4bd9-b67e-38ab59ef852a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=575638829",
-  "web": "https://www.roblox.com/games/start?placeId=92371631484540&gameInstanceId=91622740-7609-4bd9-b67e-38ab59ef852a",
-  "location": "100 Waves Later",
-  "updatedAt": 1770751406529
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770751466536
 }
