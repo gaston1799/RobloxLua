@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5954316356,
+  "jobId": "0f673703-0e2a-4662-88fc-ebf18e08eece",
+  "join": "roblox://placeId=5954316356&gameInstanceId=0f673703-0e2a-4662-88fc-ebf18e08eece",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770684539196
+  "web": "https://www.roblox.com/games/start?placeId=5954316356&gameInstanceId=0f673703-0e2a-4662-88fc-ebf18e08eece",
+  "location": "Skyfall Stomp Effect",
+  "updatedAt": 1770684597569
 }
