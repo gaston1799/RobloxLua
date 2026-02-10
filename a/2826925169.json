@@ -1,12 +1,12 @@
 {
   "userId": 2826925169,
   "displayName": "gxg",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 72712036210947,
+  "jobId": "83177fde-ee7b-4210-9aa3-2f10f3af2cdf",
+  "join": "roblox://placeId=72712036210947&gameInstanceId=83177fde-ee7b-4210-9aa3-2f10f3af2cdf",
   "follow": "roblox://followUserId=2826925169",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770765001355
+  "web": "https://www.roblox.com/games/start?placeId=72712036210947&gameInstanceId=83177fde-ee7b-4210-9aa3-2f10f3af2cdf",
+  "location": "[V10] Fix It Up!",
+  "updatedAt": 1770765063830
 }
