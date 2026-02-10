@@ -1,12 +1,12 @@
 {
   "userId": 2009056151,
   "displayName": "Dino_dan",
-  "status": "in-game",
-  "placeId": 6699652755,
-  "jobId": "6e917bab-a97c-4046-8186-ee7aca3cbd9c",
-  "join": "roblox://placeId=6699652755&gameInstanceId=6e917bab-a97c-4046-8186-ee7aca3cbd9c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2009056151",
-  "web": "https://www.roblox.com/games/start?placeId=6699652755&gameInstanceId=6e917bab-a97c-4046-8186-ee7aca3cbd9c",
-  "location": "Musket Testing",
-  "updatedAt": 1770684568622
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770684630848
 }
