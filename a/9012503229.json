@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 103510455221561,
+  "jobId": "941f9622-ff4a-4bfd-b7e9-f291954c03d6",
+  "join": "roblox://placeId=103510455221561&gameInstanceId=941f9622-ff4a-4bfd-b7e9-f291954c03d6",
   "follow": "roblox://followUserId=9012503229",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770754412732
+  "web": "https://www.roblox.com/games/start?placeId=103510455221561&gameInstanceId=941f9622-ff4a-4bfd-b7e9-f291954c03d6",
+  "location": "Care for Cats",
+  "updatedAt": 1770754589145
 }
