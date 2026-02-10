@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 106418667667616,
+  "jobId": "9acfccc5-a156-40d1-8ae1-68b92a6cbcb8",
+  "join": "roblox://placeId=106418667667616&gameInstanceId=9acfccc5-a156-40d1-8ae1-68b92a6cbcb8",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770736891462
+  "web": "https://www.roblox.com/games/start?placeId=106418667667616&gameInstanceId=9acfccc5-a156-40d1-8ae1-68b92a6cbcb8",
+  "location": "OP Blade",
+  "updatedAt": 1770755249700
 }
