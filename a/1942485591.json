@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 93482986347670,
-  "jobId": "e7528b4d-d43d-43a1-9510-2d8e900c2151",
-  "join": "roblox://placeId=93482986347670&gameInstanceId=e7528b4d-d43d-43a1-9510-2d8e900c2151",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=93482986347670&gameInstanceId=e7528b4d-d43d-43a1-9510-2d8e900c2151",
-  "location": "[🎯UPD 6] Deadeye",
-  "updatedAt": 1770764458222
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770764759299
 }
