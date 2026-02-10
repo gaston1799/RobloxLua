@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 9872472334,
+  "jobId": "4b2a6ba9-be82-4a31-bc4a-c1befce60c67",
+  "join": "roblox://placeId=9872472334&gameInstanceId=4b2a6ba9-be82-4a31-bc4a-c1befce60c67",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770741328150
+  "web": "https://www.roblox.com/games/start?placeId=9872472334&gameInstanceId=4b2a6ba9-be82-4a31-bc4a-c1befce60c67",
+  "location": "Evade",
+  "updatedAt": 1770741629152
 }
