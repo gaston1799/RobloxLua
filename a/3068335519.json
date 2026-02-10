@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "in-game",
-  "placeId": 86111605798689,
-  "jobId": "9d53c45d-8548-4a90-bba1-78f2be47f379",
-  "join": "roblox://placeId=86111605798689&gameInstanceId=9d53c45d-8548-4a90-bba1-78f2be47f379",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3068335519",
-  "web": "https://www.roblox.com/games/start?placeId=86111605798689&gameInstanceId=9d53c45d-8548-4a90-bba1-78f2be47f379",
-  "location": "Star Fishing [ALPHA]",
-  "updatedAt": 1770758280341
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770758701474
 }
