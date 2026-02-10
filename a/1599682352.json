@@ -1,12 +1,12 @@
 {
   "userId": 1599682352,
   "displayName": "ZxA",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 75965306756161,
+  "jobId": "6f4c5617-6b6a-4c56-9a3f-78c3c380327c",
+  "join": "roblox://placeId=75965306756161&gameInstanceId=6f4c5617-6b6a-4c56-9a3f-78c3c380327c",
   "follow": "roblox://followUserId=1599682352",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770683039142
+  "web": "https://www.roblox.com/games/start?placeId=75965306756161&gameInstanceId=6f4c5617-6b6a-4c56-9a3f-78c3c380327c",
+  "location": "Color.io",
+  "updatedAt": 1770683098269
 }
