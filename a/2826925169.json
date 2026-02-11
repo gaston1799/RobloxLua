@@ -1,12 +1,12 @@
 {
   "userId": 2826925169,
   "displayName": "gxg",
-  "status": "in-game",
-  "placeId": 2418863943,
-  "jobId": "0058cc11-79ea-41da-8045-541e128ef40f",
-  "join": "roblox://placeId=2418863943&gameInstanceId=0058cc11-79ea-41da-8045-541e128ef40f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2826925169",
-  "web": "https://www.roblox.com/games/start?placeId=2418863943&gameInstanceId=0058cc11-79ea-41da-8045-541e128ef40f",
-  "location": "[BIG UPDATE] Roanoke, VA Driving RP",
-  "updatedAt": 1770773885803
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770774901792
 }
