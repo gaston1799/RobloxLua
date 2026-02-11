@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "e0d1766d-345e-43f5-b80d-5dad01e63b22",
-  "join": "roblox://placeId=7041939546&gameInstanceId=e0d1766d-345e-43f5-b80d-5dad01e63b22",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3068335519",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=e0d1766d-345e-43f5-b80d-5dad01e63b22",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1770782102913
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770783963242
 }
