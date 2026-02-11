@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 109397169461300,
-  "jobId": "42f0562d-4458-413b-ad07-9e12f55eabbb",
-  "join": "roblox://placeId=109397169461300&gameInstanceId=42f0562d-4458-413b-ad07-9e12f55eabbb",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=109397169461300&gameInstanceId=42f0562d-4458-413b-ad07-9e12f55eabbb",
-  "location": "[ 💘 ] SNIPER DUELS",
-  "updatedAt": 1770830310915
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770831330614
 }
