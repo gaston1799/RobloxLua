@@ -1,12 +1,12 @@
 {
   "userId": 2461658271,
   "displayName": "Bay_Xit",
-  "status": "in-game",
-  "placeId": 18668065416,
-  "jobId": "7e437e56-36a8-4a73-81ca-c767f7b0da30",
-  "join": "roblox://placeId=18668065416&gameInstanceId=7e437e56-36a8-4a73-81ca-c767f7b0da30",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2461658271",
-  "web": "https://www.roblox.com/games/start?placeId=18668065416&gameInstanceId=7e437e56-36a8-4a73-81ca-c767f7b0da30",
-  "location": "[RIN] Blue Lock: Rivals",
-  "updatedAt": 1770796109195
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770798869109
 }
