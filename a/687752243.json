@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111163066268338,
+  "jobId": "86bd7e88-b37f-4e23-b8e5-5153387429dd",
+  "join": "roblox://placeId=111163066268338&gameInstanceId=86bd7e88-b37f-4e23-b8e5-5153387429dd",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770785551931
+  "web": "https://www.roblox.com/games/start?placeId=111163066268338&gameInstanceId=86bd7e88-b37f-4e23-b8e5-5153387429dd",
+  "location": "Knife Ability Test",
+  "updatedAt": 1770785729048
 }
