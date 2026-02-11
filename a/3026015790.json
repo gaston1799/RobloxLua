@@ -1,12 +1,12 @@
 {
   "userId": 3026015790,
   "displayName": "KAOsxAKT_Kitkat",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "3ad36ab4-e437-4b2d-93d8-e999fc15fc82",
+  "join": "roblox://placeId=5712833750&gameInstanceId=3ad36ab4-e437-4b2d-93d8-e999fc15fc82",
   "follow": "roblox://followUserId=3026015790",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770793440870
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=3ad36ab4-e437-4b2d-93d8-e999fc15fc82",
+  "location": "Animal Simulator",
+  "updatedAt": 1770793559216
 }
