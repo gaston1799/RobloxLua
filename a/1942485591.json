@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 139566161526375,
+  "jobId": "1e94281e-f7b2-48ae-8e20-67d6b4982b90",
+  "join": "roblox://placeId=139566161526375&gameInstanceId=1e94281e-f7b2-48ae-8e20-67d6b4982b90",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770773938583
+  "web": "https://www.roblox.com/games/start?placeId=139566161526375&gameInstanceId=1e94281e-f7b2-48ae-8e20-67d6b4982b90",
+  "location": "Bridge Duel",
+  "updatedAt": 1770773998648
 }
