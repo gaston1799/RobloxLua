@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 133862653684768,
-  "jobId": "ba2a4142-00bf-4055-818b-d027f0f5c52d",
-  "join": "roblox://placeId=133862653684768&gameInstanceId=ba2a4142-00bf-4055-818b-d027f0f5c52d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=133862653684768&gameInstanceId=ba2a4142-00bf-4055-818b-d027f0f5c52d",
-  "location": "Knockout! 🐧",
-  "updatedAt": 1770774119407
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770774838714
 }
