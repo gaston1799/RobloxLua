@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3082002798,
+  "jobId": "bb0b2373-a230-4720-b0b9-43fb00232050",
+  "join": "roblox://placeId=3082002798&gameInstanceId=bb0b2373-a230-4720-b0b9-43fb00232050",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770825630931
+  "web": "https://www.roblox.com/games/start?placeId=3082002798&gameInstanceId=bb0b2373-a230-4720-b0b9-43fb00232050",
+  "location": "T-Titans Battlegrounds",
+  "updatedAt": 1770839071916
 }
