@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 104922381390932,
+  "jobId": "4b5c7ca1-ef96-435e-a397-5d96ae9a183d",
+  "join": "roblox://placeId=104922381390932&gameInstanceId=4b5c7ca1-ef96-435e-a397-5d96ae9a183d",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770840210758
+  "web": "https://www.roblox.com/games/start?placeId=104922381390932&gameInstanceId=4b5c7ca1-ef96-435e-a397-5d96ae9a183d",
+  "location": "Kaiju Multiverse Official",
+  "updatedAt": 1770840270669
 }
