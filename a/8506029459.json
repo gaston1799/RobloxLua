@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 129277356576042,
+  "jobId": "2b07ee2a-4d8a-41a7-838a-e6c8e68a5306",
+  "join": "roblox://placeId=129277356576042&gameInstanceId=2b07ee2a-4d8a-41a7-838a-e6c8e68a5306",
   "follow": "roblox://followUserId=8506029459",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770828093470
+  "web": "https://www.roblox.com/games/start?placeId=129277356576042&gameInstanceId=2b07ee2a-4d8a-41a7-838a-e6c8e68a5306",
+  "location": "Argentinian Collectives Simulator",
+  "updatedAt": 1770828153060
 }
