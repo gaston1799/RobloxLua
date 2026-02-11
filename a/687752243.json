@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 4639625707,
-  "jobId": "aab9698a-53c1-443d-85dd-492f0b103ad5",
-  "join": "roblox://placeId=4639625707&gameInstanceId=aab9698a-53c1-443d-85dd-492f0b103ad5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=4639625707&gameInstanceId=aab9698a-53c1-443d-85dd-492f0b103ad5",
-  "location": "[UAV] War Tycoon",
-  "updatedAt": 1770840452110
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770840632202
 }
