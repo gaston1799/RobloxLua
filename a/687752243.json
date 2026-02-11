@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 17165195574,
+  "jobId": "0f2a55d2-42ca-4ea1-bf97-2bf23a36f0ec",
+  "join": "roblox://placeId=17165195574&gameInstanceId=0f2a55d2-42ca-4ea1-bf97-2bf23a36f0ec",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770850471581
+  "web": "https://www.roblox.com/games/start?placeId=17165195574&gameInstanceId=0f2a55d2-42ca-4ea1-bf97-2bf23a36f0ec",
+  "location": "Old Jump Showdown",
+  "updatedAt": 1770850713334
 }
