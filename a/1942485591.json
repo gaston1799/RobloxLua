@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131623223084840,
+  "jobId": "2abefded-d410-46e4-ad93-9954d0dbf114",
+  "join": "roblox://placeId=131623223084840&gameInstanceId=2abefded-d410-46e4-ad93-9954d0dbf114",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770776940481
+  "web": "https://www.roblox.com/games/start?placeId=131623223084840&gameInstanceId=2abefded-d410-46e4-ad93-9954d0dbf114",
+  "location": "Escape Tsunami For Brainrots!",
+  "updatedAt": 1770777120788
 }
