@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 119987266683883,
+  "jobId": "e76031e9-1419-4d68-9397-17ed4a61992e",
+  "join": "roblox://placeId=119987266683883&gameInstanceId=e76031e9-1419-4d68-9397-17ed4a61992e",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770772017122
+  "web": "https://www.roblox.com/games/start?placeId=119987266683883&gameInstanceId=e76031e9-1419-4d68-9397-17ed4a61992e",
+  "location": "Survive LAVA for Brainrots!",
+  "updatedAt": 1770772077066
 }
