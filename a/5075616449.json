@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 121126343656544,
+  "jobId": "952b5211-23d1-42a8-b93c-81eefd04a884",
+  "join": "roblox://placeId=121126343656544&gameInstanceId=952b5211-23d1-42a8-b93c-81eefd04a884",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770768302582
+  "web": "https://www.roblox.com/games/start?placeId=121126343656544&gameInstanceId=952b5211-23d1-42a8-b93c-81eefd04a884",
+  "location": "Spray Poop Obby",
+  "updatedAt": 1770768361455
 }
