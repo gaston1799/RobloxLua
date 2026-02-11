@@ -1,12 +1,12 @@
 {
   "userId": 2258623929,
   "displayName": "1of1DOLO",
-  "status": "in-game",
-  "placeId": 135202704953082,
-  "jobId": "fe832ab4-831d-49f1-b681-b2672b9225d5",
-  "join": "roblox://placeId=135202704953082&gameInstanceId=fe832ab4-831d-49f1-b681-b2672b9225d5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2258623929",
-  "web": "https://www.roblox.com/games/start?placeId=135202704953082&gameInstanceId=fe832ab4-831d-49f1-b681-b2672b9225d5",
-  "location": "🏈 BIG GAME! Car Dealership Tycoon",
-  "updatedAt": 1770803941870
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770804780900
 }
