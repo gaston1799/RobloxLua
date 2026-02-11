@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 663655429,
+  "jobId": "5ce5351c-eaee-41aa-bc3c-9352f5647f40",
+  "join": "roblox://placeId=663655429&gameInstanceId=5ce5351c-eaee-41aa-bc3c-9352f5647f40",
   "follow": "roblox://followUserId=2495320179",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770810751259
+  "web": "https://www.roblox.com/games/start?placeId=663655429&gameInstanceId=5ce5351c-eaee-41aa-bc3c-9352f5647f40",
+  "location": "Pick A Side",
+  "updatedAt": 1770811589593
 }
