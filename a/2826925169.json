@@ -1,12 +1,12 @@
 {
   "userId": 2826925169,
   "displayName": "gxg",
-  "status": "in-game",
-  "placeId": 127723279511870,
-  "jobId": "035a5b12-0bf0-4e32-822a-fde5230b5234",
-  "join": "roblox://placeId=127723279511870&gameInstanceId=035a5b12-0bf0-4e32-822a-fde5230b5234",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2826925169",
-  "web": "https://www.roblox.com/games/start?placeId=127723279511870&gameInstanceId=035a5b12-0bf0-4e32-822a-fde5230b5234",
-  "location": "(UPD) Glamis Dunes, California",
-  "updatedAt": 1770787171938
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770787651583
 }
