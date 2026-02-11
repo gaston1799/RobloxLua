@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 6132958612,
-  "jobId": "5299f53d-6566-44a1-99cb-51a3f29faa66",
-  "join": "roblox://placeId=6132958612&gameInstanceId=5299f53d-6566-44a1-99cb-51a3f29faa66",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=6132958612&gameInstanceId=5299f53d-6566-44a1-99cb-51a3f29faa66",
-  "location": "Marvel and DC Super Heroes",
-  "updatedAt": 1770825150925
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770825331022
 }
