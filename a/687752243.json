@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 13076380114,
-  "jobId": "9e7fba05-7bef-4bd7-a37b-7b557c61844e",
-  "join": "roblox://placeId=13076380114&gameInstanceId=9e7fba05-7bef-4bd7-a37b-7b557c61844e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=13076380114&gameInstanceId=9e7fba05-7bef-4bd7-a37b-7b557c61844e",
-  "location": "[CHRISTMAS🎄] Heroes Battlegrounds",
-  "updatedAt": 1770851611473
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770852091310
 }
