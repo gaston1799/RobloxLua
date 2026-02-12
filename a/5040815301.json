@@ -1,12 +1,12 @@
 {
   "userId": 5040815301,
   "displayName": "Saberrrrr",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7164685699,
+  "jobId": "a873afda-cfa1-4fc2-8fa8-2e9848c838c5",
+  "join": "roblox://placeId=7164685699&gameInstanceId=a873afda-cfa1-4fc2-8fa8-2e9848c838c5",
   "follow": "roblox://followUserId=5040815301",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770936814367
+  "web": "https://www.roblox.com/games/start?placeId=7164685699&gameInstanceId=a873afda-cfa1-4fc2-8fa8-2e9848c838c5",
+  "location": "Horror Hospital",
+  "updatedAt": 1770937055408
 }
