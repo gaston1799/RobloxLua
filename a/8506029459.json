@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "in-game",
-  "placeId": 123974602339071,
-  "jobId": "00348116-d957-4ecf-971a-a6f1ba84a328",
-  "join": "roblox://placeId=123974602339071&gameInstanceId=00348116-d957-4ecf-971a-a6f1ba84a328",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=8506029459",
-  "web": "https://www.roblox.com/games/start?placeId=123974602339071&gameInstanceId=00348116-d957-4ecf-971a-a6f1ba84a328",
-  "location": "[UP] Just a baseplate.",
-  "updatedAt": 1770924515929
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770924635582
 }
