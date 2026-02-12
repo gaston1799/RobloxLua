@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "efb60536-586c-42ed-a737-6061f6e6c2fc",
+  "join": "roblox://placeId=7041939546&gameInstanceId=efb60536-586c-42ed-a737-6061f6e6c2fc",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770926792295
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=efb60536-586c-42ed-a737-6061f6e6c2fc",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1770926972566
 }
