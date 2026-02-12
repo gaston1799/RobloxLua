@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "in-game",
-  "placeId": 133215910299950,
-  "jobId": "f7f14506-5fe7-4ad5-8c39-45b217e1a92b",
-  "join": "roblox://placeId=133215910299950&gameInstanceId=f7f14506-5fe7-4ad5-8c39-45b217e1a92b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4725438245",
-  "web": "https://www.roblox.com/games/start?placeId=133215910299950&gameInstanceId=f7f14506-5fe7-4ad5-8c39-45b217e1a92b",
-  "location": "RIVALS",
-  "updatedAt": 1770859531458
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770859652362
 }
