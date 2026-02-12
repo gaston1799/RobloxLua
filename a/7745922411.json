@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13379208636,
+  "jobId": "dbf85936-9ba7-4017-ae7a-e64973adaa63",
+  "join": "roblox://placeId=13379208636&gameInstanceId=dbf85936-9ba7-4017-ae7a-e64973adaa63",
   "follow": "roblox://followUserId=7745922411",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770929854780
+  "web": "https://www.roblox.com/games/start?placeId=13379208636&gameInstanceId=dbf85936-9ba7-4017-ae7a-e64973adaa63",
+  "location": "Attack on Titan Revolution",
+  "updatedAt": 1770933035278
 }
