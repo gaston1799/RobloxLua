@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 74712354830441,
-  "jobId": "c29f3fd9-b006-457a-bfba-ff2595d7db59",
-  "join": "roblox://placeId=74712354830441&gameInstanceId=c29f3fd9-b006-457a-bfba-ff2595d7db59",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=74712354830441&gameInstanceId=c29f3fd9-b006-457a-bfba-ff2595d7db59",
-  "location": "Escape Sharks For Brainrots!",
-  "updatedAt": 1770922712903
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770922775535
 }
