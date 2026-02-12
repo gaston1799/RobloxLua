@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 133905785900843,
+  "jobId": "d52ef044-c6ef-439d-96f4-4588b6ab33ea",
+  "join": "roblox://placeId=133905785900843&gameInstanceId=d52ef044-c6ef-439d-96f4-4588b6ab33ea",
   "follow": "roblox://followUserId=8506029459",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770925176498
+  "web": "https://www.roblox.com/games/start?placeId=133905785900843&gameInstanceId=d52ef044-c6ef-439d-96f4-4588b6ab33ea",
+  "location": "The Fastest FredBear Beta",
+  "updatedAt": 1770925235513
 }
