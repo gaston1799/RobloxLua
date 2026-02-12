@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6961824067,
+  "jobId": "3956072c-4bc1-4853-8946-4a2f788f4ed8",
+  "join": "roblox://placeId=6961824067&gameInstanceId=3956072c-4bc1-4853-8946-4a2f788f4ed8",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770914191934
+  "web": "https://www.roblox.com/games/start?placeId=6961824067&gameInstanceId=3956072c-4bc1-4853-8946-4a2f788f4ed8",
+  "location": "Fling Things and People",
+  "updatedAt": 1770914251842
 }
