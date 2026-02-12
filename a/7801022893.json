@@ -1,12 +1,12 @@
 {
   "userId": 7801022893,
   "displayName": "iIy",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 135792276734493,
+  "jobId": "4df5e560-f8ed-409e-94fd-a7c6bffe73c4",
+  "join": "roblox://placeId=135792276734493&gameInstanceId=4df5e560-f8ed-409e-94fd-a7c6bffe73c4",
   "follow": "roblox://followUserId=7801022893",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770910772736
+  "web": "https://www.roblox.com/games/start?placeId=135792276734493&gameInstanceId=4df5e560-f8ed-409e-94fd-a7c6bffe73c4",
+  "location": "a true baseplate",
+  "updatedAt": 1770911192729
 }
