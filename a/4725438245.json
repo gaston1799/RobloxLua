@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "in-game",
-  "placeId": 12081110790,
-  "jobId": "3e4dbe66-d556-48c6-9229-671372149260",
-  "join": "roblox://placeId=12081110790&gameInstanceId=3e4dbe66-d556-48c6-9229-671372149260",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4725438245",
-  "web": "https://www.roblox.com/games/start?placeId=12081110790&gameInstanceId=3e4dbe66-d556-48c6-9229-671372149260",
-  "location": "Create a Cart Ride!",
-  "updatedAt": 1770865950657
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770866011356
 }
