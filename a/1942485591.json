@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 140374914197602,
-  "jobId": "4e32f12a-b765-4873-92a4-f60f0d41d368",
-  "join": "roblox://placeId=140374914197602&gameInstanceId=4e32f12a-b765-4873-92a4-f60f0d41d368",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=140374914197602&gameInstanceId=4e32f12a-b765-4873-92a4-f60f0d41d368",
-  "location": "Speed Clicker ⚡",
-  "updatedAt": 1770934142523
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770935162566
 }
