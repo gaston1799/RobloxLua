@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 123725435435848,
+  "jobId": "52c7cb71-75e1-43c3-ade5-852bbb9fb595",
+  "join": "roblox://placeId=123725435435848&gameInstanceId=52c7cb71-75e1-43c3-ade5-852bbb9fb595",
   "follow": "roblox://followUserId=8506029459",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770919596446
+  "web": "https://www.roblox.com/games/start?placeId=123725435435848&gameInstanceId=52c7cb71-75e1-43c3-ade5-852bbb9fb595",
+  "location": "Best Indoor Playground And Kids Trampoline Park",
+  "updatedAt": 1770919779026
 }
