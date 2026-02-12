@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111130915266245,
+  "jobId": "eb31bacb-d8fd-45e4-9295-bb30d207641e",
+  "join": "roblox://placeId=111130915266245&gameInstanceId=eb31bacb-d8fd-45e4-9295-bb30d207641e",
   "follow": "roblox://followUserId=2694035188",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770936362807
+  "web": "https://www.roblox.com/games/start?placeId=111130915266245&gameInstanceId=eb31bacb-d8fd-45e4-9295-bb30d207641e",
+  "location": "[🚀UPD] Car Training🚗",
+  "updatedAt": 1770936421404
 }
