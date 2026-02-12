@@ -1,12 +1,12 @@
 {
   "userId": 8506029459,
   "displayName": "newton",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "99c0bfc5-98be-44a8-b437-ba9d378b4179",
+  "join": "roblox://placeId=5712833750&gameInstanceId=99c0bfc5-98be-44a8-b437-ba9d378b4179",
   "follow": "roblox://followUserId=8506029459",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770914735058
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=99c0bfc5-98be-44a8-b437-ba9d378b4179",
+  "location": "Animal Simulator",
+  "updatedAt": 1770914863355
 }
