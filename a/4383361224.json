@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 106809703371658,
-  "jobId": "ae0953a5-5f73-4d4f-a77d-0d24ceef1337",
-  "join": "roblox://placeId=106809703371658&gameInstanceId=ae0953a5-5f73-4d4f-a77d-0d24ceef1337",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=106809703371658&gameInstanceId=ae0953a5-5f73-4d4f-a77d-0d24ceef1337",
-  "location": "[RoBeats! Collab] Project : RUSHER",
-  "updatedAt": 1770920612632
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770920795782
 }
