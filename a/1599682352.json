@@ -1,12 +1,12 @@
 {
   "userId": 1599682352,
   "displayName": "ZxA",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "d44baf75-9d6f-4a43-af36-827e0e40e0fb",
-  "join": "roblox://placeId=5712833750&gameInstanceId=d44baf75-9d6f-4a43-af36-827e0e40e0fb",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1599682352",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=d44baf75-9d6f-4a43-af36-827e0e40e0fb",
-  "location": "Animal Simulator",
-  "updatedAt": 1770866913636
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770867454971
 }
