@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "in-game",
-  "placeId": 73956553001240,
-  "jobId": "712d39c6-315e-4db9-9bc0-898c0f6ef762",
-  "join": "roblox://placeId=73956553001240&gameInstanceId=712d39c6-315e-4db9-9bc0-898c0f6ef762",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4725438245",
-  "web": "https://www.roblox.com/games/start?placeId=73956553001240&gameInstanceId=712d39c6-315e-4db9-9bc0-898c0f6ef762",
-  "location": "[UPD] Volleyball Legends",
-  "updatedAt": 1770917612463
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770917672445
 }
