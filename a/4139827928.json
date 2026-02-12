@@ -1,12 +1,12 @@
 {
   "userId": 4139827928,
   "displayName": "JzKommtTravis",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "76d358a6-2286-4307-8e1b-45895b9f347b",
+  "join": "roblox://placeId=5712833750&gameInstanceId=76d358a6-2286-4307-8e1b-45895b9f347b",
   "follow": "roblox://followUserId=4139827928",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770936452366
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=76d358a6-2286-4307-8e1b-45895b9f347b",
+  "location": "Animal Simulator",
+  "updatedAt": 1770936512497
 }
