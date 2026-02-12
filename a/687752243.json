@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 4888877755,
-  "jobId": "55dd24df-ce73-4410-9253-3fa2d1f8859b",
-  "join": "roblox://placeId=4888877755&gameInstanceId=55dd24df-ce73-4410-9253-3fa2d1f8859b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=4888877755&gameInstanceId=55dd24df-ce73-4410-9253-3fa2d1f8859b",
-  "location": "🧬 Virus Border Roleplay",
-  "updatedAt": 1770933452404
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770933692458
 }
