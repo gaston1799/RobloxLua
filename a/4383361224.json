@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 125719459917532,
-  "jobId": "61605bf1-0474-432b-a5ad-abdd872f4c89",
-  "join": "roblox://placeId=125719459917532&gameInstanceId=61605bf1-0474-432b-a5ad-abdd872f4c89",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=125719459917532&gameInstanceId=61605bf1-0474-432b-a5ad-abdd872f4c89",
-  "location": "Would you rather but it actually happen ",
-  "updatedAt": 1770913952154
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770914131991
 }
