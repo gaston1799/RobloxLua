@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4580204640,
+  "jobId": "5e46df2f-f520-4a06-a988-c61f5f8f089d",
+  "join": "roblox://placeId=4580204640&gameInstanceId=5e46df2f-f520-4a06-a988-c61f5f8f089d",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770891900054
+  "web": "https://www.roblox.com/games/start?placeId=4580204640&gameInstanceId=5e46df2f-f520-4a06-a988-c61f5f8f089d",
+  "location": "🔪Survive the Killer!",
+  "updatedAt": 1770895320264
 }
