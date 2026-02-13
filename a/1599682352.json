@@ -1,12 +1,12 @@
 {
   "userId": 1599682352,
   "displayName": "ZxA",
-  "status": "in-game",
-  "placeId": 129829790324321,
-  "jobId": "d7e0c7b5-e37b-4e47-8ebd-052d87cc894a",
-  "join": "roblox://placeId=129829790324321&gameInstanceId=d7e0c7b5-e37b-4e47-8ebd-052d87cc894a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1599682352",
-  "web": "https://www.roblox.com/games/start?placeId=129829790324321&gameInstanceId=d7e0c7b5-e37b-4e47-8ebd-052d87cc894a",
-  "location": "Dino Egg Farm",
-  "updatedAt": 1770956255103
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770957872802
 }
