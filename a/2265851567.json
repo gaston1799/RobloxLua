@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 139240853114184,
-  "jobId": "14cabf52-18d5-46d9-8e6f-49b6d667dc18",
-  "join": "roblox://placeId=139240853114184&gameInstanceId=14cabf52-18d5-46d9-8e6f-49b6d667dc18",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=139240853114184&gameInstanceId=14cabf52-18d5-46d9-8e6f-49b6d667dc18",
-  "location": "Obby But You Are A Worm 🐛",
-  "updatedAt": 1770967113412
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770967233353
 }
