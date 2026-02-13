@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 83678792452277,
-  "jobId": "07a85927-348d-4e52-bc8d-d4a0187a0c9a",
-  "join": "roblox://placeId=83678792452277&gameInstanceId=07a85927-348d-4e52-bc8d-d4a0187a0c9a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=83678792452277&gameInstanceId=07a85927-348d-4e52-bc8d-d4a0187a0c9a",
-  "location": "[❤️]Death Ball",
-  "updatedAt": 1770991053546
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770991113531
 }
