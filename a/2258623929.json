@@ -1,12 +1,12 @@
 {
   "userId": 2258623929,
   "displayName": "1of1DOLO",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4924922222,
+  "jobId": "8f0bee99-80e6-4a15-8544-b753294651dd",
+  "join": "roblox://placeId=4924922222&gameInstanceId=8f0bee99-80e6-4a15-8544-b753294651dd",
   "follow": "roblox://followUserId=2258623929",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771015385243
+  "web": "https://www.roblox.com/games/start?placeId=4924922222&gameInstanceId=8f0bee99-80e6-4a15-8544-b753294651dd",
+  "location": "Brookhaven 🏡RP",
+  "updatedAt": 1771015444328
 }
