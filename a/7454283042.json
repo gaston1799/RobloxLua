@@ -1,12 +1,12 @@
 {
   "userId": 7454283042,
   "displayName": "DES_Rage",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "7bebc657-05c3-4526-9d63-02d9ec3ba073",
+  "join": "roblox://placeId=142823291&gameInstanceId=7bebc657-05c3-4526-9d63-02d9ec3ba073",
   "follow": "roblox://followUserId=7454283042",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771026666597
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=7bebc657-05c3-4526-9d63-02d9ec3ba073",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1771026729780
 }
