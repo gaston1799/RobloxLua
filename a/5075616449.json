@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 139217467707445,
-  "jobId": "6308dae1-43aa-423f-b458-080500a27c02",
-  "join": "roblox://placeId=139217467707445&gameInstanceId=6308dae1-43aa-423f-b458-080500a27c02",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=139217467707445&gameInstanceId=6308dae1-43aa-423f-b458-080500a27c02",
-  "location": "Steal Brainrots Trading Plaza 🛒",
-  "updatedAt": 1771007165887
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771007226941
 }
