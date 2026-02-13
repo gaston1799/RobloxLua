@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 8688421471,
+  "jobId": "abdec003-bb1f-47e3-9842-a9cdd9d7fac3",
+  "join": "roblox://placeId=8688421471&gameInstanceId=abdec003-bb1f-47e3-9842-a9cdd9d7fac3",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770998379837
+  "web": "https://www.roblox.com/games/start?placeId=8688421471&gameInstanceId=abdec003-bb1f-47e3-9842-a9cdd9d7fac3",
+  "location": "The Evergreen Restaurant",
+  "updatedAt": 1770998440292
 }
