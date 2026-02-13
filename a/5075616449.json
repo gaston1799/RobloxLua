@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 131623223084840,
-  "jobId": "62f2cda0-5de2-4650-81e0-9a590eb28a35",
-  "join": "roblox://placeId=131623223084840&gameInstanceId=62f2cda0-5de2-4650-81e0-9a590eb28a35",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=131623223084840&gameInstanceId=62f2cda0-5de2-4650-81e0-9a590eb28a35",
-  "location": "Escape Tsunami For Brainrots!",
-  "updatedAt": 1770943924550
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770944106576
 }
