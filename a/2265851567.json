@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 96554960408457,
-  "jobId": "a5748895-78e2-4987-a460-3af79ac2a129",
-  "join": "roblox://placeId=96554960408457&gameInstanceId=a5748895-78e2-4987-a460-3af79ac2a129",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=96554960408457&gameInstanceId=a5748895-78e2-4987-a460-3af79ac2a129",
-  "location": "[🎈] Pop a Balloon",
-  "updatedAt": 1771006233578
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771008273715
 }
