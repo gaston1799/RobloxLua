@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 13772394625,
-  "jobId": "0841069a-3fab-4fe4-883c-2498d185bd1c",
-  "join": "roblox://placeId=13772394625&gameInstanceId=0841069a-3fab-4fe4-883c-2498d185bd1c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=0841069a-3fab-4fe4-883c-2498d185bd1c",
-  "location": "Blade Ball",
-  "updatedAt": 1770963092860
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770963152772
 }
