@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92050243909420,
+  "jobId": "6856436f-a1b2-437b-8e4c-b6d3d6b099d7",
+  "join": "roblox://placeId=92050243909420&gameInstanceId=6856436f-a1b2-437b-8e4c-b6d3d6b099d7",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Offline",
-  "updatedAt": 1770987964156
+  "web": "https://www.roblox.com/games/start?placeId=92050243909420&gameInstanceId=6856436f-a1b2-437b-8e4c-b6d3d6b099d7",
+  "location": "[⌛SOON] Waste Time! ⌛",
+  "updatedAt": 1770987993350
 }
