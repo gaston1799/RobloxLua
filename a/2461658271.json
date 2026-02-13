@@ -1,12 +1,12 @@
 {
   "userId": 2461658271,
   "displayName": "Bay_Xit",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "ca13defb-b7f5-46c3-9eb6-d3208689f782",
+  "join": "roblox://placeId=142823291&gameInstanceId=ca13defb-b7f5-46c3-9eb6-d3208689f782",
   "follow": "roblox://followUserId=2461658271",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770951665660
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=ca13defb-b7f5-46c3-9eb6-d3208689f782",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1770951725284
 }
