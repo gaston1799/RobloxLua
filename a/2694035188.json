@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15532962292,
+  "jobId": "14a1daf1-9ef2-4516-89c8-1dcdad5f41c2",
+  "join": "roblox://placeId=15532962292&gameInstanceId=14a1daf1-9ef2-4516-89c8-1dcdad5f41c2",
   "follow": "roblox://followUserId=2694035188",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770952562482
+  "web": "https://www.roblox.com/games/start?placeId=15532962292&gameInstanceId=14a1daf1-9ef2-4516-89c8-1dcdad5f41c2",
+  "location": "Sol's RNG [NPC Reworks!👤]",
+  "updatedAt": 1770954242274
 }
