@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 71771230683628,
+  "jobId": "75da3793-2ba7-4f29-952f-e23569fe6544",
+  "join": "roblox://placeId=71771230683628&gameInstanceId=75da3793-2ba7-4f29-952f-e23569fe6544",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771014214703
+  "web": "https://www.roblox.com/games/start?placeId=71771230683628&gameInstanceId=75da3793-2ba7-4f29-952f-e23569fe6544",
+  "location": "Shoot a Plane",
+  "updatedAt": 1771014333781
 }
