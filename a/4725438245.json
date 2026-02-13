@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3804735158,
+  "jobId": "c26bf403-3e6c-4ddb-98a3-28bac818623a",
+  "join": "roblox://placeId=3804735158&gameInstanceId=c26bf403-3e6c-4ddb-98a3-28bac818623a",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770996933692
+  "web": "https://www.roblox.com/games/start?placeId=3804735158&gameInstanceId=c26bf403-3e6c-4ddb-98a3-28bac818623a",
+  "location": "Princess Tycoon",
+  "updatedAt": 1770997534240
 }
