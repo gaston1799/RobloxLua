@@ -1,12 +1,12 @@
 {
   "userId": 5040815301,
   "displayName": "Saberrrrr",
-  "status": "in-game",
-  "placeId": 8789055177,
-  "jobId": "a5f8550b-04ae-45ed-9f7f-73010be37b20",
-  "join": "roblox://placeId=8789055177&gameInstanceId=a5f8550b-04ae-45ed-9f7f-73010be37b20",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5040815301",
-  "web": "https://www.roblox.com/games/start?placeId=8789055177&gameInstanceId=a5f8550b-04ae-45ed-9f7f-73010be37b20",
-  "location": "Spray Paint!",
-  "updatedAt": 1770942786173
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770942904377
 }
