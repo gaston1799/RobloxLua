@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 136842185282125,
-  "jobId": "d05b7d35-717d-4da8-9bc5-f2220ec58c73",
-  "join": "roblox://placeId=136842185282125&gameInstanceId=d05b7d35-717d-4da8-9bc5-f2220ec58c73",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=136842185282125&gameInstanceId=d05b7d35-717d-4da8-9bc5-f2220ec58c73",
-  "location": "Sajonara Conveyor Tower",
-  "updatedAt": 1770967413469
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770967473485
 }
