@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 139566161526375,
-  "jobId": "8ce21591-69b4-4fc0-88e5-b9a318e6e268",
-  "join": "roblox://placeId=139566161526375&gameInstanceId=8ce21591-69b4-4fc0-88e5-b9a318e6e268",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=139566161526375&gameInstanceId=8ce21591-69b4-4fc0-88e5-b9a318e6e268",
-  "location": "Bridge Duel",
-  "updatedAt": 1770949021826
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770949081897
 }
