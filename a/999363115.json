@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 10449761463,
-  "jobId": "1b32fcdf-dd44-4e92-853c-4e5e960c440e",
-  "join": "roblox://placeId=10449761463&gameInstanceId=1b32fcdf-dd44-4e92-853c-4e5e960c440e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=10449761463&gameInstanceId=1b32fcdf-dd44-4e92-853c-4e5e960c440e",
-  "location": "The Strongest Battlegrounds",
-  "updatedAt": 1770944012529
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770944552438
 }
