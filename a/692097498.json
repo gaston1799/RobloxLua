@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1537690962,
+  "jobId": "76988f6a-fed5-4c15-ae08-ae6355eb793b",
+  "join": "roblox://placeId=1537690962&gameInstanceId=76988f6a-fed5-4c15-ae08-ae6355eb793b",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770989884447
+  "web": "https://www.roblox.com/games/start?placeId=1537690962&gameInstanceId=76988f6a-fed5-4c15-ae08-ae6355eb793b",
+  "location": "Bee Swarm Simulator",
+  "updatedAt": 1770990364466
 }
