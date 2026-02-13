@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 86362492050446,
-  "jobId": "ac6a1d70-99f5-4dc6-af48-063204b887f2",
-  "join": "roblox://placeId=86362492050446&gameInstanceId=ac6a1d70-99f5-4dc6-af48-063204b887f2",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=86362492050446&gameInstanceId=ac6a1d70-99f5-4dc6-af48-063204b887f2",
-  "location": "Escape Tsunami For Brainrots!",
-  "updatedAt": 1770979385059
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770979686630
 }
