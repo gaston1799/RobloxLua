@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 88840343521972,
-  "jobId": "00d631c5-7ca5-42c9-8446-f92485bd85ac",
-  "join": "roblox://placeId=88840343521972&gameInstanceId=00d631c5-7ca5-42c9-8446-f92485bd85ac",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=88840343521972&gameInstanceId=00d631c5-7ca5-42c9-8446-f92485bd85ac",
-  "location": "ESCAPE TSUNAMI FOR CARS",
-  "updatedAt": 1770944166076
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770944228444
 }
