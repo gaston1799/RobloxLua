@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "in-game",
-  "placeId": 140209136165491,
-  "jobId": "b81984c8-cb2b-4cc4-be41-728f92751542",
-  "join": "roblox://placeId=140209136165491&gameInstanceId=b81984c8-cb2b-4cc4-be41-728f92751542",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2694035188",
-  "web": "https://www.roblox.com/games/start?placeId=140209136165491&gameInstanceId=b81984c8-cb2b-4cc4-be41-728f92751542",
-  "location": "Peak Evolution",
-  "updatedAt": 1770946681797
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770946741803
 }
