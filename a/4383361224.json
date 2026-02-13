@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5670292785,
+  "jobId": "28bf60a7-252c-4241-b69c-d29e10e9993c",
+  "join": "roblox://placeId=5670292785&gameInstanceId=28bf60a7-252c-4241-b69c-d29e10e9993c",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770946412513
+  "web": "https://www.roblox.com/games/start?placeId=5670292785&gameInstanceId=28bf60a7-252c-4241-b69c-d29e10e9993c",
+  "location": "Undead Defense Tycoon",
+  "updatedAt": 1770946472527
 }
