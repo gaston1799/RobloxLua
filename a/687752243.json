@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 13772394625,
-  "jobId": "9d4cb441-e471-45a3-b406-0ab0ab5ed546",
-  "join": "roblox://placeId=13772394625&gameInstanceId=9d4cb441-e471-45a3-b406-0ab0ab5ed546",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=9d4cb441-e471-45a3-b406-0ab0ab5ed546",
-  "location": "Blade Ball",
-  "updatedAt": 1771003534706
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771003654482
 }
