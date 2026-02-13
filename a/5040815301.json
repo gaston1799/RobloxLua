@@ -1,12 +1,12 @@
 {
   "userId": 5040815301,
   "displayName": "Saberrrrr",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "0cbacbdb-c5d3-42a8-aeb5-f9eb32e4aad1",
+  "join": "roblox://placeId=5712833750&gameInstanceId=0cbacbdb-c5d3-42a8-aeb5-f9eb32e4aad1",
   "follow": "roblox://followUserId=5040815301",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771017904851
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=0cbacbdb-c5d3-42a8-aeb5-f9eb32e4aad1",
+  "location": "Animal Simulator",
+  "updatedAt": 1771018686113
 }
