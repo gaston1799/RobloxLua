@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "in-game",
-  "placeId": 5098630929,
-  "jobId": "3ca5582c-9d83-4399-a174-8f5222d74abc",
-  "join": "roblox://placeId=5098630929&gameInstanceId=3ca5582c-9d83-4399-a174-8f5222d74abc",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4725438245",
-  "web": "https://www.roblox.com/games/start?placeId=5098630929&gameInstanceId=3ca5582c-9d83-4399-a174-8f5222d74abc",
-  "location": "Tiny Wheels",
-  "updatedAt": 1770994473581
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1770994713480
 }
