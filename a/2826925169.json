@@ -1,12 +1,12 @@
 {
   "userId": 2826925169,
   "displayName": "gxg",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 102018862903976,
+  "jobId": "a54f143c-557e-4731-8e5b-b86ed42ed33c",
+  "join": "roblox://placeId=102018862903976&gameInstanceId=a54f143c-557e-4731-8e5b-b86ed42ed33c",
   "follow": "roblox://followUserId=2826925169",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771044576300
+  "web": "https://www.roblox.com/games/start?placeId=102018862903976&gameInstanceId=a54f143c-557e-4731-8e5b-b86ed42ed33c",
+  "location": "Escape Tsunami for Cars!",
+  "updatedAt": 1771044606470
 }
