@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16929212566,
+  "jobId": "218da7a3-41ad-4cd5-a693-f083672010f1",
+  "join": "roblox://placeId=16929212566&gameInstanceId=218da7a3-41ad-4cd5-a693-f083672010f1",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771046074564
+  "web": "https://www.roblox.com/games/start?placeId=16929212566&gameInstanceId=218da7a3-41ad-4cd5-a693-f083672010f1",
+  "location": "Iron Man: Reimagined",
+  "updatedAt": 1771046194546
 }
