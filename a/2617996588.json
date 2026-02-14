@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 109983668079237,
+  "jobId": "eb9c8c12-e646-4665-8bd2-70000145b36a",
+  "join": "roblox://placeId=109983668079237&gameInstanceId=eb9c8c12-e646-4665-8bd2-70000145b36a",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771094496459
+  "web": "https://www.roblox.com/games/start?placeId=109983668079237&gameInstanceId=eb9c8c12-e646-4665-8bd2-70000145b36a",
+  "location": "[SOON] Steal a Brainrot",
+  "updatedAt": 1771097136826
 }
