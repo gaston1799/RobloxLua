@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 93629193131939,
-  "jobId": "aeee6161-8219-4f3b-804e-fc5795bd8038",
-  "join": "roblox://placeId=93629193131939&gameInstanceId=aeee6161-8219-4f3b-804e-fc5795bd8038",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=93629193131939&gameInstanceId=aeee6161-8219-4f3b-804e-fc5795bd8038",
-  "location": "Cart ride Into Meowl",
-  "updatedAt": 1771034014400
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771034194335
 }
