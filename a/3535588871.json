@@ -1,12 +1,12 @@
 {
   "userId": 3535588871,
   "displayName": "Dell",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1537690962,
+  "jobId": "bcb89911-bdf0-4e7e-973e-92b67f30fd1b",
+  "join": "roblox://placeId=1537690962&gameInstanceId=bcb89911-bdf0-4e7e-973e-92b67f30fd1b",
   "follow": "roblox://followUserId=3535588871",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771076560404
+  "web": "https://www.roblox.com/games/start?placeId=1537690962&gameInstanceId=bcb89911-bdf0-4e7e-973e-92b67f30fd1b",
+  "location": "Bee Swarm Simulator",
+  "updatedAt": 1771076923091
 }
