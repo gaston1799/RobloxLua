@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 108798177610650,
+  "jobId": "57045c53-598f-4ada-a6c3-98dd2c528ccc",
+  "join": "roblox://placeId=108798177610650&gameInstanceId=57045c53-598f-4ada-a6c3-98dd2c528ccc",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771089938117
+  "web": "https://www.roblox.com/games/start?placeId=108798177610650&gameInstanceId=57045c53-598f-4ada-a6c3-98dd2c528ccc",
+  "location": "A Broken Dream DEMO",
+  "updatedAt": 1771089997209
 }
