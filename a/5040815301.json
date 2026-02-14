@@ -1,12 +1,12 @@
 {
   "userId": 5040815301,
   "displayName": "Saberrrrr",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "c3affba2-4bc0-4dfb-9f1d-f115bb9ca84b",
+  "join": "roblox://placeId=7041939546&gameInstanceId=c3affba2-4bc0-4dfb-9f1d-f115bb9ca84b",
   "follow": "roblox://followUserId=5040815301",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771089998351
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=c3affba2-4bc0-4dfb-9f1d-f115bb9ca84b",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1771090180255
 }
