@@ -1,12 +1,12 @@
 {
   "userId": 7801022893,
   "displayName": "iIy",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 90421884050679,
+  "jobId": "985cefb2-6f76-4cea-8a07-33f1ea58c750",
+  "join": "roblox://placeId=90421884050679&gameInstanceId=985cefb2-6f76-4cea-8a07-33f1ea58c750",
   "follow": "roblox://followUserId=7801022893",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771031855449
+  "web": "https://www.roblox.com/games/start?placeId=90421884050679&gameInstanceId=985cefb2-6f76-4cea-8a07-33f1ea58c750",
+  "location": "Dollhouse",
+  "updatedAt": 1771031915606
 }
