@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "d1769e39-c6b4-4f6a-9b57-d9bfe7d945c8",
+  "join": "roblox://placeId=142823291&gameInstanceId=d1769e39-c6b4-4f6a-9b57-d9bfe7d945c8",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771113008171
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=d1769e39-c6b4-4f6a-9b57-d9bfe7d945c8",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1771113066509
 }
