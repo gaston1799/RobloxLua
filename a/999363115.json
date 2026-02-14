@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10277607801,
+  "jobId": "1199b328-6ce5-4189-8b1f-a9af382a453e",
+  "join": "roblox://placeId=10277607801&gameInstanceId=1199b328-6ce5-4189-8b1f-a9af382a453e",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771034134401
+  "web": "https://www.roblox.com/games/start?placeId=10277607801&gameInstanceId=1199b328-6ce5-4189-8b1f-a9af382a453e",
+  "location": "Apeirophobia",
+  "updatedAt": 1771034494473
 }
