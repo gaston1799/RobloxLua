@@ -1,12 +1,12 @@
 {
   "userId": 7454283042,
   "displayName": "DES_Rage",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 113489516847696,
+  "jobId": "44b2a864-ad7e-479c-a940-1b9283b17f2f",
+  "join": "roblox://placeId=113489516847696&gameInstanceId=44b2a864-ad7e-479c-a940-1b9283b17f2f",
   "follow": "roblox://followUserId=7454283042",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771110908553
+  "web": "https://www.roblox.com/games/start?placeId=113489516847696&gameInstanceId=44b2a864-ad7e-479c-a940-1b9283b17f2f",
+  "location": "My Fishing Brainrots",
+  "updatedAt": 1771111027481
 }
