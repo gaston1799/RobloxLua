@@ -1,12 +1,12 @@
 {
   "userId": 7801022893,
   "displayName": "iIy",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5814304937,
+  "jobId": "39ee9cec-da85-497a-8a75-c4d4d8a227cd",
+  "join": "roblox://placeId=5814304937&gameInstanceId=39ee9cec-da85-497a-8a75-c4d4d8a227cd",
   "follow": "roblox://followUserId=7801022893",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771034614400
+  "web": "https://www.roblox.com/games/start?placeId=5814304937&gameInstanceId=39ee9cec-da85-497a-8a75-c4d4d8a227cd",
+  "location": "Outfit Loader Testing Place",
+  "updatedAt": 1771034674385
 }
