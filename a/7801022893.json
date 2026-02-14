@@ -1,12 +1,12 @@
 {
   "userId": 7801022893,
   "displayName": "iIy",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 112558497639907,
+  "jobId": "58107636-72cb-488a-b7a7-3a12cb15613a",
+  "join": "roblox://placeId=112558497639907&gameInstanceId=58107636-72cb-488a-b7a7-3a12cb15613a",
   "follow": "roblox://followUserId=7801022893",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771111298305
+  "web": "https://www.roblox.com/games/start?placeId=112558497639907&gameInstanceId=58107636-72cb-488a-b7a7-3a12cb15613a",
+  "location": "Tentacle",
+  "updatedAt": 1771111357262
 }
