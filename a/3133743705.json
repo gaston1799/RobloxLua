@@ -1,12 +1,12 @@
 {
   "userId": 3133743705,
   "displayName": "Cla1re",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 9872472334,
+  "jobId": "ba4556bb-0e5b-446b-8c26-8aba5794b19e",
+  "join": "roblox://placeId=9872472334&gameInstanceId=ba4556bb-0e5b-446b-8c26-8aba5794b19e",
   "follow": "roblox://followUserId=3133743705",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1770898055861
+  "web": "https://www.roblox.com/games/start?placeId=9872472334&gameInstanceId=ba4556bb-0e5b-446b-8c26-8aba5794b19e",
+  "location": "Evade",
+  "updatedAt": 1771058802030
 }
