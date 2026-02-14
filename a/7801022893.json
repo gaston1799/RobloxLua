@@ -1,12 +1,12 @@
 {
   "userId": 7801022893,
   "displayName": "iIy",
-  "status": "in-game",
-  "placeId": 127794225497302,
-  "jobId": "37cc9a8a-aeba-4498-8fb0-4799e0812f8f",
-  "join": "roblox://placeId=127794225497302&gameInstanceId=37cc9a8a-aeba-4498-8fb0-4799e0812f8f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7801022893",
-  "web": "https://www.roblox.com/games/start?placeId=127794225497302&gameInstanceId=37cc9a8a-aeba-4498-8fb0-4799e0812f8f",
-  "location": "Abyss [BETA]",
-  "updatedAt": 1771107215958
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771107277032
 }
