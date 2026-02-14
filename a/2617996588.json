@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 137282814526439,
-  "jobId": "a166cbe9-0ea1-40ce-8e62-6832def6d2cb",
-  "join": "roblox://placeId=137282814526439&gameInstanceId=a166cbe9-0ea1-40ce-8e62-6832def6d2cb",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=137282814526439&gameInstanceId=a166cbe9-0ea1-40ce-8e62-6832def6d2cb",
-  "location": "[EVENT]Skibidi Toilet Battle Boom",
-  "updatedAt": 1771083816651
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771084056690
 }
