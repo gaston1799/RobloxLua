@@ -1,12 +1,12 @@
 {
   "userId": 2485660918,
   "displayName": "WiIIiamSoloAII",
-  "status": "in-game",
-  "placeId": 116319214497138,
-  "jobId": "d8c505ad-0d8b-49f7-b2bf-b7c058e8327d",
-  "join": "roblox://placeId=116319214497138&gameInstanceId=d8c505ad-0d8b-49f7-b2bf-b7c058e8327d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2485660918",
-  "web": "https://www.roblox.com/games/start?placeId=116319214497138&gameInstanceId=d8c505ad-0d8b-49f7-b2bf-b7c058e8327d",
-  "location": "[ATC] Air Traffic Simulator",
-  "updatedAt": 1771038518305
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771038637877
 }
