@@ -1,12 +1,12 @@
 {
   "userId": 1518182966,
   "displayName": "Destroyer",
-  "status": "in-game",
-  "placeId": 142823291,
-  "jobId": "497bf3fb-d4fa-48a6-b515-8dfad6d8691d",
-  "join": "roblox://placeId=142823291&gameInstanceId=497bf3fb-d4fa-48a6-b515-8dfad6d8691d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1518182966",
-  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=497bf3fb-d4fa-48a6-b515-8dfad6d8691d",
-  "location": "Murder Mystery 2",
-  "updatedAt": 1771035038725
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771035069760
 }
