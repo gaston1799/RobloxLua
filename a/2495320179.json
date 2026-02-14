@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "66cf0113-52bc-4d2b-a464-e76e8731829f",
+  "join": "roblox://placeId=7041939546&gameInstanceId=66cf0113-52bc-4d2b-a464-e76e8731829f",
   "follow": "roblox://followUserId=2495320179",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771113096050
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=66cf0113-52bc-4d2b-a464-e76e8731829f",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1771113157628
 }
