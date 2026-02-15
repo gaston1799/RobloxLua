@@ -1,12 +1,12 @@
 {
   "userId": 2009056151,
   "displayName": "Dino_dan",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "556b5c75-efc7-40be-bc52-83dd6c12c2bc",
-  "join": "roblox://placeId=5712833750&gameInstanceId=556b5c75-efc7-40be-bc52-83dd6c12c2bc",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2009056151",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=556b5c75-efc7-40be-bc52-83dd6c12c2bc",
-  "location": "Animal Simulator",
-  "updatedAt": 1771163228970
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771163260208
 }
