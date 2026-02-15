@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 7505442318,
-  "jobId": "e44d141e-8237-47f8-b5c0-6f149ab143df",
-  "join": "roblox://placeId=7505442318&gameInstanceId=e44d141e-8237-47f8-b5c0-6f149ab143df",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=7505442318&gameInstanceId=e44d141e-8237-47f8-b5c0-6f149ab143df",
-  "location": "Worms",
-  "updatedAt": 1771117268201
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771117807304
 }
