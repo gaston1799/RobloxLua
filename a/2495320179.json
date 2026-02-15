@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "in-game",
-  "placeId": 132849962791740,
-  "jobId": "836253cb-343d-487e-a21b-0eb130228aa4",
-  "join": "roblox://placeId=132849962791740&gameInstanceId=836253cb-343d-487e-a21b-0eb130228aa4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2495320179",
-  "web": "https://www.roblox.com/games/start?placeId=132849962791740&gameInstanceId=836253cb-343d-487e-a21b-0eb130228aa4",
-  "location": "Tempat Gueh Bengong [Alt]",
-  "updatedAt": 1771144236720
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1771145199668
 }
