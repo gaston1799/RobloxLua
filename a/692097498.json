@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1962086868,
+  "jobId": "ed69878d-5564-40eb-97eb-f728259ec8ab",
+  "join": "roblox://placeId=1962086868&gameInstanceId=ed69878d-5564-40eb-97eb-f728259ec8ab",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771166316390
+  "web": "https://www.roblox.com/games/start?placeId=1962086868&gameInstanceId=ed69878d-5564-40eb-97eb-f728259ec8ab",
+  "location": "Tower of Hell",
+  "updatedAt": 1771167576813
 }
