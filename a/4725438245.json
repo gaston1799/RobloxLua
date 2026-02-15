@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "in-game",
-  "placeId": 78514954660281,
-  "jobId": "2f36a596-e4d8-45b3-b211-0c5efcaa5702",
-  "join": "roblox://placeId=78514954660281&gameInstanceId=2f36a596-e4d8-45b3-b211-0c5efcaa5702",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4725438245",
-  "web": "https://www.roblox.com/games/start?placeId=78514954660281&gameInstanceId=2f36a596-e4d8-45b3-b211-0c5efcaa5702",
-  "location": "Slippery Ice Obby",
-  "updatedAt": 1771127075747
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771127135727
 }
