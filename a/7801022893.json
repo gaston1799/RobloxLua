@@ -1,12 +1,12 @@
 {
   "userId": 7801022893,
   "displayName": "iIy",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 101295940391376,
+  "jobId": "2149fadf-e89d-4068-b0ad-b9da60324de2",
+  "join": "roblox://placeId=101295940391376&gameInstanceId=2149fadf-e89d-4068-b0ad-b9da60324de2",
   "follow": "roblox://followUserId=7801022893",
-  "web": null,
-  "location": "Offline",
-  "updatedAt": 1771196501008
+  "web": "https://www.roblox.com/games/start?placeId=101295940391376&gameInstanceId=2149fadf-e89d-4068-b0ad-b9da60324de2",
+  "location": "OP Blade",
+  "updatedAt": 1771196532512
 }
