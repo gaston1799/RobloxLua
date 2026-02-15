@@ -1,12 +1,12 @@
 {
   "userId": 7305243742,
   "displayName": "SYNAPSEN_AG",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "043e1173-1052-430b-82ab-a33afd8424b4",
-  "join": "roblox://placeId=5712833750&gameInstanceId=043e1173-1052-430b-82ab-a33afd8424b4",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7305243742",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=043e1173-1052-430b-82ab-a33afd8424b4",
-  "location": "Animal Simulator",
-  "updatedAt": 1771159358997
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771159602038
 }
