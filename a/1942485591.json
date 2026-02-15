@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 16732694052,
-  "jobId": "879b2faa-1ba0-41be-a083-39138d03832d",
-  "join": "roblox://placeId=16732694052&gameInstanceId=879b2faa-1ba0-41be-a083-39138d03832d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=16732694052&gameInstanceId=879b2faa-1ba0-41be-a083-39138d03832d",
-  "location": "Fisch 🌋 [SCORIA REACH]",
-  "updatedAt": 1771125005808
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771126325766
 }
