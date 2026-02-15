@@ -1,12 +1,12 @@
 {
   "userId": 8315231560,
   "displayName": "YZ_ISoloAli",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2984072291,
+  "jobId": "40f68386-7cd0-4cd5-8c3c-a5bd2b124917",
+  "join": "roblox://placeId=2984072291&gameInstanceId=40f68386-7cd0-4cd5-8c3c-a5bd2b124917",
   "follow": "roblox://followUserId=8315231560",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771155246051
+  "web": "https://www.roblox.com/games/start?placeId=2984072291&gameInstanceId=40f68386-7cd0-4cd5-8c3c-a5bd2b124917",
+  "location": "Zombie Stories",
+  "updatedAt": 1771155276316
 }
