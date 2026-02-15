@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 135120283261057,
+  "jobId": "c356d44f-ce80-4d98-bdaf-9cb0a45a5276",
+  "join": "roblox://placeId=135120283261057&gameInstanceId=c356d44f-ce80-4d98-bdaf-9cb0a45a5276",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771122335640
+  "web": "https://www.roblox.com/games/start?placeId=135120283261057&gameInstanceId=c356d44f-ce80-4d98-bdaf-9cb0a45a5276",
+  "location": "Jet Fighters [PUBLIC TEST]",
+  "updatedAt": 1771126357213
 }
