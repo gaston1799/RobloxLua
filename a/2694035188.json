@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "in-game",
-  "placeId": 4566572536,
-  "jobId": "ae05bcd5-90dc-4725-b387-fcefd49d01b1",
-  "join": "roblox://placeId=4566572536&gameInstanceId=ae05bcd5-90dc-4725-b387-fcefd49d01b1",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2694035188",
-  "web": "https://www.roblox.com/games/start?placeId=4566572536&gameInstanceId=ae05bcd5-90dc-4725-b387-fcefd49d01b1",
-  "location": "[EVENT] Vehicle Legends 🏎️ Cars!",
-  "updatedAt": 1771181915991
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771181976025
 }
