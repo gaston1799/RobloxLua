@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 121776969650931,
-  "jobId": "4d643d57-c014-44a8-a5d4-6d72ddbe88c9",
-  "join": "roblox://placeId=121776969650931&gameInstanceId=4d643d57-c014-44a8-a5d4-6d72ddbe88c9",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=121776969650931&gameInstanceId=4d643d57-c014-44a8-a5d4-6d72ddbe88c9",
-  "location": "Silent Mansion [HORROR]",
-  "updatedAt": 1771168961084
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771171896685
 }
