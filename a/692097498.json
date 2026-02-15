@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 131623223084840,
-  "jobId": "08182c82-9df6-4d59-86a5-ea012076ab4b",
-  "join": "roblox://placeId=131623223084840&gameInstanceId=08182c82-9df6-4d59-86a5-ea012076ab4b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=131623223084840&gameInstanceId=08182c82-9df6-4d59-86a5-ea012076ab4b",
-  "location": "Escape Tsunami For Brainrots!",
-  "updatedAt": 1771165116594
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771166256374
 }
