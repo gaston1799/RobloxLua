@@ -1,12 +1,12 @@
 {
   "userId": 7454283042,
   "displayName": "DES_Rage",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1962086868,
+  "jobId": "658ef286-5824-4715-b180-0b21db8c5f23",
+  "join": "roblox://placeId=1962086868&gameInstanceId=658ef286-5824-4715-b180-0b21db8c5f23",
   "follow": "roblox://followUserId=7454283042",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771117388824
+  "web": "https://www.roblox.com/games/start?placeId=1962086868&gameInstanceId=658ef286-5824-4715-b180-0b21db8c5f23",
+  "location": "Tower of Hell",
+  "updatedAt": 1771117689448
 }
