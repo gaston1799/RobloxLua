@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10871472521,
+  "jobId": "6b07e699-ab21-484f-a7bc-e58c1174fb55",
+  "join": "roblox://placeId=10871472521&gameInstanceId=6b07e699-ab21-484f-a7bc-e58c1174fb55",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771158215545
+  "web": "https://www.roblox.com/games/start?placeId=10871472521&gameInstanceId=6b07e699-ab21-484f-a7bc-e58c1174fb55",
+  "location": "Donate Game 💸 [NEW!]",
+  "updatedAt": 1771158275616
 }
