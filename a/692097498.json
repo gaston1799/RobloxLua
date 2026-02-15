@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 46955756,
-  "jobId": "f798a848-9b1e-4621-a8f6-c6e1e5fd53fb",
-  "join": "roblox://placeId=46955756&gameInstanceId=f798a848-9b1e-4621-a8f6-c6e1e5fd53fb",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=46955756&gameInstanceId=f798a848-9b1e-4621-a8f6-c6e1e5fd53fb",
-  "location": "Tower Battles",
-  "updatedAt": 1771160796921
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771161336387
 }
