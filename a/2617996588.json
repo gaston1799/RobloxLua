@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 18458348062,
-  "jobId": "1fefa02d-e715-46b4-9ad1-cccbeb7eb154",
-  "join": "roblox://placeId=18458348062&gameInstanceId=1fefa02d-e715-46b4-9ad1-cccbeb7eb154",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=18458348062&gameInstanceId=1fefa02d-e715-46b4-9ad1-cccbeb7eb154",
-  "location": "Tower Defense RNG",
-  "updatedAt": 1771133016224
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771133556124
 }
