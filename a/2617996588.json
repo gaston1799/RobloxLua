@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 131623223084840,
-  "jobId": "b1dd59cd-5255-4525-948c-a16d1c38ec7b",
-  "join": "roblox://placeId=131623223084840&gameInstanceId=b1dd59cd-5255-4525-948c-a16d1c38ec7b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=131623223084840&gameInstanceId=b1dd59cd-5255-4525-948c-a16d1c38ec7b",
-  "location": "Escape Tsunami For Brainrots!",
-  "updatedAt": 1771135658131
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771136256494
 }
