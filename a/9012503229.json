@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 97267505570231,
+  "jobId": "96ecc1ef-f74b-49af-8dbe-051c3adc4eac",
+  "join": "roblox://placeId=97267505570231&gameInstanceId=96ecc1ef-f74b-49af-8dbe-051c3adc4eac",
   "follow": "roblox://followUserId=9012503229",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771272220399
+  "web": "https://www.roblox.com/games/start?placeId=97267505570231&gameInstanceId=96ecc1ef-f74b-49af-8dbe-051c3adc4eac",
+  "location": "[QoL UPDATE] Road-Side Shawarma [HORROR]",
+  "updatedAt": 1771272400433
 }
