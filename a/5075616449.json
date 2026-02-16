@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 91760413075734,
+  "jobId": "2039b57a-06d2-4e93-8231-3c8237fe85cf",
+  "join": "roblox://placeId=91760413075734&gameInstanceId=2039b57a-06d2-4e93-8231-3c8237fe85cf",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771212370153
+  "web": "https://www.roblox.com/games/start?placeId=91760413075734&gameInstanceId=2039b57a-06d2-4e93-8231-3c8237fe85cf",
+  "location": "Steak A Brainrot Modded",
+  "updatedAt": 1771212431789
 }
