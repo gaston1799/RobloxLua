@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "in-game",
-  "placeId": 130169555191153,
-  "jobId": "1e6e1f33-5476-4bd3-87d3-5735799f6761",
-  "join": "roblox://placeId=130169555191153&gameInstanceId=1e6e1f33-5476-4bd3-87d3-5735799f6761",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7745922411",
-  "web": "https://www.roblox.com/games/start?placeId=130169555191153&gameInstanceId=1e6e1f33-5476-4bd3-87d3-5735799f6761",
-  "location": "[x3 All 🎉] Universal piece",
-  "updatedAt": 1771258514001
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1771261214328
 }
