@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "in-game",
-  "placeId": 72532006226238,
-  "jobId": "6ff26ae3-6f29-4df3-9783-1195cd3d8257",
-  "join": "roblox://placeId=72532006226238&gameInstanceId=6ff26ae3-6f29-4df3-9783-1195cd3d8257",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2495320179",
-  "web": "https://www.roblox.com/games/start?placeId=72532006226238&gameInstanceId=6ff26ae3-6f29-4df3-9783-1195cd3d8257",
-  "location": "Leaf Collector🍂",
-  "updatedAt": 1771212189216
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1771212913863
 }
