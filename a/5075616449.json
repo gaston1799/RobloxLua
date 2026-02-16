@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 155615604,
+  "jobId": "f152b5d0-670a-48c5-bdcb-a76e31656b31",
+  "join": "roblox://placeId=155615604&gameInstanceId=f152b5d0-670a-48c5-bdcb-a76e31656b31",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771211409699
+  "web": "https://www.roblox.com/games/start?placeId=155615604&gameInstanceId=f152b5d0-670a-48c5-bdcb-a76e31656b31",
+  "location": "Prison Life",
+  "updatedAt": 1771211469888
 }
