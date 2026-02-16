@@ -1,12 +1,12 @@
 {
   "userId": 5314627558,
   "displayName": "KT_Mang",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "154993b4-a82d-4046-8ab7-dcfaa3ecd0c4",
+  "join": "roblox://placeId=142823291&gameInstanceId=154993b4-a82d-4046-8ab7-dcfaa3ecd0c4",
   "follow": "roblox://followUserId=5314627558",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771207511010
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=154993b4-a82d-4046-8ab7-dcfaa3ecd0c4",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1771207540618
 }
