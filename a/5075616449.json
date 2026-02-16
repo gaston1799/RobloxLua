@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 111530421351096,
-  "jobId": "de548afa-e776-4c29-ba8e-2c8780fcfc89",
-  "join": "roblox://placeId=111530421351096&gameInstanceId=de548afa-e776-4c29-ba8e-2c8780fcfc89",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=111530421351096&gameInstanceId=de548afa-e776-4c29-ba8e-2c8780fcfc89",
-  "location": " [💘] You VS Homer",
-  "updatedAt": 1771261299599
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771262079180
 }
