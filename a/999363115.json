@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 104171307729169,
-  "jobId": "483e6d12-5f80-4dfa-9fdd-00b5d7318b35",
-  "join": "roblox://placeId=104171307729169&gameInstanceId=483e6d12-5f80-4dfa-9fdd-00b5d7318b35",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=104171307729169&gameInstanceId=483e6d12-5f80-4dfa-9fdd-00b5d7318b35",
-  "location": "[⭐️] Da Strike (GUN FFA)",
-  "updatedAt": 1771279659071
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771280618655
 }
