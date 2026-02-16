@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 96718461936155,
-  "jobId": "8aa08b1b-4d3e-4346-bf51-8a3521959fff",
-  "join": "roblox://placeId=96718461936155&gameInstanceId=8aa08b1b-4d3e-4346-bf51-8a3521959fff",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=96718461936155&gameInstanceId=8aa08b1b-4d3e-4346-bf51-8a3521959fff",
-  "location": "[❄️] Steal a Alphabet",
-  "updatedAt": 1771212251151
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771212370153
 }
