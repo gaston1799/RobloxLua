@@ -1,12 +1,12 @@
 {
   "userId": 2514550945,
   "displayName": "ParadoxSirTiger",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12093459259,
+  "jobId": "522d6f87-ec29-4578-8ca9-a73ae91aa8ed",
+  "join": "roblox://placeId=12093459259&gameInstanceId=522d6f87-ec29-4578-8ca9-a73ae91aa8ed",
   "follow": "roblox://followUserId=2514550945",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771262888159
+  "web": "https://www.roblox.com/games/start?placeId=12093459259&gameInstanceId=522d6f87-ec29-4578-8ca9-a73ae91aa8ed",
+  "location": "Account Value",
+  "updatedAt": 1771262949152
 }
