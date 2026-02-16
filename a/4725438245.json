@@ -1,12 +1,12 @@
 {
   "userId": 4725438245,
   "displayName": "skibbidirizzler",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "6d19915c-af52-4990-868f-a316095365d3",
+  "join": "roblox://placeId=7041939546&gameInstanceId=6d19915c-af52-4990-868f-a316095365d3",
   "follow": "roblox://followUserId=4725438245",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771217857659
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=6d19915c-af52-4990-868f-a316095365d3",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1771248789493
 }
