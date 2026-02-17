@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "23ba3c6c-c966-405e-8022-2d1651e520fa",
+  "join": "roblox://placeId=142823291&gameInstanceId=23ba3c6c-c966-405e-8022-2d1651e520fa",
   "follow": "roblox://followUserId=4383361224",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771333140614
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=23ba3c6c-c966-405e-8022-2d1651e520fa",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1771333200569
 }
