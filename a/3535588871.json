@@ -1,12 +1,12 @@
 {
   "userId": 3535588871,
   "displayName": "Dell",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "d8d6d498-a74a-4287-85fb-5f6ebe770f14",
-  "join": "roblox://placeId=5712833750&gameInstanceId=d8d6d498-a74a-4287-85fb-5f6ebe770f14",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3535588871",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=d8d6d498-a74a-4287-85fb-5f6ebe770f14",
-  "location": "Animal Simulator",
-  "updatedAt": 1771358742070
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771358801629
 }
