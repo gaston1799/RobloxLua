@@ -1,12 +1,12 @@
 {
   "userId": 4383361224,
   "displayName": "Delusional",
-  "status": "in-game",
-  "placeId": 94845773826960,
-  "jobId": "b976fde8-3d56-4a61-bd71-ff228e7f97c9",
-  "join": "roblox://placeId=94845773826960&gameInstanceId=b976fde8-3d56-4a61-bd71-ff228e7f97c9",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4383361224",
-  "web": "https://www.roblox.com/games/start?placeId=94845773826960&gameInstanceId=b976fde8-3d56-4a61-bd71-ff228e7f97c9",
-  "location": "[💖] Dungeon Heroes ⚔️",
-  "updatedAt": 1771345747325
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771345805922
 }
