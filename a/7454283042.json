@@ -1,12 +1,12 @@
 {
   "userId": 7454283042,
   "displayName": "DES_Rage",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131623223084840,
+  "jobId": "b0b69aa9-b1dd-4fc2-9a45-96f9afa351fb",
+  "join": "roblox://placeId=131623223084840&gameInstanceId=b0b69aa9-b1dd-4fc2-9a45-96f9afa351fb",
   "follow": "roblox://followUserId=7454283042",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771361859907
+  "web": "https://www.roblox.com/games/start?placeId=131623223084840&gameInstanceId=b0b69aa9-b1dd-4fc2-9a45-96f9afa351fb",
+  "location": "Escape Tsunami For Brainrots!",
+  "updatedAt": 1771361920313
 }
