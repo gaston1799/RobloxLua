@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 127794225497302,
-  "jobId": "774d5fa4-05cb-4a87-a67e-df93a958a795",
-  "join": "roblox://placeId=127794225497302&gameInstanceId=774d5fa4-05cb-4a87-a67e-df93a958a795",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=127794225497302&gameInstanceId=774d5fa4-05cb-4a87-a67e-df93a958a795",
-  "location": "Abyss [BETA]",
-  "updatedAt": 1771348689980
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771349229138
 }
