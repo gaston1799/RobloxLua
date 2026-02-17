@@ -1,12 +1,12 @@
 {
   "userId": 1599682352,
   "displayName": "ZxA",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 96645548064314,
+  "jobId": "a65b0aa1-c436-4a32-8c9d-284de245df47",
+  "join": "roblox://placeId=96645548064314&gameInstanceId=a65b0aa1-c436-4a32-8c9d-284de245df47",
   "follow": "roblox://followUserId=1599682352",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771290518825
+  "web": "https://www.roblox.com/games/start?placeId=96645548064314&gameInstanceId=a65b0aa1-c436-4a32-8c9d-284de245df47",
+  "location": "Catch And Tame!",
+  "updatedAt": 1771292378701
 }
