@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "748e7262-f77d-4b47-9d2f-5bd124743659",
-  "join": "roblox://placeId=5712833750&gameInstanceId=748e7262-f77d-4b47-9d2f-5bd124743659",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2495320179",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=748e7262-f77d-4b47-9d2f-5bd124743659",
-  "location": "Animal Simulator",
-  "updatedAt": 1771302654592
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771302717008
 }
