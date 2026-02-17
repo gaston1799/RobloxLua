@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2092166489,
+  "jobId": "3183db10-e0e5-4bb1-b7b0-1de3e126c0d6",
+  "join": "roblox://placeId=2092166489&gameInstanceId=3183db10-e0e5-4bb1-b7b0-1de3e126c0d6",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771308234971
+  "web": "https://www.roblox.com/games/start?placeId=2092166489&gameInstanceId=3183db10-e0e5-4bb1-b7b0-1de3e126c0d6",
+  "location": "Survive and Kill the Killers in Area 51 !!!",
+  "updatedAt": 1771308295068
 }
