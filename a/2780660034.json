@@ -1,12 +1,12 @@
 {
   "userId": 2780660034,
   "displayName": "AiHee",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 75178747054941,
+  "jobId": "aa4c8386-0d0f-49a3-afe7-c1e2f2075c6d",
+  "join": "roblox://placeId=75178747054941&gameInstanceId=aa4c8386-0d0f-49a3-afe7-c1e2f2075c6d",
   "follow": "roblox://followUserId=2780660034",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771342627331
+  "web": "https://www.roblox.com/games/start?placeId=75178747054941&gameInstanceId=aa4c8386-0d0f-49a3-afe7-c1e2f2075c6d",
+  "location": "EQuest: Testing [PERSONALITIES!]",
+  "updatedAt": 1771342657244
 }
