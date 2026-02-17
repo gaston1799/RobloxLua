@@ -1,12 +1,12 @@
 {
   "userId": 1599682352,
   "displayName": "ZxA",
-  "status": "in-game",
-  "placeId": 101295940391376,
-  "jobId": "0cf46b98-ea7f-42b8-877c-5772de570bd3",
-  "join": "roblox://placeId=101295940391376&gameInstanceId=0cf46b98-ea7f-42b8-877c-5772de570bd3",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1599682352",
-  "web": "https://www.roblox.com/games/start?placeId=101295940391376&gameInstanceId=0cf46b98-ea7f-42b8-877c-5772de570bd3",
-  "location": "OP Blade",
-  "updatedAt": 1771293939976
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771294540113
 }
