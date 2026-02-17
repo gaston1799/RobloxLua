@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 9391468976,
-  "jobId": "b0b5f451-4712-4375-97b1-78bdf131d12b",
-  "join": "roblox://placeId=9391468976&gameInstanceId=b0b5f451-4712-4375-97b1-78bdf131d12b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=9391468976&gameInstanceId=b0b5f451-4712-4375-97b1-78bdf131d12b",
-  "location": "[HEAD OF HEI] Jujutsu Shenanigans",
-  "updatedAt": 1771298409417
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771298471456
 }
