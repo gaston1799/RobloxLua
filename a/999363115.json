@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 108293712479466,
-  "jobId": "7f1b7bff-3485-4503-a050-6b13f05004b4",
-  "join": "roblox://placeId=108293712479466&gameInstanceId=7f1b7bff-3485-4503-a050-6b13f05004b4",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=108293712479466&gameInstanceId=7f1b7bff-3485-4503-a050-6b13f05004b4",
-  "location": "Dollhouse Bloodshed",
-  "updatedAt": 1771360330276
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771361049971
 }
