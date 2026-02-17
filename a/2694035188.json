@@ -1,12 +1,12 @@
 {
   "userId": 2694035188,
   "displayName": "Pablo",
-  "status": "in-game",
-  "placeId": 2753915549,
-  "jobId": "14f2997f-1416-43f6-bbed-2292abd37c2f",
-  "join": "roblox://placeId=2753915549&gameInstanceId=14f2997f-1416-43f6-bbed-2292abd37c2f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2694035188",
-  "web": "https://www.roblox.com/games/start?placeId=2753915549&gameInstanceId=14f2997f-1416-43f6-bbed-2292abd37c2f",
-  "location": "[❤️ Event] Blox Fruits",
-  "updatedAt": 1771286528014
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771286947999
 }
