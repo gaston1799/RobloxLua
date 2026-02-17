@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 15863358108,
-  "jobId": "e9a8995b-00db-4e5c-8dad-d9b8d9099df3",
-  "join": "roblox://placeId=15863358108&gameInstanceId=e9a8995b-00db-4e5c-8dad-d9b8d9099df3",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=15863358108&gameInstanceId=e9a8995b-00db-4e5c-8dad-d9b8d9099df3",
-  "location": "LIMBO [HORROR]",
-  "updatedAt": 1771359311019
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771359730023
 }
