@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 84988808589910,
-  "jobId": "af8cd775-b626-42d8-a997-2189b2b88b75",
-  "join": "roblox://placeId=84988808589910&gameInstanceId=af8cd775-b626-42d8-a997-2189b2b88b75",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=84988808589910&gameInstanceId=af8cd775-b626-42d8-a997-2189b2b88b75",
-  "location": "[🍀X3 LUCK] Rogue Piece",
-  "updatedAt": 1771349288281
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771349648103
 }
