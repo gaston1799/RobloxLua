@@ -1,12 +1,12 @@
 {
   "userId": 2244469158,
   "displayName": "KidoTooPro",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "b2538aac-1a22-47a2-a2ac-f8eb7574fcdf",
+  "join": "roblox://placeId=5712833750&gameInstanceId=b2538aac-1a22-47a2-a2ac-f8eb7574fcdf",
   "follow": "roblox://followUserId=2244469158",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771334073991
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=b2538aac-1a22-47a2-a2ac-f8eb7574fcdf",
+  "location": "Animal Simulator",
+  "updatedAt": 1771334103549
 }
