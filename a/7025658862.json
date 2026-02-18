@@ -1,12 +1,12 @@
 {
   "userId": 7025658862,
   "displayName": "SEN_xL3G3NDSx",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12018893069,
+  "jobId": "88a21139-446f-4e3f-81ef-f17ec13751b0",
+  "join": "roblox://placeId=12018893069&gameInstanceId=88a21139-446f-4e3f-81ef-f17ec13751b0",
   "follow": "roblox://followUserId=7025658862",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771453329145
+  "web": "https://www.roblox.com/games/start?placeId=12018893069&gameInstanceId=88a21139-446f-4e3f-81ef-f17ec13751b0",
+  "location": "Team Soccer",
+  "updatedAt": 1771453388249
 }
