@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 142823291,
-  "jobId": "3569655c-15e0-4bb9-bcb6-f9281ed59d1a",
-  "join": "roblox://placeId=142823291&gameInstanceId=3569655c-15e0-4bb9-bcb6-f9281ed59d1a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=3569655c-15e0-4bb9-bcb6-f9281ed59d1a",
-  "location": "Murder Mystery 2",
-  "updatedAt": 1771448530597
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771449968184
 }
