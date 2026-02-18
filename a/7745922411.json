@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "in-game",
-  "placeId": 108536455095962,
-  "jobId": "1985239c-9408-4928-866f-765d03cab48e",
-  "join": "roblox://placeId=108536455095962&gameInstanceId=1985239c-9408-4928-866f-765d03cab48e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7745922411",
-  "web": "https://www.roblox.com/games/start?placeId=108536455095962&gameInstanceId=1985239c-9408-4928-866f-765d03cab48e",
-  "location": "Weapon Fighting RNG",
-  "updatedAt": 1771451079321
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771451498067
 }
