@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 8653717625,
-  "jobId": "ee8354ad-6871-49dc-9d04-e110886055c5",
-  "join": "roblox://placeId=8653717625&gameInstanceId=ee8354ad-6871-49dc-9d04-e110886055c5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=8653717625&gameInstanceId=ee8354ad-6871-49dc-9d04-e110886055c5",
-  "location": "Before Truth [Horror]",
-  "updatedAt": 1771436889095
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771438210339
 }
