@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 17439333206,
-  "jobId": "123263ea-abea-41a0-8a3e-baa9cf96e4ae",
-  "join": "roblox://placeId=17439333206&gameInstanceId=123263ea-abea-41a0-8a3e-baa9cf96e4ae",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=17439333206&gameInstanceId=123263ea-abea-41a0-8a3e-baa9cf96e4ae",
-  "location": "[FPS Story] Roach",
-  "updatedAt": 1771436051422
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771436110824
 }
