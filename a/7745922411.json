@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "in-game",
-  "placeId": 90625015569871,
-  "jobId": "bb920b4f-36dc-4500-9b95-054c24dcbc41",
-  "join": "roblox://placeId=90625015569871&gameInstanceId=bb920b4f-36dc-4500-9b95-054c24dcbc41",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7745922411",
-  "web": "https://www.roblox.com/games/start?placeId=90625015569871&gameInstanceId=bb920b4f-36dc-4500-9b95-054c24dcbc41",
-  "location": "[FPS] Sniper Arena",
-  "updatedAt": 1771451559677
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771451858082
 }
