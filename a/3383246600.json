@@ -1,12 +1,12 @@
 {
   "userId": 3383246600,
   "displayName": "PX_ AssassinCROW",
-  "status": "in-game",
-  "placeId": 15864327873,
-  "jobId": "ec3ca698-31fd-4f61-9b11-edc44fce02aa",
-  "join": "roblox://placeId=15864327873&gameInstanceId=ec3ca698-31fd-4f61-9b11-edc44fce02aa",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3383246600",
-  "web": "https://www.roblox.com/games/start?placeId=15864327873&gameInstanceId=ec3ca698-31fd-4f61-9b11-edc44fce02aa",
-  "location": "Teamwork Obby",
-  "updatedAt": 1771394703968
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771395065987
 }
