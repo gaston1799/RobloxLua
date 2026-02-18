@@ -1,12 +1,12 @@
 {
   "userId": 2308202909,
   "displayName": "Murda KYRO",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "463632fb-3bba-45a9-8767-89dcea3e7016",
-  "join": "roblox://placeId=5712833750&gameInstanceId=463632fb-3bba-45a9-8767-89dcea3e7016",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2308202909",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=463632fb-3bba-45a9-8767-89dcea3e7016",
-  "location": "Animal Simulator",
-  "updatedAt": 1771451558260
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771455818911
 }
