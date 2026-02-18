@@ -1,12 +1,12 @@
 {
   "userId": 2308202909,
   "displayName": "Murda KYRO",
-  "status": "in-game",
-  "placeId": 12355337193,
-  "jobId": "dec685b4-95e7-4d14-a38e-2556e6049ca9",
-  "join": "roblox://placeId=12355337193&gameInstanceId=dec685b4-95e7-4d14-a38e-2556e6049ca9",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2308202909",
-  "web": "https://www.roblox.com/games/start?placeId=12355337193&gameInstanceId=dec685b4-95e7-4d14-a38e-2556e6049ca9",
-  "location": "Murderers VS Sheriffs DUELS",
-  "updatedAt": 1771385465507
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771386903359
 }
