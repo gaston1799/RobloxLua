@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 14266669489,
-  "jobId": "3fb35462-232f-449d-b6fa-e5eb8d15446a",
-  "join": "roblox://placeId=14266669489&gameInstanceId=3fb35462-232f-449d-b6fa-e5eb8d15446a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=14266669489&gameInstanceId=3fb35462-232f-449d-b6fa-e5eb8d15446a",
-  "location": "[UPDATE] Limitless",
-  "updatedAt": 1771458248315
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771458610624
 }
