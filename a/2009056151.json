@@ -1,12 +1,12 @@
 {
   "userId": 2009056151,
   "displayName": "Dino_dan",
-  "status": "in-game",
-  "placeId": 9178325092,
-  "jobId": "4a081643-6ba8-4a51-bb7b-143f6f657ea3",
-  "join": "roblox://placeId=9178325092&gameInstanceId=4a081643-6ba8-4a51-bb7b-143f6f657ea3",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2009056151",
-  "web": "https://www.roblox.com/games/start?placeId=9178325092&gameInstanceId=4a081643-6ba8-4a51-bb7b-143f6f657ea3",
-  "location": "City Services: Bear Creek",
-  "updatedAt": 1771416641659
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771416731815
 }
