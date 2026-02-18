@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5041144419,
+  "jobId": "1c1f2ecb-eb34-4342-b576-0c2acaf7af5b",
+  "join": "roblox://placeId=5041144419&gameInstanceId=1c1f2ecb-eb34-4342-b576-0c2acaf7af5b",
   "follow": "roblox://followUserId=7745922411",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771455278891
+  "web": "https://www.roblox.com/games/start?placeId=5041144419&gameInstanceId=1c1f2ecb-eb34-4342-b576-0c2acaf7af5b",
+  "location": "SCP: Roleplay",
+  "updatedAt": 1771455459037
 }
