@@ -1,12 +1,12 @@
 {
   "userId": 4657312331,
   "displayName": "youxdkxme",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1537690962,
+  "jobId": "376ea33c-af6d-456b-b55a-b5a09d5412f4",
+  "join": "roblox://placeId=1537690962&gameInstanceId=376ea33c-af6d-456b-b55a-b5a09d5412f4",
   "follow": "roblox://followUserId=4657312331",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771391287168
+  "web": "https://www.roblox.com/games/start?placeId=1537690962&gameInstanceId=376ea33c-af6d-456b-b55a-b5a09d5412f4",
+  "location": "Bee Swarm Simulator",
+  "updatedAt": 1771391349838
 }
