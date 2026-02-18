@@ -1,12 +1,12 @@
 {
   "userId": 3198943007,
   "displayName": "IIxXxTerminatorxXxII",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "be5601af-2798-45cd-98db-1516963ec90a",
+  "join": "roblox://placeId=5712833750&gameInstanceId=be5601af-2798-45cd-98db-1516963ec90a",
   "follow": "roblox://followUserId=3198943007",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771457649537
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=be5601af-2798-45cd-98db-1516963ec90a",
+  "location": "Animal Simulator",
+  "updatedAt": 1771457828025
 }
