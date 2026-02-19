@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "in-game",
-  "placeId": 17840058476,
-  "jobId": "5d518add-b807-48b6-8d09-6ca5c968e00a",
-  "join": "roblox://placeId=17840058476&gameInstanceId=5d518add-b807-48b6-8d09-6ca5c968e00a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7745922411",
-  "web": "https://www.roblox.com/games/start?placeId=17840058476&gameInstanceId=5d518add-b807-48b6-8d09-6ca5c968e00a",
-  "location": "[🎄] Infection Gunfight",
-  "updatedAt": 1771529741037
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771530102239
 }
