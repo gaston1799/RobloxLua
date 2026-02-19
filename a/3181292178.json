@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "07b42278-e20f-4011-afcb-9a39a0772c1e",
-  "join": "roblox://placeId=5712833750&gameInstanceId=07b42278-e20f-4011-afcb-9a39a0772c1e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=07b42278-e20f-4011-afcb-9a39a0772c1e",
-  "location": "Animal Simulator",
-  "updatedAt": 1771535261127
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771535320949
 }
