@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "461f25d3-a31d-4795-80e2-ba1da9e5ae56",
+  "join": "roblox://placeId=5712833750&gameInstanceId=461f25d3-a31d-4795-80e2-ba1da9e5ae56",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771515038106
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=461f25d3-a31d-4795-80e2-ba1da9e5ae56",
+  "location": "Animal Simulator",
+  "updatedAt": 1771515217967
 }
