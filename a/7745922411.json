@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "50be503e-b7c1-4ef2-b968-2fc9be4f31c5",
-  "join": "roblox://placeId=5712833750&gameInstanceId=50be503e-b7c1-4ef2-b968-2fc9be4f31c5",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7745922411",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=50be503e-b7c1-4ef2-b968-2fc9be4f31c5",
-  "location": "Animal Simulator",
-  "updatedAt": 1771535982236
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771536221872
 }
