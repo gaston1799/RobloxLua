@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 17689874969,
-  "jobId": "6c1f7bb3-5e2d-4fcf-8339-8bc0a2ba4463",
-  "join": "roblox://placeId=17689874969&gameInstanceId=6c1f7bb3-5e2d-4fcf-8339-8bc0a2ba4463",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=17689874969&gameInstanceId=6c1f7bb3-5e2d-4fcf-8339-8bc0a2ba4463",
-  "location": "BEWILDERED: REVAMPED [HORROR]",
-  "updatedAt": 1771522661027
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771524639529
 }
