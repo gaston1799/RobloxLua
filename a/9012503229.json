@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 79453428559219,
-  "jobId": "7b05e6e0-747b-4b9f-83a3-adbd972aec46",
-  "join": "roblox://placeId=79453428559219&gameInstanceId=7b05e6e0-747b-4b9f-83a3-adbd972aec46",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=79453428559219&gameInstanceId=7b05e6e0-747b-4b9f-83a3-adbd972aec46",
-  "location": "Cotton dreams tower",
-  "updatedAt": 1771522900819
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771523502382
 }
