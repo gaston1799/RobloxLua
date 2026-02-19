@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6182305461,
+  "jobId": "5524ea33-1ea3-4a34-922b-92ce4034e128",
+  "join": "roblox://placeId=6182305461&gameInstanceId=5524ea33-1ea3-4a34-922b-92ce4034e128",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771462992012
+  "web": "https://www.roblox.com/games/start?placeId=6182305461&gameInstanceId=5524ea33-1ea3-4a34-922b-92ce4034e128",
+  "location": "Infamy",
+  "updatedAt": 1771463049367
 }
