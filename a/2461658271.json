@@ -1,12 +1,12 @@
 {
   "userId": 2461658271,
   "displayName": "Bay_Xit",
-  "status": "in-game",
-  "placeId": 96645548064314,
-  "jobId": "f7ee807b-0322-480d-b701-17a2f56fda1d",
-  "join": "roblox://placeId=96645548064314&gameInstanceId=f7ee807b-0322-480d-b701-17a2f56fda1d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2461658271",
-  "web": "https://www.roblox.com/games/start?placeId=96645548064314&gameInstanceId=f7ee807b-0322-480d-b701-17a2f56fda1d",
-  "location": "Catch And Tame!",
-  "updatedAt": 1771482493580
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771483688183
 }
