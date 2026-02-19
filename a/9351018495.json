@@ -1,12 +1,12 @@
 {
   "userId": 9351018495,
   "displayName": "UnaliveU",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "34e55c1f-b70b-47cb-9cb2-2763af3a6e4f",
-  "join": "roblox://placeId=7041939546&gameInstanceId=34e55c1f-b70b-47cb-9cb2-2763af3a6e4f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9351018495",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=34e55c1f-b70b-47cb-9cb2-2763af3a6e4f",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1771541739229
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771543959151
 }
