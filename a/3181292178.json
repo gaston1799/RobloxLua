@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 104841616983113,
-  "jobId": "d5ad1a0f-3d49-4a98-bacd-7a6a522acc1e",
-  "join": "roblox://placeId=104841616983113&gameInstanceId=d5ad1a0f-3d49-4a98-bacd-7a6a522acc1e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=104841616983113&gameInstanceId=d5ad1a0f-3d49-4a98-bacd-7a6a522acc1e",
-  "location": "San Aurie",
-  "updatedAt": 1771538079761
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771539099468
 }
