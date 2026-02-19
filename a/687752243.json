@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "50be503e-b7c1-4ef2-b968-2fc9be4f31c5",
+  "join": "roblox://placeId=5712833750&gameInstanceId=50be503e-b7c1-4ef2-b968-2fc9be4f31c5",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771541020838
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=50be503e-b7c1-4ef2-b968-2fc9be4f31c5",
+  "location": "Animal Simulator",
+  "updatedAt": 1771541799522
 }
