@@ -1,12 +1,12 @@
 {
   "userId": 1599682352,
   "displayName": "ZxA",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "e92c623f-2a88-4219-bdfd-804653fa6de9",
+  "join": "roblox://placeId=7041939546&gameInstanceId=e92c623f-2a88-4219-bdfd-804653fa6de9",
   "follow": "roblox://followUserId=1599682352",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771475708798
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=e92c623f-2a88-4219-bdfd-804653fa6de9",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1771475951423
 }
