@@ -1,12 +1,12 @@
 {
   "userId": 3607422405,
   "displayName": "AlxStranger",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "f6805034-4a2d-4b17-bc76-11b77d35daf2",
-  "join": "roblox://placeId=7041939546&gameInstanceId=f6805034-4a2d-4b17-bc76-11b77d35daf2",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3607422405",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=f6805034-4a2d-4b17-bc76-11b77d35daf2",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1771459298795
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771459419180
 }
