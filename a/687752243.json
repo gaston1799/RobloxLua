@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 14518422161,
-  "jobId": "0477bfd0-36dd-4ac2-b23f-cec8368a9efe",
-  "join": "roblox://placeId=14518422161&gameInstanceId=0477bfd0-36dd-4ac2-b23f-cec8368a9efe",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=14518422161&gameInstanceId=0477bfd0-36dd-4ac2-b23f-cec8368a9efe",
-  "location": "Gunfight Arena",
-  "updatedAt": 1771523621826
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771524099916
 }
