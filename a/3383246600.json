@@ -1,12 +1,12 @@
 {
   "userId": 3383246600,
   "displayName": "PX_ AssassinCROW",
-  "status": "in-game",
-  "placeId": 111059037264288,
-  "jobId": "d2874ac2-2361-467b-ad66-4c6937cb98ee",
-  "join": "roblox://placeId=111059037264288&gameInstanceId=d2874ac2-2361-467b-ad66-4c6937cb98ee",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3383246600",
-  "web": "https://www.roblox.com/games/start?placeId=111059037264288&gameInstanceId=d2874ac2-2361-467b-ad66-4c6937cb98ee",
-  "location": "Drink Matching",
-  "updatedAt": 1771479307865
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771479847905
 }
