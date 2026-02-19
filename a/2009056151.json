@@ -1,12 +1,12 @@
 {
   "userId": 2009056151,
   "displayName": "Dino_dan",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "459f5d97-cfc3-4b50-8f37-9ffb53d19008",
-  "join": "roblox://placeId=7041939546&gameInstanceId=459f5d97-cfc3-4b50-8f37-9ffb53d19008",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2009056151",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=459f5d97-cfc3-4b50-8f37-9ffb53d19008",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1771466050192
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771466142347
 }
