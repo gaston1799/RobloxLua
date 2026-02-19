@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "9a7b2d28-958d-4597-9359-7bf384d64f6f",
+  "join": "roblox://placeId=142823291&gameInstanceId=9a7b2d28-958d-4597-9359-7bf384d64f6f",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771503283957
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=9a7b2d28-958d-4597-9359-7bf384d64f6f",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1771503339375
 }
