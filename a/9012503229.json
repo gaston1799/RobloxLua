@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 18860987667,
-  "jobId": "ab7c637d-cc0f-411e-9154-d3726afd19bb",
-  "join": "roblox://placeId=18860987667&gameInstanceId=ab7c637d-cc0f-411e-9154-d3726afd19bb",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=18860987667&gameInstanceId=ab7c637d-cc0f-411e-9154-d3726afd19bb",
-  "location": "[FREE UGC] Coraline: Evade The Others [OFFICIAL]",
-  "updatedAt": 1771464400896
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771465179606
 }
