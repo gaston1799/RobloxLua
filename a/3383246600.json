@@ -1,12 +1,12 @@
 {
   "userId": 3383246600,
   "displayName": "PX_ AssassinCROW",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 89209511145519,
+  "jobId": "bfa83f71-fe58-4fa0-8af9-2311138885ca",
+  "join": "roblox://placeId=89209511145519&gameInstanceId=bfa83f71-fe58-4fa0-8af9-2311138885ca",
   "follow": "roblox://followUserId=3383246600",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771476667642
+  "web": "https://www.roblox.com/games/start?placeId=89209511145519&gameInstanceId=bfa83f71-fe58-4fa0-8af9-2311138885ca",
+  "location": "Housebound",
+  "updatedAt": 1771476727722
 }
