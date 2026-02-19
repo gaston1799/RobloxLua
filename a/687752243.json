@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7353845952,
+  "jobId": "6f8fc741-e1b6-4996-86c5-e8f0cb266b9d",
+  "join": "roblox://placeId=7353845952&gameInstanceId=6f8fc741-e1b6-4996-86c5-e8f0cb266b9d",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771525239854
+  "web": "https://www.roblox.com/games/start?placeId=7353845952&gameInstanceId=6f8fc741-e1b6-4996-86c5-e8f0cb266b9d",
+  "location": "Project Delta",
+  "updatedAt": 1771525303412
 }
