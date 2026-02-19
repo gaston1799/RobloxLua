@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 74942575319599,
-  "jobId": "5d687827-59d8-4f91-a914-c0968f867692",
-  "join": "roblox://placeId=74942575319599&gameInstanceId=5d687827-59d8-4f91-a914-c0968f867692",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=74942575319599&gameInstanceId=5d687827-59d8-4f91-a914-c0968f867692",
-  "location": "Omnidroids Test",
-  "updatedAt": 1771537959779
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771538799810
 }
