@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12068280773,
+  "jobId": "8f4ba049-a625-4d6b-8959-2260bff4d0a4",
+  "join": "roblox://placeId=12068280773&gameInstanceId=8f4ba049-a625-4d6b-8959-2260bff4d0a4",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771528479742
+  "web": "https://www.roblox.com/games/start?placeId=12068280773&gameInstanceId=8f4ba049-a625-4d6b-8959-2260bff4d0a4",
+  "location": "Napoleonic Wars",
+  "updatedAt": 1771528539950
 }
