@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 84988808589910,
+  "jobId": "d85ec44d-823d-4a86-8113-cb1d26ae30c3",
+  "join": "roblox://placeId=84988808589910&gameInstanceId=d85ec44d-823d-4a86-8113-cb1d26ae30c3",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771463829085
+  "web": "https://www.roblox.com/games/start?placeId=84988808589910&gameInstanceId=d85ec44d-823d-4a86-8113-cb1d26ae30c3",
+  "location": "[QOL] Rogue Piece",
+  "updatedAt": 1771513718997
 }
