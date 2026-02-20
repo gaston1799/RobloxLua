@@ -1,12 +1,12 @@
 {
   "userId": 1599682352,
   "displayName": "ZxA",
-  "status": "in-game",
-  "placeId": 108772269317636,
-  "jobId": "614d4f46-d61a-4873-af59-5d1a321f4114",
-  "join": "roblox://placeId=108772269317636&gameInstanceId=614d4f46-d61a-4873-af59-5d1a321f4114",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1599682352",
-  "web": "https://www.roblox.com/games/start?placeId=108772269317636&gameInstanceId=614d4f46-d61a-4873-af59-5d1a321f4114",
-  "location": "Blockies [2-3-4-5 Player Obby]  ",
-  "updatedAt": 1771553501642
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771555661872
 }
