@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6492279150,
+  "jobId": "6646d8ec-84a5-4d77-b2e4-c6ac73aa0222",
+  "join": "roblox://placeId=6492279150&gameInstanceId=6646d8ec-84a5-4d77-b2e4-c6ac73aa0222",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771548518834
+  "web": "https://www.roblox.com/games/start?placeId=6492279150&gameInstanceId=6646d8ec-84a5-4d77-b2e4-c6ac73aa0222",
+  "location": "Two Player Obby 2",
+  "updatedAt": 1771548640027
 }
