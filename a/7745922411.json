@@ -1,12 +1,12 @@
 {
   "userId": 7745922411,
   "displayName": "XPF_jake",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13076380114,
+  "jobId": "26b8f70e-6f88-402b-b322-59d9f3521af9",
+  "join": "roblox://placeId=13076380114&gameInstanceId=26b8f70e-6f88-402b-b322-59d9f3521af9",
   "follow": "roblox://followUserId=7745922411",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771615934610
+  "web": "https://www.roblox.com/games/start?placeId=13076380114&gameInstanceId=26b8f70e-6f88-402b-b322-59d9f3521af9",
+  "location": "Heroes Battlegrounds",
+  "updatedAt": 1771619650736
 }
