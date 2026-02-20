@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 9391468976,
-  "jobId": "394d7761-49fa-4e99-bded-6597f2477f47",
-  "join": "roblox://placeId=9391468976&gameInstanceId=394d7761-49fa-4e99-bded-6597f2477f47",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=9391468976&gameInstanceId=394d7761-49fa-4e99-bded-6597f2477f47",
-  "location": "[HEAD OF HEI] Jujutsu Shenanigans",
-  "updatedAt": 1771601650420
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771601949910
 }
