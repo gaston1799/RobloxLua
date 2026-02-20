@@ -1,12 +1,12 @@
 {
   "userId": 5314627558,
   "displayName": "KT_Mang",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "0c04ad6a-50b9-4a9b-8fd0-b3c16cb22a5f",
+  "join": "roblox://placeId=5712833750&gameInstanceId=0c04ad6a-50b9-4a9b-8fd0-b3c16cb22a5f",
   "follow": "roblox://followUserId=5314627558",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771553651503
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=0c04ad6a-50b9-4a9b-8fd0-b3c16cb22a5f",
+  "location": "Animal Simulator",
+  "updatedAt": 1771553683986
 }
