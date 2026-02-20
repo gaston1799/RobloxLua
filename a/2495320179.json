@@ -1,12 +1,12 @@
 {
   "userId": 2495320179,
   "displayName": "MasJawa",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1240123653,
+  "jobId": "caaaa861-845f-4bca-b54a-4cea7f973acd",
+  "join": "roblox://placeId=1240123653&gameInstanceId=caaaa861-845f-4bca-b54a-4cea7f973acd",
   "follow": "roblox://followUserId=2495320179",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771590970532
+  "web": "https://www.roblox.com/games/start?placeId=1240123653&gameInstanceId=caaaa861-845f-4bca-b54a-4cea7f973acd",
+  "location": "Zombie Attack",
+  "updatedAt": 1771591149359
 }
