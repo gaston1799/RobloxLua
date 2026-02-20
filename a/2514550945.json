@@ -1,12 +1,12 @@
 {
   "userId": 2514550945,
   "displayName": "ParadoxSirTiger",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "20066b9a-9d69-4510-abd9-3795ce2e3f1b",
+  "join": "roblox://placeId=5712833750&gameInstanceId=20066b9a-9d69-4510-abd9-3795ce2e3f1b",
   "follow": "roblox://followUserId=2514550945",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771574318191
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=20066b9a-9d69-4510-abd9-3795ce2e3f1b",
+  "location": "Animal Simulator",
+  "updatedAt": 1771574378179
 }
