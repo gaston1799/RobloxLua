@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "a53964c7-6c16-46e2-8e5f-4d42b8fbdf9e",
-  "join": "roblox://placeId=5712833750&gameInstanceId=a53964c7-6c16-46e2-8e5f-4d42b8fbdf9e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=a53964c7-6c16-46e2-8e5f-4d42b8fbdf9e",
-  "location": "Animal Simulator",
-  "updatedAt": 1771593489293
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771615931771
 }
