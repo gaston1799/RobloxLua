@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "in-game",
-  "placeId": 1251631024,
-  "jobId": "3913d711-0723-408a-8fd4-26dbe70a0b1b",
-  "join": "roblox://placeId=1251631024&gameInstanceId=3913d711-0723-408a-8fd4-26dbe70a0b1b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=687752243",
-  "web": "https://www.roblox.com/games/start?placeId=1251631024&gameInstanceId=3913d711-0723-408a-8fd4-26dbe70a0b1b",
-  "location": "[KEYBINDS] Bot Commander",
-  "updatedAt": 1771596369549
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771597029548
 }
