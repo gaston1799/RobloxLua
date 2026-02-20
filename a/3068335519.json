@@ -1,12 +1,12 @@
 {
   "userId": 3068335519,
   "displayName": "T_Boba",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "9d1c5a4e-2679-4cb7-b87f-2f720cd7a15d",
+  "join": "roblox://placeId=142823291&gameInstanceId=9d1c5a4e-2679-4cb7-b87f-2f720cd7a15d",
   "follow": "roblox://followUserId=3068335519",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771551491635
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=9d1c5a4e-2679-4cb7-b87f-2f720cd7a15d",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1771551521879
 }
