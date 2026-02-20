@@ -1,12 +1,12 @@
 {
   "userId": 2308202909,
   "displayName": "Murda KYRO",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 101733180974837,
+  "jobId": "d54c2a7d-1a0e-401d-a523-c5febee186fb",
+  "join": "roblox://placeId=101733180974837&gameInstanceId=d54c2a7d-1a0e-401d-a523-c5febee186fb",
   "follow": "roblox://followUserId=2308202909",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771627032297
+  "web": "https://www.roblox.com/games/start?placeId=101733180974837&gameInstanceId=d54c2a7d-1a0e-401d-a523-c5febee186fb",
+  "location": "Bull Battles [NEW]",
+  "updatedAt": 1771627094478
 }
