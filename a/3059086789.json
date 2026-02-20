@@ -1,12 +1,12 @@
 {
   "userId": 3059086789,
   "displayName": "asulKitsune",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "9a58904f-9154-409e-a0e0-4e03badc74c4",
+  "join": "roblox://placeId=5712833750&gameInstanceId=9a58904f-9154-409e-a0e0-4e03badc74c4",
   "follow": "roblox://followUserId=3059086789",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771548157907
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=9a58904f-9154-409e-a0e0-4e03badc74c4",
+  "location": "Animal Simulator",
+  "updatedAt": 1771548217916
 }
