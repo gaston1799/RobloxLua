@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 91692552632068,
-  "jobId": "c518b0c6-e174-4501-9192-bd916fa52260",
-  "join": "roblox://placeId=91692552632068&gameInstanceId=c518b0c6-e174-4501-9192-bd916fa52260",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=91692552632068&gameInstanceId=c518b0c6-e174-4501-9192-bd916fa52260",
-  "location": "[🎁] Spelling Bee",
-  "updatedAt": 1771649292092
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771649473324
 }
