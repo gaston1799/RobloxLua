@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "in-game",
-  "placeId": 124311897657957,
-  "jobId": "6379ff52-0e5d-4b7f-8af9-51b88eef155c",
-  "join": "roblox://placeId=124311897657957&gameInstanceId=6379ff52-0e5d-4b7f-8af9-51b88eef155c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=124311897657957&gameInstanceId=6379ff52-0e5d-4b7f-8af9-51b88eef155c",
-  "location": "⛏️ Break a Lucky Block!",
-  "updatedAt": 1771654118833
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771659038821
 }
