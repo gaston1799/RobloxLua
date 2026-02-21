@@ -1,12 +1,12 @@
 {
   "userId": 2258623929,
   "displayName": "1of1DOLO",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 126293024094985,
+  "jobId": "064baa79-203a-447f-ace5-6823166bf243",
+  "join": "roblox://placeId=126293024094985&gameInstanceId=064baa79-203a-447f-ace5-6823166bf243",
   "follow": "roblox://followUserId=2258623929",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771646800192
+  "web": "https://www.roblox.com/games/start?placeId=126293024094985&gameInstanceId=064baa79-203a-447f-ace5-6823166bf243",
+  "location": "Terminal 13: Not Human [HORROR]",
+  "updatedAt": 1771697622784
 }
