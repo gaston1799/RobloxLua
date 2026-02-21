@@ -1,12 +1,12 @@
 {
   "userId": 5314627558,
   "displayName": "KT_Mang",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "39298294-05f4-468c-b56c-d8239f2fb52f",
+  "join": "roblox://placeId=7041939546&gameInstanceId=39298294-05f4-468c-b56c-d8239f2fb52f",
   "follow": "roblox://followUserId=5314627558",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771637717090
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=39298294-05f4-468c-b56c-d8239f2fb52f",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1771637744511
 }
