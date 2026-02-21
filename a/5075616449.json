@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "in-game",
-  "placeId": 119987266683883,
-  "jobId": "ac5d1f68-3a64-475e-ab65-d0ba02af5f17",
-  "join": "roblox://placeId=119987266683883&gameInstanceId=ac5d1f68-3a64-475e-ab65-d0ba02af5f17",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=5075616449",
-  "web": "https://www.roblox.com/games/start?placeId=119987266683883&gameInstanceId=ac5d1f68-3a64-475e-ab65-d0ba02af5f17",
-  "location": "[🧬] Survive LAVA for Brainrots!",
-  "updatedAt": 1771633991628
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771634651706
 }
