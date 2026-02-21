@@ -1,12 +1,12 @@
 {
   "userId": 575638829,
   "displayName": "Grr",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "13e50105-6b0f-4cdb-90ba-3ea965df8abb",
-  "join": "roblox://placeId=7041939546&gameInstanceId=13e50105-6b0f-4cdb-90ba-3ea965df8abb",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=575638829",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=13e50105-6b0f-4cdb-90ba-3ea965df8abb",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1771696720316
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771696840271
 }
