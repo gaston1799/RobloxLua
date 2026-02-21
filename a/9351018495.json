@@ -1,12 +1,12 @@
 {
   "userId": 9351018495,
   "displayName": "UnaliveU",
-  "status": "in-game",
-  "placeId": 101733180974837,
-  "jobId": "d386f41e-567c-4ea9-9191-0c1e1fa76e8b",
-  "join": "roblox://placeId=101733180974837&gameInstanceId=d386f41e-567c-4ea9-9191-0c1e1fa76e8b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9351018495",
-  "web": "https://www.roblox.com/games/start?placeId=101733180974837&gameInstanceId=d386f41e-567c-4ea9-9191-0c1e1fa76e8b",
-  "location": "Bull Battles [NEW]",
-  "updatedAt": 1771637499827
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771639238906
 }
