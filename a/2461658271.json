@@ -1,12 +1,12 @@
 {
   "userId": 2461658271,
   "displayName": "Bay_Xit",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 130955364409284,
+  "jobId": "febffe8b-f95c-4904-8179-c1ace478c4ce",
+  "join": "roblox://placeId=130955364409284&gameInstanceId=febffe8b-f95c-4904-8179-c1ace478c4ce",
   "follow": "roblox://followUserId=2461658271",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771670171046
+  "web": "https://www.roblox.com/games/start?placeId=130955364409284&gameInstanceId=febffe8b-f95c-4904-8179-c1ace478c4ce",
+  "location": "Escape the Animal Stampede",
+  "updatedAt": 1771670231211
 }
