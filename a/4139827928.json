@@ -1,12 +1,12 @@
 {
   "userId": 4139827928,
   "displayName": "JzKommtTravis",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 124389216346675,
+  "jobId": "b80f0c00-5752-4f43-8c42-e021c1e0da0e",
+  "join": "roblox://placeId=124389216346675&gameInstanceId=b80f0c00-5752-4f43-8c42-e021c1e0da0e",
   "follow": "roblox://followUserId=4139827928",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771671310517
+  "web": "https://www.roblox.com/games/start?placeId=124389216346675&gameInstanceId=b80f0c00-5752-4f43-8c42-e021c1e0da0e",
+  "location": "Control Europe",
+  "updatedAt": 1771671370497
 }
