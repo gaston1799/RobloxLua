@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4806026225,
+  "jobId": "4f8207e5-4f3c-4f27-a0b1-b48492d7d6e5",
+  "join": "roblox://placeId=4806026225&gameInstanceId=4f8207e5-4f3c-4f27-a0b1-b48492d7d6e5",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771695730683
+  "web": "https://www.roblox.com/games/start?placeId=4806026225&gameInstanceId=4f8207e5-4f3c-4f27-a0b1-b48492d7d6e5",
+  "location": "Defender's Depot Classic Tower Defense",
+  "updatedAt": 1771695790841
 }
