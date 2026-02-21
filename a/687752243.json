@@ -1,12 +1,12 @@
 {
   "userId": 687752243,
   "displayName": "HERO_Kratos",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 9391468976,
+  "jobId": "787b2cc8-3925-455f-8f3f-72787a0654f2",
+  "join": "roblox://placeId=9391468976&gameInstanceId=787b2cc8-3925-455f-8f3f-72787a0654f2",
   "follow": "roblox://followUserId=687752243",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771639570775
+  "web": "https://www.roblox.com/games/start?placeId=9391468976&gameInstanceId=787b2cc8-3925-455f-8f3f-72787a0654f2",
+  "location": "[PUPPET MASTER] Jujutsu Shenanigans",
+  "updatedAt": 1771639630483
 }
