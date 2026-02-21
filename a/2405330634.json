@@ -1,12 +1,12 @@
 {
   "userId": 2405330634,
   "displayName": "emiryokus07",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 123518976525008,
+  "jobId": "eb3d9203-5be9-403e-906b-8b19c4ec3132",
+  "join": "roblox://placeId=123518976525008&gameInstanceId=eb3d9203-5be9-403e-906b-8b19c4ec3132",
   "follow": "roblox://followUserId=2405330634",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771699004810
+  "web": "https://www.roblox.com/games/start?placeId=123518976525008&gameInstanceId=eb3d9203-5be9-403e-906b-8b19c4ec3132",
+  "location": "Pocoyo [2 Player Obby]",
+  "updatedAt": 1771699124636
 }
