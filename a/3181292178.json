@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "031e8d3d-d2d1-4357-8521-dad17c265fdf",
+  "join": "roblox://placeId=7041939546&gameInstanceId=031e8d3d-d2d1-4357-8521-dad17c265fdf",
   "follow": "roblox://followUserId=3181292178",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771700561974
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=031e8d3d-d2d1-4357-8521-dad17c265fdf",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1771700802180
 }
