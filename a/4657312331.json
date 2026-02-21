@@ -1,12 +1,12 @@
 {
   "userId": 4657312331,
   "displayName": "youxdkxme",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13076380114,
+  "jobId": "f3d92b89-a930-481d-9989-0d3b3bb3ea6d",
+  "join": "roblox://placeId=13076380114&gameInstanceId=f3d92b89-a930-481d-9989-0d3b3bb3ea6d",
   "follow": "roblox://followUserId=4657312331",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771634444259
+  "web": "https://www.roblox.com/games/start?placeId=13076380114&gameInstanceId=f3d92b89-a930-481d-9989-0d3b3bb3ea6d",
+  "location": "Heroes Battlegrounds",
+  "updatedAt": 1771634505941
 }
