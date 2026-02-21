@@ -1,12 +1,12 @@
 {
   "userId": 2780660034,
   "displayName": "AiHee",
-  "status": "in-game",
-  "placeId": 185655149,
-  "jobId": "b55a61eb-9ce5-4af3-aae6-97383ec70f39",
-  "join": "roblox://placeId=185655149&gameInstanceId=b55a61eb-9ce5-4af3-aae6-97383ec70f39",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2780660034",
-  "web": "https://www.roblox.com/games/start?placeId=185655149&gameInstanceId=b55a61eb-9ce5-4af3-aae6-97383ec70f39",
-  "location": "[🧧] Welcome to Bloxburg",
-  "updatedAt": 1771694292808
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771694322576
 }
