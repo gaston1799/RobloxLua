@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 96645548064314,
-  "jobId": "e9544428-62b8-4917-81e2-42e22c838cd7",
-  "join": "roblox://placeId=96645548064314&gameInstanceId=e9544428-62b8-4917-81e2-42e22c838cd7",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=96645548064314&gameInstanceId=e9544428-62b8-4917-81e2-42e22c838cd7",
-  "location": "Catch And Tame!",
-  "updatedAt": 1771648780151
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1771648900290
 }
