@@ -1,12 +1,12 @@
 {
   "userId": 5075616449,
   "displayName": "MLXU",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 89046742932569,
+  "jobId": "3a9332ca-65dd-4bc3-8bf3-881075c4e884",
+  "join": "roblox://placeId=89046742932569&gameInstanceId=3a9332ca-65dd-4bc3-8bf3-881075c4e884",
   "follow": "roblox://followUserId=5075616449",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771646533081
+  "web": "https://www.roblox.com/games/start?placeId=89046742932569&gameInstanceId=3a9332ca-65dd-4bc3-8bf3-881075c4e884",
+  "location": "Sail For Brainrots!",
+  "updatedAt": 1771646713086
 }
