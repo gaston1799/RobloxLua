@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "Fear_ALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131623223084840,
+  "jobId": "c0a1be28-b3e9-48e1-8dad-689f57cd2b85",
+  "join": "roblox://placeId=131623223084840&gameInstanceId=c0a1be28-b3e9-48e1-8dad-689f57cd2b85",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1771638758688
+  "web": "https://www.roblox.com/games/start?placeId=131623223084840&gameInstanceId=c0a1be28-b3e9-48e1-8dad-689f57cd2b85",
+  "location": "Escape Tsunami For Brainrots!",
+  "updatedAt": 1771638818722
 }
