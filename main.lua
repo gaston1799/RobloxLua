@@ -1704,21 +1704,55 @@ local function addThemePage(library, ui, defaults)
 end
 
 local placeID = game.PlaceId
-local url = ("https://raw.githubusercontent.com/gaston1799/RobloxLua/refs/heads/main/%s.lua"):format(placeID)
+local MODULE_BASE_URL = "https://raw.githubusercontent.com/gaston1799/RobloxLua/refs/heads/main"
 
-local success, response = pcall(function()
-    return game:HttpGet(url)
-end)
+local function tryLoadPlaceModule(moduleName)
+    local url = ("%s/%s.lua"):format(MODULE_BASE_URL, moduleName)
+    print(("[Loader] Trying %s.lua for placeID %s"):format(moduleName, tostring(placeID)))
 
-print(("[Loader] Loading script for placeID: %s - Success: %s"):format(placeID, tostring(success)))
-
-if success and response and response ~= "" then
-    local moduleTable = loadstring(response)()
-    local initResult
-    if type(moduleTable) == "table" and type(moduleTable.init) == "function" then
-        initResult = moduleTable.init()
+    local fetched, response = pcall(game.HttpGet, game, url)
+    if not fetched then
+        return false, ("request failed: %s"):format(tostring(response))
+    end
+    if type(response) ~= "string" or response:match("^%s*$") then
+        return false, "server returned an empty response"
     end
 
+    local chunk, compileError = loadstring(response, ("=%s.lua"):format(moduleName))
+    if not chunk then
+        return false, ("compile failed: %s"):format(tostring(compileError))
+    end
+
+    local executed, moduleTable = pcall(chunk)
+    if not executed then
+        return false, ("load failed: %s"):format(tostring(moduleTable))
+    end
+    if type(moduleTable) ~= "table" or type(moduleTable.init) ~= "function" then
+        return false, "module must return a table containing init()"
+    end
+
+    local initialized, initResult = pcall(moduleTable.init)
+    if not initialized then
+        return false, ("init failed: %s"):format(tostring(initResult))
+    end
+
+    print(("[Loader] Loaded %s.lua successfully"):format(moduleName))
+    return true, initResult
+end
+
+local baseName = tostring(placeID)
+local v2Name = baseName .. "-v2"
+local success, initResult = tryLoadPlaceModule(v2Name)
+if not success then
+    warn(("[Loader] %s.lua failed (%s); falling back to %s.lua"):format(
+        v2Name,
+        tostring(initResult),
+        baseName
+    ))
+    success, initResult = tryLoadPlaceModule(baseName)
+end
+
+if success then
     if initResult and initResult.ui and initResult.library then
         local ui = initResult.ui
         local library = initResult.library
@@ -1757,5 +1791,5 @@ if success and response and response ~= "" then
 
     print("Done")
 else
-    warn("[Loader] Failed to load script for placeID:", placeID)
+    warn(("[Loader] Failed to load modules for placeID %s: %s"):format(placeID, tostring(initResult)))
 end
