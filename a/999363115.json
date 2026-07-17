@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99248392277037,
+  "jobId": "ce9a948d-2aaa-4334-9ab7-a2274203c58d",
+  "join": "roblox://placeId=99248392277037&gameInstanceId=ce9a948d-2aaa-4334-9ab7-a2274203c58d",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1783449060267
+  "web": "https://www.roblox.com/games/start?placeId=99248392277037&gameInstanceId=ce9a948d-2aaa-4334-9ab7-a2274203c58d",
+  "location": "Untitled Melee RNG [KILLS OFFLINE!]",
+  "updatedAt": 1784265497275
 }
