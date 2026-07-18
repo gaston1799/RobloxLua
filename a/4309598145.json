@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 112352774213259,
+  "jobId": "8a6b41e2-cce3-455c-864f-2c3321b3422f",
+  "join": "roblox://placeId=112352774213259&gameInstanceId=8a6b41e2-cce3-455c-864f-2c3321b3422f",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784383489772
+  "web": "https://www.roblox.com/games/start?placeId=112352774213259&gameInstanceId=8a6b41e2-cce3-455c-864f-2c3321b3422f",
+  "location": "MM2 Aim Trainer 2",
+  "updatedAt": 1784383549803
 }
