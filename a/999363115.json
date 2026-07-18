@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 97387256206808,
+  "jobId": "4ed5c6d1-39c7-42d3-b85e-5697298a62c4",
+  "join": "roblox://placeId=97387256206808&gameInstanceId=4ed5c6d1-39c7-42d3-b85e-5697298a62c4",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784316918365
+  "web": "https://www.roblox.com/games/start?placeId=97387256206808&gameInstanceId=4ed5c6d1-39c7-42d3-b85e-5697298a62c4",
+  "location": "[2x🍀]Broken Blade[Dragon]",
+  "updatedAt": 1784349828765
 }
