@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 4520749081,
-  "jobId": "5039b4a1-f89a-48dc-aee3-f48fc452921c",
-  "join": "roblox://placeId=4520749081&gameInstanceId=5039b4a1-f89a-48dc-aee3-f48fc452921c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=4520749081&gameInstanceId=5039b4a1-f89a-48dc-aee3-f48fc452921c",
-  "location": "King Legacy",
-  "updatedAt": 1784351088740
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784355591437
 }
