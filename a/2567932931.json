@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "in-game",
-  "placeId": 920587237,
-  "jobId": "bcc08306-31aa-4079-b5c8-3c2124f7709a",
-  "join": "roblox://placeId=920587237&gameInstanceId=bcc08306-31aa-4079-b5c8-3c2124f7709a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2567932931",
-  "web": "https://www.roblox.com/games/start?placeId=920587237&gameInstanceId=bcc08306-31aa-4079-b5c8-3c2124f7709a",
-  "location": "[🦝] Adopt Me!",
-  "updatedAt": 1784407430482
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784407550476
 }
