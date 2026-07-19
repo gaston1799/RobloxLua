@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 6872265039,
-  "jobId": "1979d930-6dfb-48ae-b686-ed51cd9688dc",
-  "join": "roblox://placeId=6872265039&gameInstanceId=1979d930-6dfb-48ae-b686-ed51cd9688dc",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=6872265039&gameInstanceId=1979d930-6dfb-48ae-b686-ed51cd9688dc",
-  "location": "BedWars [🎃 JACK + BALANCE]",
-  "updatedAt": 1784448472740
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784448531229
 }
