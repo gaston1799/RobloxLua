@@ -1,12 +1,12 @@
 {
   "userId": 1856264413,
   "displayName": "wanderlust",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111310650822419,
+  "jobId": "9798ba6e-3e22-49b4-81d1-afe29f86c2fd",
+  "join": "roblox://placeId=111310650822419&gameInstanceId=9798ba6e-3e22-49b4-81d1-afe29f86c2fd",
   "follow": "roblox://followUserId=1856264413",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784503911705
+  "web": "https://www.roblox.com/games/start?placeId=111310650822419&gameInstanceId=9798ba6e-3e22-49b4-81d1-afe29f86c2fd",
+  "location": "Animal Simulator 2021 Remastered",
+  "updatedAt": 1784503971729
 }
