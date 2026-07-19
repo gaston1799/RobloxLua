@@ -1,12 +1,12 @@
 {
   "userId": 1856264413,
   "displayName": "wanderlust",
-  "status": "in-game",
-  "placeId": 79442754394573,
-  "jobId": "735892ac-3924-4059-9bd5-4cfd18e2f8a2",
-  "join": "roblox://placeId=79442754394573&gameInstanceId=735892ac-3924-4059-9bd5-4cfd18e2f8a2",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1856264413",
-  "web": "https://www.roblox.com/games/start?placeId=79442754394573&gameInstanceId=735892ac-3924-4059-9bd5-4cfd18e2f8a2",
-  "location": "Giant Bug Zoo 🐞",
-  "updatedAt": 1784428850877
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784433771004
 }
