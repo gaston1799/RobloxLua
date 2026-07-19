@@ -1,12 +1,12 @@
 {
   "userId": 2258623929,
   "displayName": "1of1DOLO",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 78869159412431,
+  "jobId": "f507e24e-8121-4308-90bb-7b3375939e61",
+  "join": "roblox://placeId=78869159412431&gameInstanceId=f507e24e-8121-4308-90bb-7b3375939e61",
   "follow": "roblox://followUserId=2258623929",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784484651521
+  "web": "https://www.roblox.com/games/start?placeId=78869159412431&gameInstanceId=f507e24e-8121-4308-90bb-7b3375939e61",
+  "location": "[W2] +1 Speed Shinobi Escape",
+  "updatedAt": 1784489571571
 }
