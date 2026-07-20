@@ -1,12 +1,12 @@
 {
   "userId": 1856264413,
   "displayName": "wanderlust",
-  "status": "in-game",
-  "placeId": 13772394625,
-  "jobId": "316a1737-0944-437b-b613-0153bf535fb8",
-  "join": "roblox://placeId=13772394625&gameInstanceId=316a1737-0944-437b-b613-0153bf535fb8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1856264413",
-  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=316a1737-0944-437b-b613-0153bf535fb8",
-  "location": "Blade Ball",
-  "updatedAt": 1784589353917
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784589713900
 }
