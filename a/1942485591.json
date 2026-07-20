@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 75927771299860,
-  "jobId": "3f980846-d102-4ff2-af89-cf7c768eb5f1",
-  "join": "roblox://placeId=75927771299860&gameInstanceId=3f980846-d102-4ff2-af89-cf7c768eb5f1",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=75927771299860&gameInstanceId=3f980846-d102-4ff2-af89-cf7c768eb5f1",
-  "location": "Driving Test 🚗",
-  "updatedAt": 1784521551837
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784522451844
 }
