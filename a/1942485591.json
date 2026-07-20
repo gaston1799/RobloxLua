@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 112291455733279,
-  "jobId": "bc053c15-d04e-45ab-afb0-11ed55fb1e54",
-  "join": "roblox://placeId=112291455733279&gameInstanceId=bc053c15-d04e-45ab-afb0-11ed55fb1e54",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=112291455733279&gameInstanceId=bc053c15-d04e-45ab-afb0-11ed55fb1e54",
-  "location": "🌧️ Bring Back The Sun!",
-  "updatedAt": 1784520771822
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784520834117
 }
