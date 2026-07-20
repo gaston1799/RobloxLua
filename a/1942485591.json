@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107646426076756,
+  "jobId": "1f48516b-8ce3-4723-aef5-3d2cc7679a9d",
+  "join": "roblox://placeId=107646426076756&gameInstanceId=1f48516b-8ce3-4723-aef5-3d2cc7679a9d",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784509071743
+  "web": "https://www.roblox.com/games/start?placeId=107646426076756&gameInstanceId=1f48516b-8ce3-4723-aef5-3d2cc7679a9d",
+  "location": "[🌽] Build A Ring Farm",
+  "updatedAt": 1784509377389
 }
