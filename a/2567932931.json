@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "in-game",
-  "placeId": 10253248401,
-  "jobId": "e6b6dc98-f5af-4820-81aa-c15edee6b222",
-  "join": "roblox://placeId=10253248401&gameInstanceId=e6b6dc98-f5af-4820-81aa-c15edee6b222",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2567932931",
-  "web": "https://www.roblox.com/games/start?placeId=10253248401&gameInstanceId=e6b6dc98-f5af-4820-81aa-c15edee6b222",
-  "location": "Elemental Powers Tycoon",
-  "updatedAt": 1784570753090
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784573753197
 }
