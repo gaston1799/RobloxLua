@@ -1,12 +1,12 @@
 {
   "userId": 3471008608,
   "displayName": "ItzAsh",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111310650822419,
+  "jobId": "9651f256-9d11-4745-9945-7c2e9561fd0c",
+  "join": "roblox://placeId=111310650822419&gameInstanceId=9651f256-9d11-4745-9945-7c2e9561fd0c",
   "follow": "roblox://followUserId=3471008608",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784517771798
+  "web": "https://www.roblox.com/games/start?placeId=111310650822419&gameInstanceId=9651f256-9d11-4745-9945-7c2e9561fd0c",
+  "location": "Animal Simulator 2021 Remastered",
+  "updatedAt": 1784517831785
 }
