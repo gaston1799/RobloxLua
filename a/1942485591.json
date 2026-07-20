@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 71529003702706,
+  "jobId": "34d26653-3d52-41bb-b90e-9b37bece355e",
+  "join": "roblox://placeId=71529003702706&gameInstanceId=34d26653-3d52-41bb-b90e-9b37bece355e",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784520051822
+  "web": "https://www.roblox.com/games/start?placeId=71529003702706&gameInstanceId=34d26653-3d52-41bb-b90e-9b37bece355e",
+  "location": "[IMPROVED AIM] Archery Duels",
+  "updatedAt": 1784520591837
 }
