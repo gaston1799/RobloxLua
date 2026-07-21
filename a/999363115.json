@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 101617670515690,
+  "jobId": "ff7ed8e4-31bd-4f7c-82f9-33cae3eaec1f",
+  "join": "roblox://placeId=101617670515690&gameInstanceId=ff7ed8e4-31bd-4f7c-82f9-33cae3eaec1f",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Offline",
-  "updatedAt": 1784672402450
+  "web": "https://www.roblox.com/games/start?placeId=101617670515690&gameInstanceId=ff7ed8e4-31bd-4f7c-82f9-33cae3eaec1f",
+  "location": "[🔱DUELS] Murderers VS Sheriffs",
+  "updatedAt": 1784672434239
 }
