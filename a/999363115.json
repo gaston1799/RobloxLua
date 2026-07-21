@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 114078490136270,
-  "jobId": "5349ad4f-46d4-473e-b441-e1ce0eabc66c",
-  "join": "roblox://placeId=114078490136270&gameInstanceId=5349ad4f-46d4-473e-b441-e1ce0eabc66c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=114078490136270&gameInstanceId=5349ad4f-46d4-473e-b441-e1ce0eabc66c",
-  "location": "💰 Deadly Heist 💰",
-  "updatedAt": 1784673207283
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784676205706
 }
