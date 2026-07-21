@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 98927955463992,
+  "jobId": "456aaaa9-4ceb-4cfa-8eb1-39b18cb703e9",
+  "join": "roblox://placeId=98927955463992&gameInstanceId=456aaaa9-4ceb-4cfa-8eb1-39b18cb703e9",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784634234999
+  "web": "https://www.roblox.com/games/start?placeId=98927955463992&gameInstanceId=456aaaa9-4ceb-4cfa-8eb1-39b18cb703e9",
+  "location": "[BLOODMOON] Survive Zombie Arena",
+  "updatedAt": 1784634354761
 }
