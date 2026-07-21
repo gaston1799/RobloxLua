@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 134381727982611,
+  "jobId": "4e29feaf-663e-4c27-8002-6bfc57efc776",
+  "join": "roblox://placeId=134381727982611&gameInstanceId=4e29feaf-663e-4c27-8002-6bfc57efc776",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784597934016
+  "web": "https://www.roblox.com/games/start?placeId=134381727982611&gameInstanceId=4e29feaf-663e-4c27-8002-6bfc57efc776",
+  "location": "Evomon[Season1]",
+  "updatedAt": 1784597993968
 }
