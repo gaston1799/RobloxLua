@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 13772394625,
-  "jobId": "ee678e13-ae31-43ab-ac6f-552eb4e60492",
-  "join": "roblox://placeId=13772394625&gameInstanceId=ee678e13-ae31-43ab-ac6f-552eb4e60492",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=ee678e13-ae31-43ab-ac6f-552eb4e60492",
-  "location": "Blade Ball",
-  "updatedAt": 1784635494879
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784636154877
 }
