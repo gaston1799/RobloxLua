@@ -1,12 +1,12 @@
 {
   "userId": 8341854713,
   "displayName": "xXDemonXx",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5118969548,
+  "jobId": "2bbadfdb-d098-4859-9852-62585abc143a",
+  "join": "roblox://placeId=5118969548&gameInstanceId=2bbadfdb-d098-4859-9852-62585abc143a",
   "follow": "roblox://followUserId=8341854713",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784570032893
+  "web": "https://www.roblox.com/games/start?placeId=5118969548&gameInstanceId=2bbadfdb-d098-4859-9852-62585abc143a",
+  "location": "Spider",
+  "updatedAt": 1784601955878
 }
