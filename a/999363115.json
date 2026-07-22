@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 118433033586507,
-  "jobId": "b0f98fb9-8987-4eff-a06e-e3b624efb7e9",
-  "join": "roblox://placeId=118433033586507&gameInstanceId=b0f98fb9-8987-4eff-a06e-e3b624efb7e9",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=118433033586507&gameInstanceId=b0f98fb9-8987-4eff-a06e-e3b624efb7e9",
-  "location": "✨Simple Spells!",
-  "updatedAt": 1784691806054
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784696066312
 }
