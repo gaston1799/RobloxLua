@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 84679791570612,
+  "jobId": "4d44d119-7c59-44b7-a3f7-6960ac9a43e8",
+  "join": "roblox://placeId=84679791570612&gameInstanceId=4d44d119-7c59-44b7-a3f7-6960ac9a43e8",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784689105943
+  "web": "https://www.roblox.com/games/start?placeId=84679791570612&gameInstanceId=4d44d119-7c59-44b7-a3f7-6960ac9a43e8",
+  "location": "The Odyssey: Defy the Gods",
+  "updatedAt": 1784690665981
 }
