@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 95082159892680,
-  "jobId": "cd6ca1a8-ded0-495c-a16c-5b6fa5aa8aa5",
-  "join": "roblox://placeId=95082159892680&gameInstanceId=cd6ca1a8-ded0-495c-a16c-5b6fa5aa8aa5",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=95082159892680&gameInstanceId=cd6ca1a8-ded0-495c-a16c-5b6fa5aa8aa5",
-  "location": "FUSE| +1 Speed Keyboard Escape | Candy & Chocolate",
-  "updatedAt": 1784679687743
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784680105916
 }
