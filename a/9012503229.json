@@ -1,12 +1,12 @@
 {
   "userId": 9012503229,
   "displayName": "LYNX",
-  "status": "in-game",
-  "placeId": 17230784439,
-  "jobId": "28ca8573-b2de-4a61-9dbd-865d415f4f1e",
-  "join": "roblox://placeId=17230784439&gameInstanceId=28ca8573-b2de-4a61-9dbd-865d415f4f1e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=9012503229",
-  "web": "https://www.roblox.com/games/start?placeId=17230784439&gameInstanceId=28ca8573-b2de-4a61-9dbd-865d415f4f1e",
-  "location": "Buddy Buddy",
-  "updatedAt": 1784762608955
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784762849023
 }
