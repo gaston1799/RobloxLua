@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 105535220009163,
-  "jobId": "b6d2d770-5352-4cff-8c87-d9e4839d549e",
-  "join": "roblox://placeId=105535220009163&gameInstanceId=b6d2d770-5352-4cff-8c87-d9e4839d549e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=105535220009163&gameInstanceId=b6d2d770-5352-4cff-8c87-d9e4839d549e",
-  "location": "Scary Fishing 🦀 [HORROR]",
-  "updatedAt": 1784803050169
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784804250502
 }
