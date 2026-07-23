@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 98318129127232,
-  "jobId": "85ab3906-ce1c-49cf-9685-9e95ac4f95d5",
-  "join": "roblox://placeId=98318129127232&gameInstanceId=85ab3906-ce1c-49cf-9685-9e95ac4f95d5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=98318129127232&gameInstanceId=85ab3906-ce1c-49cf-9685-9e95ac4f95d5",
-  "location": "[+150] Outfit Ideas Girls Cutecore and Dollette!",
-  "updatedAt": 1784776889567
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784777009557
 }
