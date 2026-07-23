@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 107364994239484,
-  "jobId": "3beb2dbd-6c1d-41a3-b87f-a688a9711fed",
-  "join": "roblox://placeId=107364994239484&gameInstanceId=3beb2dbd-6c1d-41a3-b87f-a688a9711fed",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=107364994239484&gameInstanceId=3beb2dbd-6c1d-41a3-b87f-a688a9711fed",
-  "location": "🥾 Walk or Die",
-  "updatedAt": 1784781929673
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784782591414
 }
