@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 112291455733279,
-  "jobId": "77940c33-0cb8-43f2-819a-2bbcae1f4953",
-  "join": "roblox://placeId=112291455733279&gameInstanceId=77940c33-0cb8-43f2-819a-2bbcae1f4953",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=112291455733279&gameInstanceId=77940c33-0cb8-43f2-819a-2bbcae1f4953",
-  "location": "🌧️ Bring Back The Sun!",
-  "updatedAt": 1784782711554
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784782829598
 }
