@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 113578100991194,
-  "jobId": "e429d8bd-a6f3-4726-88b7-1112c56c348d",
-  "join": "roblox://placeId=113578100991194&gameInstanceId=e429d8bd-a6f3-4726-88b7-1112c56c348d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=113578100991194&gameInstanceId=e429d8bd-a6f3-4726-88b7-1112c56c348d",
-  "location": "Baddies + Tryhard Outfits 🌟",
-  "updatedAt": 1784777374322
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784777489597
 }
