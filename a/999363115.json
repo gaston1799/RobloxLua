@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 97951308607848,
+  "jobId": "4bc18e6e-22e3-4b1f-9b99-54353d4dc49b",
+  "join": "roblox://placeId=97951308607848&gameInstanceId=4bc18e6e-22e3-4b1f-9b99-54353d4dc49b",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784800950188
+  "web": "https://www.roblox.com/games/start?placeId=97951308607848&gameInstanceId=4bc18e6e-22e3-4b1f-9b99-54353d4dc49b",
+  "location": "RV Chaos? [UPD]",
+  "updatedAt": 1784801790205
 }
