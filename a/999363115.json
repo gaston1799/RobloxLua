@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 8054462345,
+  "jobId": "e8a43848-8cf5-4bcf-8f0a-02124ab85d43",
+  "join": "roblox://placeId=8054462345&gameInstanceId=e8a43848-8cf5-4bcf-8f0a-02124ab85d43",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784778569556
+  "web": "https://www.roblox.com/games/start?placeId=8054462345&gameInstanceId=e8a43848-8cf5-4bcf-8f0a-02124ab85d43",
+  "location": "Michael's Zombies",
+  "updatedAt": 1784778689537
 }
