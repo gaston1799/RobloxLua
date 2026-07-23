@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 105545836113745,
+  "jobId": "228c3ccd-e51f-42a8-8243-b1b3f84daee2",
+  "join": "roblox://placeId=105545836113745&gameInstanceId=228c3ccd-e51f-42a8-8243-b1b3f84daee2",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784775509533
+  "web": "https://www.roblox.com/games/start?placeId=105545836113745&gameInstanceId=228c3ccd-e51f-42a8-8243-b1b3f84daee2",
+  "location": "Y2K Trendy Girl Outfits",
+  "updatedAt": 1784775633618
 }
