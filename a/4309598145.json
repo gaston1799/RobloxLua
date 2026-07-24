@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 93017634738276,
+  "jobId": "87888798-09bb-466b-a012-9f96e1bc0292",
+  "join": "roblox://placeId=93017634738276&gameInstanceId=87888798-09bb-466b-a012-9f96e1bc0292",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784816670677
+  "web": "https://www.roblox.com/games/start?placeId=93017634738276&gameInstanceId=87888798-09bb-466b-a012-9f96e1bc0292",
+  "location": "MMV",
+  "updatedAt": 1784868122105
 }
