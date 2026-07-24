@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 136533956395153,
+  "jobId": "0c497172-cd48-4678-b131-9e58fa8d6e3c",
+  "join": "roblox://placeId=136533956395153&gameInstanceId=0c497172-cd48-4678-b131-9e58fa8d6e3c",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784934784810
+  "web": "https://www.roblox.com/games/start?placeId=136533956395153&gameInstanceId=0c497172-cd48-4678-b131-9e58fa8d6e3c",
+  "location": "Car Flipper [NEW CARS]",
+  "updatedAt": 1784934844418
 }
