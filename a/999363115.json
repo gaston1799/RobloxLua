@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 101949297449238,
-  "jobId": "6de70a39-8913-49da-9bf3-d8b362af0363",
-  "join": "roblox://placeId=101949297449238&gameInstanceId=6de70a39-8913-49da-9bf3-d8b362af0363",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=101949297449238&gameInstanceId=6de70a39-8913-49da-9bf3-d8b362af0363",
-  "location": "Build An Island! 🏝️",
-  "updatedAt": 1784853482843
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784853541776
 }
