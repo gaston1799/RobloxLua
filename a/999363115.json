@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 124374448373637,
-  "jobId": "35743728-d8e9-45c5-aa88-d5da75e2bd2a",
-  "join": "roblox://placeId=124374448373637&gameInstanceId=35743728-d8e9-45c5-aa88-d5da75e2bd2a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=124374448373637&gameInstanceId=35743728-d8e9-45c5-aa88-d5da75e2bd2a",
-  "location": "Carpet Cleaning Simulator",
-  "updatedAt": 1784856421535
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784856601526
 }
