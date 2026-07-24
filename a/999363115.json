@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 74384050846716,
-  "jobId": "695bb347-09c8-459e-8177-777a4c15f749",
-  "join": "roblox://placeId=74384050846716&gameInstanceId=695bb347-09c8-459e-8177-777a4c15f749",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=74384050846716&gameInstanceId=695bb347-09c8-459e-8177-777a4c15f749",
-  "location": "+1 Crunchy Butter Escape [W3]",
-  "updatedAt": 1784855521601
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784855581909
 }
