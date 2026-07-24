@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 104487677362538,
-  "jobId": "692c3194-84bc-4ea9-ad86-aa65b5e27e01",
-  "join": "roblox://placeId=104487677362538&gameInstanceId=692c3194-84bc-4ea9-ad86-aa65b5e27e01",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=104487677362538&gameInstanceId=692c3194-84bc-4ea9-ad86-aa65b5e27e01",
-  "location": "Grow a Squishy Dumpling 🍎",
-  "updatedAt": 1784855641569
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784856361608
 }
