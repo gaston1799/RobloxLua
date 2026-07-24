@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 86516732441754,
-  "jobId": "439fc162-d5d7-46b7-9fc5-bfe3d2a68d92",
-  "join": "roblox://placeId=86516732441754&gameInstanceId=439fc162-d5d7-46b7-9fc5-bfe3d2a68d92",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=86516732441754&gameInstanceId=439fc162-d5d7-46b7-9fc5-bfe3d2a68d92",
-  "location": "[RAMPS] Crash Car Physics",
-  "updatedAt": 1784932083028
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784932803034
 }
