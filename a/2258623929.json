@@ -1,12 +1,12 @@
 {
   "userId": 2258623929,
   "displayName": "1of1DOLO",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 95082159892680,
+  "jobId": "d74bd83c-ac6f-407c-a401-92b6e27509de",
+  "join": "roblox://placeId=95082159892680&gameInstanceId=d74bd83c-ac6f-407c-a401-92b6e27509de",
   "follow": "roblox://followUserId=2258623929",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784976753893
+  "web": "https://www.roblox.com/games/start?placeId=95082159892680&gameInstanceId=d74bd83c-ac6f-407c-a401-92b6e27509de",
+  "location": "[X2] +1 Speed Keyboard Escape | Candy & Chocolate",
+  "updatedAt": 1784977954100
 }
