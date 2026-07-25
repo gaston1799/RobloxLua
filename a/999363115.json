@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 15194508862,
-  "jobId": "c35ecc03-6587-45e3-92d5-67fa02d00bce",
-  "join": "roblox://placeId=15194508862&gameInstanceId=c35ecc03-6587-45e3-92d5-67fa02d00bce",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=15194508862&gameInstanceId=c35ecc03-6587-45e3-92d5-67fa02d00bce",
-  "location": "Untitled Drift Game",
-  "updatedAt": 1785000874493
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785001174497
 }
