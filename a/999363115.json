@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 91679585668032,
+  "jobId": "48ca93cf-d75f-46f1-b6fd-56e67a09db67",
+  "join": "roblox://placeId=91679585668032&gameInstanceId=48ca93cf-d75f-46f1-b6fd-56e67a09db67",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784999254452
+  "web": "https://www.roblox.com/games/start?placeId=91679585668032&gameInstanceId=48ca93cf-d75f-46f1-b6fd-56e67a09db67",
+  "location": "Build A Keyboard!",
+  "updatedAt": 1784999314492
 }
