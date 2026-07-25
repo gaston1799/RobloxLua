@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 139439863257440,
-  "jobId": "5b9a6703-2653-466d-926c-941010da5c84",
-  "join": "roblox://placeId=139439863257440&gameInstanceId=5b9a6703-2653-466d-926c-941010da5c84",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=139439863257440&gameInstanceId=5b9a6703-2653-466d-926c-941010da5c84",
-  "location": "(🚗 MUSCLE CARS) Young Street, Ontario Beta",
-  "updatedAt": 1784938323193
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784938503194
 }
