@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 79268393072444,
-  "jobId": "81076758-44b9-4b13-add9-e2beb026e747",
-  "join": "roblox://placeId=79268393072444&gameInstanceId=81076758-44b9-4b13-add9-e2beb026e747",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=79268393072444&gameInstanceId=81076758-44b9-4b13-add9-e2beb026e747",
-  "location": "[🛸] Sell Lemons 🍋",
-  "updatedAt": 1784961933745
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784962597930
 }
