@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 75012837977315,
+  "jobId": "20a6e872-b759-471d-876f-57d5d252c38a",
+  "join": "roblox://placeId=75012837977315&gameInstanceId=20a6e872-b759-471d-876f-57d5d252c38a",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785001478779
+  "web": "https://www.roblox.com/games/start?placeId=75012837977315&gameInstanceId=20a6e872-b759-471d-876f-57d5d252c38a",
+  "location": "[X40] +1 Speed Keyboard Escape | Candy & Chocolate",
+  "updatedAt": 1785001954515
 }
