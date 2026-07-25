@@ -1,12 +1,12 @@
 {
   "userId": 3243638423,
   "displayName": "Seek",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3956818381,
+  "jobId": "6850e092-702b-47e7-9ce7-9944d1765e32",
+  "join": "roblox://placeId=3956818381&gameInstanceId=6850e092-702b-47e7-9ce7-9944d1765e32",
   "follow": "roblox://followUserId=3243638423",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1784966973868
+  "web": "https://www.roblox.com/games/start?placeId=3956818381&gameInstanceId=6850e092-702b-47e7-9ce7-9944d1765e32",
+  "location": "⚡Ninja Legends",
+  "updatedAt": 1784967033854
 }
