@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 96645548064314,
-  "jobId": "2d7452dd-4378-4512-8d78-b48c2224f5d1",
-  "join": "roblox://placeId=96645548064314&gameInstanceId=2d7452dd-4378-4512-8d78-b48c2224f5d1",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=96645548064314&gameInstanceId=2d7452dd-4378-4512-8d78-b48c2224f5d1",
-  "location": "[🍎] Catch And Tame!",
-  "updatedAt": 1784970933871
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1784975133952
 }
