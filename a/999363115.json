@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 89490838554710,
-  "jobId": "744bc50f-6122-47b4-a1c6-e8d6972d97b6",
-  "join": "roblox://placeId=89490838554710&gameInstanceId=744bc50f-6122-47b4-a1c6-e8d6972d97b6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=89490838554710&gameInstanceId=744bc50f-6122-47b4-a1c6-e8d6972d97b6",
-  "location": "[BIG UPD] 🏍️ Wheelie District",
-  "updatedAt": 1785085917217
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785086877193
 }
