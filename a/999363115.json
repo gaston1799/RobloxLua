@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 12069474601,
-  "jobId": "a7634199-e014-42c3-85c3-1f6a5b2602f4",
-  "join": "roblox://placeId=12069474601&gameInstanceId=a7634199-e014-42c3-85c3-1f6a5b2602f4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=12069474601&gameInstanceId=a7634199-e014-42c3-85c3-1f6a5b2602f4",
-  "location": "Prodigy Drift",
-  "updatedAt": 1785045695771
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785046115750
 }
