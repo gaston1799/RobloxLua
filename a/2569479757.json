@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 95082159892680,
-  "jobId": "5f89428c-fb1e-4228-b77f-44e5f7a6d1f3",
-  "join": "roblox://placeId=95082159892680&gameInstanceId=5f89428c-fb1e-4228-b77f-44e5f7a6d1f3",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=95082159892680&gameInstanceId=5f89428c-fb1e-4228-b77f-44e5f7a6d1f3",
-  "location": "[X5] +1 Speed Keyboard Escape | Candy & Chocolate",
-  "updatedAt": 1785078958991
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785079017027
 }
