@@ -1,12 +1,12 @@
 {
   "userId": 3026015790,
   "displayName": "KAOsxAKT_Kitkat",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5901440255,
+  "jobId": "8bb767e3-4b3b-40f9-b90f-7c1534fcc537",
+  "join": "roblox://placeId=5901440255&gameInstanceId=8bb767e3-4b3b-40f9-b90f-7c1534fcc537",
   "follow": "roblox://followUserId=3026015790",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785032435434
+  "web": "https://www.roblox.com/games/start?placeId=5901440255&gameInstanceId=8bb767e3-4b3b-40f9-b90f-7c1534fcc537",
+  "location": "Teddy",
+  "updatedAt": 1785032555422
 }
