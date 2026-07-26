@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "in-game",
-  "placeId": 78515283254292,
-  "jobId": "9f8ca36c-ab84-4764-8139-c46e540902e8",
-  "join": "roblox://placeId=78515283254292&gameInstanceId=9f8ca36c-ab84-4764-8139-c46e540902e8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2649105151",
-  "web": "https://www.roblox.com/games/start?placeId=78515283254292&gameInstanceId=9f8ca36c-ab84-4764-8139-c46e540902e8",
-  "location": "Animal Hospital (Anomaly) 🧪",
-  "updatedAt": 1785033635419
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785033756740
 }
