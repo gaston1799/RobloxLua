@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 112486562974119,
+  "jobId": "54ae5a68-7730-4637-a6c9-ebc355b8ce08",
+  "join": "roblox://placeId=112486562974119&gameInstanceId=54ae5a68-7730-4637-a6c9-ebc355b8ce08",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785096299099
+  "web": "https://www.roblox.com/games/start?placeId=112486562974119&gameInstanceId=54ae5a68-7730-4637-a6c9-ebc355b8ce08",
+  "location": "Paint a Game!",
+  "updatedAt": 1785096417277
 }
