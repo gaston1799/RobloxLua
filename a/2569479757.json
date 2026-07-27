@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111310650822419,
+  "jobId": "86902e02-e5b7-4256-8231-dc70bb5ff79a",
+  "join": "roblox://placeId=111310650822419&gameInstanceId=86902e02-e5b7-4256-8231-dc70bb5ff79a",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785191310625
+  "web": "https://www.roblox.com/games/start?placeId=111310650822419&gameInstanceId=86902e02-e5b7-4256-8231-dc70bb5ff79a",
+  "location": "Animal Simulator 2021 Remastered",
+  "updatedAt": 1785191370867
 }
