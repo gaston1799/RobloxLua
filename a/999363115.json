@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 132740367862418,
-  "jobId": "ab0c503b-94a3-4b16-9ed2-4d0b5a6b0d65",
-  "join": "roblox://placeId=132740367862418&gameInstanceId=ab0c503b-94a3-4b16-9ed2-4d0b5a6b0d65",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=132740367862418&gameInstanceId=ab0c503b-94a3-4b16-9ed2-4d0b5a6b0d65",
-  "location": "Do You Really Know Me? [2 PLAYER GAME]",
-  "updatedAt": 1785141958110
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785142438141
 }
