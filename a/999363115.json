@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 131547682328842,
-  "jobId": "7f589421-c68c-435c-8473-f6b5f9221eff",
-  "join": "roblox://placeId=131547682328842&gameInstanceId=7f589421-c68c-435c-8473-f6b5f9221eff",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=131547682328842&gameInstanceId=7f589421-c68c-435c-8473-f6b5f9221eff",
-  "location": "Parkour Spiral",
-  "updatedAt": 1785132718102
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785133378032
 }
