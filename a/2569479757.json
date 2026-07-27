@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "fba51159-9560-4995-9f0a-43042d1cf6c7",
+  "join": "roblox://placeId=142823291&gameInstanceId=fba51159-9560-4995-9f0a-43042d1cf6c7",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785183930462
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=fba51159-9560-4995-9f0a-43042d1cf6c7",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1785184468804
 }
