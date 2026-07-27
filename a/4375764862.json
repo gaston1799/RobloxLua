@@ -1,12 +1,12 @@
 {
   "userId": 4375764862,
   "displayName": "Samxxz",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "67dc0d49-4960-475f-a16a-67ad02aa3cca",
+  "join": "roblox://placeId=142823291&gameInstanceId=67dc0d49-4960-475f-a16a-67ad02aa3cca",
   "follow": "roblox://followUserId=4375764862",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785112317665
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=67dc0d49-4960-475f-a16a-67ad02aa3cca",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1785112377655
 }
