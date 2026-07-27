@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 125927821145949,
-  "jobId": "2e1e547b-96a3-4f86-8be9-0ee26fd6408d",
-  "join": "roblox://placeId=125927821145949&gameInstanceId=2e1e547b-96a3-4f86-8be9-0ee26fd6408d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=125927821145949&gameInstanceId=2e1e547b-96a3-4f86-8be9-0ee26fd6408d",
-  "location": "[⛰️] Mine a Mountain",
-  "updatedAt": 1785135898138
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785141838125
 }
