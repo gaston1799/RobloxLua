@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131436305885521,
+  "jobId": "42676d73-85e0-4e37-b808-99c9ed54ffe7",
+  "join": "roblox://placeId=131436305885521&gameInstanceId=42676d73-85e0-4e37-b808-99c9ed54ffe7",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785138898194
+  "web": "https://www.roblox.com/games/start?placeId=131436305885521&gameInstanceId=42676d73-85e0-4e37-b808-99c9ed54ffe7",
+  "location": "[🏝️] Collector Isles ",
+  "updatedAt": 1785138958156
 }
