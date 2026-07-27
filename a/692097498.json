@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10785055221,
+  "jobId": "5c6e0bc7-3c71-499c-b6f3-4d50d176894c",
+  "join": "roblox://placeId=10785055221&gameInstanceId=5c6e0bc7-3c71-499c-b6f3-4d50d176894c",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785194939072
+  "web": "https://www.roblox.com/games/start?placeId=10785055221&gameInstanceId=5c6e0bc7-3c71-499c-b6f3-4d50d176894c",
+  "location": "Creature CHAOS",
+  "updatedAt": 1785194999078
 }
