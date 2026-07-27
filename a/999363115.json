@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 135858534585687,
-  "jobId": "1ed86721-8850-45e5-a8f7-10694cd07572",
-  "join": "roblox://placeId=135858534585687&gameInstanceId=1ed86721-8850-45e5-a8f7-10694cd07572",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=135858534585687&gameInstanceId=1ed86721-8850-45e5-a8f7-10694cd07572",
-  "location": "Who's Lying?",
-  "updatedAt": 1785143578155
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785143818213
 }
