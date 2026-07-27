@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 74672283292083,
-  "jobId": "1cc6840c-7c53-46f6-b065-d0da15bed5d7",
-  "join": "roblox://placeId=74672283292083&gameInstanceId=1cc6840c-7c53-46f6-b065-d0da15bed5d7",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=74672283292083&gameInstanceId=1cc6840c-7c53-46f6-b065-d0da15bed5d7",
-  "location": "Mulberry County",
-  "updatedAt": 1785193588998
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785196409075
 }
