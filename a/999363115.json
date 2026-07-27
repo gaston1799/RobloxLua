@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 113175013158657,
+  "jobId": "164a2809-31c1-4809-b618-7f57c3f62700",
+  "join": "roblox://placeId=113175013158657&gameInstanceId=164a2809-31c1-4809-b618-7f57c3f62700",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785149038277
+  "web": "https://www.roblox.com/games/start?placeId=113175013158657&gameInstanceId=164a2809-31c1-4809-b618-7f57c3f62700",
+  "location": "Shred the Secrets",
+  "updatedAt": 1785149280133
 }
