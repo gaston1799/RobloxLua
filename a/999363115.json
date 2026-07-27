@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111363135577981,
+  "jobId": "0961603b-e128-4407-98a5-b95791b7c593",
+  "join": "roblox://placeId=111363135577981&gameInstanceId=0961603b-e128-4407-98a5-b95791b7c593",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785127799837
+  "web": "https://www.roblox.com/games/start?placeId=111363135577981&gameInstanceId=0961603b-e128-4407-98a5-b95791b7c593",
+  "location": "ASMR Tower [W3]",
+  "updatedAt": 1785127917916
 }
