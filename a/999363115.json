@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 71785281157268,
-  "jobId": "9307632f-6459-4319-97e9-a2d218504188",
-  "join": "roblox://placeId=71785281157268&gameInstanceId=9307632f-6459-4319-97e9-a2d218504188",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=71785281157268&gameInstanceId=9307632f-6459-4319-97e9-a2d218504188",
-  "location": "Build An Ore Crusher",
-  "updatedAt": 1785134218073
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785134278049
 }
