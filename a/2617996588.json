@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16146832113,
+  "jobId": "6db9a7d9-c751-4559-a3c6-071ea23a9526",
+  "join": "roblox://placeId=16146832113&gameInstanceId=6db9a7d9-c751-4559-a3c6-071ea23a9526",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785163740251
+  "web": "https://www.roblox.com/games/start?placeId=16146832113&gameInstanceId=6db9a7d9-c751-4559-a3c6-071ea23a9526",
+  "location": "Anime Vanguards: Extermination Event Pt. 1",
+  "updatedAt": 1785163798433
 }
