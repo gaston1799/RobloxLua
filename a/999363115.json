@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 77803137212600,
+  "jobId": "f3e1eb2a-c206-4fad-9b57-056b917731dd",
+  "join": "roblox://placeId=77803137212600&gameInstanceId=f3e1eb2a-c206-4fad-9b57-056b917731dd",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785142919918
+  "web": "https://www.roblox.com/games/start?placeId=77803137212600&gameInstanceId=f3e1eb2a-c206-4fad-9b57-056b917731dd",
+  "location": "🎲 Don't Eat The Hot Chips!",
+  "updatedAt": 1785142978132
 }
