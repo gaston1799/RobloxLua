@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 2753915549,
-  "jobId": "bbd966ee-43bd-45a4-9db5-050b23fc3109",
-  "join": "roblox://placeId=2753915549&gameInstanceId=bbd966ee-43bd-45a4-9db5-050b23fc3109",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=2753915549&gameInstanceId=bbd966ee-43bd-45a4-9db5-050b23fc3109",
-  "location": "Blox Fruits",
-  "updatedAt": 1785147178262
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785147238162
 }
