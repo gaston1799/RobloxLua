@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 136528538641545,
+  "jobId": "017a5e75-e147-4573-810f-5f4e8683f5a7",
+  "join": "roblox://placeId=136528538641545&gameInstanceId=017a5e75-e147-4573-810f-5f4e8683f5a7",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785205919212
+  "web": "https://www.roblox.com/games/start?placeId=136528538641545&gameInstanceId=017a5e75-e147-4573-810f-5f4e8683f5a7",
+  "location": "Logo Glass Bridge 🧠",
+  "updatedAt": 1785205979274
 }
