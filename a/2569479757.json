@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 102210951574195,
-  "jobId": "8225d909-b48f-4836-b75d-9cf169a5be04",
-  "join": "roblox://placeId=102210951574195&gameInstanceId=8225d909-b48f-4836-b75d-9cf169a5be04",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=102210951574195&gameInstanceId=8225d909-b48f-4836-b75d-9cf169a5be04",
-  "location": "Hellhole [🧟‍♂️]",
-  "updatedAt": 1785267631180
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785268651154
 }
