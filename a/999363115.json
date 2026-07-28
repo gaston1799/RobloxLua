@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 96906123899640,
-  "jobId": "56cf933d-d7b6-4c2f-afa9-87f34d5cba3c",
-  "join": "roblox://placeId=96906123899640&gameInstanceId=56cf933d-d7b6-4c2f-afa9-87f34d5cba3c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=96906123899640&gameInstanceId=56cf933d-d7b6-4c2f-afa9-87f34d5cba3c",
-  "location": "Clean The Gym",
-  "updatedAt": 1785202439204
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785202499145
 }
