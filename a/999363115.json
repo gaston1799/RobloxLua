@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92184831525884,
+  "jobId": "d1a1a177-beb6-47ad-ad40-bff27d0f289b",
+  "join": "roblox://placeId=92184831525884&gameInstanceId=d1a1a177-beb6-47ad-ad40-bff27d0f289b",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785202499145
+  "web": "https://www.roblox.com/games/start?placeId=92184831525884&gameInstanceId=d1a1a177-beb6-47ad-ad40-bff27d0f289b",
+  "location": "[X10] +1 Jump Keyboard Escape",
+  "updatedAt": 1785202561227
 }
