@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 107894105055312,
-  "jobId": "01868466-d8db-43dc-b095-b0c022f3f2de",
-  "join": "roblox://placeId=107894105055312&gameInstanceId=01868466-d8db-43dc-b095-b0c022f3f2de",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=107894105055312&gameInstanceId=01868466-d8db-43dc-b095-b0c022f3f2de",
-  "location": "Wax ASMR Tower ",
-  "updatedAt": 1785240093594
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785240632590
 }
