@@ -1,12 +1,12 @@
 {
   "userId": 3383246600,
   "displayName": "PX_ AssassinCROW",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "0ad43ae1-c51b-4968-8ab8-f6f0d07c1b4e",
-  "join": "roblox://placeId=5712833750&gameInstanceId=0ad43ae1-c51b-4968-8ab8-f6f0d07c1b4e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3383246600",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=0ad43ae1-c51b-4968-8ab8-f6f0d07c1b4e",
-  "location": "Animal Simulator",
-  "updatedAt": 1785280141547
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785280623102
 }
