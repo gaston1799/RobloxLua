@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 108750539382245,
-  "jobId": "45b1cb97-28ed-45b8-828e-9d20d04906e4",
-  "join": "roblox://placeId=108750539382245&gameInstanceId=45b1cb97-28ed-45b8-828e-9d20d04906e4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=108750539382245&gameInstanceId=45b1cb97-28ed-45b8-828e-9d20d04906e4",
-  "location": "[NEW] Golden's Difficulty Chart Obby",
-  "updatedAt": 1785206339220
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785209099292
 }
