@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111363135577981,
+  "jobId": "12186740-ed36-4be1-a48f-4ae45dffa7ae",
+  "join": "roblox://placeId=111363135577981&gameInstanceId=12186740-ed36-4be1-a48f-4ae45dffa7ae",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785271021298
+  "web": "https://www.roblox.com/games/start?placeId=111363135577981&gameInstanceId=12186740-ed36-4be1-a48f-4ae45dffa7ae",
+  "location": "ASMR Tower [W3]",
+  "updatedAt": 1785271143249
 }
