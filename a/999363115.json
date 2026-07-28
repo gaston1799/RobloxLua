@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 114484708468045,
-  "jobId": "9784ef21-4f91-452e-baa4-67b621917c3d",
-  "join": "roblox://placeId=114484708468045&gameInstanceId=9784ef21-4f91-452e-baa4-67b621917c3d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=114484708468045&gameInstanceId=9784ef21-4f91-452e-baa4-67b621917c3d",
-  "location": "🎵 Choose A Song 🎵",
-  "updatedAt": 1785205019188
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785205379194
 }
