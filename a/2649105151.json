@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 73621314943835,
+  "jobId": "70ba0b4c-f517-4a7d-981a-b4182aed6e78",
+  "join": "roblox://placeId=73621314943835&gameInstanceId=70ba0b4c-f517-4a7d-981a-b4182aed6e78",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785255990769
+  "web": "https://www.roblox.com/games/start?placeId=73621314943835&gameInstanceId=70ba0b4c-f517-4a7d-981a-b4182aed6e78",
+  "location": "Guess the character color",
+  "updatedAt": 1785256050742
 }
