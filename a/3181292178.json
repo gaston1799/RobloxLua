@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 14823220100,
+  "jobId": "f38aea45-4537-4cc8-9ff5-78cede3ba2f7",
+  "join": "roblox://placeId=14823220100&gameInstanceId=f38aea45-4537-4cc8-9ff5-78cede3ba2f7",
   "follow": "roblox://followUserId=3181292178",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785255480744
+  "web": "https://www.roblox.com/games/start?placeId=14823220100&gameInstanceId=f38aea45-4537-4cc8-9ff5-78cede3ba2f7",
+  "location": "SCP Architect X",
+  "updatedAt": 1785255540937
 }
