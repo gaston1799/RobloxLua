@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 82539019711975,
+  "jobId": "a43dc397-e062-43bf-a44a-a5c687db6448",
+  "join": "roblox://placeId=82539019711975&gameInstanceId=a43dc397-e062-43bf-a44a-a5c687db6448",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785266791082
+  "web": "https://www.roblox.com/games/start?placeId=82539019711975&gameInstanceId=a43dc397-e062-43bf-a44a-a5c687db6448",
+  "location": "Cluck or Hide!🐔",
+  "updatedAt": 1785266911169
 }
