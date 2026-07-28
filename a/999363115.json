@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 132593397047186,
-  "jobId": "7255897b-5a23-44c3-af4c-65523e50e948",
-  "join": "roblox://placeId=132593397047186&gameInstanceId=7255897b-5a23-44c3-af4c-65523e50e948",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=132593397047186&gameInstanceId=7255897b-5a23-44c3-af4c-65523e50e948",
-  "location": "Clean the Restaurant",
-  "updatedAt": 1785223202987
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785225599857
 }
