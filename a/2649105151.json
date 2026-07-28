@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 730951264,
+  "jobId": "0634fb96-a353-45fe-acc5-9c1f5271c2d5",
+  "join": "roblox://placeId=730951264&gameInstanceId=0634fb96-a353-45fe-acc5-9c1f5271c2d5",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785215489751
+  "web": "https://www.roblox.com/games/start?placeId=730951264&gameInstanceId=0634fb96-a353-45fe-acc5-9c1f5271c2d5",
+  "location": "The Maze",
+  "updatedAt": 1785215549730
 }
