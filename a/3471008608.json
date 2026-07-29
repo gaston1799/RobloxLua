@@ -1,12 +1,12 @@
 {
   "userId": 3471008608,
   "displayName": "ItzAsh",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 110270978142635,
+  "jobId": "5338c97e-b21b-4cc7-9f62-9c691a0abd1f",
+  "join": "roblox://placeId=110270978142635&gameInstanceId=5338c97e-b21b-4cc7-9f62-9c691a0abd1f",
   "follow": "roblox://followUserId=3471008608",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785307351803
+  "web": "https://www.roblox.com/games/start?placeId=110270978142635&gameInstanceId=5338c97e-b21b-4cc7-9f62-9c691a0abd1f",
+  "location": "Project XYZ",
+  "updatedAt": 1785307411804
 }
