@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 13700909394,
-  "jobId": "a5ce1f3d-759a-47b8-a0cc-2c93b6d92388",
-  "join": "roblox://placeId=13700909394&gameInstanceId=a5ce1f3d-759a-47b8-a0cc-2c93b6d92388",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=13700909394&gameInstanceId=a5ce1f3d-759a-47b8-a0cc-2c93b6d92388",
-  "location": "Prior Extinction - Dinosaur Survival!",
-  "updatedAt": 1785316051859
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785316322116
 }
