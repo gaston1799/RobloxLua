@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 18960834681,
-  "jobId": "dbc7c411-18db-4ab2-bc91-afd883270601",
-  "join": "roblox://placeId=18960834681&gameInstanceId=dbc7c411-18db-4ab2-bc91-afd883270601",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=18960834681&gameInstanceId=dbc7c411-18db-4ab2-bc91-afd883270601",
-  "location": "Better Food? 🍔 ",
-  "updatedAt": 1785295141717
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785296761723
 }
