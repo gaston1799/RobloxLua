@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 97598239454123,
-  "jobId": "5b1c5f2d-df1e-4e35-97a3-e2a155c6a419",
-  "join": "roblox://placeId=97598239454123&gameInstanceId=5b1c5f2d-df1e-4e35-97a3-e2a155c6a419",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=97598239454123&gameInstanceId=5b1c5f2d-df1e-4e35-97a3-e2a155c6a419",
-  "location": "Grow a Garden 2",
-  "updatedAt": 1785314642039
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785314702289
 }
