@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 663655429,
+  "jobId": "e7cb231f-4848-4904-9784-5b9787b20349",
+  "join": "roblox://placeId=663655429&gameInstanceId=e7cb231f-4848-4904-9784-5b9787b20349",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785294241673
+  "web": "https://www.roblox.com/games/start?placeId=663655429&gameInstanceId=e7cb231f-4848-4904-9784-5b9787b20349",
+  "location": "Pick A Side",
+  "updatedAt": 1785294301687
 }
