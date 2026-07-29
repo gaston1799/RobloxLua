@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 72167803024670,
+  "jobId": "e9b10d4a-bea3-4462-a423-f478340eef03",
+  "join": "roblox://placeId=72167803024670&gameInstanceId=e9b10d4a-bea3-4462-a423-f478340eef03",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785296821671
+  "web": "https://www.roblox.com/games/start?placeId=72167803024670&gameInstanceId=e9b10d4a-bea3-4462-a423-f478340eef03",
+  "location": "Find Who Slapped",
+  "updatedAt": 1785297061694
 }
