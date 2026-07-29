@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 94872498041813,
+  "jobId": "bc8fccfb-afd1-407e-9d8e-e6f58d0d92dc",
+  "join": "roblox://placeId=94872498041813&gameInstanceId=bc8fccfb-afd1-407e-9d8e-e6f58d0d92dc",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785345362635
+  "web": "https://www.roblox.com/games/start?placeId=94872498041813&gameInstanceId=bc8fccfb-afd1-407e-9d8e-e6f58d0d92dc",
+  "location": "[UPD] My Fishing Empire!",
+  "updatedAt": 1785345482679
 }
