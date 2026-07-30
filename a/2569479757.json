@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 79315121100812,
-  "jobId": "dadc4fd3-3baf-4bbd-aa39-a2b5d40972f5",
-  "join": "roblox://placeId=79315121100812&gameInstanceId=dadc4fd3-3baf-4bbd-aa39-a2b5d40972f5",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=79315121100812&gameInstanceId=dadc4fd3-3baf-4bbd-aa39-a2b5d40972f5",
-  "location": "Make a Drill Farm ",
-  "updatedAt": 1785424446038
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785424504164
 }
