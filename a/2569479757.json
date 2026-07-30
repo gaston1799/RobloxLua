@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 102050885098531,
-  "jobId": "d1157ab8-ab6f-434c-8bd7-4c85ef05ed1b",
-  "join": "roblox://placeId=102050885098531&gameInstanceId=d1157ab8-ab6f-434c-8bd7-4c85ef05ed1b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=102050885098531&gameInstanceId=d1157ab8-ab6f-434c-8bd7-4c85ef05ed1b",
-  "location": "Butterfly Legends",
-  "updatedAt": 1785419464081
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785420184087
 }
