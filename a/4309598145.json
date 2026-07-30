@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13506552738,
+  "jobId": "5b3c1ed2-96b9-4d7b-8db7-1b8bf6e62afe",
+  "join": "roblox://placeId=13506552738&gameInstanceId=5b3c1ed2-96b9-4d7b-8db7-1b8bf6e62afe",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785410104134
+  "web": "https://www.roblox.com/games/start?placeId=13506552738&gameInstanceId=5b3c1ed2-96b9-4d7b-8db7-1b8bf6e62afe",
+  "location": "Every Second You Get +1 Sword",
+  "updatedAt": 1785410163912
 }
