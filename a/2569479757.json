@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 6243699076,
-  "jobId": "74efc002-99dc-4f5d-990c-73c0d3ccd2b8",
-  "join": "roblox://placeId=6243699076&gameInstanceId=74efc002-99dc-4f5d-990c-73c0d3ccd2b8",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=6243699076&gameInstanceId=74efc002-99dc-4f5d-990c-73c0d3ccd2b8",
-  "location": "[NIGHTMARE] The Mimic",
-  "updatedAt": 1785429906163
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785430324195
 }
