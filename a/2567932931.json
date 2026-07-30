@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "in-game",
-  "placeId": 79546208627805,
-  "jobId": "d7cfa482-ae90-4e31-bbf7-4a901c12716f",
-  "join": "roblox://placeId=79546208627805&gameInstanceId=d7cfa482-ae90-4e31-bbf7-4a901c12716f",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2567932931",
-  "web": "https://www.roblox.com/games/start?placeId=79546208627805&gameInstanceId=d7cfa482-ae90-4e31-bbf7-4a901c12716f",
-  "location": "[🐝] 99 Nights in the Forest 🔦",
-  "updatedAt": 1785382083349
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785382263347
 }
