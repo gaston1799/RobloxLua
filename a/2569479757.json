@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 128718867767713,
+  "jobId": "250dd9f5-566b-4e0f-8c35-4245a5ceda45",
+  "join": "roblox://placeId=128718867767713&gameInstanceId=250dd9f5-566b-4e0f-8c35-4245a5ceda45",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785439924263
+  "web": "https://www.roblox.com/games/start?placeId=128718867767713&gameInstanceId=250dd9f5-566b-4e0f-8c35-4245a5ceda45",
+  "location": "Parkour Pandemic [UPDATE 1]",
+  "updatedAt": 1785439984284
 }
