@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5922311258,
+  "jobId": "27e20254-e35d-42de-ae4f-8a92e79a1184",
+  "join": "roblox://placeId=5922311258&gameInstanceId=27e20254-e35d-42de-ae4f-8a92e79a1184",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785411663863
+  "web": "https://www.roblox.com/games/start?placeId=5922311258&gameInstanceId=27e20254-e35d-42de-ae4f-8a92e79a1184",
+  "location": "Fight Park",
+  "updatedAt": 1785411785675
 }
