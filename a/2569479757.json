@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 100285104400469,
+  "jobId": "eb5fd0a5-1a3e-43a9-8dd5-cfb44bcad22e",
+  "join": "roblox://placeId=100285104400469&gameInstanceId=eb5fd0a5-1a3e-43a9-8dd5-cfb44bcad22e",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785430324195
+  "web": "https://www.roblox.com/games/start?placeId=100285104400469&gameInstanceId=eb5fd0a5-1a3e-43a9-8dd5-cfb44bcad22e",
+  "location": "[UPDATE 2] Cat Cafe Tycoon",
+  "updatedAt": 1785430746628
 }
