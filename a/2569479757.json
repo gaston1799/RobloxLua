@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 3398014311,
-  "jobId": "ec373d0d-2b7c-42bb-a65a-ca99a75ce11a",
-  "join": "roblox://placeId=3398014311&gameInstanceId=ec373d0d-2b7c-42bb-a65a-ca99a75ce11a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=3398014311&gameInstanceId=ec373d0d-2b7c-42bb-a65a-ca99a75ce11a",
-  "location": "Restaurant Tycoon 2",
-  "updatedAt": 1785434404372
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785434764374
 }
