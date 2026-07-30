@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 140503975300492,
+  "jobId": "89f7edc4-b6a0-480f-b6e9-5fac07c06295",
+  "join": "roblox://placeId=140503975300492&gameInstanceId=89f7edc4-b6a0-480f-b6e9-5fac07c06295",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785404045670
+  "web": "https://www.roblox.com/games/start?placeId=140503975300492&gameInstanceId=89f7edc4-b6a0-480f-b6e9-5fac07c06295",
+  "location": "Zee [MACRO!]",
+  "updatedAt": 1785404163938
 }
