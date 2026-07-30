@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 13401000531,
-  "jobId": "03a4b224-9d0e-42b2-b91c-0c31c048dfda",
-  "join": "roblox://placeId=13401000531&gameInstanceId=03a4b224-9d0e-42b2-b91c-0c31c048dfda",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=13401000531&gameInstanceId=03a4b224-9d0e-42b2-b91c-0c31c048dfda",
-  "location": "🕸️The Panic🕸️ [HORROR]",
-  "updatedAt": 1785386103645
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785387963501
 }
