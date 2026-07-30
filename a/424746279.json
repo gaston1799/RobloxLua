@@ -1,12 +1,12 @@
 {
   "userId": 424746279,
   "displayName": "joli",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "cca3d0d3-2818-4d39-b454-64461333078c",
+  "join": "roblox://placeId=142823291&gameInstanceId=cca3d0d3-2818-4d39-b454-64461333078c",
   "follow": "roblox://followUserId=424746279",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785424924169
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=cca3d0d3-2818-4d39-b454-64461333078c",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1785424984163
 }
