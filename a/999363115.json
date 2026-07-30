@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 95047916580305,
+  "jobId": "59c564ea-2931-44a8-b0b1-4c9c19a0a019",
+  "join": "roblox://placeId=95047916580305&gameInstanceId=59c564ea-2931-44a8-b0b1-4c9c19a0a019",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785403023760
+  "web": "https://www.roblox.com/games/start?placeId=95047916580305&gameInstanceId=59c564ea-2931-44a8-b0b1-4c9c19a0a019",
+  "location": "[RIA26] The Block",
+  "updatedAt": 1785403083711
 }
