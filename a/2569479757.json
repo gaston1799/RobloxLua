@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 112731528776884,
+  "jobId": "d367e96e-2256-4dda-9da2-eb8bb1e47e1e",
+  "join": "roblox://placeId=112731528776884&gameInstanceId=d367e96e-2256-4dda-9da2-eb8bb1e47e1e",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785424504164
+  "web": "https://www.roblox.com/games/start?placeId=112731528776884&gameInstanceId=d367e96e-2256-4dda-9da2-eb8bb1e47e1e",
+  "location": "[MATCHMAKING] KNIFE DUELS",
+  "updatedAt": 1785424564138
 }
