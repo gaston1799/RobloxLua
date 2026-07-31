@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 89405258333641,
+  "jobId": "9b1ee528-172c-4a10-8887-7003d04363a6",
+  "join": "roblox://placeId=89405258333641&gameInstanceId=9b1ee528-172c-4a10-8887-7003d04363a6",
   "follow": "roblox://followUserId=1694151241",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785532566669
+  "web": "https://www.roblox.com/games/start?placeId=89405258333641&gameInstanceId=9b1ee528-172c-4a10-8887-7003d04363a6",
+  "location": "Cook a Recipe 🌱🐣",
+  "updatedAt": 1785533346624
 }
