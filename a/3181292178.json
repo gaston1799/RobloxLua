@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2916899287,
+  "jobId": "b0fef448-292d-4c70-8dc9-1af085856d60",
+  "join": "roblox://placeId=2916899287&gameInstanceId=b0fef448-292d-4c70-8dc9-1af085856d60",
   "follow": "roblox://followUserId=3181292178",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785502117831
+  "web": "https://www.roblox.com/games/start?placeId=2916899287&gameInstanceId=b0fef448-292d-4c70-8dc9-1af085856d60",
+  "location": "Blackhawk Rescue Mission 5",
+  "updatedAt": 1785502177707
 }
