@@ -1,12 +1,12 @@
 {
   "userId": 5736489931,
   "displayName": "GaelxA",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "fcafa380-b483-4369-aa6d-7ce1bcdc0d17",
+  "join": "roblox://placeId=5712833750&gameInstanceId=fcafa380-b483-4369-aa6d-7ce1bcdc0d17",
   "follow": "roblox://followUserId=5736489931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785537246701
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=fcafa380-b483-4369-aa6d-7ce1bcdc0d17",
+  "location": "Animal Simulator",
+  "updatedAt": 1785537426624
 }
