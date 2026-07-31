@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 5991163185,
-  "jobId": "1191037d-e677-41f8-9629-7d7f47558669",
-  "join": "roblox://placeId=5991163185&gameInstanceId=1191037d-e677-41f8-9629-7d7f47558669",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=5991163185&gameInstanceId=1191037d-e677-41f8-9629-7d7f47558669",
-  "location": "Spray Paint!",
-  "updatedAt": 1785492125523
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785492725546
 }
