@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 76864623342260,
+  "jobId": "a075c7d5-fe2a-498f-8a8a-80ae31e45706",
+  "join": "roblox://placeId=76864623342260&gameInstanceId=a075c7d5-fe2a-498f-8a8a-80ae31e45706",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785506345962
+  "web": "https://www.roblox.com/games/start?placeId=76864623342260&gameInstanceId=a075c7d5-fe2a-498f-8a8a-80ae31e45706",
+  "location": "Cursed Blade[ALPHA]",
+  "updatedAt": 1785506406011
 }
