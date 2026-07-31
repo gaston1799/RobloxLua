@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 6918802270,
-  "jobId": "9e19430f-cfac-4e87-a452-136dc5813d33",
-  "join": "roblox://placeId=6918802270&gameInstanceId=9e19430f-cfac-4e87-a452-136dc5813d33",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=6918802270&gameInstanceId=9e19430f-cfac-4e87-a452-136dc5813d33",
-  "location": "Haze Seas [SATURN FRUIT]",
-  "updatedAt": 1785518706619
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785518886234
 }
