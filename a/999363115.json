@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "in-game",
-  "placeId": 132768098780837,
-  "jobId": "b49f9c6e-3f56-4d79-a8fe-58e0109a7240",
-  "join": "roblox://placeId=132768098780837&gameInstanceId=b49f9c6e-3f56-4d79-a8fe-58e0109a7240",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=999363115",
-  "web": "https://www.roblox.com/games/start?placeId=132768098780837&gameInstanceId=b49f9c6e-3f56-4d79-a8fe-58e0109a7240",
-  "location": "[⚔️UPD] Block Wars",
-  "updatedAt": 1785464614740
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785465454818
 }
