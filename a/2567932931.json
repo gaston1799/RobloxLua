@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 87930032519691,
+  "jobId": "bdb17679-fd5e-4e4b-a30f-6638a0512e9a",
+  "join": "roblox://placeId=87930032519691&gameInstanceId=bdb17679-fd5e-4e4b-a30f-6638a0512e9a",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785473674979
+  "web": "https://www.roblox.com/games/start?placeId=87930032519691&gameInstanceId=bdb17679-fd5e-4e4b-a30f-6638a0512e9a",
+  "location": "Land or Die! 🔥 [SUPERSONIC]",
+  "updatedAt": 1785473735231
 }
