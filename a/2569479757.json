@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3663340706,
+  "jobId": "ff87bc95-88d7-4c7f-b666-c5cdfa046218",
+  "join": "roblox://placeId=3663340706&gameInstanceId=ff87bc95-88d7-4c7f-b666-c5cdfa046218",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785524706445
+  "web": "https://www.roblox.com/games/start?placeId=3663340706&gameInstanceId=ff87bc95-88d7-4c7f-b666-c5cdfa046218",
+  "location": "Warrior Cats: Ultimate Edition",
+  "updatedAt": 1785525366369
 }
