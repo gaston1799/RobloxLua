@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 101133746249776,
+  "jobId": "3e896c0e-eec3-4f3e-aa17-84e7b3fb9383",
+  "join": "roblox://placeId=101133746249776&gameInstanceId=3e896c0e-eec3-4f3e-aa17-84e7b3fb9383",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785471634925
+  "web": "https://www.roblox.com/games/start?placeId=101133746249776&gameInstanceId=3e896c0e-eec3-4f3e-aa17-84e7b3fb9383",
+  "location": "[RELEASE] LARPED",
+  "updatedAt": 1785471694933
 }
