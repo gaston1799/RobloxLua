@@ -1,12 +1,12 @@
 {
   "userId": 999363115,
   "displayName": "zay",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 87544533153039,
+  "jobId": "fe23a187-b519-4f48-ab74-d3a841ca4b0c",
+  "join": "roblox://placeId=87544533153039&gameInstanceId=fe23a187-b519-4f48-ab74-d3a841ca4b0c",
   "follow": "roblox://followUserId=999363115",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785471995015
+  "web": "https://www.roblox.com/games/start?placeId=87544533153039&gameInstanceId=fe23a187-b519-4f48-ab74-d3a841ca4b0c",
+  "location": "Mogged [Skin Battle] ",
+  "updatedAt": 1785472054940
 }
