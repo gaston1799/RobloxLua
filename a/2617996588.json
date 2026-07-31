@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 5591597781,
-  "jobId": "5fdeed0b-c8c0-490a-bb15-6865426aa6d6",
-  "join": "roblox://placeId=5591597781&gameInstanceId=5fdeed0b-c8c0-490a-bb15-6865426aa6d6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=5591597781&gameInstanceId=5fdeed0b-c8c0-490a-bb15-6865426aa6d6",
-  "location": "Tower Defense Simulator",
-  "updatedAt": 1785481535297
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785483515157
 }
