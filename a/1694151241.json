@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "in-game",
-  "placeId": 185655149,
-  "jobId": "a7736b0c-b61d-4b48-94bf-9d2b2e8cd8fd",
-  "join": "roblox://placeId=185655149&gameInstanceId=a7736b0c-b61d-4b48-94bf-9d2b2e8cd8fd",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1694151241",
-  "web": "https://www.roblox.com/games/start?placeId=185655149&gameInstanceId=a7736b0c-b61d-4b48-94bf-9d2b2e8cd8fd",
-  "location": "[🔌] Welcome to Bloxburg ",
-  "updatedAt": 1785468186475
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785468304815
 }
