@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 95047916580305,
+  "jobId": "aafc4570-bd79-4fea-a2da-69d80cd2d2bb",
+  "join": "roblox://placeId=95047916580305&gameInstanceId=aafc4570-bd79-4fea-a2da-69d80cd2d2bb",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785533586661
+  "web": "https://www.roblox.com/games/start?placeId=95047916580305&gameInstanceId=aafc4570-bd79-4fea-a2da-69d80cd2d2bb",
+  "location": "[RIA26] The Block",
+  "updatedAt": 1785533648760
 }
