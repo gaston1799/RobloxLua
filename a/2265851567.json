@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1537690962,
+  "jobId": "a02fea19-dd69-4281-935d-6aaed60373bd",
+  "join": "roblox://placeId=1537690962&gameInstanceId=a02fea19-dd69-4281-935d-6aaed60373bd",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785517266192
+  "web": "https://www.roblox.com/games/start?placeId=1537690962&gameInstanceId=a02fea19-dd69-4281-935d-6aaed60373bd",
+  "location": "Bee Swarm Simulator",
+  "updatedAt": 1785517446192
 }
