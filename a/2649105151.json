@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "in-game",
-  "placeId": 13704594433,
-  "jobId": "b9ebf5d6-b869-4dd9-ac5e-a95d89049399",
-  "join": "roblox://placeId=13704594433&gameInstanceId=b9ebf5d6-b869-4dd9-ac5e-a95d89049399",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2649105151",
-  "web": "https://www.roblox.com/games/start?placeId=13704594433&gameInstanceId=b9ebf5d6-b869-4dd9-ac5e-a95d89049399",
-  "location": "[UPDATE] The Storage",
-  "updatedAt": 1785563586983
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785565148311
 }
