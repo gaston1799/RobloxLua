@@ -1,12 +1,12 @@
 {
   "userId": 3026015790,
   "displayName": "KAOsxAKT_Kitkat",
-  "status": "in-game",
-  "placeId": 730951264,
-  "jobId": "35bbb086-f128-44be-b260-376b45fdb483",
-  "join": "roblox://placeId=730951264&gameInstanceId=35bbb086-f128-44be-b260-376b45fdb483",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3026015790",
-  "web": "https://www.roblox.com/games/start?placeId=730951264&gameInstanceId=35bbb086-f128-44be-b260-376b45fdb483",
-  "location": "The Maze",
-  "updatedAt": 1785563826945
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785564426945
 }
