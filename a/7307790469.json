@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 99108783264633,
-  "jobId": "27d86c9e-ad5b-4fde-9530-fa59b6454902",
-  "join": "roblox://placeId=99108783264633&gameInstanceId=27d86c9e-ad5b-4fde-9530-fa59b6454902",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=99108783264633&gameInstanceId=27d86c9e-ad5b-4fde-9530-fa59b6454902",
-  "location": "Build a base RNG 🎲",
-  "updatedAt": 1785556987010
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785558366923
 }
