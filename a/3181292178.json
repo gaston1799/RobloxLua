@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 2098516465,
-  "jobId": "73e514ec-e4d8-4763-ba1f-d10312f9302a",
-  "join": "roblox://placeId=2098516465&gameInstanceId=73e514ec-e4d8-4763-ba1f-d10312f9302a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=2098516465&gameInstanceId=73e514ec-e4d8-4763-ba1f-d10312f9302a",
-  "location": "Roblox High School 2",
-  "updatedAt": 1785549606982
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785549666831
 }
