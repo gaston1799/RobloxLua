@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "b4259496-c59e-4147-89e6-6824070a805d",
-  "join": "roblox://placeId=7041939546&gameInstanceId=b4259496-c59e-4147-89e6-6824070a805d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=b4259496-c59e-4147-89e6-6824070a805d",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1785621068195
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785621788102
 }
