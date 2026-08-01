@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 128784467030899,
+  "jobId": "ed490c86-7b2f-40c5-8738-f5f30ccf2992",
+  "join": "roblox://placeId=128784467030899&gameInstanceId=ed490c86-7b2f-40c5-8738-f5f30ccf2992",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785556206899
+  "web": "https://www.roblox.com/games/start?placeId=128784467030899&gameInstanceId=ed490c86-7b2f-40c5-8738-f5f30ccf2992",
+  "location": "Merge a Nuke!",
+  "updatedAt": 1785556266940
 }
