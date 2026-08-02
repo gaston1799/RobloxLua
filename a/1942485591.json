@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 123516147505946,
-  "jobId": "1de96e00-0e21-4fa9-bfd3-5e5afe5789a5",
-  "join": "roblox://placeId=123516147505946&gameInstanceId=1de96e00-0e21-4fa9-bfd3-5e5afe5789a5",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=123516147505946&gameInstanceId=1de96e00-0e21-4fa9-bfd3-5e5afe5789a5",
-  "location": "PISTOL COMBAT",
-  "updatedAt": 1785632408378
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785632830020
 }
