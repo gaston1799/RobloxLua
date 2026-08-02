@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "77522900-a057-412f-8da4-2a8abb2131d6",
+  "join": "roblox://placeId=7041939546&gameInstanceId=77522900-a057-412f-8da4-2a8abb2131d6",
   "follow": "roblox://followUserId=1694151241",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785640568626
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=77522900-a057-412f-8da4-2a8abb2131d6",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1785645728655
 }
