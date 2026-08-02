@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 126042865144779,
-  "jobId": "6c29dc49-c797-4d87-ab1f-b017054581b0",
-  "join": "roblox://placeId=126042865144779&gameInstanceId=6c29dc49-c797-4d87-ab1f-b017054581b0",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=126042865144779&gameInstanceId=6c29dc49-c797-4d87-ab1f-b017054581b0",
-  "location": "[🔥CASE UPDATE] Sniper Arena",
-  "updatedAt": 1785630428306
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785630548305
 }
