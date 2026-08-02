@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 138381251771774,
+  "jobId": "f73c7aa3-f023-4d50-81a0-5db02a622415",
+  "join": "roblox://placeId=138381251771774&gameInstanceId=f73c7aa3-f023-4d50-81a0-5db02a622415",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785666348416
+  "web": "https://www.roblox.com/games/start?placeId=138381251771774&gameInstanceId=f73c7aa3-f023-4d50-81a0-5db02a622415",
+  "location": "[ENDLESS] Drain the Lake",
+  "updatedAt": 1785666410261
 }
