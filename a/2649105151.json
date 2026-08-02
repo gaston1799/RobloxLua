@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 136070094363960,
+  "jobId": "f2a23007-06fd-41c2-88d9-b382b443038c",
+  "join": "roblox://placeId=136070094363960&gameInstanceId=f2a23007-06fd-41c2-88d9-b382b443038c",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785692568825
+  "web": "https://www.roblox.com/games/start?placeId=136070094363960&gameInstanceId=f2a23007-06fd-41c2-88d9-b382b443038c",
+  "location": "Climb Scary Worm Tower 3",
+  "updatedAt": 1785692688939
 }
