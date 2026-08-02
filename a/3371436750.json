@@ -1,12 +1,12 @@
 {
   "userId": 3371436750,
   "displayName": "Creek",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1554960397,
+  "jobId": "5b26561a-ef1c-4228-9ae0-9b27bf1dad37",
+  "join": "roblox://placeId=1554960397&gameInstanceId=5b26561a-ef1c-4228-9ae0-9b27bf1dad37",
   "follow": "roblox://followUserId=3371436750",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785677388471
+  "web": "https://www.roblox.com/games/start?placeId=1554960397&gameInstanceId=5b26561a-ef1c-4228-9ae0-9b27bf1dad37",
+  "location": "Car Dealership Tycoon [✨ QoL Update]",
+  "updatedAt": 1785677988508
 }
