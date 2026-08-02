@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 125077246247796,
-  "jobId": "57910d47-a78c-4d5f-add0-92e2bef77f48",
-  "join": "roblox://placeId=125077246247796&gameInstanceId=57910d47-a78c-4d5f-add0-92e2bef77f48",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=125077246247796&gameInstanceId=57910d47-a78c-4d5f-add0-92e2bef77f48",
-  "location": "FINAL WARNING",
-  "updatedAt": 1785678168510
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785678648558
 }
