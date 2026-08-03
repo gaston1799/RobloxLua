@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3475397644,
+  "jobId": "dec440fd-7dbe-4ea3-a477-255006888a82",
+  "join": "roblox://placeId=3475397644&gameInstanceId=dec440fd-7dbe-4ea3-a477-255006888a82",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785768291611
+  "web": "https://www.roblox.com/games/start?placeId=3475397644&gameInstanceId=dec440fd-7dbe-4ea3-a477-255006888a82",
+  "location": "[LEGO] Dragon Adventures 🐉",
+  "updatedAt": 1785768351569
 }
