@@ -1,12 +1,12 @@
 {
   "userId": 2445900639,
   "displayName": "ZEN",
-  "status": "in-game",
-  "placeId": 13110267312,
-  "jobId": "a1e9bfd5-25fa-4e1e-a669-ab61bdce75b6",
-  "join": "roblox://placeId=13110267312&gameInstanceId=a1e9bfd5-25fa-4e1e-a669-ab61bdce75b6",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2445900639",
-  "web": "https://www.roblox.com/games/start?placeId=13110267312&gameInstanceId=a1e9bfd5-25fa-4e1e-a669-ab61bdce75b6",
-  "location": "Animal Sim: Underwater",
-  "updatedAt": 1785784251790
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785784371778
 }
