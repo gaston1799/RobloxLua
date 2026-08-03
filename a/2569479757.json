@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 71000936793663,
+  "jobId": "b9a49637-eda8-4763-8b29-fd5dc91c08c5",
+  "join": "roblox://placeId=71000936793663&gameInstanceId=b9a49637-eda8-4763-8b29-fd5dc91c08c5",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785775071654
+  "web": "https://www.roblox.com/games/start?placeId=71000936793663&gameInstanceId=b9a49637-eda8-4763-8b29-fd5dc91c08c5",
+  "location": "[UPD] Death Ball",
+  "updatedAt": 1785775136555
 }
