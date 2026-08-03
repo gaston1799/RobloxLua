@@ -1,12 +1,12 @@
 {
   "userId": 2445900639,
   "displayName": "ZEN",
-  "status": "in-game",
-  "placeId": 131716211654599,
-  "jobId": "2ee98b83-4962-4ae0-a7eb-dc27fab021e7",
-  "join": "roblox://placeId=131716211654599&gameInstanceId=2ee98b83-4962-4ae0-a7eb-dc27fab021e7",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2445900639",
-  "web": "https://www.roblox.com/games/start?placeId=131716211654599&gameInstanceId=2ee98b83-4962-4ae0-a7eb-dc27fab021e7",
-  "location": "Fisch 🐟 [HARPOON GUNS]",
-  "updatedAt": 1785797992043
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785798112067
 }
