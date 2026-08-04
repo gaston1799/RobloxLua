@@ -1,12 +1,12 @@
 {
   "userId": 3383246600,
   "displayName": "PX_ AssassinCROW",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "210b89f4-532e-4e96-84ff-7e6fbf0d6bb4",
+  "join": "roblox://placeId=7041939546&gameInstanceId=210b89f4-532e-4e96-84ff-7e6fbf0d6bb4",
   "follow": "roblox://followUserId=3383246600",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785880373917
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=210b89f4-532e-4e96-84ff-7e6fbf0d6bb4",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1785880433950
 }
