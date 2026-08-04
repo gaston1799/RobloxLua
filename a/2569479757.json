@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6918802270,
+  "jobId": "1ec755ee-ed10-4141-8e89-122e4064bc5d",
+  "join": "roblox://placeId=6918802270&gameInstanceId=1ec755ee-ed10-4141-8e89-122e4064bc5d",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785863693245
+  "web": "https://www.roblox.com/games/start?placeId=6918802270&gameInstanceId=1ec755ee-ed10-4141-8e89-122e4064bc5d",
+  "location": "Haze Seas [SEA 3 EXPANSION]",
+  "updatedAt": 1785864113332
 }
