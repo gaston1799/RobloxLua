@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "in-game",
-  "placeId": 126884695634066,
-  "jobId": "e0075be7-8e5a-42fa-816f-1262af526245",
-  "join": "roblox://placeId=126884695634066&gameInstanceId=e0075be7-8e5a-42fa-816f-1262af526245",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2567932931",
-  "web": "https://www.roblox.com/games/start?placeId=126884695634066&gameInstanceId=e0075be7-8e5a-42fa-816f-1262af526245",
-  "location": "[🌕] Grow a Garden 🌶️",
-  "updatedAt": 1785861233233
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785861773246
 }
