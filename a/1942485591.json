@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 129931068213475,
+  "jobId": "d58181ad-3ade-4809-ba40-19a120398aa6",
+  "join": "roblox://placeId=129931068213475&gameInstanceId=d58181ad-3ade-4809-ba40-19a120398aa6",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785863573355
+  "web": "https://www.roblox.com/games/start?placeId=129931068213475&gameInstanceId=d58181ad-3ade-4809-ba40-19a120398aa6",
+  "location": "Investor Center",
+  "updatedAt": 1785866513587
 }
