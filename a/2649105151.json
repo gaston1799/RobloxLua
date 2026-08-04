@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "in-game",
-  "placeId": 85724524674243,
-  "jobId": "2e5f8bb2-ef10-449e-932e-b4dad4cd055d",
-  "join": "roblox://placeId=85724524674243&gameInstanceId=2e5f8bb2-ef10-449e-932e-b4dad4cd055d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2649105151",
-  "web": "https://www.roblox.com/games/start?placeId=85724524674243&gameInstanceId=2e5f8bb2-ef10-449e-932e-b4dad4cd055d",
-  "location": "The Button Room",
-  "updatedAt": 1785845093009
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785845333028
 }
