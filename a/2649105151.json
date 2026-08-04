@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "in-game",
-  "placeId": 92171645661524,
-  "jobId": "2125833a-402c-4117-949e-e19400de9744",
-  "join": "roblox://placeId=92171645661524&gameInstanceId=2125833a-402c-4117-949e-e19400de9744",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2649105151",
-  "web": "https://www.roblox.com/games/start?placeId=92171645661524&gameInstanceId=2125833a-402c-4117-949e-e19400de9744",
-  "location": "Carry an Egg [2 Player Obby]",
-  "updatedAt": 1785846893279
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785847553227
 }
