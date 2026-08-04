@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 97253290114878,
-  "jobId": "216ec4e4-ffb1-414f-b394-9c1745dbd921",
-  "join": "roblox://placeId=97253290114878&gameInstanceId=216ec4e4-ffb1-414f-b394-9c1745dbd921",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=97253290114878&gameInstanceId=216ec4e4-ffb1-414f-b394-9c1745dbd921",
-  "location": "Paint your Friends!",
-  "updatedAt": 1785838432930
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785839272985
 }
