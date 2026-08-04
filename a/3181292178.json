@@ -1,12 +1,12 @@
 {
   "userId": 3181292178,
   "displayName": "NotoriousKal",
-  "status": "in-game",
-  "placeId": 123785180486774,
-  "jobId": "5cc3571e-9a6e-4d22-bad4-3aa44c2625a4",
-  "join": "roblox://placeId=123785180486774&gameInstanceId=5cc3571e-9a6e-4d22-bad4-3aa44c2625a4",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3181292178",
-  "web": "https://www.roblox.com/games/start?placeId=123785180486774&gameInstanceId=5cc3571e-9a6e-4d22-bad4-3aa44c2625a4",
-  "location": "Fling A Friend! [2 Player Obby]",
-  "updatedAt": 1785848933276
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785849473218
 }
