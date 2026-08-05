@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 89907728898683,
-  "jobId": "fe7bf5eb-2328-4432-8be9-5f1c5a70d274",
-  "join": "roblox://placeId=89907728898683&gameInstanceId=fe7bf5eb-2328-4432-8be9-5f1c5a70d274",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=89907728898683&gameInstanceId=fe7bf5eb-2328-4432-8be9-5f1c5a70d274",
-  "location": "[NEW AREAS] Garden Cleaner Evolution",
-  "updatedAt": 1785943735014
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785944395045
 }
