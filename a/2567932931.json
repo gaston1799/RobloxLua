@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "in-game",
-  "placeId": 15864327873,
-  "jobId": "acbf993d-1750-4273-96d9-ed74322528ed",
-  "join": "roblox://placeId=15864327873&gameInstanceId=acbf993d-1750-4273-96d9-ed74322528ed",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2567932931",
-  "web": "https://www.roblox.com/games/start?placeId=15864327873&gameInstanceId=acbf993d-1750-4273-96d9-ed74322528ed",
-  "location": "Teamwork Obby",
-  "updatedAt": 1785953215109
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785954235138
 }
