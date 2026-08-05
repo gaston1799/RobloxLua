@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 137762858476537,
-  "jobId": "fc432a8d-e75c-45ae-89c1-e7b18736a637",
-  "join": "roblox://placeId=137762858476537&gameInstanceId=fc432a8d-e75c-45ae-89c1-e7b18736a637",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=137762858476537&gameInstanceId=fc432a8d-e75c-45ae-89c1-e7b18736a637",
-  "location": "Lost Aisles",
-  "updatedAt": 1785926754813
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1785928194697
 }
