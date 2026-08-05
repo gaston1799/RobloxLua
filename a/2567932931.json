@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92171645661524,
+  "jobId": "3564a348-7905-4ecd-ae17-d1a07d8b231b",
+  "join": "roblox://placeId=92171645661524&gameInstanceId=3564a348-7905-4ecd-ae17-d1a07d8b231b",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785952795052
+  "web": "https://www.roblox.com/games/start?placeId=92171645661524&gameInstanceId=3564a348-7905-4ecd-ae17-d1a07d8b231b",
+  "location": "Carry an Egg [2 Player Obby]",
+  "updatedAt": 1785953035104
 }
