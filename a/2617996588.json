@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 301549746,
+  "jobId": "b2f57322-6952-455e-afe0-20dab7ef3488",
+  "join": "roblox://placeId=301549746&gameInstanceId=b2f57322-6952-455e-afe0-20dab7ef3488",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786030976085
+  "web": "https://www.roblox.com/games/start?placeId=301549746&gameInstanceId=b2f57322-6952-455e-afe0-20dab7ef3488",
+  "location": "Counter Blox",
+  "updatedAt": 1786031036125
 }
