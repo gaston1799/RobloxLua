@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 83256791430098,
+  "jobId": "f82e9002-b23a-4183-815d-c52db0a5dc91",
+  "join": "roblox://placeId=83256791430098&gameInstanceId=f82e9002-b23a-4183-815d-c52db0a5dc91",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786004607697
+  "web": "https://www.roblox.com/games/start?placeId=83256791430098&gameInstanceId=f82e9002-b23a-4183-815d-c52db0a5dc91",
+  "location": "[UPD] +1 Banana Monkey Destruction",
+  "updatedAt": 1786004757847
 }
