@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131346454575416,
+  "jobId": "23cb209b-281d-40a2-8b6c-ea11cbcde6ff",
+  "join": "roblox://placeId=131346454575416&gameInstanceId=23cb209b-281d-40a2-8b6c-ea11cbcde6ff",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786037996309
+  "web": "https://www.roblox.com/games/start?placeId=131346454575416&gameInstanceId=23cb209b-281d-40a2-8b6c-ea11cbcde6ff",
+  "location": "[UPD] Mini War",
+  "updatedAt": 1786038119674
 }
