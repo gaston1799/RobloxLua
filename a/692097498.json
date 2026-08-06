@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 89907728898683,
+  "jobId": "33f1b8c0-f009-4c2b-b214-03c94b22c46e",
+  "join": "roblox://placeId=89907728898683&gameInstanceId=33f1b8c0-f009-4c2b-b214-03c94b22c46e",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786034696031
+  "web": "https://www.roblox.com/games/start?placeId=89907728898683&gameInstanceId=33f1b8c0-f009-4c2b-b214-03c94b22c46e",
+  "location": "[NEW AREAS] Garden Cleaner Evolution",
+  "updatedAt": 1786034816117
 }
