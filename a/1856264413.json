@@ -1,12 +1,12 @@
 {
   "userId": 1856264413,
   "displayName": "wanderlust",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "8a2bf4a9-7ec9-4cd4-9139-b3f2e687cd55",
+  "join": "roblox://placeId=5712833750&gameInstanceId=8a2bf4a9-7ec9-4cd4-9139-b3f2e687cd55",
   "follow": "roblox://followUserId=1856264413",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786002718216
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=8a2bf4a9-7ec9-4cd4-9139-b3f2e687cd55",
+  "location": "Animal Simulator",
+  "updatedAt": 1786002775929
 }
