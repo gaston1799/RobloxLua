@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "in-game",
-  "placeId": 11709029682,
-  "jobId": "f48ba6e2-5e63-4832-886e-e4d8e8b82ba8",
-  "join": "roblox://placeId=11709029682&gameInstanceId=f48ba6e2-5e63-4832-886e-e4d8e8b82ba8",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2649105151",
-  "web": "https://www.roblox.com/games/start?placeId=11709029682&gameInstanceId=f48ba6e2-5e63-4832-886e-e4d8e8b82ba8",
-  "location": "+1 Digging Adventure",
-  "updatedAt": 1786043305963
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786043336182
 }
