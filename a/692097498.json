@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 79735281630764,
+  "jobId": "be57af9e-731e-4909-8900-298210829219",
+  "join": "roblox://placeId=79735281630764&gameInstanceId=be57af9e-731e-4909-8900-298210829219",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785985075682
+  "web": "https://www.roblox.com/games/start?placeId=79735281630764&gameInstanceId=be57af9e-731e-4909-8900-298210829219",
+  "location": "MurDurr",
+  "updatedAt": 1785985135660
 }
