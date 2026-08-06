@@ -1,12 +1,12 @@
 {
   "userId": 4375764862,
   "displayName": "Samxxz",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 89339132413525,
+  "jobId": "2cdad34c-01b7-4612-b603-affdf25d4e46",
+  "join": "roblox://placeId=89339132413525&gameInstanceId=2cdad34c-01b7-4612-b603-affdf25d4e46",
   "follow": "roblox://followUserId=4375764862",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785976736999
+  "web": "https://www.roblox.com/games/start?placeId=89339132413525&gameInstanceId=2cdad34c-01b7-4612-b603-affdf25d4e46",
+  "location": "Personality Test",
+  "updatedAt": 1785977515245
 }
