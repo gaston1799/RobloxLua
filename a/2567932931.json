@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 109983668079237,
+  "jobId": "81f82a9e-af06-4f8e-abc1-dbe294b05442",
+  "join": "roblox://placeId=109983668079237&gameInstanceId=81f82a9e-af06-4f8e-abc1-dbe294b05442",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1785987475524
+  "web": "https://www.roblox.com/games/start?placeId=109983668079237&gameInstanceId=81f82a9e-af06-4f8e-abc1-dbe294b05442",
+  "location": "Steal a Brainrot",
+  "updatedAt": 1786075256454
 }
