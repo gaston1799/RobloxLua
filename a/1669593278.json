@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 3351674303,
-  "jobId": "f4c71fe1-b9b2-45da-ab00-d2c227e75431",
-  "join": "roblox://placeId=3351674303&gameInstanceId=f4c71fe1-b9b2-45da-ab00-d2c227e75431",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=3351674303&gameInstanceId=f4c71fe1-b9b2-45da-ab00-d2c227e75431",
-  "location": "[🏕️OFFROAD🏕️] Driving Empire🏎️ Car Racing📦RP",
-  "updatedAt": 1786129017672
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786130457691
 }
