@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "in-game",
-  "placeId": 79268393072444,
-  "jobId": "abd24c69-ece5-4671-b1bb-64c02821740b",
-  "join": "roblox://placeId=79268393072444&gameInstanceId=abd24c69-ece5-4671-b1bb-64c02821740b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1694151241",
-  "web": "https://www.roblox.com/games/start?placeId=79268393072444&gameInstanceId=abd24c69-ece5-4671-b1bb-64c02821740b",
-  "location": "[🛸] Sell Lemons 🍋",
-  "updatedAt": 1786093649367
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786096681520
 }
