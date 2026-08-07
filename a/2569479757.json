@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 90086669327265,
+  "jobId": "f15b759f-3aac-4b55-abf6-1c23f0e7ae9a",
+  "join": "roblox://placeId=90086669327265&gameInstanceId=f15b759f-3aac-4b55-abf6-1c23f0e7ae9a",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786138230501
+  "web": "https://www.roblox.com/games/start?placeId=90086669327265&gameInstanceId=f15b759f-3aac-4b55-abf6-1c23f0e7ae9a",
+  "location": "+1 Cut Grass Adventure",
+  "updatedAt": 1786138501144
 }
