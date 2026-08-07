@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "in-game",
-  "placeId": 94503612388426,
-  "jobId": "11805526-9fa2-4827-829c-dd14da2b18b3",
-  "join": "roblox://placeId=94503612388426&gameInstanceId=11805526-9fa2-4827-829c-dd14da2b18b3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2567932931",
-  "web": "https://www.roblox.com/games/start?placeId=94503612388426&gameInstanceId=11805526-9fa2-4827-829c-dd14da2b18b3",
-  "location": "Be Fish",
-  "updatedAt": 1786139998130
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786141527942
 }
