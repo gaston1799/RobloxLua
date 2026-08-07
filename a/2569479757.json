@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 109103237257568,
+  "jobId": "22457ac8-6634-49c4-810e-89281d498c62",
+  "join": "roblox://placeId=109103237257568&gameInstanceId=22457ac8-6634-49c4-810e-89281d498c62",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786142640255
+  "web": "https://www.roblox.com/games/start?placeId=109103237257568&gameInstanceId=22457ac8-6634-49c4-810e-89281d498c62",
+  "location": "[ALPHA] Aura!",
+  "updatedAt": 1786142670495
 }
