@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 114234929420007,
+  "jobId": "d66a3db1-a4c0-48a1-b5ca-70a3c1314dca",
+  "join": "roblox://placeId=114234929420007&gameInstanceId=d66a3db1-a4c0-48a1-b5ca-70a3c1314dca",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786108376973
+  "web": "https://www.roblox.com/games/start?placeId=114234929420007&gameInstanceId=d66a3db1-a4c0-48a1-b5ca-70a3c1314dca",
+  "location": "[TRADEUPS] BloxStrike",
+  "updatedAt": 1786108436958
 }
