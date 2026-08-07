@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 17419111999,
-  "jobId": "f5f5cc28-aad4-494a-8ee5-88334c4d7260",
-  "join": "roblox://placeId=17419111999&gameInstanceId=f5f5cc28-aad4-494a-8ee5-88334c4d7260",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=17419111999&gameInstanceId=f5f5cc28-aad4-494a-8ee5-88334c4d7260",
-  "location": "Trespasser [HORROR]",
-  "updatedAt": 1786111377042
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786111557096
 }
