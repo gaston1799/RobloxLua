@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 114697347887839,
-  "jobId": "249ba944-3a7d-43cf-af24-7a391b793669",
-  "join": "roblox://placeId=114697347887839&gameInstanceId=249ba944-3a7d-43cf-af24-7a391b793669",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=114697347887839&gameInstanceId=249ba944-3a7d-43cf-af24-7a391b793669",
-  "location": "[X2]🐒 +1 Speed Monkey Escape",
-  "updatedAt": 1786200361774
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786200393449
 }
