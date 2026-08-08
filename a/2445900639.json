@@ -1,12 +1,12 @@
 {
   "userId": 2445900639,
   "displayName": "ZEN",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4984400432,
+  "jobId": "e9a7e59c-579f-44b2-8b5b-84d95700aec3",
+  "join": "roblox://placeId=4984400432&gameInstanceId=e9a7e59c-579f-44b2-8b5b-84d95700aec3",
   "follow": "roblox://followUserId=2445900639",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786153408530
+  "web": "https://www.roblox.com/games/start?placeId=4984400432&gameInstanceId=e9a7e59c-579f-44b2-8b5b-84d95700aec3",
+  "location": "[NEW] Outfit Loader",
+  "updatedAt": 1786153468454
 }
