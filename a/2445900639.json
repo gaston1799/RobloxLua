@@ -1,12 +1,12 @@
 {
   "userId": 2445900639,
   "displayName": "ZEN",
-  "status": "in-game",
-  "placeId": 9697246773,
-  "jobId": "80c79e58-6fbe-4635-832b-b626bbd2332a",
-  "join": "roblox://placeId=9697246773&gameInstanceId=80c79e58-6fbe-4635-832b-b626bbd2332a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2445900639",
-  "web": "https://www.roblox.com/games/start?placeId=9697246773&gameInstanceId=80c79e58-6fbe-4635-832b-b626bbd2332a",
-  "location": "Cart Ride Into Spider-Man Spiderman",
-  "updatedAt": 1786152390331
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786152928449
 }
