@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 87229519582692,
-  "jobId": "b32c9613-0106-4bb4-b89e-316e01f86c46",
-  "join": "roblox://placeId=87229519582692&gameInstanceId=b32c9613-0106-4bb4-b89e-316e01f86c46",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=87229519582692&gameInstanceId=b32c9613-0106-4bb4-b89e-316e01f86c46",
-  "location": "[UPDATE 1.0.4] Ultimate Gym Game",
-  "updatedAt": 1786255171264
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786255353061
 }
