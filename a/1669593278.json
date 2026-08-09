@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 127634932179327,
-  "jobId": "5457a82a-dd96-4c22-a07e-bb8b57cd234a",
-  "join": "roblox://placeId=127634932179327&gameInstanceId=5457a82a-dd96-4c22-a07e-bb8b57cd234a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=127634932179327&gameInstanceId=5457a82a-dd96-4c22-a07e-bb8b57cd234a",
-  "location": "Kick Ball to Space ⚽",
-  "updatedAt": 1786255412659
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786257271276
 }
