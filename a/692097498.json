@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 109423220190564,
-  "jobId": "60cd31b7-4321-4e5b-b306-64e0d7b45667",
-  "join": "roblox://placeId=109423220190564&gameInstanceId=60cd31b7-4321-4e5b-b306-64e0d7b45667",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=109423220190564&gameInstanceId=60cd31b7-4321-4e5b-b306-64e0d7b45667",
-  "location": "Backrooms Company",
-  "updatedAt": 1786251031030
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786251090895
 }
