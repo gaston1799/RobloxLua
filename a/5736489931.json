@@ -1,12 +1,12 @@
 {
   "userId": 5736489931,
   "displayName": "GaelxA",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12093459259,
+  "jobId": "e3d300c7-5b6a-49b4-8566-1dec33090216",
+  "join": "roblox://placeId=12093459259&gameInstanceId=e3d300c7-5b6a-49b4-8566-1dec33090216",
   "follow": "roblox://followUserId=5736489931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786305091938
+  "web": "https://www.roblox.com/games/start?placeId=12093459259&gameInstanceId=e3d300c7-5b6a-49b4-8566-1dec33090216",
+  "location": "Account Value",
+  "updatedAt": 1786305151997
 }
