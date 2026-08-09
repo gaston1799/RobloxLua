@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 116458420309998,
+  "jobId": "ed5e399b-ea6f-4c07-913f-22f4c076b236",
+  "join": "roblox://placeId=116458420309998&gameInstanceId=ed5e399b-ea6f-4c07-913f-22f4c076b236",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786271823786
+  "web": "https://www.roblox.com/games/start?placeId=116458420309998&gameInstanceId=ed5e399b-ea6f-4c07-913f-22f4c076b236",
+  "location": "Deep Dive [RNG]",
+  "updatedAt": 1786271853671
 }
