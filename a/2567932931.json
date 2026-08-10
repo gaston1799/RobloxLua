@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 78515283254292,
+  "jobId": "ae69ac7b-ed12-4474-a520-4af9b3b008cb",
+  "join": "roblox://placeId=78515283254292&gameInstanceId=ae69ac7b-ed12-4474-a520-4af9b3b008cb",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786394734131
+  "web": "https://www.roblox.com/games/start?placeId=78515283254292&gameInstanceId=ae69ac7b-ed12-4474-a520-4af9b3b008cb",
+  "location": "Animal Hospital (Anomaly) 🧪",
+  "updatedAt": 1786398934349
 }
