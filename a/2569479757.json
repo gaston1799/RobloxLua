@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 121125129560252,
+  "jobId": "73318f25-53d7-4807-94b7-3058570d1257",
+  "join": "roblox://placeId=121125129560252&gameInstanceId=73318f25-53d7-4807-94b7-3058570d1257",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786395846890
+  "web": "https://www.roblox.com/games/start?placeId=121125129560252&gameInstanceId=73318f25-53d7-4807-94b7-3058570d1257",
+  "location": "🌎 Mine a Planet ",
+  "updatedAt": 1786395936995
 }
