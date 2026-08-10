@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 79480724066456,
-  "jobId": "0cacde33-94dd-45a7-b40d-09fcf0044289",
-  "join": "roblox://placeId=79480724066456&gameInstanceId=0cacde33-94dd-45a7-b40d-09fcf0044289",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=79480724066456&gameInstanceId=0cacde33-94dd-45a7-b40d-09fcf0044289",
-  "location": "[🚐Stacker🚐] Southern Mudding 🚜 OffRoading",
-  "updatedAt": 1786361913739
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786362093730
 }
