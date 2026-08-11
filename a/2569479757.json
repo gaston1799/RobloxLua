@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4832438542,
+  "jobId": "3b8e56f4-079f-44fb-8945-62a86941ce17",
+  "join": "roblox://placeId=4832438542&gameInstanceId=3b8e56f4-079f-44fb-8945-62a86941ce17",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786463707666
+  "web": "https://www.roblox.com/games/start?placeId=4832438542&gameInstanceId=3b8e56f4-079f-44fb-8945-62a86941ce17",
+  "location": "VR Hands v3.2 🎙️",
+  "updatedAt": 1786463737345
 }
