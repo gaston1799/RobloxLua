@@ -1,12 +1,12 @@
 {
   "userId": 3243638423,
   "displayName": "Seek",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "9979956b-2882-4fb6-bdab-a69c33425013",
-  "join": "roblox://placeId=5712833750&gameInstanceId=9979956b-2882-4fb6-bdab-a69c33425013",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3243638423",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=9979956b-2882-4fb6-bdab-a69c33425013",
-  "location": "Animal Simulator",
-  "updatedAt": 1786374395485
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786476695371
 }
