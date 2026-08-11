@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 11594344738,
+  "jobId": "c5ecc992-9704-4b0b-9b53-fcf6e2f5e3d1",
+  "join": "roblox://placeId=11594344738&gameInstanceId=c5ecc992-9704-4b0b-9b53-fcf6e2f5e3d1",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786462386967
+  "web": "https://www.roblox.com/games/start?placeId=11594344738&gameInstanceId=c5ecc992-9704-4b0b-9b53-fcf6e2f5e3d1",
+  "location": "Voxel Destruction Physics",
+  "updatedAt": 1786462419770
 }
