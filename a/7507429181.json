@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "49505a19-37f8-46a6-a403-2baa8c471119",
+  "join": "roblox://placeId=5712833750&gameInstanceId=49505a19-37f8-46a6-a403-2baa8c471119",
   "follow": "roblox://followUserId=7507429181",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786423686925
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=49505a19-37f8-46a6-a403-2baa8c471119",
+  "location": "Animal Simulator",
+  "updatedAt": 1786423718485
 }
