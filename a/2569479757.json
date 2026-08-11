@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 96645548064314,
-  "jobId": "c365a492-e693-4962-8501-cd998b8c39d0",
-  "join": "roblox://placeId=96645548064314&gameInstanceId=c365a492-e693-4962-8501-cd998b8c39d0",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=96645548064314&gameInstanceId=c365a492-e693-4962-8501-cd998b8c39d0",
-  "location": "[🦞] Catch And Tame!",
-  "updatedAt": 1786488787972
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786488818313
 }
