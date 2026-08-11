@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 4924922222,
-  "jobId": "0fa43cbc-d41d-4b94-bf64-20760878b023",
-  "join": "roblox://placeId=4924922222&gameInstanceId=0fa43cbc-d41d-4b94-bf64-20760878b023",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=4924922222&gameInstanceId=0fa43cbc-d41d-4b94-bf64-20760878b023",
-  "location": "Brookhaven 🏡RP",
-  "updatedAt": 1786451406879
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786451439019
 }
