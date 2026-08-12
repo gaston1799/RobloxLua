@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16488030559,
+  "jobId": "5c62578f-4753-4ba5-b7c2-72cdc44febd3",
+  "join": "roblox://placeId=16488030559&gameInstanceId=5c62578f-4753-4ba5-b7c2-72cdc44febd3",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786525656454
+  "web": "https://www.roblox.com/games/start?placeId=16488030559&gameInstanceId=5c62578f-4753-4ba5-b7c2-72cdc44febd3",
+  "location": "Protect the King 👑",
+  "updatedAt": 1786525716520
 }
