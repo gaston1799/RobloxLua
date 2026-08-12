@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 127626889405803,
+  "jobId": "2f8333fb-51ca-4533-a329-71230ce5d717",
+  "join": "roblox://placeId=127626889405803&gameInstanceId=2f8333fb-51ca-4533-a329-71230ce5d717",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786531988413
+  "web": "https://www.roblox.com/games/start?placeId=127626889405803&gameInstanceId=2f8333fb-51ca-4533-a329-71230ce5d717",
+  "location": "Wash The House 🧼",
+  "updatedAt": 1786532078747
 }
