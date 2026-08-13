@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 103883942725157,
-  "jobId": "605b3228-ea6e-4b5d-857a-33610f67f82a",
-  "join": "roblox://placeId=103883942725157&gameInstanceId=605b3228-ea6e-4b5d-857a-33610f67f82a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=103883942725157&gameInstanceId=605b3228-ea6e-4b5d-857a-33610f67f82a",
-  "location": "+1 Drain Water Per Click",
-  "updatedAt": 1786642693940
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786643144105
 }
