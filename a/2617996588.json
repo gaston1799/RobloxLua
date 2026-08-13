@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 13033713206,
-  "jobId": "787a2d4f-d787-43bd-b549-542151b5bd35",
-  "join": "roblox://placeId=13033713206&gameInstanceId=787a2d4f-d787-43bd-b549-542151b5bd35",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=13033713206&gameInstanceId=787a2d4f-d787-43bd-b549-542151b5bd35",
-  "location": "Become Forklift Certified Obby!",
-  "updatedAt": 1786643682524
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786644882480
 }
