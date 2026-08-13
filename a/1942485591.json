@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 136449173422746,
+  "jobId": "e6eb1c86-7137-425e-8962-6f979e45c1d2",
+  "join": "roblox://placeId=136449173422746&gameInstanceId=e6eb1c86-7137-425e-8962-6f979e45c1d2",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786613018511
+  "web": "https://www.roblox.com/games/start?placeId=136449173422746&gameInstanceId=e6eb1c86-7137-425e-8962-6f979e45c1d2",
+  "location": "BERSERK DRIFT X // WIP",
+  "updatedAt": 1786613138462
 }
