@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 72465976332322,
-  "jobId": "adc4f637-db78-47e6-97d7-441e06dbab6d",
-  "join": "roblox://placeId=72465976332322&gameInstanceId=adc4f637-db78-47e6-97d7-441e06dbab6d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=72465976332322&gameInstanceId=adc4f637-db78-47e6-97d7-441e06dbab6d",
-  "location": "Catch a Brainrot",
-  "updatedAt": 1786628292105
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786628622320
 }
