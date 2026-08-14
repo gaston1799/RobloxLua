@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 80877167393789,
-  "jobId": "fc7e98be-e074-48c7-9b6b-6bef882a83a6",
-  "join": "roblox://placeId=80877167393789&gameInstanceId=fc7e98be-e074-48c7-9b6b-6bef882a83a6",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=80877167393789&gameInstanceId=fc7e98be-e074-48c7-9b6b-6bef882a83a6",
-  "location": "Summon Heroes [🚨]",
-  "updatedAt": 1786692762009
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786693061982
 }
