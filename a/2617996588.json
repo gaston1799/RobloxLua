@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 104475363102090,
-  "jobId": "80b01149-93df-4162-a511-4901a80ffb6c",
-  "join": "roblox://placeId=104475363102090&gameInstanceId=80b01149-93df-4162-a511-4901a80ffb6c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=104475363102090&gameInstanceId=80b01149-93df-4162-a511-4901a80ffb6c",
-  "location": "[v1.2] Cats Defense",
-  "updatedAt": 1786709322733
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786709382816
 }
