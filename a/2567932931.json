@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "85048c0a-f5d3-4522-83e2-72e9600c35cf",
-  "join": "roblox://placeId=7041939546&gameInstanceId=85048c0a-f5d3-4522-83e2-72e9600c35cf",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2567932931",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=85048c0a-f5d3-4522-83e2-72e9600c35cf",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1786738725472
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786738783589
 }
