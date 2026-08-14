@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13798333230,
+  "jobId": "2dcfd3be-02f8-4726-a1d6-109625b05e3c",
+  "join": "roblox://placeId=13798333230&gameInstanceId=2dcfd3be-02f8-4726-a1d6-109625b05e3c",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786709922751
+  "web": "https://www.roblox.com/games/start?placeId=13798333230&gameInstanceId=2dcfd3be-02f8-4726-a1d6-109625b05e3c",
+  "location": "The House TD - The Hunt",
+  "updatedAt": 1786710104393
 }
