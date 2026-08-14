@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 83038462357724,
-  "jobId": "fe9eb26f-322c-4970-b22e-8860e21ae580",
-  "join": "roblox://placeId=83038462357724&gameInstanceId=fe9eb26f-322c-4970-b22e-8860e21ae580",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=83038462357724&gameInstanceId=fe9eb26f-322c-4970-b22e-8860e21ae580",
-  "location": "Dig & Clean 🧼",
-  "updatedAt": 1786701462304
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786703322529
 }
