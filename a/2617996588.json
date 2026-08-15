@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 142823291,
-  "jobId": "e332b532-00d8-4b49-8192-9ec4b2fc3f46",
-  "join": "roblox://placeId=142823291&gameInstanceId=e332b532-00d8-4b49-8192-9ec4b2fc3f46",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=e332b532-00d8-4b49-8192-9ec4b2fc3f46",
-  "location": "Murder Mystery 2",
-  "updatedAt": 1786812405809
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786812465971
 }
