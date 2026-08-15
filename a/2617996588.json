@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 16732694052,
-  "jobId": "ac0b9342-814c-46fd-94b0-f27e56b492ec",
-  "join": "roblox://placeId=16732694052&gameInstanceId=ac0b9342-814c-46fd-94b0-f27e56b492ec",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=16732694052&gameInstanceId=ac0b9342-814c-46fd-94b0-f27e56b492ec",
-  "location": "Fisch 🐟 [FREE GIFT]",
-  "updatedAt": 1786812825819
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786813185840
 }
