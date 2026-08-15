@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 135787657971346,
-  "jobId": "182afd4c-7e65-4b87-bdea-63373c56544c",
-  "join": "roblox://placeId=135787657971346&gameInstanceId=182afd4c-7e65-4b87-bdea-63373c56544c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=135787657971346&gameInstanceId=182afd4c-7e65-4b87-bdea-63373c56544c",
-  "location": "[2x🍀] +1 Speed Bridge Building!",
-  "updatedAt": 1786809198076
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786809288327
 }
