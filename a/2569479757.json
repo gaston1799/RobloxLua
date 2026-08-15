@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 107085682317132,
-  "jobId": "2d63c68e-295c-463c-bb2e-28cd971f7a60",
-  "join": "roblox://placeId=107085682317132&gameInstanceId=2d63c68e-295c-463c-bb2e-28cd971f7a60",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=107085682317132&gameInstanceId=2d63c68e-295c-463c-bb2e-28cd971f7a60",
-  "location": "Wonderland",
-  "updatedAt": 1786792998620
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786793028632
 }
