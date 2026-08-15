@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 13775256536,
-  "jobId": "586a1a1f-0e8d-42a6-817a-d8842fb7073a",
-  "join": "roblox://placeId=13775256536&gameInstanceId=586a1a1f-0e8d-42a6-817a-d8842fb7073a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=13775256536&gameInstanceId=586a1a1f-0e8d-42a6-817a-d8842fb7073a",
-  "location": "[LEGACY] Toilet Tower Defense",
-  "updatedAt": 1786813485825
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786813847903
 }
