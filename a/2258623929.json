@@ -1,12 +1,12 @@
 {
   "userId": 2258623929,
   "displayName": "1of1DOLO",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13772394625,
+  "jobId": "361f5ee3-96f9-4740-a8ff-ef9717ca85a8",
+  "join": "roblox://placeId=13772394625&gameInstanceId=361f5ee3-96f9-4740-a8ff-ef9717ca85a8",
   "follow": "roblox://followUserId=2258623929",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786918893430
+  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=361f5ee3-96f9-4740-a8ff-ef9717ca85a8",
+  "location": "Blade Ball",
+  "updatedAt": 1786918953430
 }
