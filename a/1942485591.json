@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 116224688060177,
+  "jobId": "516493c1-f274-478d-b8a1-e921a290e2f5",
+  "join": "roblox://placeId=116224688060177&gameInstanceId=516493c1-f274-478d-b8a1-e921a290e2f5",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786951609368
+  "web": "https://www.roblox.com/games/start?placeId=116224688060177&gameInstanceId=516493c1-f274-478d-b8a1-e921a290e2f5",
+  "location": "Blind, Mute and Deaf | 3 player obby ",
+  "updatedAt": 1786951849389
 }
