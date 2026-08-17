@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 7171174521,
-  "jobId": "fec27e45-d2e5-4b4b-bbff-7781b63f78b6",
-  "join": "roblox://placeId=7171174521&gameInstanceId=fec27e45-d2e5-4b4b-bbff-7781b63f78b6",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=7171174521&gameInstanceId=fec27e45-d2e5-4b4b-bbff-7781b63f78b6",
-  "location": "[🚿CAR WASH🚿] American Plains Mudding",
-  "updatedAt": 1786962469598
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786963009615
 }
