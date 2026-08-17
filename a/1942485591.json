@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "2943f1bf-5318-4160-abee-477860d965d4",
+  "join": "roblox://placeId=142823291&gameInstanceId=2943f1bf-5318-4160-abee-477860d965d4",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786920273449
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=2943f1bf-5318-4160-abee-477860d965d4",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1786951429460
 }
