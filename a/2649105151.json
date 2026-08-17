@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 109423220190564,
+  "jobId": "7bd9bfef-e93f-4b5c-97e0-2817cfcc3c4c",
+  "join": "roblox://placeId=109423220190564&gameInstanceId=7bd9bfef-e93f-4b5c-97e0-2817cfcc3c4c",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1786936850431
+  "web": "https://www.roblox.com/games/start?placeId=109423220190564&gameInstanceId=7bd9bfef-e93f-4b5c-97e0-2817cfcc3c4c",
+  "location": "Backrooms Company",
+  "updatedAt": 1786936878931
 }
