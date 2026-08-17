@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 117533937949084,
+  "jobId": "f658b3c8-69ea-4f03-8e68-b0c1dc57f464",
+  "join": "roblox://placeId=117533937949084&gameInstanceId=f658b3c8-69ea-4f03-8e68-b0c1dc57f464",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787004260122
+  "web": "https://www.roblox.com/games/start?placeId=117533937949084&gameInstanceId=f658b3c8-69ea-4f03-8e68-b0c1dc57f464",
+  "location": "Iron Soul: Dungeon",
+  "updatedAt": 1787004440110
 }
