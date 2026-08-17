@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 104522435597696,
-  "jobId": "2434cc8a-327d-4457-9cea-8a0ea9f8c1ce",
-  "join": "roblox://placeId=104522435597696&gameInstanceId=2434cc8a-327d-4457-9cea-8a0ea9f8c1ce",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=104522435597696&gameInstanceId=2434cc8a-327d-4457-9cea-8a0ea9f8c1ce",
-  "location": "Animal Hospital (Anomaly) 🧪",
-  "updatedAt": 1786939612944
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1786939641992
 }
