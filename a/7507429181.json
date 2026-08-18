@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 94939256104840,
-  "jobId": "b0fcdf6d-88b0-4be6-a007-757defb282b4",
-  "join": "roblox://placeId=94939256104840&gameInstanceId=b0fcdf6d-88b0-4be6-a007-757defb282b4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=94939256104840&gameInstanceId=b0fcdf6d-88b0-4be6-a007-757defb282b4",
-  "location": "Grow a Chicken Fighter",
-  "updatedAt": 1787017672916
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787017703376
 }
