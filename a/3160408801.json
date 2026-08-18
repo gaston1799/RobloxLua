@@ -1,12 +1,12 @@
 {
   "userId": 3160408801,
   "displayName": "ImLxleen",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "2b2d02de-af7a-4e02-8c17-a07c15895f71",
-  "join": "roblox://placeId=5712833750&gameInstanceId=2b2d02de-af7a-4e02-8c17-a07c15895f71",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3160408801",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=2b2d02de-af7a-4e02-8c17-a07c15895f71",
-  "location": "Animal Simulator",
-  "updatedAt": 1787088951244
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787088984489
 }
