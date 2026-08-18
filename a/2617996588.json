@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 131367064230486,
-  "jobId": "95abbc3e-c274-4f9c-98e2-b4a1cc4d1259",
-  "join": "roblox://placeId=131367064230486&gameInstanceId=95abbc3e-c274-4f9c-98e2-b4a1cc4d1259",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=131367064230486&gameInstanceId=95abbc3e-c274-4f9c-98e2-b4a1cc4d1259",
-  "location": "The House TD 2 - Launch",
-  "updatedAt": 1787091683122
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787092461397
 }
