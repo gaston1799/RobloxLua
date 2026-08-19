@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 92605157087535,
-  "jobId": "679d5be7-f701-49ac-842b-f72efd4708e1",
-  "join": "roblox://placeId=92605157087535&gameInstanceId=679d5be7-f701-49ac-842b-f72efd4708e1",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=92605157087535&gameInstanceId=679d5be7-f701-49ac-842b-f72efd4708e1",
-  "location": "Crab Tycoon 🦀",
-  "updatedAt": 1787178323550
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787178803652
 }
