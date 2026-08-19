@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 110829983956014,
-  "jobId": "e628726b-0f01-48b5-8de2-3ab4ed94746d",
-  "join": "roblox://placeId=110829983956014&gameInstanceId=e628726b-0f01-48b5-8de2-3ab4ed94746d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=110829983956014&gameInstanceId=e628726b-0f01-48b5-8de2-3ab4ed94746d",
-  "location": "[ 🪄🎩] Anime Card Clash",
-  "updatedAt": 1787164585569
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787167403537
 }
