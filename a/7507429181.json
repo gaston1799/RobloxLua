@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 891852901,
-  "jobId": "e4335bc5-1728-439d-b1d8-a3ca55dd6f6f",
-  "join": "roblox://placeId=891852901&gameInstanceId=e4335bc5-1728-439d-b1d8-a3ca55dd6f6f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=891852901&gameInstanceId=e4335bc5-1728-439d-b1d8-a3ca55dd6f6f",
-  "location": "Greenville",
-  "updatedAt": 1787130175417
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787130206275
 }
