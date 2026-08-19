@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 120491560796071,
+  "jobId": "04bf7de7-ebe5-4305-a602-8d5aedfbd967",
+  "join": "roblox://placeId=120491560796071&gameInstanceId=04bf7de7-ebe5-4305-a602-8d5aedfbd967",
   "follow": "roblox://followUserId=7507429181",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787105393587
+  "web": "https://www.roblox.com/games/start?placeId=120491560796071&gameInstanceId=04bf7de7-ebe5-4305-a602-8d5aedfbd967",
+  "location": "[NEW] Load The Truck!",
+  "updatedAt": 1787105424830
 }
