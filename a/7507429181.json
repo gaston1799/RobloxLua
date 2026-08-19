@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 90086669327265,
-  "jobId": "07473e2c-aad5-4004-bbc9-04ddd2cad550",
-  "join": "roblox://placeId=90086669327265&gameInstanceId=07473e2c-aad5-4004-bbc9-04ddd2cad550",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=90086669327265&gameInstanceId=07473e2c-aad5-4004-bbc9-04ddd2cad550",
-  "location": "+1 Cut Grass Adventure",
-  "updatedAt": 1787107853780
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787107884008
 }
