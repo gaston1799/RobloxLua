@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 114204398207377,
+  "jobId": "a158ee6b-716e-4f6f-b6a8-89e686c52c92",
+  "join": "roblox://placeId=114204398207377&gameInstanceId=a158ee6b-716e-4f6f-b6a8-89e686c52c92",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787240424993
+  "web": "https://www.roblox.com/games/start?placeId=114204398207377&gameInstanceId=a158ee6b-716e-4f6f-b6a8-89e686c52c92",
+  "location": "[RETRO] Survive Zombie Arena",
+  "updatedAt": 1787243905090
 }
