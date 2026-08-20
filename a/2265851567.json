@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 89348926304279,
+  "jobId": "6ea81ec7-b8f2-4347-8c8e-e3373453fdba",
+  "join": "roblox://placeId=89348926304279&gameInstanceId=6ea81ec7-b8f2-4347-8c8e-e3373453fdba",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787228964977
+  "web": "https://www.roblox.com/games/start?placeId=89348926304279&gameInstanceId=6ea81ec7-b8f2-4347-8c8e-e3373453fdba",
+  "location": "[UPD] BSS 1:1 - Rebirths",
+  "updatedAt": 1787234665150
 }
