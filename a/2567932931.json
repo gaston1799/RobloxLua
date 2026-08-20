@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16480898254,
+  "jobId": "c112aa5d-cd87-4185-9a1f-3a3b29ccc302",
+  "join": "roblox://placeId=16480898254&gameInstanceId=c112aa5d-cd87-4185-9a1f-3a3b29ccc302",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787251585518
+  "web": "https://www.roblox.com/games/start?placeId=16480898254&gameInstanceId=c112aa5d-cd87-4185-9a1f-3a3b29ccc302",
+  "location": "Eat the World",
+  "updatedAt": 1787251885319
 }
