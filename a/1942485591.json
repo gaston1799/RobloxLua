@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 109397169461300,
+  "jobId": "6a235980-18c5-4e17-b806-95e5dbd5c273",
+  "join": "roblox://placeId=109397169461300&gameInstanceId=6a235980-18c5-4e17-b806-95e5dbd5c273",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787191403868
+  "web": "https://www.roblox.com/games/start?placeId=109397169461300&gameInstanceId=6a235980-18c5-4e17-b806-95e5dbd5c273",
+  "location": "[RELIC CASE] SNIPER DUELS",
+  "updatedAt": 1787192064088
 }
