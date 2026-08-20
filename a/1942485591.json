@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 135155039067698,
+  "jobId": "6b5b7af2-e8b8-4248-92c7-03e3585bfcd1",
+  "join": "roblox://placeId=135155039067698&gameInstanceId=6b5b7af2-e8b8-4248-92c7-03e3585bfcd1",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787244145111
+  "web": "https://www.roblox.com/games/start?placeId=135155039067698&gameInstanceId=6b5b7af2-e8b8-4248-92c7-03e3585bfcd1",
+  "location": "MX WORLD",
+  "updatedAt": 1787244625184
 }
