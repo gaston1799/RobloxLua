@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 127723279511870,
+  "jobId": "bc0e395e-9614-499a-b092-ac7172ef7cb2",
+  "join": "roblox://placeId=127723279511870&gameInstanceId=bc0e395e-9614-499a-b092-ac7172ef7cb2",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787258965333
+  "web": "https://www.roblox.com/games/start?placeId=127723279511870&gameInstanceId=bc0e395e-9614-499a-b092-ac7172ef7cb2",
+  "location": "(⛺PROPS) Glamis Dunes, California",
+  "updatedAt": 1787259505302
 }
