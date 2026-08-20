@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 100178831086674,
+  "jobId": "2db053c8-ea2c-40f1-bf17-50e5948bd7a9",
+  "join": "roblox://placeId=100178831086674&gameInstanceId=2db053c8-ea2c-40f1-bf17-50e5948bd7a9",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787197553746
+  "web": "https://www.roblox.com/games/start?placeId=100178831086674&gameInstanceId=2db053c8-ea2c-40f1-bf17-50e5948bd7a9",
+  "location": "TimeBomb AnkleBreak!",
+  "updatedAt": 1787197585409
 }
