@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 139360679647453,
+  "jobId": "f8eb5a79-84eb-45d0-b20b-8ba5618b9351",
+  "join": "roblox://placeId=139360679647453&gameInstanceId=f8eb5a79-84eb-45d0-b20b-8ba5618b9351",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787277685600
+  "web": "https://www.roblox.com/games/start?placeId=139360679647453&gameInstanceId=f8eb5a79-84eb-45d0-b20b-8ba5618b9351",
+  "location": "Lori's Nightmare",
+  "updatedAt": 1787277745596
 }
