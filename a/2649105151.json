@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12118894416,
+  "jobId": "c89306a8-020e-487a-8973-381370a67349",
+  "join": "roblox://placeId=12118894416&gameInstanceId=c89306a8-020e-487a-8973-381370a67349",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787356287271
+  "web": "https://www.roblox.com/games/start?placeId=12118894416&gameInstanceId=c89306a8-020e-487a-8973-381370a67349",
+  "location": "Thirsty Vampire",
+  "updatedAt": 1787356319743
 }
