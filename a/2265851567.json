@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 89348926304279,
-  "jobId": "e2fad835-5b09-4eac-bdf0-b65d0cafd57b",
-  "join": "roblox://placeId=89348926304279&gameInstanceId=e2fad835-5b09-4eac-bdf0-b65d0cafd57b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=89348926304279&gameInstanceId=e2fad835-5b09-4eac-bdf0-b65d0cafd57b",
-  "location": "Rebirths",
-  "updatedAt": 1787333786951
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787334266981
 }
