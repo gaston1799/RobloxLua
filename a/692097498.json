@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 119725120452301,
-  "jobId": "006daaff-51a1-45c5-be7d-852faf5deeb4",
-  "join": "roblox://placeId=119725120452301&gameInstanceId=006daaff-51a1-45c5-be7d-852faf5deeb4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=119725120452301&gameInstanceId=006daaff-51a1-45c5-be7d-852faf5deeb4",
-  "location": "Anime Guess Who",
-  "updatedAt": 1787290525762
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787291005945
 }
