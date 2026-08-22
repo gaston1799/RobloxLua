@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 8328351891,
+  "jobId": "22a01bc3-02f0-436b-bda6-37d8fd4d0c89",
+  "join": "roblox://placeId=8328351891&gameInstanceId=22a01bc3-02f0-436b-bda6-37d8fd4d0c89",
   "follow": "roblox://followUserId=1694151241",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787428352185
+  "web": "https://www.roblox.com/games/start?placeId=8328351891&gameInstanceId=22a01bc3-02f0-436b-bda6-37d8fd4d0c89",
+  "location": "Mega Mansion Tycoon 🌴🛥️",
+  "updatedAt": 1787428382776
 }
