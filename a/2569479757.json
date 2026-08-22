@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15077422637,
+  "jobId": "6e25ee60-de71-4693-bfbc-da81d2065de3",
+  "join": "roblox://placeId=15077422637&gameInstanceId=6e25ee60-de71-4693-bfbc-da81d2065de3",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787424332244
+  "web": "https://www.roblox.com/games/start?placeId=15077422637&gameInstanceId=6e25ee60-de71-4693-bfbc-da81d2065de3",
+  "location": "The Curse [HORROR]",
+  "updatedAt": 1787424542807
 }
