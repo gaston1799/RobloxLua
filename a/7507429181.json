@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 115676728863950,
+  "jobId": "8cb44619-2052-48b8-8eba-c4f9dfb6fbe6",
+  "join": "roblox://placeId=115676728863950&gameInstanceId=8cb44619-2052-48b8-8eba-c4f9dfb6fbe6",
   "follow": "roblox://followUserId=7507429181",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787361630244
+  "web": "https://www.roblox.com/games/start?placeId=115676728863950&gameInstanceId=8cb44619-2052-48b8-8eba-c4f9dfb6fbe6",
+  "location": "Transport Tech 2026",
+  "updatedAt": 1787361660524
 }
