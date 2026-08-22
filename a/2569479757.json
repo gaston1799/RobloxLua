@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 103267476117654,
+  "jobId": "fb2e8d64-4e5c-4f2c-a179-269d01198442",
+  "join": "roblox://placeId=103267476117654&gameInstanceId=fb2e8d64-4e5c-4f2c-a179-269d01198442",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787384311206
+  "web": "https://www.roblox.com/games/start?placeId=103267476117654&gameInstanceId=fb2e8d64-4e5c-4f2c-a179-269d01198442",
+  "location": "Mine Rocks ⛏️",
+  "updatedAt": 1787384341463
 }
