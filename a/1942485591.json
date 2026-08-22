@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 88801021577546,
+  "jobId": "2b1cde61-f8f4-4bdf-a4df-e40ab0dbcfb1",
+  "join": "roblox://placeId=88801021577546&gameInstanceId=2b1cde61-f8f4-4bdf-a4df-e40ab0dbcfb1",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787435879052
+  "web": "https://www.roblox.com/games/start?placeId=88801021577546&gameInstanceId=2b1cde61-f8f4-4bdf-a4df-e40ab0dbcfb1",
+  "location": "Dino! [NEW]",
+  "updatedAt": 1787436120570
 }
