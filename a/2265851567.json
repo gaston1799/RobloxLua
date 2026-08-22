@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 117630053494430,
+  "jobId": "8388b1d5-e4f0-44e0-a91b-97f57e0cdba9",
+  "join": "roblox://placeId=117630053494430&gameInstanceId=8388b1d5-e4f0-44e0-a91b-97f57e0cdba9",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787408461006
+  "web": "https://www.roblox.com/games/start?placeId=117630053494430&gameInstanceId=8388b1d5-e4f0-44e0-a91b-97f57e0cdba9",
+  "location": "Demon Arena",
+  "updatedAt": 1787408878720
 }
