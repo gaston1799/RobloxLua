@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92394295183922,
+  "jobId": "3fb80010-e227-437f-a83b-6bc694a452aa",
+  "join": "roblox://placeId=92394295183922&gameInstanceId=3fb80010-e227-437f-a83b-6bc694a452aa",
   "follow": "roblox://followUserId=7507429181",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787395890686
+  "web": "https://www.roblox.com/games/start?placeId=92394295183922&gameInstanceId=3fb80010-e227-437f-a83b-6bc694a452aa",
+  "location": "Breachpoint",
+  "updatedAt": 1787395920316
 }
