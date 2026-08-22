@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 111765932318951,
-  "jobId": "344d5474-9910-4520-8ccd-3772df3b7173",
-  "join": "roblox://placeId=111765932318951&gameInstanceId=344d5474-9910-4520-8ccd-3772df3b7173",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=111765932318951&gameInstanceId=344d5474-9910-4520-8ccd-3772df3b7173",
-  "location": "[💎] Mining Empire",
-  "updatedAt": 1787408611181
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787408641782
 }
