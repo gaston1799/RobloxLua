@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 72896199592423,
-  "jobId": "92b796f5-f9a7-460b-a6e8-5e77504b0072",
-  "join": "roblox://placeId=72896199592423&gameInstanceId=92b796f5-f9a7-460b-a6e8-5e77504b0072",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=72896199592423&gameInstanceId=92b796f5-f9a7-460b-a6e8-5e77504b0072",
-  "location": "🦞 My Seafood Stand!",
-  "updatedAt": 1787359831389
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787359861303
 }
