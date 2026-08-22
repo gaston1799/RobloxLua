@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131103239963274,
+  "jobId": "47667b06-abfb-4963-a5f3-0060014aea66",
+  "join": "roblox://placeId=131103239963274&gameInstanceId=47667b06-abfb-4963-a5f3-0060014aea66",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787437559156
+  "web": "https://www.roblox.com/games/start?placeId=131103239963274&gameInstanceId=47667b06-abfb-4963-a5f3-0060014aea66",
+  "location": "[☢️] Cowboy DUELS",
+  "updatedAt": 1787437679042
 }
