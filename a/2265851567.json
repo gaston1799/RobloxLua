@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 125977609033603,
-  "jobId": "f65cf503-cd98-4db3-9c5f-ac69bd54d1b9",
-  "join": "roblox://placeId=125977609033603&gameInstanceId=f65cf503-cd98-4db3-9c5f-ac69bd54d1b9",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=125977609033603&gameInstanceId=f65cf503-cd98-4db3-9c5f-ac69bd54d1b9",
-  "location": "[🦒] Evolve & Survive!",
-  "updatedAt": 1787455199436
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787455439458
 }
