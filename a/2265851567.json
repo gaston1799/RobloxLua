@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15654981113,
+  "jobId": "bcea0677-dc47-4ceb-8fde-07f4e152f7f1",
+  "join": "roblox://placeId=15654981113&gameInstanceId=bcea0677-dc47-4ceb-8fde-07f4e152f7f1",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787454839398
+  "web": "https://www.roblox.com/games/start?placeId=15654981113&gameInstanceId=bcea0677-dc47-4ceb-8fde-07f4e152f7f1",
+  "location": "Death Penalty ",
+  "updatedAt": 1787454963420
 }
