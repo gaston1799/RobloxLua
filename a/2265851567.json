@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 121582128546193,
-  "jobId": "cb0a42d7-ec96-44f8-b51f-7614f4b26a62",
-  "join": "roblox://placeId=121582128546193&gameInstanceId=cb0a42d7-ec96-44f8-b51f-7614f4b26a62",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=121582128546193&gameInstanceId=cb0a42d7-ec96-44f8-b51f-7614f4b26a62",
-  "location": "Merge a Tank",
-  "updatedAt": 1787455739408
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787455859476
 }
