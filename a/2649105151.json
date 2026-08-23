@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "5d22ee94-d7f2-479a-8fdb-1c3b63f783c3",
+  "join": "roblox://placeId=142823291&gameInstanceId=5d22ee94-d7f2-479a-8fdb-1c3b63f783c3",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787455289368
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=5d22ee94-d7f2-479a-8fdb-1c3b63f783c3",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1787455319565
 }
