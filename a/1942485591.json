@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 137228775845999,
+  "jobId": "cdf843de-aba7-45bf-a058-f02c5dffae95",
+  "join": "roblox://placeId=137228775845999&gameInstanceId=cdf843de-aba7-45bf-a058-f02c5dffae95",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787506440017
+  "web": "https://www.roblox.com/games/start?placeId=137228775845999&gameInstanceId=cdf843de-aba7-45bf-a058-f02c5dffae95",
+  "location": "Ghost Driver [PRE-ALPHA]",
+  "updatedAt": 1787506980019
 }
