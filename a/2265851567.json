@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15502339080,
+  "jobId": "44a293ab-5975-4e52-b8c9-7b802d65ce9a",
+  "join": "roblox://placeId=15502339080&gameInstanceId=44a293ab-5975-4e52-b8c9-7b802d65ce9a",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787473499735
+  "web": "https://www.roblox.com/games/start?placeId=15502339080&gameInstanceId=44a293ab-5975-4e52-b8c9-7b802d65ce9a",
+  "location": "🍀 [LUCKY BLOCK] Pet Simulator 99! 🧱",
+  "updatedAt": 1787473681303
 }
