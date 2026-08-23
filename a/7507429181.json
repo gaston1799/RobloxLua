@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107467295209358,
+  "jobId": "afd59245-4746-412b-baba-14db118d6d27",
+  "join": "roblox://placeId=107467295209358&gameInstanceId=afd59245-4746-412b-baba-14db118d6d27",
   "follow": "roblox://followUserId=7507429181",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787518772522
+  "web": "https://www.roblox.com/games/start?placeId=107467295209358&gameInstanceId=afd59245-4746-412b-baba-14db118d6d27",
+  "location": "A desrt [SANDBOX]",
+  "updatedAt": 1787518808861
 }
