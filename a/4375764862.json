@@ -1,12 +1,12 @@
 {
   "userId": 4375764862,
   "displayName": "Samxxz",
-  "status": "in-game",
-  "placeId": 2432005634,
-  "jobId": "8ce07545-4846-40a9-89e9-06f80cc2402f",
-  "join": "roblox://placeId=2432005634&gameInstanceId=8ce07545-4846-40a9-89e9-06f80cc2402f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4375764862",
-  "web": "https://www.roblox.com/games/start?placeId=2432005634&gameInstanceId=8ce07545-4846-40a9-89e9-06f80cc2402f",
-  "location": "A Wolf Or Other",
-  "updatedAt": 1787525340215
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787525400245
 }
