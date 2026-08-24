@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 73097591386069,
+  "jobId": "b7964cef-636e-4d55-b2f6-3ca10f8f6bc4",
+  "join": "roblox://placeId=73097591386069&gameInstanceId=b7964cef-636e-4d55-b2f6-3ca10f8f6bc4",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787591223077
+  "web": "https://www.roblox.com/games/start?placeId=73097591386069&gameInstanceId=b7964cef-636e-4d55-b2f6-3ca10f8f6bc4",
+  "location": "Trade Dumplings",
+  "updatedAt": 1787591401389
 }
