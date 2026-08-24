@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "in-game",
-  "placeId": 84834390140165,
-  "jobId": "91c64ebe-70af-4a87-8ca1-01bbbe08a047",
-  "join": "roblox://placeId=84834390140165&gameInstanceId=91c64ebe-70af-4a87-8ca1-01bbbe08a047",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1694151241",
-  "web": "https://www.roblox.com/games/start?placeId=84834390140165&gameInstanceId=91c64ebe-70af-4a87-8ca1-01bbbe08a047",
-  "location": "Spin a Kitty! 🎲",
-  "updatedAt": 1787536653442
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787536683586
 }
