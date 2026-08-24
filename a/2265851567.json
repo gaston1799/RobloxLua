@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92637789841354,
+  "jobId": "4c946db4-27d3-4d9d-972a-17d5b0c9835b",
+  "join": "roblox://placeId=92637789841354&gameInstanceId=4c946db4-27d3-4d9d-972a-17d5b0c9835b",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787585043763
+  "web": "https://www.roblox.com/games/start?placeId=92637789841354&gameInstanceId=4c946db4-27d3-4d9d-972a-17d5b0c9835b",
+  "location": "🍂 Clean all the leaves!",
+  "updatedAt": 1787585222655
 }
