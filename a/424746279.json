@@ -1,12 +1,12 @@
 {
   "userId": 424746279,
   "displayName": "joli",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 189707,
+  "jobId": "350f8564-1c92-44b9-8a04-d45f88103d2a",
+  "join": "roblox://placeId=189707&gameInstanceId=350f8564-1c92-44b9-8a04-d45f88103d2a",
   "follow": "roblox://followUserId=424746279",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787595632447
+  "web": "https://www.roblox.com/games/start?placeId=189707&gameInstanceId=350f8564-1c92-44b9-8a04-d45f88103d2a",
+  "location": "Natural Disaster Survival",
+  "updatedAt": 1787595666988
 }
