@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "e3d87a63-a9fd-466d-aca3-943c9551fcf4",
+  "join": "roblox://placeId=7041939546&gameInstanceId=e3d87a63-a9fd-466d-aca3-943c9551fcf4",
   "follow": "roblox://followUserId=7507429181",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787532152023
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=e3d87a63-a9fd-466d-aca3-943c9551fcf4",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1787532183583
 }
