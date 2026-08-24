@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 114204398207377,
+  "jobId": "dd5f2781-bf38-434e-8d8f-00c5238c75db",
+  "join": "roblox://placeId=114204398207377&gameInstanceId=dd5f2781-bf38-434e-8d8f-00c5238c75db",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787513640071
+  "web": "https://www.roblox.com/games/start?placeId=114204398207377&gameInstanceId=dd5f2781-bf38-434e-8d8f-00c5238c75db",
+  "location": "[PIRATE EVENT] Survive Zombie Arena",
+  "updatedAt": 1787541540288
 }
