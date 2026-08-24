@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 120788226811543,
+  "jobId": "53c5165d-b77c-44a6-a86c-96d47abd8318",
+  "join": "roblox://placeId=120788226811543&gameInstanceId=53c5165d-b77c-44a6-a86c-96d47abd8318",
   "follow": "roblox://followUserId=7507429181",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787551473011
+  "web": "https://www.roblox.com/games/start?placeId=120788226811543&gameInstanceId=53c5165d-b77c-44a6-a86c-96d47abd8318",
+  "location": "Zoo Rivals [NEW]",
+  "updatedAt": 1787551503219
 }
