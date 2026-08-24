@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 14418473444,
+  "jobId": "ca65e316-7645-42f1-8851-4e942217a440",
+  "join": "roblox://placeId=14418473444&gameInstanceId=ca65e316-7645-42f1-8851-4e942217a440",
   "follow": "roblox://followUserId=1694151241",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787537614725
+  "web": "https://www.roblox.com/games/start?placeId=14418473444&gameInstanceId=ca65e316-7645-42f1-8851-4e942217a440",
+  "location": "Abyssal: The Outer Abyss 🪜",
+  "updatedAt": 1787537644718
 }
