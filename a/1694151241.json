@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "in-game",
-  "placeId": 84890467483013,
-  "jobId": "7716564a-0250-4793-89c6-3ce278d5c53a",
-  "join": "roblox://placeId=84890467483013&gameInstanceId=7716564a-0250-4793-89c6-3ce278d5c53a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1694151241",
-  "web": "https://www.roblox.com/games/start?placeId=84890467483013&gameInstanceId=7716564a-0250-4793-89c6-3ce278d5c53a",
-  "location": "Find the Differences 🔍",
-  "updatedAt": 1787536954510
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787537104265
 }
