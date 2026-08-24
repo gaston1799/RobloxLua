@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 104065269680557,
-  "jobId": "6fe8748f-c003-4301-89f2-202793ef185d",
-  "join": "roblox://placeId=104065269680557&gameInstanceId=6fe8748f-c003-4301-89f2-202793ef185d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=104065269680557&gameInstanceId=6fe8748f-c003-4301-89f2-202793ef185d",
-  "location": "[🦐] My Shrimp Farm",
-  "updatedAt": 1787532573024
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787532602940
 }
