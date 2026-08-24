@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 115681808123944,
-  "jobId": "1eb628b3-ac2e-4995-a29d-0f565411cd5d",
-  "join": "roblox://placeId=115681808123944&gameInstanceId=1eb628b3-ac2e-4995-a29d-0f565411cd5d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=115681808123944&gameInstanceId=1eb628b3-ac2e-4995-a29d-0f565411cd5d",
-  "location": "[W5🌎] Throw a Coin",
-  "updatedAt": 1787555732441
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787555762960
 }
