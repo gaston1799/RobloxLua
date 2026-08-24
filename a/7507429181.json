@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 128931272139211,
-  "jobId": "1d186acb-abad-4bfc-96fa-277881740058",
-  "join": "roblox://placeId=128931272139211&gameInstanceId=1d186acb-abad-4bfc-96fa-277881740058",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=128931272139211&gameInstanceId=1d186acb-abad-4bfc-96fa-277881740058",
-  "location": "[🏗️] Claw Fishing",
-  "updatedAt": 1787531552937
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787531582067
 }
