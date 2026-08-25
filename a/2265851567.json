@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1962086868,
+  "jobId": "211852a0-0f2a-4b2c-ae32-c58ad74bd1cb",
+  "join": "roblox://placeId=1962086868&gameInstanceId=211852a0-0f2a-4b2c-ae32-c58ad74bd1cb",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787649392698
+  "web": "https://www.roblox.com/games/start?placeId=1962086868&gameInstanceId=211852a0-0f2a-4b2c-ae32-c58ad74bd1cb",
+  "location": "Tower of Hell",
+  "updatedAt": 1787650892949
 }
