@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 103435041917710,
-  "jobId": "0420aed8-5dfe-4d5f-818b-79285db9b641",
-  "join": "roblox://placeId=103435041917710&gameInstanceId=0420aed8-5dfe-4d5f-818b-79285db9b641",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=103435041917710&gameInstanceId=0420aed8-5dfe-4d5f-818b-79285db9b641",
-  "location": "Build a House",
-  "updatedAt": 1787628994593
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787629026475
 }
