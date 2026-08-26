@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99421106727783,
+  "jobId": "09c27058-cdfa-44ea-8efe-2a194a6cb988",
+  "join": "roblox://placeId=99421106727783&gameInstanceId=09c27058-cdfa-44ea-8efe-2a194a6cb988",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787734684845
+  "web": "https://www.roblox.com/games/start?placeId=99421106727783&gameInstanceId=09c27058-cdfa-44ea-8efe-2a194a6cb988",
+  "location": "Driving Empire [NEW LIMITED✨] ",
+  "updatedAt": 1787734744857
 }
