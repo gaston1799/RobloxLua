@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7171174521,
+  "jobId": "b32d2975-434d-41bd-812b-4b7559fe91db",
+  "join": "roblox://placeId=7171174521&gameInstanceId=b32d2975-434d-41bd-812b-4b7559fe91db",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787778335496
+  "web": "https://www.roblox.com/games/start?placeId=7171174521&gameInstanceId=b32d2975-434d-41bd-812b-4b7559fe91db",
+  "location": "[🔒SAVE SLOTS] American Plains Mudding",
+  "updatedAt": 1787778395366
 }
