@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "f11fafed-36c7-47ea-87e4-99c68a80f881",
+  "join": "roblox://placeId=7041939546&gameInstanceId=f11fafed-36c7-47ea-87e4-99c68a80f881",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787729404626
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=f11fafed-36c7-47ea-87e4-99c68a80f881",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1787729524646
 }
