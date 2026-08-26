@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 90704250333473,
+  "jobId": "be9b9190-7512-4400-b098-2ca9cbfd4a6a",
+  "join": "roblox://placeId=90704250333473&gameInstanceId=be9b9190-7512-4400-b098-2ca9cbfd4a6a",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787754218088
+  "web": "https://www.roblox.com/games/start?placeId=90704250333473&gameInstanceId=be9b9190-7512-4400-b098-2ca9cbfd4a6a",
+  "location": "Become a Billionaire 💸",
+  "updatedAt": 1787754310319
 }
