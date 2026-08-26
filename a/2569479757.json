@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 88801021577546,
-  "jobId": "d832a199-7782-4518-a956-5c3549914d34",
-  "join": "roblox://placeId=88801021577546&gameInstanceId=d832a199-7782-4518-a956-5c3549914d34",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=88801021577546&gameInstanceId=d832a199-7782-4518-a956-5c3549914d34",
-  "location": "Dino! [NEW]",
-  "updatedAt": 1787739038080
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787739848113
 }
