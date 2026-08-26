@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "in-game",
-  "placeId": 8560631822,
-  "jobId": "ecab283d-91d0-4719-9408-fe237072500f",
-  "join": "roblox://placeId=8560631822&gameInstanceId=ecab283d-91d0-4719-9408-fe237072500f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=8560631822&gameInstanceId=ecab283d-91d0-4719-9408-fe237072500f",
-  "location": "BedWars [🏆RANKED + BLITZ]",
-  "updatedAt": 1787752865365
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787753345351
 }
