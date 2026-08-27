@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2753915549,
+  "jobId": "275d1d29-1b12-4ee4-ba05-a31cc0a5c838",
+  "join": "roblox://placeId=2753915549&gameInstanceId=275d1d29-1b12-4ee4-ba05-a31cc0a5c838",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787868998173
+  "web": "https://www.roblox.com/games/start?placeId=2753915549&gameInstanceId=275d1d29-1b12-4ee4-ba05-a31cc0a5c838",
+  "location": "⚔️ Blox Fruits",
+  "updatedAt": 1787870918281
 }
