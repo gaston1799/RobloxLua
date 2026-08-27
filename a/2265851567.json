@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3260590327,
+  "jobId": "1c3372e6-e873-40bd-b7fa-ecd963119c82",
+  "join": "roblox://placeId=3260590327&gameInstanceId=1c3372e6-e873-40bd-b7fa-ecd963119c82",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787838547104
+  "web": "https://www.roblox.com/games/start?placeId=3260590327&gameInstanceId=1c3372e6-e873-40bd-b7fa-ecd963119c82",
+  "location": "[GLADIATOR] Tower Defense Simulator",
+  "updatedAt": 1787838607075
 }
