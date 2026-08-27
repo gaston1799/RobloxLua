@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 80535337028334,
+  "jobId": "4b0de253-cb5e-4a8c-9dac-5b425cf3988f",
+  "join": "roblox://placeId=80535337028334&gameInstanceId=4b0de253-cb5e-4a8c-9dac-5b425cf3988f",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787846437476
+  "web": "https://www.roblox.com/games/start?placeId=80535337028334&gameInstanceId=4b0de253-cb5e-4a8c-9dac-5b425cf3988f",
+  "location": "Fight Tournament",
+  "updatedAt": 1787846557444
 }
