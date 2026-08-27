@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107828406309109,
+  "jobId": "306a382b-314d-4dfc-a677-5105f1f93d01",
+  "join": "roblox://placeId=107828406309109&gameInstanceId=306a382b-314d-4dfc-a677-5105f1f93d01",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787818326441
+  "web": "https://www.roblox.com/games/start?placeId=107828406309109&gameInstanceId=306a382b-314d-4dfc-a677-5105f1f93d01",
+  "location": "The Button",
+  "updatedAt": 1787818356380
 }
