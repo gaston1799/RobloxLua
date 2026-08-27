@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 128514996879514,
-  "jobId": "aa605701-b19a-4352-a52f-773b7ee083ce",
-  "join": "roblox://placeId=128514996879514&gameInstanceId=aa605701-b19a-4352-a52f-773b7ee083ce",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=128514996879514&gameInstanceId=aa605701-b19a-4352-a52f-773b7ee083ce",
-  "location": "[🐘] Animal Kingdom",
-  "updatedAt": 1787868398375
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787868698336
 }
