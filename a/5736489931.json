@@ -1,12 +1,12 @@
 {
   "userId": 5736489931,
   "displayName": "GaelxA",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "a579a098-4ac7-459c-b8d3-ae81ebc1f6a5",
+  "join": "roblox://placeId=142823291&gameInstanceId=a579a098-4ac7-459c-b8d3-ae81ebc1f6a5",
   "follow": "roblox://followUserId=5736489931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787789225469
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=a579a098-4ac7-459c-b8d3-ae81ebc1f6a5",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1787803625801
 }
