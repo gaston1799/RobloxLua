@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 72845937010155,
-  "jobId": "c6550431-ec0a-46fe-91d9-dc477ab0370d",
-  "join": "roblox://placeId=72845937010155&gameInstanceId=c6550431-ec0a-46fe-91d9-dc477ab0370d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=72845937010155&gameInstanceId=c6550431-ec0a-46fe-91d9-dc477ab0370d",
-  "location": "[✋] Gear Slap Tower",
-  "updatedAt": 1787793425700
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787794805565
 }
