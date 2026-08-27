@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6816975827,
+  "jobId": "a0ab35c0-8b8b-418a-aa58-3c116be5a942",
+  "join": "roblox://placeId=6816975827&gameInstanceId=a0ab35c0-8b8b-418a-aa58-3c116be5a942",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787871579542
+  "web": "https://www.roblox.com/games/start?placeId=6816975827&gameInstanceId=a0ab35c0-8b8b-418a-aa58-3c116be5a942",
+  "location": "[☀️] Car Suspension Test",
+  "updatedAt": 1787871758257
 }
