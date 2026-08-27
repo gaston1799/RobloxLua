@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 90086669327265,
-  "jobId": "56dbe2cc-787b-46a2-997a-ee228a12f156",
-  "join": "roblox://placeId=90086669327265&gameInstanceId=56dbe2cc-787b-46a2-997a-ee228a12f156",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=90086669327265&gameInstanceId=56dbe2cc-787b-46a2-997a-ee228a12f156",
-  "location": "+1 Cut Grass Adventure",
-  "updatedAt": 1787860117807
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1787862457925
 }
