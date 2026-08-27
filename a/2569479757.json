@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 79546208627805,
+  "jobId": "d145cf65-5b86-4414-b1df-d7d056955f0c",
+  "join": "roblox://placeId=79546208627805&gameInstanceId=d145cf65-5b86-4414-b1df-d7d056955f0c",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787845031459
+  "web": "https://www.roblox.com/games/start?placeId=79546208627805&gameInstanceId=d145cf65-5b86-4414-b1df-d7d056955f0c",
+  "location": "[🪶] 99 Nights in the Forest 🔦",
+  "updatedAt": 1787845060706
 }
