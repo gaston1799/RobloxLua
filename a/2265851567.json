@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 3956818381,
-  "jobId": "952d54e7-1fee-4526-83f5-d2596ff1ebc4",
-  "join": "roblox://placeId=3956818381&gameInstanceId=952d54e7-1fee-4526-83f5-d2596ff1ebc4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=3956818381&gameInstanceId=952d54e7-1fee-4526-83f5-d2596ff1ebc4",
-  "location": "⚡Ninja Legends",
-  "updatedAt": 1787882080859
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787882798698
 }
