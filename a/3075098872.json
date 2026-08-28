@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 18745325915,
-  "jobId": "6d8ab739-4c28-4529-ae2d-3bdb37e3bf5f",
-  "join": "roblox://placeId=18745325915&gameInstanceId=6d8ab739-4c28-4529-ae2d-3bdb37e3bf5f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=18745325915&gameInstanceId=6d8ab739-4c28-4529-ae2d-3bdb37e3bf5f",
-  "location": "[🍀10x-LUCK] Cultivation RNG🎲",
-  "updatedAt": 1787891019187
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787891139185
 }
