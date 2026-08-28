@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 17625359962,
+  "jobId": "95ac17a5-6972-41b8-b66c-01e61a6c497a",
+  "join": "roblox://placeId=17625359962&gameInstanceId=95ac17a5-6972-41b8-b66c-01e61a6c497a",
   "follow": "roblox://followUserId=7507429181",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787895969874
+  "web": "https://www.roblox.com/games/start?placeId=17625359962&gameInstanceId=95ac17a5-6972-41b8-b66c-01e61a6c497a",
+  "location": "RIVALS",
+  "updatedAt": 1787896002496
 }
