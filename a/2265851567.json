@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7933242294,
+  "jobId": "9418ce79-8914-4712-9b6e-5665d7f3b92b",
+  "join": "roblox://placeId=7933242294&gameInstanceId=9418ce79-8914-4712-9b6e-5665d7f3b92b",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787880998717
+  "web": "https://www.roblox.com/games/start?placeId=7933242294&gameInstanceId=9418ce79-8914-4712-9b6e-5665d7f3b92b",
+  "location": "[☢️] Stud Walls Jump Per Difficulty Chart Obby",
+  "updatedAt": 1787881598671
 }
