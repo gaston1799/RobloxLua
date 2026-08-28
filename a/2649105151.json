@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 128551550921649,
+  "jobId": "03e008f4-a03c-4d52-a043-9b423aa20c36",
+  "join": "roblox://placeId=128551550921649&gameInstanceId=03e008f4-a03c-4d52-a043-9b423aa20c36",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787922069638
+  "web": "https://www.roblox.com/games/start?placeId=128551550921649&gameInstanceId=03e008f4-a03c-4d52-a043-9b423aa20c36",
+  "location": "My Ant Colony 🐜",
+  "updatedAt": 1787922099801
 }
