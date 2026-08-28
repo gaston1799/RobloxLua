@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 137925884276740,
-  "jobId": "c40f1e67-b504-4195-8f4a-e8661fa3eca4",
-  "join": "roblox://placeId=137925884276740&gameInstanceId=c40f1e67-b504-4195-8f4a-e8661fa3eca4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=137925884276740&gameInstanceId=c40f1e67-b504-4195-8f4a-e8661fa3eca4",
-  "location": "[🎖️] Build A Plane",
-  "updatedAt": 1787873678295
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787876318352
 }
