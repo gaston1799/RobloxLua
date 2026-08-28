@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 107778070777162,
-  "jobId": "3d92e41c-ea57-4f84-a5d8-4a0059405315",
-  "join": "roblox://placeId=107778070777162&gameInstanceId=3d92e41c-ea57-4f84-a5d8-4a0059405315",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=107778070777162&gameInstanceId=3d92e41c-ea57-4f84-a5d8-4a0059405315",
-  "location": "Steal An Egg",
-  "updatedAt": 1787955760358
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787956000190
 }
