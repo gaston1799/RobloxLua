@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 136791844256054,
+  "jobId": "d832ec1b-7e03-4a54-b695-c66dc0264310",
+  "join": "roblox://placeId=136791844256054&gameInstanceId=d832ec1b-7e03-4a54-b695-c66dc0264310",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787932660164
+  "web": "https://www.roblox.com/games/start?placeId=136791844256054&gameInstanceId=d832ec1b-7e03-4a54-b695-c66dc0264310",
+  "location": "Normal to IMPOSSIBLE Obby 😈",
+  "updatedAt": 1787932720261
 }
