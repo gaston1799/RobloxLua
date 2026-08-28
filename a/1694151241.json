@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "in-game",
-  "placeId": 102574559184919,
-  "jobId": "3c440cc1-cd39-481d-b655-887a4eb44253",
-  "join": "roblox://placeId=102574559184919&gameInstanceId=3c440cc1-cd39-481d-b655-887a4eb44253",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1694151241",
-  "web": "https://www.roblox.com/games/start?placeId=102574559184919&gameInstanceId=3c440cc1-cd39-481d-b655-887a4eb44253",
-  "location": "Craft Food",
-  "updatedAt": 1787961312804
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787961342987
 }
