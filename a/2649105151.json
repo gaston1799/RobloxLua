@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 75566430380254,
+  "jobId": "e1a74faf-b518-43a8-b56a-e4328620274b",
+  "join": "roblox://placeId=75566430380254&gameInstanceId=e1a74faf-b518-43a8-b56a-e4328620274b",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787879828283
+  "web": "https://www.roblox.com/games/start?placeId=75566430380254&gameInstanceId=e1a74faf-b518-43a8-b56a-e4328620274b",
+  "location": "[UPD] Death Ball",
+  "updatedAt": 1787879858781
 }
