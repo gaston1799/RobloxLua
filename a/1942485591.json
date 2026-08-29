@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 104732876715228,
+  "jobId": "e228e8e2-2f4a-4974-9eaa-3339c19555d4",
+  "join": "roblox://placeId=104732876715228&gameInstanceId=e228e8e2-2f4a-4974-9eaa-3339c19555d4",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788043781962
+  "web": "https://www.roblox.com/games/start?placeId=104732876715228&gameInstanceId=e228e8e2-2f4a-4974-9eaa-3339c19555d4",
+  "location": "Immersive Surfing (BETA)",
+  "updatedAt": 1788044202218
 }
