@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 115113242795436,
+  "jobId": "b340bedd-494b-4dd3-876f-38716cc00649",
+  "join": "roblox://placeId=115113242795436&gameInstanceId=b340bedd-494b-4dd3-876f-38716cc00649",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787976100397
+  "web": "https://www.roblox.com/games/start?placeId=115113242795436&gameInstanceId=b340bedd-494b-4dd3-876f-38716cc00649",
+  "location": "[🎲] Roll Anime Fighters",
+  "updatedAt": 1787976160456
 }
