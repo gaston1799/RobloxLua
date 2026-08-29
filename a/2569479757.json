@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 105992569322257,
-  "jobId": "9a01168b-fb46-467e-97e6-6efad69885e6",
-  "join": "roblox://placeId=105992569322257&gameInstanceId=9a01168b-fb46-467e-97e6-6efad69885e6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=105992569322257&gameInstanceId=9a01168b-fb46-467e-97e6-6efad69885e6",
-  "location": "[☀️SUMMER] Clicking Legends: Remastered",
-  "updatedAt": 1788018673222
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788018704105
 }
