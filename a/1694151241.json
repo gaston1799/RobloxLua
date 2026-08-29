@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "in-game",
-  "placeId": 920587237,
-  "jobId": "51f8ec81-b949-438a-a87d-2b00396d0d7e",
-  "join": "roblox://placeId=920587237&gameInstanceId=51f8ec81-b949-438a-a87d-2b00396d0d7e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1694151241",
-  "web": "https://www.roblox.com/games/start?placeId=920587237&gameInstanceId=51f8ec81-b949-438a-a87d-2b00396d0d7e",
-  "location": "[24H⌛] Adopt Me!",
-  "updatedAt": 1787970553575
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1787970584109
 }
