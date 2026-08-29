@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 85048226835181,
+  "jobId": "174c7d93-41ae-4a5d-a54d-623a87e87e58",
+  "join": "roblox://placeId=85048226835181&gameInstanceId=174c7d93-41ae-4a5d-a54d-623a87e87e58",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787969262392
+  "web": "https://www.roblox.com/games/start?placeId=85048226835181&gameInstanceId=174c7d93-41ae-4a5d-a54d-623a87e87e58",
+  "location": "Tree RNG ",
+  "updatedAt": 1787969800628
 }
