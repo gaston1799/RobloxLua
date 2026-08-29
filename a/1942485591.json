@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 93999763241813,
+  "jobId": "b34c7864-b0c3-4b96-aa9b-99f37d452861",
+  "join": "roblox://placeId=93999763241813&gameInstanceId=b34c7864-b0c3-4b96-aa9b-99f37d452861",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788032021710
+  "web": "https://www.roblox.com/games/start?placeId=93999763241813&gameInstanceId=b34c7864-b0c3-4b96-aa9b-99f37d452861",
+  "location": "Roll an Anime [🎲]",
+  "updatedAt": 1788032081704
 }
