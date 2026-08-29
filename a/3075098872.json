@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 81930359508644,
+  "jobId": "d0dacc01-fe0f-4459-b1e1-3ec8ae939da8",
+  "join": "roblox://placeId=81930359508644&gameInstanceId=d0dacc01-fe0f-4459-b1e1-3ec8ae939da8",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787964520397
+  "web": "https://www.roblox.com/games/start?placeId=81930359508644&gameInstanceId=d0dacc01-fe0f-4459-b1e1-3ec8ae939da8",
+  "location": "NINE VICIOUS EMOTIONS TOUR SL",
+  "updatedAt": 1787964700412
 }
