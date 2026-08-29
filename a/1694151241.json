@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 82208825713916,
+  "jobId": "aea49474-1bec-42f1-a78f-a22cb2f2aae0",
+  "join": "roblox://placeId=82208825713916&gameInstanceId=aea49474-1bec-42f1-a78f-a22cb2f2aae0",
   "follow": "roblox://followUserId=1694151241",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1787969894507
+  "web": "https://www.roblox.com/games/start?placeId=82208825713916&gameInstanceId=aea49474-1bec-42f1-a78f-a22cb2f2aae0",
+  "location": "Scale Slimy Fish [UPDATE]",
+  "updatedAt": 1787969929783
 }
