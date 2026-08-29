@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10192036221,
+  "jobId": "66b3bf32-3ad8-4b76-807f-37a1daca9454",
+  "join": "roblox://placeId=10192036221&gameInstanceId=66b3bf32-3ad8-4b76-807f-37a1daca9454",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788030554939
+  "web": "https://www.roblox.com/games/start?placeId=10192036221&gameInstanceId=66b3bf32-3ad8-4b76-807f-37a1daca9454",
+  "location": "Laime's Difficulty Chart Obby",
+  "updatedAt": 1788030644390
 }
