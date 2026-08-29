@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 106920577206536,
-  "jobId": "90918ca5-1cb7-4972-b399-70224f049717",
-  "join": "roblox://placeId=106920577206536&gameInstanceId=90918ca5-1cb7-4972-b399-70224f049717",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=106920577206536&gameInstanceId=90918ca5-1cb7-4972-b399-70224f049717",
-  "location": "A Quiet Place: Deadzone (Pre-Alpha)",
-  "updatedAt": 1788020981504
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788021701578
 }
