@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 86696142930150,
-  "jobId": "277f6be2-6f51-46a9-8b97-4e575542c383",
-  "join": "roblox://placeId=86696142930150&gameInstanceId=277f6be2-6f51-46a9-8b97-4e575542c383",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=86696142930150&gameInstanceId=277f6be2-6f51-46a9-8b97-4e575542c383",
-  "location": "[🔥UPD!] Hypershot",
-  "updatedAt": 1788113386115
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788114285953
 }
