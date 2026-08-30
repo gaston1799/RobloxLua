@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "in-game",
-  "placeId": 8444591321,
-  "jobId": "ca3dfae6-977e-40e7-999b-94fa9cb876d1",
-  "join": "roblox://placeId=8444591321&gameInstanceId=ca3dfae6-977e-40e7-999b-94fa9cb876d1",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=8444591321&gameInstanceId=ca3dfae6-977e-40e7-999b-94fa9cb876d1",
-  "location": "BedWars [🐦‍⬛Raven Re-Release]",
-  "updatedAt": 1788072162546
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788072642851
 }
