@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 537413528,
-  "jobId": "b6003b01-505c-45ca-9a3b-092e963bbcdc",
-  "join": "roblox://placeId=537413528&gameInstanceId=b6003b01-505c-45ca-9a3b-092e963bbcdc",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=537413528&gameInstanceId=b6003b01-505c-45ca-9a3b-092e963bbcdc",
-  "location": "Build A Boat For Treasure",
-  "updatedAt": 1788117676867
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788119207620
 }
