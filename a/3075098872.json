@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 71315343,
+  "jobId": "8d27687c-3220-47b4-be5e-e63bb6b5f821",
+  "join": "roblox://placeId=71315343&gameInstanceId=8d27687c-3220-47b4-be5e-e63bb6b5f821",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788118484473
+  "web": "https://www.roblox.com/games/start?placeId=71315343&gameInstanceId=8d27687c-3220-47b4-be5e-e63bb6b5f821",
+  "location": "[UPD] Dragon Ball Rage",
+  "updatedAt": 1788119024304
 }
