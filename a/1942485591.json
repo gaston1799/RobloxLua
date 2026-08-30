@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 17662297954,
-  "jobId": "68168de2-302b-448e-b875-f43ab223ffa6",
-  "join": "roblox://placeId=17662297954&gameInstanceId=68168de2-302b-448e-b875-f43ab223ffa6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=17662297954&gameInstanceId=68168de2-302b-448e-b875-f43ab223ffa6",
-  "location": "[⛩️SUKUNA] KAIZEN",
-  "updatedAt": 1788064542455
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788067782540
 }
