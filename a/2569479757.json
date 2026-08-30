@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 93978595733734,
-  "jobId": "76c05a19-82bf-4daa-b06e-cbab677419c6",
-  "join": "roblox://placeId=93978595733734&gameInstanceId=76c05a19-82bf-4daa-b06e-cbab677419c6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=93978595733734&gameInstanceId=76c05a19-82bf-4daa-b06e-cbab677419c6",
-  "location": "[CURE] Violence District",
-  "updatedAt": 1788117497447
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788117527380
 }
