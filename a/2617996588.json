@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 131367064230486,
-  "jobId": "edf1621e-b01c-4d8b-aa00-91496095f13f",
-  "join": "roblox://placeId=131367064230486&gameInstanceId=edf1621e-b01c-4d8b-aa00-91496095f13f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=131367064230486&gameInstanceId=edf1621e-b01c-4d8b-aa00-91496095f13f",
-  "location": "The House Tower Defense 2 ",
-  "updatedAt": 1788065982546
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788066042558
 }
