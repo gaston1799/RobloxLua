@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 125496078313264,
-  "jobId": "603c50da-12ab-4f75-badf-57b24f100140",
-  "join": "roblox://placeId=125496078313264&gameInstanceId=603c50da-12ab-4f75-badf-57b24f100140",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=125496078313264&gameInstanceId=603c50da-12ab-4f75-badf-57b24f100140",
-  "location": "2 PLAYER Evolution Tycoon 🛸",
-  "updatedAt": 1788142606745
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788149265079
 }
