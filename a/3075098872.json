@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 18971041572,
-  "jobId": "d46b4ca9-2604-47c4-86e8-c5474fb47db6",
-  "join": "roblox://placeId=18971041572&gameInstanceId=d46b4ca9-2604-47c4-86e8-c5474fb47db6",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=18971041572&gameInstanceId=d46b4ca9-2604-47c4-86e8-c5474fb47db6",
-  "location": "[PSYCHE] Olympus",
-  "updatedAt": 1788211188091
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788211365615
 }
