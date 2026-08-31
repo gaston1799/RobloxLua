@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 8160862936,
+  "jobId": "3561c263-e6b0-4cf3-915f-7e1cd2d6746d",
+  "join": "roblox://placeId=8160862936&gameInstanceId=3561c263-e6b0-4cf3-915f-7e1cd2d6746d",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788193487422
+  "web": "https://www.roblox.com/games/start?placeId=8160862936&gameInstanceId=3561c263-e6b0-4cf3-915f-7e1cd2d6746d",
+  "location": "🍟SUPER EATER SIMULATOR",
+  "updatedAt": 1788193605551
 }
