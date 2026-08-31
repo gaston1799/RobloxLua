@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 123064301391841,
+  "jobId": "d89b3256-0aeb-477e-909d-1b2c7a76dd3b",
+  "join": "roblox://placeId=123064301391841&gameInstanceId=d89b3256-0aeb-477e-909d-1b2c7a76dd3b",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788178005282
+  "web": "https://www.roblox.com/games/start?placeId=123064301391841&gameInstanceId=d89b3256-0aeb-477e-909d-1b2c7a76dd3b",
+  "location": "[UPD] Mini War",
+  "updatedAt": 1788178067535
 }
