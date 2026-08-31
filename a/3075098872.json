@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 137420944932644,
-  "jobId": "db72cce4-4a68-4d95-b6b5-74b81951d917",
-  "join": "roblox://placeId=137420944932644&gameInstanceId=db72cce4-4a68-4d95-b6b5-74b81951d917",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=137420944932644&gameInstanceId=db72cce4-4a68-4d95-b6b5-74b81951d917",
-  "location": "[UPDATE] Hatch Haven X",
-  "updatedAt": 1788211727358
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788211787380
 }
