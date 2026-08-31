@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 80016334628313,
-  "jobId": "4618af3c-34b9-4c84-a160-09e5763fd3c1",
-  "join": "roblox://placeId=80016334628313&gameInstanceId=4618af3c-34b9-4c84-a160-09e5763fd3c1",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=80016334628313&gameInstanceId=4618af3c-34b9-4c84-a160-09e5763fd3c1",
-  "location": "MM2 of The Locust",
-  "updatedAt": 1788216705765
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788217725823
 }
