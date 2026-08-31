@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 74697547072376,
+  "jobId": "2e66169d-396e-432d-aaaf-abf57009b50c",
+  "join": "roblox://placeId=74697547072376&gameInstanceId=2e66169d-396e-432d-aaaf-abf57009b50c",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788210825672
+  "web": "https://www.roblox.com/games/start?placeId=74697547072376&gameInstanceId=2e66169d-396e-432d-aaaf-abf57009b50c",
+  "location": "[UPDATE] Infinite Realms [BETA]",
+  "updatedAt": 1788211127587
 }
