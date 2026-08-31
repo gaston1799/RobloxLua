@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 89213943884327,
+  "jobId": "13ee4eca-e6a4-453f-94de-2bffde47fe9c",
+  "join": "roblox://placeId=89213943884327&gameInstanceId=13ee4eca-e6a4-453f-94de-2bffde47fe9c",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788211485647
+  "web": "https://www.roblox.com/games/start?placeId=89213943884327&gameInstanceId=13ee4eca-e6a4-453f-94de-2bffde47fe9c",
+  "location": "Holy & Sin RNG",
+  "updatedAt": 1788211545637
 }
