@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 8653717625,
-  "jobId": "4a493689-8bfe-447e-b136-239ef391933b",
-  "join": "roblox://placeId=8653717625&gameInstanceId=4a493689-8bfe-447e-b136-239ef391933b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=8653717625&gameInstanceId=4a493689-8bfe-447e-b136-239ef391933b",
-  "location": "Before Truth [Horror]",
-  "updatedAt": 1788133426324
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788135944823
 }
