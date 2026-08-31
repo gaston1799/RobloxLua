@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 110334679443599,
-  "jobId": "4e31075a-e003-4c1b-8249-c7f16b5b396c",
-  "join": "roblox://placeId=110334679443599&gameInstanceId=4e31075a-e003-4c1b-8249-c7f16b5b396c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=110334679443599&gameInstanceId=4e31075a-e003-4c1b-8249-c7f16b5b396c",
-  "location": "A Broken Dream",
-  "updatedAt": 1788197865834
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788198525645
 }
