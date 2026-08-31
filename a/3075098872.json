@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 2981699666,
-  "jobId": "2ab682f0-d762-472b-b869-1ec549965aa8",
-  "join": "roblox://placeId=2981699666&gameInstanceId=2ab682f0-d762-472b-b869-1ec549965aa8",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=2981699666&gameInstanceId=2ab682f0-d762-472b-b869-1ec549965aa8",
-  "location": "Lunar Will - Superhero RP",
-  "updatedAt": 1788208485672
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788208547542
 }
