@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3260590327,
+  "jobId": "3b0d12b7-0ff8-4a3f-94ff-c5eb822ff408",
+  "join": "roblox://placeId=3260590327&gameInstanceId=3b0d12b7-0ff8-4a3f-94ff-c5eb822ff408",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788179865529
+  "web": "https://www.roblox.com/games/start?placeId=3260590327&gameInstanceId=3b0d12b7-0ff8-4a3f-94ff-c5eb822ff408",
+  "location": "[NEW BOSS]  Tower Defense Simulator",
+  "updatedAt": 1788187367031
 }
