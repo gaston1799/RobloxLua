@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111035930019117,
+  "jobId": "4cb15644-509b-4cc0-a6b8-7fddf4665ad0",
+  "join": "roblox://placeId=111035930019117&gameInstanceId=4cb15644-509b-4cc0-a6b8-7fddf4665ad0",
   "follow": "roblox://followUserId=7507429181",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788136755529
+  "web": "https://www.roblox.com/games/start?placeId=111035930019117&gameInstanceId=4cb15644-509b-4cc0-a6b8-7fddf4665ad0",
+  "location": "[🌳] My Timber Pets!",
+  "updatedAt": 1788136786957
 }
