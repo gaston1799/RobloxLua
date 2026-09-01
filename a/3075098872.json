@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 15341793633,
+  "jobId": "e392c68f-896a-4b55-8ab7-59e3a147d80b",
+  "join": "roblox://placeId=15341793633&gameInstanceId=e392c68f-896a-4b55-8ab7-59e3a147d80b",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788240062191
+  "web": "https://www.roblox.com/games/start?placeId=15341793633&gameInstanceId=e392c68f-896a-4b55-8ab7-59e3a147d80b",
+  "location": "[RP] Mythage",
+  "updatedAt": 1788240122186
 }
