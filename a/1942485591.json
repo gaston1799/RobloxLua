@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 129894652722990,
+  "jobId": "79e951e9-434b-40f5-b69c-2791743c3b79",
+  "join": "roblox://placeId=129894652722990&gameInstanceId=79e951e9-434b-40f5-b69c-2791743c3b79",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788229966084
+  "web": "https://www.roblox.com/games/start?placeId=129894652722990&gameInstanceId=79e951e9-434b-40f5-b69c-2791743c3b79",
+  "location": "[UPD 2] Grow A Dragon",
+  "updatedAt": 1788230026168
 }
