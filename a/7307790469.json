@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 90086669327265,
-  "jobId": "d19f6212-b4c2-4524-af29-dd05535b802c",
-  "join": "roblox://placeId=90086669327265&gameInstanceId=d19f6212-b4c2-4524-af29-dd05535b802c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=90086669327265&gameInstanceId=d19f6212-b4c2-4524-af29-dd05535b802c",
-  "location": "+1 Cut Grass Adventure",
-  "updatedAt": 1788298337183
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788298457227
 }
