@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 73956553001240,
-  "jobId": "e1301863-104b-46b5-9733-38de42551c9d",
-  "join": "roblox://placeId=73956553001240&gameInstanceId=e1301863-104b-46b5-9733-38de42551c9d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=73956553001240&gameInstanceId=e1301863-104b-46b5-9733-38de42551c9d",
-  "location": "[UPD] Volleyball Legends",
-  "updatedAt": 1788229725906
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788229785904
 }
