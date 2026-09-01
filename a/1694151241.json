@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "in-game",
-  "placeId": 120010119861239,
-  "jobId": "caa9194c-57b6-42bd-8c71-0a3d49b909a6",
-  "join": "roblox://placeId=120010119861239&gameInstanceId=caa9194c-57b6-42bd-8c71-0a3d49b909a6",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1694151241",
-  "web": "https://www.roblox.com/games/start?placeId=120010119861239&gameInstanceId=caa9194c-57b6-42bd-8c71-0a3d49b909a6",
-  "location": "Dig for Haunted Items 🧛🏻",
-  "updatedAt": 1788245316595
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788245347275
 }
