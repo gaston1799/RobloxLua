@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 11727501024,
+  "jobId": "b5c31307-abdd-4da6-b4b8-8c152344969b",
+  "join": "roblox://placeId=11727501024&gameInstanceId=b5c31307-abdd-4da6-b4b8-8c152344969b",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788278803389
+  "web": "https://www.roblox.com/games/start?placeId=11727501024&gameInstanceId=b5c31307-abdd-4da6-b4b8-8c152344969b",
+  "location": "Create a Cart Ride!",
+  "updatedAt": 1788278895254
 }
