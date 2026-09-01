@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 130713262844151,
-  "jobId": "93f2924b-77bf-458d-b965-08abe26154e5",
-  "join": "roblox://placeId=130713262844151&gameInstanceId=93f2924b-77bf-458d-b965-08abe26154e5",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=130713262844151&gameInstanceId=93f2924b-77bf-458d-b965-08abe26154e5",
-  "location": "Kingdom Life™ II",
-  "updatedAt": 1788239942108
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788240062191
 }
