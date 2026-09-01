@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 73684184132617,
+  "jobId": "892e7e80-56d1-4b6f-8a1b-24ff7d7d54fd",
+  "join": "roblox://placeId=73684184132617&gameInstanceId=892e7e80-56d1-4b6f-8a1b-24ff7d7d54fd",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788239822109
+  "web": "https://www.roblox.com/games/start?placeId=73684184132617&gameInstanceId=892e7e80-56d1-4b6f-8a1b-24ff7d7d54fd",
+  "location": "kevin game",
+  "updatedAt": 1788239882119
 }
