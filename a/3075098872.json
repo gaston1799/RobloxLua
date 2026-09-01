@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 89851325271396,
-  "jobId": "de67c5a7-9345-4e2e-ad1f-fb03bc57ac11",
-  "join": "roblox://placeId=89851325271396&gameInstanceId=de67c5a7-9345-4e2e-ad1f-fb03bc57ac11",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=89851325271396&gameInstanceId=de67c5a7-9345-4e2e-ad1f-fb03bc57ac11",
-  "location": "[UPDATE] Age of Titans",
-  "updatedAt": 1788241202385
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788241262348
 }
