@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 127089247654125,
-  "jobId": "b9a42859-c69e-40f7-b0f0-56480aff5fe1",
-  "join": "roblox://placeId=127089247654125&gameInstanceId=b9a42859-c69e-40f7-b0f0-56480aff5fe1",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=127089247654125&gameInstanceId=b9a42859-c69e-40f7-b0f0-56480aff5fe1",
-  "location": "[LAUNCH CONTROL UPDATE] TR Legacy",
-  "updatedAt": 1788294676113
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788294736169
 }
