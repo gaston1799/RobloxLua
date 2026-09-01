@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 537413528,
-  "jobId": "7062af4a-f381-4f62-8c50-52afc94e8c0e",
-  "join": "roblox://placeId=537413528&gameInstanceId=7062af4a-f381-4f62-8c50-52afc94e8c0e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=537413528&gameInstanceId=7062af4a-f381-4f62-8c50-52afc94e8c0e",
-  "location": "Build A Boat For Treasure",
-  "updatedAt": 1788284052947
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788286275761
 }
