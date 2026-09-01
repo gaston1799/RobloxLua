@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 124537469746086,
+  "jobId": "5b5f8e12-45ff-4a6e-8a4e-6bdfabefdff3",
+  "join": "roblox://placeId=124537469746086&gameInstanceId=5b5f8e12-45ff-4a6e-8a4e-6bdfabefdff3",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788239101952
+  "web": "https://www.roblox.com/games/start?placeId=124537469746086&gameInstanceId=5b5f8e12-45ff-4a6e-8a4e-6bdfabefdff3",
+  "location": "Build an Army! 🔨",
+  "updatedAt": 1788239162055
 }
