@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 98593344653560,
-  "jobId": "e9125ad2-d3f7-477d-88cb-ef3dd3e26134",
-  "join": "roblox://placeId=98593344653560&gameInstanceId=e9125ad2-d3f7-477d-88cb-ef3dd3e26134",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=98593344653560&gameInstanceId=e9125ad2-d3f7-477d-88cb-ef3dd3e26134",
-  "location": "[RP] Camp Half-Blood",
-  "updatedAt": 1788240362200
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788240422211
 }
