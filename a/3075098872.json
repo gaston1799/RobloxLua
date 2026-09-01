@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 79056756711551,
+  "jobId": "e4c71689-bc75-4247-a585-4d6fa7a42665",
+  "join": "roblox://placeId=79056756711551&gameInstanceId=e4c71689-bc75-4247-a585-4d6fa7a42665",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788241262348
+  "web": "https://www.roblox.com/games/start?placeId=79056756711551&gameInstanceId=e4c71689-bc75-4247-a585-4d6fa7a42665",
+  "location": "[RELEASE] Mermaid Awakening",
+  "updatedAt": 1788241562443
 }
