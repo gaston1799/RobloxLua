@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 126341335600945,
+  "jobId": "e4668210-7847-49bc-a1c6-4bda51eed206",
+  "join": "roblox://placeId=126341335600945&gameInstanceId=e4668210-7847-49bc-a1c6-4bda51eed206",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788294197790
+  "web": "https://www.roblox.com/games/start?placeId=126341335600945&gameInstanceId=e4668210-7847-49bc-a1c6-4bda51eed206",
+  "location": "[NEW] Beast RNG",
+  "updatedAt": 1788294256086
 }
