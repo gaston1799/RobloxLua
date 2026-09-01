@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 103883942725157,
-  "jobId": "07bbfa8a-2e75-4d90-a889-c882ba8834d5",
-  "join": "roblox://placeId=103883942725157&gameInstanceId=07bbfa8a-2e75-4d90-a889-c882ba8834d5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=103883942725157&gameInstanceId=07bbfa8a-2e75-4d90-a889-c882ba8834d5",
-  "location": "[Cthulhu]+1 Drain Water Per Click",
-  "updatedAt": 1788293656028
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788293715960
 }
