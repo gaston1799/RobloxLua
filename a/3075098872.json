@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 14241267608,
+  "jobId": "40a9306d-cca6-403e-aeff-790d6dfae369",
+  "join": "roblox://placeId=14241267608&gameInstanceId=40a9306d-cca6-403e-aeff-790d6dfae369",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788277751322
+  "web": "https://www.roblox.com/games/start?placeId=14241267608&gameInstanceId=40a9306d-cca6-403e-aeff-790d6dfae369",
+  "location": "Dragon Ball Evolution [Alpha 3.9 ] ",
+  "updatedAt": 1788277813461
 }
