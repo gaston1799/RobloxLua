@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 281489669,
+  "jobId": "e174fd28-4295-424b-82ed-885ceafb93f9",
+  "join": "roblox://placeId=281489669&gameInstanceId=e174fd28-4295-424b-82ed-885ceafb93f9",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788235857556
+  "web": "https://www.roblox.com/games/start?placeId=281489669&gameInstanceId=e174fd28-4295-424b-82ed-885ceafb93f9",
+  "location": "Wizard Tycoon - 2 Player",
+  "updatedAt": 1788236026242
 }
