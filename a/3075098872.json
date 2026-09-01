@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 125694570308843,
-  "jobId": "1ca0dbd8-59cc-45dc-987d-d0cfd48463c1",
-  "join": "roblox://placeId=125694570308843&gameInstanceId=1ca0dbd8-59cc-45dc-987d-d0cfd48463c1",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=125694570308843&gameInstanceId=1ca0dbd8-59cc-45dc-987d-d0cfd48463c1",
-  "location": "[UPD1] Build A Basketball Dynasty",
-  "updatedAt": 1788240482278
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788240544099
 }
