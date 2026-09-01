@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 103154273080028,
-  "jobId": "71fe69de-d94f-4edf-84eb-a4ca918db6b2",
-  "join": "roblox://placeId=103154273080028&gameInstanceId=71fe69de-d94f-4edf-84eb-a4ca918db6b2",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=103154273080028&gameInstanceId=71fe69de-d94f-4edf-84eb-a4ca918db6b2",
-  "location": "[FLOOD] Grow A Colony🐜",
-  "updatedAt": 1788239762113
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788239822109
 }
