@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3623096087,
+  "jobId": "32d0f85b-0447-4ada-b7b2-eff3917bb390",
+  "join": "roblox://placeId=3623096087&gameInstanceId=32d0f85b-0447-4ada-b7b2-eff3917bb390",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788290955218
+  "web": "https://www.roblox.com/games/start?placeId=3623096087&gameInstanceId=32d0f85b-0447-4ada-b7b2-eff3917bb390",
+  "location": "💪Muscle Legends ",
+  "updatedAt": 1788325609676
 }
