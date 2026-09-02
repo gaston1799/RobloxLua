@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 122789100578830,
+  "jobId": "02d5e377-3f9f-41c0-a38d-35cb5008f0cc",
+  "join": "roblox://placeId=122789100578830&gameInstanceId=02d5e377-3f9f-41c0-a38d-35cb5008f0cc",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788386787086
+  "web": "https://www.roblox.com/games/start?placeId=122789100578830&gameInstanceId=02d5e377-3f9f-41c0-a38d-35cb5008f0cc",
+  "location": "Infected Lands",
+  "updatedAt": 1788387147299
 }
