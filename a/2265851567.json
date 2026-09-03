@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 9685483339,
+  "jobId": "4276269b-a21f-4017-9711-ffe673bb59aa",
+  "join": "roblox://placeId=9685483339&gameInstanceId=4276269b-a21f-4017-9711-ffe673bb59aa",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788442391301
+  "web": "https://www.roblox.com/games/start?placeId=9685483339&gameInstanceId=4276269b-a21f-4017-9711-ffe673bb59aa",
+  "location": "Formula Apex Racing",
+  "updatedAt": 1788442514853
 }
