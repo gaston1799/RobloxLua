@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 139948966282483,
+  "jobId": "4efa229d-d1bb-45b3-99b0-815774e01b27",
+  "join": "roblox://placeId=139948966282483&gameInstanceId=4efa229d-d1bb-45b3-99b0-815774e01b27",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788412323800
+  "web": "https://www.roblox.com/games/start?placeId=139948966282483&gameInstanceId=4efa229d-d1bb-45b3-99b0-815774e01b27",
+  "location": "[🕹️UPD] Knife Arena",
+  "updatedAt": 1788412503850
 }
