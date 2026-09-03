@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 112838150455902,
-  "jobId": "479044b7-b749-4b90-8a08-b01f2a98f436",
-  "join": "roblox://placeId=112838150455902&gameInstanceId=479044b7-b749-4b90-8a08-b01f2a98f436",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=112838150455902&gameInstanceId=479044b7-b749-4b90-8a08-b01f2a98f436",
-  "location": "Encounters SMASH Battles",
-  "updatedAt": 1788443951803
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788444011818
 }
