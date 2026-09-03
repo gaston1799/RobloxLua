@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 140424985545402,
-  "jobId": "1bc3d757-9825-4598-ac07-29211276e10d",
-  "join": "roblox://placeId=140424985545402&gameInstanceId=1bc3d757-9825-4598-ac07-29211276e10d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=140424985545402&gameInstanceId=1bc3d757-9825-4598-ac07-29211276e10d",
-  "location": "Drive A Bus",
-  "updatedAt": 1788458835796
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788462676839
 }
