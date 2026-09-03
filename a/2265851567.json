@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 124853293317687,
-  "jobId": "ab93281e-80a9-438b-bd38-202527870e66",
-  "join": "roblox://placeId=124853293317687&gameInstanceId=ab93281e-80a9-438b-bd38-202527870e66",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=124853293317687&gameInstanceId=ab93281e-80a9-438b-bd38-202527870e66",
-  "location": "🏔️K2 CLIMBING SIMULATOR",
-  "updatedAt": 1788446834332
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788449353242
 }
