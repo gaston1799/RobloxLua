@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "0ca08d2e-1b75-4971-8006-553196891d4d",
+  "join": "roblox://placeId=7041939546&gameInstanceId=0ca08d2e-1b75-4971-8006-553196891d4d",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788411063550
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=0ca08d2e-1b75-4971-8006-553196891d4d",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1788411363675
 }
