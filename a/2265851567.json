@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 87229519582692,
-  "jobId": "10d0e785-a8ef-427e-81e9-b74ccd750968",
-  "join": "roblox://placeId=87229519582692&gameInstanceId=10d0e785-a8ef-427e-81e9-b74ccd750968",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=87229519582692&gameInstanceId=10d0e785-a8ef-427e-81e9-b74ccd750968",
-  "location": "[UPD] Ultimate Gym Game",
-  "updatedAt": 1788449413215
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788454814735
 }
