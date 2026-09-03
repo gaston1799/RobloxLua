@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 79162127792867,
-  "jobId": "91b92f88-5f34-48e5-8b2a-eb69d0cffc48",
-  "join": "roblox://placeId=79162127792867&gameInstanceId=91b92f88-5f34-48e5-8b2a-eb69d0cffc48",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=79162127792867&gameInstanceId=91b92f88-5f34-48e5-8b2a-eb69d0cffc48",
-  "location": "[2X🍗] Get Fat to Break Tape 🍗",
-  "updatedAt": 1788411303582
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788413464193
 }
