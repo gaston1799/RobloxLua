@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 13587601484,
-  "jobId": "faa63dc4-a93b-4584-a336-c310590982ca",
-  "join": "roblox://placeId=13587601484&gameInstanceId=faa63dc4-a93b-4584-a336-c310590982ca",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=13587601484&gameInstanceId=faa63dc4-a93b-4584-a336-c310590982ca",
-  "location": "Ophelia [HORROR]",
-  "updatedAt": 1788473599501
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788473839545
 }
