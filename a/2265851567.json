@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13416514259,
+  "jobId": "c79683cc-ee6e-4d6b-9464-7a8e3a08c824",
+  "join": "roblox://placeId=13416514259&gameInstanceId=c79683cc-ee6e-4d6b-9464-7a8e3a08c824",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788427807574
+  "web": "https://www.roblox.com/games/start?placeId=13416514259&gameInstanceId=c79683cc-ee6e-4d6b-9464-7a8e3a08c824",
+  "location": "Shadow Boxing Battles",
+  "updatedAt": 1788427927618
 }
