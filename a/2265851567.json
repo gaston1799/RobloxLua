@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 75547400568620,
+  "jobId": "f57e58e4-98dd-4fc5-b5d0-39e106aa1787",
+  "join": "roblox://placeId=75547400568620&gameInstanceId=f57e58e4-98dd-4fc5-b5d0-39e106aa1787",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788413766318
+  "web": "https://www.roblox.com/games/start?placeId=75547400568620&gameInstanceId=f57e58e4-98dd-4fc5-b5d0-39e106aa1787",
+  "location": "Land or Die! 🔥 [CARGO RUN]",
+  "updatedAt": 1788413826097
 }
