@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 8444591321,
-  "jobId": "632561b5-b1d9-44c0-a2b7-f8d8f83aae4f",
-  "join": "roblox://placeId=8444591321&gameInstanceId=632561b5-b1d9-44c0-a2b7-f8d8f83aae4f",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=8444591321&gameInstanceId=632561b5-b1d9-44c0-a2b7-f8d8f83aae4f",
-  "location": "BedWars [🐦‍⬛Raven Re-Release]",
-  "updatedAt": 1788444612228
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788445152138
 }
