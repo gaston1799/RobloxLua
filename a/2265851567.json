@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 79385396784738,
-  "jobId": "4fea39fa-6877-4521-a14f-c42ab22ea827",
-  "join": "roblox://placeId=79385396784738&gameInstanceId=4fea39fa-6877-4521-a14f-c42ab22ea827",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=79385396784738&gameInstanceId=4fea39fa-6877-4521-a14f-c42ab22ea827",
-  "location": "[UPD] Violent Party!",
-  "updatedAt": 1788445692310
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788446772566
 }
