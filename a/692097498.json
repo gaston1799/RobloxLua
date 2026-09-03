@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 88989028816809,
-  "jobId": "e518eddd-fc22-430a-afee-67814b923e32",
-  "join": "roblox://placeId=88989028816809&gameInstanceId=e518eddd-fc22-430a-afee-67814b923e32",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=88989028816809&gameInstanceId=e518eddd-fc22-430a-afee-67814b923e32",
-  "location": "[2 Player] Guess The Person",
-  "updatedAt": 1788406862596
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788408542955
 }
