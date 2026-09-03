@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 15781012611,
-  "jobId": "c5d007c8-f092-4a04-898b-1b6f99a30962",
-  "join": "roblox://placeId=15781012611&gameInstanceId=c5d007c8-f092-4a04-898b-1b6f99a30962",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=15781012611&gameInstanceId=c5d007c8-f092-4a04-898b-1b6f99a30962",
-  "location": "[🗺️ UPDATE] Zombies vs Humans",
-  "updatedAt": 1788415804729
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788418445365
 }
