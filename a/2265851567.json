@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 14118658535,
-  "jobId": "aeaca7f4-4f18-4abe-9d03-398e5b5de90c",
-  "join": "roblox://placeId=14118658535&gameInstanceId=aeaca7f4-4f18-4abe-9d03-398e5b5de90c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=14118658535&gameInstanceId=aeaca7f4-4f18-4abe-9d03-398e5b5de90c",
-  "location": "Pummu Talladega",
-  "updatedAt": 1788429728101
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788430148193
 }
