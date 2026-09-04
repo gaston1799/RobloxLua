@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 70906625936847,
+  "jobId": "8ca688fa-6ac8-49f6-ad71-d1f9e736fb41",
+  "join": "roblox://placeId=70906625936847&gameInstanceId=8ca688fa-6ac8-49f6-ad71-d1f9e736fb41",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788497919458
+  "web": "https://www.roblox.com/games/start?placeId=70906625936847&gameInstanceId=8ca688fa-6ac8-49f6-ad71-d1f9e736fb41",
+  "location": "Gym Star Simulator 🏋️",
+  "updatedAt": 1788497979492
 }
