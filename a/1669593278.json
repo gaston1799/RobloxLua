@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 110499685368790,
+  "jobId": "0f7db636-72f2-4f1c-ac79-a9bd50e589b4",
+  "join": "roblox://placeId=110499685368790&gameInstanceId=0f7db636-72f2-4f1c-ac79-a9bd50e589b4",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788552654808
+  "web": "https://www.roblox.com/games/start?placeId=110499685368790&gameInstanceId=0f7db636-72f2-4f1c-ac79-a9bd50e589b4",
+  "location": "Highest Zipline Ever",
+  "updatedAt": 1788552714635
 }
