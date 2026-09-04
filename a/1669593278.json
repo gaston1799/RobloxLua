@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 125496078313264,
-  "jobId": "cf7d1750-c150-463e-ae5b-4c1bbfaa5680",
-  "join": "roblox://placeId=125496078313264&gameInstanceId=cf7d1750-c150-463e-ae5b-4c1bbfaa5680",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=125496078313264&gameInstanceId=cf7d1750-c150-463e-ae5b-4c1bbfaa5680",
-  "location": "2 PLAYER Evolution Tycoon 🛸",
-  "updatedAt": 1788528830796
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788536390479
 }
