@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 103443049685424,
+  "jobId": "13049643-357d-404a-b5ff-47f0685d9d89",
+  "join": "roblox://placeId=103443049685424&gameInstanceId=13049643-357d-404a-b5ff-47f0685d9d89",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788517545894
+  "web": "https://www.roblox.com/games/start?placeId=103443049685424&gameInstanceId=13049643-357d-404a-b5ff-47f0685d9d89",
+  "location": "Ride A Friend Battlegrounds",
+  "updatedAt": 1788535670338
 }
