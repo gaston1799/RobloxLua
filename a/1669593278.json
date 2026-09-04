@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 138363592957250,
+  "jobId": "77d36588-a494-48f6-a7b3-328de4021248",
+  "join": "roblox://placeId=138363592957250&gameInstanceId=77d36588-a494-48f6-a7b3-328de4021248",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788555596932
+  "web": "https://www.roblox.com/games/start?placeId=138363592957250&gameInstanceId=77d36588-a494-48f6-a7b3-328de4021248",
+  "location": "⛳ Hit a Golf Ball",
+  "updatedAt": 1788555655484
 }
