@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 85776757589518,
+  "jobId": "210a571b-7306-42ed-a410-9203370f15d2",
+  "join": "roblox://placeId=85776757589518&gameInstanceId=210a571b-7306-42ed-a410-9203370f15d2",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788497019264
+  "web": "https://www.roblox.com/games/start?placeId=85776757589518&gameInstanceId=210a571b-7306-42ed-a410-9203370f15d2",
+  "location": "[Northern Lands] Dungeon Quest Reborn",
+  "updatedAt": 1788497619374
 }
