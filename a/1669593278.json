@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 124291013670116,
+  "jobId": "2ad4fc04-6edf-4ed5-bff8-10c70bddff5b",
+  "join": "roblox://placeId=124291013670116&gameInstanceId=2ad4fc04-6edf-4ed5-bff8-10c70bddff5b",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788551214196
+  "web": "https://www.roblox.com/games/start?placeId=124291013670116&gameInstanceId=2ad4fc04-6edf-4ed5-bff8-10c70bddff5b",
+  "location": "Escape Ability for Anime ",
+  "updatedAt": 1788551274288
 }
