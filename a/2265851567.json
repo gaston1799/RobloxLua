@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 72317248326994,
-  "jobId": "0c524288-93e0-4df0-9da6-8db90645fb37",
-  "join": "roblox://placeId=72317248326994&gameInstanceId=0c524288-93e0-4df0-9da6-8db90645fb37",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=72317248326994&gameInstanceId=0c524288-93e0-4df0-9da6-8db90645fb37",
-  "location": "Bobsled Ride Down a Mountainside",
-  "updatedAt": 1788544372533
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788544552520
 }
