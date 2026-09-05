@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 78418874424971,
+  "jobId": "b6b92a7c-0727-4bb1-9504-f4a709cb8f9c",
+  "join": "roblox://placeId=78418874424971&gameInstanceId=b6b92a7c-0727-4bb1-9504-f4a709cb8f9c",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788621569045
+  "web": "https://www.roblox.com/games/start?placeId=78418874424971&gameInstanceId=b6b92a7c-0727-4bb1-9504-f4a709cb8f9c",
+  "location": "Scream And Run [UPDATE]",
+  "updatedAt": 1788621629196
 }
