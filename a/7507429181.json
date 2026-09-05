@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 108454764166583,
-  "jobId": "2faa6bc2-7f82-4aa4-b5a2-724f95db022e",
-  "join": "roblox://placeId=108454764166583&gameInstanceId=2faa6bc2-7f82-4aa4-b5a2-724f95db022e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=108454764166583&gameInstanceId=2faa6bc2-7f82-4aa4-b5a2-724f95db022e",
-  "location": "Rescue Animals! 🐾",
-  "updatedAt": 1788592012912
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788592043736
 }
