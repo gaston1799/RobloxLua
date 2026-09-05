@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 72390882197205,
-  "jobId": "53526fa7-ebdb-4ef4-879b-07fc12a2e03b",
-  "join": "roblox://placeId=72390882197205&gameInstanceId=53526fa7-ebdb-4ef4-879b-07fc12a2e03b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=72390882197205&gameInstanceId=53526fa7-ebdb-4ef4-879b-07fc12a2e03b",
-  "location": "Pop Bubbles! 🎯",
-  "updatedAt": 1788592194363
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788592224663
 }
