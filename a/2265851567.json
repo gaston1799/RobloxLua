@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 3351674303,
-  "jobId": "07b3c7be-c3da-4e6b-9683-26181c579731",
-  "join": "roblox://placeId=3351674303&gameInstanceId=07b3c7be-c3da-4e6b-9683-26181c579731",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=3351674303&gameInstanceId=07b3c7be-c3da-4e6b-9683-26181c579731",
-  "location": "Driving Empire [DODGE UPDATE✨] ",
-  "updatedAt": 1788597804953
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788598163059
 }
