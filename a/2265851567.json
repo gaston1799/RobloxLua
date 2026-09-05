@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 128775837101761,
-  "jobId": "412499dc-f0c2-4bd4-ab57-5e110fff7861",
-  "join": "roblox://placeId=128775837101761&gameInstanceId=412499dc-f0c2-4bd4-ab57-5e110fff7861",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=128775837101761&gameInstanceId=412499dc-f0c2-4bd4-ab57-5e110fff7861",
-  "location": "Gym League ",
-  "updatedAt": 1788587660285
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788587902097
 }
