@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 73897506680154,
-  "jobId": "55ad3bc3-c878-432d-9b78-a56b806954bc",
-  "join": "roblox://placeId=73897506680154&gameInstanceId=55ad3bc3-c878-432d-9b78-a56b806954bc",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=73897506680154&gameInstanceId=55ad3bc3-c878-432d-9b78-a56b806954bc",
-  "location": "Idle Mafia Game",
-  "updatedAt": 1788600743678
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788601043825
 }
