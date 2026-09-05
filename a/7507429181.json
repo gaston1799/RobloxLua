@@ -1,12 +1,12 @@
 {
   "userId": 7507429181,
   "displayName": "Killer_Alt1",
-  "status": "in-game",
-  "placeId": 98393605725180,
-  "jobId": "4af975dd-1dbb-433c-a138-e883a2940c9f",
-  "join": "roblox://placeId=98393605725180&gameInstanceId=4af975dd-1dbb-433c-a138-e883a2940c9f",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7507429181",
-  "web": "https://www.roblox.com/games/start?placeId=98393605725180&gameInstanceId=4af975dd-1dbb-433c-a138-e883a2940c9f",
-  "location": "[2X] Cars VS Tape",
-  "updatedAt": 1788580609858
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788580640064
 }
