@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 76410430021937,
+  "jobId": "c33e9482-18be-4f15-9d7e-1743fc00b6e3",
+  "join": "roblox://placeId=76410430021937&gameInstanceId=c33e9482-18be-4f15-9d7e-1743fc00b6e3",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788647075703
+  "web": "https://www.roblox.com/games/start?placeId=76410430021937&gameInstanceId=c33e9482-18be-4f15-9d7e-1743fc00b6e3",
+  "location": "Skateboard Simulator! 🛹",
+  "updatedAt": 1788647195584
 }
