@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "8af1a66c-1770-4257-ac68-4ef9a8ce5029",
+  "join": "roblox://placeId=7041939546&gameInstanceId=8af1a66c-1770-4257-ac68-4ef9a8ce5029",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788767046450
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=8af1a66c-1770-4257-ac68-4ef9a8ce5029",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1788767074937
 }
