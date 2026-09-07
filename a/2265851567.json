@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 142823291,
+  "jobId": "012d7859-f318-438f-88b0-65e115a6e06c",
+  "join": "roblox://placeId=142823291&gameInstanceId=012d7859-f318-438f-88b0-65e115a6e06c",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788789550574
+  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=012d7859-f318-438f-88b0-65e115a6e06c",
+  "location": "Murder Mystery 2",
+  "updatedAt": 1788789610606
 }
