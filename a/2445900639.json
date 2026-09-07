@@ -1,12 +1,12 @@
 {
   "userId": 2445900639,
   "displayName": "ZEN",
-  "status": "in-game",
-  "placeId": 142823291,
-  "jobId": "86ec3bb4-7e81-4e00-bbb0-baf16a2dc7c4",
-  "join": "roblox://placeId=142823291&gameInstanceId=86ec3bb4-7e81-4e00-bbb0-baf16a2dc7c4",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2445900639",
-  "web": "https://www.roblox.com/games/start?placeId=142823291&gameInstanceId=86ec3bb4-7e81-4e00-bbb0-baf16a2dc7c4",
-  "location": "Murder Mystery 2",
-  "updatedAt": 1788751141013
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788751200954
 }
