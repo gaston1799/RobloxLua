@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 124398083342642,
+  "jobId": "b49a27b2-1504-45ce-858d-caf5e8ab0eb3",
+  "join": "roblox://placeId=124398083342642&gameInstanceId=b49a27b2-1504-45ce-858d-caf5e8ab0eb3",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788756902388
+  "web": "https://www.roblox.com/games/start?placeId=124398083342642&gameInstanceId=b49a27b2-1504-45ce-858d-caf5e8ab0eb3",
+  "location": "[UPD!] Ride A Cart Down A Slide",
+  "updatedAt": 1788756962422
 }
