@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 16732694052,
-  "jobId": "1a5256f5-287f-4e72-8c43-915b09aea933",
-  "join": "roblox://placeId=16732694052&gameInstanceId=1a5256f5-287f-4e72-8c43-915b09aea933",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=16732694052&gameInstanceId=1a5256f5-287f-4e72-8c43-915b09aea933",
-  "location": "Fisch 🍉 [SKYCREST]",
-  "updatedAt": 1788802153684
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788802213695
 }
