@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 83376581471284,
-  "jobId": "ba5ec007-7895-424d-945d-e125d90c3b28",
-  "join": "roblox://placeId=83376581471284&gameInstanceId=ba5ec007-7895-424d-945d-e125d90c3b28",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=83376581471284&gameInstanceId=ba5ec007-7895-424d-945d-e125d90c3b28",
-  "location": "Grow a Pet Fighter! 🐶⚔️",
-  "updatedAt": 1788832023157
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788833023136
 }
