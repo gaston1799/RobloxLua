@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "in-game",
-  "placeId": 70435795041539,
-  "jobId": "c007b516-71de-47a5-8a6c-0b9fc343ccc1",
-  "join": "roblox://placeId=70435795041539&gameInstanceId=c007b516-71de-47a5-8a6c-0b9fc343ccc1",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1694151241",
-  "web": "https://www.roblox.com/games/start?placeId=70435795041539&gameInstanceId=c007b516-71de-47a5-8a6c-0b9fc343ccc1",
-  "location": "[UPD] Junk Mechanics",
-  "updatedAt": 1788843799106
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1788845210782
 }
