@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 98433584025530,
+  "jobId": "b5e75504-998a-4f05-a164-625540d5d1f5",
+  "join": "roblox://placeId=98433584025530&gameInstanceId=b5e75504-998a-4f05-a164-625540d5d1f5",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788920964241
+  "web": "https://www.roblox.com/games/start?placeId=98433584025530&gameInstanceId=b5e75504-998a-4f05-a164-625540d5d1f5",
+  "location": "[✨] Mythical Outfits!",
+  "updatedAt": 1788921022596
 }
