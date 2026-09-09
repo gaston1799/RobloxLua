@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 17813692689,
+  "jobId": "e7c067c8-013d-4b97-8e45-1bb14066d3ec",
+  "join": "roblox://placeId=17813692689&gameInstanceId=e7c067c8-013d-4b97-8e45-1bb14066d3ec",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788926638339
+  "web": "https://www.roblox.com/games/start?placeId=17813692689&gameInstanceId=e7c067c8-013d-4b97-8e45-1bb14066d3ec",
+  "location": "Journey to Heaven",
+  "updatedAt": 1788926818421
 }
