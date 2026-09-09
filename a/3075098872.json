@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 78508351268203,
+  "jobId": "ae8ee0ad-8ef8-4f43-b0be-e90a2d8378a9",
+  "join": "roblox://placeId=78508351268203&gameInstanceId=ae8ee0ad-8ef8-4f43-b0be-e90a2d8378a9",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1788925198043
+  "web": "https://www.roblox.com/games/start?placeId=78508351268203&gameInstanceId=ae8ee0ad-8ef8-4f43-b0be-e90a2d8378a9",
+  "location": "Force of the Gods [Universe RP]",
+  "updatedAt": 1788925500283
 }
