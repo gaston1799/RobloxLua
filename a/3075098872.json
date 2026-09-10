@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 89676960828878,
-  "jobId": "e217b4f3-cf99-41a8-a97d-bcab6812ccef",
-  "join": "roblox://placeId=89676960828878&gameInstanceId=e217b4f3-cf99-41a8-a97d-bcab6812ccef",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=89676960828878&gameInstanceId=e217b4f3-cf99-41a8-a97d-bcab6812ccef",
-  "location": "Titanus Simulator  [🌲MUSHROOM FOREST 🍄 ]",
-  "updatedAt": 1789060864529
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789060924558
 }
