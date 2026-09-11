@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 3956818381,
-  "jobId": "fd187963-a21c-4e25-b88b-d46dbe2ca44e",
-  "join": "roblox://placeId=3956818381&gameInstanceId=fd187963-a21c-4e25-b88b-d46dbe2ca44e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=3956818381&gameInstanceId=fd187963-a21c-4e25-b88b-d46dbe2ca44e",
-  "location": "⚡Ninja Legends",
-  "updatedAt": 1789162082282
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789162682466
 }
