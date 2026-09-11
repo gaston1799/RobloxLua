@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 16146832113,
-  "jobId": "246a0ff7-32e0-4f95-9c76-b65abc518c9d",
-  "join": "roblox://placeId=16146832113&gameInstanceId=246a0ff7-32e0-4f95-9c76-b65abc518c9d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=16146832113&gameInstanceId=246a0ff7-32e0-4f95-9c76-b65abc518c9d",
-  "location": "Anime Vanguards: Holy Retribution",
-  "updatedAt": 1789150139374
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789150619379
 }
