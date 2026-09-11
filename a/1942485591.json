@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 9391468976,
-  "jobId": "19ae5345-1fad-4a38-aa7c-52b6b911ee0b",
-  "join": "roblox://placeId=9391468976&gameInstanceId=19ae5345-1fad-4a38-aa7c-52b6b911ee0b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=9391468976&gameInstanceId=19ae5345-1fad-4a38-aa7c-52b6b911ee0b",
-  "location": "[SKY ASSASSIN] Jujutsu Shenanigans",
-  "updatedAt": 1789091144275
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789092704555
 }
