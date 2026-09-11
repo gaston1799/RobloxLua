@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 74528490581000,
-  "jobId": "8ae21010-82d2-49d7-99b5-6e9bf57af16f",
-  "join": "roblox://placeId=74528490581000&gameInstanceId=8ae21010-82d2-49d7-99b5-6e9bf57af16f",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=74528490581000&gameInstanceId=8ae21010-82d2-49d7-99b5-6e9bf57af16f",
-  "location": "[FIRE ENDING!] Matilda [HORROR]",
-  "updatedAt": 1789159681945
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789159741707
 }
