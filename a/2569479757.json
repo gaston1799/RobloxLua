@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "c2e454f3-1879-4986-98c7-28ec03e32f30",
-  "join": "roblox://placeId=5712833750&gameInstanceId=c2e454f3-1879-4986-98c7-28ec03e32f30",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=c2e454f3-1879-4986-98c7-28ec03e32f30",
-  "location": "Animal Simulator",
-  "updatedAt": 1789207426269
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789207757033
 }
