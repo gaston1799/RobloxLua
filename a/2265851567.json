@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 5591597781,
-  "jobId": "d553f1e1-3da9-4fec-bfeb-68ece913ec9e",
-  "join": "roblox://placeId=5591597781&gameInstanceId=d553f1e1-3da9-4fec-bfeb-68ece913ec9e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=5591597781&gameInstanceId=d553f1e1-3da9-4fec-bfeb-68ece913ec9e",
-  "location": "[⚡️ NEW TOWER] Tower Defense Simulator",
-  "updatedAt": 1789190169563
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789191189832
 }
