@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 122854503601959,
-  "jobId": "673d734d-4794-4a35-8a54-a354a4b2f046",
-  "join": "roblox://placeId=122854503601959&gameInstanceId=673d734d-4794-4a35-8a54-a354a4b2f046",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=122854503601959&gameInstanceId=673d734d-4794-4a35-8a54-a354a4b2f046",
-  "location": "Roll For Avatar Items",
-  "updatedAt": 1789316654520
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789316684538
 }
