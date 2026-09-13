@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "1c7add0b-db02-4d8d-95ed-8eb1ff60926b",
-  "join": "roblox://placeId=7041939546&gameInstanceId=1c7add0b-db02-4d8d-95ed-8eb1ff60926b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=1c7add0b-db02-4d8d-95ed-8eb1ff60926b",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1789307112065
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789307142495
 }
