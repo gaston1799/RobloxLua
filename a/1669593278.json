@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10277607801,
+  "jobId": "0cd9c99e-cbd7-4e16-a3cf-fdc1f38341a2",
+  "join": "roblox://placeId=10277607801&gameInstanceId=0cd9c99e-cbd7-4e16-a3cf-fdc1f38341a2",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789266839031
+  "web": "https://www.roblox.com/games/start?placeId=10277607801&gameInstanceId=0cd9c99e-cbd7-4e16-a3cf-fdc1f38341a2",
+  "location": "Apeirophobia",
+  "updatedAt": 1789267019114
 }
