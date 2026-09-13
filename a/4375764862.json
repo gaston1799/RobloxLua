@@ -1,12 +1,12 @@
 {
   "userId": 4375764862,
   "displayName": "Samxxz",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 95047916580305,
+  "jobId": "b091ac11-a5c6-4b2b-aa6e-dd691925833a",
+  "join": "roblox://placeId=95047916580305&gameInstanceId=b091ac11-a5c6-4b2b-aa6e-dd691925833a",
   "follow": "roblox://followUserId=4375764862",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789264261106
+  "web": "https://www.roblox.com/games/start?placeId=95047916580305&gameInstanceId=b091ac11-a5c6-4b2b-aa6e-dd691925833a",
+  "location": "[RIA] The Block",
+  "updatedAt": 1789264318377
 }
