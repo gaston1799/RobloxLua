@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16146832113,
+  "jobId": "c57ed42f-992c-4193-84a2-4329b9b2a309",
+  "join": "roblox://placeId=16146832113&gameInstanceId=c57ed42f-992c-4193-84a2-4329b9b2a309",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789200252140
+  "web": "https://www.roblox.com/games/start?placeId=16146832113&gameInstanceId=c57ed42f-992c-4193-84a2-4329b9b2a309",
+  "location": "Anime Vanguards: Wrathful Assault",
+  "updatedAt": 1789274881068
 }
