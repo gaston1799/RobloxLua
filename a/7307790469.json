@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 3351674303,
-  "jobId": "094aac12-06cb-4f54-96ea-4ff3ce4453b5",
-  "join": "roblox://placeId=3351674303&gameInstanceId=094aac12-06cb-4f54-96ea-4ff3ce4453b5",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=3351674303&gameInstanceId=094aac12-06cb-4f54-96ea-4ff3ce4453b5",
-  "location": "Driving Empire [DODGE UPDATE✨] ",
-  "updatedAt": 1789319112854
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789319772881
 }
