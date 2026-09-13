@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 189707,
+  "jobId": "870ce04b-381a-4e7b-9256-0faa4001e122",
+  "join": "roblox://placeId=189707&gameInstanceId=870ce04b-381a-4e7b-9256-0faa4001e122",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789263778414
+  "web": "https://www.roblox.com/games/start?placeId=189707&gameInstanceId=870ce04b-381a-4e7b-9256-0faa4001e122",
+  "location": "Natural Disaster Survival",
+  "updatedAt": 1789264018414
 }
