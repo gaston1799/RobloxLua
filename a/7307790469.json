@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 140418135874386,
-  "jobId": "81223250-b881-4265-9b3c-ca1e02081a43",
-  "join": "roblox://placeId=140418135874386&gameInstanceId=81223250-b881-4265-9b3c-ca1e02081a43",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=140418135874386&gameInstanceId=81223250-b881-4265-9b3c-ca1e02081a43",
-  "location": "[BOILED ONE] House of The Locust",
-  "updatedAt": 1789427080963
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789427441130
 }
