@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 115840692772844,
+  "jobId": "9756d33d-a456-43c5-bf04-77b30c919b80",
+  "join": "roblox://placeId=115840692772844&gameInstanceId=9756d33d-a456-43c5-bf04-77b30c919b80",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789395753046
+  "web": "https://www.roblox.com/games/start?placeId=115840692772844&gameInstanceId=9756d33d-a456-43c5-bf04-77b30c919b80",
+  "location": "Spelling Bee",
+  "updatedAt": 1789396112757
 }
