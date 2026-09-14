@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 73768006371986,
-  "jobId": "c11cad8b-ca52-40f0-a1ef-1ec1287dd317",
-  "join": "roblox://placeId=73768006371986&gameInstanceId=c11cad8b-ca52-40f0-a1ef-1ec1287dd317",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=73768006371986&gameInstanceId=c11cad8b-ca52-40f0-a1ef-1ec1287dd317",
-  "location": "+1 Wings Obby Escape",
-  "updatedAt": 1789357763018
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789357822866
 }
