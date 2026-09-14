@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 14437001043,
-  "jobId": "510e127e-e187-4670-88ae-a31709903a54",
-  "join": "roblox://placeId=14437001043&gameInstanceId=510e127e-e187-4670-88ae-a31709903a54",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=14437001043&gameInstanceId=510e127e-e187-4670-88ae-a31709903a54",
-  "location": "Residence Massacre",
-  "updatedAt": 1789347680294
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789347740168
 }
