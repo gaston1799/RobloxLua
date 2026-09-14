@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 129096378231329,
+  "jobId": "84870a7f-b7c4-403f-b937-9c9e0da150a0",
+  "join": "roblox://placeId=129096378231329&gameInstanceId=84870a7f-b7c4-403f-b937-9c9e0da150a0",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789398875118
+  "web": "https://www.roblox.com/games/start?placeId=129096378231329&gameInstanceId=84870a7f-b7c4-403f-b937-9c9e0da150a0",
+  "location": "Build and Defend Your Raft",
+  "updatedAt": 1789401274235
 }
