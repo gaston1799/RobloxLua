@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 18813858858,
-  "jobId": "ef2058e4-7b8b-4787-bff7-800baf8e433d",
-  "join": "roblox://placeId=18813858858&gameInstanceId=ef2058e4-7b8b-4787-bff7-800baf8e433d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=18813858858&gameInstanceId=ef2058e4-7b8b-4787-bff7-800baf8e433d",
-  "location": "2D Basketball🏀",
-  "updatedAt": 1789397973297
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789398273368
 }
