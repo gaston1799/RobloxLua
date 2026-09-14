@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 92517437168342,
-  "jobId": "09f6139d-1f58-4590-b762-492d4921ba51",
-  "join": "roblox://placeId=92517437168342&gameInstanceId=09f6139d-1f58-4590-b762-492d4921ba51",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=92517437168342&gameInstanceId=09f6139d-1f58-4590-b762-492d4921ba51",
-  "location": "[NIKO 👁️] Blue Lock: Rivals",
-  "updatedAt": 1789398333387
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789398515063
 }
