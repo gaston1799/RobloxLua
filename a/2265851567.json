@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 73956553001240,
+  "jobId": "7d2d663c-8f7f-4d55-a80d-9d19218ed8dc",
+  "join": "roblox://placeId=73956553001240&gameInstanceId=7d2d663c-8f7f-4d55-a80d-9d19218ed8dc",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789398515063
+  "web": "https://www.roblox.com/games/start?placeId=73956553001240&gameInstanceId=7d2d663c-8f7f-4d55-a80d-9d19218ed8dc",
+  "location": "[UPD] Volleyball Legends",
+  "updatedAt": 1789398575058
 }
