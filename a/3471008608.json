@@ -1,12 +1,12 @@
 {
   "userId": 3471008608,
   "displayName": "ItzAsh",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7041939546,
+  "jobId": "8aee82d0-bed3-436b-862d-5d3b61c94848",
+  "join": "roblox://placeId=7041939546&gameInstanceId=8aee82d0-bed3-436b-862d-5d3b61c94848",
   "follow": "roblox://followUserId=3471008608",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789409467712
+  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=8aee82d0-bed3-436b-862d-5d3b61c94848",
+  "location": "Catalog Avatar Creator",
+  "updatedAt": 1789409499206
 }
