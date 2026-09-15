@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 76377501906469,
+  "jobId": "84001025-f3ff-48ed-8888-1c1d4eb1a928",
+  "join": "roblox://placeId=76377501906469&gameInstanceId=84001025-f3ff-48ed-8888-1c1d4eb1a928",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789432843436
+  "web": "https://www.roblox.com/games/start?placeId=76377501906469&gameInstanceId=84001025-f3ff-48ed-8888-1c1d4eb1a928",
+  "location": "Steal and Hatch Anime Eggs!",
+  "updatedAt": 1789432962585
 }
