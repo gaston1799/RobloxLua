@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 115852335239914,
+  "jobId": "4ff17a58-a0b3-4654-aa91-8ee9cfdc7916",
+  "join": "roblox://placeId=115852335239914&gameInstanceId=4ff17a58-a0b3-4654-aa91-8ee9cfdc7916",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789442925428
+  "web": "https://www.roblox.com/games/start?placeId=115852335239914&gameInstanceId=4ff17a58-a0b3-4654-aa91-8ee9cfdc7916",
+  "location": "+1 Skate for Brainrots🧠",
+  "updatedAt": 1789442985267
 }
