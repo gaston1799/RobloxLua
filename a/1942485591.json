@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 12852111055,
-  "jobId": "ca57731e-b4f1-481b-8bad-403a69544a3d",
-  "join": "roblox://placeId=12852111055&gameInstanceId=ca57731e-b4f1-481b-8bad-403a69544a3d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=12852111055&gameInstanceId=ca57731e-b4f1-481b-8bad-403a69544a3d",
-  "location": "Horse Ranch Tycoon 🐎",
-  "updatedAt": 1789433022630
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789433082678
 }
