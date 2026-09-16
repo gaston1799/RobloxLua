@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 70855550858932,
-  "jobId": "982e22e7-61f4-47c0-9881-c4b80d104b5b",
-  "join": "roblox://placeId=70855550858932&gameInstanceId=982e22e7-61f4-47c0-9881-c4b80d104b5b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=70855550858932&gameInstanceId=982e22e7-61f4-47c0-9881-c4b80d104b5b",
-  "location": "[🤣] Mimic the Voice!🎙️",
-  "updatedAt": 1789568977270
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789569337281
 }
