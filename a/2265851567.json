@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 90906407195271,
-  "jobId": "fdeb287c-6c80-4966-b21b-f9afe1f54e64",
-  "join": "roblox://placeId=90906407195271&gameInstanceId=fdeb287c-6c80-4966-b21b-f9afe1f54e64",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=90906407195271&gameInstanceId=fdeb287c-6c80-4966-b21b-f9afe1f54e64",
-  "location": "[S5🏆] Racket Rivals ",
-  "updatedAt": 1789572037947
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789572998276
 }
