@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107778070777162,
+  "jobId": "d2c86121-460d-44b3-8881-7fcab150cc76",
+  "join": "roblox://placeId=107778070777162&gameInstanceId=d2c86121-460d-44b3-8881-7fcab150cc76",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789449226597
+  "web": "https://www.roblox.com/games/start?placeId=107778070777162&gameInstanceId=d2c86121-460d-44b3-8881-7fcab150cc76",
+  "location": "Steal An Egg",
+  "updatedAt": 1789564896275
 }
