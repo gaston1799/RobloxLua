@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 5090394706,
-  "jobId": "27f1d4fc-8c7f-4618-8898-b8a27502d440",
-  "join": "roblox://placeId=5090394706&gameInstanceId=27f1d4fc-8c7f-4618-8898-b8a27502d440",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=5090394706&gameInstanceId=27f1d4fc-8c7f-4618-8898-b8a27502d440",
-  "location": "Nightmares",
-  "updatedAt": 1789601685560
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789601805803
 }
