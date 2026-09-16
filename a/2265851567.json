@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 96425088123775,
-  "jobId": "d742423f-1be4-4d8d-be76-087d611fa4ca",
-  "join": "roblox://placeId=96425088123775&gameInstanceId=d742423f-1be4-4d8d-be76-087d611fa4ca",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=96425088123775&gameInstanceId=d742423f-1be4-4d8d-be76-087d611fa4ca",
-  "location": "[UPD] My Toll Farm!",
-  "updatedAt": 1789568797202
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789568917254
 }
