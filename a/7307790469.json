@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111035930019117,
+  "jobId": "c5cbad02-d609-4ed1-9159-6cf14b4a740e",
+  "join": "roblox://placeId=111035930019117&gameInstanceId=c5cbad02-d609-4ed1-9159-6cf14b4a740e",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789598744830
+  "web": "https://www.roblox.com/games/start?placeId=111035930019117&gameInstanceId=c5cbad02-d609-4ed1-9159-6cf14b4a740e",
+  "location": "[📟] My Timber Pets!",
+  "updatedAt": 1789598804884
 }
