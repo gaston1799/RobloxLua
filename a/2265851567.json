@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 109530157755211,
-  "jobId": "aa17c08a-dc26-49cf-a351-8db96a14866b",
-  "join": "roblox://placeId=109530157755211&gameInstanceId=aa17c08a-dc26-49cf-a351-8db96a14866b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=109530157755211&gameInstanceId=aa17c08a-dc26-49cf-a351-8db96a14866b",
-  "location": "Lift a Cube",
-  "updatedAt": 1789608887358
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789609667524
 }
