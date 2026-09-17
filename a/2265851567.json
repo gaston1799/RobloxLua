@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 92949164250558,
-  "jobId": "c5aa1f70-6708-40a2-9cf0-9cc7da2a2824",
-  "join": "roblox://placeId=92949164250558&gameInstanceId=c5aa1f70-6708-40a2-9cf0-9cc7da2a2824",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=92949164250558&gameInstanceId=c5aa1f70-6708-40a2-9cf0-9cc7da2a2824",
-  "location": "[⚔️NEW UNITS] Command An Army",
-  "updatedAt": 1789652998522
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789653061611
 }
