@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 108173614734818,
+  "jobId": "d9f53435-cebb-4dbb-a04c-c2efb20d5550",
+  "join": "roblox://placeId=108173614734818&gameInstanceId=d9f53435-cebb-4dbb-a04c-c2efb20d5550",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789655999204
+  "web": "https://www.roblox.com/games/start?placeId=108173614734818&gameInstanceId=d9f53435-cebb-4dbb-a04c-c2efb20d5550",
+  "location": "[Pokemon Brick Bronze] [Bronze Zero]",
+  "updatedAt": 1789656059274
 }
