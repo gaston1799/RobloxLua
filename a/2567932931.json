@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 127626889405803,
+  "jobId": "f58096cc-28c7-495e-a103-688e17dec282",
+  "join": "roblox://placeId=127626889405803&gameInstanceId=f58096cc-28c7-495e-a103-688e17dec282",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789688430370
+  "web": "https://www.roblox.com/games/start?placeId=127626889405803&gameInstanceId=f58096cc-28c7-495e-a103-688e17dec282",
+  "location": "Wash The House 🧼",
+  "updatedAt": 1789688490348
 }
