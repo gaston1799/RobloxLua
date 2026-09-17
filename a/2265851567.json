@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 100117331123089,
-  "jobId": "a7a7635b-3454-432b-aace-c7c855033276",
-  "join": "roblox://placeId=100117331123089&gameInstanceId=a7a7635b-3454-432b-aace-c7c855033276",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=100117331123089&gameInstanceId=a7a7635b-3454-432b-aace-c7c855033276",
-  "location": "[🧲] Blox Fruits",
-  "updatedAt": 1789654378838
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789654558856
 }
