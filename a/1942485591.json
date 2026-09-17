@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 1818,
+  "jobId": "ca99bf3f-0197-4448-8912-85b8f0d959c7",
+  "join": "roblox://placeId=1818&gameInstanceId=ca99bf3f-0197-4448-8912-85b8f0d959c7",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789689450646
+  "web": "https://www.roblox.com/games/start?placeId=1818&gameInstanceId=ca99bf3f-0197-4448-8912-85b8f0d959c7",
+  "location": "Crossroads",
+  "updatedAt": 1789689510735
 }
