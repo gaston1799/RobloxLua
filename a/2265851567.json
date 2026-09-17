@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 137228775845999,
-  "jobId": "65efa696-10f8-4400-a202-ab534aa24be5",
-  "join": "roblox://placeId=137228775845999&gameInstanceId=65efa696-10f8-4400-a202-ab534aa24be5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=137228775845999&gameInstanceId=65efa696-10f8-4400-a202-ab534aa24be5",
-  "location": "[🚔COPS] Ghost Driver [ALPHA]",
-  "updatedAt": 1789658279732
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789658939918
 }
