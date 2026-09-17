@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 16767740152,
-  "jobId": "6c739e99-4332-486d-806c-32d76523b8c6",
-  "join": "roblox://placeId=16767740152&gameInstanceId=6c739e99-4332-486d-806c-32d76523b8c6",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=16767740152&gameInstanceId=6c739e99-4332-486d-806c-32d76523b8c6",
-  "location": "Sama's Revenge [HORROR]",
-  "updatedAt": 1789605526542
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789606726863
 }
