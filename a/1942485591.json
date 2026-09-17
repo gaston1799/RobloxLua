@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 74205509034203,
+  "jobId": "f23d1413-b6d3-49a4-8904-bdd3a0c56d64",
+  "join": "roblox://placeId=74205509034203&gameInstanceId=f23d1413-b6d3-49a4-8904-bdd3a0c56d64",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789676187351
+  "web": "https://www.roblox.com/games/start?placeId=74205509034203&gameInstanceId=f23d1413-b6d3-49a4-8904-bdd3a0c56d64",
+  "location": "The Hunt: Roblox 20",
+  "updatedAt": 1789681648743
 }
