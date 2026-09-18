@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 135202704953082,
-  "jobId": "9224e398-e63d-444d-9685-af9ee2e84d5e",
-  "join": "roblox://placeId=135202704953082&gameInstanceId=9224e398-e63d-444d-9685-af9ee2e84d5e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=135202704953082&gameInstanceId=9224e398-e63d-444d-9685-af9ee2e84d5e",
-  "location": "Car Dealership Tycoon  [🌌]",
-  "updatedAt": 1789757629202
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789758109370
 }
