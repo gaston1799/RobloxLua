@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 47324,
+  "jobId": "003bed2b-364a-41bd-ba40-14d617f07f41",
+  "join": "roblox://placeId=47324&gameInstanceId=003bed2b-364a-41bd-ba40-14d617f07f41",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789691491227
+  "web": "https://www.roblox.com/games/start?placeId=47324&gameInstanceId=003bed2b-364a-41bd-ba40-14d617f07f41",
+  "location": "Sword Fights on the Heights IV",
+  "updatedAt": 1789691551272
 }
