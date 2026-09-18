@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107778070777162,
+  "jobId": "831edc4d-b60e-4ee8-9afc-3eddd45ce56a",
+  "join": "roblox://placeId=107778070777162&gameInstanceId=831edc4d-b60e-4ee8-9afc-3eddd45ce56a",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789711596611
+  "web": "https://www.roblox.com/games/start?placeId=107778070777162&gameInstanceId=831edc4d-b60e-4ee8-9afc-3eddd45ce56a",
+  "location": "Steal An Egg",
+  "updatedAt": 1789711656587
 }
