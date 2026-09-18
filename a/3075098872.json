@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 106742726613654,
+  "jobId": "7fa8c2fd-12b5-4203-9e83-70268005ca83",
+  "join": "roblox://placeId=106742726613654&gameInstanceId=7fa8c2fd-12b5-4203-9e83-70268005ca83",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789742144239
+  "web": "https://www.roblox.com/games/start?placeId=106742726613654&gameInstanceId=7fa8c2fd-12b5-4203-9e83-70268005ca83",
+  "location": "Launch An Airstrike ",
+  "updatedAt": 1789742264274
 }
