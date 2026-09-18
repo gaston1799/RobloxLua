@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107778070777162,
+  "jobId": "71c305d2-b697-4739-a1bd-097b853e3c67",
+  "join": "roblox://placeId=107778070777162&gameInstanceId=71c305d2-b697-4739-a1bd-097b853e3c67",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789748507241
+  "web": "https://www.roblox.com/games/start?placeId=107778070777162&gameInstanceId=71c305d2-b697-4739-a1bd-097b853e3c67",
+  "location": "Steal An Egg",
+  "updatedAt": 1789750366407
 }
