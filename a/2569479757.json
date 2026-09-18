@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 74205509034203,
+  "jobId": "69db8e93-ad02-4ac2-b8e0-ff475afca3e7",
+  "join": "roblox://placeId=74205509034203&gameInstanceId=69db8e93-ad02-4ac2-b8e0-ff475afca3e7",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789754361022
+  "web": "https://www.roblox.com/games/start?placeId=74205509034203&gameInstanceId=69db8e93-ad02-4ac2-b8e0-ff475afca3e7",
+  "location": "The Hunt: Roblox 20",
+  "updatedAt": 1789754452803
 }
