@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 101834373907738,
+  "jobId": "222aacd4-dd11-4aad-ba8c-9ba00525144b",
+  "join": "roblox://placeId=101834373907738&gameInstanceId=222aacd4-dd11-4aad-ba8c-9ba00525144b",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789741904205
+  "web": "https://www.roblox.com/games/start?placeId=101834373907738&gameInstanceId=222aacd4-dd11-4aad-ba8c-9ba00525144b",
+  "location": "God Evolution 👑",
+  "updatedAt": 1789742024238
 }
