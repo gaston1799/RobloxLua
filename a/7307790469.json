@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 137233438285284,
+  "jobId": "4b0d7677-3b82-4d8b-8000-44043c5b02f1",
+  "join": "roblox://placeId=137233438285284&gameInstanceId=4b0d7677-3b82-4d8b-8000-44043c5b02f1",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789690170908
+  "web": "https://www.roblox.com/games/start?placeId=137233438285284&gameInstanceId=4b0d7677-3b82-4d8b-8000-44043c5b02f1",
+  "location": "Chicken Farm 🐣",
+  "updatedAt": 1789690230882
 }
