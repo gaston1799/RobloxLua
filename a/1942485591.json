@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 14403,
-  "jobId": "b3a56768-f886-48a1-be63-f816f17fba28",
-  "join": "roblox://placeId=14403&gameInstanceId=b3a56768-f886-48a1-be63-f816f17fba28",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=14403&gameInstanceId=b3a56768-f886-48a1-be63-f816f17fba28",
-  "location": "Chaos Canyon",
-  "updatedAt": 1789699473431
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789699773449
 }
