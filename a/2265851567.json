@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 15502339080,
-  "jobId": "cb1754a0-e9cf-4392-a9de-00f55a3e8cc4",
-  "join": "roblox://placeId=15502339080&gameInstanceId=cb1754a0-e9cf-4392-a9de-00f55a3e8cc4",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=15502339080&gameInstanceId=cb1754a0-e9cf-4392-a9de-00f55a3e8cc4",
-  "location": "🕹️ [ARCADE] Pet Simulator 99! 💰",
-  "updatedAt": 1789800720322
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789801080395
 }
