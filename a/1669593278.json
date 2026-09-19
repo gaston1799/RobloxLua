@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 74205509034203,
+  "jobId": "27de5c4d-98a6-4b5d-b6d7-b86a7fa68a21",
+  "join": "roblox://placeId=74205509034203&gameInstanceId=27de5c4d-98a6-4b5d-b6d7-b86a7fa68a21",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789837629632
+  "web": "https://www.roblox.com/games/start?placeId=74205509034203&gameInstanceId=27de5c4d-98a6-4b5d-b6d7-b86a7fa68a21",
+  "location": "The Hunt: Roblox 20",
+  "updatedAt": 1789837689653
 }
