@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 110514925318787,
+  "jobId": "7ec97e32-8bf0-4a95-b4ab-19785ac3c5e4",
+  "join": "roblox://placeId=110514925318787&gameInstanceId=7ec97e32-8bf0-4a95-b4ab-19785ac3c5e4",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789805914032
+  "web": "https://www.roblox.com/games/start?placeId=110514925318787&gameInstanceId=7ec97e32-8bf0-4a95-b4ab-19785ac3c5e4",
+  "location": "🍕Work at a Pizza Place",
+  "updatedAt": 1789806004584
 }
