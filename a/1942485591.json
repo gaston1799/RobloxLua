@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13718567207,
+  "jobId": "48900019-6b87-4c87-85e3-7df7b145c38c",
+  "join": "roblox://placeId=13718567207&gameInstanceId=48900019-6b87-4c87-85e3-7df7b145c38c",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789849392433
+  "web": "https://www.roblox.com/games/start?placeId=13718567207&gameInstanceId=48900019-6b87-4c87-85e3-7df7b145c38c",
+  "location": "Wonderland",
+  "updatedAt": 1789849452419
 }
