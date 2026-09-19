@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 74260430392611,
+  "jobId": "869ca157-059a-46d9-bad3-0a0644621fad",
+  "join": "roblox://placeId=74260430392611&gameInstanceId=869ca157-059a-46d9-bad3-0a0644621fad",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789836071199
+  "web": "https://www.roblox.com/games/start?placeId=74260430392611&gameInstanceId=869ca157-059a-46d9-bad3-0a0644621fad",
+  "location": "[🎪] Rebirth Champions: Ultimate",
+  "updatedAt": 1789836189307
 }
