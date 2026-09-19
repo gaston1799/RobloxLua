@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 18164449,
+  "jobId": "2abc9b50-e3f1-4a69-a999-d861eaa31817",
+  "join": "roblox://placeId=18164449&gameInstanceId=2abc9b50-e3f1-4a69-a999-d861eaa31817",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789785956475
+  "web": "https://www.roblox.com/games/start?placeId=18164449&gameInstanceId=2abc9b50-e3f1-4a69-a999-d861eaa31817",
+  "location": "💥Base Wars!",
+  "updatedAt": 1789786196532
 }
