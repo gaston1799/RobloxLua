@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 863266079,
-  "jobId": "907138e1-095f-4ae7-9fb7-f8d983305dd3",
-  "join": "roblox://placeId=863266079&gameInstanceId=907138e1-095f-4ae7-9fb7-f8d983305dd3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=863266079&gameInstanceId=907138e1-095f-4ae7-9fb7-f8d983305dd3",
-  "location": "Apocalypse Rising 2",
-  "updatedAt": 1789820137971
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1789820168763
 }
