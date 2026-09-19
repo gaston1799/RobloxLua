@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2960777560,
+  "jobId": "0eced34b-3962-4251-9c36-73d52aae845c",
+  "join": "roblox://placeId=2960777560&gameInstanceId=0eced34b-3962-4251-9c36-73d52aae845c",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1789801320510
+  "web": "https://www.roblox.com/games/start?placeId=2960777560&gameInstanceId=0eced34b-3962-4251-9c36-73d52aae845c",
+  "location": "Treasure Quest",
+  "updatedAt": 1789801440486
 }
