@@ -1,0 +1,6 @@
+*.json
+data/
+userIds/
+*.db
+.DS_Store
+node_modules/
