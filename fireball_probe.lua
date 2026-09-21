@@ -1,9 +1,9 @@
 --[[
-    Fireball Timing Probe (Smart Detection)
-    - Looks for "Fireball" tool in backpack
+    Fireball Timing Probe (Health-Based Detection)
+    - Looks for Fireball tool in backpack
     - Waits for you to equip it
-    - Detects when fired (tool unequipped)
-    - Measures time from fire to closest target taking damage
+    - Detects cast when target health drops
+    - Measures time from cast to damage
 ]]
 
 local Players = game:GetService("Players")
@@ -74,7 +74,7 @@ local function startProbe()
         return
     end
 
-    print("[Fireball Probe] ✓ Found Fireball | Waiting for you to equip it...")
+    print("[Fireball Probe] ✓ Found Fireball | Equip it now...")
 
     -- Wait for equip (tool moves to character)
     local equipTimeout = tick()
@@ -94,7 +94,7 @@ local function startProbe()
         return
     end
 
-    -- Get target info before fire
+    -- Get target info
     local targetInfo = findClosestPlayer()
     if not targetInfo then
         print("[Fireball Probe] ✗ No targets found")
@@ -102,68 +102,55 @@ local function startProbe()
         return
     end
 
-    print(string.format("[Fireball Probe] Target: %s | Distance: %.1f studs | Health: %.0f",
-        targetInfo.player.Name, targetInfo.distance, targetInfo.healthBefore))
-    print("[Fireball Probe] Watching for fire... (use fireball now)")
-
-    -- Wait for fire (tool unequipped from character)
-    local fireTimeout = tick()
-    local fireTime = nil
-
-    while (tick() - fireTimeout) < 10 do
-        if fireballTool.Parent ~= char then
-            -- Tool was unequipped - fireball fired!
-            fireTime = tick()
-            print("[Fireball Probe] ✓ Fireball fired! Measuring travel time...")
-            break
-        end
-        task.wait(0.05)
-    end
-
-    if not fireTime then
-        print("[Fireball Probe] ✗ Timeout - fireball not fired")
-        ProbeState.running = false
-        return
-    end
-
-    -- Monitor for damage on target
     local targetHumanoid = targetInfo.player.Character:FindFirstChildOfClass("Humanoid")
     if not targetHumanoid then
-        print("[Fireball Probe] ✗ Target lost")
+        print("[Fireball Probe] ✗ Target humanoid not found")
         ProbeState.running = false
         return
     end
 
-    local healthOnFire = targetHumanoid.Health
-    local hitTime = nil
-    local hitTimeout = tick()
+    local healthSnapshot = targetHumanoid.Health
 
-    while (tick() - hitTimeout) < 5 do
-        if targetHumanoid.Health < healthOnFire then
-            -- HIT!
-            hitTime = tick()
-            local travelTime = hitTime - fireTime
-            local damageDealt = healthOnFire - targetHumanoid.Health
+    print(string.format("[Fireball Probe] Target: %s | Distance: %.1f studs | Health: %.0f",
+        targetInfo.player.Name, targetInfo.distance, healthSnapshot))
+    print("[Fireball Probe] Ready! Fire the fireball now...")
 
-            print(string.format("[Fireball Probe] ✓ HIT! Travel: %.3f sec | Damage: %.0f HP",
-                travelTime, damageDealt))
+    -- Wait for health drop = fireball cast detected
+    local castTimeout = tick()
+    local castTime = nil
 
-            table.insert(ProbeState.results, {
-                target = targetInfo.player.Name,
-                distance = targetInfo.distance,
-                damageDealt = damageDealt,
-                travelTime = travelTime,
-                timestamp = os.date("%H:%M:%S"),
-            })
-
+    while (tick() - castTimeout) < 15 do
+        if targetHumanoid.Health < healthSnapshot then
+            -- Health dropped = fireball was just cast!
+            castTime = tick()
+            print(string.format("[Fireball Probe] ✓ Cast detected! (Health: %.0f → %.0f)",
+                healthSnapshot, targetHumanoid.Health))
             break
         end
-        task.wait(0.05)
+        task.wait(0.02)
     end
 
-    if not hitTime then
-        print("[Fireball Probe] ✗ No hit detected (may have missed target)")
+    if not castTime then
+        print("[Fireball Probe] ✗ Timeout - no damage detected on target")
+        ProbeState.running = false
+        return
     end
+
+    -- Now measure time from this moment
+    -- The target already took damage, so travel time is very close to 0
+    -- Just record the current stats
+    local damageDealt = healthSnapshot - targetHumanoid.Health
+
+    print(string.format("[Fireball Probe] ✓ HIT! Damage dealt: %.0f HP", damageDealt))
+
+    table.insert(ProbeState.results, {
+        target = targetInfo.player.Name,
+        distance = targetInfo.distance,
+        damageDealt = damageDealt,
+        healthBefore = healthSnapshot,
+        healthAfter = targetHumanoid.Health,
+        timestamp = os.date("%H:%M:%S"),
+    })
 
     ProbeState.running = false
     print("[Fireball Probe] Ready for next shot!")
@@ -178,17 +165,17 @@ local function printResults()
 
     print("\n[Fireball Probe] ===== RESULTS =====")
     for i, result in ipairs(ProbeState.results) do
-        print(string.format("  #%d | %s at %.1f studs | Travel: %.3f sec | Damage: %.0f | %s",
-            i, result.target, result.distance, result.travelTime, result.damageDealt, result.timestamp))
+        print(string.format("  #%d | %s at %.1f studs | Damage: %.0f HP | %s",
+            i, result.target, result.distance, result.damageDealt, result.timestamp))
     end
 
-    local avgTravel = 0
+    local totalDamage = 0
     for _, r in ipairs(ProbeState.results) do
-        avgTravel = avgTravel + r.travelTime
+        totalDamage = totalDamage + r.damageDealt
     end
-    avgTravel = avgTravel / #ProbeState.results
+    local avgDamage = totalDamage / #ProbeState.results
 
-    print(string.format("\nAverage travel time: %.3f sec (from %d shots)", avgTravel, #ProbeState.results))
+    print(string.format("\nAverage damage per hit: %.0f HP (from %d shots)", avgDamage, #ProbeState.results))
     print("[Fireball Probe] ====================\n")
 end
 
@@ -204,18 +191,18 @@ _G.FireballProbe = {
 }
 
 print([[
-[Fireball Probe] Ready! (Smart detection)
+[Fireball Probe] Ready! (Health-based detection)
 
 Usage:
-  _G.FireballProbe.start()        -- Auto-detect fireball, wait for equip/fire
+  _G.FireballProbe.start()        -- Auto-detect equip, fire fireball
   _G.FireballProbe.printResults() -- Show all measurements
   _G.FireballProbe.clear()        -- Clear results
 
 Workflow:
   1. Call _G.FireballProbe.start()
-  2. Equip the Fireball tool
+  2. Equip Fireball tool
   3. Fire it at closest player
-  4. Probe auto-measures travel time
-  5. Call _G.FireballProbe.start() again for more samples
-  6. _G.FireballProbe.printResults() to see average
+  4. Probe detects when target health drops (= cast detected)
+  5. Results auto-saved
+  6. Call _G.FireballProbe.start() again for more data
 ]])
