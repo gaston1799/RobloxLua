@@ -87,11 +87,9 @@ local AnimalSim = {
 -- Data bootstrap
 ---------------------------------------------------------------------
 
-local prefixes = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/gaston1799/HostedFiles/refs/heads/main/table.lua"
-))()
-
-AnimalSim.Data.prefixes = prefixes
+-- Prefixes will be passed in via initialization
+-- Default empty table if not provided
+AnimalSim.Data.prefixes = {}
 
 local SAFE_ZONE_POLYGON = {
     Vector2.new(-47.553, 585.940),
@@ -3690,8 +3688,10 @@ end
 -- UI helpers
 ---------------------------------------------------------------------
 
-AnimalSim.UI.buildUI = function()
-    local venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/refs/heads/main/libRebound/Venyx.lua"))()
+AnimalSim.UI.buildUI = function(venyx)
+    if not venyx then
+        error("[AnimalSim] Venyx UI library required but not provided")
+    end
     local versionString = AnimalSim.State.version and string.format("%.2f", AnimalSim.State.version) or "1.00"
     local ui = venyx.new({title = ("Revamp - Animal Simulator v%s"):format(versionString)})
 
@@ -3959,10 +3959,15 @@ end
 -- Initialisation
 ---------------------------------------------------------------------
 
-function AnimalSim.init()
+function AnimalSim.init(venyx, prefixes)
     if game.PlaceId ~= AnimalSim.PlaceId then
         return
     end
+
+    if prefixes then
+        AnimalSim.Data.prefixes = prefixes
+    end
+
     defineLocals()
     hptp()
     if characterAddedConnection then
@@ -3978,10 +3983,10 @@ function AnimalSim.init()
         registerTeleporter(name, config)
     end
     setVisualizerEnabled(AnimalSim.State.visualizerEnabled)
-    local venyx, ui = AnimalSim.UI.buildUI()
-    if venyx and ui then
+    local uiVenyx, ui = AnimalSim.UI.buildUI(venyx)
+    if uiVenyx and ui then
         return {
-            library = venyx,
+            library = uiVenyx,
             ui = ui,
             defaultTheme = DEFAULT_THEME,
             defaultPageIndex = 1,
@@ -3991,3 +3996,4 @@ function AnimalSim.init()
 end
 
 return AnimalSim
+
