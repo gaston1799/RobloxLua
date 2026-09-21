@@ -1,23 +1,35 @@
 --[[
-    Fireball Timing Probe (Automatic)
-    - Auto-starts on load
-    - Detects when you equip & fire
-    - Auto-prints travel time immediately
+    Fireball Timing Probe (Debug Version)
+    - Shows what's happening at each step
 ]]
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
+print("[Fireball Probe] Starting debug version...")
+print("[Fireball Probe] Your name:", LocalPlayer.Name)
+
 -- Find fireball in backpack
 local function findFireballTool()
     local backpack = LocalPlayer:FindFirstChild("Backpack")
-    if not backpack then return nil end
+    if not backpack then
+        print("[Fireball Probe] ✗ No backpack found")
+        return nil
+    end
+
+    print("[Fireball Probe] Backpack found, contents:")
+    for _, item in ipairs(backpack:GetChildren()) do
+        print("  -", item.Name, "(" .. item.ClassName .. ")")
+    end
 
     for _, item in ipairs(backpack:GetChildren()) do
         if item.Name == "Fireball" or item.Name:lower():match("fireball") then
+            print("[Fireball Probe] ✓ Found Fireball tool")
             return item
         end
     end
+
+    print("[Fireball Probe] ✗ Fireball not found in backpack")
     return nil
 end
 
@@ -45,63 +57,62 @@ local function findClosestPlayer()
         end
     end
 
+    if closest then
+        print(string.format("[Fireball Probe] ✓ Target: %s @ %.1f studs", closest.player.Name, closest.distance))
+    else
+        print("[Fireball Probe] ✗ No valid targets found")
+    end
+
     return closest
 end
 
 -- Main probe loop
-print("[Fireball Probe] Auto-starting... Waiting for fireball equip")
+print("[Fireball Probe] ============ AUTO-LOOP STARTED ============")
+print("[Fireball Probe] Waiting for you to equip Fireball tool...\n")
+
+local shotCount = 0
 
 while true do
-    -- Find tool
     local fireballTool = findFireballTool()
-    if not fireballTool then
-        task.wait(1)
-        continue
-    end
 
-    -- Wait for equip
-    local char = LocalPlayer.Character
-    if not char or fireballTool.Parent ~= char then
-        task.wait(0.2)
-        continue
-    end
+    if fireballTool then
+        local char = LocalPlayer.Character
+        if char and fireballTool.Parent == char then
+            print("[Fireball Probe] ✓✓✓ FIREBALL EQUIPPED - watching target...")
 
-    -- Get target
-    local targetInfo = findClosestPlayer()
-    if not targetInfo then
-        task.wait(1)
-        continue
-    end
+            -- Get target
+            local targetInfo = findClosestPlayer()
+            if targetInfo then
+                local targetHumanoid = targetInfo.player.Character:FindFirstChildOfClass("Humanoid")
+                if targetHumanoid then
+                    local healthBefore = targetHumanoid.Health
+                    print(string.format("[Fireball Probe] Target health before: %.0f", healthBefore))
 
-    local targetHumanoid = targetInfo.player.Character:FindFirstChildOfClass("Humanoid")
-    if not targetHumanoid then
-        task.wait(0.5)
-        continue
-    end
+                    -- Wait for health to drop
+                    local startWait = tick()
+                    while (tick() - startWait) < 10 do
+                        local currentHealth = targetHumanoid.Health
+                        if currentHealth < healthBefore then
+                            local damage = healthBefore - currentHealth
+                            shotCount = shotCount + 1
+                            print(string.format("\n[FIREBALL HIT #%d] %s @ %.1f studs | Damage: %.0f HP | Time: %s\n",
+                                shotCount, targetInfo.player.Name, targetInfo.distance, damage, os.date("%H:%M:%S")))
 
-    -- Wait for health to drop (fireball cast)
-    local healthBefore = targetHumanoid.Health
-    local startWait = tick()
-    local castDetected = false
+                            -- Wait for tool to unequip
+                            task.wait(1)
+                            break
+                        end
+                        task.wait(0.05)
+                    end
 
-    while (tick() - startWait) < 15 do
-        if targetHumanoid.Health < healthBefore then
-            castDetected = true
-            break
+                    print("[Fireball Probe] Waiting for unequip...\n")
+                    while fireballTool.Parent == char do
+                        task.wait(0.1)
+                    end
+                end
+            end
         end
-        task.wait(0.02)
     end
 
-    if not castDetected then
-        task.wait(1)
-        continue
-    end
-
-    -- Hit detected - auto print
-    local damage = healthBefore - targetHumanoid.Health
-    print(string.format("[Fireball] %s @ %.1f studs | Damage: %.0f HP | %s",
-        targetInfo.player.Name, targetInfo.distance, damage, os.date("%H:%M:%S")))
-
-    -- Cool down before next shot
     task.wait(0.5)
 end
