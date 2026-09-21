@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 140403681187145,
+  "jobId": "0c8fd530-fca6-4be0-bfd3-8a3672757d85",
+  "join": "roblox://placeId=140403681187145&gameInstanceId=0c8fd530-fca6-4be0-bfd3-8a3672757d85",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790034335951
+  "web": "https://www.roblox.com/games/start?placeId=140403681187145&gameInstanceId=0c8fd530-fca6-4be0-bfd3-8a3672757d85",
+  "location": "⛏️ [MINE] Pet Simulator 99! 🚀",
+  "updatedAt": 1790034693385
 }
