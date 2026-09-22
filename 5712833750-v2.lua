@@ -390,12 +390,20 @@ local function getCameraDirection()
     return camera and camera.CFrame.LookVector or Vector3.new(0, 0, -1)
 end
 
-local function moveTowardWithInterception(targetPos)
+local function moveTowardWithInterception(targetRoot)
     local char = LocalPlayer.Character
     if not char then return end
 
     local root = char:FindFirstChild("HumanoidRootPart")
     if not root then return end
+
+    -- Handle both Vector3 (old style) and root part (new style with velocity prediction)
+    local targetPos = targetRoot
+    if typeof(targetRoot) == "Instance" then
+        -- Predict target position based on velocity (0.2s prediction)
+        local velocity = targetRoot.AssemblyLinearVelocity
+        targetPos = targetRoot.Position + (velocity * 0.2)
+    end
 
     local dirToTarget = getDirection(root.Position, targetPos)
     local camDir = getCameraDirection()
@@ -723,7 +731,7 @@ local function updateBotState()
 
     if qReady and dist > Config.melee_range then
         BotState.current_state = "approaching"
-        moveTowardWithInterception(targetRoot.Position)
+        moveTowardWithInterception(targetRoot)
 
     elseif qReady and dist <= Config.melee_range then
         BotState.current_state = "attacking"
@@ -738,7 +746,7 @@ local function updateBotState()
     else
         BotState.current_state = "baiting"
         if dist > Config.combat_radius then
-            moveTowardWithInterception(targetRoot.Position)
+            moveTowardWithInterception(targetRoot)
         else
             fireballBait(targetRoot.Position)
         end
