@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5935278470,
+  "jobId": "b1fd8b96-4867-4a6b-8028-f9e9d31d54eb",
+  "join": "roblox://placeId=5935278470&gameInstanceId=b1fd8b96-4867-4a6b-8028-f9e9d31d54eb",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790059270204
+  "web": "https://www.roblox.com/games/start?placeId=5935278470&gameInstanceId=b1fd8b96-4867-4a6b-8028-f9e9d31d54eb",
+  "location": "[2 NEW BOATS!] Lake Ozark",
+  "updatedAt": 1790059330179
 }
