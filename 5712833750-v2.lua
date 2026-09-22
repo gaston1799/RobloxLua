@@ -375,8 +375,8 @@ local function moveTowardWithInterception(targetPos)
     local dirToTarget = getDirection(root.Position, targetPos)
     local camDir = getCameraDirection()
 
-    local camRight = Vector3.new(camDir.Z, 0, -camDir.X).Unit
-    local camForward = Vector3.new(-camDir.Z, 0, camDir.X).Unit
+    local camRight = camDir:Cross(Vector3.new(0, 1, 0)).Unit
+    local camForward = camDir
 
     local forwardDot = dirToTarget:Dot(camForward)
     local rightDot = dirToTarget:Dot(camRight)
@@ -415,8 +415,8 @@ local function fireballBait(targetPos)
     local dirToTarget = getDirection(root.Position, targetPos)
     local camDir = getCameraDirection()
 
-    local camRight = Vector3.new(camDir.Z, 0, -camDir.X).Unit
-    local camForward = Vector3.new(-camDir.Z, 0, camDir.X).Unit
+    local camRight = camDir:Cross(Vector3.new(0, 1, 0)).Unit
+    local camForward = camDir
 
     local rightDot = dirToTarget:Dot(camRight)
 
