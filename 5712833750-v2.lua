@@ -30,6 +30,7 @@ local BotState = {
     enabled = false,
     current_state = "idle",
     target = nil,
+    target_last_y = nil,
     last_q_time = 0,
     last_fireball_time = 0,
     last_eat_time = 0,
@@ -975,9 +976,22 @@ local function setupDamageDetection()
             elseif targetRoot and isInsideSafeZone(targetRoot.Position) then
                 print("[Auto PVP] Target " .. BotState.target.Name .. " escaped to safe zone, disengaging")
                 BotState.target = nil
+                BotState.target_last_y = nil
                 _G.AdvancedPVPBot.stop()
                 lastHealthValue = health
                 return
+            -- Check if target used bird morph (Y jump > 3 studs = flying away)
+            elseif targetRoot and BotState.target_last_y then
+                local yDiff = targetRoot.Position.Y - BotState.target_last_y
+                if yDiff > 3 then
+                    print("[Auto PVP] Target " .. BotState.target.Name .. " flew away (bird morph), disengaging")
+                    BotState.target = nil
+                    BotState.target_last_y = nil
+                    _G.AdvancedPVPBot.stop()
+                    lastHealthValue = health
+                    return
+                end
+                BotState.target_last_y = targetRoot.Position.Y
             end
         end
 
@@ -985,6 +999,14 @@ local function setupDamageDetection()
             local damageTaken = lastHealthValue - health
             AutoPVPState.last_damage_time = tick()
 
+            -- If already have target, stay locked (don't switch on new damage)
+            if BotState.target then
+                print("[Auto PVP] Already targeting " .. BotState.target.Name .. ", ignoring new attacker")
+                lastHealthValue = health
+                return
+            end
+
+            -- Only find new attacker if no target
             local attacker = findAttackerByDamage(damageTaken)
             if attacker and attacker.Character then
                 -- Check if battle is winnable
