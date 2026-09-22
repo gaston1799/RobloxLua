@@ -9,10 +9,10 @@ local LocalPlayer = Players.LocalPlayer
 
 -- Hardcoded safe zone (same as main script)
 local SAFE_ZONE_CORNERS = {
-    corner1 = {x = -114.77, z = 403.65},
-    corner2 = {x = -46.92, z = 588.14},
-    corner3 = {x = -276.40, z = 672.85},
-    corner4 = {x = -344.77, z = 486.62},
+    corner1 = {x = -113.61, z = 401.64},
+    corner2 = {x = -45.67, z = 588.11},
+    corner3 = {x = -276.38, z = 672.11},
+    corner4 = {x = -345.77, z = 486.77},
 }
 
 local function isInsideSafeZone(position)
