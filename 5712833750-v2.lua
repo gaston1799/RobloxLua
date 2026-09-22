@@ -959,6 +959,24 @@ local function setupDamageDetection()
 
         -- Check if current target is dead or escaped to safe zone
         if BotState.target then
+            -- Safety: check if target player still exists
+            local targetStillExists = false
+            for _, p in ipairs(Players:GetPlayers()) do
+                if p == BotState.target then
+                    targetStillExists = true
+                    break
+                end
+            end
+
+            if not targetStillExists then
+                print("[Auto PVP] Target left the game, clearing target")
+                BotState.target = nil
+                BotState.target_last_y = nil
+                _G.AdvancedPVPBot.stop()
+                lastHealthValue = health
+                return
+            end
+
             local targetChar = BotState.target.Character
             local targetHumanoid = targetChar and targetChar:FindFirstChildOfClass("Humanoid")
             local targetRoot = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
@@ -967,6 +985,7 @@ local function setupDamageDetection()
             if not targetHumanoid or targetHumanoid.Health <= 0 then
                 print("[Auto PVP] Target " .. BotState.target.Name .. " is dead")
                 BotState.target = nil
+                BotState.target_last_y = nil
 
                 if AutoPVPState.auto_reengage then
                     print("[Auto PVP] Auto Re-engage ON: waiting for next attacker...")
