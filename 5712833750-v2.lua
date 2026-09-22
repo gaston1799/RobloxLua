@@ -725,6 +725,11 @@ local function setupDamageDetection()
         return
     end
 
+    -- Mark that damage detection is set up for this humanoid
+    local flag = Instance.new("BoolValue")
+    flag.Name = "_DamageDetected"
+    flag.Parent = humanoid
+
     humanoid.HealthChanged:Connect(function(health)
         -- Check if bot died
         if health <= 0 then
@@ -793,8 +798,15 @@ local function setupDamageDetection()
     end)
 end
 
+local characterDetectionHooked = false
 local function setupAutoCharacterDetection()
+    if characterDetectionHooked then return end
+    characterDetectionHooked = true
+
     LocalPlayer.CharacterAdded:Connect(function(char)
+        if not AutoPVPState.enabled then return end
+
+        print("[Auto PVP] Character respawned, re-hooking damage detection...")
         task.wait(0.1)
         lastHealthValue = nil
         setupDamageDetection()
