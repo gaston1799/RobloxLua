@@ -18,6 +18,30 @@ for _, team in ipairs(TeamsService:GetTeams()) do
     print("  - Team:", team.Name, "| Color:", team.TeamColor, "| Players:", #team:GetPlayers())
 end
 
+-- Check Workspace for teams/clans
+print("\n[Workspace Structure]")
+if workspace:FindFirstChild("Teams") then
+    print("  ✓ Found 'Teams' folder in workspace")
+    local teamsFolder = workspace.Teams
+    print("    Team folders:", #teamsFolder:GetChildren())
+    for _, teamFolder in ipairs(teamsFolder:GetChildren()) do
+        print("    - Team:", teamFolder.Name, "| Type:", teamFolder.ClassName)
+        if teamFolder:IsA("Folder") then
+            print("      Members:", #teamFolder:GetChildren())
+        end
+    end
+else
+    print("  ✗ No 'Teams' folder in workspace")
+end
+
+-- Check for clan-related objects
+print("\n[Workspace Clans/Groups]")
+for _, obj in ipairs(workspace:GetChildren()) do
+    if obj.Name:lower():find("clan") or obj.Name:lower():find("group") or obj.Name:lower():find("team") then
+        print("  Found:", obj.Name, "| Type:", obj.ClassName, "| Children:", #obj:GetChildren())
+    end
+end
+
 -- Check local player's team
 print("\n[Local Player]")
 print("  Name:", LocalPlayer.Name)
