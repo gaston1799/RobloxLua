@@ -575,9 +575,10 @@ local function findAttackerByDamage(damageTaken)
     end
 
     local bestPlayer = nil
-    local bestDistance = math.huge
+    local bestScore = math.huge
+    local closestPlayer = nil
+    local closestDistance = math.huge
 
-    -- Find closest player (most likely the attacker)
     for _, player in ipairs(Players:GetPlayers()) do
         if player ~= LocalPlayer then
             local character = player.Character
@@ -585,15 +586,34 @@ local function findAttackerByDamage(damageTaken)
             local root = character and character:FindFirstChild("HumanoidRootPart")
 
             if humanoidInstance and humanoidInstance.Health > 0 and root then
+                local level = getPlayerLevel(player) or 1
+                local estimatedDamage = (level * 2) + 10
+                local diff = math.abs(estimatedDamage - damageTaken)
+                local tolerance = math.max(30, estimatedDamage * 0.5)
                 local distance = (root.Position - localRoot.Position).Magnitude
+                local score = diff + (distance * 0.02)
 
-                -- Prioritize closest player (proximity is most reliable indicator of attacker)
-                if distance < bestDistance then
-                    bestDistance = distance
-                    bestPlayer = player
+                -- Track closest player as fallback
+                if distance < closestDistance then
+                    closestDistance = distance
+                    closestPlayer = player
+                end
+
+                -- If damage matches, consider this player
+                if diff <= tolerance then
+                    if score < bestScore then
+                        bestScore = score
+                        bestPlayer = player
+                    end
                 end
             end
         end
+    end
+
+    -- Fallback to closest player if no damage match found
+    if not bestPlayer and closestPlayer then
+        print("[Auto PVP] No damage match, using closest player as fallback")
+        bestPlayer = closestPlayer
     end
 
     if bestPlayer then
