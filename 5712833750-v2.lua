@@ -572,7 +572,10 @@ local function setupAutoCharacterDetection()
     end)
 end
 
+local updateCounter = 0
 local function updateBotState()
+    updateCounter = updateCounter + 1
+
     if not BotState.enabled or not BotState.target then
         BotState.current_state = "idle"
         releaseAllKeys()
@@ -604,6 +607,10 @@ local function updateBotState()
     local dist = getDistance(root.Position, targetRoot.Position)
     local qReady = (tick() - BotState.last_q_time) > Config.q_cooldown
     local fireballReady = (tick() - BotState.last_fireball_time) > Config.fireball_cooldown
+
+    if updateCounter % 30 == 0 then
+        print("[Bot State] State: " .. BotState.current_state .. " | Dist: " .. string.format("%.1f", dist) .. " | Target: " .. BotState.target.Name)
+    end
 
     if qReady and dist > Config.melee_range then
         BotState.current_state = "approaching"
