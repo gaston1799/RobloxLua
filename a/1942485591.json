@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 104467765188965,
-  "jobId": "f9bea0a7-dca6-4d70-85bd-f4678b029c55",
-  "join": "roblox://placeId=104467765188965&gameInstanceId=f9bea0a7-dca6-4d70-85bd-f4678b029c55",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=104467765188965&gameInstanceId=f9bea0a7-dca6-4d70-85bd-f4678b029c55",
-  "location": "Freshwater Cove ",
-  "updatedAt": 1790056629684
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790057169764
 }
