@@ -774,9 +774,15 @@ local function updateAutozoneTarget()
         end
     end
 
-    if closestEnemy and isWinnableBattle(closestEnemy) and isInAutoZone(closestEnemy) then
-        _G.AdvancedPVPBot.setTarget(closestEnemy)
-        print("[AutoZone] Engaging enemy near ally:", closestEnemy.Name)
+    if closestEnemy then
+        if not isWinnableBattle(closestEnemy) then
+            print("[AutoZone] " .. closestEnemy.Name .. " is unkillable (bad ratio), skipping")
+        elseif not isInAutoZone(closestEnemy) then
+            print("[AutoZone] " .. closestEnemy.Name .. " is in safe zone, skipping")
+        else
+            _G.AdvancedPVPBot.setTarget(closestEnemy)
+            print("[AutoZone] ✓ Engaging enemy near ally:", closestEnemy.Name)
+        end
     end
 end
 
