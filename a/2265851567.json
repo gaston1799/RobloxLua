@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7215881810,
+  "jobId": "794b6006-e039-4283-9b76-293460de7c55",
+  "join": "roblox://placeId=7215881810&gameInstanceId=794b6006-e039-4283-9b76-293460de7c55",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790089340187
+  "web": "https://www.roblox.com/games/start?placeId=7215881810&gameInstanceId=794b6006-e039-4283-9b76-293460de7c55",
+  "location": "👑NO LIMIT STRONGEST PUNCH SIMULATOR",
+  "updatedAt": 1790089459981
 }
