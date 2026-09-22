@@ -575,8 +575,9 @@ local function findAttackerByDamage(damageTaken)
     end
 
     local bestPlayer = nil
-    local bestScore = math.huge
+    local bestDistance = math.huge
 
+    -- Find closest player (most likely the attacker)
     for _, player in ipairs(Players:GetPlayers()) do
         if player ~= LocalPlayer then
             local character = player.Character
@@ -584,22 +585,12 @@ local function findAttackerByDamage(damageTaken)
             local root = character and character:FindFirstChild("HumanoidRootPart")
 
             if humanoidInstance and humanoidInstance.Health > 0 and root then
-                -- Estimate damage based on level
-                local level = getPlayerLevel(player) or 1
-                local estimatedDamage = (level * 2) + 10
-                local diff = math.abs(estimatedDamage - damageTaken)
-                local tolerance = math.max(30, estimatedDamage * 0.5)
                 local distance = (root.Position - localRoot.Position).Magnitude
-                local score = diff + (distance * 0.02)
 
-                print("[Auto PVP] Check: " .. player.Name .. " | Lvl:" .. level .. " | Est:" .. estimatedDamage .. " | Taken:" .. damageTaken .. " | Diff:" .. string.format("%.1f", diff) .. " | Tol:" .. string.format("%.1f", tolerance) .. " | Match: " .. (diff <= tolerance and "YES" or "NO"))
-
-                if diff <= tolerance then
-                    print("[Auto PVP]   → Score: " .. string.format("%.1f", score))
-                    if score < bestScore then
-                        bestScore = score
-                        bestPlayer = player
-                    end
+                -- Prioritize closest player (proximity is most reliable indicator of attacker)
+                if distance < bestDistance then
+                    bestDistance = distance
+                    bestPlayer = player
                 end
             end
         end
