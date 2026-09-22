@@ -1,9 +1,7 @@
 --[[
-    Hit-to-Kill Ratio Probe
-    Calculates damage per hit based on level
-    Shows how many hits to kill players vs how many to kill us
-
-    Formula: Level * 2 = damage per normal attack
+    Hit-to-Kill Ratio Probe (Working Version)
+    Listens to actual damage on players
+    Formula: Level * 2 = damage per hit
 ]]
 
 local Players = game:GetService("Players")
@@ -11,34 +9,21 @@ local LocalPlayer = Players.LocalPlayer
 
 print("\n[Damage Probe] ========== HIT-TO-KILL CALCULATOR ==========\n")
 
+local playerDamageTracking = {}
+
 local function getPlayerLevel(player)
-    -- Try to find level attribute/value in player or character
     if player:FindFirstChild("Level") then
         local level = player:FindFirstChild("Level")
         if level:IsA("IntValue") or level:IsA("NumberValue") then
             return level.Value
         end
     end
-
-    -- Check in character
     if player.Character then
         if player.Character:FindFirstChild("Level") then
             local level = player.Character:FindFirstChild("Level")
             if level:IsA("IntValue") or level:IsA("NumberValue") then
                 return level.Value
             end
-        end
-    end
-
-    -- Not found
-    return nil
-end
-
-local function getPlayerHealth(player)
-    if player.Character then
-        local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
-        if humanoid then
-            return humanoid.Health
         end
     end
     return nil
@@ -49,77 +34,67 @@ local function calculateDamage(level)
     return level * 2
 end
 
--- Print own stats
-local myLevel = getPlayerLevel(LocalPlayer)
-local myHealth = getPlayerHealth(LocalPlayer)
-local myDamage = calculateDamage(myLevel)
+-- Track each player's health changes
+local function trackPlayer(player)
+    if player == LocalPlayer then return end
+    if playerDamageTracking[player] then return end
 
-print(string.format("[YOU] Level: %s | Health: %.0f | Damage/Hit: %.0f",
-    myLevel or "?", myHealth or 0, myDamage))
-print(string.format("  → Multipliers: x0.1=%.0f | x0.5=%.0f | x1=%.0f | x1.5=%.0f | x2=%.0f",
-    myDamage*0.1, myDamage*0.5, myDamage*1, myDamage*1.5, myDamage*2))
+    playerDamageTracking[player] = true
 
--- Calculate for each player
-print("\n[Damage Probe] ========== PLAYER COMPARISONS ==========\n")
-
-for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= LocalPlayer then
+    -- Listen to character spawns
+    local function onCharacterAdded(character)
+        local humanoid = character:WaitForChild("Humanoid")
         local level = getPlayerLevel(player)
-        local health = getPlayerHealth(player)
         local damage = calculateDamage(level)
 
-        if level and health then
-            -- Hits to kill them
-            local hitsToKillThem = math.ceil(health / myDamage)
+        print(string.format("\n[%s] Spawned | Level: %s | Damage/Hit: %.0f",
+            player.Name, level or "?", damage))
 
-            -- Hits to kill us (if they attack)
-            local hitsToKillUs = math.ceil(myHealth / damage)
+        local lastHealth = humanoid.Health
 
-            -- Ratio (lower = we kill faster)
-            local ratio = hitsToKillThem / hitsToKillUs
+        -- Listen to health changes
+        humanoid.HealthChanged:Connect(function(health)
+            if health < lastHealth then
+                local damageDealt = lastHealth - health
+                local myHealth = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
 
-            print(string.format("[%s] Lvl %s | HP: %.0f | Dmg/Hit: %.0f",
-                player.Name, level, health, damage))
-            print(string.format("  → They need %.0f hits to kill us", hitsToKillUs))
-            print(string.format("  → We need %.0f hits to kill them", hitsToKillThem))
-            print(string.format("  → Ratio: %.2f (1=equal | <1=we win | >1=they win)", ratio))
-            print("")
-        else
-            print(string.format("[%s] ✗ Could not read level/health\n", player.Name))
-        end
-    end
-end
+                if myHealth then
+                    local myLevel = getPlayerLevel(LocalPlayer)
+                    local myDamage = calculateDamage(myLevel)
 
--- Watch for changes
-print("\n[Damage Probe] Watching for level/health changes...\n")
+                    -- Calculate ratios
+                    local hitsToKillThem = math.ceil(health / myDamage)
+                    local hitsToKillUs = math.ceil(myHealth.Health / damage)
 
-local lastUpdate = tick()
-task.spawn(function()
-    while true do
-        task.wait(2)
-
-        if tick() - lastUpdate > 5 then
-            print("\n[Damage Probe] ========== LIVE UPDATE ==========\n")
-
-            for _, player in ipairs(Players:GetPlayers()) do
-                if player ~= LocalPlayer then
-                    local level = getPlayerLevel(player)
-                    local health = getPlayerHealth(player)
-                    local damage = calculateDamage(level)
-
-                    if level and health then
-                        local hitsToKillThem = math.ceil(health / myDamage)
-                        local hitsToKillUs = math.ceil(myHealth / damage)
-
-                        print(string.format("[%s] Lvl %s | HP: %.0f | Hits to kill us: %s | Hits kill them: %s",
-                            player.Name, level, health, hitsToKillUs, hitsToKillThem))
-                    end
+                    print(string.format("[%s] Took damage: %.0f | Health: %.0f → %.0f | Hits needed: us→%s | them→%s",
+                        player.Name, damageDealt, lastHealth, health, hitsToKillUs, hitsToKillThem))
                 end
             end
-
-            lastUpdate = tick()
-        end
+            lastHealth = health
+        end)
     end
+
+    if player.Character then
+        onCharacterAdded(player.Character)
+    end
+
+    player.CharacterAdded:Connect(onCharacterAdded)
+end
+
+-- Track all current players
+for _, player in ipairs(Players:GetPlayers()) do
+    trackPlayer(player)
+end
+
+-- Track new players
+Players.PlayerAdded:Connect(function(player)
+    print(string.format("[+] %s joined", player.Name))
+    trackPlayer(player)
 end)
 
-print("[Damage Probe] Ready!\n")
+Players.PlayerRemoving:Connect(function(player)
+    playerDamageTracking[player] = nil
+    print(string.format("[-] %s left\n", player.Name))
+end)
+
+print("[Damage Probe] Ready! Listening for damage...\n")
