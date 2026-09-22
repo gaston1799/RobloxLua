@@ -743,6 +743,11 @@ local function updateBotState()
             fireballBait(targetRoot.Position)
         end
     end
+
+    -- Continuous Q spam (separate from state machine)
+    if qReady and BotState.enabled and BotState.target then
+        attackWithQ()
+    end
 end
 
 local botLoop
@@ -790,6 +795,8 @@ _G.AdvancedPVPBot = {
         else
             print("[Auto PVP] Disabled")
             _G.AdvancedPVPBot.stop()
+            BotState.target = nil
+            print("[Auto PVP] Target cleared")
         end
     end,
 
