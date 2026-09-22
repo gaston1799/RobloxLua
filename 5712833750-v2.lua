@@ -952,9 +952,13 @@ local function setupDamageDetection()
             return
         end
 
-        -- Check if current target is dead
+        -- Check if current target is dead or escaped to safe zone
         if BotState.target then
-            local targetHumanoid = BotState.target.Character and BotState.target.Character:FindFirstChildOfClass("Humanoid")
+            local targetChar = BotState.target.Character
+            local targetHumanoid = targetChar and targetChar:FindFirstChildOfClass("Humanoid")
+            local targetRoot = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
+
+            -- Check if dead
             if not targetHumanoid or targetHumanoid.Health <= 0 then
                 print("[Auto PVP] Target " .. BotState.target.Name .. " is dead")
                 BotState.target = nil
@@ -967,6 +971,13 @@ local function setupDamageDetection()
                     lastHealthValue = health
                     return
                 end
+            -- Check if target escaped to safe zone
+            elseif targetRoot and isInsideSafeZone(targetRoot.Position) then
+                print("[Auto PVP] Target " .. BotState.target.Name .. " escaped to safe zone, disengaging")
+                BotState.target = nil
+                _G.AdvancedPVPBot.stop()
+                lastHealthValue = health
+                return
             end
         end
 
