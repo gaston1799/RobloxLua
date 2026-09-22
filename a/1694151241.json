@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 83678792452277,
+  "jobId": "2bc67141-18de-418e-b467-acc675cc3d09",
+  "join": "roblox://placeId=83678792452277&gameInstanceId=2bc67141-18de-418e-b467-acc675cc3d09",
   "follow": "roblox://followUserId=1694151241",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790102936638
+  "web": "https://www.roblox.com/games/start?placeId=83678792452277&gameInstanceId=2bc67141-18de-418e-b467-acc675cc3d09",
+  "location": "[S10 🏆] Death Ball",
+  "updatedAt": 1790102968879
 }
