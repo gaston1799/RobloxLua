@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 118464614321108,
-  "jobId": "811acd8a-f151-4c74-a264-e101582dad4f",
-  "join": "roblox://placeId=118464614321108&gameInstanceId=811acd8a-f151-4c74-a264-e101582dad4f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=118464614321108&gameInstanceId=811acd8a-f151-4c74-a264-e101582dad4f",
-  "location": "Biker Duo 🏍️ [2 Player Obby]",
-  "updatedAt": 1790041805068
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790042465233
 }
