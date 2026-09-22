@@ -15,7 +15,7 @@ local function sendIntent(key, state)
     local payload = {key = key, state = state}
     local json = game:GetService("HttpService"):JSONEncode(payload)
     local ok, err = pcall(function()
-        game:HttpPost(INTENT_SERVER, json, true)
+        game:HttpPost(INTENT_SERVER, json)
     end)
     if not ok then
         print("[Intent Server] ERROR: " .. tostring(err))
