@@ -3692,16 +3692,17 @@ AnimalSim.UI.buildUI = function(venyx)
     if not venyx then
         error("[AnimalSim] Venyx UI library required but not provided")
     end
-    local versionString = AnimalSim.State.version and string.format("%.2f", AnimalSim.State.version) or "1.00"
-    local ui = venyx.new({title = ("Revamp - Animal Simulator v%s"):format(versionString)})
 
-    local gameplayPage = ui:addPage({title = "Animal Sim"})
-    local gameplaySection = gameplayPage:addSection({title = "Gameplay"})
+    local ui = venyx.new({title = "Animal Sim PVP"})
+    local mainPage = ui:addPage({title = "Main"})
+
+    -- ===== COMBAT SECTION =====
+    local combatSection = mainPage:addSection({title = "Combat"})
 
     local function collectPlayerNames()
         local names = {}
-        for _, player in ipairs(Players:GetPlayers()) do
-            if player ~= LocalPlayer then
+        for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+            if player ~= game:GetService("Players").LocalPlayer then
                 table.insert(names, player.Name)
             end
         end
@@ -3709,244 +3710,204 @@ AnimalSim.UI.buildUI = function(venyx)
         return names
     end
 
-    local targetDropdown
-    targetDropdown = gameplaySection:addDropdown({
+    local targetDropdown = combatSection:addDropdown({
         title = "Set Target Player",
         list = collectPlayerNames(),
         callback = function(playerName)
-            AnimalSim.State.selectedPlayer = Players:FindFirstChild(playerName)
+            if playerName then
+                local Players = game:GetService("Players")
+                AnimalSim.State.selectedPlayer = Players:FindFirstChild(playerName)
+            end
         end,
     })
 
-    local function refreshTargetDropdown()
-        if not (targetDropdown and targetDropdown.Options and targetDropdown.Options.Update) then
-            return
-        end
-        targetDropdown.Options:Update({
-            list = collectPlayerNames(),
-        })
-    end
-
-    Players.PlayerAdded:Connect(function()
-        refreshTargetDropdown()
-    end)
-
-    Players.PlayerRemoving:Connect(function(player)
-        refreshTargetDropdown()
-        if AnimalSim.State.selectedPlayer == player then
-            AnimalSim.State.selectedPlayer = nil
-        end
-    end)
-
-    AnimalSim.UI.instances.targetDropdown = targetDropdown
-
-    gameplaySection:addToggle({
-        title = "Legit Mode",
-        toggled = AnimalSim.State.legitMode,
-        callback = setLegitMode,
-    })
-
-    gameplaySection:addToggle({
-        title = "Kill aura",
-        toggled = AnimalSim.State.killAura,
-        callback = setAuraActive,
-    })
-
-    gameplaySection:addToggle({
+    combatSection:addToggle({
         title = "Auto PVP",
         toggled = AnimalSim.State.autoPVP,
-        callback = setAutoPVP,
+        callback = function(val)
+            if setAutoPVP then setAutoPVP(val) end
+        end,
     })
 
-    gameplaySection:addToggle({
-        title = "Auto Jump",
-        toggled = AnimalSim.State.autoJump,
-        callback = setAutoJump,
-    })
-
-    gameplaySection:addToggle({
+    combatSection:addToggle({
         title = "Auto Eat",
-        toggled = autoEatEnabled,
-        callback = function(value)
-            if value then
-                startAutoEat()
+        toggled = false,
+        callback = function(val)
+            if val then
+                if startAutoEat then startAutoEat() end
             else
-                stopAutoEat()
+                if stopAutoEat then stopAutoEat() end
             end
         end,
     })
 
-    gameplaySection:addToggle({
-        title = "Hold Fire (Auto Eat)",
-        toggled = holdFireEnabled,
-        callback = setHoldFire,
-    })
-
-    gameplaySection:addToggle({
-        title = "Auto Fight",
-        toggled = AnimalSim.State.autoFight,
-        callback = setAutoFight,
-    })
-
-    gameplaySection:addToggle({
-        title = "Auto Fire",
-        toggled = autoFireballEnabled,
-        callback = function(value)
-            if value then
-                startAutoFireball()
+    combatSection:addToggle({
+        title = "Auto Fireball (Engaged)",
+        toggled = false,
+        callback = function(val)
+            if val then
+                if startAutoFireball then startAutoFireball() end
             else
-                stopAutoFireball()
+                if stopAutoFireball then stopAutoFireball() end
             end
         end,
     })
 
-    gameplaySection:addToggle({
-        title = "Auto Zone",
+    combatSection:addButton({
+        title = "Damage Player",
+        callback = function()
+            if damageplayer then
+                damageplayer(AnimalSim.State.selectedPlayer and AnimalSim.State.selectedPlayer.Name)
+            end
+        end,
+    })
+
+    -- ===== PVP BOT SECTION =====
+    local pvpBotSection = mainPage:addSection({title = "PVP Bot"})
+
+    pvpBotSection:addToggle({
+        title = "Enable PVP Bot",
+        toggled = false,
+        callback = function(val)
+            if _G.PVPBot then
+                if val then _G.PVPBot.start() else _G.PVPBot.stop() end
+            end
+        end,
+    })
+
+    pvpBotSection:addToggle({
+        title = "Auto Sprint",
+        toggled = false,
+        callback = function(val)
+            if _G.PVPBot then _G.PVPBot.setAutoSprint(val) end
+        end,
+    })
+
+    pvpBotSection:addToggle({
+        title = "Auto Re-engage",
+        toggled = false,
+        callback = function(val)
+            if _G.PVPBot then _G.PVPBot.setAutoReengage(val) end
+        end,
+    })
+
+    local botTargetDropdown = pvpBotSection:addDropdown({
+        title = "PVP Bot Target",
+        list = collectPlayerNames(),
+        callback = function(playerName)
+            if playerName and _G.PVPBot then
+                local player = game:GetService("Players"):FindFirstChild(playerName)
+                if player then _G.PVPBot.setTarget(player) end
+            end
+        end,
+    })
+
+    -- ===== AUTOZONE SECTION =====
+    local autozoneSection = mainPage:addSection({title = "AutoZone"})
+
+    autozoneSection:addToggle({
+        title = "Auto Zone (kills all outside safe)",
         toggled = AnimalSim.State.autoZone,
-        callback = setAutoZone,
-    })
-
-    gameplaySection:addToggle({
-        title = "Follow Ally (AutoZone)",
-        toggled = AnimalSim.State.followAlly,
-        callback = function(value)
-            AnimalSim.State.followAlly = value
+        callback = function(val)
+            if setAutoZone then setAutoZone(val) end
         end,
     })
 
-    local allyTargetRangeSlider
+    autozoneSection:addToggle({
+        title = "Follow Ally",
+        toggled = AnimalSim.State.followAlly,
+        callback = function(val)
+            AnimalSim.State.followAlly = val
+        end,
+    })
 
-    gameplaySection:addSlider({
+    autozoneSection:addSlider({
         title = "Ally Follow Min Dist",
         min = 0,
         max = 500,
         default = AnimalSim.Modules.Combat.AutoZoneConfig.followAllyMinDistance or 3,
         precision = 0,
-        callback = function(value)
-            local config = AnimalSim.Modules.Combat.AutoZoneConfig
-            config.followAllyMinDistance = math.max(0, tonumber(value) or 0)
-            if config.followAllyTargetRange and config.followAllyTargetRange < config.followAllyMinDistance then
-                config.followAllyTargetRange = config.followAllyMinDistance
-                if allyTargetRangeSlider then
-                    allyTargetRangeSlider.Options.value = config.followAllyTargetRange
-                    gameplaySection:updateSlider(allyTargetRangeSlider)
-                end
+        callback = function(val)
+            if AnimalSim.Modules.Combat.AutoZoneConfig then
+                AnimalSim.Modules.Combat.AutoZoneConfig.followAllyMinDistance = tonumber(val) or 3
             end
         end,
     })
 
-    allyTargetRangeSlider = gameplaySection:addSlider({
+    autozoneSection:addSlider({
         title = "Ally Target Range",
         min = 0,
         max = 500,
         default = AnimalSim.Modules.Combat.AutoZoneConfig.followAllyTargetRange or 20,
         precision = 0,
-        callback = function(value)
-            local config = AnimalSim.Modules.Combat.AutoZoneConfig
-            local newValue = math.max(0, tonumber(value) or 0)
-            if config.followAllyMinDistance and newValue < config.followAllyMinDistance then
-                newValue = config.followAllyMinDistance
-                if allyTargetRangeSlider then
-                    allyTargetRangeSlider.Options.value = newValue
-                    gameplaySection:updateSlider(allyTargetRangeSlider)
-                end
+        callback = function(val)
+            if AnimalSim.Modules.Combat.AutoZoneConfig then
+                AnimalSim.Modules.Combat.AutoZoneConfig.followAllyTargetRange = tonumber(val) or 20
             end
-            config.followAllyTargetRange = newValue
         end,
     })
 
-    gameplaySection:addToggle({
+    autozoneSection:addToggle({
         title = "Auto Zone Fakeouts",
         toggled = AnimalSim.State.autoZoneFakeouts,
-        callback = function(value)
-            AnimalSim.State.autoZoneFakeouts = value
+        callback = function(val)
+            AnimalSim.State.autoZoneFakeouts = val
         end,
     })
 
-    -- gameplaySection:addToggle({
-    --     title = "Flight Chase",
-    --     toggled = autoFlightChaseEnabled,
-    --     callback = function(value)
-    --         if value then
-    --             startAutoFlightChase()
-    --         else
-    --             stopAutoFlightChase()
-    --         end
-    --     end,
-    -- })
+    -- ===== HIT-TO-KILL SECTION =====
+    local ratioSection = mainPage:addSection({title = "Hit-to-Kill Ratio"})
 
-    gameplaySection:addToggle({
-        title = "Movement Visualizer",
-        toggled = AnimalSim.State.visualizerEnabled,
-        callback = setVisualizerEnabled,
+    ratioSection:addSlider({
+        title = "Damage Multiplier",
+        min = 0.1,
+        max = 2,
+        default = 1,
+        precision = 1,
+        callback = function(val)
+            _G.DamageMultiplier = tonumber(val) or 1
+        end,
     })
 
-    gameplaySection:addToggle({
-        title = "Use target",
-        toggled = AnimalSim.State.followTarget,
-        callback = setFollowTargetEnabled,
-    })
-
-    gameplaySection:addButton({
-        title = "Damage Player",
+    ratioSection:addButton({
+        title = "Show Damage Info",
         callback = function()
-            if AnimalSim.State.selectedPlayer then
-                damageplayer(AnimalSim.State.selectedPlayer.Name)
-            else
-                damageplayer()
-            end
+            print("[Hit-to-Kill] Run damage_ratio_probe for live calculations")
         end,
     })
 
-    gameplaySection:addTextbox({
-        title = "Force Join Pack",
-        default = "Case Sensitive",
-        callback = function(value, focusLost)
-            if not focusLost or not value or value == "" then
-                return
-            end
-            local acceptEvent = ReplicatedStorage:FindFirstChild("acceptedEvent")
-            if not acceptEvent then
-                warn("[AnimalSim] acceptedEvent not found in ReplicatedStorage")
-                return
-            end
-            for _, team in ipairs(workspace.Teams:GetChildren()) do
-                if string.find(value, team.Name, 1, true) then
-                    acceptEvent:FireServer(team.Name)
-                end
-            end
-        end,
-    })
-
-    gameplaySection:addButton({
-        title = "Print All Teams (F9)",
-        callback = function()
-            for _, team in ipairs(workspace.Teams:GetChildren()) do
-                print(team.Name)
-            end
-        end,
-    })
-
-    local miscSection = gameplayPage:addSection({title = "Misc"})
+    -- ===== MISC SECTION =====
+    local miscSection = mainPage:addSection({title = "Misc"})
 
     miscSection:addToggle({
-        title = "remeber walkspeed",
+        title = "Remember Walkspeed",
         toggled = AnimalSim.State.rememberWalkspeed,
-        callback = function(value)
-            AnimalSim.State.rememberWalkspeed = value
-            if value then
-                local currentHumanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-                cacheLastWalkSpeed(currentHumanoid)
-                applyLastWalkSpeed(currentHumanoid)
-            end
+        callback = function(val)
+            AnimalSim.State.rememberWalkspeed = val
         end,
     })
 
-    local scriptsSection = gameplayPage:addSection({title = "Scripts/Hubs"})
+    miscSection:addToggle({
+        title = "Movement Visualizer",
+        toggled = AnimalSim.State.visualizerEnabled,
+        callback = function(val)
+            if setVisualizerEnabled then setVisualizerEnabled(val) end
+        end,
+    })
 
-    scriptsSection:addButton({
+    miscSection:addToggle({
+        title = "Use Target",
+        toggled = AnimalSim.State.followTarget,
+        callback = function(val)
+            if setFollowTargetEnabled then setFollowTargetEnabled(val) end
+        end,
+    })
+
+    miscSection:addButton({
         title = "Load AW Script",
-        callback = loadAwScript,
+        callback = function()
+            if loadAwScript then loadAwScript() end
+        end,
     })
 
     AnimalSim.UI.instances.library = venyx
