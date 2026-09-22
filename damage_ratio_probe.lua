@@ -1,6 +1,7 @@
 --[[
-    Hit-to-Kill Ratio Probe (Working Version)
-    Listens to actual damage on players
+    Hit-to-Kill Ratio Probe (FIXED)
+    Reads level from leaderstats
+    Listens to actual damage via HealthChanged
     Formula: Level * 2 = damage per hit
 ]]
 
@@ -12,15 +13,11 @@ print("\n[Damage Probe] ========== HIT-TO-KILL CALCULATOR ==========\n")
 local playerDamageTracking = {}
 
 local function getPlayerLevel(player)
-    if player:FindFirstChild("Level") then
-        local level = player:FindFirstChild("Level")
-        if level:IsA("IntValue") or level:IsA("NumberValue") then
-            return level.Value
-        end
-    end
-    if player.Character then
-        if player.Character:FindFirstChild("Level") then
-            local level = player.Character:FindFirstChild("Level")
+    -- Level is stored in leaderstats.Level
+    if player:FindFirstChild("leaderstats") then
+        local leaderstats = player:FindFirstChild("leaderstats")
+        if leaderstats:FindFirstChild("Level") then
+            local level = leaderstats:FindFirstChild("Level")
             if level:IsA("IntValue") or level:IsA("NumberValue") then
                 return level.Value
             end
@@ -56,18 +53,23 @@ local function trackPlayer(player)
         humanoid.HealthChanged:Connect(function(health)
             if health < lastHealth then
                 local damageDealt = lastHealth - health
-                local myHealth = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+                local myHealthObj = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
 
-                if myHealth then
+                if myHealthObj then
                     local myLevel = getPlayerLevel(LocalPlayer)
                     local myDamage = calculateDamage(myLevel)
+                    local myHealth = myHealthObj.Health
 
-                    -- Calculate ratios
-                    local hitsToKillThem = math.ceil(health / myDamage)
-                    local hitsToKillUs = math.ceil(myHealth.Health / damage)
+                    if myDamage > 0 then
+                        -- Calculate ratios
+                        local hitsToKillThem = math.ceil(health / myDamage)
+                        local hitsToKillUs = math.ceil(myHealth / damage)
 
-                    print(string.format("[%s] Took damage: %.0f | Health: %.0f → %.0f | Hits needed: us→%s | them→%s",
-                        player.Name, damageDealt, lastHealth, health, hitsToKillUs, hitsToKillThem))
+                        print(string.format("[%s] Took damage: %.0f | Health: %.0f → %.0f",
+                            player.Name, damageDealt, lastHealth, health))
+                        print(string.format("  → Hits to kill them: %.0f | Hits to kill us: %.0f | Ratio: %.2f",
+                            hitsToKillThem, hitsToKillUs, hitsToKillThem/hitsToKillUs))
+                    end
                 end
             end
             lastHealth = health
@@ -88,7 +90,7 @@ end
 
 -- Track new players
 Players.PlayerAdded:Connect(function(player)
-    print(string.format("[+] %s joined", player.Name))
+    print(string.format("\n[+] %s joined", player.Name))
     trackPlayer(player)
 end)
 
