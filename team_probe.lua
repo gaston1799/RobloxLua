@@ -25,9 +25,13 @@ if workspace:FindFirstChild("Teams") then
     local teamsFolder = workspace.Teams
     print("    Team folders:", #teamsFolder:GetChildren())
     for _, teamFolder in ipairs(teamsFolder:GetChildren()) do
-        print("    - Team:", teamFolder.Name, "| Type:", teamFolder.ClassName)
+        print("\n    - Team: " .. teamFolder.Name .. " | Type: " .. teamFolder.ClassName)
         if teamFolder:IsA("Folder") then
-            print("      Members:", #teamFolder:GetChildren())
+            local members = teamFolder:GetChildren()
+            print("      Members: " .. #members)
+            for _, member in ipairs(members) do
+                print("        • " .. member.Name .. " (" .. member.ClassName .. ")")
+            end
         end
     end
 else
