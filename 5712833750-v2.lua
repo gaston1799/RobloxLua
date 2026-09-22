@@ -38,6 +38,15 @@ local Config = {
     approach_speed = "normal",
 }
 
+-- ===== AUTO PVP STATE =====
+
+local AutoPVPState = {
+    enabled = false,
+    last_attacker = nil,
+    last_damage_time = 0,
+    damage_threshold = 0.5,
+}
+
 local function pressKey(key)
     if not BotState.movement_keys[key] then
         BotState.movement_keys[key] = true
@@ -173,6 +182,107 @@ local function doubleHit()
     attackWithQ()
 end
 
+-- ===== AUTO PVP DAMAGE DETECTION =====
+
+local function findAttackerByDamage(damageTaken)
+    if not damageTaken or damageTaken <= 0 then
+        return nil
+    end
+
+    local localCharacter = LocalPlayer.Character
+    local localRoot = localCharacter and localCharacter:FindFirstChild("HumanoidRootPart")
+    if not localRoot then return nil end
+
+    local bestPlayer = nil
+    local bestScore = math.huge
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer then
+            local character = player.Character
+            local humanoidInstance = character and character:FindFirstChildOfClass("Humanoid")
+            local root = character and character:FindFirstChild("HumanoidRootPart")
+
+            if humanoidInstance and humanoidInstance.Health > 0 and root then
+                -- Estimate damage based on level
+                local level = 1
+                local stats = player:FindFirstChild("leaderstats")
+                if stats then
+                    local levelValue = stats:FindFirstChild("Level")
+                    if levelValue then
+                        level = tonumber(levelValue.Value) or 1
+                    end
+                end
+
+                local estimatedDamage = (level * 2) + 10
+                local diff = math.abs(estimatedDamage - damageTaken)
+                local tolerance = math.max(20, estimatedDamage * 0.4)
+
+                if diff <= tolerance then
+                    local distance = (root.Position - localRoot.Position).Magnitude
+                    local score = diff + (distance * 0.05)
+
+                    if score < bestScore then
+                        bestScore = score
+                        bestPlayer = player
+                    end
+                end
+            end
+        end
+    end
+
+    return bestPlayer
+end
+
+local lastHealthValue = nil
+local function setupDamageDetection()
+    local char = LocalPlayer.Character
+    if not char then return end
+
+    local humanoid = char:FindFirstChildOfClass("Humanoid")
+    if not humanoid then return end
+
+    lastHealthValue = humanoid.Health
+
+    if humanoid:FindFirstChild("_DamageDetected") then
+        return
+    end
+
+    humanoid.HealthChanged:Connect(function(health)
+        if not AutoPVPState.enabled then
+            lastHealthValue = health
+            return
+        end
+
+        if lastHealthValue and lastHealthValue > health then
+            local damageTaken = lastHealthValue - health
+            AutoPVPState.last_damage_time = tick()
+
+            local attacker = findAttackerByDamage(damageTaken)
+            if attacker and attacker.Character then
+                AutoPVPState.last_attacker = attacker
+                if BotState.enabled then
+                    _G.AdvancedPVPBot.setTarget(attacker)
+                    print("[Auto PVP] Hit by " .. attacker.Name .. "! Engaging...")
+                else
+                    _G.AdvancedPVPBot.setTarget(attacker)
+                    _G.AdvancedPVPBot.start()
+                    print("[Auto PVP] Hit by " .. attacker.Name .. "! Bot started")
+                end
+            end
+        end
+
+        lastHealthValue = health
+    end)
+end
+
+local function setupAutoCharacterDetection()
+    LocalPlayer.CharacterAdded:Connect(function(char)
+        task.wait(0.1)
+        lastHealthValue = nil
+        setupDamageDetection()
+    end)
+end
+
 local function updateBotState()
     if not BotState.enabled or not BotState.target then
         BotState.current_state = "idle"
@@ -234,6 +344,7 @@ local botLoop
 _G.AdvancedPVPBot = {
     state = BotState,
     config = Config,
+    autoPVP = AutoPVPState,
 
     start = function()
         if BotState.enabled then return end
@@ -263,6 +374,22 @@ _G.AdvancedPVPBot = {
 
     getState = function()
         return BotState.current_state
+    end,
+
+    setAutoPVP = function(enabled)
+        AutoPVPState.enabled = enabled
+        if enabled then
+            print("[Auto PVP] Enabled - listening for damage")
+            setupDamageDetection()
+            setupAutoCharacterDetection()
+        else
+            print("[Auto PVP] Disabled")
+            _G.AdvancedPVPBot.stop()
+        end
+    end,
+
+    getAutoPVP = function()
+        return AutoPVPState.enabled
     end,
 }
 
@@ -323,7 +450,9 @@ local function buildUI(venyx)
         title = "Auto PVP",
         toggled = false,
         callback = function(val)
-            print("[Combat] Auto PVP:", val)
+            if _G.AdvancedPVPBot then
+                _G.AdvancedPVPBot.setAutoPVP(val)
+            end
         end,
     })
 
