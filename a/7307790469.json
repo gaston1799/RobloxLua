@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 3351674303,
-  "jobId": "29ce66c1-2b0c-43ea-8e60-f0c63b0eb883",
-  "join": "roblox://placeId=3351674303&gameInstanceId=29ce66c1-2b0c-43ea-8e60-f0c63b0eb883",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=3351674303&gameInstanceId=29ce66c1-2b0c-43ea-8e60-f0c63b0eb883",
-  "location": "Driving Empire [SUBARU UPDATE✨] ",
-  "updatedAt": 1790048347135
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790048827266
 }
