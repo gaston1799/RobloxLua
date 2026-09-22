@@ -559,6 +559,15 @@ local function setupDamageDetection()
             return
         end
 
+        -- Check if current target is dead, find new one
+        if BotState.target then
+            local targetHumanoid = BotState.target.Character and BotState.target.Character:FindFirstChildOfClass("Humanoid")
+            if not targetHumanoid or targetHumanoid.Health <= 0 then
+                print("[Auto PVP] Target " .. BotState.target.Name .. " is dead, looking for new attacker...")
+                BotState.target = nil
+            end
+        end
+
         if lastHealthValue and lastHealthValue > health then
             local damageTaken = lastHealthValue - health
             AutoPVPState.last_damage_time = tick()
