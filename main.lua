@@ -1,73 +1,123 @@
 --[[
-    Revamp Main Loader
-    - Loads shared libs (Venyx, Prefixes)
-    - Loads game-specific script by PlaceID
-    - Passes libs to game script init()
+    Main Loader - Universal Game Script Loader
+    Loads Venyx UI once, passes to game-specific scripts
+    Tries <placeid>-v2.lua first, then <placeid>.lua fallback
 ]]
 
-print("[Loader] Starting...")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
--- Load Venyx UI (used by all games)
-local loadVenyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/lib/venyx.lua"))()
-local venyx = loadVenyx()
-print("[Loader] ✓ Loaded Venyx UI")
+print("[Main Loader] Starting...")
 
--- Get Prefixes loader (only for specific games)
-local loadPrefixes = loadstring(game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/lib/prefixes.lua"))()
-print("[Loader] ✓ Ready")
+-- ===== VENYX UI LOADER =====
 
-local placeID = game.PlaceId
-local MODULE_BASE_URL = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua"
-
-local function tryLoadPlaceModule(moduleName)
-    local url = ("%s/%s.lua"):format(MODULE_BASE_URL, moduleName)
-    print(("[Loader] Trying %s.lua for PlaceID %s"):format(moduleName, placeID))
-
-    local fetched, response = pcall(game.HttpGet, game, url)
-    if not fetched then
-        print(("[Loader] ✗ Request failed: %s"):format(tostring(response)))
-        return false, response
+local venyx
+local function loadVenyx()
+    if venyx then return venyx end
+    
+    print("[Main Loader] Loading Venyx UI...")
+    
+    local ok, result = pcall(function()
+        return loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
+    end)
+    
+    if ok then
+        venyx = result
+        print("[Main Loader] ✓ Venyx loaded from remote")
+        return venyx
     end
-    if type(response) ~= "string" or response:match("^%s*$") then
-        print(("[Loader] ✗ Empty response"))
-        return false, "empty"
-    end
-
-    local chunk, compileErr = loadstring(response, ("=%s.lua"):format(moduleName))
-    if not chunk then
-        print(("[Loader] ✗ Compile error: %s"):format(tostring(compileErr)))
-        return false, compileErr
-    end
-
-    local ok, moduleTable = pcall(chunk)
-    if not ok then
-        print(("[Loader] ✗ Load error: %s"):format(tostring(moduleTable)))
-        return false, moduleTable
-    end
-
-    if type(moduleTable) ~= "table" or type(moduleTable.init) ~= "function" then
-        print(("[Loader] ✗ Missing init() function"):format())
-        return false, "no init"
-    end
-
-    print(("[Loader] ✓ Loaded %s.lua"):format(moduleName))
-    return true, moduleTable
+    
+    print("[Main Loader] ✗ Remote failed, trying local fallback...")
+    print("[Main Loader] ✗ No local Venyx available")
+    return nil
 end
 
-local baseName = tostring(placeID)
-local v2Name = baseName .. "-v2"
+-- ===== PREFIXES LOADER =====
 
--- Try v2 first
-local success, gameScript = tryLoadPlaceModule(v2Name)
+local prefixes = {}
+local function loadPrefixes()
+    if #prefixes > 0 then return prefixes end
+    
+    print("[Main Loader] Loading prefixes...")
+    
+    local ok, result = pcall(function()
+        local json = game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/lib/prefixes.json")
+        return game:GetService("HttpService"):JSONDecode(json)
+    end)
+    
+    if ok and result then
+        prefixes = result
+        print("[Main Loader] ✓ Prefixes loaded (" .. #prefixes .. " entries)")
+        return prefixes
+    end
+    
+    print("[Main Loader] ✗ Prefixes unavailable, using empty table")
+    prefixes = {}
+    return prefixes
+end
+
+-- ===== GAME SCRIPT LOADER =====
+
+local function loadGameScript(placeId)
+    print("[Main Loader] Detected PlaceID: " .. placeId)
+    
+    -- Try v2 first
+    local v2Url = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. placeId .. "-v2.lua"
+    print("[Main Loader] Trying " .. placeId .. "-v2.lua...")
+    
+    local ok, result = pcall(function()
+        local script = game:HttpGet(v2Url)
+        return loadstring(script)()
+    end)
+    
+    if ok then
+        print("[Main Loader] ✓ Loaded " .. placeId .. "-v2.lua")
+        return true
+    end
+    
+    print("[Main Loader] v2 not found, trying " .. placeId .. ".lua...")
+    
+    -- Fallback to base script
+    local baseUrl = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. placeId .. ".lua"
+    ok, result = pcall(function()
+        local script = game:HttpGet(baseUrl)
+        return loadstring(script)()
+    end)
+    
+    if ok then
+        print("[Main Loader] ✓ Loaded " .. placeId .. ".lua")
+        return true
+    end
+    
+    print("[Main Loader] ✗ Neither script found")
+    return false
+end
+
+-- ===== MAIN EXECUTION =====
+
+print("[Main Loader] Waiting for game to load...")
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+
+print("[Main Loader] Game loaded!")
+
+-- Load Venyx
+venyx = loadVenyx()
+if not venyx then
+    error("[Main Loader] CRITICAL: Venyx failed to load")
+end
+
+-- Store Venyx in global for game scripts
+_G.venyx = venyx
+print("[Main Loader] ✓ Venyx stored in _G.venyx")
+
+-- Load game script based on PlaceID
+local placeId = game.PlaceId
+local success = loadGameScript(placeId)
+
 if not success then
-    -- Fallback to base name
-    success, gameScript = tryLoadPlaceModule(baseName)
+    print("[Main Loader] ✗ No script available for PlaceID " .. placeId)
 end
 
-if success then
-    print("[Loader] Initializing game script with UI...")
-    gameScript.init(venyx, loadPrefixes)
-    print("[Loader] ✓ Done!")
-else
-    warn("[Loader] Failed to load game script for PlaceID", placeID)
-end
+print("[Main Loader] Done!")
