@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 9791603388,
+  "jobId": "5a821000-48a5-4e72-9955-a9ac713bc1c4",
+  "join": "roblox://placeId=9791603388&gameInstanceId=5a821000-48a5-4e72-9955-a9ac713bc1c4",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790108303343
+  "web": "https://www.roblox.com/games/start?placeId=9791603388&gameInstanceId=5a821000-48a5-4e72-9955-a9ac713bc1c4",
+  "location": "Underground War 2.0 ⚔️ [NUKE]",
+  "updatedAt": 1790108363337
 }
