@@ -486,6 +486,47 @@ end
 
 -- ===== AUTO PVP DAMAGE DETECTION =====
 
+local function isWinnableBattle(player)
+    if not player or not player.Character then return false end
+
+    local ourHumanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+    if not ourHumanoid then return false end
+
+    local theirHumanoid = player.Character:FindFirstChildOfClass("Humanoid")
+    if not theirHumanoid or theirHumanoid.Health <= 0 then return false end
+
+    -- Calculate hit-to-kill ratio
+    local ourLevel = getPlayerLevel(LocalPlayer) or 1
+    local theirLevel = getPlayerLevel(player) or 1
+
+    local ourDamage = (ourLevel * 2) + 10
+    local theirDamage = (theirLevel * 2) + 10
+
+    local ourHealth = ourHumanoid.Health
+    local theirHealth = theirHumanoid.Health
+
+    local hitsToKillThem = math.ceil(theirHealth / ourDamage)
+    local hitsToKillUs = math.ceil(ourHealth / theirDamage)
+
+    -- Only engage if we need same or fewer hits
+    local winnable = hitsToKillThem <= hitsToKillUs
+
+    if not winnable then
+        print("[Auto PVP] " .. player.Name .. " | Ratio: us=" .. hitsToKillThem .. " vs them=" .. hitsToKillUs .. " | TOO STRONG")
+    end
+
+    return winnable
+end
+
+local function isInAutoZone(player)
+    if not player or not player.Character then return false end
+    local root = player.Character:FindFirstChild("HumanoidRootPart")
+    if not root then return false end
+
+    -- Check if outside safe zone (returns true if OUTSIDE)
+    return not isInsideSafeZone(root.Position)
+end
+
 local function findAttackerByDamage(damageTaken)
     if not damageTaken or damageTaken <= 0 then
         print("[Auto PVP] Invalid damage: " .. tostring(damageTaken))
@@ -574,14 +615,28 @@ local function setupDamageDetection()
 
             local attacker = findAttackerByDamage(damageTaken)
             if attacker and attacker.Character then
+                -- Check if battle is winnable
+                if not isWinnableBattle(attacker) then
+                    print("[Auto PVP] " .. attacker.Name .. " is too strong, ignoring")
+                    lastHealthValue = health
+                    return
+                end
+
+                -- Check if in AutoZone (outside safe zone)
+                if not isInAutoZone(attacker) then
+                    print("[Auto PVP] " .. attacker.Name .. " is in safe zone, ignoring")
+                    lastHealthValue = health
+                    return
+                end
+
                 AutoPVPState.last_attacker = attacker
                 if BotState.enabled then
                     _G.AdvancedPVPBot.setTarget(attacker)
-                    print("[Auto PVP] Hit by " .. attacker.Name .. "! Engaging...")
+                    print("[Auto PVP] Hit by " .. attacker.Name .. "! Engaging (winnable)...")
                 else
                     _G.AdvancedPVPBot.setTarget(attacker)
                     _G.AdvancedPVPBot.start()
-                    print("[Auto PVP] Hit by " .. attacker.Name .. "! Bot started")
+                    print("[Auto PVP] Hit by " .. attacker.Name .. "! Bot started (winnable)...")
                 end
             end
         end
