@@ -1009,6 +1009,11 @@ local function setupDamageDetection()
             -- Only find new attacker if no target
             local attacker = findAttackerByDamage(damageTaken)
             if attacker and attacker.Character then
+                local attackerRoot = attacker.Character:FindFirstChild("HumanoidRootPart")
+                local inSafeZone = attackerRoot and isInsideSafeZone(attackerRoot.Position) or false
+
+                print("[Auto PVP] Attacker: " .. attacker.Name .. " | Pos: X=" .. string.format("%.1f", attackerRoot.Position.X) .. ", Z=" .. string.format("%.1f", attackerRoot.Position.Z) .. " | In SafeZone: " .. tostring(inSafeZone))
+
                 -- Check if battle is winnable
                 if not isWinnableBattle(attacker) then
                     print("[Auto PVP] " .. attacker.Name .. " is too strong, ignoring")
