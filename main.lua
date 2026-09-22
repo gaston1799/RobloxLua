@@ -7,10 +7,14 @@
 
 print("[Loader] Starting...")
 
--- Get lib loaders (don't call them yet - let game scripts decide)
+-- Load Venyx UI (used by all games)
 local loadVenyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/lib/venyx.lua"))()
+local venyx = loadVenyx()
+print("[Loader] ✓ Loaded Venyx UI")
+
+-- Get Prefixes loader (only for specific games)
 local loadPrefixes = loadstring(game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/lib/prefixes.lua"))()
-print("[Loader] ✓ Loaded lib loaders")
+print("[Loader] ✓ Ready")
 
 local placeID = game.PlaceId
 local MODULE_BASE_URL = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua"
@@ -61,8 +65,8 @@ if not success then
 end
 
 if success then
-    print("[Loader] Initializing game script...")
-    gameScript.init(loadVenyx, loadPrefixes)
+    print("[Loader] Initializing game script with UI...")
+    gameScript.init(venyx, loadPrefixes)
     print("[Loader] ✓ Done!")
 else
     warn("[Loader] Failed to load game script for PlaceID", placeID)
