@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 120297898552393,
-  "jobId": "0e244b55-43b9-4ecd-a310-59c1e6279568",
-  "join": "roblox://placeId=120297898552393&gameInstanceId=0e244b55-43b9-4ecd-a310-59c1e6279568",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=120297898552393&gameInstanceId=0e244b55-43b9-4ecd-a310-59c1e6279568",
-  "location": "+1 Clone Evolution",
-  "updatedAt": 1790089758156
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790090178312
 }
