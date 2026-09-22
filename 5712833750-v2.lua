@@ -332,6 +332,9 @@ local function disableHUD()
     print("[HUD] Disabled")
 end
 
+local lastKeyRefreshTime = 0
+local KEY_REFRESH_INTERVAL = 1.5  -- Resend held keys every 1.5s (before 2.1s watchdog)
+
 local function pressKey(key)
     if not BotState.movement_keys[key] then
         BotState.movement_keys[key] = true
@@ -343,6 +346,20 @@ local function releaseKey(key)
     if BotState.movement_keys[key] then
         BotState.movement_keys[key] = false
         sendIntent(key, "up")
+    end
+end
+
+local function refreshHeldKeys()
+    local now = tick()
+    if now - lastKeyRefreshTime < KEY_REFRESH_INTERVAL then
+        return
+    end
+    lastKeyRefreshTime = now
+
+    for key, held in pairs(BotState.movement_keys) do
+        if held then
+            sendIntent(key, "down")
+        end
     end
 end
 
@@ -575,6 +592,8 @@ end
 local updateCounter = 0
 local function updateBotState()
     updateCounter = updateCounter + 1
+
+    refreshHeldKeys()
 
     if not BotState.enabled or not BotState.target then
         BotState.current_state = "idle"
