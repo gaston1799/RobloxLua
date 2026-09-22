@@ -56,6 +56,7 @@ local Config = {
     autozone_ally_follow_dist = 15,
     autozone_engage_range = 30,
     follow_ally_dist = 20,
+    ally_clan_name = "enter clan name here",
 }
 
 -- ===== AUTO PVP STATE =====
@@ -695,7 +696,7 @@ local function findClosestAlly()
             -- Check if same clan
             local backpack = LocalPlayer:FindFirstChild("Backpack")
             if backpack then
-                local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild("enter clan name here")
+                local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild(Config.ally_clan_name)
                 if teamFolder then
                     local isAlly = teamFolder:FindFirstChild(player.Name) ~= nil
                     if isAlly then
@@ -1458,7 +1459,7 @@ local function buildUI(venyx)
         if workspace:FindFirstChild("Teams") then
             for _, teamFolder in ipairs(workspace.Teams:GetChildren()) do
                 -- Exclude player's own clan
-                if teamFolder.Name ~= "enter clan name here" then
+                if teamFolder.Name ~= Config.ally_clan_name then
                     table.insert(clans, teamFolder.Name)
                 end
             end
@@ -1601,6 +1602,34 @@ local function buildUI(venyx)
         title = "Load AW Script",
         callback = function()
             print("[Misc] AW Script loaded")
+        end,
+    })
+
+    miscSection:addButton({
+        title = "Scan Clans",
+        callback = function()
+            print("\n" .. string.rep("=", 60))
+            print("AVAILABLE CLANS")
+            print(string.rep("=", 60))
+            if workspace:FindFirstChild("Teams") then
+                for _, teamFolder in ipairs(workspace.Teams:GetChildren()) do
+                    print("  • " .. teamFolder.Name)
+                end
+            else
+                print("  ✗ No Teams folder found")
+            end
+            print(string.rep("=", 60) .. "\n")
+        end,
+    })
+
+    miscSection:addButton({
+        title = "Set Your Clan",
+        callback = function()
+            print("[Clan] Type in console: setclan('YourClanName')")
+            _G.setclan = function(clanName)
+                Config.ally_clan_name = clanName
+                print("[Clan] Set to: " .. clanName)
+            end
         end,
     })
 
