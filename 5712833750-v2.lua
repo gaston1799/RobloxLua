@@ -744,8 +744,8 @@ local function updateBotState()
         end
     end
 
-    -- Continuous Q spam (separate from state machine)
-    if qReady and BotState.enabled and BotState.target then
+    -- Continuous Q spam when in melee range (separate from state machine)
+    if qReady and BotState.enabled and BotState.target and dist <= Config.melee_range then
         attackWithQ()
     end
 end
