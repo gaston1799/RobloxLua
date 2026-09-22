@@ -47,6 +47,286 @@ local AutoPVPState = {
     damage_threshold = 0.5,
 }
 
+-- ===== HUD STATE =====
+
+local HUDState = {
+    enabled = false,
+    overhead_entries = {},
+    overhead_connections = {},
+}
+
+local function getPlayerLevel(player)
+    if not player then return nil end
+    local stats = player:FindFirstChild("leaderstats")
+    if not stats then return nil end
+    local levelValue = stats:FindFirstChild("Level") or stats:FindFirstChild("level")
+    if not levelValue then return nil end
+    return tonumber(levelValue.Value)
+end
+
+local function estimatePlayerDamage(player)
+    if not player then return nil end
+    local level = getPlayerLevel(player)
+    if level then
+        return (level * 2) + 10
+    end
+    return nil
+end
+
+local function getCharacterHealth(player)
+    local character = player and player.Character
+    if not character then return nil, nil end
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if humanoid then
+        local current = humanoid.Health
+        local max = humanoid.MaxHealth
+        if max <= 0 then max = current end
+        return current, math.max(current, max)
+    end
+    return nil, nil
+end
+
+local function computeHitCount(health, damage)
+    if not health or health <= 0 or not damage or damage <= 0 then
+        return "?"
+    end
+    local hits = math.ceil(health / damage)
+    if hits < 1 then hits = 1 end
+    return tostring(hits)
+end
+
+local function computeOverheadStats(targetPlayer)
+    local localPlayer = LocalPlayer
+    if not localPlayer or not targetPlayer then
+        return "?", "?", "?", 0
+    end
+
+    local localHealth, localMaxHealth = getCharacterHealth(localPlayer)
+    local enemyHealth, enemyMaxHealth = getCharacterHealth(targetPlayer)
+    local enemyDamage = estimatePlayerDamage(targetPlayer)
+    local localDamage = estimatePlayerDamage(localPlayer)
+
+    local hitsToKillEnemy = computeHitCount(enemyMaxHealth or enemyHealth, localDamage)
+    local hitsToKillYou = computeHitCount(localMaxHealth or localHealth, enemyDamage)
+    local hpValue = enemyHealth or enemyMaxHealth
+    local hpText = hpValue and string.format("%.0f", hpValue) or "?"
+    local ratio = 0
+    if enemyHealth and enemyMaxHealth and enemyMaxHealth > 0 then
+        ratio = math.clamp(enemyHealth / enemyMaxHealth, 0, 1)
+    end
+
+    return hitsToKillEnemy, hitsToKillYou, hpText, ratio
+end
+
+local function createGuiForPlayer(player, character)
+    if player == LocalPlayer then return end
+    if not character then return end
+
+    local adornee = character:FindFirstChild("Head") or character:FindFirstChild("HumanoidRootPart")
+    if not adornee then return end
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = "HitToKillHUD"
+    billboard.Size = UDim2.new(0, 170, 0, 70)
+    billboard.StudsOffset = Vector3.new(0, 2.5, 0)
+    billboard.AlwaysOnTop = true
+    billboard.LightInfluence = 0
+    billboard.MaxDistance = 200
+    billboard.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    billboard.Adornee = adornee
+    billboard.Parent = adornee
+
+    local frame = Instance.new("Frame")
+    frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    frame.BackgroundTransparency = 0.35
+    frame.BorderSizePixel = 0
+    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.Parent = billboard
+
+    local infoLabel = Instance.new("TextLabel")
+    infoLabel.Name = "Info"
+    infoLabel.BackgroundTransparency = 1
+    infoLabel.Size = UDim2.new(1, -10, 0, 32)
+    infoLabel.Position = UDim2.new(0, 5, 0, 5)
+    infoLabel.Font = Enum.Font.GothamSemibold
+    infoLabel.TextSize = 14
+    infoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    infoLabel.TextStrokeTransparency = 0.6
+    infoLabel.TextXAlignment = Enum.TextXAlignment.Left
+    infoLabel.TextYAlignment = Enum.TextYAlignment.Top
+    infoLabel.TextWrapped = true
+    infoLabel.Text = "Hits (You->Them): ?\nHits (Them->You): ?"
+    infoLabel.Parent = frame
+
+    local barBackground = Instance.new("Frame")
+    barBackground.Name = "HPBar"
+    barBackground.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    barBackground.BorderColor3 = Color3.fromRGB(10, 10, 10)
+    barBackground.BorderSizePixel = 0
+    barBackground.Size = UDim2.new(1, -10, 0, 10)
+    barBackground.Position = UDim2.new(0, 5, 0, 44)
+    barBackground.Parent = frame
+
+    local barFill = Instance.new("Frame")
+    barFill.Name = "Fill"
+    barFill.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+    barFill.BorderSizePixel = 0
+    barFill.Size = UDim2.new(0, 0, 1, 0)
+    barFill.Parent = barBackground
+
+    local hpLabel = Instance.new("TextLabel")
+    hpLabel.Name = "HPLabel"
+    hpLabel.BackgroundTransparency = 1
+    hpLabel.Size = UDim2.new(1, -10, 0, 16)
+    hpLabel.Position = UDim2.new(0, 5, 0, 56)
+    hpLabel.Font = Enum.Font.Gotham
+    hpLabel.TextSize = 12
+    hpLabel.TextColor3 = Color3.fromRGB(215, 215, 215)
+    hpLabel.TextStrokeTransparency = 0.8
+    hpLabel.TextXAlignment = Enum.TextXAlignment.Left
+    hpLabel.Text = "HP: ?"
+    hpLabel.Parent = frame
+
+    HUDState.overhead_entries[player] = {
+        gui = billboard,
+        info = infoLabel,
+        hpLabel = hpLabel,
+        barFill = barFill
+    }
+end
+
+local function destroyPlayerGui(player)
+    local entry = HUDState.overhead_entries[player]
+    if entry then
+        if entry.gui then
+            entry.gui:Destroy()
+        end
+        HUDState.overhead_entries[player] = nil
+    end
+end
+
+local function stopTrackingPlayer(player)
+    destroyPlayerGui(player)
+    local connections = HUDState.overhead_connections[player]
+    if connections then
+        for _, connection in pairs(connections) do
+            if typeof(connection) == "RBXScriptConnection" then
+                connection:Disconnect()
+            end
+        end
+        HUDState.overhead_connections[player] = nil
+    end
+end
+
+local function trackPlayer(player)
+    if player == LocalPlayer then return end
+
+    stopTrackingPlayer(player)
+
+    local connections = {}
+    connections.characterAdded = player.CharacterAdded:Connect(function(character)
+        task.spawn(function()
+            createGuiForPlayer(player, character)
+        end)
+    end)
+    connections.characterRemoving = player.CharacterRemoving:Connect(function()
+        destroyPlayerGui(player)
+    end)
+    HUDState.overhead_connections[player] = connections
+
+    if player.Character then
+        task.spawn(function()
+            createGuiForPlayer(player, player.Character)
+        end)
+    end
+end
+
+local hudUpdateConnection
+local function enableHUD()
+    if HUDState.enabled then return end
+    HUDState.enabled = true
+
+    for _, otherPlayer in ipairs(Players:GetPlayers()) do
+        trackPlayer(otherPlayer)
+    end
+
+    Players.PlayerAdded:Connect(function(player)
+        if HUDState.enabled then
+            task.spawn(function()
+                trackPlayer(player)
+            end)
+        end
+    end)
+
+    Players.PlayerRemoving:Connect(function(player)
+        stopTrackingPlayer(player)
+    end)
+
+    if not hudUpdateConnection then
+        hudUpdateConnection = RunService.Heartbeat:Connect(function()
+            if not HUDState.enabled then return end
+
+            local localRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+
+            local toCleanup = {}
+            for player, entry in pairs(HUDState.overhead_entries) do
+                if not player.Parent then
+                    table.insert(toCleanup, player)
+                elseif not entry.gui or not entry.gui.Parent then
+                    table.insert(toCleanup, player)
+                else
+                    local isVisible = true
+                    if localRoot then
+                        local enemyRoot = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+                        if enemyRoot then
+                            local distance = (enemyRoot.Position - localRoot.Position).Magnitude
+                            isVisible = distance <= 150
+                        end
+                    end
+
+                    entry.gui.Enabled = isVisible
+                    if isVisible then
+                        local hitsToKillEnemy, hitsToKillYou, hpText, ratio = computeOverheadStats(player)
+                        entry.info.Text = string.format("Hits (You->Them): %s\nHits (Them->You): %s", hitsToKillEnemy, hitsToKillYou)
+                        entry.hpLabel.Text = "HP: " .. hpText
+                        entry.barFill.Size = UDim2.new(ratio, 0, 1, 0)
+
+                        if ratio > 0.6 then
+                            entry.barFill.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+                        elseif ratio > 0.3 then
+                            entry.barFill.BackgroundColor3 = Color3.fromRGB(255, 200, 70)
+                        else
+                            entry.barFill.BackgroundColor3 = Color3.fromRGB(240, 80, 80)
+                        end
+                    end
+                end
+            end
+
+            for _, player in ipairs(toCleanup) do
+                stopTrackingPlayer(player)
+            end
+        end)
+    end
+
+    print("[HUD] Enabled")
+end
+
+local function disableHUD()
+    if not HUDState.enabled then return end
+    HUDState.enabled = false
+
+    for player, _ in pairs(HUDState.overhead_entries) do
+        stopTrackingPlayer(player)
+    end
+
+    if hudUpdateConnection then
+        hudUpdateConnection:Disconnect()
+        hudUpdateConnection = nil
+    end
+
+    print("[HUD] Disabled")
+end
+
 local function pressKey(key)
     if not BotState.movement_keys[key] then
         BotState.movement_keys[key] = true
@@ -186,12 +466,16 @@ end
 
 local function findAttackerByDamage(damageTaken)
     if not damageTaken or damageTaken <= 0 then
+        print("[Auto PVP] Invalid damage: " .. tostring(damageTaken))
         return nil
     end
 
     local localCharacter = LocalPlayer.Character
     local localRoot = localCharacter and localCharacter:FindFirstChild("HumanoidRootPart")
-    if not localRoot then return nil end
+    if not localRoot then
+        print("[Auto PVP] No local root")
+        return nil
+    end
 
     local bestPlayer = nil
     local bestScore = math.huge
@@ -204,23 +488,17 @@ local function findAttackerByDamage(damageTaken)
 
             if humanoidInstance and humanoidInstance.Health > 0 and root then
                 -- Estimate damage based on level
-                local level = 1
-                local stats = player:FindFirstChild("leaderstats")
-                if stats then
-                    local levelValue = stats:FindFirstChild("Level")
-                    if levelValue then
-                        level = tonumber(levelValue.Value) or 1
-                    end
-                end
-
+                local level = getPlayerLevel(player) or 1
                 local estimatedDamage = (level * 2) + 10
                 local diff = math.abs(estimatedDamage - damageTaken)
-                local tolerance = math.max(20, estimatedDamage * 0.4)
+                local tolerance = math.max(30, estimatedDamage * 0.5)
+                local distance = (root.Position - localRoot.Position).Magnitude
+                local score = diff + (distance * 0.02)
+
+                print("[Auto PVP] Check: " .. player.Name .. " | Lvl:" .. level .. " | Est:" .. estimatedDamage .. " | Taken:" .. damageTaken .. " | Diff:" .. string.format("%.1f", diff) .. " | Tol:" .. string.format("%.1f", tolerance) .. " | Match: " .. (diff <= tolerance and "YES" or "NO"))
 
                 if diff <= tolerance then
-                    local distance = (root.Position - localRoot.Position).Magnitude
-                    local score = diff + (distance * 0.05)
-
+                    print("[Auto PVP]   → Score: " .. string.format("%.1f", score))
                     if score < bestScore then
                         bestScore = score
                         bestPlayer = player
@@ -228,6 +506,12 @@ local function findAttackerByDamage(damageTaken)
                 end
             end
         end
+    end
+
+    if bestPlayer then
+        print("[Auto PVP] ✓ Selected: " .. bestPlayer.Name)
+    else
+        print("[Auto PVP] ✗ No match found")
     end
 
     return bestPlayer
@@ -452,6 +736,18 @@ local function buildUI(venyx)
         callback = function(val)
             if _G.AdvancedPVPBot then
                 _G.AdvancedPVPBot.setAutoPVP(val)
+            end
+        end,
+    })
+
+    combatSection:addToggle({
+        title = "Show Player HUD",
+        toggled = false,
+        callback = function(val)
+            if val then
+                enableHUD()
+            else
+                disableHUD()
             end
         end,
     })
