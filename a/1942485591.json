@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 108772269317636,
-  "jobId": "a83c9c70-838c-440a-8e14-f3d59f84e236",
-  "join": "roblox://placeId=108772269317636&gameInstanceId=a83c9c70-838c-440a-8e14-f3d59f84e236",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=108772269317636&gameInstanceId=a83c9c70-838c-440a-8e14-f3d59f84e236",
-  "location": "Blockies [2-3-4-5 Player Obby] ",
-  "updatedAt": 1790041145162
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790041625046
 }
