@@ -901,27 +901,18 @@ local function findAttackerByDamage(damageTaken)
                 local distance = (root.Position - localRoot.Position).Magnitude
                 local score = diff + (distance * 0.02)
 
-                -- Track closest player as fallback
-                if distance < closestDistance then
-                    closestDistance = distance
-                    closestPlayer = player
-                end
+                print("[Auto PVP] Checking " .. player.Name .. " | Level: " .. level .. " | Est DMG: " .. estimatedDamage .. " | Actual: " .. damageTaken .. " | Diff: " .. diff .. " | Tolerance: " .. tolerance)
 
-                -- If damage matches, consider this player
+                -- Only match if damage aligns
                 if diff <= tolerance then
                     if score < bestScore then
                         bestScore = score
                         bestPlayer = player
+                        print("[Auto PVP] ✓ Match found!")
                     end
                 end
             end
         end
-    end
-
-    -- Fallback to closest player if no damage match found
-    if not bestPlayer and closestPlayer then
-        print("[Auto PVP] No damage match, using closest player as fallback")
-        bestPlayer = closestPlayer
     end
 
     if bestPlayer then
