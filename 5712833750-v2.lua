@@ -807,9 +807,18 @@ local function setupAutoCharacterDetection()
         if not AutoPVPState.enabled then return end
 
         print("[Auto PVP] Character respawned, re-hooking damage detection...")
-        task.wait(0.1)
+
+        -- Wait for humanoid to be ready
+        local humanoid = char:WaitForChild("Humanoid", 5)
+        if not humanoid then
+            print("[Auto PVP] ERROR: Humanoid not found after respawn")
+            return
+        end
+
+        task.wait(0.2)
         lastHealthValue = nil
         setupDamageDetection()
+        print("[Auto PVP] ✓ Damage detection re-hooked after respawn")
     end)
 end
 
