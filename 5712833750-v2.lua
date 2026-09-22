@@ -1419,12 +1419,17 @@ local function buildUI(venyx)
     })
 
     autozoneSection:addButton({
-        title = "Refresh Enemy Clans",
+        title = "Debug AutoZone",
         callback = function()
-            if enemyClanDropdown then
-                enemyClanDropdown:SetOptions(getEnemyClanOptions())
-                print("[AutoZone] Enemy clan list refreshed")
+            print("\n[AutoZone Debug]")
+            print("  Enabled:", BotState.autozone_enabled)
+            print("  Target Clan:", BotState.target_enemy_clan)
+            local ally = findClosestAlly()
+            print("  Closest Ally:", ally and ally.Name or "None found")
+            if ally and ally.Character then
+                print("    Ally in safe zone:", isInsideSafeZone(ally.Character:FindFirstChild("HumanoidRootPart").Position))
             end
+            print()
         end,
     })
 
