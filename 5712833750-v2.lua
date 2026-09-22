@@ -44,6 +44,18 @@ local BotState = {
     target_enemy_clan = "Any Enemy",
 }
 
+-- Auto-detect player's team/clan
+local function autoDetectClan()
+    if workspace:FindFirstChild("Teams") then
+        for _, teamFolder in ipairs(workspace.Teams:GetChildren()) do
+            if teamFolder:FindFirstChild(LocalPlayer.Name) then
+                return teamFolder.Name
+            end
+        end
+    end
+    return "enter clan name here"
+end
+
 local Config = {
     melee_range = 6,
     combat_radius = 25,
@@ -56,7 +68,7 @@ local Config = {
     autozone_ally_follow_dist = 15,
     autozone_engage_range = 30,
     follow_ally_dist = 20,
-    ally_clan_name = "enter clan name here",
+    ally_clan_name = autoDetectClan(),
 }
 
 -- ===== AUTO PVP STATE =====
@@ -1606,11 +1618,12 @@ local function buildUI(venyx)
     })
 
     miscSection:addButton({
-        title = "Scan Clans",
+        title = "Debug: Show Clan",
         callback = function()
-            print("\n" .. string.rep("=", 60))
-            print("AVAILABLE CLANS")
-            print(string.rep("=", 60))
+            print("\n[Clan Detection]")
+            print("  Your Clan: " .. Config.ally_clan_name)
+            print("  Detected from: workspace.Teams")
+            print("\n[All Available Clans]")
             if workspace:FindFirstChild("Teams") then
                 for _, teamFolder in ipairs(workspace.Teams:GetChildren()) do
                     print("  • " .. teamFolder.Name)
@@ -1618,18 +1631,7 @@ local function buildUI(venyx)
             else
                 print("  ✗ No Teams folder found")
             end
-            print(string.rep("=", 60) .. "\n")
-        end,
-    })
-
-    miscSection:addButton({
-        title = "Set Your Clan",
-        callback = function()
-            print("[Clan] Type in console: setclan('YourClanName')")
-            _G.setclan = function(clanName)
-                Config.ally_clan_name = clanName
-                print("[Clan] Set to: " .. clanName)
-            end
+            print("")
         end,
     })
 
