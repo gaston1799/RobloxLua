@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 130739873848552,
+  "jobId": "b87d838d-8c1b-4b4b-8f61-67aec164099e",
+  "join": "roblox://placeId=130739873848552&gameInstanceId=b87d838d-8c1b-4b4b-8f61-67aec164099e",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790099541617
+  "web": "https://www.roblox.com/games/start?placeId=130739873848552&gameInstanceId=b87d838d-8c1b-4b4b-8f61-67aec164099e",
+  "location": "[KIRA 👹] Basketball: Zero",
+  "updatedAt": 1790099660973
 }
