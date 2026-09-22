@@ -32,7 +32,10 @@ local BotState = {
     target = nil,
     last_q_time = 0,
     last_fireball_time = 0,
+    last_eat_time = 0,
     movement_keys = {w=false, a=false, s=false, d=false},
+    auto_eat_enabled = false,
+    auto_fireball_enabled = false,
 }
 
 local Config = {
@@ -40,6 +43,8 @@ local Config = {
     combat_radius = 25,
     q_cooldown = 0.65,
     fireball_cooldown = 1.4,
+    eat_cooldown = 2.0,
+    eat_hp_threshold = 0.8,
     approach_speed = "normal",
 }
 
@@ -586,6 +591,71 @@ local function doubleHit()
     attackWithQ()
 end
 
+-- ===== AUTO EAT & FIREBALL =====
+
+local function equipItem(itemName)
+    local char = LocalPlayer.Character
+    if not char then return false end
+
+    local backpack = LocalPlayer:FindFirstChild("Backpack")
+    if not backpack then return false end
+
+    local item = backpack:FindFirstChild(itemName)
+    if not item then return false end
+
+    -- Equip by moving to character
+    item.Parent = char
+    return true
+end
+
+local function useFood()
+    if not BotState.auto_eat_enabled then return end
+
+    local char = LocalPlayer.Character
+    if not char then return end
+
+    local humanoid = char:FindFirstChildOfClass("Humanoid")
+    if not humanoid then return end
+
+    -- Check if HP is below threshold and cooldown ready
+    local hpPercent = humanoid.Health / humanoid.MaxHealth
+    local eatReady = (tick() - BotState.last_eat_time) > Config.eat_cooldown
+
+    if hpPercent < Config.eat_hp_threshold and eatReady then
+        if equipItem("Food") then
+            print("[Auto Eat] Equipped food (HP: " .. string.format("%.0f%%", hpPercent * 100) .. ")")
+            task.wait(0.1)
+            sendIntent("f", "down")
+            task.wait(0.05)
+            sendIntent("f", "up")
+            BotState.last_eat_time = tick()
+
+            -- Re-equip fireball after eating
+            task.wait(0.2)
+            if equipItem("Fireball") then
+                print("[Auto Fireball] Re-equipped fireball")
+            end
+        end
+    end
+end
+
+local function ensureFireballEquipped()
+    if not BotState.auto_fireball_enabled then return end
+
+    local char = LocalPlayer.Character
+    if not char then return end
+
+    -- Check if fireball is already equipped
+    if char:FindFirstChild("Fireball") then
+        return
+    end
+
+    -- Equip fireball
+    if equipItem("Fireball") then
+        print("[Auto Fireball] Equipped fireball")
+    end
+end
+
 -- ===== AUTO PVP DAMAGE DETECTION =====
 
 local function isWinnableBattle(player)
@@ -924,6 +994,12 @@ local function updateBotState()
     -- Independent systems
     updateMovement()
     updateHitting()
+
+    -- Auto item management
+    if BotState.enabled then
+        ensureFireballEquipped()
+        useFood()
+    end
 end
 
 local botLoop
@@ -1193,6 +1269,39 @@ local function buildUI(venyx)
         title = "Show Damage Info",
         callback = function()
             print("[Ratio] Run damage_ratio_probe for live calculations")
+        end,
+    })
+
+    -- ===== AUTO ITEMS SECTION =====
+    local itemsSection = mainPage:addSection({title = "Auto Items"})
+
+    itemsSection:addToggle({
+        title = "Auto Eat",
+        toggled = false,
+        callback = function(val)
+            BotState.auto_eat_enabled = val
+            print("[Auto Eat]", val and "Enabled" or "Disabled")
+        end,
+    })
+
+    itemsSection:addToggle({
+        title = "Auto Fireball",
+        toggled = false,
+        callback = function(val)
+            BotState.auto_fireball_enabled = val
+            print("[Auto Fireball]", val and "Enabled (keep equipped)" or "Disabled")
+        end,
+    })
+
+    itemsSection:addSlider({
+        title = "Eat HP Threshold",
+        min = 0.1,
+        max = 1,
+        default = 0.8,
+        precision = 1,
+        callback = function(val)
+            Config.eat_hp_threshold = tonumber(val) or 0.8
+            print("[Auto Eat] HP Threshold:", string.format("%.0f%%", Config.eat_hp_threshold * 100))
         end,
     })
 
