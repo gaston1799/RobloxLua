@@ -303,6 +303,14 @@ local function enableHUD()
                         else
                             entry.barFill.BackgroundColor3 = Color3.fromRGB(240, 80, 80)
                         end
+
+                        -- Color-code info text by hit-to-kill ratio
+                        local hitRatio = tonumber(hitsToKillEnemy) and tonumber(hitsToKillYou) and (tonumber(hitsToKillEnemy) / tonumber(hitsToKillYou)) or 0
+                        if hitRatio >= 1.0 then
+                            entry.info.TextColor3 = Color3.fromRGB(80, 200, 120) -- GREEN: Easy to kill
+                        else
+                            entry.info.TextColor3 = Color3.fromRGB(240, 80, 80) -- RED: Harder to kill
+                        end
                     end
                 end
             end
@@ -523,6 +531,17 @@ local function isWinnableBattle(player)
     end
 
     return acceptable
+end
+
+local function isInsideSafeZone(position)
+    -- Define safe zone bounds (Roblox coordinates)
+    -- Safe zone is typically the spawn area
+    local SAFE_ZONE_MIN = Vector3.new(-50, 0, -50)
+    local SAFE_ZONE_MAX = Vector3.new(50, 100, 50)
+
+    return position.X >= SAFE_ZONE_MIN.X and position.X <= SAFE_ZONE_MAX.X and
+           position.Y >= SAFE_ZONE_MIN.Y and position.Y <= SAFE_ZONE_MAX.Y and
+           position.Z >= SAFE_ZONE_MIN.Z and position.Z <= SAFE_ZONE_MAX.Z
 end
 
 local function isInAutoZone(player)
