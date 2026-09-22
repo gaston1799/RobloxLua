@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 18334179599,
+  "jobId": "0a935474-867d-47f9-bd43-a007a9ef266f",
+  "join": "roblox://placeId=18334179599&gameInstanceId=0a935474-867d-47f9-bd43-a007a9ef266f",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790100741452
+  "web": "https://www.roblox.com/games/start?placeId=18334179599&gameInstanceId=0a935474-867d-47f9-bd43-a007a9ef266f",
+  "location": "Chained [2 Player Obby]",
+  "updatedAt": 1790100861503
 }
