@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "in-game",
-  "placeId": 80086813981390,
-  "jobId": "b99c7a60-afba-4f8d-8648-aea7bf2d267f",
-  "join": "roblox://placeId=80086813981390&gameInstanceId=b99c7a60-afba-4f8d-8648-aea7bf2d267f",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2567932931",
-  "web": "https://www.roblox.com/games/start?placeId=80086813981390&gameInstanceId=b99c7a60-afba-4f8d-8648-aea7bf2d267f",
-  "location": "Fish Tank Tycoon",
-  "updatedAt": 1790039944636
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790040544768
 }
