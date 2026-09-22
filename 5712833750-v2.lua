@@ -508,14 +508,21 @@ local function isWinnableBattle(player)
     local hitsToKillThem = math.ceil(theirHealth / ourDamage)
     local hitsToKillUs = math.ceil(ourHealth / theirDamage)
 
-    -- Only engage if we need same or fewer hits
-    local winnable = hitsToKillThem <= hitsToKillUs
+    -- Get damage multiplier slider value (0.1 to 2.0)
+    local multiplier = tonumber(_G.DamageMultiplier) or 1.0
 
-    if not winnable then
-        print("[Auto PVP] " .. player.Name .. " | Ratio: us=" .. hitsToKillThem .. " vs them=" .. hitsToKillUs .. " | TOO STRONG")
+    -- Calculate ratio: hitsToKillThem / hitsToKillUs
+    -- Ratio >= multiplier means target is within acceptable range
+    local ratio = hitsToKillThem / hitsToKillUs
+    local acceptable = ratio >= multiplier
+
+    if acceptable then
+        print("[Auto PVP] " .. player.Name .. " | Ratio: " .. string.format("%.2f", ratio) .. " >= " .. multiplier .. " | ACCEPTED")
+    else
+        print("[Auto PVP] " .. player.Name .. " | Ratio: " .. string.format("%.2f", ratio) .. " < " .. multiplier .. " | REJECTED")
     end
 
-    return winnable
+    return acceptable
 end
 
 local function isInAutoZone(player)
