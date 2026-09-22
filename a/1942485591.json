@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 135856908115931,
-  "jobId": "95b3a4bb-d1ef-4386-adbc-c828b96fd5c8",
-  "join": "roblox://placeId=135856908115931&gameInstanceId=95b3a4bb-d1ef-4386-adbc-c828b96fd5c8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=135856908115931&gameInstanceId=95b3a4bb-d1ef-4386-adbc-c828b96fd5c8",
-  "location": "[🌌DUELS] Murderers VS Sheriffs",
-  "updatedAt": 1790040184699
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790040664840
 }
