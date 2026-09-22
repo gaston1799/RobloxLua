@@ -1071,7 +1071,41 @@ end
 local updateCounter = 0
 
 local function updateMovement()
-    -- Independent movement system: maintain position based on Q cooldown
+    -- Independent movement system: maintain position based on Q cooldown or follow ally
+    local char = LocalPlayer.Character
+    local root = char and char:FindFirstChild("HumanoidRootPart")
+    if not root then
+        releaseAllKeys()
+        return
+    end
+
+    -- Follow ally if enabled and no combat target
+    if BotState.follow_ally_enabled and not BotState.target then
+        local ally = findClosestAlly()
+        if ally and ally.Character then
+            local allyRoot = ally.Character:FindFirstChild("HumanoidRootPart")
+            if allyRoot then
+                local distToAlly = getDistance(root.Position, allyRoot.Position)
+
+                -- If too far from ally, move closer
+                if distToAlly > Config.follow_ally_dist then
+                    moveTowardWithInterception(allyRoot)
+                    if updateCounter % 30 == 0 then
+                        print("[Follow Ally] Following " .. ally.Name .. " | Dist: " .. string.format("%.1f", distToAlly))
+                    end
+                    return
+                else
+                    -- Close enough, stop moving
+                    releaseAllKeys()
+                    return
+                end
+            end
+        end
+        releaseAllKeys()
+        return
+    end
+
+    -- Combat mode: maintain position based on Q cooldown
     if not BotState.enabled or not BotState.target then
         releaseAllKeys()
         return
@@ -1098,8 +1132,18 @@ local function updateMovement()
     local dist = getDistance(root.Position, targetRoot.Position)
     local qReady = (tick() - BotState.last_q_time) > Config.q_cooldown
 
-    -- Aim camera at target
-    aimCameraAtTarget(targetRoot)
+    -- Aim camera at target (or ally if following)
+    if BotState.follow_ally_enabled and not BotState.target then
+        local ally = findClosestAlly()
+        if ally and ally.Character then
+            local allyRoot = ally.Character:FindFirstChild("HumanoidRootPart")
+            if allyRoot then
+                aimCameraAtTarget(allyRoot)
+            end
+        end
+    else
+        aimCameraAtTarget(targetRoot)
+    end
 
     if qReady then
         -- Q is ready: move to melee range (6 studs) for attack
