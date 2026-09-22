@@ -2,7 +2,7 @@
     Hit-to-Kill Ratio Probe (FIXED)
     Reads level from leaderstats
     Listens to actual damage via HealthChanged
-    Formula: Level * 2 = damage per hit
+    Formula: (Level * 2) + 10 = damage per hit
 ]]
 
 local Players = game:GetService("Players")
@@ -28,7 +28,7 @@ end
 
 local function calculateDamage(level)
     if not level then return 0 end
-    return level * 2
+    return (level * 2) + 10
 end
 
 -- Track each player's health changes
