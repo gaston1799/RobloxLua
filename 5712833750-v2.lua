@@ -33,9 +33,13 @@ local BotState = {
     last_q_time = 0,
     last_fireball_time = 0,
     last_eat_time = 0,
+    last_t_spam_time = 0,
     movement_keys = {w=false, a=false, s=false, d=false},
     auto_eat_enabled = false,
     auto_fireball_enabled = false,
+    follow_ally_enabled = false,
+    autozone_enabled = false,
+    closest_ally = nil,
 }
 
 local Config = {
@@ -46,6 +50,10 @@ local Config = {
     eat_cooldown = 2.0,
     eat_hp_threshold = 0.8,
     approach_speed = "normal",
+    t_spam_interval = 0.125,
+    autozone_ally_follow_dist = 15,
+    autozone_engage_range = 30,
+    follow_ally_dist = 20,
 }
 
 -- ===== AUTO PVP STATE =====
@@ -656,6 +664,108 @@ local function ensureFireballEquipped()
     end
 end
 
+-- ===== T SPAM (Stance animation) =====
+
+local function spamT()
+    local now = tick()
+    if now - BotState.last_t_spam_time < Config.t_spam_interval then return end
+    BotState.last_t_spam_time = now
+    sendIntent("t", "down")
+    task.wait(0.02)
+    sendIntent("t", "up")
+end
+
+-- ===== ALLY DETECTION & AUTOZONE =====
+
+local function findClosestAlly()
+    local char = LocalPlayer.Character
+    if not char then return nil end
+
+    local root = char:FindFirstChild("HumanoidRootPart")
+    if not root then return nil end
+
+    local closestAlly = nil
+    local closestDist = math.huge
+
+    -- Find closest ally (same clan as us)
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and player.Character then
+            -- Check if same clan
+            local backpack = LocalPlayer:FindFirstChild("Backpack")
+            if backpack then
+                local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild("enter clan name here")
+                if teamFolder then
+                    local isAlly = teamFolder:FindFirstChild(player.Name) ~= nil
+                    if isAlly then
+                        local allyRoot = player.Character:FindFirstChild("HumanoidRootPart")
+                        if allyRoot then
+                            local dist = getDistance(root.Position, allyRoot.Position)
+                            if dist < closestDist then
+                                closestDist = dist
+                                closestAlly = player
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    return closestAlly
+end
+
+local function updateAutozoneTarget()
+    if not BotState.autozone_enabled then return end
+    if BotState.target then return end  -- Already have target from manual/PVP
+
+    local char = LocalPlayer.Character
+    if not char then return end
+
+    local root = char:FindFirstChild("HumanoidRootPart")
+    if not root then return end
+
+    -- Find closest ally
+    local ally = findClosestAlly()
+    if not ally or not ally.Character then return end
+
+    local allyRoot = ally.Character:FindFirstChild("HumanoidRootPart")
+    if not allyRoot then return end
+
+    -- Check if ally is in safe zone
+    if isInsideSafeZone(allyRoot.Position) then return end
+
+    -- Find closest enemy within engage range of ally
+    local closestEnemy = nil
+    local closestEnemyDist = math.huge
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and player.Character then
+            local enemyRoot = player.Character:FindFirstChild("HumanoidRootPart")
+            local enemyHumanoid = player.Character:FindFirstChildOfClass("Humanoid")
+
+            if enemyRoot and enemyHumanoid and enemyHumanoid.Health > 0 then
+                -- Check if enemy is outside safe zone
+                if not isInsideSafeZone(enemyRoot.Position) then
+                    -- Check if within engage range of ally
+                    local distToAlly = getDistance(allyRoot.Position, enemyRoot.Position)
+                    if distToAlly <= Config.autozone_engage_range then
+                        local distToUs = getDistance(root.Position, enemyRoot.Position)
+                        if distToUs < closestEnemyDist then
+                            closestEnemyDist = distToUs
+                            closestEnemy = player
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    if closestEnemy and isWinnableBattle(closestEnemy) and isInAutoZone(closestEnemy) then
+        _G.AdvancedPVPBot.setTarget(closestEnemy)
+        print("[AutoZone] Engaging enemy near ally:", closestEnemy.Name)
+    end
+end
+
 -- ===== AUTO PVP DAMAGE DETECTION =====
 
 local function isWinnableBattle(player)
@@ -697,15 +807,23 @@ local function isWinnableBattle(player)
     return acceptable
 end
 
-local function isInsideSafeZone(position)
-    -- Define safe zone bounds (Roblox coordinates)
-    -- Safe zone is typically the spawn area
-    local SAFE_ZONE_MIN = Vector3.new(-50, 0, -50)
-    local SAFE_ZONE_MAX = Vector3.new(50, 100, 50)
+-- ===== HARDCODED SAFE ZONE (Recorded: 4 corners) =====
+local SAFE_ZONE_CORNERS = {
+    corner1 = {x = -114.77, z = 403.65},
+    corner2 = {x = -46.92, z = 588.14},
+    corner3 = {x = -276.40, z = 672.85},
+    corner4 = {x = -344.77, z = 486.62},
+}
 
-    return position.X >= SAFE_ZONE_MIN.X and position.X <= SAFE_ZONE_MAX.X and
-           position.Y >= SAFE_ZONE_MIN.Y and position.Y <= SAFE_ZONE_MAX.Y and
-           position.Z >= SAFE_ZONE_MIN.Z and position.Z <= SAFE_ZONE_MAX.Z
+local function isInsideSafeZone(position)
+    -- Check if position is within safe zone rectangle (X,Z only)
+    local minX = math.min(SAFE_ZONE_CORNERS.corner1.x, SAFE_ZONE_CORNERS.corner2.x, SAFE_ZONE_CORNERS.corner3.x, SAFE_ZONE_CORNERS.corner4.x)
+    local maxX = math.max(SAFE_ZONE_CORNERS.corner1.x, SAFE_ZONE_CORNERS.corner2.x, SAFE_ZONE_CORNERS.corner3.x, SAFE_ZONE_CORNERS.corner4.x)
+    local minZ = math.min(SAFE_ZONE_CORNERS.corner1.z, SAFE_ZONE_CORNERS.corner2.z, SAFE_ZONE_CORNERS.corner3.z, SAFE_ZONE_CORNERS.corner4.z)
+    local maxZ = math.max(SAFE_ZONE_CORNERS.corner1.z, SAFE_ZONE_CORNERS.corner2.z, SAFE_ZONE_CORNERS.corner3.z, SAFE_ZONE_CORNERS.corner4.z)
+
+    return position.X >= minX and position.X <= maxX and
+           position.Z >= minZ and position.Z <= maxZ
 end
 
 local function isInAutoZone(player)
@@ -963,6 +1081,11 @@ local function updateHitting()
     local dist = getDistance(root.Position, targetRoot.Position)
     local qReady = (tick() - BotState.last_q_time) > Config.q_cooldown
 
+    -- Spam T when in hit range (stance animation)
+    if dist <= Config.melee_range then
+        spamT()
+    end
+
     -- Fire Q whenever ready and in melee range
     if qReady and dist <= Config.melee_range then
         attackWithQ()
@@ -994,6 +1117,11 @@ local function updateBotState()
     -- Independent systems
     updateMovement()
     updateHitting()
+
+    -- AutoZone target search
+    if BotState.autozone_enabled then
+        updateAutozoneTarget()
+    end
 
     -- Auto item management
     if BotState.enabled then
