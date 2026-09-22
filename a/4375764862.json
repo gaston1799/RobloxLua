@@ -1,12 +1,12 @@
 {
   "userId": 4375764862,
   "displayName": "Samxxz",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 74205509034203,
+  "jobId": "3d4f53d9-829e-4911-9fd6-60914d8e970a",
+  "join": "roblox://placeId=74205509034203&gameInstanceId=3d4f53d9-829e-4911-9fd6-60914d8e970a",
   "follow": "roblox://followUserId=4375764862",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790108545285
+  "web": "https://www.roblox.com/games/start?placeId=74205509034203&gameInstanceId=3d4f53d9-829e-4911-9fd6-60914d8e970a",
+  "location": "The Hunt: Roblox 20",
+  "updatedAt": 1790108723443
 }
