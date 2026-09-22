@@ -390,6 +390,38 @@ local function getCameraDirection()
     return camera and camera.CFrame.LookVector or Vector3.new(0, 0, -1)
 end
 
+local function aimCameraAtTarget(targetRoot)
+    if not targetRoot then return end
+    local camera = workspace.CurrentCamera
+    if not camera then return end
+
+    local char = LocalPlayer.Character
+    local root = char and char:FindFirstChild("HumanoidRootPart")
+    if not root then return end
+
+    -- Aim camera at target position
+    local dirToTarget = (targetRoot.Position - root.Position).Unit
+    local distance = (targetRoot.Position - root.Position).Magnitude
+    local behindDist = math.max(5, distance * 0.3)
+    local cameraPos = root.Position - (dirToTarget * behindDist) + Vector3.new(0, 1, 0)
+
+    camera.CFrame = CFrame.new(cameraPos, targetRoot.Position)
+end
+
+local function toggleShiftLock(enabled)
+    if enabled then
+        print("[Bot] Enabling shift lock...")
+        sendIntent("shift", "down")
+        task.wait(0.1)
+        sendIntent("shift", "up")
+    else
+        print("[Bot] Disabling shift lock...")
+        sendIntent("shift", "down")
+        task.wait(0.1)
+        sendIntent("shift", "up")
+    end
+end
+
 local function moveTowardWithInterception(targetRoot)
     local char = LocalPlayer.Character
     if not char then return end
@@ -426,6 +458,59 @@ local function moveTowardWithInterception(targetRoot)
         input.d = true
     elseif rightDot < -0.1 then
         input.a = true
+    end
+
+    for key, shouldPress in pairs(input) do
+        if shouldPress then
+            pressKey(key)
+        else
+            releaseKey(key)
+        end
+    end
+end
+
+local function strafeBaitDodge(targetRoot)
+    -- Stay at 10-15 studs and strafe left-right to dodge fireballs
+    if not targetRoot then return end
+
+    local char = LocalPlayer.Character
+    if not char then return end
+
+    local root = char:FindFirstChild("HumanoidRootPart")
+    if not root then return end
+
+    local dist = getDistance(root.Position, targetRoot.Position)
+    local dirToTarget = getDirection(root.Position, targetRoot.Position)
+    local camDir = getCameraDirection()
+
+    local camRight = camDir:Cross(Vector3.new(0, 1, 0)).Unit
+    local camForward = camDir
+
+    local input = {w=false, a=false, s=false, d=false}
+
+    -- Maintain 10-15 stud range
+    local baitMinDist = 10
+    local baitMaxDist = 15
+
+    if dist < baitMinDist then
+        -- Too close, back up
+        input.s = true
+    elseif dist > baitMaxDist then
+        -- Too far, move closer
+        local forwardDot = dirToTarget:Dot(camForward)
+        if forwardDot > 0.2 then
+            input.w = true
+        elseif forwardDot < -0.2 then
+            input.s = true
+        end
+    end
+
+    -- Continuous strafing to dodge (sine wave pattern)
+    local strafeLeft = math.sin(tick() * 3) > 0
+    if strafeLeft then
+        input.a = true
+    else
+        input.d = true
     end
 
     for key, shouldPress in pairs(input) do
@@ -699,6 +784,82 @@ local function setupAutoCharacterDetection()
 end
 
 local updateCounter = 0
+
+local function updateMovement()
+    -- Independent movement system: maintain position based on Q cooldown
+    if not BotState.enabled or not BotState.target then
+        releaseAllKeys()
+        return
+    end
+
+    local targetChar = BotState.target.Character
+    if not targetChar then
+        releaseAllKeys()
+        return
+    end
+
+    local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
+    local targetHumanoid = targetChar:FindFirstChildOfClass("Humanoid")
+
+    if not targetRoot or not targetHumanoid or targetHumanoid.Health <= 0 then
+        releaseAllKeys()
+        return
+    end
+
+    local char = LocalPlayer.Character
+    local root = char and char:FindFirstChild("HumanoidRootPart")
+    if not root then return end
+
+    local dist = getDistance(root.Position, targetRoot.Position)
+    local qReady = (tick() - BotState.last_q_time) > Config.q_cooldown
+
+    -- Aim camera at target
+    aimCameraAtTarget(targetRoot)
+
+    if qReady then
+        -- Q is ready: move to melee range (6 studs) for attack
+        BotState.current_state = "approaching"
+        if dist > Config.melee_range then
+            moveTowardWithInterception(targetRoot)
+        else
+            releaseAllKeys()
+        end
+    else
+        -- Q on cooldown: stay at 10-15 studs and bait/strafe to dodge fireballs
+        BotState.current_state = "baiting"
+        strafeBaitDodge(targetRoot)
+    end
+end
+
+local function updateHitting()
+    -- Independent hitting system: fire Q whenever ready and in range
+    if not BotState.enabled or not BotState.target then
+        return
+    end
+
+    local targetChar = BotState.target.Character
+    if not targetChar then return end
+
+    local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
+    local targetHumanoid = targetChar:FindFirstChildOfClass("Humanoid")
+
+    if not targetRoot or not targetHumanoid or targetHumanoid.Health <= 0 then
+        return
+    end
+
+    local char = LocalPlayer.Character
+    local root = char and char:FindFirstChild("HumanoidRootPart")
+    if not root then return end
+
+    local dist = getDistance(root.Position, targetRoot.Position)
+    local qReady = (tick() - BotState.last_q_time) > Config.q_cooldown
+
+    -- Fire Q whenever ready and in melee range
+    if qReady and dist <= Config.melee_range then
+        attackWithQ()
+    end
+end
+
 local function updateBotState()
     updateCounter = updateCounter + 1
 
@@ -710,63 +871,20 @@ local function updateBotState()
         return
     end
 
-    local targetChar = BotState.target.Character
-    if not targetChar then
-        BotState.current_state = "idle"
-        releaseAllKeys()
-        return
-    end
-
-    local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
-    local targetHumanoid = targetChar:FindFirstChildOfClass("Humanoid")
-
-    if not targetRoot or not targetHumanoid or targetHumanoid.Health <= 0 then
-        BotState.current_state = "idle"
-        releaseAllKeys()
-        return
-    end
-
-    local char = LocalPlayer.Character
-    if not char then return end
-
-    local root = char:FindFirstChild("HumanoidRootPart")
-    if not root then return end
-
-    local dist = getDistance(root.Position, targetRoot.Position)
-    local qReady = (tick() - BotState.last_q_time) > Config.q_cooldown
-    local fireballReady = (tick() - BotState.last_fireball_time) > Config.fireball_cooldown
-
     if updateCounter % 30 == 0 then
-        print("[Bot State] State: " .. BotState.current_state .. " | Dist: " .. string.format("%.1f", dist) .. " | Target: " .. BotState.target.Name)
-    end
-
-    if qReady and dist > Config.melee_range then
-        BotState.current_state = "approaching"
-        moveTowardWithInterception(targetRoot)
-
-    elseif qReady and dist <= Config.melee_range then
-        BotState.current_state = "attacking"
-        releaseAllKeys()
-
-        if fireballReady then
-            doubleHit()
-        else
-            attackWithQ()
-        end
-
-    else
-        BotState.current_state = "baiting"
-        if dist > Config.combat_radius then
-            moveTowardWithInterception(targetRoot)
-        else
-            fireballBait(targetRoot.Position)
+        local char = LocalPlayer.Character
+        local root = char and char:FindFirstChild("HumanoidRootPart")
+        local targetChar = BotState.target.Character
+        local targetRoot = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
+        if root and targetRoot then
+            local dist = getDistance(root.Position, targetRoot.Position)
+            print("[Bot] State: " .. BotState.current_state .. " | Dist: " .. string.format("%.1f", dist) .. " | Target: " .. BotState.target.Name)
         end
     end
 
-    -- Continuous Q spam when in melee range (separate from state machine)
-    if qReady and BotState.enabled and BotState.target and dist <= Config.melee_range then
-        attackWithQ()
-    end
+    -- Independent systems
+    updateMovement()
+    updateHitting()
 end
 
 local botLoop
@@ -778,16 +896,18 @@ _G.AdvancedPVPBot = {
     start = function()
         if BotState.enabled then return end
         BotState.enabled = true
+        toggleShiftLock(true)
         if not botLoop then
             botLoop = RunService.Heartbeat:Connect(updateBotState)
         end
-        print("[Advanced PVP Bot] Started")
+        print("[Advanced PVP Bot] Started with Shift Lock enabled")
     end,
 
     stop = function()
         BotState.enabled = false
         releaseAllKeys()
-        print("[Advanced PVP Bot] Stopped")
+        toggleShiftLock(false)
+        print("[Advanced PVP Bot] Stopped, Shift Lock disabled")
     end,
 
     toggle = function()
