@@ -40,6 +40,7 @@ local BotState = {
     follow_ally_enabled = false,
     autozone_enabled = false,
     closest_ally = nil,
+    target_enemy_clan = "Any Enemy",
 }
 
 local Config = {
@@ -744,15 +745,28 @@ local function updateAutozoneTarget()
             local enemyHumanoid = player.Character:FindFirstChildOfClass("Humanoid")
 
             if enemyRoot and enemyHumanoid and enemyHumanoid.Health > 0 then
-                -- Check if enemy is outside safe zone
-                if not isInsideSafeZone(enemyRoot.Position) then
-                    -- Check if within engage range of ally
-                    local distToAlly = getDistance(allyRoot.Position, enemyRoot.Position)
-                    if distToAlly <= Config.autozone_engage_range then
-                        local distToUs = getDistance(root.Position, enemyRoot.Position)
-                        if distToUs < closestEnemyDist then
-                            closestEnemyDist = distToUs
-                            closestEnemy = player
+                -- Check if enemy matches target clan (or "Any Enemy")
+                local isTargetClan = false
+                if BotState.target_enemy_clan == "Any Enemy" then
+                    isTargetClan = true
+                else
+                    local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild(BotState.target_enemy_clan)
+                    if teamFolder then
+                        isTargetClan = teamFolder:FindFirstChild(player.Name) ~= nil
+                    end
+                end
+
+                if isTargetClan then
+                    -- Check if enemy is outside safe zone
+                    if not isInsideSafeZone(enemyRoot.Position) then
+                        -- Check if within engage range of ally
+                        local distToAlly = getDistance(allyRoot.Position, enemyRoot.Position)
+                        if distToAlly <= Config.autozone_engage_range then
+                            local distToUs = getDistance(root.Position, enemyRoot.Position)
+                            if distToUs < closestEnemyDist then
+                                closestEnemyDist = distToUs
+                                closestEnemy = player
+                            end
                         end
                     end
                 end
@@ -1333,10 +1347,11 @@ local function buildUI(venyx)
     local autozoneSection = mainPage:addSection({title = "AutoZone"})
 
     autozoneSection:addToggle({
-        title = "Auto Zone (kills all outside safe)",
+        title = "AutoZone Enabled",
         toggled = false,
         callback = function(val)
-            print("[AutoZone] Enabled:", val)
+            BotState.autozone_enabled = val
+            print("[AutoZone]", val and "Enabled (engage enemies near allies)" or "Disabled")
         end,
     })
 
@@ -1344,37 +1359,66 @@ local function buildUI(venyx)
         title = "Follow Ally",
         toggled = false,
         callback = function(val)
-            print("[AutoZone] Follow Ally:", val)
+            BotState.follow_ally_enabled = val
+            print("[Follow Ally]", val and "Enabled" or "Disabled")
+        end,
+    })
+
+    -- Enemy clan dropdown (auto-updating)
+    local function getEnemyClanOptions()
+        local clans = {}
+        if workspace:FindFirstChild("Teams") then
+            for _, teamFolder in ipairs(workspace.Teams:GetChildren()) do
+                -- Exclude player's own clan
+                if teamFolder.Name ~= "enter clan name here" then
+                    table.insert(clans, teamFolder.Name)
+                end
+            end
+        end
+        table.insert(clans, "Any Enemy")
+        return clans
+    end
+
+    local enemyClanDropdown = autozoneSection:addDropdown({
+        title = "Zone Enemy Clan",
+        list = getEnemyClanOptions(),
+        callback = function(clanName)
+            BotState.target_enemy_clan = clanName
+            print("[AutoZone] Zoning clan:", clanName)
         end,
     })
 
     autozoneSection:addSlider({
-        title = "Ally Follow Min Dist",
-        min = 0,
-        max = 500,
-        default = 3,
+        title = "Ally Follow Distance",
+        min = 5,
+        max = 50,
+        default = 15,
         precision = 0,
         callback = function(val)
-            print("[AutoZone] Follow Min Dist:", val)
+            Config.autozone_ally_follow_dist = tonumber(val) or 15
+            print("[AutoZone] Ally follow dist:", val)
         end,
     })
 
     autozoneSection:addSlider({
-        title = "Ally Target Range",
-        min = 0,
-        max = 500,
-        default = 20,
+        title = "Enemy Engage Range",
+        min = 10,
+        max = 100,
+        default = 30,
         precision = 0,
         callback = function(val)
-            print("[AutoZone] Target Range:", val)
+            Config.autozone_engage_range = tonumber(val) or 30
+            print("[AutoZone] Engage range:", val)
         end,
     })
 
-    autozoneSection:addToggle({
-        title = "Auto Zone Fakeouts",
-        toggled = false,
-        callback = function(val)
-            print("[AutoZone] Fakeouts:", val)
+    autozoneSection:addButton({
+        title = "Refresh Enemy Clans",
+        callback = function()
+            if enemyClanDropdown then
+                enemyClanDropdown:SetOptions(getEnemyClanOptions())
+                print("[AutoZone] Enemy clan list refreshed")
+            end
         end,
     })
 
