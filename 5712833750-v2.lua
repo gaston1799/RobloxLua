@@ -47,6 +47,7 @@ local Config = {
 
 local AutoPVPState = {
     enabled = false,
+    auto_reengage = false,
     last_attacker = nil,
     last_damage_time = 0,
     damage_threshold = 0.5,
@@ -725,17 +726,34 @@ local function setupDamageDetection()
     end
 
     humanoid.HealthChanged:Connect(function(health)
+        -- Check if bot died
+        if health <= 0 then
+            print("[Auto PVP] Bot died, stopping...")
+            _G.AdvancedPVPBot.stop()
+            lastHealthValue = health
+            return
+        end
+
         if not AutoPVPState.enabled then
             lastHealthValue = health
             return
         end
 
-        -- Check if current target is dead, find new one
+        -- Check if current target is dead
         if BotState.target then
             local targetHumanoid = BotState.target.Character and BotState.target.Character:FindFirstChildOfClass("Humanoid")
             if not targetHumanoid or targetHumanoid.Health <= 0 then
-                print("[Auto PVP] Target " .. BotState.target.Name .. " is dead, looking for new attacker...")
+                print("[Auto PVP] Target " .. BotState.target.Name .. " is dead")
                 BotState.target = nil
+
+                if AutoPVPState.auto_reengage then
+                    print("[Auto PVP] Auto Re-engage ON: waiting for next attacker...")
+                else
+                    print("[Auto PVP] Auto Re-engage OFF: stopping bot")
+                    _G.AdvancedPVPBot.stop()
+                    lastHealthValue = health
+                    return
+                end
             end
         end
 
@@ -1068,7 +1086,10 @@ local function buildUI(venyx)
         title = "Auto Re-engage",
         toggled = false,
         callback = function(val)
-            print("[PVP Bot] Auto Re-engage:", val)
+            if _G.AdvancedPVPBot then
+                AutoPVPState.auto_reengage = val
+                print("[Auto PVP] Auto Re-engage:", val and "ON (hunt new attackers)" or "OFF (stop after kill)")
+            end
         end,
     })
 
