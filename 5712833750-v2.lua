@@ -14,9 +14,14 @@ local INTENT_SERVER = "http://127.0.0.1:3636/intent"
 local function sendIntent(key, state)
     local payload = {key = key, state = state}
     local json = game:GetService("HttpService"):JSONEncode(payload)
-    pcall(function()
+    local ok, err = pcall(function()
         game:HttpPost(INTENT_SERVER, json, Enum.HttpContentType.ApplicationJson)
     end)
+    if not ok then
+        print("[Intent Server] ERROR: " .. tostring(err))
+    else
+        print("[Intent Server] Sent: " .. key .. " = " .. state)
+    end
 end
 
 -- ===== ADVANCED PVP BOT - EMBEDDED =====
