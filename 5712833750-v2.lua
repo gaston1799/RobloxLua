@@ -306,10 +306,10 @@ local function enableHUD()
 
                         -- Color-code info text by hit-to-kill ratio
                         local hitRatio = tonumber(hitsToKillEnemy) and tonumber(hitsToKillYou) and (tonumber(hitsToKillEnemy) / tonumber(hitsToKillYou)) or 0
-                        if hitRatio >= 1.0 then
-                            entry.info.TextColor3 = Color3.fromRGB(80, 200, 120) -- GREEN: Easy to kill
+                        if hitRatio < 1.0 then
+                            entry.info.TextColor3 = Color3.fromRGB(80, 200, 120) -- GREEN: Easy to kill (we need fewer hits)
                         else
-                            entry.info.TextColor3 = Color3.fromRGB(240, 80, 80) -- RED: Harder to kill
+                            entry.info.TextColor3 = Color3.fromRGB(240, 80, 80) -- RED: Harder to kill (we need more hits)
                         end
                     end
                 end
