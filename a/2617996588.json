@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 117311404196294,
-  "jobId": "604418d5-6431-4cdf-81e6-72a709d97825",
-  "join": "roblox://placeId=117311404196294&gameInstanceId=604418d5-6431-4cdf-81e6-72a709d97825",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=117311404196294&gameInstanceId=604418d5-6431-4cdf-81e6-72a709d97825",
-  "location": "RUNAWAYS [beta]",
-  "updatedAt": 1790143903056
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790146305868
 }
