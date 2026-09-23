@@ -828,9 +828,9 @@ local function isWinnableBattle(player)
     local multiplier = tonumber(_G.DamageMultiplier) or 1.0
 
     -- Calculate ratio: hitsToKillThem / hitsToKillUs
-    -- Ratio >= multiplier means target is within acceptable range
+    -- Ratio <= multiplier means target is within acceptable range (lower is better for us)
     local ratio = hitsToKillThem / hitsToKillUs
-    local acceptable = ratio >= multiplier
+    local acceptable = ratio <= multiplier
 
     if acceptable then
         print("[Auto PVP] " .. player.Name .. " | Ratio: " .. string.format("%.2f", ratio) .. " >= " .. multiplier .. " | ACCEPTED")
