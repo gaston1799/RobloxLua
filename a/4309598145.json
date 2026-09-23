@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2753915549,
+  "jobId": "33180bde-4f1d-4c19-98f8-5e78bc0c8afc",
+  "join": "roblox://placeId=2753915549&gameInstanceId=33180bde-4f1d-4c19-98f8-5e78bc0c8afc",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790123855090
+  "web": "https://www.roblox.com/games/start?placeId=2753915549&gameInstanceId=33180bde-4f1d-4c19-98f8-5e78bc0c8afc",
+  "location": "Blox Fruits",
+  "updatedAt": 1790124217362
 }
