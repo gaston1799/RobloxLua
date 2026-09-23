@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 119355263204054,
+  "jobId": "c18ad513-cf5b-432c-b67b-d94cc4cf7fb7",
+  "join": "roblox://placeId=119355263204054&gameInstanceId=c18ad513-cf5b-432c-b67b-d94cc4cf7fb7",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790132317978
+  "web": "https://www.roblox.com/games/start?placeId=119355263204054&gameInstanceId=c18ad513-cf5b-432c-b67b-d94cc4cf7fb7",
+  "location": "Keyboard Wars",
+  "updatedAt": 1790132380294
 }
