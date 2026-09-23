@@ -818,11 +818,11 @@ local function isWinnableBattle(player)
     local ourDamage = (ourLevel * 2) + 10
     local theirDamage = (theirLevel * 2) + 10
 
-    local ourHealth = ourHumanoid.Health
-    local theirHealth = theirHumanoid.Health
+    local ourMaxHealth = ourHumanoid.MaxHealth
+    local theirMaxHealth = theirHumanoid.MaxHealth
 
-    local hitsToKillThem = math.ceil(theirHealth / ourDamage)
-    local hitsToKillUs = math.ceil(ourHealth / theirDamage)
+    local hitsToKillThem = math.ceil(theirMaxHealth / ourDamage)
+    local hitsToKillUs = math.ceil(ourMaxHealth / theirDamage)
 
     -- Get damage multiplier slider value (0.1 to 2.0)
     local multiplier = tonumber(_G.DamageMultiplier) or 1.0
