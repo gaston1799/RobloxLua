@@ -169,8 +169,8 @@ local function buildBaseUI(ui)
     return ui
 end
 
--- Create base UI window
-local ui = venyx.new({title = "Utilities"})
+-- Create base UI window with branding
+local ui = venyx.new({title = "Gaston1799 Bot"})
 
 -- Build and store UI
 buildBaseUI(ui)
