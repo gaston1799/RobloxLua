@@ -1499,6 +1499,15 @@ local function buildUI(venyx)
         end,
     })
 
+    autozoneSection:addButton({
+        title = "Refresh Clans",
+        callback = function()
+            local freshClans = getEnemyClanOptions()
+            enemyClanDropdown.Options:SetOptions(freshClans)
+            print("[AutoZone] Clan list refreshed (" .. #freshClans .. " options)")
+        end,
+    })
+
     autozoneSection:addSlider({
         title = "Ally Follow Distance",
         min = 5,

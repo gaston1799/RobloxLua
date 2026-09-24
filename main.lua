@@ -14,21 +14,33 @@ print("[Main Loader] Starting...")
 local venyx
 local function loadVenyx()
     if venyx then return venyx end
-    
+
     print("[Main Loader] Loading Venyx UI...")
-    
+
+    -- Try local first (with SetOptions support)
     local ok, result = pcall(function()
-        return loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
+        return loadstring(game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/venyx_source.lua"))()
     end)
-    
+
     if ok then
         venyx = result
-        print("[Main Loader] ✓ Venyx loaded from remote")
+        print("[Main Loader] ✓ Venyx loaded from local (with SetOptions)")
         return venyx
     end
-    
-    print("[Main Loader] ✗ Remote failed, trying local fallback...")
-    print("[Main Loader] ✗ No local Venyx available")
+
+    print("[Main Loader] ✗ Local failed, trying remote...")
+
+    ok, result = pcall(function()
+        return loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
+    end)
+
+    if ok then
+        venyx = result
+        print("[Main Loader] ✓ Venyx loaded from remote (fallback)")
+        return venyx
+    end
+
+    print("[Main Loader] ✗ No Venyx available")
     return nil
 end
 
