@@ -4,7 +4,13 @@
 loader itself has been patched and pushed to branch `lua`. Confirmed over HTTP: the bytes the
 executor will fetch are the fixed ones.
 
-Commit: **`cf0e5c408`** on branch `lua` (pushed to `origin/lua`, on top of `7a51e0e5c "Restore v2 loading in main loader"`).
+Commits on branch `lua`, pushed to `origin/lua` (on top of `7a51e0e5c "Restore v2 loading in main loader"`):
+
+| Commit | Contents |
+| --- | --- |
+| `cf0e5c408` | The `end` fix, the loader rewrite, `.luacheckrc`, `check-lua.ps1`, `README.md` |
+| `eafbd727e` | Configurable download branch (`RAW_BRANCHES`), `report.md`, `tools/`, `from-lua-clone-20260921/` snapshots |
+| `552b12248` | `luacheck` config fix (`_G` must be writable) |
 
 ---
 
@@ -197,3 +203,35 @@ git show lua:5712833750.lua | Select-String "some string you just added"
    re-debugging.
 5. The loader now separates **compile errors** from **runtime errors** and detects 404 bodies. If
    something fails, read that message first — it is no longer swallowed.
+
+---
+
+## 7. Follow-up: which branch the loader reads, and where the noise actually is
+
+Measured 2026-09-24, after the fix:
+
+| Branch | Commits | Touching `a/` | Last 24h |
+| --- | --- | --- | --- |
+| `lua` (what the loader reads) | 20,379 | 20,265 | 4,274 |
+| `origin/main` | 591 | 577 | 228 |
+
+The Discord presence bot commits to **both**, but the churn is overwhelmingly on **`lua`** — the
+same branch the loader downloads from, and the same one the scripts are edited on. `main` is
+~19x quieter, but it cannot serve the loader on its own: it has no `venyx_source.lua`, and its
+`5712833750.lua` is a 2,231-byte stub versus 58,932 B on `lua`.
+
+So the source branch is no longer hardcoded. `main.lua` now opens with:
+
+```lua
+local RAW_BRANCHES = { "lua", "main" }
+```
+
+tried in order with first hit winning, and every download (`venyx_source.lua`,
+`<placeId>-v2.lua`, `<placeId>.lua`, `lib/*`) goes through `rawUrl(branch, path)`. Moving the
+loader to `main` is now a one-line change — but only after `venyx_source.lua` and the real
+place scripts are pushed there too, otherwise it just 404s and falls through to `lua`.
+
+The real fix for the commit noise is to point the bot at its own branch or repository, then
+`git rm -r --cached a/` on this one, so script edits and presence data stop sharing a branch.
+Until then use `git fetch origin lua` (not a bare `fetch`) and prefer
+`git clone --single-branch --branch lua`, so clones don't drag the churn in.
