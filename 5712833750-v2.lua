@@ -1406,7 +1406,8 @@ local function buildUI(venyx)
         error("[AnimalSim] Venyx UI library required")
     end
 
-    local ui = venyx.new({title = "Animal Sim PVP"})
+    -- UI is already created by main.lua, just add pages to it
+    local ui = venyx
     local mainPage = ui:addPage({title = "Main"})
 
     local function collectPlayerNames()

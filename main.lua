@@ -120,16 +120,68 @@ if not venyx then
     error("[Main Loader] CRITICAL: Venyx failed to load")
 end
 
--- Store Venyx in global for game scripts
+print("[Main Loader] ✓ Venyx loaded")
+
+-- ===== BUILD BASE UI (Debugging + Misc) =====
+
+local function buildBaseUI(ui)
+    print("[Main Loader] Building base UI...")
+
+    -- Debugging Tools page
+    local debugPage = ui.new({title = "Debug Tools"})
+    local debugSection = debugPage:addSection({title = "Utilities"})
+
+    debugSection:addButton({
+        title = "Dex Explorer",
+        callback = function()
+            print("[Debug] Loading Dex Explorer...")
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/master/dex.lua"))()
+        end,
+    })
+
+    debugSection:addButton({
+        title = "Infinite Yield",
+        callback = function()
+            print("[Debug] Loading Infinite Yield...")
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+        end,
+    })
+
+    debugSection:addButton({
+        title = "Script Executor",
+        callback = function()
+            print("[Debug] Use Dex or IY to execute scripts")
+        end,
+    })
+
+    -- Misc page
+    local miscPage = ui.new({title = "Misc"})
+    local miscSection = miscPage:addSection({title = "General"})
+
+    miscSection:addButton({
+        title = "Clear Chat",
+        callback = function()
+            print("[Misc] Chat cleared (manually)")
+        end,
+    })
+
+    print("[Main Loader] ✓ Base UI built")
+    return ui
+end
+
+-- Build and store UI
+venyx = buildBaseUI(venyx)
 _G.venyx = venyx
-print("[Main Loader] ✓ Venyx stored in _G.venyx")
+print("[Main Loader] ✓ UI stored in _G.venyx")
 
 -- Load game script based on PlaceID
+print("[Main Loader] Loading game-specific script...")
 local placeId = game.PlaceId
 local success = loadGameScript(placeId)
 
 if not success then
-    print("[Main Loader] ✗ No script available for PlaceID " .. placeId)
+    print("[Main Loader] ✗ No game script for PlaceID " .. placeId)
+    print("[Main Loader] Only Debug Tools + Misc available")
 end
 
-print("[Main Loader] Done!")
+print("[Main Loader] ✓ Ready!")
