@@ -1439,22 +1439,6 @@ _G.AdvancedPVPBot = {
     end,
 }
 
-print([[
-[Advanced PVP Bot] Loaded!
-
-States:
-  idle      - Waiting for target
-  approaching - Moving to enemy (non-headon intercept)
-  attacking - In range, sending Q (double-hit if fireball ready)
-  baiting   - Cooldown, strafing to dodge fireballs
-
-Strategy:
-  1. Approach with interception (not headon)
-  2. Attack when in range (Q + Fireball simultaneous if ready)
-  3. Bait fireballs during cooldown (strafe at safe distance)
-  4. Never disengage (stay in combat radius)
-]])
-
 -- ===== UI BUILDER =====
 
 local function buildUI(ui)
