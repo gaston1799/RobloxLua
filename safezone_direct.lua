@@ -79,7 +79,10 @@ box.Color = Color3.fromRGB(0, 0, 255)
 box.Material = Enum.Material.Neon
 box.Transparency = 0.5
 box.CanCollide = false
-box.CFrame = CFrame.new(centerX, centerY, centerZ)
+box.Anchored = true
+box.TopSurface = Enum.SurfaceType.Smooth
+box.BottomSurface = Enum.SurfaceType.Smooth
+box.CFrame = safeZone.CFrame
 box.Parent = workspace
 
 print("[Done] Blue box shows safe zone bounds\n")
