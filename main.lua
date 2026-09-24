@@ -4,6 +4,21 @@
     Tries <placeid>-v2.lua first, then <placeid>.lua fallback
 ]]
 
+-- ===== WHICH BRANCH TO DOWNLOAD FROM =====
+-- Tried in order; the first branch that has the file wins. Every download goes through
+-- rawUrl() below, so flipping this one list re-points the whole loader.
+--
+-- Why this order (measured 2026-09-24):
+--   lua : 20,379 commits (20,265 touching a/), 4,274 in the last 24h  <- the .lua files live here
+--   main:    591 commits (  577 touching a/),   228 in the last 24h  <- quieter, but it has NO
+--          venyx_source.lua and only a 2 KB stub of the place script, so it cannot serve the
+--          loader on its own. It is a fallback candidate, not the primary.
+local RAW_BRANCHES = { "lua", "main" }
+
+local function rawUrl(branch, path)
+    return "https://raw.githubusercontent.com/gaston1799/RobloxLua/" .. branch .. "/" .. path
+end
+
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
@@ -17,25 +32,29 @@ local function loadVenyx()
 
     print("[Main Loader] Loading Venyx UI...")
 
-    -- Try local first (with SetOptions support)
-    local ok, result = pcall(function()
-        return loadstring(game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/venyx_source.lua"))()
-    end)
+    -- Try our own repo first (with SetOptions support), on each configured branch
+    for _, branch in ipairs(RAW_BRANCHES) do
+        local ok, result = pcall(function()
+            return loadstring(game:HttpGet(rawUrl(branch, "venyx_source.lua")))()
+        end)
 
-    if ok then
-        venyx = result
-        print("[Main Loader] ✓ Venyx loaded from local (with SetOptions)")
-        return venyx
+        if ok and result then
+            venyx = result
+            print("[Main Loader] ✓ Venyx loaded from '" .. branch .. "' (with SetOptions)")
+            return venyx
+        end
+
+        print("[Main Loader] ✗ venyx_source.lua on '" .. branch .. "' failed")
     end
 
     print("[Main Loader] ✗ Local failed, trying remote...")
 
-    ok, result = pcall(function()
+    local ok2, result2 = pcall(function()
         return loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
     end)
 
-    if ok then
-        venyx = result
+    if ok2 and result2 then
+        venyx = result2
         print("[Main Loader] ✓ Venyx loaded from remote (fallback)")
         return venyx
     end
@@ -53,7 +72,7 @@ local function loadPrefixes()
     print("[Main Loader] Loading prefixes...")
     
     local ok, result = pcall(function()
-        local json = game:HttpGet("https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/lib/prefixes.json")
+        local json = game:HttpGet(rawUrl(RAW_BRANCHES[1], "lib/prefixes.json"))
         return game:GetService("HttpService"):JSONDecode(json)
     end)
     
@@ -102,9 +121,12 @@ end
 -- its first argument, so inside <placeId>-v2.lua it is read with:  local ui = ...
 local function runGameScript(placeId, suffix, ui)
     local label = tostring(placeId) .. suffix
-    local url = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. label
 
-    local source = fetchRemote(url, label)
+    local source = nil
+    for _, branch in ipairs(RAW_BRANCHES) do
+        source = fetchRemote(rawUrl(branch, label), label .. " [" .. branch .. "]")
+        if source then break end
+    end
     if not source then return false end
 
     -- Compile BEFORE executing: if the remote file has a syntax error, this reports the

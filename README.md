@@ -22,6 +22,32 @@ while the executor kept fetching the old copy from `lua`.
 - `git push origin lua` after every change you want to test in game.
 - raw.githubusercontent.com caches for ~5 minutes. If a change doesn't appear, wait,
   or point the loader at a new file name.
+
+### Which branch, and the presence-bot churn
+
+`main.lua` downloads through the `RAW_BRANCHES` list at the top of the file - tried in
+order, first hit wins. It ships as `{ "lua", "main" }`, and that order is deliberate.
+Measured 2026-09-24:
+
+| Branch | Commits | Touching `a/` | Last 24h |
+| --- | --- | --- | --- |
+| `lua` | 20,379 | 20,265 | 4,274 |
+| `origin/main` | 591 | 577 | 228 |
+
+The Discord presence bot commits to **`lua`** - thousands of `a/*.json` commits a day -
+which is also where the scripts live. `main` is quieter but **cannot serve the loader on
+its own**: it has no `venyx_source.lua`, and its `5712833750.lua` is a 2 KB stub (the real
+one is 58,932 B on `lua`). Hence `lua` primary, `main` fallback.
+
+To avoid dragging the churn into clones, fetch only the branch you work on:
+
+```powershell
+git fetch origin lua                    # instead of a bare `git fetch`
+git clone --single-branch --branch lua <url>
+```
+
+The real fix for the noise is to point the bot at its own branch (or repo) and then
+`git rm -r --cached a/` here, so script edits and presence data stop sharing a branch.
 - Sanity-check what is actually served, not what you have locally:
   `git show lua:5712833750-v2.lua | Select-String "some string"`.
 
