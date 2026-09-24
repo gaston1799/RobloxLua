@@ -1803,7 +1803,14 @@ end
 if game:IsLoaded() then
     if _G.venyx then
         print("[Animal Sim v2] Building UI with passed Venyx...")
-        buildUI(_G.venyx)
+        local ok, err = pcall(function()
+            buildUI(_G.venyx)
+        end)
+        if not ok then
+            print("[Animal Sim v2] ERROR building UI: " .. tostring(err))
+        else
+            print("[Animal Sim v2] ✓ UI pages added successfully")
+        end
     else
         print("[Animal Sim v2] ERROR: Venyx not found in _G")
     end
@@ -1811,7 +1818,14 @@ else
     game.Loaded:Wait()
     if _G.venyx then
         print("[Animal Sim v2] Building UI with passed Venyx...")
-        buildUI(_G.venyx)
+        local ok, err = pcall(function()
+            buildUI(_G.venyx)
+        end)
+        if not ok then
+            print("[Animal Sim v2] ERROR building UI: " .. tostring(err))
+        else
+            print("[Animal Sim v2] ✓ UI pages added successfully")
+        end
     else
         print("[Animal Sim v2] ERROR: Venyx not found in _G")
     end
