@@ -46,12 +46,22 @@ local BotState = {
 
 -- Auto-detect player's team/clan
 local function autoDetectClan()
+    if not LocalPlayer then return "enter clan name here" end
     if workspace:FindFirstChild("Teams") then
         for _, teamFolder in ipairs(workspace.Teams:GetChildren()) do
             if teamFolder:FindFirstChild(LocalPlayer.Name) then
                 return teamFolder.Name
             end
         end
+    end
+    return "enter clan name here"
+end
+
+-- Safely call autoDetectClan with fallback
+local function getSafeClanName()
+    local ok, result = pcall(autoDetectClan)
+    if ok and result then
+        return result
     end
     return "enter clan name here"
 end
@@ -68,7 +78,7 @@ local Config = {
     autozone_ally_follow_dist = 15,
     autozone_engage_range = 30,
     follow_ally_dist = 20,
-    ally_clan_name = autoDetectClan(),
+    ally_clan_name = getSafeClanName(),
 }
 
 -- ===== AUTO PVP STATE =====
