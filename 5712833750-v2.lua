@@ -1795,7 +1795,36 @@ local function buildUI(ui)
 end
 
 -- ===== INITIALIZATION =====
--- Store buildUI globally so main.lua can call it
-_G.buildAnimalSimUI = buildUI
+-- Store buildUI globally so main.lua can call it. Wrapped so that a loader which ALSO
+-- calls the hook after we have self-built cannot create duplicate pages.
+_G.buildAnimalSimUI = function(target)
+    if _G.__animalSimUIBuilt then
+        print("[Animal Sim v2] UI already built - skipping duplicate build")
+        return
+    end
+    _G.__animalSimUIBuilt = true
+    return buildUI(target)
+end
 
 print("[Animal Sim v2] Script loaded! Ready for UI injection.")
+
+-- Some main.lua revisions download and execute this script but never call the hook above
+-- (they only publish the window). Build directly in that case so the pages never go missing.
+-- Lookup order: the argument main.lua hands over, then _G.venyx, then getgenv().venyx for
+-- executors that give each script its own _G.
+local window = ...
+if window == nil then window = _G.venyx end
+if window == nil and type(getgenv) == "function" then
+    local genv = getgenv()
+    if type(genv) == "table" then window = genv.venyx end
+end
+
+if window ~= nil then
+    print("[Animal Sim v2] Window found - building pages directly")
+    local ok, err = pcall(_G.buildAnimalSimUI, window)
+    if not ok then
+        print("[Animal Sim v2] ERROR building UI: " .. tostring(err))
+    end
+else
+    print("[Animal Sim v2] No window yet - waiting for the loader to call buildAnimalSimUI(ui)")
+end
