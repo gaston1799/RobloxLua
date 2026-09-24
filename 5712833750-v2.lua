@@ -831,6 +831,10 @@ local function updateAutozoneTarget()
     local root = char:FindFirstChild("HumanoidRootPart")
     if not root then return end
 
+    -- You cannot fight from inside the safe zone, so never acquire a target while there
+    -- (otherwise this would set a target and the tick would clear it again every frame).
+    if isInsideSafeZone(root.Position) then return end
+
     -- Find closest ally
     local ally = findClosestAlly()
     if not ally or not ally.Character then return end
@@ -976,20 +980,71 @@ local function autoDetectSafeZone()
         corner4 = {x = minX, z = maxZ},
     }
 
-    print("[SafeZone] ✓ Extracted corners from FightingZonePart")
+    print(string.format("[SafeZone] ✓ FightingZonePart size=(%.1f, %.1f, %.1f) orientation=(%.1f, %.1f, %.1f)",
+        SAFE_ZONE_OBJECT.Size.X, SAFE_ZONE_OBJECT.Size.Y, SAFE_ZONE_OBJECT.Size.Z,
+        SAFE_ZONE_OBJECT.Orientation.X, SAFE_ZONE_OBJECT.Orientation.Y, SAFE_ZONE_OBJECT.Orientation.Z))
 end
 
 -- autoDetectSafeZone() -- Disabled: runs when buildUI is called instead
 
-local function isInsideSafeZone(position)
-    -- Check if position is within safe zone rectangle (X,Z only)
-    local minX = math.min(SAFE_ZONE_CORNERS.corner1.x, SAFE_ZONE_CORNERS.corner2.x, SAFE_ZONE_CORNERS.corner3.x, SAFE_ZONE_CORNERS.corner4.x)
-    local maxX = math.max(SAFE_ZONE_CORNERS.corner1.x, SAFE_ZONE_CORNERS.corner2.x, SAFE_ZONE_CORNERS.corner3.x, SAFE_ZONE_CORNERS.corner4.x)
-    local minZ = math.min(SAFE_ZONE_CORNERS.corner1.z, SAFE_ZONE_CORNERS.corner2.z, SAFE_ZONE_CORNERS.corner3.z, SAFE_ZONE_CORNERS.corner4.z)
-    local maxZ = math.max(SAFE_ZONE_CORNERS.corner1.z, SAFE_ZONE_CORNERS.corner2.z, SAFE_ZONE_CORNERS.corner3.z, SAFE_ZONE_CORNERS.corner4.z)
+-- FightingZonePart is ROTATED, so an axis-aligned min/max box around its position does not
+-- match the real zone: it accepts points outside the zone and rejects points inside it, which
+-- is why Auto PVP never disengaged when standing in the zone. When the part is available the
+-- test runs in its own object space (rotation included - the same approach that worked in
+-- safezone_direct.lua); the recorded four-corner fallback uses a same-side test, which also
+-- copes with a rotated quad instead of collapsing it into an AABB.
+local SAFE_ZONE_RECHECK_INTERVAL = 5
+local nextSafeZoneCheck = 0
 
-    return position.X >= minX and position.X <= maxX and
-           position.Z >= minZ and position.Z <= maxZ
+-- The zone part may not be streamed in when buildUI runs, so retry now and then.
+local function ensureSafeZone()
+    if SAFE_ZONE_OBJECT then return true end
+    local now = tick()
+    if now < nextSafeZoneCheck then return false end
+    nextSafeZoneCheck = now + SAFE_ZONE_RECHECK_INTERVAL
+    autoDetectSafeZone()
+    return SAFE_ZONE_OBJECT ~= nil
+end
+
+local function pointInQuad(px, pz, quad)
+    local sign = nil
+    for i = 1, #quad do
+        local a = quad[i]
+        local b = quad[i % #quad + 1]
+        if a and b then
+            local cross = (b.x - a.x) * (pz - a.z) - (b.z - a.z) * (px - a.x)
+            if math.abs(cross) > 1e-6 then
+                local positive = cross > 0
+                if sign == nil then
+                    sign = positive
+                elseif sign ~= positive then
+                    return false
+                end
+            end
+        end
+    end
+    return sign ~= nil
+end
+
+local function isInsideSafeZone(position)
+    if position == nil then return false end
+
+    -- Preferred: the real part, tested in its own space so rotation is accounted for.
+    if ensureSafeZone() then
+        local rel = SAFE_ZONE_OBJECT.CFrame:PointToObjectSpace(position)
+        local half = SAFE_ZONE_OBJECT.Size / 2
+        return math.abs(rel.X) <= half.X and math.abs(rel.Z) <= half.Z
+    end
+
+    -- Fallback: the four recorded corners treated as a (possibly rotated) quad.
+    local quad = {
+        SAFE_ZONE_CORNERS.corner1, SAFE_ZONE_CORNERS.corner2,
+        SAFE_ZONE_CORNERS.corner3, SAFE_ZONE_CORNERS.corner4,
+    }
+    if not (quad[1] and quad[2] and quad[3] and quad[4]) then
+        return false
+    end
+    return pointInQuad(position.X, position.Z, quad)
 end
 
 local function isInAutoZone(player)
@@ -1022,30 +1077,52 @@ local function createSafeZoneVisualizer()
         SAFE_ZONE_CORNERS.corner4,
     }
 
-    -- Calculate bounds
+    ensureSafeZone()
+
+    -- Preferred: mirror the real part exactly. Same CFrame means the same rotation, which is the
+    -- "rotation fix to match" that made the earlier direct-script box line up.
+    if SAFE_ZONE_OBJECT then
+        local zone = Instance.new("Part")
+        zone.Name = "SafeZoneBox"
+        zone.Shape = Enum.PartType.Block
+        zone.Size = SAFE_ZONE_OBJECT.Size + Vector3.new(0, 60, 0)
+        zone.CFrame = SAFE_ZONE_OBJECT.CFrame * CFrame.new(0, 30, 0)
+        zone.Color = Color3.fromRGB(0, 255, 0)
+        zone.Material = Enum.Material.Neon
+        zone.Transparency = 0.6
+        zone.CanCollide = false
+        zone.Anchored = true          -- without this the box fell out of the world immediately
+        zone.Parent = safeZoneVisualizerFolder
+
+        print(string.format("[SafeZone Visualizer] boxing FightingZonePart: size=(%.1f, %.1f, %.1f) pos=(%.1f, %.1f, %.1f) rot=(%.1f, %.1f, %.1f)",
+            SAFE_ZONE_OBJECT.Size.X, SAFE_ZONE_OBJECT.Size.Y, SAFE_ZONE_OBJECT.Size.Z,
+            SAFE_ZONE_OBJECT.Position.X, SAFE_ZONE_OBJECT.Position.Y, SAFE_ZONE_OBJECT.Position.Z,
+            SAFE_ZONE_OBJECT.Orientation.X, SAFE_ZONE_OBJECT.Orientation.Y, SAFE_ZONE_OBJECT.Orientation.Z))
+        return
+    end
+
+    -- Fallback: no part found, so draw the recorded corners at your own height (the old code
+    -- hardcoded Y = 200, which could put the box nowhere near the zone).
     local minX = math.min(corners[1].x, corners[2].x, corners[3].x, corners[4].x)
     local maxX = math.max(corners[1].x, corners[2].x, corners[3].x, corners[4].x)
     local minZ = math.min(corners[1].z, corners[2].z, corners[3].z, corners[4].z)
     local maxZ = math.max(corners[1].z, corners[2].z, corners[3].z, corners[4].z)
 
-    local centerX = (minX + maxX) / 2
-    local centerZ = (minZ + maxZ) / 2
-    local centerY = 200
+    local centerY = 0
+    local char = LocalPlayer.Character
+    local root = char and char:FindFirstChild("HumanoidRootPart")
+    if root then centerY = root.Position.Y end
 
-    local sizeX = maxX - minX
-    local sizeZ = maxZ - minZ
-    local sizeY = 400
-
-    -- Create semi-transparent box
     local box = Instance.new("Part")
     box.Name = "SafeZoneBox"
     box.Shape = Enum.PartType.Block
-    box.Size = Vector3.new(sizeX, sizeY, sizeZ)
+    box.Size = Vector3.new(maxX - minX, 100, maxZ - minZ)
     box.Color = Color3.fromRGB(0, 255, 0)
     box.Material = Enum.Material.Neon
     box.Transparency = 0.6
     box.CanCollide = false
-    box.CFrame = CFrame.new(centerX, centerY, centerZ)
+    box.Anchored = true
+    box.CFrame = CFrame.new((minX + maxX) / 2, centerY, (minZ + maxZ) / 2)
     box.Parent = safeZoneVisualizerFolder
 
     -- Add red corner markers
@@ -1057,11 +1134,12 @@ local function createSafeZoneVisualizer()
         marker.Color = Color3.fromRGB(255, 0, 0)
         marker.Material = Enum.Material.Neon
         marker.CanCollide = false
+        marker.Anchored = true
         marker.CFrame = CFrame.new(corner.x, centerY, corner.z)
         marker.Parent = safeZoneVisualizerFolder
     end
 
-    print("[SafeZone Visualizer] Semi-transparent green box rendered")
+    print("[SafeZone Visualizer] no FightingZonePart found - drew the recorded corners at your height instead")
 end
 
 local function destroySafeZoneVisualizer()
@@ -1451,6 +1529,20 @@ local function updateBotState()
         BotState.current_state = "following"
         updateMovement()
         return
+    end
+
+    -- Nothing combat-related may run while OUR OWN character is inside the safe zone. Every
+    -- existing check looked at the ally, the target or the attacker - never us - which is why
+    -- Auto PVP kept going when you walked into the zone.
+    if BotState.target then
+        local myChar = LocalPlayer.Character
+        local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
+        if myRoot and isInsideSafeZone(myRoot.Position) then
+            print("[Auto PVP] We are in the safe zone - dropping " .. tostring(BotState.target.Name) .. " and disengaging")
+            BotState.target = nil
+            BotState.target_last_y = nil
+            releaseAllKeys()
+        end
     end
 
     if not BotState.enabled or not BotState.target then
