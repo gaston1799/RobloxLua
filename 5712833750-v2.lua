@@ -39,6 +39,8 @@ local BotState = {
     auto_eat_enabled = false,
     auto_fireball_enabled = false,
     follow_ally_enabled = false,
+    follow_leader_enabled = false,   -- Follow Ally targets the clan's "leader" entry instead of the nearest ally
+    follow_moving = false,           -- hysteresis latch for the follow distance
     autozone_enabled = false,
     closest_ally = nil,
     target_enemy_clan = "Any Enemy",
@@ -114,6 +116,7 @@ local Config = {
     autozone_ally_follow_dist = 15,
     autozone_engage_range = 30,
     follow_ally_dist = 20,
+    follow_ally_stop_dist = 15,   -- keep closing until this close, so it does not jitter at follow_ally_dist
     ally_clan_name = getSafeClanName(),
 }
 
@@ -483,14 +486,16 @@ local function aimCameraAtTarget(targetRoot)
     camera.CFrame = CFrame.new(cameraPos, targetRoot.Position)
 end
 
+-- NOTE: both paths send the same single press, which is only correct if the game treats
+-- "shift" as a toggle key; otherwise the "disable" path re-enables it.
 local function toggleShiftLock(enabled)
     if enabled then
-        print("[Bot] Enabling shift lock...")
+        print("[Bot] Shift lock: toggle press (on)")
         sendIntent("shift", "down")
         task.wait(0.1)
         sendIntent("shift", "up")
     else
-        print("[Bot] Disabling shift lock...")
+        print("[Bot] Shift lock: toggle press (off)")
         sendIntent("shift", "down")
         task.wait(0.1)
         sendIntent("shift", "up")
@@ -1284,14 +1289,36 @@ local function updateMovement()
 
     -- Follow ally if enabled and no combat target
     if BotState.follow_ally_enabled and not BotState.target then
-        local ally = findClosestAlly()
+        local ally = nil
+
+        -- Optional: follow the clan's leader entry (its creator) instead of whoever is
+        -- closest. Falls back to the nearest ally whenever the leader is unavailable.
+        if BotState.follow_leader_enabled then
+            local myTeamFolder = workspace.Teams and workspace.Teams:FindFirstChild(Config.ally_clan_name)
+            local leaderName = getTeamLeaderName(myTeamFolder)
+            if leaderName and leaderName ~= LocalPlayer.Name then
+                ally = Players:FindFirstChild(leaderName)
+            end
+        end
+
+        if not ally then
+            ally = findClosestAlly()
+        end
+
         if ally and ally.Character then
             local allyRoot = ally.Character:FindFirstChild("HumanoidRootPart")
             if allyRoot then
                 local distToAlly = getDistance(root.Position, allyRoot.Position)
 
-                -- If too far from ally, move closer
+                -- Hysteresis: start closing past follow_ally_dist, keep closing until
+                -- follow_ally_stop_dist, so it cannot stop/start on the threshold.
                 if distToAlly > Config.follow_ally_dist then
+                    BotState.follow_moving = true
+                elseif distToAlly < Config.follow_ally_stop_dist then
+                    BotState.follow_moving = false
+                end
+
+                if BotState.follow_moving then
                     -- moveTowardWithInterception picks keys relative to the CAMERA, so the
                     -- camera has to face the ally first or W/S/A/D push the wrong way.
                     aimCameraAtTarget(allyRoot)
@@ -1338,18 +1365,10 @@ local function updateMovement()
     local dist = getDistance(root.Position, targetRoot.Position)
     local qReady = (tick() - BotState.last_q_time) > Config.q_cooldown
 
-    -- Aim camera at target (or ally if following)
-    if BotState.follow_ally_enabled and not BotState.target then
-        local ally = findClosestAlly()
-        if ally and ally.Character then
-            local allyRoot = ally.Character:FindFirstChild("HumanoidRootPart")
-            if allyRoot then
-                aimCameraAtTarget(allyRoot)
-            end
-        end
-    else
-        aimCameraAtTarget(targetRoot)
-    end
+    -- Aim camera at the combat target. The "or ally if following" branch that used to live
+    -- here was unreachable: this code only runs when BotState.target is set (checked above),
+    -- and following is handled before that gate in updateBotState().
+    aimCameraAtTarget(targetRoot)
 
     if qReady then
         -- Q is ready: move to melee range (6 studs) for attack
@@ -1656,6 +1675,15 @@ local function buildUI(ui)
             if val and not BotState.enabled then
                 print("[Follow Ally] NOTE: the bot is not started - turn on 'Bot Enabled' or nothing will move")
             end
+        end,
+    })
+
+    autozoneSection:addToggle({
+        title = "Follow Leader (not nearest ally)",
+        toggled = false,
+        callback = function(val)
+            BotState.follow_leader_enabled = val
+            print("[Follow Ally]", val and "Targeting the clan leader" or "Targeting the nearest ally")
         end,
     })
 
