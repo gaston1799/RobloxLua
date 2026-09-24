@@ -73,41 +73,7 @@ end
 local function loadGameScript(placeId)
     print("[Main Loader] Detected PlaceID: " .. placeId)
 
-    -- Try v2 first
-    local v2Url = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. placeId .. "-v2.lua"
-    print("[Main Loader] Trying " .. placeId .. "-v2.lua...")
-    print("[Main Loader] URL: " .. v2Url)
-
-    local script = nil
-    local httpOk, httpErr = pcall(function()
-        script = game:HttpGet(v2Url)
-    end)
-
-    if not httpOk then
-        print("[Main Loader] ✗ HttpGet failed: " .. tostring(httpErr))
-    else
-        print("[Main Loader] ✓ HttpGet succeeded, script length: " .. #script .. " bytes")
-        if #script == 0 then
-            print("[Main Loader] WARNING: Script is empty!")
-        else
-            print("[Main Loader] First 100 chars: " .. script:sub(1, 100))
-        end
-    end
-
-    if script and #script > 0 then
-        local ok, result = pcall(function()
-            return loadstring(script)()
-        end)
-
-        if ok then
-            print("[Main Loader] ✓ Loaded " .. placeId .. "-v2.lua")
-            return true
-        else
-            print("[Main Loader] ✗ loadstring() failed: " .. tostring(result))
-        end
-    end
-
-    print("[Main Loader] v2 not found, trying " .. placeId .. ".lua...")
+    -- Skip v2 for now, use base script directly
 
     -- Fallback to base script
     local baseUrl = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. placeId .. ".lua"
