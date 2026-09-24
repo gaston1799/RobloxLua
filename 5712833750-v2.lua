@@ -68,7 +68,7 @@ local Config = {
     autozone_ally_follow_dist = 15,
     autozone_engage_range = 30,
     follow_ally_dist = 20,
-    ally_clan_name = autoDetectClan(),
+    ally_clan_name = getSafeClanName(),
 }
 
 -- ===== AUTO PVP STATE =====
