@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13076380114,
+  "jobId": "cafa47ee-a6ee-4422-8ade-50df3af28551",
+  "join": "roblox://placeId=13076380114&gameInstanceId=cafa47ee-a6ee-4422-8ade-50df3af28551",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790231563001
+  "web": "https://www.roblox.com/games/start?placeId=13076380114&gameInstanceId=cafa47ee-a6ee-4422-8ade-50df3af28551",
+  "location": "[💥] Heroes Battlegrounds",
+  "updatedAt": 1790231803018
 }
