@@ -103,19 +103,43 @@ local SAFE_ZONE_CORNERS = {
 ]])
 print(string.rep("=", 70) .. "\n")
 
-print("[Visualizing] Corner markers...")
+print("[Visualizing] SafeZone bounds...")
+
+-- Create semi-transparent box showing detected area
+local centerX = (minX + maxX) / 2
+local centerZ = (minZ + maxZ) / 2
+local centerY = (minY + maxY) / 2
+
+local sizeX = maxX - minX
+local sizeZ = maxZ - minZ
+local sizeY = maxY - minY
+
+local box = Instance.new("Part")
+box.Name = "DetectedSafeZoneBox"
+box.Shape = Enum.PartType.Block
+box.Size = Vector3.new(sizeX, sizeY, sizeZ)
+box.Color = Color3.fromRGB(0, 0, 255)
+box.Material = Enum.Material.Neon
+box.Transparency = 0.5
+box.CanCollide = false
+box.CFrame = CFrame.new(centerX, centerY, centerZ)
+box.Parent = workspace
+print("  ✓ Blue semi-transparent box rendered")
+
+-- Add green corner markers
 for i, corner in ipairs({corner1, corner2, corner3, corner4}) do
     local marker = Instance.new("Part")
     marker.Name = "SafeZoneCorner" .. i
     marker.Shape = Enum.PartType.Ball
-    marker.Size = Vector3.new(3, 3, 3)
-    marker.Color = Color3.fromRGB(0, 0, 255)
+    marker.Size = Vector3.new(5, 5, 5)
+    marker.Color = Color3.fromRGB(0, 255, 0)
     marker.Material = Enum.Material.Neon
     marker.CanCollide = false
-    marker.CFrame = CFrame.new(corner.x, 10, corner.z)
+    marker.CFrame = CFrame.new(corner.x, centerY, corner.z)
     marker.Parent = workspace
     print("  Corner " .. i .. ": X=" .. string.format("%.2f", corner.x) .. ", Z=" .. string.format("%.2f", corner.z))
 end
 
-print("\n[Done] Blue markers show detected corners")
+print("\n[Done] Blue box + green corners show detected SafeZone area")
+print("[Verify] Walk inside/outside the box - confirm you can't damage inside!")
 print("[Next] Copy the coordinates above and update the script\n")
