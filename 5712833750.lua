@@ -1459,11 +1459,17 @@ Strategy:
 
 local function buildUI(ui)
     if not ui then
-        error("[AnimalSim] UI object required from main.lua")
+        print("[AnimalSim] WARNING: UI object is nil, skipping buildUI")
         return
     end
 
     print("[AnimalSim] Building game-specific pages...")
+    print("[AnimalSim] UI object type: " .. type(ui))
+
+    if not ui.addPage then
+        print("[AnimalSim] ERROR: UI object doesn't have addPage method!")
+        return
+    end
 
     local mainPage = ui:addPage({title = "Main"})
 
