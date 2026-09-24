@@ -1801,11 +1801,15 @@ end
 -- ===== INITIALIZATION =====
 
 -- Wait for main.lua to set up _G.venyx (timing issue)
-local maxWait = 5
+local maxWait = 10
 local waited = 0
 while not _G.venyx and waited < maxWait do
     task.wait(0.1)
     waited = waited + 0.1
+end
+
+if waited >= maxWait then
+    print("[Animal Sim v2] WARNING: Timeout waiting for _G.venyx after " .. maxWait .. "s")
 end
 
 if _G.venyx then
