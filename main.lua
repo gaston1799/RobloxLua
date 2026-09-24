@@ -180,11 +180,20 @@ print("[Main Loader] ✓ UI stored in _G.venyx")
 -- Load game script based on PlaceID
 print("[Main Loader] Loading game-specific script...")
 local placeId = game.PlaceId
-local success = loadGameScript(placeId)
+print("[Main Loader] PlaceID: " .. placeId)
 
-if not success then
+local success = false
+local ok, err = pcall(function()
+    success = loadGameScript(placeId)
+end)
+
+if not ok then
+    print("[Main Loader] ERROR loading game script: " .. tostring(err))
+elseif not success then
     print("[Main Loader] ✗ No game script for PlaceID " .. placeId)
     print("[Main Loader] Only Debug Tools + Misc available")
+else
+    print("[Main Loader] ✓ Game script loaded successfully")
 end
 
 print("[Main Loader] ✓ Ready!")
