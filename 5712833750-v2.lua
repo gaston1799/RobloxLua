@@ -750,7 +750,6 @@ local function findClosestAlly()
                 end
             end
         end
-    end
 
     return closestAlly
 end

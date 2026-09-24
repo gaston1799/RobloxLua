@@ -151,11 +151,11 @@ No CDN staleness: the served byte count already matches the pushed blob.
 
 ## 4. What is **not** fixed
 
-- **`5712833750-v2.lua` is still broken** (syntax error at line 756) and is being restored by a
-  separate Claude task. I deliberately backed off it: I had applied the same one-line fix, then
-  reverted it (`git checkout --`) so that restore starts from its original state. It is **not** in my
-  commit. Until that lands, the loader prints a compile error for v2 and falls back to
-  `5712833750.lua`, which works — so the game is not blocked.
+- ~~**`5712833750-v2.lua` is still broken** (syntax error at line 756), being restored by a
+  separate Claude task.~~ **Resolved — see §8.** It was left untouched while that restore task owned
+  it (my earlier one-line edit was reverted with `git checkout --` so the restore started clean),
+  then patched with the same repair once the task handed it back. The junk-file bullet below is
+  still open.
 - **`5712833750-v2-fresh.lua`** (untracked scratch copy) still has the old defect; I restored it to
   its pre-edit state for the same reason. Delete it or fix it, but it isn't fetched by anything.
 - **`v2.lua`** (the 14-byte `404: Not Found`) and **`5712833750-v2-restored.lua`** (0 bytes) were left
@@ -235,3 +235,20 @@ The real fix for the commit noise is to point the bot at its own branch or repos
 `git rm -r --cached a/` on this one, so script edits and presence data stop sharing a branch.
 Until then use `git fetch origin lua` (not a bare `fetch`) and prefer
 `git clone --single-branch --branch lua`, so clones don't drag the churn in.
+
+---
+
+## 8. Update: `5712833750-v2.lua` patched
+
+The v2 script was patched after all, once the restore task handed it back. Same defect, same
+one-line repair as `5712833750.lua`: the run of `end`s at the tail of `findClosestAlly` had one too
+many, so the function closed early and left `return closestAlly` outside it. The extra `end`
+(line 753 of the served copy) was deleted.
+
+Both files now parse cleanly under **Luau** (`luau-compile --only-parse`) and **Lua 5.1-5.5**
+(`luac`), and `luacheck` reports no errors for them. The loader's first choice (`<placeId>-v2.lua`)
+therefore works, and the fallback path to `5712833750.lua` is no longer exercised in the happy
+case — it remains as a safety net.
+
+Still outstanding from §4: `v2.lua` (tracked, 14 bytes of `404: Not Found`) and
+`5712833750-v2-restored.lua` (0 bytes) are still committed. `git rm` both when convenient.
