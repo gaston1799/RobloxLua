@@ -68,48 +68,30 @@ local function loadPrefixes()
     return prefixes
 end
 
--- ===== GAME SCRIPT LOADER =====
+-- ===== SIMPLE GAME UI BUILDER =====
 
-local function loadGameScript(placeId)
-    print("[Main Loader] Detected PlaceID: " .. placeId)
+local function buildGameUI(ui)
+    print("[Game UI] Building Animal Simulator pages...")
 
-    -- Skip v2 for now, use base script directly
+    -- Main page
+    local mainPage = ui:addPage({title = "Main"})
+    local mainSection = mainPage:addSection({title = "Bot Status"})
+    mainSection:addLabel({text = "Advanced PVP Bot"})
+    mainSection:addToggle({title = "Bot Enabled", toggled = false, callback = function(v) print("[Bot] Toggled: " .. tostring(v)) end})
 
-    -- Fallback to base script
-    local baseUrl = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. placeId .. ".lua"
-    print("[Main Loader] URL: " .. baseUrl)
+    -- Combat page
+    local combatPage = ui:addPage({title = "Combat"})
+    local combatSection = combatPage:addSection({title = "Settings"})
+    combatSection:addSlider({title = "Hit-to-Kill Ratio", min = 0.1, max = 2.0, default = 1.0, rounding = 0.1, callback = function(v) print("[Combat] Ratio: " .. v) end})
+    combatSection:addToggle({title = "Auto PVP", toggled = false, callback = function(v) print("[Combat] Auto PVP: " .. tostring(v)) end})
 
-    script = nil
-    httpOk, httpErr = pcall(function()
-        script = game:HttpGet(baseUrl)
-    end)
+    -- AutoZone page
+    local azPage = ui:addPage({title = "AutoZone"})
+    local azSection = azPage:addSection({title = "Settings"})
+    azSection:addToggle({title = "AutoZone", toggled = false, callback = function(v) print("[AutoZone] Enabled: " .. tostring(v)) end})
+    azSection:addToggle({title = "Follow Ally", toggled = false, callback = function(v) print("[AutoZone] Follow: " .. tostring(v)) end})
 
-    if not httpOk then
-        print("[Main Loader] ✗ HttpGet failed: " .. tostring(httpErr))
-    else
-        print("[Main Loader] ✓ HttpGet succeeded, script length: " .. #script .. " bytes")
-        if #script == 0 then
-            print("[Main Loader] WARNING: Script is empty!")
-        else
-            print("[Main Loader] First 100 chars: " .. script:sub(1, 100))
-        end
-    end
-
-    if script and #script > 0 then
-        local ok, result = pcall(function()
-            return loadstring(script)()
-        end)
-
-        if ok then
-            print("[Main Loader] ✓ Loaded " .. placeId .. ".lua")
-            return true
-        else
-            print("[Main Loader] ✗ loadstring() failed: " .. tostring(result))
-        end
-    end
-
-    print("[Main Loader] ✗ Neither script found")
-    return false
+    print("[Game UI] ✓ Pages added!")
 end
 
 -- ===== MAIN EXECUTION =====
@@ -184,36 +166,16 @@ buildBaseUI(ui)
 _G.venyx = ui
 print("[Main Loader] ✓ UI stored in _G.venyx")
 
--- Load game script based on PlaceID
-print("[Main Loader] Loading game-specific script...")
-local placeId = game.PlaceId
-print("[Main Loader] PlaceID: " .. placeId)
-
-local success = false
+-- Build game-specific UI directly (no external script loading)
+print("[Main Loader] Building game-specific UI...")
 local ok, err = pcall(function()
-    success = loadGameScript(placeId)
+    buildGameUI(ui)
 end)
 
-if not ok then
-    print("[Main Loader] ERROR loading game script: " .. tostring(err))
-elseif not success then
-    print("[Main Loader] ✗ No game script for PlaceID " .. placeId)
-    print("[Main Loader] Only Debug Tools + Misc available")
+if ok then
+    print("[Main Loader] ✓ Game UI built successfully!")
 else
-    print("[Main Loader] ✓ Game script loaded successfully")
-
-    -- Call the game-specific buildUI if available
-    if _G.buildAnimalSimUI then
-        print("[Main Loader] Injecting game-specific UI...")
-        local ok2, err2 = pcall(function()
-            _G.buildAnimalSimUI(ui)
-        end)
-        if ok2 then
-            print("[Main Loader] ✓ Game UI injected!")
-        else
-            print("[Main Loader] ✗ Game UI injection failed: " .. tostring(err2))
-        end
-    end
+    print("[Main Loader] ✗ Game UI build failed: " .. tostring(err))
 end
 
 print("[Main Loader] ✓ Ready!")
