@@ -1273,6 +1273,13 @@ local function setupDamageDetection()
         -- Check if bot died
         if health <= 0 then
             print("[Auto PVP] Bot died, stopping...")
+            -- A dead bot has no valid engagement: drop the target, otherwise it stays locked across
+            -- the respawn and the next hit says "already targeting <old name>" instead of engaging.
+            if BotState.target then
+                print("[Auto PVP] Dropping target " .. BotState.target.Name .. " because we died")
+                BotState.target = nil
+                BotState.target_last_y = nil
+            end
             _G.AdvancedPVPBot.stop()
             lastHealthValue = health
             return
@@ -1600,6 +1607,16 @@ local function updateBotState()
 
     -- Target maintenance used to run ONLY from the HealthChanged handler, so a target that died
     -- while we were not being hit stayed locked in and blocked every later engagement. Poll it.
+    if BotState.target then
+        local myChar = LocalPlayer.Character
+        local myHumanoid = myChar and myChar:FindFirstChildOfClass("Humanoid")
+        if not myHumanoid or myHumanoid.Health <= 0 then
+            print("[Auto PVP] We are dead or have no character - clearing target " .. BotState.target.Name)
+            BotState.target = nil
+            BotState.target_last_y = nil
+        end
+    end
+
     if BotState.target and not isTargetLive(BotState.target) then
         print("[Auto PVP] Target " .. BotState.target.Name .. " is no longer live - clearing")
         BotState.target = nil
