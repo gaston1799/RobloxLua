@@ -354,6 +354,15 @@ local function enableHUD()
 
             local localRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 
+            -- Players who are tracked but have no GUI yet (character was not ready when they were
+            -- tracked, or arrived after CharacterAdded fired) get one created here. Without this
+            -- retry, late joiners showed no overhead at all.
+            for player in pairs(HUDState.overhead_connections) do
+                if player.Parent and player.Character and not HUDState.overhead_entries[player] then
+                    createGuiForPlayer(player, player.Character)
+                end
+            end
+
             local toCleanup = {}
             for player, entry in pairs(HUDState.overhead_entries) do
                 if not player.Parent then
@@ -385,12 +394,16 @@ local function enableHUD()
                             entry.barFill.BackgroundColor3 = Color3.fromRGB(240, 80, 80)
                         end
 
-                        -- Color-code info text by hit-to-kill ratio
+                        -- Colour by the same threshold the winnability check uses - the Damage
+                        -- Multiplier slider (_G.DamageMultiplier) - so green/red always agrees with
+                        -- whether the fight is actually accepted. The loop runs every frame, so
+                        -- moving the slider recolours with no toggle.
+                        local multiplier = tonumber(_G.DamageMultiplier) or 1.0
                         local hitRatio = tonumber(hitsToKillEnemy) and tonumber(hitsToKillYou) and (tonumber(hitsToKillEnemy) / tonumber(hitsToKillYou)) or 0
-                        if hitRatio < 1.0 then
-                            entry.info.TextColor3 = Color3.fromRGB(80, 200, 120) -- GREEN: Easy to kill (we need fewer hits)
+                        if hitRatio <= multiplier then
+                            entry.info.TextColor3 = Color3.fromRGB(80, 200, 120) -- GREEN: within the multiplier, fight accepted
                         else
-                            entry.info.TextColor3 = Color3.fromRGB(240, 80, 80) -- RED: Harder to kill (we need more hits)
+                            entry.info.TextColor3 = Color3.fromRGB(240, 80, 80) -- RED: needs more hits than the multiplier allows
                         end
                     end
                 end
