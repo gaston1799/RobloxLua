@@ -15,7 +15,7 @@ unused_args = false      -- UI callbacks often declare params they don't use
 -- (that's what turns "W113 accessing undefined variable 'game'" noise into signal).
 read_globals = {
     -- Roblox data model / services
-    "game", "workspace", "script", "plugin", "shared", "_G", "_ENV",
+    "game", "workspace", "script", "plugin", "shared", "_ENV",
     "Enum", "Instance", "settings", "UserSettings", "version", "typeof", "warn",
     -- Roblox datatypes
     "UDim", "UDim2", "Vector2", "Vector3", "Vector2int16", "Vector3int16", "CFrame",
@@ -44,6 +44,9 @@ read_globals = {
 }
 
 -- The place scripts and loader legitimately set these.
+-- _G must be listed here (and NOT in read_globals, which would make its fields read-only):
+-- the loader stores the Venyx window in _G.venyx, and place scripts register
+-- _G.buildAnimalSimUI / _G.AdvancedPVPBot / _G.DamageMultiplier.
 write_globals = {
-    "_G", "shared",
+    "_G", "_G.venyx", "_G.buildAnimalSimUI", "_G.AdvancedPVPBot", "_G.DamageMultiplier",
 }
