@@ -1233,6 +1233,16 @@ local function findAttackerByDamage(damageTaken)
     return bestPlayer
 end
 
+-- A target is only worth holding onto while the player still exists with a live character.
+local function isTargetLive(target)
+    if not target then return false end
+    local char = target.Character
+    if not char then return false end
+    local humanoid = char:FindFirstChildOfClass("Humanoid")
+    if not humanoid or humanoid.Health <= 0 then return false end
+    return char:FindFirstChild("HumanoidRootPart") ~= nil
+end
+
 local lastHealthValue = nil
 local function setupDamageDetection()
     local char = LocalPlayer.Character
@@ -1331,11 +1341,17 @@ local function setupDamageDetection()
             local damageTaken = lastHealthValue - health
             AutoPVPState.last_damage_time = tick()
 
-            -- If already have target, stay locked (don't switch on new damage)
-            if BotState.target then
+            -- Stay locked onto the current target (don't switch on every new hit) - but only while
+            -- that target is still real. A dead or vanished target used to hold this lock forever,
+            -- which is how "already targeting X" printed while nothing was actually being engaged.
+            if BotState.target and isTargetLive(BotState.target) then
                 print("[Auto PVP] Already targeting " .. BotState.target.Name .. ", ignoring new attacker")
                 lastHealthValue = health
                 return
+            elseif BotState.target then
+                print("[Auto PVP] Previous target " .. BotState.target.Name .. " is no longer live - releasing the lock")
+                BotState.target = nil
+                BotState.target_last_y = nil
             end
 
             -- Only find new attacker if no target
@@ -1573,6 +1589,19 @@ local function updateBotState()
         BotState.current_state = "following"
         updateMovement()
         return
+    end
+
+    -- Target maintenance used to run ONLY from the HealthChanged handler, so a target that died
+    -- while we were not being hit stayed locked in and blocked every later engagement. Poll it.
+    if BotState.target and not isTargetLive(BotState.target) then
+        print("[Auto PVP] Target " .. BotState.target.Name .. " is no longer live - clearing")
+        BotState.target = nil
+        BotState.target_last_y = nil
+        if not AutoPVPState.auto_reengage then
+            _G.AdvancedPVPBot.stop()
+        else
+            print("[Auto PVP] Auto Re-engage ON: waiting for next attacker...")
+        end
     end
 
     -- Nothing combat-related may run while OUR OWN character is inside the safe zone. Every
