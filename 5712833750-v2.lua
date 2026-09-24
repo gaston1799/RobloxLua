@@ -1668,11 +1668,11 @@ local function updateBotState()
         updateAutozoneTarget()
     end
 
-    -- Auto item management
-    if BotState.enabled then
-        ensureFireballEquipped()
-        useFood()
-    end
+    -- Auto item management. These are gated by their own toggles (useFood checks
+    -- auto_eat_enabled, ensureFireballEquipped checks auto_fireball_enabled), so they must NOT sit
+    -- behind BotState.enabled - that flag is combat-armed and is now only ever set automatically.
+    ensureFireballEquipped()
+    useFood()
 end
 
 local botLoop
@@ -1811,15 +1811,9 @@ local function buildUI(ui)
     -- ===== PVP BOT SECTION =====
     local pvpBotSection = mainPage:addSection({title = "PVP Bot"})
 
-    pvpBotSection:addToggle({
-        title = "Enable PVP Bot",
-        toggled = false,
-        callback = function(val)
-            if _G.AdvancedPVPBot then
-                if val then _G.AdvancedPVPBot.start() else _G.AdvancedPVPBot.stop() end
-            end
-        end,
-    })
+    -- 'Enable PVP Bot' used to live here. Arming is automatic now: the damage path starts the bot
+    -- when someone hits us, and AutoZone arms it when it engages. The loop itself always runs, so
+    -- nothing needs a manual start button.
 
     pvpBotSection:addToggle({
         title = "Auto Sprint",
@@ -1843,16 +1837,8 @@ local function buildUI(ui)
         end,
     })
 
-    local botTargetDropdown = pvpBotSection:addDropdown({
-        title = "PVP Bot Target",
-        list = collectPlayerNames(),
-        callback = function(playerName)
-            if playerName and _G.AdvancedPVPBot then
-                local player = game:GetService("Players"):FindFirstChild(playerName)
-                if player then _G.AdvancedPVPBot.setTarget(player) end
-            end
-        end,
-    })
+    -- 'PVP Bot Target' dropdown used to live here. Targeting is done by the AutoZone Targets
+    -- dropdown instead (plus the damage path, which picks whoever hit us).
 
     -- ===== AUTOZONE SECTION =====
     local autozoneSection = mainPage:addSection({title = "AutoZone"})
