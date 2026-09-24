@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 5591597781,
-  "jobId": "38d6837c-ef2f-40e1-a16d-840b7040f15e",
-  "join": "roblox://placeId=5591597781&gameInstanceId=38d6837c-ef2f-40e1-a16d-840b7040f15e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=5591597781&gameInstanceId=38d6837c-ef2f-40e1-a16d-840b7040f15e",
-  "location": "[🍂 FALL SKINS] Tower Defense Simulator",
-  "updatedAt": 1790211636383
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790212896817
 }
