@@ -1,13 +1,27 @@
 --[[
     Main Loader - Universal Game Script Loader
     Loads Venyx UI once, passes to game-specific scripts
-    Tries <placeid>-v2.lua first, then <placeid>.lua fallback
 ]]
+
+print("[Main Loader] Starting...")
+
+-- Wait for game to load
+if not game:IsLoaded() then
+    print("[Main Loader] Waiting for game to load...")
+    game.Loaded:Wait()
+end
+
+print("[Main Loader] Game loaded!")
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-print("[Main Loader] Starting...")
+if not LocalPlayer then
+    print("[Main Loader] ERROR: LocalPlayer not found!")
+    return
+end
+
+print("[Main Loader] LocalPlayer ready!")
 
 -- ===== VENYX UI LOADER =====
 
