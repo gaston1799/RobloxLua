@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 103037106396302,
-  "jobId": "e7f11e55-518a-43c9-8936-ab32c11edc3d",
-  "join": "roblox://placeId=103037106396302&gameInstanceId=e7f11e55-518a-43c9-8936-ab32c11edc3d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=103037106396302&gameInstanceId=e7f11e55-518a-43c9-8936-ab32c11edc3d",
-  "location": "TROLL Hug Tower",
-  "updatedAt": 1790274809215
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790274839394
 }
