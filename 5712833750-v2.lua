@@ -903,7 +903,7 @@ local function autoDetectSafeZone()
     print("[SafeZone] ✓ Extracted corners from FightingZonePart")
 end
 
-autoDetectSafeZone()
+-- autoDetectSafeZone() -- Disabled: runs when buildUI is called instead
 
 local function isInsideSafeZone(position)
     -- Check if position is within safe zone rectangle (X,Z only)
@@ -1464,6 +1464,9 @@ local function buildUI(ui)
     end
 
     print("[AnimalSim] Building game-specific pages...")
+
+    -- Auto-detect safe zone when UI loads
+    autoDetectSafeZone()
 
     local mainPage = ui:addPage({title = "Main"})
 
