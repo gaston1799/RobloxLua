@@ -70,43 +70,84 @@ end
 
 -- ===== GAME SCRIPT LOADER =====
 
-local function loadGameScript(placeId)
-    print("[Main Loader] Detected PlaceID: " .. placeId)
-
-    -- Try v2 first
-    local v2Url = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. placeId .. "-v2.lua"
-    print("[Main Loader] URL: " .. v2Url)
-
-    script = nil
-    httpOk, httpErr = pcall(function()
-        script = game:HttpGet(v2Url)
+-- Fetch a remote script. Returns the source, or nil + a printed reason.
+-- A GitHub 404 does NOT raise an error - it comes back as the body "404: Not Found" -
+-- so that has to be detected explicitly or it reaches loadstring as bogus source.
+local function fetchRemote(url, label)
+    local ok, result = pcall(function()
+        return game:HttpGet(url)
     end)
 
-    if not httpOk then
-        print("[Main Loader] ✗ HttpGet failed: " .. tostring(httpErr))
-    else
-        print("[Main Loader] ✓ HttpGet succeeded, script length: " .. #script .. " bytes")
-        if #script == 0 then
-            print("[Main Loader] WARNING: Script is empty!")
-        else
-            print("[Main Loader] First 100 chars: " .. script:sub(1, 100))
+    if not ok then
+        print("[Main Loader] ✗ " .. label .. " HttpGet failed: " .. tostring(result))
+        return nil
+    end
+
+    local body = result
+    if type(body) ~= "string" or #body == 0 then
+        print("[Main Loader] ✗ " .. label .. " is empty")
+        return nil
+    end
+
+    if body:sub(1, 3) == "404" or body:sub(1, 1) == "<" then
+        print("[Main Loader] ✗ " .. label .. " not found on branch 'lua' (remote replied: " .. body:sub(1, 32) .. ")")
+        return nil
+    end
+
+    print("[Main Loader] ✓ " .. label .. " downloaded (" .. #body .. " bytes)")
+    return body
+end
+
+-- Load one place script and hand it the Venyx UI window. The script receives the UI as
+-- its first argument, so inside <placeId>-v2.lua it is read with:  local ui = ...
+local function runGameScript(placeId, suffix, ui)
+    local label = tostring(placeId) .. suffix
+    local url = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. label
+
+    local source = fetchRemote(url, label)
+    if not source then return false end
+
+    -- Compile BEFORE executing: if the remote file has a syntax error, this reports the
+    -- real compiler message. Calling loadstring(source)() straight away would instead
+    -- try to call nil and show "attempt to call a nil value", hiding the actual cause.
+    local chunk, compileErr = loadstring(source)
+    if not chunk then
+        print("[Main Loader] ✗ " .. label .. " COMPILE ERROR: " .. tostring(compileErr))
+        return false
+    end
+
+    _G.buildAnimalSimUI = nil   -- drop any hook left over from an earlier run
+    local ok, result = pcall(chunk, ui)
+    if not ok then
+        print("[Main Loader] ✗ " .. label .. " RUNTIME ERROR: " .. tostring(result))
+        return false
+    end
+
+    -- Legacy contract: a script may register a builder instead of using its argument.
+    if type(_G.buildAnimalSimUI) == "function" then
+        print("[Main Loader] --> script registered buildAnimalSimUI, calling it with the Venyx UI")
+        local ok2, err2 = pcall(_G.buildAnimalSimUI, ui)
+        if not ok2 then
+            print("[Main Loader] ✗ buildAnimalSimUI failed: " .. tostring(err2))
+            return false
         end
     end
 
-    if script and #script > 0 then
-        local ok, result = pcall(function()
-            return loadstring(script)()
-        end)
+    print("[Main Loader] ✓ " .. label .. " loaded, UI attached")
+    return true
+end
 
-        if ok then
-            print("[Main Loader] ✓ Loaded " .. placeId .. ".lua")
-            return true
-        else
-            print("[Main Loader] ✗ loadstring() failed: " .. tostring(result))
-        end
-    end
+-- Preferred script is <placeId>-v2.lua; <placeId>.lua is the fallback.
+local function loadGameScript(placeId, ui)
+    print("[Main Loader] Detected PlaceID: " .. placeId)
+    print("[Main Loader] Looking for the place script (v2 first)...")
 
-    print("[Main Loader] ✗ Neither script found")
+    if runGameScript(placeId, "-v2.lua", ui) then return true end
+    print("[Main Loader] --> -v2 not usable, trying " .. placeId .. ".lua")
+
+    if runGameScript(placeId, ".lua", ui) then return true end
+
+    print("[Main Loader] ✗ No usable game script for PlaceID " .. placeId)
     return false
 end
 
@@ -189,7 +230,7 @@ print("[Main Loader] PlaceID: " .. placeId)
 
 local success = false
 local ok, err = pcall(function()
-    success = loadGameScript(placeId)
+    success = loadGameScript(placeId, ui)
 end)
 
 if not ok then
@@ -199,19 +240,6 @@ elseif not success then
     print("[Main Loader] Only Debug Tools + Misc available")
 else
     print("[Main Loader] ✓ Game script loaded successfully")
-
-    -- Call the game-specific buildUI if available
-    if _G.buildAnimalSimUI then
-        print("[Main Loader] Injecting game-specific UI...")
-        local ok2, err2 = pcall(function()
-            _G.buildAnimalSimUI(ui)
-        end)
-        if ok2 then
-            print("[Main Loader] ✓ Game UI injected!")
-        else
-            print("[Main Loader] ✗ Game UI injection failed: " .. tostring(err2))
-        end
-    end
 end
 
 print("[Main Loader] ✓ Ready!")
