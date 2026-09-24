@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 94467141867599,
+  "jobId": "b701468b-1b44-4246-a2f9-819db1288001",
+  "join": "roblox://placeId=94467141867599&gameInstanceId=b701468b-1b44-4246-a2f9-819db1288001",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790255330869
+  "web": "https://www.roblox.com/games/start?placeId=94467141867599&gameInstanceId=b701468b-1b44-4246-a2f9-819db1288001",
+  "location": "🐝 Hive Crazy [NEW!]",
+  "updatedAt": 1790255389074
 }
