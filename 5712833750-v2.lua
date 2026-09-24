@@ -1058,6 +1058,23 @@ local function isInsideSafeZone(position)
     return insideQuad
 end
 
+-- Compact one-line explanation of how a position was classified, for settling the zone polarity
+-- in game: whether the part was found, the raw inside-part result (before the switch) and how
+-- far the position sits from the part's centre.
+local function zoneDebug(position)
+    if position == nil then return " | zone: n/a" end
+    if not ensureSafeZone() then
+        return " | zone: FightingZonePart NOT FOUND (recorded-corner fallback)"
+    end
+    local rel = SAFE_ZONE_OBJECT.CFrame:PointToObjectSpace(position)
+    local half = SAFE_ZONE_OBJECT.Size / 2
+    local insidePart = math.abs(rel.X) <= half.X and math.abs(rel.Z) <= half.Z
+    local fromCentre = (SAFE_ZONE_OBJECT.Position - position).Magnitude
+    return string.format(" | part=%s rawInsidePart=%s switch=%s distFromCentre=%.1f halfX=%.1f halfZ=%.1f",
+        SAFE_ZONE_OBJECT.Name, tostring(insidePart), tostring(SAFE_ZONE_PART_IS_FIGHTING_AREA),
+        fromCentre, half.X, half.Z)
+end
+
 local function isInAutoZone(player)
     if not player or not player.Character then return false end
     local root = player.Character:FindFirstChild("HumanoidRootPart")
@@ -1327,7 +1344,15 @@ local function setupDamageDetection()
                 local attackerRoot = attacker.Character:FindFirstChild("HumanoidRootPart")
                 local inSafeZone = attackerRoot and isInsideSafeZone(attackerRoot.Position) or false
 
-                print("[Auto PVP] Attacker: " .. attacker.Name .. " | Pos: X=" .. string.format("%.1f", attackerRoot.Position.X) .. ", Z=" .. string.format("%.1f", attackerRoot.Position.Z) .. " | In SafeZone: " .. tostring(inSafeZone))
+                if attackerRoot then
+                    print("[Auto PVP] Attacker: " .. attacker.Name
+                        .. " | Pos: X=" .. string.format("%.1f", attackerRoot.Position.X)
+                        .. ", Z=" .. string.format("%.1f", attackerRoot.Position.Z)
+                        .. " | In SafeZone: " .. tostring(inSafeZone)
+                        .. zoneDebug(attackerRoot.Position))
+                else
+                    print("[Auto PVP] Attacker: " .. attacker.Name .. " has no HumanoidRootPart (streamed out?)")
+                end
 
                 -- Check if battle is winnable
                 if not isWinnableBattle(attacker) then
@@ -1338,7 +1363,15 @@ local function setupDamageDetection()
 
                 -- Check if in AutoZone (outside safe zone)
                 if not isInAutoZone(attacker) then
-                    print("[Auto PVP] " .. attacker.Name .. " is in safe zone, ignoring")
+                    -- Say WHY, because a missing character/root also lands here and used to be
+                    -- reported as "is in safe zone".
+                    local why = "is in the safe zone"
+                    if not attacker.Character then
+                        why = "has no character (streamed out?)"
+                    elseif not attacker.Character:FindFirstChild("HumanoidRootPart") then
+                        why = "has no HumanoidRootPart (streamed out?)"
+                    end
+                    print("[Auto PVP] Ignoring " .. attacker.Name .. " - " .. why)
                     lastHealthValue = health
                     return
                 end
@@ -1887,6 +1920,13 @@ local function buildUI(ui)
             if myRoot then
                 print("  YOU in safe zone:", isInsideSafeZone(myRoot.Position))
                 print("  zone part:", SAFE_ZONE_OBJECT ~= nil and SAFE_ZONE_OBJECT.Name or "NOT FOUND", "| treated as fighting area:", SAFE_ZONE_PART_IS_FIGHTING_AREA)
+                print("  raw:" .. zoneDebug(myRoot.Position))
+                if SAFE_ZONE_OBJECT then
+                    print(string.format("  part centre: (%.1f, %.1f, %.1f)  size: (%.1f, %.1f, %.1f)  rotation: (%.1f, %.1f, %.1f)",
+                        SAFE_ZONE_OBJECT.Position.X, SAFE_ZONE_OBJECT.Position.Y, SAFE_ZONE_OBJECT.Position.Z,
+                        SAFE_ZONE_OBJECT.Size.X, SAFE_ZONE_OBJECT.Size.Y, SAFE_ZONE_OBJECT.Size.Z,
+                        SAFE_ZONE_OBJECT.Orientation.X, SAFE_ZONE_OBJECT.Orientation.Y, SAFE_ZONE_OBJECT.Orientation.Z))
+                end
             end
             print()
         end,
