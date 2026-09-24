@@ -169,9 +169,12 @@ local function buildBaseUI(ui)
     return ui
 end
 
+-- Create base UI window
+local ui = venyx.new({title = "Utilities"})
+
 -- Build and store UI
-venyx = buildBaseUI(venyx)
-_G.venyx = venyx
+buildBaseUI(ui)
+_G.venyx = ui
 print("[Main Loader] ✓ UI stored in _G.venyx")
 
 -- Load game script based on PlaceID
