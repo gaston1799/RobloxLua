@@ -996,12 +996,11 @@ end
 local SAFE_ZONE_RECHECK_INTERVAL = 5
 local nextSafeZoneCheck = 0
 
--- The part is named FightingZonePart and lives under Workspace.FightingArea, so it marks where
--- fighting is ALLOWED: a point inside it is in the arena, NOT in the safe zone. Every check in
--- this file is phrased as "inside the safe zone", so the part test has to be inverted - that is
--- what this switch does. Confirm it with the Safe Zone Visualizer: if the green box covers where
--- fights happen, leave this true; if it covers the safe/spawn area instead, set it to false.
-local SAFE_ZONE_PART_IS_FIGHTING_AREA = true
+-- NAMING TRAP: the part is called FightingZonePart and sits under Workspace.FightingArea, but
+-- standing inside it IS THE SAFE ZONE (confirmed in game). The name means nothing - the geometry
+-- is what counts. So a point inside this part is safe, and every check in this file that talks
+-- about being "inside the safe zone" means "inside this part".
+local ZONE_PART_IS_SAFE = true
 
 -- The zone part may not be streamed in when buildUI runs, so retry now and then.
 local function ensureSafeZone()
@@ -1041,8 +1040,8 @@ local function isInsideSafeZone(position)
         local rel = SAFE_ZONE_OBJECT.CFrame:PointToObjectSpace(position)
         local half = SAFE_ZONE_OBJECT.Size / 2
         local insidePart = math.abs(rel.X) <= half.X and math.abs(rel.Z) <= half.Z
-        if SAFE_ZONE_PART_IS_FIGHTING_AREA then return not insidePart end
-        return insidePart
+        if ZONE_PART_IS_SAFE then return insidePart end
+        return not insidePart
     end
 
     -- Fallback: the four recorded corners treated as a (possibly rotated) quad.
@@ -1054,8 +1053,8 @@ local function isInsideSafeZone(position)
         return false
     end
     local insideQuad = pointInQuad(position.X, position.Z, quad)
-    if SAFE_ZONE_PART_IS_FIGHTING_AREA then return not insideQuad end
-    return insideQuad
+    if ZONE_PART_IS_SAFE then return insideQuad end
+    return not insideQuad
 end
 
 -- Compact one-line explanation of how a position was classified, for settling the zone polarity
@@ -1070,8 +1069,8 @@ local function zoneDebug(position)
     local half = SAFE_ZONE_OBJECT.Size / 2
     local insidePart = math.abs(rel.X) <= half.X and math.abs(rel.Z) <= half.Z
     local fromCentre = (SAFE_ZONE_OBJECT.Position - position).Magnitude
-    return string.format(" | part=%s rawInsidePart=%s switch=%s distFromCentre=%.1f halfX=%.1f halfZ=%.1f",
-        SAFE_ZONE_OBJECT.Name, tostring(insidePart), tostring(SAFE_ZONE_PART_IS_FIGHTING_AREA),
+    return string.format(" | part=%s rawInsidePart=%s partIsSafe=%s distFromCentre=%.1f halfX=%.1f halfZ=%.1f",
+        SAFE_ZONE_OBJECT.Name, tostring(insidePart), tostring(ZONE_PART_IS_SAFE),
         fromCentre, half.X, half.Z)
 end
 
@@ -1938,7 +1937,7 @@ local function buildUI(ui)
             local myRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
             if myRoot then
                 print("  YOU in safe zone:", isInsideSafeZone(myRoot.Position))
-                print("  zone part:", SAFE_ZONE_OBJECT ~= nil and SAFE_ZONE_OBJECT.Name or "NOT FOUND", "| treated as fighting area:", SAFE_ZONE_PART_IS_FIGHTING_AREA)
+                print("  zone part:", SAFE_ZONE_OBJECT ~= nil and SAFE_ZONE_OBJECT.Name or "NOT FOUND", "| part counts as safe area:", ZONE_PART_IS_SAFE)
                 print("  raw:" .. zoneDebug(myRoot.Position))
                 if SAFE_ZONE_OBJECT then
                     print(string.format("  part centre: (%.1f, %.1f, %.1f)  size: (%.1f, %.1f, %.1f)  rotation: (%.1f, %.1f, %.1f)",
@@ -2021,15 +2020,14 @@ local function buildUI(ui)
         end,
     })
 
-    -- The one thing about the zone we could not confirm from code: which side of FightingZonePart
-    -- is 'safe'. Flip this and watch the effect immediately - no re-download needed. ON means the
-    -- part is the ARENA (so outside it is safe); OFF means the part is the SAFE area itself.
+    -- Kept as a switch because the part's name is actively misleading: it is called a fighting area
+    -- but standing inside it is the safe zone (confirmed in game). ON = inside the part is safe.
     miscSection:addToggle({
-        title = "Zone Part = Fighting Area",
-        toggled = SAFE_ZONE_PART_IS_FIGHTING_AREA,
+        title = "Zone Part = Safe Area",
+        toggled = ZONE_PART_IS_SAFE,
         callback = function(val)
-            SAFE_ZONE_PART_IS_FIGHTING_AREA = val
-            print("[SafeZone] FightingZonePart is now treated as:", val and "the ARENA (outside = safe)" or "the SAFE area (inside = safe)")
+            ZONE_PART_IS_SAFE = val
+            print("[SafeZone] Zone part is now treated as:", val and "the SAFE area (inside = safe)" or "the ARENA (outside = safe)")
             local myRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
             if myRoot then
                 print("[SafeZone] With you standing here: inSafeZone =", isInsideSafeZone(myRoot.Position))
