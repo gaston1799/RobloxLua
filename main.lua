@@ -180,16 +180,25 @@ buildBaseUI(ui)
 _G.venyx = ui
 print("[Main Loader] ✓ UI stored in _G.venyx")
 
--- Build game-specific UI directly (no external script loading)
-print("[Main Loader] Building game-specific UI...")
+-- Load game script from lua branch
+print("[Main Loader] Loading game script...")
+local placeId = game.PlaceId
+local gameScriptUrl = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. placeId .. "-v2.lua"
+
+print("[Main Loader] Attempting: " .. gameScriptUrl)
 local ok, err = pcall(function()
-    buildGameUI(ui)
+    local script = game:HttpGet(gameScriptUrl)
+    if script and #script > 0 then
+        print("[Main Loader] ✓ Downloaded (" .. #script .. " bytes), executing...")
+        loadstring(script)()
+        print("[Main Loader] ✓ Game script executed!")
+    end
 end)
 
-if ok then
-    print("[Main Loader] ✓ Game UI built successfully!")
-else
-    print("[Main Loader] ✗ Game UI build failed: " .. tostring(err))
+if not ok then
+    print("[Main Loader] ⚠ Game script load failed: " .. tostring(err))
+    print("[Main Loader] Falling back to embedded UI...")
+    buildGameUI(ui)
 end
 
 print("[Main Loader] ✓ Ready!")
