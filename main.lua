@@ -128,7 +128,7 @@ local function buildBaseUI(ui)
     print("[Main Loader] Building base UI...")
 
     -- Debugging Tools page
-    local debugPage = ui.new({title = "Debug Tools"})
+    local debugPage = ui:addPage({title = "Debug Tools"})
     local debugSection = debugPage:addSection({title = "Utilities"})
 
     debugSection:addButton({
@@ -155,7 +155,7 @@ local function buildBaseUI(ui)
     })
 
     -- Misc page
-    local miscPage = ui.new({title = "Misc"})
+    local miscPage = ui:addPage({title = "Misc"})
     local miscSection = miscPage:addSection({title = "General"})
 
     miscSection:addButton({
