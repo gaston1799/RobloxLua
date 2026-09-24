@@ -235,6 +235,19 @@ elseif not success then
     print("[Main Loader] Only Debug Tools + Misc available")
 else
     print("[Main Loader] ✓ Game script loaded successfully")
+
+    -- Call the game-specific buildUI if available
+    if _G.buildAnimalSimUI then
+        print("[Main Loader] Injecting game-specific UI...")
+        local ok2, err2 = pcall(function()
+            _G.buildAnimalSimUI(ui)
+        end)
+        if ok2 then
+            print("[Main Loader] ✓ Game UI injected!")
+        else
+            print("[Main Loader] ✗ Game UI injection failed: " .. tostring(err2))
+        end
+    end
 end
 
 print("[Main Loader] ✓ Ready!")

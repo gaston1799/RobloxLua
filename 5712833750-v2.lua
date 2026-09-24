@@ -1799,22 +1799,7 @@ local function buildUI(ui)
 end
 
 -- ===== INITIALIZATION =====
+-- Store buildUI globally so main.lua can call it
+_G.buildAnimalSimUI = buildUI
 
-if game:IsLoaded() then
-    if _G.venyx then
-        print("[Animal Sim v2] Building UI with passed Venyx...")
-        buildUI(_G.venyx)
-    else
-        print("[Animal Sim v2] ERROR: Venyx not found in _G")
-    end
-else
-    game.Loaded:Wait()
-    if _G.venyx then
-        print("[Animal Sim v2] Building UI with passed Venyx...")
-        buildUI(_G.venyx)
-    else
-        print("[Animal Sim v2] ERROR: Venyx not found in _G")
-    end
-end
-
-print("[Animal Sim v2] Script loaded! Advanced PVP Bot ready.")
+print("[Animal Sim v2] Script loaded! Ready for UI injection.")
