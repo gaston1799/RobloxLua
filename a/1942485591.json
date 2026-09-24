@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 102009920267605,
+  "jobId": "6cab5e4b-944d-47e7-a25d-dd331a87190c",
+  "join": "roblox://placeId=102009920267605&gameInstanceId=6cab5e4b-944d-47e7-a25d-dd331a87190c",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790219499750
+  "web": "https://www.roblox.com/games/start?placeId=102009920267605&gameInstanceId=6cab5e4b-944d-47e7-a25d-dd331a87190c",
+  "location": "+1 Turret Evolution",
+  "updatedAt": 1790219920074
 }
