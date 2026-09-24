@@ -706,18 +706,34 @@ local function findClosestAlly()
     for _, player in ipairs(Players:GetPlayers()) do
         if player ~= LocalPlayer and player.Character then
             -- Check if same clan
-            local backpack = LocalPlayer:FindFirstChild("Backpack")
-            if backpack then
-                local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild(Config.ally_clan_name)
-                if teamFolder then
-                    local isAlly = teamFolder:FindFirstChild(player.Name) ~= nil
-                    if isAlly then
-                        local allyRoot = player.Character:FindFirstChild("HumanoidRootPart")
-                        if allyRoot then
-                            local dist = getDistance(root.Position, allyRoot.Position)
-                            if dist < closestDist then
-                                closestDist = dist
-                                closestAlly = player
+            local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild(Config.ally_clan_name)
+            if teamFolder then
+                local isAlly = false
+
+                -- Check Method 1: Direct child with player name
+                if teamFolder:FindFirstChild(player.Name) then
+                    isAlly = true
+                end
+
+                -- Check Method 2: Value objects containing player name
+                if not isAlly then
+                    for _, member in ipairs(teamFolder:GetChildren()) do
+                        if member:IsA("StringValue") or member:IsA("ObjectValue") then
+                            if member.Value == player.Name then
+                                isAlly = true
+                                break
+                            end
+                        end
+                    end
+                end
+
+                if isAlly then
+                    local allyRoot = player.Character:FindFirstChild("HumanoidRootPart")
+                    if allyRoot then
+                        local dist = getDistance(root.Position, allyRoot.Position)
+                        if dist < closestDist then
+                            closestDist = dist
+                            closestAlly = player
                             end
                         end
                     end
