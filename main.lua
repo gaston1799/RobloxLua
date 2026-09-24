@@ -3,25 +3,25 @@
     Loads Venyx UI once, passes to game-specific scripts
 ]]
 
-print("[Main Loader] Starting...")
+print("[Main Loader] ========================================")
+print("[Main Loader] Starting Gaston1799 Bot Loader...")
+print("[Main Loader] ========================================")
 
--- Wait for game to load
+print("[Main Loader] [1/5] Waiting for game to load...")
 if not game:IsLoaded() then
-    print("[Main Loader] Waiting for game to load...")
     game.Loaded:Wait()
 end
+print("[Main Loader] [1/5] ✓ Game loaded!")
 
-print("[Main Loader] Game loaded!")
-
+print("[Main Loader] [2/5] Getting game services...")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 if not LocalPlayer then
-    print("[Main Loader] ERROR: LocalPlayer not found!")
+    print("[Main Loader] [2/5] ✗ ERROR: LocalPlayer not found!")
     return
 end
-
-print("[Main Loader] LocalPlayer ready!")
+print("[Main Loader] [2/5] ✓ LocalPlayer ready!")
 
 -- ===== VENYX UI LOADER =====
 
@@ -29,7 +29,8 @@ local venyx
 local function loadVenyx()
     if venyx then return venyx end
 
-    print("[Main Loader] Loading Venyx UI...")
+    print("[Main Loader] [3/5] Loading Venyx UI library...")
+    print("[Main Loader]      Trying: venyx_source.lua (local)...")
 
     -- Try local first (with SetOptions support)
     local ok, result = pcall(function()
@@ -38,11 +39,12 @@ local function loadVenyx()
 
     if ok then
         venyx = result
-        print("[Main Loader] ✓ Venyx loaded from local (with SetOptions)")
+        print("[Main Loader] [3/5] ✓ Venyx loaded from local!")
         return venyx
     end
 
-    print("[Main Loader] ✗ Local failed, trying remote...")
+    print("[Main Loader]      ✗ Local failed, trying remote...")
+    print("[Main Loader]      Trying: Stefanuk12/Venyx-UI-Library...")
 
     ok, result = pcall(function()
         return loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Venyx-UI-Library/main/source2.lua"))()
@@ -50,11 +52,11 @@ local function loadVenyx()
 
     if ok then
         venyx = result
-        print("[Main Loader] ✓ Venyx loaded from remote (fallback)")
+        print("[Main Loader] [3/5] ✓ Venyx loaded from remote!")
         return venyx
     end
 
-    print("[Main Loader] ✗ No Venyx available")
+    print("[Main Loader] [3/5] ✗ ERROR: Venyx load failed!")
     return nil
 end
 
@@ -162,24 +164,34 @@ _G.venyx = ui
 print("[Main Loader] ✓ UI stored in _G.venyx")
 
 -- Load game script from lua branch
-print("[Main Loader] Loading game script...")
+print("[Main Loader] [4/5] Loading game-specific script...")
 local placeId = game.PlaceId
-local gameScriptUrl = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. placeId .. "-v2.lua"
+print("[Main Loader]      PlaceID: " .. placeId)
 
-print("[Main Loader] Attempting: " .. gameScriptUrl)
+local gameScriptUrl = "https://raw.githubusercontent.com/gaston1799/RobloxLua/lua/" .. placeId .. "-v2.lua"
+print("[Main Loader]      URL: " .. gameScriptUrl)
+print("[Main Loader]      Downloading...")
+
 local ok, err = pcall(function()
     local script = game:HttpGet(gameScriptUrl)
     if script and #script > 0 then
-        print("[Main Loader] ✓ Downloaded (" .. #script .. " bytes), executing...")
+        print("[Main Loader]      ✓ Downloaded! (" .. #script .. " bytes)")
+        print("[Main Loader]      Executing game script...")
         loadstring(script)()
-        print("[Main Loader] ✓ Game script executed!")
+        print("[Main Loader] [4/5] ✓ Game script executed!")
+    else
+        print("[Main Loader]      ✗ Script empty!")
     end
 end)
 
 if not ok then
-    print("[Main Loader] ⚠ Game script load failed: " .. tostring(err))
-    print("[Main Loader] Falling back to embedded UI...")
+    print("[Main Loader] [4/5] ✗ Game script failed: " .. tostring(err))
+    print("[Main Loader]      Using fallback UI...")
     buildGameUI(ui)
+else
+    print("[Main Loader] [4/5] ✓ Game script loaded successfully!")
 end
 
-print("[Main Loader] ✓ Ready!")
+print("[Main Loader] [5/5] ========================================")
+print("[Main Loader] [5/5] ✓ Bot Ready!")
+print("[Main Loader] [5/5] ========================================")

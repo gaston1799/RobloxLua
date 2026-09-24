@@ -1458,17 +1458,25 @@ Strategy:
 -- ===== UI BUILDER =====
 
 local function buildUI(ui)
+    print("\n[AnimalSim] ========================================")
+    print("[AnimalSim] Building Animal Simulator UI...")
+    print("[AnimalSim] ========================================")
+
     if not ui then
-        error("[AnimalSim] UI object required from main.lua")
+        print("[AnimalSim] ✗ ERROR: UI object is nil!")
         return
     end
 
-    print("[AnimalSim] Building game-specific pages...")
+    print("[AnimalSim] ✓ UI object received")
+    print("[AnimalSim] [1/6] Auto-detecting safe zone...")
 
     -- Auto-detect safe zone when UI loads
     autoDetectSafeZone()
+    print("[AnimalSim] [1/6] ✓ Safe zone detected")
 
+    print("[AnimalSim] [2/6] Creating Main page...")
     local mainPage = ui:addPage({title = "Main"})
+    print("[AnimalSim] [2/6] ✓ Main page created")
 
     local function collectPlayerNames()
         local names = {}
