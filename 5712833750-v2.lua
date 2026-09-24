@@ -1007,8 +1007,11 @@ local nextSafeZoneCheck = 0
 -- NAMING TRAP: the part is called FightingZonePart and sits under Workspace.FightingArea, but
 -- standing inside it IS THE SAFE ZONE (confirmed in game). The name means nothing - the geometry
 -- is what counts. So a point inside this part is safe, and every check in this file that talks
--- about being "inside the safe zone" means "inside this part".
-local ZONE_PART_IS_SAFE = true
+-- about being "inside the safe zone" means "outside this part".
+-- POLARITY, settled by toggling in game rather than by the part's name: with inside = safe the bot
+-- called fightable attackers safe; with inside = FIGHT AREA it behaves correctly. The Misc toggle
+-- shows this as OFF, and flipping it is the escape hatch.
+local ZONE_PART_IS_SAFE = false
 
 -- The zone part may not be streamed in when buildUI runs, so retry now and then.
 local function ensureSafeZone()
@@ -1182,6 +1185,110 @@ local function destroySafeZoneVisualizer()
         safeZoneVisualizerFolder:Destroy()
         safeZoneVisualizerFolder = nil
         print("[SafeZone Visualizer] Destroyed")
+    end
+end
+
+-- ===== ZONE CUBE (touch-based membership) =====
+-- A real cube mirroring the zone part's CFrame and Size - exactly the bounds the visualizer draws
+-- - with Touched / TouchEnded so entries and exits are DETECTED rather than inferred by maths.
+-- TouchEnded fires per body part, so leaving is confirmed by a short re-check, and a periodic
+-- reconcile rebuilds the member set from GetTouchingParts so a missed event cannot leave a stale
+-- entry. Every enter/leave is logged, which also makes the geometry verifiable in game.
+local ZONE_RECONCILE_INTERVAL = 1
+local zoneCube = nil
+local zoneInside = {}
+local zoneNextReconcile = 0
+
+local function zoneCharacterOf(part)
+    local model = part and part:FindFirstAncestorOfClass("Model")
+    if model and model:FindFirstChildOfClass("Humanoid") then return model end
+    return nil
+end
+
+local function zoneLabel(character)
+    local player = Players:GetPlayerFromCharacter(character)
+    return player and player.Name or character.Name
+end
+
+local function zoneSetMember(character, inside)
+    if not character then return end
+    if inside and not zoneInside[character] then
+        zoneInside[character] = true
+        print("[Zone Cube] ENTER " .. zoneLabel(character))
+    elseif not inside and zoneInside[character] then
+        zoneInside[character] = nil
+        print("[Zone Cube] LEAVE " .. zoneLabel(character))
+    end
+end
+
+-- True when the cube currently sees this player or character inside. Available for game logic.
+local function zoneTrackerHas(target)
+    if not target then return false end
+    if typeof(target) == "Instance" and target:IsA("Player") then
+        return target.Character ~= nil and zoneInside[target.Character] == true
+    end
+    local character = (typeof(target) == "Instance" and zoneCharacterOf(target)) or target
+    return zoneInside[character] == true
+end
+
+local function buildZoneCube()
+    if zoneCube and zoneCube.Parent then return zoneCube end
+    if not ensureSafeZone() then return nil end
+
+    local cube = Instance.new("Part")
+    cube.Name = "ZoneCube"
+    cube.Shape = Enum.PartType.Block
+    cube.Size = SAFE_ZONE_OBJECT.Size
+    cube.CFrame = SAFE_ZONE_OBJECT.CFrame
+    cube.Anchored = true
+    cube.CanCollide = false
+    cube.CanTouch = true          -- Touched / TouchEnded / GetTouchingParts all require this
+    cube.CanQuery = true
+    cube.Transparency = 1
+    cube.CastShadow = false
+    cube.Parent = workspace
+
+    cube.Touched:Connect(function(part)
+        zoneSetMember(zoneCharacterOf(part), true)
+    end)
+
+    cube.TouchEnded:Connect(function(part)
+        local character = zoneCharacterOf(part)
+        if character and zoneInside[character] then
+            -- Only clear once no part of that character still overlaps the cube.
+            task.delay(0.2, function()
+                if not zoneInside[character] then return end
+                for _, other in ipairs(cube:GetTouchingParts()) do
+                    if zoneCharacterOf(other) == character then return end
+                end
+                zoneSetMember(character, false)
+            end)
+        end
+    end)
+
+    zoneCube = cube
+    print(string.format("[Zone Cube] built: size (%.1f, %.1f, %.1f) at (%.1f, %.1f, %.1f)",
+        cube.Size.X, cube.Size.Y, cube.Size.Z, cube.Position.X, cube.Position.Y, cube.Position.Z))
+    return cube
+end
+
+local function zoneTrackerTick()
+    if not buildZoneCube() then return end
+    local now = tick()
+    if now < zoneNextReconcile then return end
+    zoneNextReconcile = now + ZONE_RECONCILE_INTERVAL
+
+    local present = {}
+    for _, part in ipairs(zoneCube:GetTouchingParts()) do
+        local character = zoneCharacterOf(part)
+        if character then present[character] = true end
+    end
+
+    for character in pairs(present) do
+        zoneSetMember(character, true)
+    end
+    for character in pairs(zoneInside) do
+        if not present[character] then zoneSetMember(character, false) end
     end
 end
 
@@ -1597,6 +1704,9 @@ local function updateBotState()
     -- Auto Sprint re-syncs every tick, with or without the combat bot running.
     syncSprint()
 
+    -- Zone cube membership runs every tick too, so enter/leave is tracked even while idle.
+    zoneTrackerTick()
+
     -- Follow Ally needs only its own toggle now: movement must not depend on the PVP bot
     -- having been started, which is exactly what used to gate it.
     if BotState.follow_ally_enabled and not BotState.target then
@@ -1953,6 +2063,16 @@ local function buildUI(ui)
                 print("  YOU in safe zone:", isInsideSafeZone(myRoot.Position))
                 print("  zone part:", SAFE_ZONE_OBJECT ~= nil and SAFE_ZONE_OBJECT.Name or "NOT FOUND", "| part counts as safe area:", ZONE_PART_IS_SAFE)
                 print("  raw:" .. zoneDebug(myRoot.Position))
+                print("  tracker says you are inside:", zoneTrackerHas(LocalPlayer))
+                print("  maths says you are inside:", isInsideSafeZone(myRoot.Position))
+                if BotState.target then
+                    print("  tracker says target " .. BotState.target.Name .. " is inside:", zoneTrackerHas(BotState.target))
+                end
+                local insideNames = {}
+                for character in pairs(zoneInside) do
+                    table.insert(insideNames, zoneLabel(character))
+                end
+                print("  zone cube sees inside:", #insideNames > 0 and table.concat(insideNames, ", ") or "nobody")
                 if SAFE_ZONE_OBJECT then
                     print(string.format("  part centre: (%.1f, %.1f, %.1f)  size: (%.1f, %.1f, %.1f)  rotation: (%.1f, %.1f, %.1f)",
                         SAFE_ZONE_OBJECT.Position.X, SAFE_ZONE_OBJECT.Position.Y, SAFE_ZONE_OBJECT.Position.Z,
