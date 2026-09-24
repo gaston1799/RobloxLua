@@ -702,6 +702,8 @@ end
 
 -- ===== ALLY DETECTION & AUTOZONE =====
 
+local warnedNoClan = false
+
 local function findClosestAlly()
     local char = LocalPlayer.Character
     if not char then return nil end
@@ -709,14 +711,34 @@ local function findClosestAlly()
     local root = char:FindFirstChild("HumanoidRootPart")
     if not root then return nil end
 
+    -- Config.ally_clan_name is resolved once at load time, but workspace.Teams is usually not
+    -- populated yet at that point, which leaves the placeholder in place forever and makes
+    -- every ally lookup return nil. Retry while it is still the placeholder.
+    if Config.ally_clan_name == "enter clan name here" then
+        local detected = autoDetectClan()
+        if detected and detected ~= "enter clan name here" then
+            Config.ally_clan_name = detected
+            print("[Follow Ally] Clan resolved late: " .. detected)
+        end
+    end
+
+    -- Resolved once per call instead of once per player.
+    local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild(Config.ally_clan_name)
+    if not teamFolder then
+        if not warnedNoClan then
+            warnedNoClan = true
+            print("[Follow Ally] No '" .. tostring(Config.ally_clan_name) .. "' folder under workspace.Teams - ally detection will find nothing")
+        end
+        return nil
+    end
+
     local closestAlly = nil
     local closestDist = math.huge
 
     -- Find closest ally (same clan as us)
     for _, player in ipairs(Players:GetPlayers()) do
         if player ~= LocalPlayer and player.Character then
-            -- Check if same clan
-            local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild(Config.ally_clan_name)
+            -- teamFolder is resolved once at the top of this function
             if teamFolder then
                 local isAlly = false
 
@@ -738,8 +760,9 @@ local function findClosestAlly()
                 end
 
                 if isAlly then
+                    local allyHumanoid = player.Character:FindFirstChildOfClass("Humanoid")
                     local allyRoot = player.Character:FindFirstChild("HumanoidRootPart")
-                    if allyRoot then
+                    if allyRoot and allyHumanoid and allyHumanoid.Health > 0 then
                         local dist = getDistance(root.Position, allyRoot.Position)
                         if dist < closestDist then
                             closestDist = dist
@@ -1248,6 +1271,9 @@ local function updateMovement()
 
                 -- If too far from ally, move closer
                 if distToAlly > Config.follow_ally_dist then
+                    -- moveTowardWithInterception picks keys relative to the CAMERA, so the
+                    -- camera has to face the ally first or W/S/A/D push the wrong way.
+                    aimCameraAtTarget(allyRoot)
                     moveTowardWithInterception(allyRoot)
                     if updateCounter % 30 == 0 then
                         print("[Follow Ally] Following " .. ally.Name .. " | Dist: " .. string.format("%.1f", distToAlly))
@@ -1357,6 +1383,15 @@ local function updateBotState()
     updateCounter = updateCounter + 1
 
     refreshHeldKeys()
+
+    -- Follow Ally is active precisely when there is NO combat target, so it must be handled
+    -- BEFORE the target gate below. That gate returns early, which meant updateMovement() -
+    -- where the follow logic lives - was never reached while following.
+    if BotState.enabled and BotState.follow_ally_enabled and not BotState.target then
+        BotState.current_state = "following"
+        updateMovement()
+        return
+    end
 
     if not BotState.enabled or not BotState.target then
         BotState.current_state = "idle"
@@ -1597,6 +1632,9 @@ local function buildUI(ui)
         callback = function(val)
             BotState.follow_ally_enabled = val
             print("[Follow Ally]", val and "Enabled" or "Disabled")
+            if val and not BotState.enabled then
+                print("[Follow Ally] NOTE: the bot is not started - turn on 'Bot Enabled' or nothing will move")
+            end
         end,
     })
 
@@ -1637,11 +1675,15 @@ local function buildUI(ui)
         title = "Ally Follow Distance",
         min = 5,
         max = 50,
-        default = 15,
+        default = 20,
         precision = 0,
         callback = function(val)
-            Config.autozone_ally_follow_dist = tonumber(val) or 15
-            print("[AutoZone] Ally follow dist:", val)
+            -- This has to write the key the follow logic actually reads. It used to set
+            -- Config.autozone_ally_follow_dist, which nothing ever reads, so the slider
+            -- did nothing at all.
+            Config.follow_ally_dist = tonumber(val) or 20
+            Config.autozone_ally_follow_dist = Config.follow_ally_dist
+            print("[Follow Ally] Follow distance:", val)
         end,
     })
 
