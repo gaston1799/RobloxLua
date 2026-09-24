@@ -11,13 +11,18 @@ print("\n" .. string.rep("=", 70))
 print("SAFE ZONE SCANNER - Find All SafeZone Objects")
 print(string.rep("=", 70) .. "\n")
 
--- Find all parts with "safezone" in name
+-- Find all parts with "safezone" or "fightingzone" in name
 local candidates = {}
 
-print("[Searching] Finding all parts with 'safezone' in name...\n")
+print("[Searching] Finding safe zone parts...\n")
 
 for _, obj in ipairs(workspace:GetDescendants()) do
-    if (obj.Name:lower():find("safezone") or obj.Name:lower():find("safe zone")) and obj:IsA("Part") then
+    if obj:IsA("Part") and (
+        obj.Name:lower():find("safezone") or
+        obj.Name:lower():find("safe zone") or
+        obj.Name:lower():find("fightingzone") or
+        obj.Name:lower():find("fighting zone")
+    ) then
         table.insert(candidates, obj)
         print("[Found] " .. obj.Name .. " (" .. obj.ClassName .. ")")
     end
