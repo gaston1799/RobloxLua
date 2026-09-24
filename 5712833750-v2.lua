@@ -44,17 +44,53 @@ local BotState = {
     target_enemy_clan = "Any Enemy",
 }
 
--- Auto-detect player's team/clan
+-- ===== TEAM / CLAN STRUCTURE (as observed in this game) =====
+-- workspace.Teams
+--   └── <ClanName>      (Folder; .Name is the clan name)
+--         ├── leader    (value object; .Value = the creator's USERNAME)
+--         └── <member>  (value object; .Value = that member's USERNAME)
+-- Every clan always has a "leader" entry, and one entry per additional member.
+-- .Value holds the plain USERNAME (no "@", never the display name), so it is compared
+-- against Player.Name / LocalPlayer.Name and never against DisplayName.
+local CLAN_PLACEHOLDER = "enter clan name here"
+
+-- Read the username stored in a member entry (tolerates ObjectValues holding a Player).
+local function entryUsername(member)
+    local ok, value = pcall(function() return member.Value end)
+    if not ok or value == nil then return nil end
+    if typeof(value) == "Instance" then return value.Name end
+    return tostring(value)
+end
+
+-- Is this player listed in this clan folder, as leader or as a member?
+local function teamHasPlayer(teamFolder, username)
+    if not teamFolder or not username then return false end
+    for _, member in ipairs(teamFolder:GetChildren()) do
+        if member.Name == username then return true end
+        if entryUsername(member) == username then return true end
+    end
+    return false
+end
+
+-- The clan's leader username, from the mandatory "leader" entry.
+local function getTeamLeaderName(teamFolder)
+    local leaderEntry = teamFolder and teamFolder:FindFirstChild("leader")
+    if not leaderEntry then return nil end
+    return entryUsername(leaderEntry)
+end
+
+-- Auto-detect player's team/clan. Matches on membership (.Value), because the child names
+-- are not guaranteed to be the usernames.
 local function autoDetectClan()
-    if not LocalPlayer then return "enter clan name here" end
+    if not LocalPlayer then return CLAN_PLACEHOLDER end
     if workspace:FindFirstChild("Teams") then
         for _, teamFolder in ipairs(workspace.Teams:GetChildren()) do
-            if teamFolder:FindFirstChild(LocalPlayer.Name) then
+            if teamHasPlayer(teamFolder, LocalPlayer.Name) then
                 return teamFolder.Name
             end
         end
     end
-    return "enter clan name here"
+    return CLAN_PLACEHOLDER
 end
 
 -- Safely call autoDetectClan with fallback
@@ -63,7 +99,7 @@ local function getSafeClanName()
     if ok and result then
         return result
     end
-    return "enter clan name here"
+    return CLAN_PLACEHOLDER
 end
 
 local Config = {
@@ -714,9 +750,9 @@ local function findClosestAlly()
     -- Config.ally_clan_name is resolved once at load time, but workspace.Teams is usually not
     -- populated yet at that point, which leaves the placeholder in place forever and makes
     -- every ally lookup return nil. Retry while it is still the placeholder.
-    if Config.ally_clan_name == "enter clan name here" then
+    if Config.ally_clan_name == CLAN_PLACEHOLDER then
         local detected = autoDetectClan()
-        if detected and detected ~= "enter clan name here" then
+        if detected and detected ~= CLAN_PLACEHOLDER then
             Config.ally_clan_name = detected
             print("[Follow Ally] Clan resolved late: " .. detected)
         end
@@ -740,24 +776,9 @@ local function findClosestAlly()
         if player ~= LocalPlayer and player.Character then
             -- teamFolder is resolved once at the top of this function
             if teamFolder then
-                local isAlly = false
-
-                -- Check Method 1: Direct child with player name
-                if teamFolder:FindFirstChild(player.Name) then
-                    isAlly = true
-                end
-
-                -- Check Method 2: Value objects containing player name
-                if not isAlly then
-                    for _, member in ipairs(teamFolder:GetChildren()) do
-                        if member:IsA("StringValue") or member:IsA("ObjectValue") then
-                            if member.Value == player.Name then
-                                isAlly = true
-                                break
-                            end
-                        end
-                    end
-                end
+                -- Membership lives in the entry's .Value (the username), so use the shared
+                -- helper rather than assuming the child is named after the player.
+                local isAlly = teamHasPlayer(teamFolder, player.Name)
 
                 if isAlly then
                     local allyHumanoid = player.Character:FindFirstChildOfClass("Humanoid")
@@ -814,7 +835,7 @@ local function updateAutozoneTarget()
                 else
                     local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild(BotState.target_enemy_clan)
                     if teamFolder then
-                        isTargetClan = teamFolder:FindFirstChild(player.Name) ~= nil
+                        isTargetClan = teamHasPlayer(teamFolder, player.Name)
                     end
                 end
 
@@ -1821,10 +1842,13 @@ local function buildUI(ui)
             print("\n[Clan Detection]")
             print("  Your Clan: " .. Config.ally_clan_name)
             print("  Detected from: workspace.Teams")
+            local myTeam = workspace.Teams and workspace.Teams:FindFirstChild(Config.ally_clan_name)
+            print("  Leader: " .. tostring(getTeamLeaderName(myTeam)))
             print("\n[All Available Clans]")
             if workspace:FindFirstChild("Teams") then
                 for _, teamFolder in ipairs(workspace.Teams:GetChildren()) do
-                    print("  • " .. teamFolder.Name)
+                    local entries = teamFolder:GetChildren()
+                    print("  • " .. teamFolder.Name .. "  (leader: " .. tostring(getTeamLeaderName(teamFolder)) .. ", " .. #entries .. " entries)")
                 end
             else
                 print("  ✗ No Teams folder found")
