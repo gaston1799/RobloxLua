@@ -82,30 +82,11 @@ local function loadPrefixes()
     return prefixes
 end
 
--- ===== SIMPLE GAME UI BUILDER =====
+-- ===== FALLBACK UI BUILDER (Game Script Provides Main, Combat, AutoZone) =====
 
 local function buildGameUI(ui)
-    print("[Game UI] Building Animal Simulator pages...")
-
-    -- Main page
-    local mainPage = ui:addPage({title = "Main"})
-    local mainSection = mainPage:addSection({title = "Bot Status"})
-    mainSection:addLabel({text = "Advanced PVP Bot"})
-    mainSection:addToggle({title = "Bot Enabled", toggled = false, callback = function(v) print("[Bot] Toggled: " .. tostring(v)) end})
-
-    -- Combat page
-    local combatPage = ui:addPage({title = "Combat"})
-    local combatSection = combatPage:addSection({title = "Settings"})
-    combatSection:addSlider({title = "Hit-to-Kill Ratio", min = 0.1, max = 2.0, default = 1.0, rounding = 0.1, callback = function(v) print("[Combat] Ratio: " .. v) end})
-    combatSection:addToggle({title = "Auto PVP", toggled = false, callback = function(v) print("[Combat] Auto PVP: " .. tostring(v)) end})
-
-    -- AutoZone page
-    local azPage = ui:addPage({title = "AutoZone"})
-    local azSection = azPage:addSection({title = "Settings"})
-    azSection:addToggle({title = "AutoZone", toggled = false, callback = function(v) print("[AutoZone] Enabled: " .. tostring(v)) end})
-    azSection:addToggle({title = "Follow Ally", toggled = false, callback = function(v) print("[AutoZone] Follow: " .. tostring(v)) end})
-
-    print("[Game UI] ✓ Pages added!")
+    print("[Game UI] ⚠ Fallback: Game script should provide Main/Combat/AutoZone pages")
+    -- Don't create duplicate pages - v2 will create Main, Combat, AutoZone
 end
 
 -- ===== MAIN EXECUTION =====
