@@ -996,6 +996,13 @@ end
 local SAFE_ZONE_RECHECK_INTERVAL = 5
 local nextSafeZoneCheck = 0
 
+-- The part is named FightingZonePart and lives under Workspace.FightingArea, so it marks where
+-- fighting is ALLOWED: a point inside it is in the arena, NOT in the safe zone. Every check in
+-- this file is phrased as "inside the safe zone", so the part test has to be inverted - that is
+-- what this switch does. Confirm it with the Safe Zone Visualizer: if the green box covers where
+-- fights happen, leave this true; if it covers the safe/spawn area instead, set it to false.
+local SAFE_ZONE_PART_IS_FIGHTING_AREA = true
+
 -- The zone part may not be streamed in when buildUI runs, so retry now and then.
 local function ensureSafeZone()
     if SAFE_ZONE_OBJECT then return true end
@@ -1033,7 +1040,9 @@ local function isInsideSafeZone(position)
     if ensureSafeZone() then
         local rel = SAFE_ZONE_OBJECT.CFrame:PointToObjectSpace(position)
         local half = SAFE_ZONE_OBJECT.Size / 2
-        return math.abs(rel.X) <= half.X and math.abs(rel.Z) <= half.Z
+        local insidePart = math.abs(rel.X) <= half.X and math.abs(rel.Z) <= half.Z
+        if SAFE_ZONE_PART_IS_FIGHTING_AREA then return not insidePart end
+        return insidePart
     end
 
     -- Fallback: the four recorded corners treated as a (possibly rotated) quad.
@@ -1044,7 +1053,9 @@ local function isInsideSafeZone(position)
     if not (quad[1] and quad[2] and quad[3] and quad[4]) then
         return false
     end
-    return pointInQuad(position.X, position.Z, quad)
+    local insideQuad = pointInQuad(position.X, position.Z, quad)
+    if SAFE_ZONE_PART_IS_FIGHTING_AREA then return not insideQuad end
+    return insideQuad
 end
 
 local function isInAutoZone(player)
@@ -1871,6 +1882,11 @@ local function buildUI(ui)
             print("  Closest Ally:", ally and ally.Name or "None found")
             if ally and ally.Character then
                 print("    Ally in safe zone:", isInsideSafeZone(ally.Character:FindFirstChild("HumanoidRootPart").Position))
+            end
+            local myRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+            if myRoot then
+                print("  YOU in safe zone:", isInsideSafeZone(myRoot.Position))
+                print("  zone part:", SAFE_ZONE_OBJECT ~= nil and SAFE_ZONE_OBJECT.Name or "NOT FOUND", "| treated as fighting area:", SAFE_ZONE_PART_IS_FIGHTING_AREA)
             end
             print()
         end,
