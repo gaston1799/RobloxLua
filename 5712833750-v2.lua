@@ -857,13 +857,53 @@ local function isWinnableBattle(player)
     return acceptable
 end
 
--- ===== HARDCODED SAFE ZONE (Recorded: 4 corners) =====
-local SAFE_ZONE_CORNERS = {
-    corner1 = {x = -113.61, z = 401.64},
-    corner2 = {x = -45.67, z = 588.11},
-    corner3 = {x = -276.38, z = 672.11},
-    corner4 = {x = -345.77, z = 486.77},
-}
+-- ===== AUTO-DETECT SAFE ZONE =====
+local SAFE_ZONE_OBJECT = nil
+local SAFE_ZONE_CORNERS = {}
+
+local function autoDetectSafeZone()
+    print("[SafeZone] Auto-detecting FightingZonePart...")
+
+    -- Find FightingZonePart
+    for _, obj in ipairs(workspace:GetDescendants()) do
+        if obj.Name == "FightingZonePart" and obj:IsA("Part") then
+            SAFE_ZONE_OBJECT = obj
+            print("[SafeZone] ✓ Found FightingZonePart")
+            break
+        end
+    end
+
+    if not SAFE_ZONE_OBJECT then
+        print("[SafeZone] ✗ FightingZonePart not found, using fallback")
+        SAFE_ZONE_CORNERS = {
+            corner1 = {x = -113.61, z = 401.64},
+            corner2 = {x = -45.67, z = 588.11},
+            corner3 = {x = -276.38, z = 672.11},
+            corner4 = {x = -345.77, z = 486.77},
+        }
+        return
+    end
+
+    -- Extract corners from actual object
+    local pos = SAFE_ZONE_OBJECT.Position
+    local size = SAFE_ZONE_OBJECT.Size / 2
+
+    local minX = pos.X - size.X
+    local maxX = pos.X + size.X
+    local minZ = pos.Z - size.Z
+    local maxZ = pos.Z + size.Z
+
+    SAFE_ZONE_CORNERS = {
+        corner1 = {x = minX, z = minZ},
+        corner2 = {x = maxX, z = minZ},
+        corner3 = {x = maxX, z = maxZ},
+        corner4 = {x = minX, z = maxZ},
+    }
+
+    print("[SafeZone] ✓ Extracted corners from FightingZonePart")
+end
+
+autoDetectSafeZone()
 
 local function isInsideSafeZone(position)
     -- Check if position is within safe zone rectangle (X,Z only)
