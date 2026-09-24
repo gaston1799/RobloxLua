@@ -1742,21 +1742,11 @@ local function buildUI(ui)
         end,
     })
 
-    combatSection:addToggle({
-        title = "Auto Eat",
-        toggled = false,
-        callback = function(val)
-            print("[Combat] Auto Eat:", val)
-        end,
-    })
-
-    combatSection:addToggle({
-        title = "Auto Fireball (Engaged)",
-        toggled = false,
-        callback = function(val)
-            print("[Combat] Auto Fireball:", val)
-        end,
-    })
+    -- Auto Eat and Auto Fireball used to be duplicated here as print-only toggles that set no state,
+    -- which made it look like there were 2-3 of each. The working ones live in the Auto Items
+    -- section (they set BotState.auto_eat_enabled / BotState.auto_fireball_enabled, which the tick
+    -- actually reads), so the duplicates are gone. "Auto Fireball (Engaged)" - fireball only while
+    -- engaged - was never implemented by anything.
 
     combatSection:addButton({
         title = "Damage Player",
