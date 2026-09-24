@@ -2021,6 +2021,22 @@ local function buildUI(ui)
         end,
     })
 
+    -- The one thing about the zone we could not confirm from code: which side of FightingZonePart
+    -- is 'safe'. Flip this and watch the effect immediately - no re-download needed. ON means the
+    -- part is the ARENA (so outside it is safe); OFF means the part is the SAFE area itself.
+    miscSection:addToggle({
+        title = "Zone Part = Fighting Area",
+        toggled = SAFE_ZONE_PART_IS_FIGHTING_AREA,
+        callback = function(val)
+            SAFE_ZONE_PART_IS_FIGHTING_AREA = val
+            print("[SafeZone] FightingZonePart is now treated as:", val and "the ARENA (outside = safe)" or "the SAFE area (inside = safe)")
+            local myRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+            if myRoot then
+                print("[SafeZone] With you standing here: inSafeZone =", isInsideSafeZone(myRoot.Position))
+            end
+        end,
+    })
+
     miscSection:addToggle({
         title = "Remember Walkspeed",
         toggled = false,
