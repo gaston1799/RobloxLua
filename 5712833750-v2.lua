@@ -890,47 +890,46 @@ local function createSafeZoneVisualizer()
         SAFE_ZONE_CORNERS.corner4,
     }
 
-    local avgY = 50 -- Ground level
+    -- Calculate bounds
+    local minX = math.min(corners[1].x, corners[2].x, corners[3].x, corners[4].x)
+    local maxX = math.max(corners[1].x, corners[2].x, corners[3].x, corners[4].x)
+    local minZ = math.min(corners[1].z, corners[2].z, corners[3].z, corners[4].z)
+    local maxZ = math.max(corners[1].z, corners[2].z, corners[3].z, corners[4].z)
 
-    -- Create corner markers
+    local centerX = (minX + maxX) / 2
+    local centerZ = (minZ + maxZ) / 2
+    local centerY = 200
+
+    local sizeX = maxX - minX
+    local sizeZ = maxZ - minZ
+    local sizeY = 400
+
+    -- Create semi-transparent box
+    local box = Instance.new("Part")
+    box.Name = "SafeZoneBox"
+    box.Shape = Enum.PartType.Block
+    box.Size = Vector3.new(sizeX, sizeY, sizeZ)
+    box.Color = Color3.fromRGB(0, 255, 0)
+    box.Material = Enum.Material.Neon
+    box.Transparency = 0.6
+    box.CanCollide = false
+    box.CFrame = CFrame.new(centerX, centerY, centerZ)
+    box.Parent = safeZoneVisualizerFolder
+
+    -- Add red corner markers
     for i, corner in ipairs(corners) do
         local marker = Instance.new("Part")
         marker.Name = "Corner" .. i
         marker.Shape = Enum.PartType.Ball
-        marker.Size = Vector3.new(2, 2, 2)
-        marker.Color = Color3.fromRGB(0, 255, 0)
+        marker.Size = Vector3.new(4, 4, 4)
+        marker.Color = Color3.fromRGB(255, 0, 0)
         marker.Material = Enum.Material.Neon
         marker.CanCollide = false
-        marker.CFrame = CFrame.new(corner.x, avgY, corner.z)
+        marker.CFrame = CFrame.new(corner.x, centerY, corner.z)
         marker.Parent = safeZoneVisualizerFolder
     end
 
-    -- Draw lines between corners (1->2->3->4->1)
-    local function drawLine(from, to)
-        local mid = (from + to) / 2
-        local dist = (from - to).Magnitude
-        local line = Instance.new("Part")
-        line.Shape = Enum.PartType.Cylinder
-        line.Size = Vector3.new(0.3, dist, 0.3)
-        line.Color = Color3.fromRGB(255, 255, 0)
-        line.Material = Enum.Material.Neon
-        line.CanCollide = false
-        line.CFrame = CFrame.lookAt(mid, to)
-        line.Parent = safeZoneVisualizerFolder
-    end
-
-    local cornerPos = {}
-    for _, corner in ipairs(corners) do
-        table.insert(cornerPos, Vector3.new(corner.x, avgY, corner.z))
-    end
-
-    -- Draw box edges
-    drawLine(cornerPos[1], cornerPos[2])
-    drawLine(cornerPos[2], cornerPos[3])
-    drawLine(cornerPos[3], cornerPos[4])
-    drawLine(cornerPos[4], cornerPos[1])
-
-    print("[SafeZone Visualizer] Box rendered with 4 corners")
+    print("[SafeZone Visualizer] Semi-transparent green box rendered")
 end
 
 local function destroySafeZoneVisualizer()
