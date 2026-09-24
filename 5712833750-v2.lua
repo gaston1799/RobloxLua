@@ -46,7 +46,7 @@ local BotState = {
     follow_moving = false,           -- hysteresis latch for the follow distance
     autozone_enabled = false,
     closest_ally = nil,
-    target_enemy_clan = "Any Enemy",
+    target_enemy_clan = "Any Target",
 }
 
 -- ===== TEAM / CLAN STRUCTURE (as observed in this game) =====
@@ -823,6 +823,9 @@ end
 
 local function updateAutozoneTarget()
     if not BotState.autozone_enabled then return end
+    -- AutoZone is an extension of following: its anchor is an ally we are following, so it only
+    -- runs while Follow Ally is ON (confirmed requirement).
+    if not BotState.follow_ally_enabled then return end
     if BotState.target then return end  -- Already have target from manual/PVP
 
     local char = LocalPlayer.Character
@@ -855,9 +858,9 @@ local function updateAutozoneTarget()
             local enemyHumanoid = player.Character:FindFirstChildOfClass("Humanoid")
 
             if enemyRoot and enemyHumanoid and enemyHumanoid.Health > 0 then
-                -- Check if enemy matches target clan (or "Any Enemy")
+                -- Check if enemy matches the selected clan (or "Any Target")
                 local isTargetClan = false
-                if BotState.target_enemy_clan == "Any Enemy" then
+                if BotState.target_enemy_clan == "Any Target" then
                     isTargetClan = true
                 else
                     local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild(BotState.target_enemy_clan)
@@ -890,8 +893,13 @@ local function updateAutozoneTarget()
         elseif not isInAutoZone(closestEnemy) then
             print("[AutoZone] " .. closestEnemy.Name .. " is in safe zone, skipping")
         else
+            -- Arm the bot if it is not running, so "engage" actually moves and hits instead of
+            -- only setting a target (the damage path does the same thing).
+            if not BotState.enabled then
+                _G.AdvancedPVPBot.start()
+            end
             _G.AdvancedPVPBot.setTarget(closestEnemy)
-            print("[AutoZone] ✓ Engaging enemy near ally:", closestEnemy.Name)
+            print("[AutoZone] ✓ Engaging " .. closestEnemy.Name .. " within " .. Config.autozone_engage_range .. " studs of ally " .. ally.Name)
         end
     end
 end
@@ -1837,7 +1845,10 @@ local function buildUI(ui)
         toggled = false,
         callback = function(val)
             BotState.autozone_enabled = val
-            print("[AutoZone]", val and "Enabled (engage enemies near allies)" or "Disabled")
+            print("[AutoZone]", val and "Enabled (engage enemies near the ally you follow)" or "Disabled")
+            if val and not BotState.follow_ally_enabled then
+                print("[AutoZone] NOTE: turn on 'Follow Ally' as well - AutoZone only engages around the ally you follow")
+            end
         end,
     })
 
@@ -1873,16 +1884,16 @@ local function buildUI(ui)
                 end
             end
         end
-        table.insert(clans, "Any Enemy")
+        table.insert(clans, "Any Target")
         return clans
     end
 
     local enemyClanDropdown = autozoneSection:addDropdown({
-        title = "Zone Enemy Clan",
+        title = "AutoZone Targets",
         list = getEnemyClanOptions(),
         callback = function(clanName)
             BotState.target_enemy_clan = clanName
-            print("[AutoZone] Zoning clan:", clanName)
+            print("[AutoZone] Targets:", clanName)
         end,
     })
 
