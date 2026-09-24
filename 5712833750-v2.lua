@@ -869,6 +869,78 @@ local function isInAutoZone(player)
     return not isInsideSafeZone(root.Position)
 end
 
+-- ===== SAFE ZONE VISUALIZER =====
+local safeZoneVisualizerFolder = nil
+
+local function createSafeZoneVisualizer()
+    -- Cleanup if already exists
+    if safeZoneVisualizerFolder then
+        safeZoneVisualizerFolder:Destroy()
+        safeZoneVisualizerFolder = nil
+    end
+
+    safeZoneVisualizerFolder = Instance.new("Folder")
+    safeZoneVisualizerFolder.Name = "SafeZoneVisualizer"
+    safeZoneVisualizerFolder.Parent = workspace
+
+    local corners = {
+        SAFE_ZONE_CORNERS.corner1,
+        SAFE_ZONE_CORNERS.corner2,
+        SAFE_ZONE_CORNERS.corner3,
+        SAFE_ZONE_CORNERS.corner4,
+    }
+
+    local avgY = 50 -- Ground level
+
+    -- Create corner markers
+    for i, corner in ipairs(corners) do
+        local marker = Instance.new("Part")
+        marker.Name = "Corner" .. i
+        marker.Shape = Enum.PartType.Ball
+        marker.Size = Vector3.new(2, 2, 2)
+        marker.Color = Color3.fromRGB(0, 255, 0)
+        marker.Material = Enum.Material.Neon
+        marker.CanCollide = false
+        marker.CFrame = CFrame.new(corner.x, avgY, corner.z)
+        marker.Parent = safeZoneVisualizerFolder
+    end
+
+    -- Draw lines between corners (1->2->3->4->1)
+    local function drawLine(from, to)
+        local mid = (from + to) / 2
+        local dist = (from - to).Magnitude
+        local line = Instance.new("Part")
+        line.Shape = Enum.PartType.Cylinder
+        line.Size = Vector3.new(0.3, dist, 0.3)
+        line.Color = Color3.fromRGB(255, 255, 0)
+        line.Material = Enum.Material.Neon
+        line.CanCollide = false
+        line.CFrame = CFrame.lookAt(mid, to)
+        line.Parent = safeZoneVisualizerFolder
+    end
+
+    local cornerPos = {}
+    for _, corner in ipairs(corners) do
+        table.insert(cornerPos, Vector3.new(corner.x, avgY, corner.z))
+    end
+
+    -- Draw box edges
+    drawLine(cornerPos[1], cornerPos[2])
+    drawLine(cornerPos[2], cornerPos[3])
+    drawLine(cornerPos[3], cornerPos[4])
+    drawLine(cornerPos[4], cornerPos[1])
+
+    print("[SafeZone Visualizer] Box rendered with 4 corners")
+end
+
+local function destroySafeZoneVisualizer()
+    if safeZoneVisualizerFolder then
+        safeZoneVisualizerFolder:Destroy()
+        safeZoneVisualizerFolder = nil
+        print("[SafeZone Visualizer] Destroyed")
+    end
+end
+
 local function findAttackerByDamage(damageTaken)
     if not damageTaken or damageTaken <= 0 then
         print("[Auto PVP] Invalid damage: " .. tostring(damageTaken))
@@ -1604,6 +1676,18 @@ local function buildUI(venyx)
 
     -- ===== MISC SECTION =====
     local miscSection = mainPage:addSection({title = "Misc"})
+
+    miscSection:addToggle({
+        title = "Safe Zone Visualizer",
+        toggled = false,
+        callback = function(val)
+            if val then
+                createSafeZoneVisualizer()
+            else
+                destroySafeZoneVisualizer()
+            end
+        end,
+    })
 
     miscSection:addToggle({
         title = "Remember Walkspeed",
