@@ -1457,13 +1457,14 @@ Strategy:
 
 -- ===== UI BUILDER =====
 
-local function buildUI(venyx)
-    if not venyx then
-        error("[AnimalSim] Venyx UI library required")
+local function buildUI(ui)
+    if not ui then
+        error("[AnimalSim] UI object required from main.lua")
+        return
     end
 
-    -- UI is already created by main.lua, just add pages to it
-    local ui = venyx
+    print("[AnimalSim] Building game-specific pages...")
+
     local mainPage = ui:addPage({title = "Main"})
 
     local function collectPlayerNames()
