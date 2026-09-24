@@ -1798,11 +1798,14 @@ end
 -- Store buildUI globally so main.lua can call it. Wrapped so that a loader which ALSO
 -- calls the hook after we have self-built cannot create duplicate pages.
 _G.buildAnimalSimUI = function(target)
-    if _G.__animalSimUIBuilt then
-        print("[Animal Sim v2] UI already built - skipping duplicate build")
+    -- Keyed on the window itself rather than a plain boolean: a fresh run of the loader
+    -- creates a fresh window, so re-running the script still builds. Only a second call
+    -- with the SAME window (loader + self-build in one run) is skipped.
+    if _G.__animalSimUIBuiltWindow == target then
+        print("[Animal Sim v2] UI already built for this window - skipping duplicate build")
         return
     end
-    _G.__animalSimUIBuilt = true
+    _G.__animalSimUIBuiltWindow = target
     return buildUI(target)
 end
 
