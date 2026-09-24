@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7171174521,
+  "jobId": "8f91cede-1109-4e67-87b6-e0eca3b4a0d0",
+  "join": "roblox://placeId=7171174521&gameInstanceId=8f91cede-1109-4e67-87b6-e0eca3b4a0d0",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790234563744
+  "web": "https://www.roblox.com/games/start?placeId=7171174521&gameInstanceId=8f91cede-1109-4e67-87b6-e0eca3b4a0d0",
+  "location": "[🏍️DIRTBIKE🏍️] American Plains Mudding",
+  "updatedAt": 1790234983801
 }
