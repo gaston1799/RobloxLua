@@ -38,6 +38,9 @@ local BotState = {
     movement_keys = {w=false, a=false, s=false, d=false},
     auto_eat_enabled = false,
     auto_fireball_enabled = false,
+    auto_sprint_enabled = false,     -- "shift" is a sprint toggle in this game
+    sprint_on = false,               -- what we believe the game's sprint state currently is
+    sprint_last_sync = 0,
     follow_ally_enabled = false,
     follow_leader_enabled = false,   -- Follow Ally targets the clan's "leader" entry instead of the nearest ally
     follow_moving = false,           -- hysteresis latch for the follow distance
@@ -486,21 +489,36 @@ local function aimCameraAtTarget(targetRoot)
     camera.CFrame = CFrame.new(cameraPos, targetRoot.Position)
 end
 
--- NOTE: both paths send the same single press, which is only correct if the game treats
--- "shift" as a toggle key; otherwise the "disable" path re-enables it.
-local function toggleShiftLock(enabled)
-    if enabled then
-        print("[Bot] Shift lock: toggle press (on)")
+-- ===== AUTO SPRINT =====
+-- "shift" TOGGLES sprint in this game. It starts OFF, and the game resets it to OFF on join
+-- and on every respawn / character change. So we keep a belief of the current state and press
+-- the toggle once whenever the desired state (the Auto Sprint toggle) disagrees with it. The
+-- CharacterAdded handler below resets the belief, so the next tick re-applies the press.
+local SPRINT_RESYNC_INTERVAL = 0.5
+
+local function syncSprint()
+    if BotState.auto_sprint_enabled == BotState.sprint_on then return end
+
+    local now = tick()
+    if now - BotState.sprint_last_sync < SPRINT_RESYNC_INTERVAL then return end
+    BotState.sprint_last_sync = now
+
+    local desired = BotState.auto_sprint_enabled
+    -- Spawned so the Heartbeat handler never yields on the 0.1s press.
+    task.spawn(function()
         sendIntent("shift", "down")
         task.wait(0.1)
         sendIntent("shift", "up")
-    else
-        print("[Bot] Shift lock: toggle press (off)")
-        sendIntent("shift", "down")
-        task.wait(0.1)
-        sendIntent("shift", "up")
-    end
+        BotState.sprint_on = desired
+        print("[Auto Sprint]", desired and "ON" or "OFF")
+    end)
 end
+
+-- Respawn / character change turns sprint off in-game, so forget the belief and let
+-- syncSprint() press it back on.
+LocalPlayer.CharacterAdded:Connect(function()
+    BotState.sprint_on = false
+end)
 
 local function moveTowardWithInterception(targetRoot)
     local char = LocalPlayer.Character
@@ -1424,10 +1442,12 @@ local function updateBotState()
 
     refreshHeldKeys()
 
-    -- Follow Ally is active precisely when there is NO combat target, so it must be handled
-    -- BEFORE the target gate below. That gate returns early, which meant updateMovement() -
-    -- where the follow logic lives - was never reached while following.
-    if BotState.enabled and BotState.follow_ally_enabled and not BotState.target then
+    -- Auto Sprint re-syncs every tick, with or without the combat bot running.
+    syncSprint()
+
+    -- Follow Ally needs only its own toggle now: movement must not depend on the PVP bot
+    -- having been started, which is exactly what used to gate it.
+    if BotState.follow_ally_enabled and not BotState.target then
         BotState.current_state = "following"
         updateMovement()
         return
@@ -1475,18 +1495,17 @@ _G.AdvancedPVPBot = {
     start = function()
         if BotState.enabled then return end
         BotState.enabled = true
-        toggleShiftLock(true)
+        -- The tick loop is created by buildUI; the shift key belongs to Auto Sprint now.
         if not botLoop then
             botLoop = RunService.Heartbeat:Connect(updateBotState)
         end
-        print("[Advanced PVP Bot] Started with Shift Lock enabled")
+        print("[Advanced PVP Bot] Started")
     end,
 
     stop = function()
         BotState.enabled = false
         releaseAllKeys()
-        toggleShiftLock(false)
-        print("[Advanced PVP Bot] Stopped, Shift Lock disabled")
+        print("[Advanced PVP Bot] Stopped (Auto Sprint untouched)")
     end,
 
     toggle = function()
@@ -1627,8 +1646,10 @@ local function buildUI(ui)
         title = "Auto Sprint",
         toggled = false,
         callback = function(val)
-            Config.approach_speed = val and "sprint" or "normal"
-            print("[PVP Bot] Auto Sprint:", val)
+            -- Real effect this time: "shift" is a toggle in this game. The old callback only
+            -- set Config.approach_speed, which nothing ever read.
+            BotState.auto_sprint_enabled = val
+            print("[Auto Sprint]", val and "Enabled" or "Disabled")
         end,
     })
 
@@ -1884,6 +1905,12 @@ local function buildUI(ui)
             print("")
         end,
     })
+
+    -- Own the tick loop here rather than inside the PVP bot: follow-ally and auto-sprint have
+    -- to run whether or not the PVP bot was ever started.
+    if not botLoop then
+        botLoop = RunService.Heartbeat:Connect(updateBotState)
+    end
 
     return ui
 end
