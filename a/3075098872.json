@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 87446742578604,
-  "jobId": "fb5f24b4-5e01-446d-8794-eddd7132a0af",
-  "join": "roblox://placeId=87446742578604&gameInstanceId=fb5f24b4-5e01-446d-8794-eddd7132a0af",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=87446742578604&gameInstanceId=fb5f24b4-5e01-446d-8794-eddd7132a0af",
-  "location": "Grow a Haunt",
-  "updatedAt": 1790374509061
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790374569157
 }
