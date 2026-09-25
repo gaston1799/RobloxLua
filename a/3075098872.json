@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 78018800351449,
-  "jobId": "92f443ba-bf4c-4f79-bfbe-fa0af2b9cc9d",
-  "join": "roblox://placeId=78018800351449&gameInstanceId=92f443ba-bf4c-4f79-bfbe-fa0af2b9cc9d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=78018800351449&gameInstanceId=92f443ba-bf4c-4f79-bfbe-fa0af2b9cc9d",
-  "location": "[UPD] Mini Kings",
-  "updatedAt": 1790374329030
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790374449057
 }
