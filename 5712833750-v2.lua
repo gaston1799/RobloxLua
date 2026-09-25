@@ -836,9 +836,6 @@ end
 
 local function updateAutozoneTarget()
     if not BotState.autozone_enabled then return end
-    -- AutoZone is an extension of following: its anchor is an ally we are following, so it only
-    -- runs while Follow Ally is ON (confirmed requirement).
-    if not BotState.follow_ally_enabled then return end
     if BotState.target then return end  -- Already have target from manual/PVP
 
     local char = LocalPlayer.Character
@@ -851,15 +848,21 @@ local function updateAutozoneTarget()
     -- (otherwise this would set a target and the tick would clear it again every frame).
     if isInsideSafeZone(root.Position) then return end
 
-    -- Find closest ally
-    local ally = findClosestAlly()
-    if not ally or not ally.Character then return end
-
-    local allyRoot = ally.Character:FindFirstChild("HumanoidRootPart")
-    if not allyRoot then return end
-
-    -- Check if ally is in safe zone
-    if isInsideSafeZone(allyRoot.Position) then return end
+    -- The ally is an OPTIONAL anchor. While Follow Ally is on we stay inside that ally's zone
+    -- (targets within engage range of them). With Follow Ally off - solo, or on a team but not
+    -- following - there is no zone to stay in and the dropdown selection alone decides the scope:
+    -- one specific clan, or Any Target. The ratio check still has to pass either way.
+    local ally = nil
+    local allyRoot = nil
+    if BotState.follow_ally_enabled then
+        ally = findClosestAlly()
+        if ally and ally.Character then
+            local candidate = ally.Character:FindFirstChild("HumanoidRootPart")
+            if candidate and not isInsideSafeZone(candidate.Position) then
+                allyRoot = candidate
+            end
+        end
+    end
 
     -- Find closest enemy within engage range of ally
     local closestEnemy = nil
@@ -885,9 +888,14 @@ local function updateAutozoneTarget()
                 if isTargetClan then
                     -- Check if enemy is outside safe zone
                     if not isInsideSafeZone(enemyRoot.Position) then
-                        -- Check if within engage range of ally
-                        local distToAlly = getDistance(allyRoot.Position, enemyRoot.Position)
-                        if distToAlly <= Config.autozone_engage_range then
+                        -- With an anchor, stay in the ally's zone (within engage range of them).
+                        -- Solo there is no zone to stay in: anyone outside the safe zone qualifies
+                        -- and the ratio check decides.
+                        local inRange = true
+                        if allyRoot then
+                            inRange = getDistance(allyRoot.Position, enemyRoot.Position) <= Config.autozone_engage_range
+                        end
+                        if inRange then
                             local distToUs = getDistance(root.Position, enemyRoot.Position)
                             if distToUs < closestEnemyDist then
                                 closestEnemyDist = distToUs
@@ -912,7 +920,9 @@ local function updateAutozoneTarget()
                 _G.AdvancedPVPBot.start()
             end
             _G.AdvancedPVPBot.setTarget(closestEnemy)
-            print("[AutoZone] ✓ Engaging " .. closestEnemy.Name .. " within " .. Config.autozone_engage_range .. " studs of ally " .. ally.Name)
+            print("[AutoZone] ✓ Engaging " .. closestEnemy.Name .. (allyRoot
+                and (" within " .. Config.autozone_engage_range .. " studs of ally " .. ally.Name)
+                or " (no ally anchor - dropdown scope)"))
         end
     end
 end
@@ -1975,8 +1985,9 @@ local function buildUI(ui)
         callback = function(val)
             BotState.autozone_enabled = val
             print("[AutoZone]", val and "Enabled (engage enemies near the ally you follow)" or "Disabled")
-            if val and not BotState.follow_ally_enabled then
-                print("[AutoZone] NOTE: turn on 'Follow Ally' as well - AutoZone only engages around the ally you follow")
+            if val then
+                print("[AutoZone] Scope: " .. tostring(BotState.target_enemy_clan)
+                    .. " | ally anchor: " .. (BotState.follow_ally_enabled and "on (stay near the ally you follow)" or "off (targets anywhere outside the safe zone)"))
             end
         end,
     })
