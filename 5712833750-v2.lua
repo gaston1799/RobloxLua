@@ -123,6 +123,97 @@ local Config = {
     ally_clan_name = getSafeClanName(),
 }
 
+-- ===== HUMANISER =====
+-- Every interval in this script used to be a constant, which is exactly what made the timing read as
+-- machine-like: presses landed on the first frame a cooldown expired, T was an 8 Hz metronome, the
+-- strafe was a fixed-frequency sine, and held keys were re-sent bang on 1.5s. These ranges add
+-- variance WITHOUT changing any decision logic. Set enabled = false for the old regular behaviour.
+local HUMANISE = {
+    enabled = true,
+    cooldown_jitter = 0.2,          -- +/-20% on the Q and E cooldowns
+    reaction_min = 0.06,            -- human-ish delay added once a cooldown expires
+    reaction_max = 0.14,
+    t_spam_min = 0.09,              -- T (stance) interval range; replaces Config.t_spam_interval
+    t_spam_max = 0.20,
+    t_skip_chance = 0.15,           -- chance to miss a T opportunity entirely
+    strafe_min_hz = 2.4,            -- strafe oscillator frequency, re-rolled every 1.5-4 s
+    strafe_max_hz = 3.6,
+    strafe_drop_per_second = 0.15,  -- rate of brief strafe-key drops
+    strafe_drop_min = 0.05,
+    strafe_drop_max = 0.20,
+    melee_jitter = 0.5,             -- melee stop distance +/- studs
+    key_refresh_min = 1.2,          -- held-key re-send interval range
+    key_refresh_max = 1.9,
+    idle_min_gap = 20,              -- how often an idle pause happens, and how long it lasts
+    idle_max_gap = 60,
+    idle_min_len = 0.5,
+    idle_max_len = 2.0,
+    camera_ease = 0.85,             -- camera easing per frame (1 = snap straight to target)
+    camera_offset = 0.35,           -- studs of random camera jitter
+}
+
+math.randomseed(tick() % 2147483647)
+
+local function jitterFactor(spread)
+    if not HUMANISE.enabled then return 1 end
+    return 1 - spread + (math.random() * spread * 2)
+end
+
+local function jitterRange(minValue, maxValue)
+    if not HUMANISE.enabled then return (minValue + maxValue) / 2 end
+    return minValue + math.random() * (maxValue - minValue)
+end
+
+local function chance(probability)
+    if not HUMANISE.enabled or probability <= 0 then return false end
+    return math.random() < probability
+end
+
+-- Jittered melee stop distance. Re-rolled every 0.5-1.5 s rather than per frame, because per frame
+-- would make it chatter at the boundary instead of looking sloppy.
+local function meleeRange()
+    if not HUMANISE.enabled then return Config.melee_range end
+    local now = tick()
+    if now >= (BotState.melee_reroll or 0) then
+        BotState.melee_reroll = now + jitterRange(0.5, 1.5)
+        BotState.melee_target = Config.melee_range + jitterRange(-HUMANISE.melee_jitter, HUMANISE.melee_jitter)
+    end
+    return BotState.melee_target or Config.melee_range
+end
+
+-- Drifting strafe: the phase advances with a frequency that is re-rolled every few seconds, so it
+-- is not a fixed oscillator, and occasionally the key is dropped for a moment.
+local function humaniseStrafe(input)
+    local now = tick()
+    local dt = math.clamp(now - (BotState.strafe_last or now), 0, 0.1)
+    BotState.strafe_last = now
+
+    if now >= (BotState.strafe_reroll or 0) then
+        BotState.strafe_reroll = now + jitterRange(1.5, 4.0)
+        BotState.strafe_hz = jitterRange(HUMANISE.strafe_min_hz, HUMANISE.strafe_max_hz)
+    end
+
+    BotState.strafe_phase = (BotState.strafe_phase or 0) + dt * (BotState.strafe_hz or 3)
+
+    if now < (BotState.strafe_drop_until or 0) then
+        input.a = false
+        input.d = false
+        return
+    end
+    if chance(HUMANISE.strafe_drop_per_second * dt) then
+        BotState.strafe_drop_until = now + jitterRange(HUMANISE.strafe_drop_min, HUMANISE.strafe_drop_max)
+        input.a = false
+        input.d = false
+        return
+    end
+
+    if math.sin(BotState.strafe_phase) > 0 then
+        input.a = true
+    else
+        input.d = true
+    end
+end
+
 -- ===== AUTO PVP STATE =====
 
 local AutoPVPState = {
@@ -453,10 +544,11 @@ end
 
 local function refreshHeldKeys()
     local now = tick()
-    if now - lastKeyRefreshTime < KEY_REFRESH_INTERVAL then
+    if now < (BotState.next_key_refresh or 0) then
         return
     end
-    lastKeyRefreshTime = now
+    -- Re-send jittered so the held-key heartbeat is not a fixed 1.5s pattern.
+    BotState.next_key_refresh = now + jitterRange(HUMANISE.key_refresh_min, HUMANISE.key_refresh_max)
 
     for key, held in pairs(BotState.movement_keys) do
         if held then
@@ -499,7 +591,17 @@ local function aimCameraAtTarget(targetRoot)
     local behindDist = math.max(5, distance * 0.3)
     local cameraPos = root.Position - (dirToTarget * behindDist) + Vector3.new(0, 1, 0)
 
-    camera.CFrame = CFrame.new(cameraPos, targetRoot.Position)
+    -- Ease toward the ideal framing and add a little jitter, instead of snapping the camera exactly
+    -- onto the target every single frame (which is itself a giveaway).
+    local desired = CFrame.new(cameraPos, targetRoot.Position)
+    local eased = camera.CFrame:Lerp(desired, HUMANISE.enabled and HUMANISE.camera_ease or 1)
+    if HUMANISE.enabled and HUMANISE.camera_offset > 0 then
+        eased = eased * CFrame.new(
+            (math.random() - 0.5) * HUMANISE.camera_offset,
+            (math.random() - 0.5) * HUMANISE.camera_offset,
+            0)
+    end
+    camera.CFrame = eased
 end
 
 -- ===== AUTO SPRINT =====
@@ -616,13 +718,8 @@ local function strafeBaitDodge(targetRoot)
         end
     end
 
-    -- Continuous strafing to dodge (sine wave pattern)
-    local strafeLeft = math.sin(tick() * 3) > 0
-    if strafeLeft then
-        input.a = true
-    else
-        input.d = true
-    end
+    -- Drifting strafe instead of a fixed-frequency sine
+    humaniseStrafe(input)
 
     for key, shouldPress in pairs(input) do
         if shouldPress then
@@ -660,12 +757,7 @@ local function fireballBait(targetPos)
         end
     end
 
-    local strafeLeft = math.sin(tick() * 3) > 0
-    if strafeLeft then
-        input.a = true
-    else
-        input.d = true
-    end
+    humaniseStrafe(input)
 
     for key, shouldPress in pairs(input) do
         if shouldPress then
@@ -681,6 +773,9 @@ local function attackWithQ()
     task.wait(0.05)
     sendIntent("q", "up")
     BotState.last_q_time = tick()
+    -- Not a fixed cadence any more: the cooldown is scaled, then a reaction delay is added.
+    BotState.q_wait = Config.q_cooldown * jitterFactor(HUMANISE.cooldown_jitter)
+        + jitterRange(HUMANISE.reaction_min, HUMANISE.reaction_max)
 end
 
 local function fireballAttack()
@@ -688,6 +783,8 @@ local function fireballAttack()
     task.wait(0.1)
     sendIntent("e", "up")
     BotState.last_fireball_time = tick()
+    BotState.fireball_wait = Config.fireball_cooldown * jitterFactor(HUMANISE.cooldown_jitter)
+        + jitterRange(HUMANISE.reaction_min, HUMANISE.reaction_max)
 end
 
 local function doubleHit()
@@ -765,8 +862,10 @@ end
 
 local function spamT()
     local now = tick()
-    if now - BotState.last_t_spam_time < Config.t_spam_interval then return end
-    BotState.last_t_spam_time = now
+    if now < (BotState.next_t_time or 0) then return end
+    -- Interval varies, and sometimes the press is skipped entirely, instead of an exact 8 Hz.
+    BotState.next_t_time = now + jitterRange(HUMANISE.t_spam_min, HUMANISE.t_spam_max)
+    if chance(HUMANISE.t_skip_chance) then return end
     sendIntent("t", "down")
     task.wait(0.02)
     sendIntent("t", "up")
@@ -1687,7 +1786,7 @@ local function updateMovement()
     if not root then return end
 
     local dist = getDistance(root.Position, targetRoot.Position)
-    local qReady = (tick() - BotState.last_q_time) > Config.q_cooldown
+    local qReady = (tick() - BotState.last_q_time) > (BotState.q_wait or Config.q_cooldown)
 
     -- Aim camera at the combat target. The "or ally if following" branch that used to live
     -- here was unreachable: this code only runs when BotState.target is set (checked above),
@@ -1697,7 +1796,7 @@ local function updateMovement()
     if qReady then
         -- Q is ready: move to melee range (6 studs) for attack
         BotState.current_state = "approaching"
-        if dist > Config.melee_range then
+        if dist > meleeRange() then
             moveTowardWithInterception(targetRoot)
         else
             releaseAllKeys()
@@ -1730,15 +1829,15 @@ local function updateHitting()
     if not root then return end
 
     local dist = getDistance(root.Position, targetRoot.Position)
-    local qReady = (tick() - BotState.last_q_time) > Config.q_cooldown
+    local qReady = (tick() - BotState.last_q_time) > (BotState.q_wait or Config.q_cooldown)
 
     -- Spam T when in hit range (stance animation)
-    if dist <= Config.melee_range then
+    if dist <= meleeRange() then
         spamT()
     end
 
     -- Fire Q whenever ready and in melee range
-    if qReady and dist <= Config.melee_range then
+    if qReady and dist <= meleeRange() then
         attackWithQ()
     end
 end
@@ -1750,6 +1849,25 @@ local function updateBotState()
 
     -- Auto Sprint re-syncs every tick, with or without the combat bot running.
     syncSprint()
+
+    -- Occasional idle pause, only while not fighting: release everything and do nothing for a random
+    -- moment. Scheduled from a random gap so it cannot be predicted either.
+    if HUMANISE.enabled and not BotState.target then
+        local idleNow = tick()
+        if idleNow < (BotState.idle_until or 0) then
+            releaseAllKeys()
+            return
+        end
+        if BotState.enabled or BotState.follow_ally_enabled or BotState.autozone_enabled then
+            if idleNow >= (BotState.idle_next or 0) then
+                BotState.idle_next = idleNow + jitterRange(HUMANISE.idle_min_gap, HUMANISE.idle_max_gap)
+                BotState.idle_until = idleNow + jitterRange(HUMANISE.idle_min_len, HUMANISE.idle_max_len)
+                print("[Humaniser] idle pause")
+                releaseAllKeys()
+                return
+            end
+        end
+    end
 
     -- Zone cube membership runs every tick too, so enter/leave is tracked even while idle.
     zoneTrackerTick()
