@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 133331331676868,
-  "jobId": "6304616f-bdce-4fbf-81b4-e4a5e7dd636c",
-  "join": "roblox://placeId=133331331676868&gameInstanceId=6304616f-bdce-4fbf-81b4-e4a5e7dd636c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=133331331676868&gameInstanceId=6304616f-bdce-4fbf-81b4-e4a5e7dd636c",
-  "location": "Saiyan Fighters",
-  "updatedAt": 1790378470010
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790378529989
 }
