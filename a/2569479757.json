@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 129441589031863,
-  "jobId": "00aa4dbd-1a89-4060-bbe9-ae5f4774f87a",
-  "join": "roblox://placeId=129441589031863&gameInstanceId=00aa4dbd-1a89-4060-bbe9-ae5f4774f87a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=129441589031863&gameInstanceId=00aa4dbd-1a89-4060-bbe9-ae5f4774f87a",
-  "location": "[🦒] My Billionaire Zoo",
-  "updatedAt": 1790361996192
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790362029379
 }
