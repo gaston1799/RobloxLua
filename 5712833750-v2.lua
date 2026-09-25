@@ -2139,9 +2139,9 @@ local function buildUI(ui)
     ratioSection:addSlider({
         title = "Damage Multiplier",
         min = 0.1,
-        max = 10,      -- the hit-to-kill ratio grows with (enemy level / your level)^2, so a 2x level
-                       -- gap is already ~4.0 and a 3x gap ~9.0 - a max of 2 could only ever accept
-                       -- fights against players close to your own level
+        max = 100,     -- the hit-to-kill ratio grows with (enemy level / your level)^2: a 2x level gap
+                       -- ~4, 3x ~9, 5x ~25, 10x ~100. Raised 2 -> 10 -> 100 because fights against
+                       -- much higher levels kept being rejected
         default = 1,
         precision = 1,
         callback = function(val)
