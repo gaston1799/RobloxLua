@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 110434609045277,
+  "jobId": "67db17fe-cdaf-41f3-bc8d-1f6c63291a55",
+  "join": "roblox://placeId=110434609045277&gameInstanceId=67db17fe-cdaf-41f3-bc8d-1f6c63291a55",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790369227575
+  "web": "https://www.roblox.com/games/start?placeId=110434609045277&gameInstanceId=67db17fe-cdaf-41f3-bc8d-1f6c63291a55",
+  "location": "[Beta] The Creator-God Sim ",
+  "updatedAt": 1790369347638
 }
