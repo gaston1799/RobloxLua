@@ -2139,9 +2139,11 @@ local function buildUI(ui)
     ratioSection:addSlider({
         title = "Damage Multiplier",
         min = 0.1,
-        max = 100,     -- the hit-to-kill ratio grows with (enemy level / your level)^2: a 2x level gap
-                       -- ~4, 3x ~9, 5x ~25, 10x ~100. Raised 2 -> 10 -> 100 because fights against
-                       -- much higher levels kept being rejected
+        max = 4000,    -- effectively unlimited headroom: the ratio grows with (enemy level / your
+                       -- level)^2, so 4000 is a ~63x level gap. In practice the useful band is tiny
+                       -- - 16 is a 4x level gap, which is about the limit of anything beatable - and
+                       -- a slider this wide cannot be dragged to a value like 2.9, hence the exact
+                       -- entry box below
         default = 1,
         precision = 1,
         callback = function(val)
@@ -2149,6 +2151,25 @@ local function buildUI(ui)
             print("[Ratio] Damage Multiplier:", val)
         end,
     })
+
+    -- With the range this wide the slider cannot resolve fine values, so allow typing the exact
+    -- number. pcall-guarded: a Venyx build without addTextbox must not break the whole interface.
+    local okMultiplierBox, multiplierBoxErr = pcall(function()
+        ratioSection:addTextbox({
+            title = "Damage Multiplier (type exact)",
+            text = tostring(_G.DamageMultiplier or 1),
+            callback = function(input)
+                local value = tonumber(input)
+                if value and value > 0 then
+                    _G.DamageMultiplier = value
+                    print("[Ratio] Damage Multiplier set to:", value)
+                end
+            end,
+        })
+    end)
+    if not okMultiplierBox then
+        print("[Ratio] no addTextbox in this UI build (" .. tostring(multiplierBoxErr) .. ") - use the slider")
+    end
 
     ratioSection:addButton({
         title = "Show Damage Info",
