@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 119889354660894,
+  "jobId": "1f599c74-b9fc-4d2b-9951-f97901ee09b0",
+  "join": "roblox://placeId=119889354660894&gameInstanceId=1f599c74-b9fc-4d2b-9951-f97901ee09b0",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790373550460
+  "web": "https://www.roblox.com/games/start?placeId=119889354660894&gameInstanceId=1f599c74-b9fc-4d2b-9951-f97901ee09b0",
+  "location": "God RNG",
+  "updatedAt": 1790373909139
 }
