@@ -2257,11 +2257,10 @@ local function buildUI(ui)
     ratioSection:addSlider({
         title = "Damage Multiplier",
         min = 0.1,
-        max = 4000,    -- effectively unlimited headroom: the ratio grows with (enemy level / your
-                       -- level)^2, so 4000 is a ~63x level gap. In practice the useful band is tiny
-                       -- - 16 is a 4x level gap, which is about the limit of anything beatable - and
-                       -- a slider this wide cannot be dragged to a value like 2.9, hence the exact
-                       -- entry box below
+        max = 4,       -- ratio, NOT a level multiple: the code compares hitsToKillThem/hitsToKillYou,
+                       -- which grows with (enemy level / your level)^2. So 4 here is about a 2x
+                       -- level gap, and 16 would be a 4x gap. The exact-entry box below sets any
+                       -- value if you want to go past the slider.
         default = 1,
         precision = 1,
         callback = function(val)
