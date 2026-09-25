@@ -150,6 +150,11 @@ local HUMANISE = {
     idle_max_len = 2.0,
     camera_ease = 0.85,             -- camera easing per frame (1 = snap straight to target)
     camera_offset = 0.35,           -- studs of random camera jitter
+    bait_action_min = 0.8,          -- how long one bait action lasts before a new one is picked
+    bait_action_max = 2.5,
+    bait_band_min = 9,              -- the distance band it holds while baiting, re-rolled each action
+    bait_band_max = 17,             -- instead of a fixed 10-15
+    approach_offset = 3,            -- studs of lateral offset on the approach, so it is not dead-on
 }
 
 math.randomseed(tick() % 2147483647)
@@ -650,6 +655,20 @@ local function moveTowardWithInterception(targetRoot)
         targetPos = targetRoot.Position + (velocity * 0.2)
     end
 
+    -- In combat, aim for an off-centre point rather than the target's exact position, so the
+    -- approach is not the same straight line every time. Re-rolled every 1-3s.
+    if HUMANISE.enabled and BotState.target then
+        local now = tick()
+        if now >= (BotState.approach_offset_until or 0) then
+            BotState.approach_offset_until = now + jitterRange(1.0, 3.0)
+            BotState.approach_offset = jitterRange(-HUMANISE.approach_offset, HUMANISE.approach_offset)
+        end
+        local flat = Vector3.new(targetPos.X - root.Position.X, 0, targetPos.Z - root.Position.Z)
+        if flat.Magnitude > 0.1 then
+            targetPos = targetPos + flat.Unit:Cross(Vector3.new(0, 1, 0)) * (BotState.approach_offset or 0)
+        end
+    end
+
     local dirToTarget = getDirection(root.Position, targetPos)
     local camDir = getCameraDirection()
 
@@ -682,6 +701,34 @@ local function moveTowardWithInterception(targetRoot)
     end
 end
 
+-- Weighted movement repertoire for the bait phase. The old phase had ONE behaviour - hold the band
+-- and sweep sideways - which is why the path looked the same every time. These are distinct key
+-- shapes:
+--   strafe   : hold the band, lateral only
+--   arc-in   : close on a curve (forward + lateral)
+--   juke     : retreat diagonally
+--   back-off : straight retreat, no lateral at all
+--   hold     : stand still for a moment
+local BAIT_ACTIONS = {
+    { name = "strafe",   weight = 30 },
+    { name = "arc-in",   weight = 20 },
+    { name = "juke",     weight = 20 },
+    { name = "back-off", weight = 15 },
+    { name = "hold",     weight = 15 },
+}
+
+local function pickBaitAction()
+    if not HUMANISE.enabled then return "strafe" end
+    local total = 0
+    for _, action in ipairs(BAIT_ACTIONS) do total = total + action.weight end
+    local roll = math.random() * total
+    for _, action in ipairs(BAIT_ACTIONS) do
+        roll = roll - action.weight
+        if roll <= 0 then return action.name end
+    end
+    return "strafe"
+end
+
 local function strafeBaitDodge(targetRoot)
     -- Stay at 10-15 studs and strafe left-right to dodge fireballs
     if not targetRoot then return end
@@ -701,25 +748,70 @@ local function strafeBaitDodge(targetRoot)
 
     local input = {w=false, a=false, s=false, d=false}
 
-    -- Maintain 10-15 stud range
-    local baitMinDist = 10
-    local baitMaxDist = 15
+    -- W/S/A/D move relative to where the CAMERA looks, so map the wanted world directions through
+    -- the dots instead of assuming the camera faces the target.
+    local forwardDot = dirToTarget:Dot(camForward)
+    local leftDot = dirToTarget:Cross(Vector3.new(0, 1, 0)):Dot(camRight)
 
-    if dist < baitMinDist then
-        -- Too close, back up
-        input.s = true
-    elseif dist > baitMaxDist then
-        -- Too far, move closer
-        local forwardDot = dirToTarget:Dot(camForward)
-        if forwardDot > 0.2 then
+    local function pressForward(sign)
+        if sign == 0 then return end
+        if (sign > 0) == (forwardDot > 0) then
             input.w = true
-        elseif forwardDot < -0.2 then
+        else
             input.s = true
         end
     end
 
-    -- Drifting strafe instead of a fixed-frequency sine
-    humaniseStrafe(input)
+    local function pressSide(sideSign)
+        if sideSign == 0 then return end
+        -- sideSign +1 is left of the target direction, whatever the camera is doing
+        if (sideSign > 0) == (leftDot > 0) then
+            input.d = true
+        else
+            input.a = true
+        end
+    end
+
+    -- One action at a time, held across bait windows (0.8-2.5s) so the movement is not always a
+    -- sweep at the same distance. Weights are in BAIT_ACTIONS.
+    local now = tick()
+    if now >= (BotState.bait_until or 0) then
+        BotState.bait_action = pickBaitAction()
+        BotState.bait_until = now + jitterRange(HUMANISE.bait_action_min, HUMANISE.bait_action_max)
+        BotState.bait_side = (math.random() < 0.5) and 1 or -1
+        BotState.bait_band = jitterRange(HUMANISE.bait_band_min, HUMANISE.bait_band_max)
+        BotState.bait_flip_at = now + ((BotState.bait_until - now) * 0.5)
+        print("[Movement] bait:", BotState.bait_action, string.format("| band %.1f", BotState.bait_band))
+    end
+
+    -- Halfway through, sometimes swap strafing direction (a human changing their mind).
+    if now >= (BotState.bait_flip_at or math.huge) then
+        if chance(0.5) then
+            BotState.bait_side = -(BotState.bait_side or 1)
+        end
+        BotState.bait_flip_at = math.huge
+    end
+
+    local action = BotState.bait_action or "strafe"
+    local band = BotState.bait_band or 12
+    local side = BotState.bait_side or 1
+
+    if action == "strafe" then
+        pressForward(dist < band - 2 and -1 or (dist > band + 3 and 1 or 0))
+        pressSide(side)
+    elseif action == "arc-in" then
+        pressForward(dist > band and 1 or 0)
+        pressSide(side)
+    elseif action == "back-off" then
+        pressForward(-1)
+    elseif action == "hold" then
+        -- deliberately no keys; spelled out so the press loop still releases anything held
+        input.w = false
+        input.s = false
+    elseif action == "juke" then
+        pressForward(-1)
+        pressSide(side)
+    end
 
     for key, shouldPress in pairs(input) do
         if shouldPress then
@@ -738,6 +830,20 @@ local function fireballBait(targetPos)
     if not root then return end
 
     local dist = getDistance(root.Position, targetPos)
+    -- In combat, aim for an off-centre point rather than the target's exact position, so the
+    -- approach is not the same straight line every time. Re-rolled every 1-3s.
+    if HUMANISE.enabled and BotState.target then
+        local now = tick()
+        if now >= (BotState.approach_offset_until or 0) then
+            BotState.approach_offset_until = now + jitterRange(1.0, 3.0)
+            BotState.approach_offset = jitterRange(-HUMANISE.approach_offset, HUMANISE.approach_offset)
+        end
+        local flat = Vector3.new(targetPos.X - root.Position.X, 0, targetPos.Z - root.Position.Z)
+        if flat.Magnitude > 0.1 then
+            targetPos = targetPos + flat.Unit:Cross(Vector3.new(0, 1, 0)) * (BotState.approach_offset or 0)
+        end
+    end
+
     local dirToTarget = getDirection(root.Position, targetPos)
     local camDir = getCameraDirection()
 
