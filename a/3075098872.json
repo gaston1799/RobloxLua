@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 85239265313524,
+  "jobId": "f657e946-f529-4348-931f-3a3a40437e19",
+  "join": "roblox://placeId=85239265313524&gameInstanceId=f657e946-f529-4348-931f-3a3a40437e19",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790373430302
+  "web": "https://www.roblox.com/games/start?placeId=85239265313524&gameInstanceId=f657e946-f529-4348-931f-3a3a40437e19",
+  "location": "[🍎| Grow A Fruit",
+  "updatedAt": 1790373488824
 }
