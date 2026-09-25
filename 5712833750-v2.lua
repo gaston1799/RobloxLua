@@ -776,6 +776,11 @@ end
 
 local warnedNoClan = false
 
+-- Forward declarations for the zone machinery, which is defined BELOW but is called from here.
+-- Without these the calls below resolved to globals and blew up at runtime with
+-- 'attempt to call a nil value', aborting the rest of that Heartbeat tick.
+local isInsideSafeZone, isInAutoZone, characterInSafeZone
+
 local function findClosestAlly()
     local char = LocalPlayer.Character
     if not char then return nil end
@@ -846,7 +851,7 @@ local function updateAutozoneTarget()
 
     -- You cannot fight from inside the safe zone, so never acquire a target while there
     -- (otherwise this would set a target and the tick would clear it again every frame).
-    if isInsideSafeZone(root.Position) then return end
+    if characterInSafeZone(char) then return end
 
     -- The ally is an OPTIONAL anchor. While Follow Ally is on we stay inside that ally's zone
     -- (targets within engage range of them). With Follow Ally off - solo, or on a team but not
@@ -858,7 +863,7 @@ local function updateAutozoneTarget()
         ally = findClosestAlly()
         if ally and ally.Character then
             local candidate = ally.Character:FindFirstChild("HumanoidRootPart")
-            if candidate and not isInsideSafeZone(candidate.Position) then
+            if candidate and not characterInSafeZone(ally.Character) then
                 allyRoot = candidate
             end
         end
@@ -887,7 +892,7 @@ local function updateAutozoneTarget()
 
                 if isTargetClan then
                     -- Check if enemy is outside safe zone
-                    if not isInsideSafeZone(enemyRoot.Position) then
+                    if not characterInSafeZone(player.Character) then
                         -- With an anchor, stay in the ally's zone (within engage range of them).
                         -- Solo there is no zone to stay in: anyone outside the safe zone qualifies
                         -- and the ratio check decides.
@@ -1069,7 +1074,7 @@ local function pointInQuad(px, pz, quad)
     return sign ~= nil
 end
 
-local function isInsideSafeZone(position)
+function isInsideSafeZone(position)
     if position == nil then return false end
 
     -- Preferred: the real part, tested in its own space so rotation is accounted for.
@@ -1111,13 +1116,13 @@ local function zoneDebug(position)
         fromCentre, half.X, half.Z)
 end
 
-local function isInAutoZone(player)
+function isInAutoZone(player)
     if not player or not player.Character then return false end
     local root = player.Character:FindFirstChild("HumanoidRootPart")
     if not root then return false end
 
     -- Check if outside safe zone (returns true if OUTSIDE)
-    return not isInsideSafeZone(root.Position)
+    return not characterInSafeZone(player.Character)
 end
 
 -- ===== SAFE ZONE VISUALIZER =====
@@ -1318,6 +1323,22 @@ local function zoneTrackerTick()
     end
 end
 
+-- THE decision the rest of the script uses. Prefers the engine's own touch detection from the
+-- zone cube (same volume the visualizer draws), and only falls back to the maths when the cube is
+-- not available - i.e. when the zone part has not been found yet.
+function characterInSafeZone(character)
+    if not character then return false end
+
+    if zoneCube and zoneCube.Parent then
+        local insidePart = zoneInside[character] == true
+        if ZONE_PART_IS_SAFE then return insidePart end
+        return not insidePart
+    end
+
+    local root = character:FindFirstChild("HumanoidRootPart")
+    return root ~= nil and isInsideSafeZone(root.Position)
+end
+
 local function findAttackerByDamage(damageTaken)
     if not damageTaken or damageTaken <= 0 then
         print("[Auto PVP] Invalid damage: " .. tostring(damageTaken))
@@ -1462,7 +1483,7 @@ local function setupDamageDetection()
                     return
                 end
             -- Check if target escaped to safe zone
-            elseif targetRoot and isInsideSafeZone(targetRoot.Position) then
+            elseif targetRoot and characterInSafeZone(BotState.target.Character) then
                 print("[Auto PVP] Target " .. BotState.target.Name .. " escaped to safe zone, disengaging")
                 BotState.target = nil
                 BotState.target_last_y = nil
@@ -1505,7 +1526,7 @@ local function setupDamageDetection()
             local attacker = findAttackerByDamage(damageTaken)
             if attacker and attacker.Character then
                 local attackerRoot = attacker.Character:FindFirstChild("HumanoidRootPart")
-                local inSafeZone = attackerRoot and isInsideSafeZone(attackerRoot.Position) or false
+                local inSafeZone = characterInSafeZone(attacker.Character)
 
                 if attackerRoot then
                     print("[Auto PVP] Attacker: " .. attacker.Name
@@ -1770,7 +1791,7 @@ local function updateBotState()
     if BotState.target then
         local myChar = LocalPlayer.Character
         local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
-        if myRoot and isInsideSafeZone(myRoot.Position) then
+        if myRoot and characterInSafeZone(myChar) then
             print("[Auto PVP] We are in the safe zone - dropping " .. tostring(BotState.target.Name) .. " and disengaging")
             BotState.target = nil
             BotState.target_last_y = nil
@@ -2091,7 +2112,8 @@ local function buildUI(ui)
                 print("  zone part:", SAFE_ZONE_OBJECT ~= nil and SAFE_ZONE_OBJECT.Name or "NOT FOUND", "| part counts as safe area:", ZONE_PART_IS_SAFE)
                 print("  raw:" .. zoneDebug(myRoot.Position))
                 print("  tracker says you are inside:", zoneTrackerHas(LocalPlayer))
-                print("  maths says you are inside:", isInsideSafeZone(myRoot.Position))
+                print("  maths (fallback) says you are inside:", isInsideSafeZone(myRoot.Position))
+                print("  DECISION - what the bot actually uses:", characterInSafeZone(LocalPlayer.Character))
                 if BotState.target then
                     print("  tracker says target " .. BotState.target.Name .. " is inside:", zoneTrackerHas(BotState.target))
                 end
