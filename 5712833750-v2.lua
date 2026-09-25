@@ -1020,11 +1020,14 @@ local nextSafeZoneCheck = 0
 -- NAMING TRAP: the part is called FightingZonePart and sits under Workspace.FightingArea, but
 -- standing inside it IS THE SAFE ZONE (confirmed in game). The name means nothing - the geometry
 -- is what counts. So a point inside this part is safe, and every check in this file that talks
--- about being "inside the safe zone" means "outside this part".
--- POLARITY, settled by toggling in game rather than by the part's name: with inside = safe the bot
--- called fightable attackers safe; with inside = FIGHT AREA it behaves correctly. The Misc toggle
--- shows this as OFF, and flipping it is the escape hatch.
-local ZONE_PART_IS_SAFE = false
+-- about being "inside the safe zone" means "inside this part".
+-- POLARITY, settled by MEASUREMENT rather than by toggling or by the part's name. Log line from
+-- 20:29:11: a fight at X=303.9, Z=491.9 reported 'In SafeZone: true' with distFromCentre=503.3
+-- against halfX=46.6 / halfZ=97.3 - i.e. a fighter 500 studs away from the part was being called
+-- safe, and 'Ignoring <name> - is in the safe zone' followed. So inside this part IS the safe
+-- zone and the fight area is outside it. The Misc toggle shows as ON; flip it if a future zone
+-- is authored the other way round.
+local ZONE_PART_IS_SAFE = true
 
 -- The zone part may not be streamed in when buildUI runs, so retry now and then.
 local function ensureSafeZone()
