@@ -1340,14 +1340,14 @@ local function findAttackerByDamage(damageTaken)
                 local distance = (root.Position - localRoot.Position).Magnitude
                 local score = diff + (distance * 0.02)
 
-                print("[Auto PVP] Checking " .. player.Name .. " | Level: " .. level .. " | Est DMG: " .. estimatedDamage .. " | Actual: " .. damageTaken .. " | Diff: " .. diff .. " | Tolerance: " .. tolerance)
-
-                -- Only match if damage aligns
+                -- Only match if damage aligns. The detail line lives inside this branch now: it used
+                -- to print for EVERY player on EVERY damage guess, which buried the rest of the log.
                 if diff <= tolerance then
                     if score < bestScore then
                         bestScore = score
                         bestPlayer = player
-                        print("[Auto PVP] ✓ Match found!")
+                        print(string.format("[Auto PVP] ✓ Match: %s | Level %s | Est DMG %s | Actual %s | Diff %s | Tolerance %s",
+                            player.Name, tostring(level), tostring(estimatedDamage), tostring(damageTaken), tostring(diff), tostring(tolerance)))
                     end
                 end
             end
@@ -1357,7 +1357,7 @@ local function findAttackerByDamage(damageTaken)
     if bestPlayer then
         print("[Auto PVP] ✓ Selected: " .. bestPlayer.Name)
     else
-        print("[Auto PVP] ✗ No match found")
+        print("[Auto PVP] ✗ No attacker matched damage " .. tostring(damageTaken) .. " (checked " .. #Players:GetPlayers() .. " players)")
     end
 
     return bestPlayer
