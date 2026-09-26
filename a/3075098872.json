@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 133436818838439,
-  "jobId": "9bd0ee67-846e-4062-a822-eeb886811575",
-  "join": "roblox://placeId=133436818838439&gameInstanceId=9bd0ee67-846e-4062-a822-eeb886811575",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=133436818838439&gameInstanceId=9bd0ee67-846e-4062-a822-eeb886811575",
-  "location": "[ NEW ] Steal A Genshin Egg !",
-  "updatedAt": 1790380450532
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790381350664
 }
