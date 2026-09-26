@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10646951315,
+  "jobId": "70ea5687-7214-4da6-a946-e49f38aeb99f",
+  "join": "roblox://placeId=10646951315&gameInstanceId=70ea5687-7214-4da6-a946-e49f38aeb99f",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790423541913
+  "web": "https://www.roblox.com/games/start?placeId=10646951315&gameInstanceId=70ea5687-7214-4da6-a946-e49f38aeb99f",
+  "location": "Impossible Game 90% Sqaud Game Bridge",
+  "updatedAt": 1790423661979
 }
