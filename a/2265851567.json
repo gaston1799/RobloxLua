@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 109983668079237,
-  "jobId": "2d2623be-e8e1-4b1a-b86c-305e3864e029",
-  "join": "roblox://placeId=109983668079237&gameInstanceId=2d2623be-e8e1-4b1a-b86c-305e3864e029",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=109983668079237&gameInstanceId=2d2623be-e8e1-4b1a-b86c-305e3864e029",
-  "location": "Steal a Brainrot",
-  "updatedAt": 1790428283195
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790428343215
 }
