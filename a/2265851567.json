@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2629642516,
+  "jobId": "b6271bae-1654-49cd-94eb-8ea015e6e389",
+  "join": "roblox://placeId=2629642516&gameInstanceId=b6271bae-1654-49cd-94eb-8ea015e6e389",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790428343215
+  "web": "https://www.roblox.com/games/start?placeId=2629642516&gameInstanceId=b6271bae-1654-49cd-94eb-8ea015e6e389",
+  "location": "Bitcoin Miner ⛏️",
+  "updatedAt": 1790428403232
 }
