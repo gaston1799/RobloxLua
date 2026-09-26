@@ -153,8 +153,14 @@ local HUMANISE = {
     camera_offset = 0.35,           -- studs of random camera jitter
     bait_action_min = 0.8,          -- how long one bait action lasts before a new one is picked
     bait_action_max = 2.5,
-    bait_band_min = 9,              -- the distance band it holds while baiting, re-rolled each action
-    bait_band_max = 17,             -- instead of a fixed 10-15
+    -- The band the bait phase holds. It MUST stay inside melee range, otherwise the bot spends each
+    -- Q cooldown walking back in and the hit cadence becomes ~1.6s instead of 0.65s. Turn
+    -- stay_in_melee off to get the old survivable 9-17 stud band back.
+    stay_in_melee = true,
+    melee_band_min = 4.5,
+    melee_band_max = 6.5,
+    bait_band_min = 9,
+    bait_band_max = 17,
     approach_offset = 3,            -- studs of lateral offset on the approach, so it is not dead-on
 }
 
@@ -775,7 +781,9 @@ local function strafeBaitDodge(targetRoot)
         BotState.bait_action = pickBaitAction()
         BotState.bait_until = now + jitterRange(HUMANISE.bait_action_min, HUMANISE.bait_action_max)
         BotState.bait_side = (math.random() < 0.5) and 1 or -1
-        BotState.bait_band = jitterRange(HUMANISE.bait_band_min, HUMANISE.bait_band_max)
+        BotState.bait_band = jitterRange(
+            HUMANISE.stay_in_melee and HUMANISE.melee_band_min or HUMANISE.bait_band_min,
+            HUMANISE.stay_in_melee and HUMANISE.melee_band_max or HUMANISE.bait_band_max)
         BotState.bait_flip_at = now + ((BotState.bait_until - now) * 0.5)
         print("[Movement] bait:", BotState.bait_action, string.format("| band %.1f", BotState.bait_band))
     end
@@ -789,23 +797,28 @@ local function strafeBaitDodge(targetRoot)
     end
 
     local action = BotState.bait_action or "strafe"
-    local band = BotState.bait_band or 12
+    local band = BotState.bait_band or 5.5
     local side = BotState.bait_side or 1
 
+    -- Retreating is CAPPED a couple of studs past the band. Without this cap, back-off and juke
+    -- walked the bot out of melee for their whole duration (up to 2.5s), so the next Q was always
+    -- late - which is what turned the 0.65s gate into a ~1.6s cadence.
+    local mayRetreat = dist < band + 2
+
     if action == "strafe" then
-        pressForward(dist < band - 2 and -1 or (dist > band + 3 and 1 or 0))
+        pressForward(dist < band - 1.5 and -1 or (dist > band + 2 and 1 or 0))
         pressSide(side)
     elseif action == "arc-in" then
         pressForward(dist > band and 1 or 0)
         pressSide(side)
     elseif action == "back-off" then
-        pressForward(-1)
+        if mayRetreat then pressForward(-1) end
     elseif action == "hold" then
         -- deliberately no keys; spelled out so the press loop still releases anything held
         input.w = false
         input.s = false
     elseif action == "juke" then
-        pressForward(-1)
+        if mayRetreat then pressForward(-1) end
         pressSide(side)
     end
 
