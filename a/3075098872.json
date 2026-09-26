@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 82479961461672,
+  "jobId": "1aed23bb-36a8-47d5-a7aa-03ef3a7f42e4",
+  "join": "roblox://placeId=82479961461672&gameInstanceId=1aed23bb-36a8-47d5-a7aa-03ef3a7f42e4",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790437885637
+  "web": "https://www.roblox.com/games/start?placeId=82479961461672&gameInstanceId=1aed23bb-36a8-47d5-a7aa-03ef3a7f42e4",
+  "location": "✨ MYTHORIA ✨ Card Collecting Simulator.",
+  "updatedAt": 1790457000581
 }
