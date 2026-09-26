@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 117128456235299,
-  "jobId": "bcddd327-f46b-4970-a18b-8423ede548d6",
-  "join": "roblox://placeId=117128456235299&gameInstanceId=bcddd327-f46b-4970-a18b-8423ede548d6",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=117128456235299&gameInstanceId=bcddd327-f46b-4970-a18b-8423ede548d6",
-  "location": "Keyboard ASMR Wallhop Tower",
-  "updatedAt": 1790461441814
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790461562033
 }
