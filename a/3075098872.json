@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 98653121393961,
-  "jobId": "b9f60349-308c-4a5d-82c3-9275fecb8b56",
-  "join": "roblox://placeId=98653121393961&gameInstanceId=b9f60349-308c-4a5d-82c3-9275fecb8b56",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=98653121393961&gameInstanceId=b9f60349-308c-4a5d-82c3-9275fecb8b56",
-  "location": "{🔴LIVE} Start Your Streamer Career!",
-  "updatedAt": 1790406137428
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790406257467
 }
