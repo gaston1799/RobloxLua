@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 133294838637122,
-  "jobId": "fdc857ec-64df-4388-9b79-2a49a7e616e3",
-  "join": "roblox://placeId=133294838637122&gameInstanceId=fdc857ec-64df-4388-9b79-2a49a7e616e3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=133294838637122&gameInstanceId=fdc857ec-64df-4388-9b79-2a49a7e616e3",
-  "location": "⚽ Jump To Steal Soccer Players ⚽",
-  "updatedAt": 1790396354560
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790396414602
 }
