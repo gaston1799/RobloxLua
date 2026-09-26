@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 126424052816775,
-  "jobId": "f380ef4c-c037-48b4-8b67-e768b2a532ec",
-  "join": "roblox://placeId=126424052816775&gameInstanceId=f380ef4c-c037-48b4-8b67-e768b2a532ec",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=126424052816775&gameInstanceId=f380ef4c-c037-48b4-8b67-e768b2a532ec",
-  "location": "NBA: Heroes 🏀",
-  "updatedAt": 1790406677574
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790406737581
 }
