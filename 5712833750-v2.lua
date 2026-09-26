@@ -130,8 +130,9 @@ local Config = {
 -- variance WITHOUT changing any decision logic. Set enabled = false for the old regular behaviour.
 local HUMANISE = {
     enabled = true,
-    cooldown_jitter = 0.2,          -- +/-20% on the Q and E cooldowns
-    reaction_min = 0.06,            -- human-ish delay added once a cooldown expires
+    cooldown_min = 0.94,            -- Q/E waits are 0.94-1.0 x the coded limit and NEVER over: the
+                                    -- server enforces the real gate, so waiting longer is lost DPS
+    reaction_min = 0.06,            -- human-ish delay before the FIRST hit of an engagement only
     reaction_max = 0.14,
     t_spam_min = 0.09,              -- T (stance) interval range; replaces Config.t_spam_interval
     t_spam_max = 0.20,
@@ -158,11 +159,6 @@ local HUMANISE = {
 }
 
 math.randomseed(tick() % 2147483647)
-
-local function jitterFactor(spread)
-    if not HUMANISE.enabled then return 1 end
-    return 1 - spread + (math.random() * spread * 2)
-end
 
 local function jitterRange(minValue, maxValue)
     if not HUMANISE.enabled then return (minValue + maxValue) / 2 end
@@ -879,9 +875,10 @@ local function attackWithQ()
     task.wait(0.05)
     sendIntent("q", "up")
     BotState.last_q_time = tick()
-    -- Not a fixed cadence any more: the cooldown is scaled, then a reaction delay is added.
-    BotState.q_wait = Config.q_cooldown * jitterFactor(HUMANISE.cooldown_jitter)
-        + jitterRange(HUMANISE.reaction_min, HUMANISE.reaction_max)
+    -- The server codes a hard 0.65s minimum per hit, so bias just UNDER it and never over: pressing
+    -- a hair early costs nothing (the server enforces the real gate) while waiting longer is simply
+    -- lost damage. The previous version added a reaction delay here, which was lost DPS.
+    BotState.q_wait = Config.q_cooldown * jitterRange(HUMANISE.cooldown_min, 1.0)
 end
 
 local function fireballAttack()
@@ -889,8 +886,8 @@ local function fireballAttack()
     task.wait(0.1)
     sendIntent("e", "up")
     BotState.last_fireball_time = tick()
-    BotState.fireball_wait = Config.fireball_cooldown * jitterFactor(HUMANISE.cooldown_jitter)
-        + jitterRange(HUMANISE.reaction_min, HUMANISE.reaction_max)
+    -- Same rule as Q: 1.4s is the coded minimum, so never deliberately wait past it.
+    BotState.fireball_wait = Config.fireball_cooldown * jitterRange(HUMANISE.cooldown_min, 1.0)
 end
 
 local function doubleHit()
@@ -1942,8 +1939,17 @@ local function updateHitting()
         spamT()
     end
 
-    -- Fire Q whenever ready and in melee range
-    if qReady and dist <= meleeRange() then
+    -- FIREBALL. Its own coded cooldown is 1.4s = 43 hits/min on the game's max-hit sheet, and it was
+    -- never used in combat: fireballAttack() only existed inside doubleHit(), which nothing called.
+    -- That is roughly a third of the achievable hit rate, so it is wired in here.
+    local fireballReady = (tick() - BotState.last_fireball_time) > (BotState.fireball_wait or Config.fireball_cooldown)
+    if fireballReady and dist <= Config.combat_radius then
+        fireballAttack()
+    end
+
+    -- Fire Q whenever ready and in melee range; the first hit of a fight also waits for the reaction
+    -- gate so an engagement does not open on the exact frame the target is acquired.
+    if qReady and tick() >= (BotState.reaction_until or 0) and dist <= meleeRange() then
         attackWithQ()
     end
 end
@@ -2083,8 +2089,14 @@ _G.AdvancedPVPBot = {
     end,
 
     setTarget = function(player)
+        local changed = player ~= nil and player ~= BotState.target
         BotState.target = player
         if player then
+            -- Human-ish delay for the FIRST hit of an engagement only: it costs no sustained DPS,
+            -- but stops the bot opening every fight on the exact frame it acquires the target.
+            if changed then
+                BotState.reaction_until = tick() + jitterRange(HUMANISE.reaction_min, HUMANISE.reaction_max)
+            end
             print("[Advanced PVP Bot] Target:", player.Name)
         end
     end,
