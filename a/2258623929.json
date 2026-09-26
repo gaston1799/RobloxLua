@@ -1,12 +1,12 @@
 {
   "userId": 2258623929,
   "displayName": "1of1DOLO",
-  "status": "in-game",
-  "placeId": 17698425045,
-  "jobId": "93ee90ee-1e9e-4f16-a5e0-2461e9fd53b5",
-  "join": "roblox://placeId=17698425045&gameInstanceId=93ee90ee-1e9e-4f16-a5e0-2461e9fd53b5",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2258623929",
-  "web": "https://www.roblox.com/games/start?placeId=17698425045&gameInstanceId=93ee90ee-1e9e-4f16-a5e0-2461e9fd53b5",
-  "location": "[UNBANS] fight in a school",
-  "updatedAt": 1790465762994
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790466423156
 }
