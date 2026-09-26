@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 70412932199344,
-  "jobId": "b0ee1885-20b1-4744-ba1f-804a9a8489eb",
-  "join": "roblox://placeId=70412932199344&gameInstanceId=b0ee1885-20b1-4744-ba1f-804a9a8489eb",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=70412932199344&gameInstanceId=b0ee1885-20b1-4744-ba1f-804a9a8489eb",
-  "location": "Weather Sandbox",
-  "updatedAt": 1790423421885
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790423541913
 }
