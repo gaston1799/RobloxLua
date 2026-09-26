@@ -779,7 +779,11 @@ local function strafeBaitDodge(targetRoot)
     local now = tick()
     if now >= (BotState.bait_until or 0) then
         BotState.bait_action = pickBaitAction()
-        BotState.bait_until = now + jitterRange(HUMANISE.bait_action_min, HUMANISE.bait_action_max)
+        local duration = jitterRange(HUMANISE.bait_action_min, HUMANISE.bait_action_max)
+        if BotState.bait_action == "hold" then
+            duration = duration * 0.4   -- deliberate pauses stay short; long ones read as "stuck"
+        end
+        BotState.bait_until = now + duration
         BotState.bait_side = (math.random() < 0.5) and 1 or -1
         BotState.bait_band = jitterRange(
             HUMANISE.stay_in_melee and HUMANISE.melee_band_min or HUMANISE.bait_band_min,
@@ -800,25 +804,27 @@ local function strafeBaitDodge(targetRoot)
     local band = BotState.bait_band or 5.5
     local side = BotState.bait_side or 1
 
-    -- Retreating is CAPPED a couple of studs past the band. Without this cap, back-off and juke
-    -- walked the bot out of melee for their whole duration (up to 2.5s), so the next Q was always
-    -- late - which is what turned the 0.65s gate into a ~1.6s cadence.
+    -- Retreating is capped, and NO action may end up pressing nothing: without the "too far -> close"
+    -- branches below, back-off and juke produced zero keys once the target was past the cap, so the
+    -- bot stood frozen in the dead band until something else changed the distance.
+    local tooFar = dist > band + 2
     local mayRetreat = dist < band + 2
 
     if action == "strafe" then
-        pressForward(dist < band - 1.5 and -1 or (dist > band + 2 and 1 or 0))
+        pressForward(dist < band - 1.5 and -1 or (tooFar and 1 or 0))
         pressSide(side)
     elseif action == "arc-in" then
         pressForward(dist > band and 1 or 0)
         pressSide(side)
     elseif action == "back-off" then
-        if mayRetreat then pressForward(-1) end
+        if mayRetreat then pressForward(-1) else pressForward(1) end
     elseif action == "hold" then
-        -- deliberately no keys; spelled out so the press loop still releases anything held
-        input.w = false
-        input.s = false
+        -- short pause, but still close if the target has drifted out of the band
+        if tooFar then pressForward(1) end
+        input.w = input.w or false
+        input.s = input.s or false
     elseif action == "juke" then
-        if mayRetreat then pressForward(-1) end
+        if mayRetreat then pressForward(-1) else pressForward(1) end
         pressSide(side)
     end
 
