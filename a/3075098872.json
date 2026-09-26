@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 109933770301163,
+  "jobId": "a6d40f90-d335-48f9-b45d-dc1868003bad",
+  "join": "roblox://placeId=109933770301163&gameInstanceId=a6d40f90-d335-48f9-b45d-dc1868003bad",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790406257467
+  "web": "https://www.roblox.com/games/start?placeId=109933770301163&gameInstanceId=a6d40f90-d335-48f9-b45d-dc1868003bad",
+  "location": "Start Your Esports Career",
+  "updatedAt": 1790406317480
 }
