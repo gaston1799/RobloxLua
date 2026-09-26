@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 139265943844730,
-  "jobId": "c9386bb7-02c3-45e8-abd9-d76357d14853",
-  "join": "roblox://placeId=139265943844730&gameInstanceId=c9386bb7-02c3-45e8-abd9-d76357d14853",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=139265943844730&gameInstanceId=c9386bb7-02c3-45e8-abd9-d76357d14853",
-  "location": "Sneak Past Bigfoot",
-  "updatedAt": 1790465282947
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790465402909
 }
