@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 107325070780167,
-  "jobId": "3d08d646-5a03-43f4-bf19-00fbec6d61c3",
-  "join": "roblox://placeId=107325070780167&gameInstanceId=3d08d646-5a03-43f4-bf19-00fbec6d61c3",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=107325070780167&gameInstanceId=3d08d646-5a03-43f4-bf19-00fbec6d61c3",
-  "location": "Steal A Mythical God",
-  "updatedAt": 1790465522933
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790465642985
 }
