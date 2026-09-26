@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 80027169454945,
+  "jobId": "ef1abf47-4ddd-4bb2-ac7e-c6d25a7028d2",
+  "join": "roblox://placeId=80027169454945&gameInstanceId=ef1abf47-4ddd-4bb2-ac7e-c6d25a7028d2",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790394253960
+  "web": "https://www.roblox.com/games/start?placeId=80027169454945&gameInstanceId=ef1abf47-4ddd-4bb2-ac7e-c6d25a7028d2",
+  "location": "[TVR] The Vampires Rewritten",
+  "updatedAt": 1790394313989
 }
