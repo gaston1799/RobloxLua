@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 6839171747,
-  "jobId": "f26055be-3faf-4957-9148-4b8c27945cf5",
-  "join": "roblox://placeId=6839171747&gameInstanceId=f26055be-3faf-4957-9148-4b8c27945cf5",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=6839171747&gameInstanceId=f26055be-3faf-4957-9148-4b8c27945cf5",
-  "location": "DOORS 👔",
-  "updatedAt": 1790438545890
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790439146009
 }
