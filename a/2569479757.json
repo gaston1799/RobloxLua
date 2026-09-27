@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 118805555015549,
-  "jobId": "d389fda7-61b5-4560-a308-769a505b0ede",
-  "join": "roblox://placeId=118805555015549&gameInstanceId=d389fda7-61b5-4560-a308-769a505b0ede",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=118805555015549&gameInstanceId=d389fda7-61b5-4560-a308-769a505b0ede",
-  "location": "[Enhance]+1 Loot To Forge",
-  "updatedAt": 1790499884586
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790499915377
 }
