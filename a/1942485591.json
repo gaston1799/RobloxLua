@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "39ecd6c4-d797-4b8e-99e6-048899eba013",
-  "join": "roblox://placeId=5712833750&gameInstanceId=39ecd6c4-d797-4b8e-99e6-048899eba013",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=39ecd6c4-d797-4b8e-99e6-048899eba013",
-  "location": "Animal Simulator",
-  "updatedAt": 1790513654870
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790513834881
 }
