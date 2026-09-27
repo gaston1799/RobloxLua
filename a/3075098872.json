@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 99480195901178,
-  "jobId": "967d0b83-a1d9-4e56-b99d-ec258a66165d",
-  "join": "roblox://placeId=99480195901178&gameInstanceId=967d0b83-a1d9-4e56-b99d-ec258a66165d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=99480195901178&gameInstanceId=967d0b83-a1d9-4e56-b99d-ec258a66165d",
-  "location": "Buy a Pickaxe",
-  "updatedAt": 1790549411682
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790549471698
 }
