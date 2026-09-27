@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "in-game",
-  "placeId": 132861881454173,
-  "jobId": "f55c23ed-408c-4c98-b7e7-23dca441a1da",
-  "join": "roblox://placeId=132861881454173&gameInstanceId=f55c23ed-408c-4c98-b7e7-23dca441a1da",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2567932931",
-  "web": "https://www.roblox.com/games/start?placeId=132861881454173&gameInstanceId=f55c23ed-408c-4c98-b7e7-23dca441a1da",
-  "location": "🪁 Highest Bungee Jump",
-  "updatedAt": 1790476805883
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790476867590
 }
