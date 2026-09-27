@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 74205509034203,
+  "jobId": "0ff51a5f-cc8d-464d-9bd5-a608cf35dbc1",
+  "join": "roblox://placeId=74205509034203&gameInstanceId=0ff51a5f-cc8d-464d-9bd5-a608cf35dbc1",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790441726669
+  "web": "https://www.roblox.com/games/start?placeId=74205509034203&gameInstanceId=0ff51a5f-cc8d-464d-9bd5-a608cf35dbc1",
+  "location": "The Hunt: Roblox 20",
+  "updatedAt": 1790474465240
 }
