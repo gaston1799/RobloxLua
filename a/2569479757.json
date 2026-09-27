@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 98218013791770,
+  "jobId": "b8ce7c2f-fa24-42b4-89b1-4eeef396f1e6",
+  "join": "roblox://placeId=98218013791770&gameInstanceId=b8ce7c2f-fa24-42b4-89b1-4eeef396f1e6",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790533242166
+  "web": "https://www.roblox.com/games/start?placeId=98218013791770&gameInstanceId=b8ce7c2f-fa24-42b4-89b1-4eeef396f1e6",
+  "location": "Crunch Leaves 🍂",
+  "updatedAt": 1790533392510
 }
