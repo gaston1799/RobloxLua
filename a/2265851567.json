@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 119259569670784,
-  "jobId": "916cc6e4-d6e2-48f2-8806-8fdeb6af4d01",
-  "join": "roblox://placeId=119259569670784&gameInstanceId=916cc6e4-d6e2-48f2-8806-8fdeb6af4d01",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=119259569670784&gameInstanceId=916cc6e4-d6e2-48f2-8806-8fdeb6af4d01",
-  "location": "[🔥NEW SCRT] Sniper Arena",
-  "updatedAt": 1790519836548
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790520980913
 }
