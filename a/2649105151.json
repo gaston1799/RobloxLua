@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 74205509034203,
+  "jobId": "8f179fba-2f8d-4976-8c5f-38f53eef6785",
+  "join": "roblox://placeId=74205509034203&gameInstanceId=8f179fba-2f8d-4976-8c5f-38f53eef6785",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790600274579
+  "web": "https://www.roblox.com/games/start?placeId=74205509034203&gameInstanceId=8f179fba-2f8d-4976-8c5f-38f53eef6785",
+  "location": "The Hunt: Roblox 20",
+  "updatedAt": 1790600304879
 }
