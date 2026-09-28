@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 110499685368790,
+  "jobId": "83b806df-3748-4b72-8b42-64d8bd81fcff",
+  "join": "roblox://placeId=110499685368790&gameInstanceId=83b806df-3748-4b72-8b42-64d8bd81fcff",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790560518371
+  "web": "https://www.roblox.com/games/start?placeId=110499685368790&gameInstanceId=83b806df-3748-4b72-8b42-64d8bd81fcff",
+  "location": "Highest Zipline Ever",
+  "updatedAt": 1790560578039
 }
