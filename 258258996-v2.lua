@@ -251,25 +251,53 @@ do
         return part
     end
 
-    -- Apply a baseline config once per character (no tracking for static targets).
-    -- B5: keyed on the character instance, because a respawn creates a new one and
-    -- ForbiddenV2's config is per-NPC.
+    -- Apply a baseline config once per character. Tracking is only needed for moving
+    -- targets; visualization/debugging are user-facing (see Movement.setVisualization).
     local configuredChar
+    local tracking  = false
+    local visualize = false
     function Movement.configure(trackingEnabled, force)
         local api = ensureAI()
         local char = Char.get()
         if not api or not char then return end
+        if trackingEnabled ~= nil then tracking = trackingEnabled == true end
         if configuredChar == char and not force then return end
         local ok, config = pcall(api.GetConfig, char)
         if not ok or not config then return end
         configuredChar = char
         pcall(function()
             config:RestoreDefaults()
-            config.Debugging.Enabled     = false
-            config.Visualization.Enabled = false
-            config.Tracking.Enabled      = trackingEnabled == true
+            config.Debugging.Enabled     = visualize
+            config.Visualization.Enabled = visualize
+            config.Tracking.Enabled      = tracking
             config:ApplyNow()
         end)
+    end
+
+    -- Path visualisation + debug logging. These are the two fields the AI module's own
+    -- examples flip (config.Visualization.Enabled / config.Debugging.Enabled).
+    function Movement.setVisualization(value)
+        visualize = value and true or false
+        configuredChar = nil
+        local api = ensureAI()
+        local char = Char.get()
+        if not api or not char then return end
+        local ok, config = pcall(api.GetConfig, char)
+        if not ok or not config then return end
+        pcall(function()
+            config.Visualization.Enabled = visualize
+            config.Debugging.Enabled     = visualize
+            config:ApplyNow()
+        end)
+    end
+
+    function Movement.setTracking(value)
+        tracking = value and true or false
+        configuredChar = nil
+    end
+
+    function Movement.getFlags()
+        return { tracking = tracking, visualize = visualize }
     end
 
     function Movement.isAvailable()
@@ -654,7 +682,7 @@ do
 
     local function loop(myGen)
         while running and myGen == generation do
-            Movement.configure(false)   -- B5: cheap no-op unless the character changed
+            Movement.configure(nil)     -- B5: re-apply only when the character changed
             if not Char.waitReady(2) then
                 Box.resetTracking()
                 task.wait(0.3)
@@ -809,6 +837,39 @@ function MinersHaven.stopAll()
     Farming.stopAll()
 end
 
+-- Diagnostics: which pathfinder is actually live and in what state.
+-- Run from the executor:  getgenv().MinersHaven.diagnose()
+function MinersHaven.diagnose()
+    local env = (getgenv and getgenv()) or _G
+    local char = Char.get()
+    local info = {
+        placeId   = game.PlaceId,
+        expected  = MinersHaven.PlaceId,
+        baseUrl   = FORBIDDEN_BASE_URL,
+        entryPath = FORBIDDEN_ENTRY_PATH,
+        aiLoaded  = Movement.isAvailable(),
+        runtime   = env.__FORBIDDEN_LAST_RUNTIME ~= nil,
+        uiBuilt   = MinersHaven.UI.window ~= nil,
+        headless  = MinersHaven.UI.headless == true,
+        character = char and char.Name or "none",
+        ready     = Char.isReady(),
+        task      = State.currentTask,
+    }
+    local f = Movement.getFlags()
+    print("[MinersHaven] diagnose:")
+    for _, pair in ipairs({
+        { "placeId", info.placeId }, { "expected", info.expected },
+        { "baseUrl", info.baseUrl }, { "entryPath", info.entryPath },
+        { "aiLoaded", info.aiLoaded }, { "runtime", info.runtime },
+        { "uiBuilt", info.uiBuilt }, { "headless", info.headless },
+        { "character", info.character }, { "ready", info.ready },
+        { "task", info.task }, { "tracking", f.tracking }, { "visualize", f.visualize },
+    }) do
+        print(("[MinersHaven]   %s = %s"):format(pair[1], tostring(pair[2])))
+    end
+    return info
+end
+
 --#region UI (Venyx window passed in by the loader) -----------------------------
 local UI = MinersHaven.UI
 do
@@ -924,6 +985,21 @@ do
                 callback = function() print("[MinersHaven] status: " .. statusText()) end,
             })
         end
+        utils:addButton({
+            title = "Diagnose (console)",
+            callback = function() MinersHaven.diagnose() end,
+        })
+
+        -- ForbiddenV2 path drawing / debug logging. Off by default (Movement.configure).
+        local pf = page:addSection({ title = "Pathfinding (ForbiddenV2)" })
+        pf:addToggle({
+            title = "Show path visualization",
+            callback = function(v) Movement.setVisualization(v) end,
+        })
+        pf:addToggle({
+            title = "Track target (moving targets only)",
+            callback = function(v) Movement.setTracking(v) end,
+        })
 
         print("[MinersHaven] UI attached")
         return ui
@@ -970,6 +1046,7 @@ _G.buildAnimalSimUI = function(passed)
 end
 
 local passedUI = ...
+if getgenv then getgenv().MinersHaven = MinersHaven else _G.MinersHaven = MinersHaven end
 local okInit, initErr = pcall(MinersHaven.init, passedUI)
 if not okInit then
     warn("[MinersHaven] init failed:", initErr)
