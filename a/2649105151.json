@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4623386862,
+  "jobId": "3f3c97bb-e151-45f2-ab14-8fe88482bf5f",
+  "join": "roblox://placeId=4623386862&gameInstanceId=3f3c97bb-e151-45f2-ab14-8fe88482bf5f",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790605975945
+  "web": "https://www.roblox.com/games/start?placeId=4623386862&gameInstanceId=3f3c97bb-e151-45f2-ab14-8fe88482bf5f",
+  "location": "Piggy",
+  "updatedAt": 1790606007595
 }
