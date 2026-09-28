@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13772394625,
+  "jobId": "d61297b3-b164-4711-a677-0b3c24c1410e",
+  "join": "roblox://placeId=13772394625&gameInstanceId=d61297b3-b164-4711-a677-0b3c24c1410e",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790609516891
+  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=d61297b3-b164-4711-a677-0b3c24c1410e",
+  "location": "Blade Ball",
+  "updatedAt": 1790609547336
 }
