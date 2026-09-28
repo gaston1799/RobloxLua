@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12912731475,
+  "jobId": "41e7deee-10d0-4a7b-b3b4-da0288100a4a",
+  "join": "roblox://placeId=12912731475&gameInstanceId=41e7deee-10d0-4a7b-b3b4-da0288100a4a",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790560155092
+  "web": "https://www.roblox.com/games/start?placeId=12912731475&gameInstanceId=41e7deee-10d0-4a7b-b3b4-da0288100a4a",
+  "location": "Mansion Tycoon 🌴🏠",
+  "updatedAt": 1790560215150
 }
