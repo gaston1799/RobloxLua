@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 92872734564469,
-  "jobId": "dbd5c90a-6599-4560-a5c1-b7558abb9205",
-  "join": "roblox://placeId=92872734564469&gameInstanceId=dbd5c90a-6599-4560-a5c1-b7558abb9205",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=92872734564469&gameInstanceId=dbd5c90a-6599-4560-a5c1-b7558abb9205",
-  "location": "[BETA] Campus Football",
-  "updatedAt": 1790707671924
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790707731931
 }
