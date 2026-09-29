@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 97506470800237,
+  "jobId": "1ce6d6ac-6813-4b69-8286-5b49774c1bf8",
+  "join": "roblox://placeId=97506470800237&gameInstanceId=1ce6d6ac-6813-4b69-8286-5b49774c1bf8",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790701730342
+  "web": "https://www.roblox.com/games/start?placeId=97506470800237&gameInstanceId=1ce6d6ac-6813-4b69-8286-5b49774c1bf8",
+  "location": "Guess the Anime Color",
+  "updatedAt": 1790701790305
 }
