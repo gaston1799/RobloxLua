@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 92919896602808,
-  "jobId": "e5db0b03-97c3-4439-80eb-29c17f79cb1e",
-  "join": "roblox://placeId=92919896602808&gameInstanceId=e5db0b03-97c3-4439-80eb-29c17f79cb1e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=92919896602808&gameInstanceId=e5db0b03-97c3-4439-80eb-29c17f79cb1e",
-  "location": "[CONSOLE?!?1!?] BitDeadlySins",
-  "updatedAt": 1790704791246
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790705091326
 }
