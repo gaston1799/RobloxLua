@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 121439935748881,
+  "jobId": "887de92a-4b94-460a-9bfd-fc9db3811896",
+  "join": "roblox://placeId=121439935748881&gameInstanceId=887de92a-4b94-460a-9bfd-fc9db3811896",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790704971257
+  "web": "https://www.roblox.com/games/start?placeId=121439935748881&gameInstanceId=887de92a-4b94-460a-9bfd-fc9db3811896",
+  "location": "The Core of Wallhop Tower",
+  "updatedAt": 1790705031288
 }
