@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 81141013575383,
-  "jobId": "70c0b5a3-2a6b-41d3-9c4f-69665c102e18",
-  "join": "roblox://placeId=81141013575383&gameInstanceId=70c0b5a3-2a6b-41d3-9c4f-69665c102e18",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=81141013575383&gameInstanceId=70c0b5a3-2a6b-41d3-9c4f-69665c102e18",
-  "location": "Feed The Void",
-  "updatedAt": 1790707551955
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790707611897
 }
