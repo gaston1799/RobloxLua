@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 116223724643557,
-  "jobId": "a9ef2cac-f8e6-41b7-921d-5ad276093388",
-  "join": "roblox://placeId=116223724643557&gameInstanceId=a9ef2cac-f8e6-41b7-921d-5ad276093388",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=116223724643557&gameInstanceId=a9ef2cac-f8e6-41b7-921d-5ad276093388",
-  "location": "+1 Magic Evolution",
-  "updatedAt": 1790705871462
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790705931507
 }
