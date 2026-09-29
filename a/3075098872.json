@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131346454575416,
+  "jobId": "c761711b-8bf8-4005-a696-b32f0db341ed",
+  "join": "roblox://placeId=131346454575416&gameInstanceId=c761711b-8bf8-4005-a696-b32f0db341ed",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790706411636
+  "web": "https://www.roblox.com/games/start?placeId=131346454575416&gameInstanceId=c761711b-8bf8-4005-a696-b32f0db341ed",
+  "location": "[UPD] Mini War",
+  "updatedAt": 1790706471627
 }
