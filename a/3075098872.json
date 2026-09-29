@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 129692563688057,
-  "jobId": "2a4c4150-806d-4968-86e5-111a681eba76",
-  "join": "roblox://placeId=129692563688057&gameInstanceId=2a4c4150-806d-4968-86e5-111a681eba76",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=129692563688057&gameInstanceId=2a4c4150-806d-4968-86e5-111a681eba76",
-  "location": "[ICE] My Dino Life! 🦖",
-  "updatedAt": 1790706051482
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790706291551
 }
