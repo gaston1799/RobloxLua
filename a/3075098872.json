@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 139036419794810,
+  "jobId": "7bb6a38a-ed58-4be3-afbb-508058100019",
+  "join": "roblox://placeId=139036419794810&gameInstanceId=7bb6a38a-ed58-4be3-afbb-508058100019",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790708032017
+  "web": "https://www.roblox.com/games/start?placeId=139036419794810&gameInstanceId=7bb6a38a-ed58-4be3-afbb-508058100019",
+  "location": "TEEN BESTIARY(New Update!!)",
+  "updatedAt": 1790708512215
 }
