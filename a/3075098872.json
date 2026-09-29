@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92422478989816,
+  "jobId": "c0cce87a-8a5e-4cba-9ba1-aebc8a4b064b",
+  "join": "roblox://placeId=92422478989816&gameInstanceId=c0cce87a-8a5e-4cba-9ba1-aebc8a4b064b",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790705931507
+  "web": "https://www.roblox.com/games/start?placeId=92422478989816&gameInstanceId=c0cce87a-8a5e-4cba-9ba1-aebc8a4b064b",
+  "location": "World at War [NEW MAP!]",
+  "updatedAt": 1790705991525
 }
