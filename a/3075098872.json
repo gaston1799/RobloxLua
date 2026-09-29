@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 113499573988154,
-  "jobId": "5082d904-d28b-4b7c-bf2e-f0a9a4364518",
-  "join": "roblox://placeId=113499573988154&gameInstanceId=5082d904-d28b-4b7c-bf2e-f0a9a4364518",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=113499573988154&gameInstanceId=5082d904-d28b-4b7c-bf2e-f0a9a4364518",
-  "location": "+1 Magic Per Step",
-  "updatedAt": 1790706351570
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790706411636
 }
