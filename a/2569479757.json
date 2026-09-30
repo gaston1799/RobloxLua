@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 79389059854988,
-  "jobId": "de928b51-94da-498d-8f5e-8d0428ce84be",
-  "join": "roblox://placeId=79389059854988&gameInstanceId=de928b51-94da-498d-8f5e-8d0428ce84be",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=79389059854988&gameInstanceId=de928b51-94da-498d-8f5e-8d0428ce84be",
-  "location": "⛏️ My Anime Mine",
-  "updatedAt": 1790807497537
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790807527926
 }
