@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 110169788661339,
-  "jobId": "dd7e0e0d-5567-4cf6-8983-38e412f50489",
-  "join": "roblox://placeId=110169788661339&gameInstanceId=dd7e0e0d-5567-4cf6-8983-38e412f50489",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=110169788661339&gameInstanceId=dd7e0e0d-5567-4cf6-8983-38e412f50489",
-  "location": "[🎃] Matching Halloween Outfits Ideas",
-  "updatedAt": 1790804944262
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790805784443
 }
