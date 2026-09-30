@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 129009554587176,
+  "jobId": "c2e31648-3dbb-431f-a806-be62762289b2",
+  "join": "roblox://placeId=129009554587176&gameInstanceId=c2e31648-3dbb-431f-a806-be62762289b2",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790778237212
+  "web": "https://www.roblox.com/games/start?placeId=129009554587176&gameInstanceId=c2e31648-3dbb-431f-a806-be62762289b2",
+  "location": "The Forge [BETA]",
+  "updatedAt": 1790778297259
 }
