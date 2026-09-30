@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 126509999114328,
-  "jobId": "4e44cd17-6dc9-4053-994d-766367492f9f",
-  "join": "roblox://placeId=126509999114328&gameInstanceId=4e44cd17-6dc9-4053-994d-766367492f9f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=126509999114328&gameInstanceId=4e44cd17-6dc9-4053-994d-766367492f9f",
-  "location": "99 Nights in the Forest 🔦",
-  "updatedAt": 1790749249943
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790756211737
 }
