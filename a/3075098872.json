@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 116353044916676,
-  "jobId": "9aa055f3-6529-42ba-a09c-fabd9a72adb6",
-  "join": "roblox://placeId=116353044916676&gameInstanceId=9aa055f3-6529-42ba-a09c-fabd9a72adb6",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=116353044916676&gameInstanceId=9aa055f3-6529-42ba-a09c-fabd9a72adb6",
-  "location": "Fighter Simulator ",
-  "updatedAt": 1790744328688
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790746909312
 }
