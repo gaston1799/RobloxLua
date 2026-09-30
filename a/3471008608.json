@@ -1,12 +1,12 @@
 {
   "userId": 3471008608,
   "displayName": "ItzAsh",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "959d8bff-ad19-47a0-92c7-569a77e72287",
+  "join": "roblox://placeId=5712833750&gameInstanceId=959d8bff-ad19-47a0-92c7-569a77e72287",
   "follow": "roblox://followUserId=3471008608",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790783489618
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=959d8bff-ad19-47a0-92c7-569a77e72287",
+  "location": "Animal Simulator",
+  "updatedAt": 1790784420180
 }
