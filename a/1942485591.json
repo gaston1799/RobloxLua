@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 71376979720403,
+  "jobId": "114cbb44-8d9c-47f4-b665-9174a9bd7920",
+  "join": "roblox://placeId=71376979720403&gameInstanceId=114cbb44-8d9c-47f4-b665-9174a9bd7920",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790834771645
+  "web": "https://www.roblox.com/games/start?placeId=71376979720403&gameInstanceId=114cbb44-8d9c-47f4-b665-9174a9bd7920",
+  "location": "Think Twice",
+  "updatedAt": 1790834951643
 }
