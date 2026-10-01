@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 119579217517090,
+  "jobId": "d1c8ca70-0f0a-4517-91c8-2d0167aafd44",
+  "join": "roblox://placeId=119579217517090&gameInstanceId=d1c8ca70-0f0a-4517-91c8-2d0167aafd44",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790867149750
+  "web": "https://www.roblox.com/games/start?placeId=119579217517090&gameInstanceId=d1c8ca70-0f0a-4517-91c8-2d0167aafd44",
+  "location": "Escape Waves For Lucky Blocks",
+  "updatedAt": 1790867271720
 }
