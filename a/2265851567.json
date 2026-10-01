@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 116921506811323,
+  "jobId": "0247dc43-a0df-4663-85d5-3f0e0a5173b1",
+  "join": "roblox://placeId=116921506811323&gameInstanceId=0247dc43-a0df-4663-85d5-3f0e0a5173b1",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790864839163
+  "web": "https://www.roblox.com/games/start?placeId=116921506811323&gameInstanceId=0247dc43-a0df-4663-85d5-3f0e0a5173b1",
+  "location": "[NEW] 8 Ball Duels",
+  "updatedAt": 1790865232156
 }
