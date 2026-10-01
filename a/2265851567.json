@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 124216119978534,
+  "jobId": "3bc2f9d5-8d04-4761-8c2c-f2125066b96d",
+  "join": "roblox://placeId=124216119978534&gameInstanceId=3bc2f9d5-8d04-4761-8c2c-f2125066b96d",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790867269786
+  "web": "https://www.roblox.com/games/start?placeId=124216119978534&gameInstanceId=3bc2f9d5-8d04-4761-8c2c-f2125066b96d",
+  "location": "[🌋] Ride A Pet",
+  "updatedAt": 1790896560369
 }
