@@ -1,12 +1,12 @@
 {
   "userId": 3471008608,
   "displayName": "ItzAsh",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 132173349090360,
+  "jobId": "1f8760ad-ba66-4dc1-bf95-c7f3838177b9",
+  "join": "roblox://placeId=132173349090360&gameInstanceId=1f8760ad-ba66-4dc1-bf95-c7f3838177b9",
   "follow": "roblox://followUserId=3471008608",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790860071348
+  "web": "https://www.roblox.com/games/start?placeId=132173349090360&gameInstanceId=1f8760ad-ba66-4dc1-bf95-c7f3838177b9",
+  "location": "Color My Flag",
+  "updatedAt": 1790860106559
 }
