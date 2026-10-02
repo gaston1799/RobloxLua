@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3260590327,
+  "jobId": "d48925a9-9593-423b-81ac-b8a0a94726d1",
+  "join": "roblox://placeId=3260590327&gameInstanceId=d48925a9-9593-423b-81ac-b8a0a94726d1",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790956752586
+  "web": "https://www.roblox.com/games/start?placeId=3260590327&gameInstanceId=d48925a9-9593-423b-81ac-b8a0a94726d1",
+  "location": "[🪓EXE REWORK] Tower Defense Simulator",
+  "updatedAt": 1790956812624
 }
