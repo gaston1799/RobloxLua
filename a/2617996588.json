@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 107778070777162,
-  "jobId": "a416c643-a501-44b2-bc6c-4b5e9a80bc47",
-  "join": "roblox://placeId=107778070777162&gameInstanceId=a416c643-a501-44b2-bc6c-4b5e9a80bc47",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=107778070777162&gameInstanceId=a416c643-a501-44b2-bc6c-4b5e9a80bc47",
-  "location": "Steal An Egg",
-  "updatedAt": 1790921943800
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790922243842
 }
