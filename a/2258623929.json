@@ -1,12 +1,12 @@
 {
   "userId": 2258623929,
   "displayName": "1of1DOLO",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 96510596525082,
+  "jobId": "825e4a58-692a-4823-a6f8-cf982c11c982",
+  "join": "roblox://placeId=96510596525082&gameInstanceId=825e4a58-692a-4823-a6f8-cf982c11c982",
   "follow": "roblox://followUserId=2258623929",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790953991905
+  "web": "https://www.roblox.com/games/start?placeId=96510596525082&gameInstanceId=825e4a58-692a-4823-a6f8-cf982c11c982",
+  "location": "Ball VS Ball",
+  "updatedAt": 1790968695632
 }
