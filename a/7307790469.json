@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 125224440903394,
-  "jobId": "c6890ae1-f40b-4d7d-b051-d8a5a823b2a9",
-  "join": "roblox://placeId=125224440903394&gameInstanceId=c6890ae1-f40b-4d7d-b051-d8a5a823b2a9",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=125224440903394&gameInstanceId=c6890ae1-f40b-4d7d-b051-d8a5a823b2a9",
-  "location": "A desrt [SANDBOX]",
-  "updatedAt": 1790913181593
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790914922378
 }
