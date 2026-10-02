@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "2f29fb4e-b114-4bb4-be39-cea048057f5b",
-  "join": "roblox://placeId=5712833750&gameInstanceId=2f29fb4e-b114-4bb4-be39-cea048057f5b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=2f29fb4e-b114-4bb4-be39-cea048057f5b",
-  "location": "Animal Simulator",
-  "updatedAt": 1790906461617
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790906581753
 }
