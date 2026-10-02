@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 78922511283130,
-  "jobId": "e7e8b18f-74b0-4fdd-8a3a-2931c5793ef6",
-  "join": "roblox://placeId=78922511283130&gameInstanceId=e7e8b18f-74b0-4fdd-8a3a-2931c5793ef6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=78922511283130&gameInstanceId=e7e8b18f-74b0-4fdd-8a3a-2931c5793ef6",
-  "location": "[WORLD 2🌍] Collect 1 Million Items",
-  "updatedAt": 1790972570571
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790972601242
 }
