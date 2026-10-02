@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 2788229376,
-  "jobId": "78c2c204-d365-47a3-a999-28bb3e24b23a",
-  "join": "roblox://placeId=2788229376&gameInstanceId=78c2c204-d365-47a3-a999-28bb3e24b23a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=2788229376&gameInstanceId=78c2c204-d365-47a3-a999-28bb3e24b23a",
-  "location": "Da Hood",
-  "updatedAt": 1790932626477
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790933526906
 }
