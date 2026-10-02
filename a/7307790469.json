@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12593620250,
+  "jobId": "1852913f-4e63-4d05-af1d-8c2d513b99c3",
+  "join": "roblox://placeId=12593620250&gameInstanceId=1852913f-4e63-4d05-af1d-8c2d513b99c3",
   "follow": "roblox://followUserId=7307790469",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790914922378
+  "web": "https://www.roblox.com/games/start?placeId=12593620250&gameInstanceId=1852913f-4e63-4d05-af1d-8c2d513b99c3",
+  "location": "[RIMS+] Ride Storm",
+  "updatedAt": 1790915042098
 }
