@@ -1,12 +1,12 @@
 {
   "userId": 7307790469,
   "displayName": "GHOST",
-  "status": "in-game",
-  "placeId": 100068273119174,
-  "jobId": "a649e025-0e3f-4295-a903-9c35b067d390",
-  "join": "roblox://placeId=100068273119174&gameInstanceId=a649e025-0e3f-4295-a903-9c35b067d390",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=7307790469",
-  "web": "https://www.roblox.com/games/start?placeId=100068273119174&gameInstanceId=a649e025-0e3f-4295-a903-9c35b067d390",
-  "location": "🍃 Clean all the Leaves",
-  "updatedAt": 1790919723251
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790920263469
 }
