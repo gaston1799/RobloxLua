@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 135741623561779,
-  "jobId": "f063362b-de9e-44d8-82cc-578ba5f63fd6",
-  "join": "roblox://placeId=135741623561779&gameInstanceId=f063362b-de9e-44d8-82cc-578ba5f63fd6",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=135741623561779&gameInstanceId=f063362b-de9e-44d8-82cc-578ba5f63fd6",
-  "location": "[UPDATE] Backrooms Company",
-  "updatedAt": 1791017577920
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791018119263
 }
