@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 137228775845999,
+  "jobId": "8fecad24-6523-4a45-bcc0-bdf44719cacf",
+  "join": "roblox://placeId=137228775845999&gameInstanceId=8fecad24-6523-4a45-bcc0-bdf44719cacf",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791015597115
+  "web": "https://www.roblox.com/games/start?placeId=137228775845999&gameInstanceId=8fecad24-6523-4a45-bcc0-bdf44719cacf",
+  "location": "Ghost Driver [ALPHA]",
+  "updatedAt": 1791015837350
 }
