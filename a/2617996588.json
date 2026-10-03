@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 76153324611685,
-  "jobId": "b68d4b3a-8dd0-4b35-99d0-43983b2c414b",
-  "join": "roblox://placeId=76153324611685&gameInstanceId=b68d4b3a-8dd0-4b35-99d0-43983b2c414b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=76153324611685&gameInstanceId=b68d4b3a-8dd0-4b35-99d0-43983b2c414b",
-  "location": "[UPD] Kart Of Hell",
-  "updatedAt": 1791029940781
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791030120779
 }
