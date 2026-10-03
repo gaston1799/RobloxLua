@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 9872472334,
-  "jobId": "e084789a-8326-448a-9c11-13dced79a69b",
-  "join": "roblox://placeId=9872472334&gameInstanceId=e084789a-8326-448a-9c11-13dced79a69b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=9872472334&gameInstanceId=e084789a-8326-448a-9c11-13dced79a69b",
-  "location": "Evade ",
-  "updatedAt": 1791026039754
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791026581912
 }
