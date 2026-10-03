@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 72322938592733,
-  "jobId": "89d73de6-58c9-4310-a5f9-38c5149ca97a",
-  "join": "roblox://placeId=72322938592733&gameInstanceId=89d73de6-58c9-4310-a5f9-38c5149ca97a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=72322938592733&gameInstanceId=89d73de6-58c9-4310-a5f9-38c5149ca97a",
-  "location": "[🎃]🏀Basketball Legends🏀",
-  "updatedAt": 1790987571830
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790988890561
 }
