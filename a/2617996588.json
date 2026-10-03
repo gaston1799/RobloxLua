@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 91704854174760,
-  "jobId": "05f6a255-ca40-4800-8ebb-df1e1f68b616",
-  "join": "roblox://placeId=91704854174760&gameInstanceId=05f6a255-ca40-4800-8ebb-df1e1f68b616",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=91704854174760&gameInstanceId=05f6a255-ca40-4800-8ebb-df1e1f68b616",
-  "location": "Finish The Word! [ SUMMER ]",
-  "updatedAt": 1791028560405
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791029222372
 }
