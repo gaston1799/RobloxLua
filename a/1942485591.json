@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 81712765462061,
-  "jobId": "b744abab-2a1d-4046-a09f-8119abebf3c2",
-  "join": "roblox://placeId=81712765462061&gameInstanceId=b744abab-2a1d-4046-a09f-8119abebf3c2",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=81712765462061&gameInstanceId=b744abab-2a1d-4046-a09f-8119abebf3c2",
-  "location": "(+10) Escape The Rooms [2 Player]",
-  "updatedAt": 1790999693082
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791001013405
 }
