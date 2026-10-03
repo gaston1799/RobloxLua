@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 17571821642,
-  "jobId": "d432955a-92a4-43e6-90da-6a51f0514ea8",
-  "join": "roblox://placeId=17571821642&gameInstanceId=d432955a-92a4-43e6-90da-6a51f0514ea8",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=17571821642&gameInstanceId=d432955a-92a4-43e6-90da-6a51f0514ea8",
-  "location": "Math Tower Race",
-  "updatedAt": 1791030240787
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791031382760
 }
