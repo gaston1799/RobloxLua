@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 76789245535943,
-  "jobId": "8f62e1b1-caa6-4ea6-9328-2b8ed7c3ac9c",
-  "join": "roblox://placeId=76789245535943&gameInstanceId=8f62e1b1-caa6-4ea6-9328-2b8ed7c3ac9c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=76789245535943&gameInstanceId=8f62e1b1-caa6-4ea6-9328-2b8ed7c3ac9c",
-  "location": "[UPD] +1 Wings Per Click",
-  "updatedAt": 1791029194430
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791029227403
 }
