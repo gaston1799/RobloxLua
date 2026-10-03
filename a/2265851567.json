@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 107535308163741,
-  "jobId": "86b867fc-9400-4d47-9fb0-70ef92a6eaa0",
-  "join": "roblox://placeId=107535308163741&gameInstanceId=86b867fc-9400-4d47-9fb0-70ef92a6eaa0",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=107535308163741&gameInstanceId=86b867fc-9400-4d47-9fb0-70ef92a6eaa0",
-  "location": "Huss Valley",
-  "updatedAt": 1791045666644
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791046925008
 }
