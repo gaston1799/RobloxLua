@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 132173349090360,
-  "jobId": "7181ecdd-5d11-435b-bc08-f8d5fdd38ba2",
-  "join": "roblox://placeId=132173349090360&gameInstanceId=7181ecdd-5d11-435b-bc08-f8d5fdd38ba2",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=132173349090360&gameInstanceId=7181ecdd-5d11-435b-bc08-f8d5fdd38ba2",
-  "location": "Color My Flag",
-  "updatedAt": 1791031681143
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791032881556
 }
