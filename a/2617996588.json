@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 118805555015549,
-  "jobId": "17c85e22-df05-46c3-a7a1-0a33e277b36e",
-  "join": "roblox://placeId=118805555015549&gameInstanceId=17c85e22-df05-46c3-a7a1-0a33e277b36e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=118805555015549&gameInstanceId=17c85e22-df05-46c3-a7a1-0a33e277b36e",
-  "location": "[Enhance]+1 Loot To Forge",
-  "updatedAt": 1790990453023
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1790992551338
 }
