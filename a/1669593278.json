@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 77108422251420,
+  "jobId": "9c029d08-d730-4c38-9010-393ec1017a94",
+  "join": "roblox://placeId=77108422251420&gameInstanceId=9c029d08-d730-4c38-9010-393ec1017a94",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1790990270953
+  "web": "https://www.roblox.com/games/start?placeId=77108422251420&gameInstanceId=9c029d08-d730-4c38-9010-393ec1017a94",
+  "location": "[SKINS 🐮] Search For The Needle",
+  "updatedAt": 1790990390899
 }
