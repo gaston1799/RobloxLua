@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 18776823133,
+  "jobId": "62be3593-0af5-42ed-8100-dd9b2bac395c",
+  "join": "roblox://placeId=18776823133&gameInstanceId=62be3593-0af5-42ed-8100-dd9b2bac395c",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791070750652
+  "web": "https://www.roblox.com/games/start?placeId=18776823133&gameInstanceId=62be3593-0af5-42ed-8100-dd9b2bac395c",
+  "location": "Be chased by random stuff in an obby",
+  "updatedAt": 1791074303664
 }
