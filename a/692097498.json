@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 78490532994307,
-  "jobId": "cf8897b4-deb9-45bc-a7fa-802a0e5a27f6",
-  "join": "roblox://placeId=78490532994307&gameInstanceId=cf8897b4-deb9-45bc-a7fa-802a0e5a27f6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=78490532994307&gameInstanceId=cf8897b4-deb9-45bc-a7fa-802a0e5a27f6",
-  "location": "Build An Ant Empire",
-  "updatedAt": 1791083546519
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1791254491817
 }
