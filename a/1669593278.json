@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 100068273119174,
+  "jobId": "09f977cf-0294-46e2-b375-dfa9331653ef",
+  "join": "roblox://placeId=100068273119174&gameInstanceId=09f977cf-0294-46e2-b375-dfa9331653ef",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791065139684
+  "web": "https://www.roblox.com/games/start?placeId=100068273119174&gameInstanceId=09f977cf-0294-46e2-b375-dfa9331653ef",
+  "location": "[TEAMS]🍃 Clean all the Leaves",
+  "updatedAt": 1791324769537
 }
