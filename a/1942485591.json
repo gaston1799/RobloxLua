@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 132386075859319,
+  "jobId": "155a9737-ea65-4674-9782-bf31263a32d4",
+  "join": "roblox://placeId=132386075859319&gameInstanceId=155a9737-ea65-4674-9782-bf31263a32d4",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791371999008
+  "web": "https://www.roblox.com/games/start?placeId=132386075859319&gameInstanceId=155a9737-ea65-4674-9782-bf31263a32d4",
+  "location": "[CHAPTER 3] Escape the Cave",
+  "updatedAt": 1791372119018
 }
