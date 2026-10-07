@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 81734857983173,
+  "jobId": "c85ed97b-be4b-4675-ad6b-f5c13dd8d505",
+  "join": "roblox://placeId=81734857983173&gameInstanceId=c85ed97b-be4b-4675-ad6b-f5c13dd8d505",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791370738653
+  "web": "https://www.roblox.com/games/start?placeId=81734857983173&gameInstanceId=c85ed97b-be4b-4675-ad6b-f5c13dd8d505",
+  "location": "Carry the Glass Together! [2 Player Obby]",
+  "updatedAt": 1791370858707
 }
