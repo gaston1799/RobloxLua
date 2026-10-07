@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107535308163741,
+  "jobId": "22f0001f-d1ff-4db7-aa73-7eb51ddf7363",
+  "join": "roblox://placeId=107535308163741&gameInstanceId=22f0001f-d1ff-4db7-aa73-7eb51ddf7363",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791376200012
+  "web": "https://www.roblox.com/games/start?placeId=107535308163741&gameInstanceId=22f0001f-d1ff-4db7-aa73-7eb51ddf7363",
+  "location": "Huss Valley",
+  "updatedAt": 1791376262058
 }
