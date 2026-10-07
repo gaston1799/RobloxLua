@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 2788229376,
-  "jobId": "e621b528-e0bc-43dd-87e6-50e24341a28f",
-  "join": "roblox://placeId=2788229376&gameInstanceId=e621b528-e0bc-43dd-87e6-50e24341a28f",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=2788229376&gameInstanceId=e621b528-e0bc-43dd-87e6-50e24341a28f",
-  "location": "Da Hood",
-  "updatedAt": 1791338330839
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791339231083
 }
