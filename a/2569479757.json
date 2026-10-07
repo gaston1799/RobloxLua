@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 124216119978534,
+  "jobId": "56f6d421-96d3-4d2b-9493-ef3c59d6cbb1",
+  "join": "roblox://placeId=124216119978534&gameInstanceId=56f6d421-96d3-4d2b-9493-ef3c59d6cbb1",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791391598828
+  "web": "https://www.roblox.com/games/start?placeId=124216119978534&gameInstanceId=56f6d421-96d3-4d2b-9493-ef3c59d6cbb1",
+  "location": "[⚡] Ride A Pet",
+  "updatedAt": 1791391689931
 }
