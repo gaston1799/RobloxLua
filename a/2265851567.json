@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 2551991523,
-  "jobId": "f5ad6cc5-4cb2-4f0e-8ecb-649d2d3f4469",
-  "join": "roblox://placeId=2551991523&gameInstanceId=f5ad6cc5-4cb2-4f0e-8ecb-649d2d3f4469",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=2551991523&gameInstanceId=f5ad6cc5-4cb2-4f0e-8ecb-649d2d3f4469",
-  "location": "Broken Bones IV",
-  "updatedAt": 1791381421345
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791381481352
 }
