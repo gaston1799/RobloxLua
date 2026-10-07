@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 96510596525082,
+  "jobId": "1f16f8d1-e0fc-472b-b754-6ee951f175be",
+  "join": "roblox://placeId=96510596525082&gameInstanceId=1f16f8d1-e0fc-472b-b754-6ee951f175be",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791386222607
+  "web": "https://www.roblox.com/games/start?placeId=96510596525082&gameInstanceId=1f16f8d1-e0fc-472b-b754-6ee951f175be",
+  "location": "Ball VS Ball",
+  "updatedAt": 1791386282619
 }
