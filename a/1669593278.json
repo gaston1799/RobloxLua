@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 120731410233153,
-  "jobId": "f32db309-f0e5-41a2-a947-9dd78e23c99a",
-  "join": "roblox://placeId=120731410233153&gameInstanceId=f32db309-f0e5-41a2-a947-9dd78e23c99a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=120731410233153&gameInstanceId=f32db309-f0e5-41a2-a947-9dd78e23c99a",
-  "location": "+1 Assassin Leveling",
-  "updatedAt": 1791491638921
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791493619403
 }
