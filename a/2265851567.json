@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 79045113387460,
-  "jobId": "f8933839-32a4-4cfd-a61f-020885578409",
-  "join": "roblox://placeId=79045113387460&gameInstanceId=f8933839-32a4-4cfd-a61f-020885578409",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=79045113387460&gameInstanceId=f8933839-32a4-4cfd-a61f-020885578409",
-  "location": "Film Animals [1-5 Player]",
-  "updatedAt": 1791474714696
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791476155075
 }
