@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3351674303,
+  "jobId": "a0a6b5e7-e3ab-46cb-af28-63d1c4cc2ac4",
+  "join": "roblox://placeId=3351674303&gameInstanceId=a0a6b5e7-e3ab-46cb-af28-63d1c4cc2ac4",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791393154299
+  "web": "https://www.roblox.com/games/start?placeId=3351674303&gameInstanceId=a0a6b5e7-e3ab-46cb-af28-63d1c4cc2ac4",
+  "location": "Driving Empire",
+  "updatedAt": 1791427004241
 }
