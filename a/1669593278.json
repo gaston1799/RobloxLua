@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 116701845804918,
+  "jobId": "91ac9f22-d8eb-4175-9132-97110454649d",
+  "join": "roblox://placeId=116701845804918&gameInstanceId=91ac9f22-d8eb-4175-9132-97110454649d",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791494221507
+  "web": "https://www.roblox.com/games/start?placeId=116701845804918&gameInstanceId=91ac9f22-d8eb-4175-9132-97110454649d",
+  "location": "Peel THE Potato",
+  "updatedAt": 1791494699652
 }
