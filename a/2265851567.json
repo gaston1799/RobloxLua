@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 117448312570314,
-  "jobId": "98f84e30-0d21-464d-872e-69070f32cb72",
-  "join": "roblox://placeId=117448312570314&gameInstanceId=98f84e30-0d21-464d-872e-69070f32cb72",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=117448312570314&gameInstanceId=98f84e30-0d21-464d-872e-69070f32cb72",
-  "location": "[1 & 2 PLAYER] Grapple Cart Obby",
-  "updatedAt": 1791482876774
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791483416973
 }
