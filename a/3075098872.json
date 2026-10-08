@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 111310650822419,
-  "jobId": "bb2e39f9-bab9-4a2c-9b04-8345d6edd082",
-  "join": "roblox://placeId=111310650822419&gameInstanceId=bb2e39f9-bab9-4a2c-9b04-8345d6edd082",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=111310650822419&gameInstanceId=bb2e39f9-bab9-4a2c-9b04-8345d6edd082",
-  "location": "Animal Simulator Remastered",
-  "updatedAt": 1791419740583
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791419982320
 }
