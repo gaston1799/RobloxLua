@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 119914664276784,
-  "jobId": "da8b8770-f45c-44e6-8603-ed8435aa4fca",
-  "join": "roblox://placeId=119914664276784&gameInstanceId=da8b8770-f45c-44e6-8603-ed8435aa4fca",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=119914664276784&gameInstanceId=da8b8770-f45c-44e6-8603-ed8435aa4fca",
-  "location": "[DESTRUCTION] Steal & Ride a Titan 🔥",
-  "updatedAt": 1791490618755
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791490738725
 }
