@@ -1,12 +1,12 @@
 {
   "userId": 3160408801,
   "displayName": "ImLxleen",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13694675435,
+  "jobId": "6e0b75a5-546a-442f-b070-08e949bcbe4d",
+  "join": "roblox://placeId=13694675435&gameInstanceId=6e0b75a5-546a-442f-b070-08e949bcbe4d",
   "follow": "roblox://followUserId=3160408801",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791561615747
+  "web": "https://www.roblox.com/games/start?placeId=13694675435&gameInstanceId=6e0b75a5-546a-442f-b070-08e949bcbe4d",
+  "location": "Animals Capture The Flag",
+  "updatedAt": 1791561645745
 }
