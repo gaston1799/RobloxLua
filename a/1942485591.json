@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 79045113387460,
-  "jobId": "052b834b-5ce2-4780-8cf5-3434a6f8da89",
-  "join": "roblox://placeId=79045113387460&gameInstanceId=052b834b-5ce2-4780-8cf5-3434a6f8da89",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=79045113387460&gameInstanceId=052b834b-5ce2-4780-8cf5-3434a6f8da89",
-  "location": "Film Animals [1-5 Player]",
-  "updatedAt": 1791516904876
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791517146879
 }
