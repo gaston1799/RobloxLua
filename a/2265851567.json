@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 97874266291114,
-  "jobId": "ad8a7324-8143-48af-9996-2e8b29d224ed",
-  "join": "roblox://placeId=97874266291114&gameInstanceId=ad8a7324-8143-48af-9996-2e8b29d224ed",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=97874266291114&gameInstanceId=ad8a7324-8143-48af-9996-2e8b29d224ed",
-  "location": "[2x] +1 Tongue Evolution",
-  "updatedAt": 1791515164489
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791516006666
 }
