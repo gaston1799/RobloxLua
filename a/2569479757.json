@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 135526003033215,
-  "jobId": "fe552217-aee4-4731-b169-73f11e85351b",
-  "join": "roblox://placeId=135526003033215&gameInstanceId=fe552217-aee4-4731-b169-73f11e85351b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=135526003033215&gameInstanceId=fe552217-aee4-4731-b169-73f11e85351b",
-  "location": "[☀️UPD2🎣] Zenith Inc",
-  "updatedAt": 1791546555238
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791546585587
 }
