@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 131015245884074,
-  "jobId": "33658af9-2ad2-4c64-bfdc-c4e5aee5215e",
-  "join": "roblox://placeId=131015245884074&gameInstanceId=33658af9-2ad2-4c64-bfdc-c4e5aee5215e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=131015245884074&gameInstanceId=33658af9-2ad2-4c64-bfdc-c4e5aee5215e",
-  "location": "Limited Trading Sim (Alpha)",
-  "updatedAt": 1791541574004
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791541604994
 }
