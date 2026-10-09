@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131234943387594,
+  "jobId": "9604b495-a616-4d2f-8987-5b3427274eac",
+  "join": "roblox://placeId=131234943387594&gameInstanceId=9604b495-a616-4d2f-8987-5b3427274eac",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791513483949
+  "web": "https://www.roblox.com/games/start?placeId=131234943387594&gameInstanceId=9604b495-a616-4d2f-8987-5b3427274eac",
+  "location": "Rocket Rush",
+  "updatedAt": 1791513544069
 }
