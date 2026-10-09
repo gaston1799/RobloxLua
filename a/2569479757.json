@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 91695551099066,
-  "jobId": "874848be-ac72-4a14-b8d9-383e00aea941",
-  "join": "roblox://placeId=91695551099066&gameInstanceId=874848be-ac72-4a14-b8d9-383e00aea941",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=91695551099066&gameInstanceId=874848be-ac72-4a14-b8d9-383e00aea941",
-  "location": "[W7 + PETS]+1 Shrink per Step",
-  "updatedAt": 1791524409322
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791524439268
 }
