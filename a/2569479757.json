@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 131540892934570,
+  "jobId": "cdfc11b7-7c80-45f5-9df1-088a75fe28f3",
+  "join": "roblox://placeId=131540892934570&gameInstanceId=cdfc11b7-7c80-45f5-9df1-088a75fe28f3",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791540854065
+  "web": "https://www.roblox.com/games/start?placeId=131540892934570&gameInstanceId=cdfc11b7-7c80-45f5-9df1-088a75fe28f3",
+  "location": "+1 Tap Evolve",
+  "updatedAt": 1791540884956
 }
