@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 135169917851408,
+  "jobId": "6c9306d7-383e-40ed-bac5-6c3ead2161dd",
+  "join": "roblox://placeId=135169917851408&gameInstanceId=6c9306d7-383e-40ed-bac5-6c3ead2161dd",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791540434400
+  "web": "https://www.roblox.com/games/start?placeId=135169917851408&gameInstanceId=6c9306d7-383e-40ed-bac5-6c3ead2161dd",
+  "location": "[UPD 5] Merge Hackers",
+  "updatedAt": 1791540463831
 }
