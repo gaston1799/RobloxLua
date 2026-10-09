@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 103138601755519,
+  "jobId": "fb2cb66e-6c6e-45ff-a304-8fed55a4dcad",
+  "join": "roblox://placeId=103138601755519&gameInstanceId=fb2cb66e-6c6e-45ff-a304-8fed55a4dcad",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791527710204
+  "web": "https://www.roblox.com/games/start?placeId=103138601755519&gameInstanceId=fb2cb66e-6c6e-45ff-a304-8fed55a4dcad",
+  "location": "+1 Dino Evolution",
+  "updatedAt": 1791527800633
 }
