@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "5b83f3e1-04e5-443b-866c-55dd76fcb76e",
+  "join": "roblox://placeId=5712833750&gameInstanceId=5b83f3e1-04e5-443b-866c-55dd76fcb76e",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791655360262
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=5b83f3e1-04e5-443b-866c-55dd76fcb76e",
+  "location": "Animal Simulator",
+  "updatedAt": 1791655420209
 }
