@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 85024203742894,
-  "jobId": "ac043230-fc54-409f-babe-8d8788e1b89f",
-  "join": "roblox://placeId=85024203742894&gameInstanceId=ac043230-fc54-409f-babe-8d8788e1b89f",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=85024203742894&gameInstanceId=ac043230-fc54-409f-babe-8d8788e1b89f",
-  "location": "KNIFE DUELS",
-  "updatedAt": 1791604166788
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791604406799
 }
