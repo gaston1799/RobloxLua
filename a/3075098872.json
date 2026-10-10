@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 96882343341609,
-  "jobId": "d2d211a2-1a6e-4bd7-82cc-a7963b1aa5d4",
-  "join": "roblox://placeId=96882343341609&gameInstanceId=d2d211a2-1a6e-4bd7-82cc-a7963b1aa5d4",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=96882343341609&gameInstanceId=d2d211a2-1a6e-4bd7-82cc-a7963b1aa5d4",
-  "location": "[Sects] Cultivation: 10,000 Lives",
-  "updatedAt": 1791652779628
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791652839584
 }
