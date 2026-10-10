@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 116637001962797,
+  "jobId": "a2fce949-7ddb-4353-baea-f96b7582f03d",
+  "join": "roblox://placeId=116637001962797&gameInstanceId=a2fce949-7ddb-4353-baea-f96b7582f03d",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791646598161
+  "web": "https://www.roblox.com/games/start?placeId=116637001962797&gameInstanceId=a2fce949-7ddb-4353-baea-f96b7582f03d",
+  "location": "[UPDATE] Manage A Country",
+  "updatedAt": 1791646658167
 }
