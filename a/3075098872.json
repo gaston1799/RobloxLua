@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 109661730356959,
-  "jobId": "42829761-5a42-40f0-ac99-31b8a685d41e",
-  "join": "roblox://placeId=109661730356959&gameInstanceId=42829761-5a42-40f0-ac99-31b8a685d41e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=109661730356959&gameInstanceId=42829761-5a42-40f0-ac99-31b8a685d41e",
-  "location": "[⚽] Jump To Steal Soccer Legends",
-  "updatedAt": 1791659981482
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791660163430
 }
