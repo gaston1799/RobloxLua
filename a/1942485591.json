@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 18649596490,
+  "jobId": "4d35f3ff-bf21-4a7d-9191-fe47b74b31b3",
+  "join": "roblox://placeId=18649596490&gameInstanceId=4d35f3ff-bf21-4a7d-9191-fe47b74b31b3",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791698271357
+  "web": "https://www.roblox.com/games/start?placeId=18649596490&gameInstanceId=4d35f3ff-bf21-4a7d-9191-fe47b74b31b3",
+  "location": "[RELAPSE] Are you lonely?",
+  "updatedAt": 1791698691422
 }
