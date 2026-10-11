@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 99679692310083,
-  "jobId": "878e246e-98c5-4a72-9f6b-8fb55ea98416",
-  "join": "roblox://placeId=99679692310083&gameInstanceId=878e246e-98c5-4a72-9f6b-8fb55ea98416",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=99679692310083&gameInstanceId=878e246e-98c5-4a72-9f6b-8fb55ea98416",
-  "location": "Steal Animal Egg",
-  "updatedAt": 1791707846418
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791707877730
 }
