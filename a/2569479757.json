@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 136760650987117,
-  "jobId": "9651782b-695d-49e3-85d4-18b4b6abd2f2",
-  "join": "roblox://placeId=136760650987117&gameInstanceId=9651782b-695d-49e3-85d4-18b4b6abd2f2",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=136760650987117&gameInstanceId=9651782b-695d-49e3-85d4-18b4b6abd2f2",
-  "location": "Fighting Simulator (BETA)",
-  "updatedAt": 1791733473184
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791734164231
 }
