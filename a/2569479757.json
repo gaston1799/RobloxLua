@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 78922511283130,
-  "jobId": "6f2f9497-d495-4967-80c7-6322777743ef",
-  "join": "roblox://placeId=78922511283130&gameInstanceId=6f2f9497-d495-4967-80c7-6322777743ef",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=78922511283130&gameInstanceId=6f2f9497-d495-4967-80c7-6322777743ef",
-  "location": "[🐶] Collect 1 Million Items ",
-  "updatedAt": 1791750399200
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791750429354
 }
