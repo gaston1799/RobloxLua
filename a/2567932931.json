@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "0dd648a0-03ba-4d67-8fb0-463a0b37bf34",
+  "join": "roblox://placeId=5712833750&gameInstanceId=0dd648a0-03ba-4d67-8fb0-463a0b37bf34",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791689989243
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=0dd648a0-03ba-4d67-8fb0-463a0b37bf34",
+  "location": "Animal Simulator",
+  "updatedAt": 1791690109250
 }
