@@ -1,12 +1,12 @@
 {
   "userId": 9308946114,
   "displayName": "NotoriousLevi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5814304937,
+  "jobId": "329b95f0-1ac8-4ab0-9316-08a3afa15f1d",
+  "join": "roblox://placeId=5814304937&gameInstanceId=329b95f0-1ac8-4ab0-9316-08a3afa15f1d",
   "follow": "roblox://followUserId=9308946114",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791780134205
+  "web": "https://www.roblox.com/games/start?placeId=5814304937&gameInstanceId=329b95f0-1ac8-4ab0-9316-08a3afa15f1d",
+  "location": "Outfit Loader Testing Place",
+  "updatedAt": 1791781394456
 }
