@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10108131074,
+  "jobId": "2808f93e-f67f-4f0a-a4db-960391f45a9e",
+  "join": "roblox://placeId=10108131074&gameInstanceId=2808f93e-f67f-4f0a-a4db-960391f45a9e",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791691370995
+  "web": "https://www.roblox.com/games/start?placeId=10108131074&gameInstanceId=2808f93e-f67f-4f0a-a4db-960391f45a9e",
+  "location": "Mow The Lawn! 🍃 [Simulator]",
+  "updatedAt": 1791815603010
 }
