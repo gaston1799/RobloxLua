@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 90920025162454,
+  "jobId": "32f69fa4-55dd-411d-a3e1-fc68c98260b5",
+  "join": "roblox://placeId=90920025162454&gameInstanceId=32f69fa4-55dd-411d-a3e1-fc68c98260b5",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791832140212
+  "web": "https://www.roblox.com/games/start?placeId=90920025162454&gameInstanceId=32f69fa4-55dd-411d-a3e1-fc68c98260b5",
+  "location": "[UPD] Roll a Fisherman 🎣",
+  "updatedAt": 1791832170663
 }
