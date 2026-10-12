@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 101999883467300,
+  "jobId": "5fadd8c6-4a02-4586-a399-fbd6e868bcd1",
+  "join": "roblox://placeId=101999883467300&gameInstanceId=5fadd8c6-4a02-4586-a399-fbd6e868bcd1",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791765970469
+  "web": "https://www.roblox.com/games/start?placeId=101999883467300&gameInstanceId=5fadd8c6-4a02-4586-a399-fbd6e868bcd1",
+  "location": "Piano Rhythm Tiles",
+  "updatedAt": 1791766150488
 }
