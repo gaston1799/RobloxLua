@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5233782396,
+  "jobId": "0aad9157-4eff-4b7d-8044-eb7063fd85bf",
+  "join": "roblox://placeId=5233782396&gameInstanceId=0aad9157-4eff-4b7d-8044-eb7063fd85bf",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791766272121
+  "web": "https://www.roblox.com/games/start?placeId=5233782396&gameInstanceId=0aad9157-4eff-4b7d-8044-eb7063fd85bf",
+  "location": "🎃 Creatures of Sonaria 🍬 Survive Kaiju Animals",
+  "updatedAt": 1791766390633
 }
