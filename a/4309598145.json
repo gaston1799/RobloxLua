@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107778070777162,
+  "jobId": "d7d39c0f-038f-4470-a809-8cd761afb1d9",
+  "join": "roblox://placeId=107778070777162&gameInstanceId=d7d39c0f-038f-4470-a809-8cd761afb1d9",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791773774188
+  "web": "https://www.roblox.com/games/start?placeId=107778070777162&gameInstanceId=d7d39c0f-038f-4470-a809-8cd761afb1d9",
+  "location": "Steal An Egg",
+  "updatedAt": 1791774132535
 }
