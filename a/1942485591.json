@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 71278628540517,
+  "jobId": "f632927e-d522-4f10-b8f3-c8effd12ab24",
+  "join": "roblox://placeId=71278628540517&gameInstanceId=f632927e-d522-4f10-b8f3-c8effd12ab24",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791843449749
+  "web": "https://www.roblox.com/games/start?placeId=71278628540517&gameInstanceId=f632927e-d522-4f10-b8f3-c8effd12ab24",
+  "location": "Magic Piano",
+  "updatedAt": 1791843509837
 }
