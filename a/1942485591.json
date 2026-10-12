@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 119929094294460,
-  "jobId": "9294cba1-aee7-4fc4-bbcc-2f438d8c5579",
-  "join": "roblox://placeId=119929094294460&gameInstanceId=9294cba1-aee7-4fc4-bbcc-2f438d8c5579",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=119929094294460&gameInstanceId=9294cba1-aee7-4fc4-bbcc-2f438d8c5579",
-  "location": "Impossible Animals",
-  "updatedAt": 1791835948011
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791836428092
 }
