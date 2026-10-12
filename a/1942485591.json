@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 106287315699545,
+  "jobId": "e9b4247a-25f6-47d0-951c-f518f24caaaa",
+  "join": "roblox://placeId=106287315699545&gameInstanceId=e9b4247a-25f6-47d0-951c-f518f24caaaa",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791794927941
+  "web": "https://www.roblox.com/games/start?placeId=106287315699545&gameInstanceId=e9b4247a-25f6-47d0-951c-f518f24caaaa",
+  "location": "Realistic Tree Cutting V6.8",
+  "updatedAt": 1791795048082
 }
