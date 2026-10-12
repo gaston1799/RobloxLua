@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 131652231424227,
-  "jobId": "694bd80d-8efa-4a90-b23b-f7a005f88b6c",
-  "join": "roblox://placeId=131652231424227&gameInstanceId=694bd80d-8efa-4a90-b23b-f7a005f88b6c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=131652231424227&gameInstanceId=694bd80d-8efa-4a90-b23b-f7a005f88b6c",
-  "location": "Ride a Dino",
-  "updatedAt": 1791836488133
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791839788787
 }
