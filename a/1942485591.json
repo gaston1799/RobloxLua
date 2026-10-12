@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 537413528,
+  "jobId": "3eadd247-fc85-4906-9c5a-03550443a53b",
+  "join": "roblox://placeId=537413528&gameInstanceId=3eadd247-fc85-4906-9c5a-03550443a53b",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791812842408
+  "web": "https://www.roblox.com/games/start?placeId=537413528&gameInstanceId=3eadd247-fc85-4906-9c5a-03550443a53b",
+  "location": "Build A Boat For Treasure",
+  "updatedAt": 1791813022376
 }
