@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 78453398695059,
+  "jobId": "ecc67bb2-611a-4f22-a3ad-5df42bf89d6a",
+  "join": "roblox://placeId=78453398695059&gameInstanceId=ecc67bb2-611a-4f22-a3ad-5df42bf89d6a",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791844890082
+  "web": "https://www.roblox.com/games/start?placeId=78453398695059&gameInstanceId=ecc67bb2-611a-4f22-a3ad-5df42bf89d6a",
+  "location": "[UPD 2] THRESHOLD ",
+  "updatedAt": 1791844950103
 }
