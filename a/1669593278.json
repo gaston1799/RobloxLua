@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 100484168444874,
+  "jobId": "ad51d8fc-4cb6-4038-ae07-d5454f4b3248",
+  "join": "roblox://placeId=100484168444874&gameInstanceId=ad51d8fc-4cb6-4038-ae07-d5454f4b3248",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791766870664
+  "web": "https://www.roblox.com/games/start?placeId=100484168444874&gameInstanceId=ad51d8fc-4cb6-4038-ae07-d5454f4b3248",
+  "location": "Dueling Grounds ⚔️ ",
+  "updatedAt": 1791766930679
 }
