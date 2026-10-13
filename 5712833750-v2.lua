@@ -31,6 +31,27 @@ local function sendIntent(key, state)
     return true
 end
 
+-- Mouse click, for the actions this game binds to a LEFT CLICK on the held tool rather than to a key
+-- (the fireball and the food). The intent server takes {"event":"press","button":"left"} and only
+-- injects it while Roblox is the foreground window, so a blocked click is reported like a key one.
+local function sendClick(button)
+    local payload = {event = "press", button = button or "left"}
+    local json = game:GetService("HttpService"):JSONEncode(payload)
+    local ok, response = pcall(function()
+        return game:HttpPost(INTENT_SERVER, json)
+    end)
+    if not ok then
+        print("[Intent Server] CLICK ERROR: " .. tostring(response))
+        return false
+    end
+    if type(response) == "string" and response:find("blocked", 1, true) then
+        print("[Intent Server] CLICK BLOCKED (Roblox is not the foreground window)")
+        return false
+    end
+    print("[Intent Server] Click: " .. tostring(payload.button))
+    return true
+end
+
 -- ===== ADVANCED PVP BOT - EMBEDDED =====
 
 local BotState = {
@@ -117,6 +138,7 @@ end
 local Config = {
     melee_range = 6,
     combat_radius = 25,
+    fireball_range = 40,            -- left-click the fireball only inside this range (measured in game)
     q_cooldown = 0.65,
     fireball_cooldown = 1.6,        -- measured in game: the coded fireball gate is 1.6s, not 1.4s
     eat_cooldown = 1.6,             -- same coded minimum as the fireball (game max-hit sheet)
@@ -1070,12 +1092,26 @@ local function attackWithQ()
     BotState.q_wait = Config.q_cooldown * jitterRange(HUMANISE.cooldown_min, 1.0)
 end
 
+-- Forward declarations: both live in the AUTO EAT & FIREBALL block further down, but firing a click
+-- has to be certain the right tool is in hand first.
+local equipItem, unequipItem
+
 local function fireballAttack()
-    sendIntent("e", "down")
-    task.wait(0.1)
-    sendIntent("e", "up")
+    -- The fireball is fired with a real LEFT CLICK. The old version pressed "e", which this game does
+    -- not bind to the tool. The click goes through the intent server's mouse path into the Roblox
+    -- window. Never click with the wrong tool in hand: with no fireball equipped, a click would
+    -- activate whatever IS held (the food), which is the exact bug this replaces.
+    if BotState.eating_until and BotState.eating_until > tick() then return end
+
+    if not equipItem("Fireball") then
+        print("[Auto Fireball] No 'Fireball' tool in the Backpack or on the character - not clicking")
+        return
+    end
+
+    sendClick("left")
     BotState.last_fireball_time = tick()
-    -- Same rule as Q: 1.6s is the coded minimum, so never deliberately wait past it.
+    -- Same rule as Q: 1.6s is the coded minimum, so never deliberately wait past it. A click needs no
+    -- key down/up window, so the old 0.15s of task.wait is gone with it.
     BotState.fireball_wait = Config.fireball_cooldown * jitterRange(HUMANISE.cooldown_min, 1.0)
 end
 
@@ -1087,7 +1123,8 @@ end
 
 -- ===== AUTO EAT & FIREBALL =====
 
-local function equipItem(itemName)
+-- Assigns to the forward-declared locals above, so fireballAttack() sees the same functions.
+function equipItem(itemName)
     local char = LocalPlayer.Character
     if not char then return false end
 
@@ -1109,7 +1146,7 @@ end
 
 -- Put an equipped tool back in the Backpack. The game acts on the tool you are HOLDING, so eating
 -- while the fireball is held is what silently did nothing before.
-local function unequipItem(itemName)
+function unequipItem(itemName)
     local char = LocalPlayer.Character
     local backpack = LocalPlayer:FindFirstChild("Backpack")
     if not char or not backpack then return false end
@@ -1151,9 +1188,10 @@ local function useFood()
 
     print("[Auto Eat] Equipped food (HP: " .. string.format("%.0f%%", hpPercent * 100) .. ")")
     task.wait(0.1)
-    sendIntent("f", "down")
-    task.wait(0.05)
-    sendIntent("f", "up")
+    -- Consume it with the same left click the fireball uses: the food is a held tool in this game, not a
+    -- key bind. useFood() runs after updateHitting() in the tick, so the fire goes out first and the
+    -- eat follows it.
+    sendClick("left")
     BotState.last_eat_time = tick()
 
     -- Hand the fireball back, otherwise auto-fireball is left broken by eating.
@@ -2444,8 +2482,9 @@ local function updateHitting()
     -- never used in combat: fireballAttack() only existed inside doubleHit(), which nothing called.
     -- That is roughly a third of the achievable hit rate, so it is wired in here.
     local fireballReady = (tick() - BotState.last_fireball_time) > (BotState.fireball_wait or Config.fireball_cooldown)
-    -- Hold the fireball while an eat is in progress: the food is in hand and the game acts on that.
-    if fireballReady and dist <= Config.combat_radius and (BotState.eating_until or 0) <= tick() then
+    -- Fire only when the coded cooldown is up AND the target is inside fireball range. While an eat is
+    -- in progress the food is in hand, so the fireball stands down here and inside fireballAttack().
+    if fireballReady and dist <= Config.fireball_range and (BotState.eating_until or 0) <= tick() then
         fireballAttack()
     end
 
