@@ -87,29 +87,61 @@ local function nativeClick(button)
     return false, "no native click method available"
 end
 
--- Held keys are the risky half: keydown/keyup only exist in some executors, and a plain keypress is a
--- full press, not a hold. VIM's SendKeyEvent(keyCode, isDown, isTyping) covers holding when it is there.
+-- Keys the bot only ever taps. "shift" is a TOGGLE in this game and q/e/f/t are single actions, so a
+-- full press (keypress) IS the right event for them - no down/up pair needed, and no intent server.
+local TAP_KEYS = { shift = true, q = true, e = true, f = true, t = true }
+-- Keys the bot holds down while it moves. These need a real down and a real up.
+local HOLD_KEYS = { w = true, a = true, s = true, d = true }
+
 local function nativeKey(key, state)
     if not focusOK("key " .. tostring(key)) then return false end
     local name = string.lower(tostring(key))
-
-    if state == "down" then
-        if INPUT.keydown and pcall(INPUT.keydown, name) then return true end
-        if INPUT.keypress and pcall(INPUT.keypress, name) then return true end
-    else
-        if INPUT.keyup and pcall(INPUT.keyup, name) then return true end
-        if INPUT.keyrelease and pcall(INPUT.keyrelease, name) then return true end
-    end
-
     local code = KEYCODES[name]
-    if INPUT.vim and code then
-        if pcall(function() INPUT.vim:SendKeyEvent(code, state == "down", false) end) then return true end
+
+    if TAP_KEYS[name] then
+        if state == "down" then
+            if INPUT.keypress and pcall(INPUT.keypress, name) then return true end
+            if INPUT.vim and code then
+                local ok = pcall(function()
+                    INPUT.vim:SendKeyEvent(code, true, false)
+                    task.wait(0.05)
+                    INPUT.vim:SendKeyEvent(code, false, false)
+                end)
+                if ok then return true end
+            end
+            return false
+        end
+        -- Nothing to release for a tap; swallowing this also skips a pointless HTTP round-trip.
+        return true
     end
+
+    if HOLD_KEYS[name] then
+        if state == "down" then
+            if INPUT.keydown and pcall(INPUT.keydown, name) then return true end
+            -- VIM can hold properly. A plain keypress cannot - it releases immediately, which would
+            -- make movement stutter - so it is deliberately NOT used here, and we return false so
+            -- sendIntent falls through to the intent server, which is the proven hold path.
+            if INPUT.vim and code and pcall(function() INPUT.vim:SendKeyEvent(code, true, false) end) then
+                return true
+            end
+        else
+            if INPUT.keyup and pcall(INPUT.keyup, name) then return true end
+            if INPUT.vim and code and pcall(function() INPUT.vim:SendKeyEvent(code, false, false) end) then
+                return true
+            end
+            if INPUT.keyrelease and pcall(INPUT.keyrelease, name) then return true end
+        end
+        return false
+    end
+
+    -- Unknown key: let the intent server deal with it.
     return false
 end
 
--- Movement keys stay on the proven intent-server path for now; set this true to try native keys.
-local USE_NATIVE_KEYS = false
+-- Native keys ON: shift/q/e/f/t are taps and work through keypress alone, which is what fixes Auto
+-- Sprint without the Python helper. Held movement keys still fall through to the intent server unless
+-- the executor has keydown/keyup or VIM holds the key.
+local USE_NATIVE_KEYS = true
 local function inputTools()
     local available = {}
     for _, name in ipairs({ "mouse1click", "mouse2click", "mousemoveabs", "keypress", "keyrelease",
