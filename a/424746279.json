@@ -1,12 +1,12 @@
 {
   "userId": 424746279,
   "displayName": "joli",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5712833750,
+  "jobId": "a6e7e10e-bacb-4c45-97fc-97a8da5cc99a",
+  "join": "roblox://placeId=5712833750&gameInstanceId=a6e7e10e-bacb-4c45-97fc-97a8da5cc99a",
   "follow": "roblox://followUserId=424746279",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791907643131
+  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=a6e7e10e-bacb-4c45-97fc-97a8da5cc99a",
+  "location": "Animal Simulator",
+  "updatedAt": 1791907670893
 }
