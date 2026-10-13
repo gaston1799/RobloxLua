@@ -14,14 +14,21 @@ local INTENT_SERVER = "http://127.0.0.1:3636/intent"
 local function sendIntent(key, state)
     local payload = {key = key, state = state}
     local json = game:GetService("HttpService"):JSONEncode(payload)
-    local ok, err = pcall(function()
-        game:HttpPost(INTENT_SERVER, json)
+    local ok, response = pcall(function()
+        return game:HttpPost(INTENT_SERVER, json)
     end)
     if not ok then
-        print("[Intent Server] ERROR: " .. tostring(err))
-    else
-        print("[Intent Server] Sent: " .. key .. " = " .. state)
+        print("[Intent Server] ERROR: " .. tostring(response))
+        return false
     end
+    -- The server answers HTTP 200 even when its foreground guard REFUSES to inject (Roblox is not
+    -- the focused window). Callers that keep state in sync with the real game have to know that, so
+    -- the body is inspected and the result returned: true = the key was really delivered.
+    if type(response) == "string" and response:find("blocked", 1, true) then
+        return false
+    end
+    print("[Intent Server] Sent: " .. key .. " = " .. state)
+    return true
 end
 
 -- ===== ADVANCED PVP BOT - EMBEDDED =====
@@ -122,6 +129,49 @@ local Config = {
     follow_ally_stop_dist = 15,   -- keep closing until this close, so it does not jitter at follow_ally_dist
     ally_clan_name = getSafeClanName(),
 }
+
+-- ===== PROTECTED PLAYERS (defend these users) =====
+-- HARDCODED allowlist. Put the usernames to defend between the braces, one per line:
+--     "SomeUsername",
+-- Player.Name is what is compared (never DisplayName), case-insensitively, and an entry that is
+-- not in the server is simply ignored - so a stale name is harmless. When one of these players
+-- loses health the bot engages whoever hit them; see the PROTECTED PLAYERS hook further down for
+-- the watch/engage code. The bot never TARGETS a protected user, and damage coming FROM one is
+-- ignored.
+local PROTECTED_USERS = {
+    -- "ExampleUsername",
+}
+
+-- Behaviour of the protection feature. It runs on its own, independently of the "Auto PVP" toggle.
+local PROTECT = {
+    enabled = true,           -- false = switch the whole feature off without deleting the list
+    skip_ratio_check = false, -- true = engage the attacker even when isWinnableBattle() says no
+    attacker_range = 70,      -- studs: only a player this close to the victim is a candidate
+    retry_interval = 1.0,     -- seconds between two protection-driven engagements
+    min_damage = 1,           -- ignore health drops smaller than this (rounding / regen)
+}
+
+-- Lowercased lookup set, built once from the array above.
+local protectedSet = {}
+for _, protectedName in ipairs(PROTECTED_USERS) do
+    if type(protectedName) == "string" and protectedName ~= "" then
+        protectedSet[string.lower(protectedName)] = true
+    end
+end
+
+-- Is this Player (or username string) on the protected list? Declared HERE, above every user of
+-- it, so updateAutozoneTarget and the damage path resolve it as a local instead of a global.
+local function isProtected(target)
+    if not PROTECT.enabled then return false end
+    if target == nil then return false end
+    if typeof(target) == "string" then
+        return protectedSet[string.lower(target)] == true
+    end
+    if typeof(target) == "Instance" and target:IsA("Player") then
+        return protectedSet[string.lower(target.Name)] == true
+    end
+    return false
+end
 
 -- ===== HUMANISER =====
 -- Every interval in this script used to be a constant, which is exactly what made the timing read as
@@ -229,6 +279,7 @@ local AutoPVPState = {
     last_attacker = nil,
     last_damage_time = 0,
     damage_threshold = 0.5,
+    reengage_target = nil,   -- Auto Re-engage: the player to resume on (polled from updateBotState)
 }
 
 -- ===== HUD STATE =====
@@ -612,34 +663,115 @@ local function aimCameraAtTarget(targetRoot)
 end
 
 -- ===== AUTO SPRINT =====
--- "shift" TOGGLES sprint in this game. It starts OFF, and the game resets it to OFF on join
--- and on every respawn / character change. So we keep a belief of the current state and press
--- the toggle once whenever the desired state (the Auto Sprint toggle) disagrees with it. The
--- CharacterAdded handler below resets the belief, so the next tick re-applies the press.
-local SPRINT_RESYNC_INTERVAL = 0.5
+-- "shift" TOGGLES sprint in this game. It starts OFF, and the game resets it to OFF on join and on
+-- every respawn. Pressing shift while we are ALREADY sprinting turns it back OFF, so the bot can
+-- never just press it every tick: it has to know whether it is currently sprinting.
+--
+-- Why it used to "not work all the time": the old syncSprint() set that belief optimistically the
+-- moment it fired the press, and only CharacterAdded ever reset it. One press that did not actually
+-- land - which happens whenever Roblox is not the foreground window, because the intent server's
+-- guard then answers 200 with {"status":"blocked"} instead of injecting anything - left the belief
+-- saying "sprinting" while the game was not, and nothing ever corrected it until the next respawn.
+--
+-- Now: (1) the belief only flips when the intent was really delivered, (2) it is re-checked against
+-- our own horizontal speed - the one signal this script can observe - and (3) it is dropped again if
+-- the speed shows sprint went away in-game. The speed baseline is learned at runtime, so no
+-- walk/sprint studs-per-second numbers are hardcoded.
+local SPRINT_RESYNC_INTERVAL = 0.5   -- minimum gap between two shift presses
+local SPRINT_FAST_RATIO = 1.15       -- speed / baseline above which sprint is considered real
+local SPRINT_SLOW_GRACE = 2.5        -- seconds of "slower than baseline" before believing sprint is off
+local SPRINT_MOVE_EPSILON = 1.5      -- studs/s; below this we are not moving, so no verdict either way
 
-local function syncSprint()
-    if BotState.auto_sprint_enabled == BotState.sprint_on then return end
+-- Horizontal speed only: flying/morphing moves us in Y, which says nothing about sprint.
+local function horizontalSpeed()
+    local char = LocalPlayer.Character
+    local root = char and char:FindFirstChild("HumanoidRootPart")
+    if not root then return 0 end
+    local velocity = root.AssemblyLinearVelocity
+    return math.sqrt(velocity.X * velocity.X + velocity.Z * velocity.Z)
+end
 
-    local now = tick()
-    if now - BotState.sprint_last_sync < SPRINT_RESYNC_INTERVAL then return end
-    BotState.sprint_last_sync = now
+-- One press of the toggle. The belief only moves if BOTH halves were accepted, so a press lost to
+-- the foreground guard is retried instead of being silently believed.
+local function pressSprintToggle(desired)
+    if tick() - (BotState.sprint_last_sync or 0) < SPRINT_RESYNC_INTERVAL then return end
+    BotState.sprint_last_sync = tick()
 
-    local desired = BotState.auto_sprint_enabled
     -- Spawned so the Heartbeat handler never yields on the 0.1s press.
     task.spawn(function()
-        sendIntent("shift", "down")
+        local downOk = sendIntent("shift", "down")
         task.wait(0.1)
-        sendIntent("shift", "up")
-        BotState.sprint_on = desired
-        print("[Auto Sprint]", desired and "ON" or "OFF")
+        local upOk = sendIntent("shift", "up")
+
+        if downOk and upOk then
+            BotState.sprint_on = desired
+            BotState.sprint_slow_since = nil
+            if desired then
+                BotState.sprint_verified = false
+                print("[Auto Sprint] ON (press delivered, watching speed)")
+            else
+                BotState.sprint_verified = false
+                print("[Auto Sprint] OFF")
+            end
+        elseif not BotState.sprint_blocked_logged then
+            BotState.sprint_blocked_logged = true
+            print("[Auto Sprint] press NOT delivered (intent server blocked - is Roblox the foreground window?) - will retry")
+        end
     end)
 end
 
--- Respawn / character change turns sprint off in-game, so forget the belief and let
--- syncSprint() press it back on.
+local function sprintTick()
+    local speed = horizontalSpeed()
+    local baseline = BotState.sprint_baseline_speed or 0
+    local moving = speed > SPRINT_MOVE_EPSILON
+    local now = tick()
+
+    -- Learn the un-sprinted baseline from frames where we do not believe we are sprinting.
+    if not BotState.sprint_on and speed > baseline then
+        BotState.sprint_baseline_speed = speed
+        baseline = speed
+    end
+
+    if BotState.sprint_on and moving and baseline > SPRINT_MOVE_EPSILON then
+        if speed > baseline * SPRINT_FAST_RATIO then
+            BotState.sprint_slow_since = nil
+            BotState.sprint_blocked_logged = false
+            if not BotState.sprint_verified then
+                BotState.sprint_verified = true
+                print(string.format("[Auto Sprint] confirmed by speed: %.1f studs/s (baseline %.1f)", speed, baseline))
+            end
+        elseif BotState.sprint_verified then
+            -- It worked before and it is not working now: the game reset it. Re-assuming OFF makes
+            -- the next press an ON press instead of an OFF one.
+            BotState.sprint_slow_since = BotState.sprint_slow_since or now
+            if now - BotState.sprint_slow_since > SPRINT_SLOW_GRACE then
+                print(string.format("[Auto Sprint] sprint dropped out in-game (%.1f studs/s, baseline %.1f) - re-pressing", speed, baseline))
+                BotState.sprint_on = false
+                BotState.sprint_verified = false
+                BotState.sprint_slow_since = nil
+            end
+        else
+            -- Never confirmed by speed, so we do NOT conclude anything: a wrong speed assumption
+            -- must not make this toggle the real sprint off every few seconds.
+            BotState.sprint_slow_since = nil
+            if not BotState.sprint_unverified_logged then
+                BotState.sprint_unverified_logged = true
+                print(string.format("[Auto Sprint] ON, speed %.1f did not confirm it (baseline %.1f) - keeping it on", speed, baseline))
+            end
+        end
+    end
+
+    if BotState.auto_sprint_enabled ~= BotState.sprint_on then
+        pressSprintToggle(BotState.auto_sprint_enabled)
+    end
+end
+
+-- Respawn / character change turns sprint off in-game, so forget the belief and let sprintTick()
+-- press it back on. The learned baseline is kept: walk speed does not change across respawns.
 LocalPlayer.CharacterAdded:Connect(function()
     BotState.sprint_on = false
+    BotState.sprint_verified = false
+    BotState.sprint_slow_since = nil
 end)
 
 local function moveTowardWithInterception(targetRoot)
@@ -997,10 +1129,13 @@ end
 
 local warnedNoClan = false
 
--- Forward declarations for the zone machinery, which is defined BELOW but is called from here.
--- Without these the calls below resolved to globals and blew up at runtime with
--- 'attempt to call a nil value', aborting the rest of that Heartbeat tick.
-local isInsideSafeZone, isInAutoZone, characterInSafeZone
+-- Forward declarations for helpers that are defined BELOW but called from here (the zone
+-- machinery, plus isWinnableBattle used by updateAutozoneTarget). Without these the calls
+-- resolved to globals and blew up at runtime with 'attempt to call a nil value', aborting
+-- the rest of that Heartbeat tick. Define each of them with `function name(...)` so the
+-- assignment lands on THIS local - `local function name(...)` would declare a second,
+-- shadowing local and leave the forward declaration nil forever.
+local isInsideSafeZone, isInAutoZone, characterInSafeZone, isWinnableBattle
 
 local function findClosestAlly()
     local char = LocalPlayer.Character
@@ -1102,7 +1237,9 @@ local function updateAutozoneTarget()
             if enemyRoot and enemyHumanoid and enemyHumanoid.Health > 0 then
                 -- Check if enemy matches the selected clan (or "Any Target")
                 local isTargetClan = false
-                if BotState.target_enemy_clan == "Any Target" then
+                if isProtected(player) then
+                    isTargetClan = false   -- a protected user is never an enemy, whatever the dropdown says
+                elseif BotState.target_enemy_clan == "Any Target" then
                     isTargetClan = true
                 else
                     local teamFolder = workspace.Teams and workspace.Teams:FindFirstChild(BotState.target_enemy_clan)
@@ -1155,7 +1292,7 @@ end
 
 -- ===== AUTO PVP DAMAGE DETECTION =====
 
-local function isWinnableBattle(player)
+function isWinnableBattle(player)
     if not player or not player.Character then return false end
 
     local ourHumanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
@@ -1650,8 +1787,14 @@ local function setupDamageDetection()
             print("[Auto PVP] Bot died, stopping...")
             -- A dead bot has no valid engagement: drop the target, otherwise it stays locked across
             -- the respawn and the next hit says "already targeting <old name>" instead of engaging.
+            -- Our own death is not a "do not chase" exit, so Auto Re-engage keeps the name and
+            -- resumes on them once we are back up.
             if BotState.target then
                 print("[Auto PVP] Dropping target " .. BotState.target.Name .. " because we died")
+                if AutoPVPState.auto_reengage then
+                    AutoPVPState.reengage_target = BotState.target
+                    print("[Auto PVP] Auto Re-engage: will resume on " .. BotState.target.Name .. " after respawn")
+                end
                 BotState.target = nil
                 BotState.target_last_y = nil
             end
@@ -1692,11 +1835,15 @@ local function setupDamageDetection()
             -- Check if dead
             if not targetHumanoid or targetHumanoid.Health <= 0 then
                 print("[Auto PVP] Target " .. BotState.target.Name .. " is dead")
+                local deadTarget = BotState.target
                 BotState.target = nil
                 BotState.target_last_y = nil
 
                 if AutoPVPState.auto_reengage then
-                    print("[Auto PVP] Auto Re-engage ON: waiting for next attacker...")
+                    -- A death is NOT a "do not chase" exit, so hold the name: the re-engage poll in
+                    -- updateBotState resumes the fight as soon as they are live again.
+                    AutoPVPState.reengage_target = deadTarget
+                    print("[Auto PVP] Auto Re-engage ON: holding " .. deadTarget.Name .. " for re-engagement")
                 else
                     print("[Auto PVP] Auto Re-engage OFF: stopping bot")
                     _G.AdvancedPVPBot.stop()
@@ -1708,6 +1855,7 @@ local function setupDamageDetection()
                 print("[Auto PVP] Target " .. BotState.target.Name .. " escaped to safe zone, disengaging")
                 BotState.target = nil
                 BotState.target_last_y = nil
+                AutoPVPState.reengage_target = nil   -- do not chase into the safe zone
                 _G.AdvancedPVPBot.stop()
                 lastHealthValue = health
                 return
@@ -1718,6 +1866,7 @@ local function setupDamageDetection()
                     print("[Auto PVP] Target " .. BotState.target.Name .. " flew away (bird morph), disengaging")
                     BotState.target = nil
                     BotState.target_last_y = nil
+                    AutoPVPState.reengage_target = nil   -- do not chase into the sky
                     _G.AdvancedPVPBot.stop()
                     lastHealthValue = health
                     return
@@ -1745,6 +1894,13 @@ local function setupDamageDetection()
 
             -- Only find new attacker if no target
             local attacker = findAttackerByDamage(damageTaken)
+            -- The protected list means defend, not fight: a protected user is off-limits as a target
+            -- even when they are the one who hit us ("excluding its own").
+            if attacker and isProtected(attacker) then
+                print("[Auto PVP] Ignoring " .. attacker.Name .. " - they are on the protected list")
+                lastHealthValue = health
+                return
+            end
             if attacker and attacker.Character then
                 local attackerRoot = attacker.Character:FindFirstChild("HumanoidRootPart")
                 local inSafeZone = characterInSafeZone(attacker.Character)
@@ -1820,6 +1976,153 @@ local function setupAutoCharacterDetection()
         print("[Auto PVP] ✓ Damage detection re-hooked after respawn")
     end)
 end
+
+-- ===== PROTECTED PLAYERS (defend these users) =====
+-- The list itself lives at the top of the file (PROTECTED_USERS / PROTECT). This is the hook: it
+-- watches each protected player's Humanoid and, when one of them loses health, engages the player
+-- who most plausibly dealt it. It runs on its own - the "Auto PVP" toggle is not required.
+local protectionHooked = false
+local protectWatching = {}      -- [player] = Humanoid.HealthChanged connection
+local protectLastHealth = {}    -- [player] = last health seen
+local protectNextEngage = 0     -- rate limit, so one hit cannot re-lock the same attacker forever
+
+-- Who hit the victim? The engine does not tell a third party who dealt the damage, so the signal
+-- available is proximity: the nearest live player to the victim who is not us, not the victim, not
+-- protected, not in our clan, not in the victim's clan, and not standing in the safe zone.
+local function findLikelyAttacker(victim)
+    if not victim or not victim.Character then return nil end
+    local victimRoot = victim.Character:FindFirstChild("HumanoidRootPart")
+    if not victimRoot then return nil end
+
+    -- workspace.Teams may not have been populated when the script loaded, so resolve late.
+    if Config.ally_clan_name == CLAN_PLACEHOLDER then
+        local detected = autoDetectClan()
+        if detected and detected ~= CLAN_PLACEHOLDER then
+            Config.ally_clan_name = detected
+        end
+    end
+
+    local teams = workspace:FindFirstChild("Teams")
+    local myTeam = teams and teams:FindFirstChild(Config.ally_clan_name)
+    local victimTeam = teams and victim.Team and teams:FindFirstChild(victim.Team.Name)
+
+    local bestPlayer = nil
+    local bestDistance = PROTECT.attacker_range
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and player ~= victim and not isProtected(player) then
+            local character = player.Character
+            local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+            local root = character and character:FindFirstChild("HumanoidRootPart")
+
+            if humanoid and root and humanoid.Health > 0 then
+                local isAlly = (myTeam and teamHasPlayer(myTeam, player.Name))
+                    or (victimTeam and victimTeam ~= myTeam and teamHasPlayer(victimTeam, player.Name))
+
+                if not isAlly and not characterInSafeZone(character) then
+                    local distance = getDistance(victimRoot.Position, root.Position)
+                    if distance < bestDistance then
+                        bestDistance = distance
+                        bestPlayer = player
+                    end
+                end
+            end
+        end
+    end
+
+    return bestPlayer
+end
+
+local function onProtectedHealthChanged(player, health)
+    if not PROTECT.enabled then return end
+
+    local previous = protectLastHealth[player]
+    protectLastHealth[player] = health
+    if previous == nil then return end
+
+    local lost = previous - health
+    if lost < PROTECT.min_damage then return end
+
+    local now = tick()
+    if now < protectNextEngage then return end
+
+    local attacker = findLikelyAttacker(player)
+    if not attacker then
+        print(string.format("[Protect] %s took %.0f damage - no attacker candidate within %.0f studs",
+            player.Name, lost, PROTECT.attacker_range))
+        return
+    end
+
+    if not PROTECT.skip_ratio_check and not isWinnableBattle(attacker) then
+        print("[Protect] " .. player.Name .. " was hit by " .. attacker.Name
+            .. " but they are too strong (ratio check) - not engaging")
+        return
+    end
+
+    protectNextEngage = now + PROTECT.retry_interval
+    AutoPVPState.last_attacker = attacker
+
+    -- Same arming order the damage path and AutoZone use: set the target, then make sure the bot
+    -- is running, so "engage" actually moves and hits.
+    _G.AdvancedPVPBot.setTarget(attacker)
+    if not BotState.enabled then
+        _G.AdvancedPVPBot.start()
+    end
+    print(string.format("[Protect] %s took %.0f damage from %s - engaging", player.Name, lost, attacker.Name))
+end
+
+local function watchProtected(player)
+    if not isProtected(player) or protectWatching[player] then return end
+
+    local function attach(character)
+        if not character then return end
+        local humanoid = character:FindFirstChildOfClass("Humanoid") or character:WaitForChild("Humanoid", 5)
+        if not humanoid then return end
+
+        protectLastHealth[player] = humanoid.Health
+        protectWatching[player] = humanoid.HealthChanged:Connect(function(health)
+            onProtectedHealthChanged(player, health)
+        end)
+        print("[Protect] Watching " .. player.Name .. " (" .. tostring(humanoid.Health) .. " HP)")
+    end
+
+    player.CharacterAdded:Connect(attach)
+    attach(player.Character)
+end
+
+local function unwatchProtected(player)
+    local connection = protectWatching[player]
+    if connection then connection:Disconnect() end
+    protectWatching[player] = nil
+    protectLastHealth[player] = nil
+end
+
+local function setupProtection()
+    if not PROTECT.enabled then return end
+
+    if #PROTECTED_USERS == 0 then
+        print("[Protect] PROTECTED_USERS is empty - nobody to defend (add usernames at the top of the file)")
+        return
+    end
+
+    local online = {}
+    for _, player in ipairs(Players:GetPlayers()) do
+        if isProtected(player) then table.insert(online, player.Name) end
+    end
+    print("[Protect] " .. #PROTECTED_USERS .. " protected name(s); online now: "
+        .. (#online > 0 and table.concat(online, ", ") or "none"))
+
+    for _, player in ipairs(Players:GetPlayers()) do watchProtected(player) end
+
+    if not protectionHooked then
+        protectionHooked = true
+        Players.PlayerAdded:Connect(watchProtected)
+        Players.PlayerRemoving:Connect(unwatchProtected)
+    end
+end
+
+-- Arm protection at load time, so it does not depend on anything being toggled in the UI.
+setupProtection()
 
 local updateCounter = 0
 
@@ -1979,7 +2282,7 @@ local function updateBotState()
     refreshHeldKeys()
 
     -- Auto Sprint re-syncs every tick, with or without the combat bot running.
-    syncSprint()
+    sprintTick()
 
     -- Occasional idle pause, only while not fighting: release everything and do nothing for a random
     -- moment. Scheduled from a random gap so it cannot be predicted either.
@@ -2003,6 +2306,50 @@ local function updateBotState()
     -- Zone cube membership runs every tick too, so enter/leave is tracked even while idle.
     zoneTrackerTick()
 
+    -- Auto Re-engage. A name sitting in reengage_target means: we WERE fighting this player and the
+    -- exit was not one of the "do not chase" cases (safe zone, bird morph, left the game) - those
+    -- clear it. A death or a respawn does not, so this resumes the fight instead of idling until
+    -- somebody else happens to hit us, which is all the old auto-reengage ever did.
+    if AutoPVPState.auto_reengage and not BotState.target and AutoPVPState.reengage_target then
+        local pending = AutoPVPState.reengage_target
+        local myChar = LocalPlayer.Character
+
+        if not pending.Parent then
+            print("[Auto PVP] Re-engage dropped: " .. tostring(pending.Name) .. " left the game")
+            AutoPVPState.reengage_target = nil
+        elseif isProtected(pending) then
+            print("[Auto PVP] Re-engage dropped: " .. pending.Name .. " is on the protected list")
+            AutoPVPState.reengage_target = nil
+        elseif myChar and characterInSafeZone(myChar) then
+            -- Hold the name and try again once we are back out of the zone.
+            if updateCounter % 90 == 0 then
+                print("[Auto PVP] Re-engage waiting: we are in the safe zone")
+            end
+        elseif not pending.Character then
+            -- Between characters (respawning): keep waiting.
+            if updateCounter % 90 == 0 then
+                print("[Auto PVP] Re-engage waiting: " .. pending.Name .. " has no character yet")
+            end
+        elseif not isTargetLive(pending) then
+            if updateCounter % 90 == 0 then
+                print("[Auto PVP] Re-engage waiting: " .. pending.Name .. " is not up yet")
+            end
+        elseif characterInSafeZone(pending.Character) then
+            print("[Auto PVP] Re-engage dropped: " .. pending.Name .. " is in the safe zone")
+            AutoPVPState.reengage_target = nil
+        else
+            local root = pending.Character:FindFirstChild("HumanoidRootPart")
+            local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
+            local distance = (root and myRoot) and getDistance(myRoot.Position, root.Position) or 0
+            print(string.format("[Auto PVP] Re-engage: %s is back up (%.0f studs) - resuming", pending.Name, distance))
+            AutoPVPState.reengage_target = nil
+            _G.AdvancedPVPBot.setTarget(pending)
+            if not BotState.enabled then
+                _G.AdvancedPVPBot.start()
+            end
+        end
+    end
+
     -- Follow Ally needs only its own toggle now: movement must not depend on the PVP bot
     -- having been started, which is exactly what used to gate it.
     if BotState.follow_ally_enabled and not BotState.target then
@@ -2025,12 +2372,17 @@ local function updateBotState()
 
     if BotState.target and not isTargetLive(BotState.target) then
         print("[Auto PVP] Target " .. BotState.target.Name .. " is no longer live - clearing")
+        if AutoPVPState.auto_reengage then
+            -- Died / respawning / streamed out - none of these is a "do not chase" exit, so hold the
+            -- name for the re-engage poll instead of ending the fight here.
+            AutoPVPState.reengage_target = BotState.target
+        end
         BotState.target = nil
         BotState.target_last_y = nil
         if not AutoPVPState.auto_reengage then
             _G.AdvancedPVPBot.stop()
         else
-            print("[Auto PVP] Auto Re-engage ON: waiting for next attacker...")
+            print("[Auto PVP] Auto Re-engage ON: holding " .. tostring(AutoPVPState.reengage_target and AutoPVPState.reengage_target.Name) .. " for re-engagement")
         end
     end
 
@@ -2044,6 +2396,7 @@ local function updateBotState()
             print("[Auto PVP] We are in the safe zone - dropping " .. tostring(BotState.target.Name) .. " and disengaging")
             BotState.target = nil
             BotState.target_last_y = nil
+            AutoPVPState.reengage_target = nil   -- our own retreat: no chasing from inside the zone
             releaseAllKeys()
         end
     end
@@ -2086,6 +2439,9 @@ _G.AdvancedPVPBot = {
     state = BotState,
     config = Config,
     autoPVP = AutoPVPState,
+    protect = PROTECT,
+    protectedUsers = PROTECTED_USERS,
+    isProtected = isProtected,
 
     start = function()
         if BotState.enabled then return end
@@ -2134,6 +2490,7 @@ _G.AdvancedPVPBot = {
             print("[Auto PVP] Disabled")
             _G.AdvancedPVPBot.stop()
             BotState.target = nil
+            AutoPVPState.reengage_target = nil
             print("[Auto PVP] Target cleared")
         end
     end,
@@ -2244,7 +2601,8 @@ local function buildUI(ui)
         callback = function(val)
             if _G.AdvancedPVPBot then
                 AutoPVPState.auto_reengage = val
-                print("[Auto PVP] Auto Re-engage:", val and "ON (hunt new attackers)" or "OFF (stop after kill)")
+                if not val then AutoPVPState.reengage_target = nil end
+                print("[Auto PVP] Auto Re-engage:", val and "ON (resume the fight while they did not leave through the safe zone)" or "OFF (stop after kill)")
             end
         end,
     })
