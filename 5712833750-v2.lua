@@ -11,7 +11,121 @@ local LocalPlayer = Players.LocalPlayer
 -- ===== INTENT SERVER SETUP =====
 local INTENT_SERVER = "http://127.0.0.1:3636/intent"
 
+-- ===== NATIVE INPUT (executor) =====
+-- The Python intent server existed because injecting input from Lua was assumed impossible. It is not:
+-- this executor exposes mouse1click / mouse2click / mousemoveabs / mousemoverel / keypress /
+-- keyrelease / iswindowactive, plus VirtualInputManager as a fallback (verified with Morphs.tools()).
+-- Native input does need the game window focused - which iswindowactive() lets us check, and which the
+-- Python guard was doing for us - but it removes the second machine, the HTTP round-trip on every key
+-- and the watchdog from the loop.
+local INPUT = { focusWarned = false }
+do
+    local env = (getgenv and getgenv()) or _G or {}
+    for _, name in ipairs({ "mouse1click", "mouse2click", "mousemoveabs", "mousemoverel",
+                            "keypress", "keyrelease", "keydown", "keyup", "iswindowactive" }) do
+        local fn = env[name] or _G[name]
+        if type(fn) == "function" then INPUT[name] = fn end
+    end
+    local ok, service = pcall(function() return game:GetService("VirtualInputManager") end)
+    if ok and service then INPUT.vim = service end
+end
+
+-- Windows virtual key codes: executor keypress/keyrelease take names, VIM's SendKeyEvent takes numbers.
+local KEYCODES = {
+    w = 0x57, a = 0x41, s = 0x53, d = 0x44, q = 0x51, e = 0x45, f = 0x46, t = 0x54,
+    shift = 0xA0, space = 0x20, ["1"] = 0x31, ["2"] = 0x32, ["3"] = 0x33,
+}
+
+-- nil = unknown (no iswindowactive in this executor), otherwise true/false.
+local function windowActive()
+    if not INPUT.iswindowactive then return nil end
+    local ok, active = pcall(INPUT.iswindowactive)
+    if ok then return active == true end
+    return nil
+end
+
+-- Native input only means anything while the game has focus. One throttled line explains a run where
+-- nothing happens, instead of one line per key.
+local function focusOK(what)
+    local active = windowActive()
+    if active == false then
+        if not INPUT.focusWarned then
+            INPUT.focusWarned = true
+            print("[Input] game window not focused - native " .. tostring(what) .. " paused (click into Roblox)")
+        end
+        return false
+    end
+    if INPUT.focusWarned then
+        INPUT.focusWarned = false
+        print("[Input] focus back - resuming native input")
+    end
+    return true
+end
+
+-- mouse1click/mouse2click click at the CURRENT cursor position, which is what the item actions want.
+local MOUSE_FN = { left = "mouse1click", right = "mouse2click" }
+local function nativeClick(button)
+    button = button or "left"
+    if not focusOK("click") then return false, "window not focused" end
+
+    local name = MOUSE_FN[button]
+    if name and INPUT[name] then
+        if pcall(INPUT[name]) then return true, name end
+    end
+
+    if INPUT.vim then
+        local ok, pos = pcall(function() return game:GetService("UserInputService"):GetMouseLocation() end)
+        if not ok or not pos then pos = Vector2.new(400, 300) end
+        local id = (button == "right") and 1 or 0
+        local ok2 = pcall(function()
+            INPUT.vim:SendMouseButtonEvent(math.floor(pos.X), math.floor(pos.Y), id, true, nil, 0)
+            task.wait(0.03)
+            INPUT.vim:SendMouseButtonEvent(math.floor(pos.X), math.floor(pos.Y), id, false, nil, 0)
+        end)
+        if ok2 then return true, "VirtualInputManager" end
+    end
+    return false, "no native click method available"
+end
+
+-- Held keys are the risky half: keydown/keyup only exist in some executors, and a plain keypress is a
+-- full press, not a hold. VIM's SendKeyEvent(keyCode, isDown, isTyping) covers holding when it is there.
+local function nativeKey(key, state)
+    if not focusOK("key " .. tostring(key)) then return false end
+    local name = string.lower(tostring(key))
+
+    if state == "down" then
+        if INPUT.keydown and pcall(INPUT.keydown, name) then return true end
+        if INPUT.keypress and pcall(INPUT.keypress, name) then return true end
+    else
+        if INPUT.keyup and pcall(INPUT.keyup, name) then return true end
+        if INPUT.keyrelease and pcall(INPUT.keyrelease, name) then return true end
+    end
+
+    local code = KEYCODES[name]
+    if INPUT.vim and code then
+        if pcall(function() INPUT.vim:SendKeyEvent(code, state == "down", false) end) then return true end
+    end
+    return false
+end
+
+-- Movement keys stay on the proven intent-server path for now; set this true to try native keys.
+local USE_NATIVE_KEYS = false
+local function inputTools()
+    local available = {}
+    for _, name in ipairs({ "mouse1click", "mouse2click", "mousemoveabs", "keypress", "keyrelease",
+                            "keydown", "keyup", "iswindowactive" }) do
+        if INPUT[name] then table.insert(available, name) end
+    end
+    if INPUT.vim then table.insert(available, "VirtualInputManager") end
+    return available
+end
+print("[Input] native: " .. (#inputTools() > 0 and table.concat(inputTools(), ", ") or "NONE - intent server only"))
+print("[Input] native keys: " .. tostring(USE_NATIVE_KEYS) .. " | window focused: " .. tostring(windowActive()))
+
 local function sendIntent(key, state)
+    if USE_NATIVE_KEYS and nativeKey(key, state) then
+        return true
+    end
     local payload = {key = key, state = state}
     local json = game:GetService("HttpService"):JSONEncode(payload)
     local ok, response = pcall(function()
@@ -31,17 +145,23 @@ local function sendIntent(key, state)
     return true
 end
 
--- Mouse click, for the actions this game binds to a LEFT CLICK on the held tool rather than to a key
--- (the fireball and the food). The intent server takes {"event":"press","button":"left"} and only
--- injects it while Roblox is the foreground window, so a blocked click is reported like a key one.
+-- Mouse click for the actions this game binds to a LEFT CLICK on the held tool (the fireball and the
+-- food). Native executor input is tried first so these two work without the Python helper running at
+-- all; the intent server is only a fallback for executors that expose no mouse functions.
 local function sendClick(button)
+    local okNative, method = nativeClick(button)
+    if okNative then
+        print("[Input] Click " .. tostring(button) .. " via " .. tostring(method))
+        return true
+    end
+
     local payload = {event = "press", button = button or "left"}
     local json = game:GetService("HttpService"):JSONEncode(payload)
     local ok, response = pcall(function()
         return game:HttpPost(INTENT_SERVER, json)
     end)
     if not ok then
-        print("[Intent Server] CLICK ERROR: " .. tostring(response))
+        print("[Intent Server] CLICK ERROR: " .. tostring(response) .. " (native: " .. tostring(method) .. ")")
         return false
     end
     if type(response) == "string" and response:find("blocked", 1, true) then
