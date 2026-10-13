@@ -146,10 +146,13 @@ local PROTECTED_USERS = {
     -- "ExampleUsername",
 }
 
--- Behaviour of the protection feature. It runs on its own, independently of the "Auto PVP" toggle.
+-- Behaviour of the protection feature. Gated by the "Auto PVP" toggle: with Auto PVP off there is
+-- nothing to defend with, so the watches are not even installed (see setAutoPVP at the bottom).
 local PROTECT = {
     enabled = true,           -- false = switch the whole feature off without deleting the list
     friends = true,           -- true = every Roblox FRIEND of this account is protected automatically
+    attack_protected = false, -- true = the "Attack Protected (friends)" toggle: protected users become
+                              -- valid TARGETS again (defence still never picks them)
     skip_ratio_check = false, -- true = engage the attacker even when isWinnableBattle() says no
     attacker_range = 70,      -- studs: only a player this close to the victim is a candidate
     retry_interval = 1.0,     -- seconds between two protection-driven engagements
@@ -197,6 +200,14 @@ local function isProtected(target)
         return protectedSet[string.lower(target.Name)] == true
     end
     return false
+end
+
+-- Target-acquisition gate. A protected player is not a valid target unless the
+-- "Attack Protected (friends)" toggle is on. Protection itself keeps using isProtected(), so that
+-- toggle only changes who the bot is willing to FIGHT - never who it is willing to DEFEND.
+local function isBlockedTarget(target)
+    if PROTECT.attack_protected then return false end
+    return isProtected(target)
 end
 
 -- ===== HUMANISER =====
@@ -1263,8 +1274,8 @@ local function updateAutozoneTarget()
             if enemyRoot and enemyHumanoid and enemyHumanoid.Health > 0 then
                 -- Check if enemy matches the selected clan (or "Any Target")
                 local isTargetClan = false
-                if isProtected(player) then
-                    isTargetClan = false   -- a protected user is never an enemy, whatever the dropdown says
+                if isBlockedTarget(player) then
+                    isTargetClan = false   -- protected and not allowed to be attacked: never an enemy here
                 elseif BotState.target_enemy_clan == "Any Target" then
                     isTargetClan = true
                 else
@@ -1921,9 +1932,10 @@ local function setupDamageDetection()
             -- Only find new attacker if no target
             local attacker = findAttackerByDamage(damageTaken)
             -- The protected list means defend, not fight: a protected user is off-limits as a target
-            -- even when they are the one who hit us ("excluding its own").
-            if attacker and isProtected(attacker) then
-                print("[Auto PVP] Ignoring " .. attacker.Name .. " - they are on the protected list")
+            -- even when they are the one who hit us ("excluding its own") - unless the
+            -- "Attack Protected (friends)" toggle is on.
+            if attacker and isBlockedTarget(attacker) then
+                print("[Auto PVP] Ignoring " .. attacker.Name .. " - protected (turn on 'Attack Protected' to fight friends)")
                 lastHealthValue = health
                 return
             end
@@ -2147,8 +2159,9 @@ local function setupProtection()
     end
 end
 
--- Arm protection at load time, so it does not depend on anything being toggled in the UI.
-setupProtection()
+-- Protection is armed by the "Auto PVP" toggle (see _G.AdvancedPVPBot.setAutoPVP below) rather
+-- than at load time: with Auto PVP off there is no combat to defend with, and this keeps the
+-- feature's on/off state in exactly one place.
 
 -- ===== protect friends automatically =====
 -- PROTECT.friends protects every Roblox friend of this account, so the feature can be tested without
@@ -2209,11 +2222,20 @@ local function watchNewlyProtected()
     end
 end
 
+local friendLoopStarted = false
+
 local function startFriendProtection()
     if not PROTECT.friends then
         print("[Protect] PROTECT.friends is off - only PROTECTED_USERS are defended")
         return
     end
+
+    -- Idempotent: the Auto PVP toggle can be flipped repeatedly, and this must not stack loops.
+    if friendLoopStarted then
+        print("[Protect] Friend protection already running")
+        return
+    end
+    friendLoopStarted = true
 
     task.spawn(function()
         if refreshFriendList() then
@@ -2223,17 +2245,27 @@ local function startFriendProtection()
             print("[Protect] Friends protected automatically: " .. ids .. " friend id(s) cached")
         end
 
-        -- Keep it fresh: somebody who adds us (or whom we add) while we are in game.
+        -- Keep it fresh: somebody who adds us (or whom we add) while we are in game. While Auto PVP
+        -- is off this loop just idles - the sets were cleared by stopProtection().
         while true do
             task.wait(FRIEND_REFRESH_INTERVAL)
-            if PROTECT.enabled and PROTECT.friends then
+            if PROTECT.enabled and PROTECT.friends and AutoPVPState.enabled then
                 if refreshFriendList() then watchNewlyProtected() end
             end
         end
     end)
 end
 
-startFriendProtection()
+-- Auto PVP off = protection off: disconnect the health watches and forget the friend cache so no
+-- work is done while the feature is disabled. Re-enabling re-arms everything from scratch.
+local function stopProtection()
+    for player in pairs(protectWatching) do
+        unwatchProtected(player)
+    end
+    for id in pairs(protectedFriendIds) do protectedFriendIds[id] = nil end
+    for name in pairs(protectedFriendNames) do protectedFriendNames[name] = nil end
+    print("[Protect] Stopped (Auto PVP is off)")
+end
 
 local updateCounter = 0
 
@@ -2428,8 +2460,8 @@ local function updateBotState()
         if not pending.Parent then
             print("[Auto PVP] Re-engage dropped: " .. tostring(pending.Name) .. " left the game")
             AutoPVPState.reengage_target = nil
-        elseif isProtected(pending) then
-            print("[Auto PVP] Re-engage dropped: " .. pending.Name .. " is on the protected list")
+        elseif isBlockedTarget(pending) then
+            print("[Auto PVP] Re-engage dropped: " .. pending.Name .. " is protected")
             AutoPVPState.reengage_target = nil
         elseif myChar and characterInSafeZone(myChar) then
             -- Hold the name and try again once we are back out of the zone.
@@ -2597,9 +2629,14 @@ _G.AdvancedPVPBot = {
             print("[Auto PVP] Enabled - listening for damage")
             setupDamageDetection()
             setupAutoCharacterDetection()
+            -- Protection rides on Auto PVP: the friend list and the health watches exist only while
+            -- it is on.
+            setupProtection()
+            startFriendProtection()
         else
             print("[Auto PVP] Disabled")
             _G.AdvancedPVPBot.stop()
+            stopProtection()
             BotState.target = nil
             AutoPVPState.reengage_target = nil
             print("[Auto PVP] Target cleared")
@@ -2660,6 +2697,19 @@ local function buildUI(ui)
             if _G.AdvancedPVPBot then
                 _G.AdvancedPVPBot.setAutoPVP(val)
             end
+        end,
+    })
+
+    -- Lets the bot fight back against friends / whitelisted names. Off by default: protection is
+    -- defend-first, so those players are skipped as targets (AutoZone, damage path, re-engage).
+    combatSection:addToggle({
+        title = "Attack Protected (friends)",
+        toggled = false,
+        callback = function(val)
+            PROTECT.attack_protected = val
+            print("[Protect] Attack protected users:", val
+                and "ON (protected users are valid targets again)"
+                or "OFF (protected users are never targeted)")
         end,
     })
 
