@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 74414241680540,
-  "jobId": "9b63fd01-d138-4ff3-94b6-af859b9e6f77",
-  "join": "roblox://placeId=74414241680540&gameInstanceId=9b63fd01-d138-4ff3-94b6-af859b9e6f77",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=74414241680540&gameInstanceId=9b63fd01-d138-4ff3-94b6-af859b9e6f77",
-  "location": "The Forge [📜]",
-  "updatedAt": 1791931288483
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791931620144
 }
