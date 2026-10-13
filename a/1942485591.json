@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 135193469413243,
-  "jobId": "a23f011f-2357-498e-9b98-412a8846f21d",
-  "join": "roblox://placeId=135193469413243&gameInstanceId=a23f011f-2357-498e-9b98-412a8846f21d",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=135193469413243&gameInstanceId=a23f011f-2357-498e-9b98-412a8846f21d",
-  "location": "MM2 Aim Trainer 2",
-  "updatedAt": 1791927233123
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791927533134
 }
