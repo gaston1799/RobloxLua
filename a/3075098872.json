@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 123720558354386,
+  "jobId": "12569514-ce80-48d3-8300-a53d3c77eef8",
+  "join": "roblox://placeId=123720558354386&gameInstanceId=12569514-ce80-48d3-8300-a53d3c77eef8",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791850111488
+  "web": "https://www.roblox.com/games/start?placeId=123720558354386&gameInstanceId=12569514-ce80-48d3-8300-a53d3c77eef8",
+  "location": "[UPD] Build the Pyramid!",
+  "updatedAt": 1791850171495
 }
