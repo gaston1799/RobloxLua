@@ -2467,7 +2467,7 @@ local function updateBotState()
             print("[Auto PVP] Re-engage dropped: " .. tostring(pending.Name) .. " left the game")
             AutoPVPState.reengage_target = nil
         elseif isBlockedTarget(pending) then
-            print("[Auto PVP] Re-engage dropped: " .. pending.Name .. " is protected")
+            print("[Auto PVP] Re-engage dropped: " .. pending.Name .. " is protected - turn on 'Attack Protected (friends)' in Combat to fight friends")
             AutoPVPState.reengage_target = nil
         elseif not isTargetLive(pending) then
             -- Dead / respawning / streamed out. This is a WAIT, never a drop: their death is exactly
@@ -2662,6 +2662,10 @@ _G.AdvancedPVPBot = {
         AutoPVPState.enabled = enabled
         if enabled then
             print("[Auto PVP] Enabled - listening for damage")
+            -- The two PVP Bot toggles are set in another section, so their state is reported here: if
+            -- Auto Re-engage is OFF the fight will simply not resume, and this says so out loud.
+            print("[Auto PVP] PVP Bot section: Auto Sprint " .. (BotState.auto_sprint_enabled and "ON" or "OFF")
+                .. " | Auto Re-engage " .. (AutoPVPState.auto_reengage and "ON" or "OFF"))
             setupDamageDetection()
             setupAutoCharacterDetection()
             -- Protection rides on Auto PVP: the friend list and the health watches exist only while
