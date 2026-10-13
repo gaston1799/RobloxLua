@@ -131,8 +131,12 @@ local Config = {
 }
 
 -- ===== PROTECTED PLAYERS (defend these users) =====
--- HARDCODED allowlist. Put the usernames to defend between the braces, one per line:
---     "SomeUsername",
+-- Two sources, both live at once:
+--   * PROTECT.friends (ON by default) protects every Roblox friend of this account automatically -
+--     nothing to type, which is also what makes it quick to test.
+--   * PROTECTED_USERS below is the HARDCODED manual list for anyone who is not a friend. Put the
+--     usernames to defend between the braces, one per line:
+--         "SomeUsername",
 -- Player.Name is what is compared (never DisplayName), case-insensitively, and an entry that is
 -- not in the server is simply ignored - so a stale name is harmless. When one of these players
 -- loses health the bot engages whoever hit them; see the PROTECTED PLAYERS hook further down for
@@ -145,6 +149,7 @@ local PROTECTED_USERS = {
 -- Behaviour of the protection feature. It runs on its own, independently of the "Auto PVP" toggle.
 local PROTECT = {
     enabled = true,           -- false = switch the whole feature off without deleting the list
+    friends = true,           -- true = every Roblox FRIEND of this account is protected automatically
     skip_ratio_check = false, -- true = engage the attacker even when isWinnableBattle() says no
     attacker_range = 70,      -- studs: only a player this close to the victim is a candidate
     retry_interval = 1.0,     -- seconds between two protection-driven engagements
@@ -159,11 +164,32 @@ for _, protectedName in ipairs(PROTECTED_USERS) do
     end
 end
 
--- Is this Player (or username string) on the protected list? Declared HERE, above every user of
--- it, so updateAutozoneTarget and the damage path resolve it as a local instead of a global.
+-- Automatically-protected friends. These two sets are filled in asynchronously by
+-- startFriendProtection() at the bottom of the PROTECTED PLAYERS block, so they are empty until the
+-- first successful fetch - the manual list works on its own in the meantime.
+local protectedFriendIds = {}    -- [userId] = true
+local protectedFriendNames = {}  -- [lowercased username] = true
+
+local function isProtectedFriend(target)
+    if not PROTECT.friends then return false end
+    if target == nil then return false end
+    if typeof(target) == "string" then
+        return protectedFriendNames[string.lower(target)] == true
+    end
+    if typeof(target) == "Instance" and target:IsA("Player") then
+        return protectedFriendIds[target.UserId] == true
+            or protectedFriendNames[string.lower(target.Name)] == true
+    end
+    return false
+end
+
+-- Is this Player (or username string) protected? PROTECT.friends (the account's friend list) first,
+-- then the manual PROTECTED_USERS entries. Declared HERE, above every user of it, so
+-- updateAutozoneTarget and the damage path resolve it as a local instead of a global.
 local function isProtected(target)
     if not PROTECT.enabled then return false end
     if target == nil then return false end
+    if isProtectedFriend(target) then return true end
     if typeof(target) == "string" then
         return protectedSet[string.lower(target)] == true
     end
@@ -2100,8 +2126,8 @@ end
 local function setupProtection()
     if not PROTECT.enabled then return end
 
-    if #PROTECTED_USERS == 0 then
-        print("[Protect] PROTECTED_USERS is empty - nobody to defend (add usernames at the top of the file)")
+    if #PROTECTED_USERS == 0 and not PROTECT.friends then
+        print("[Protect] PROTECTED_USERS is empty and PROTECT.friends is off - nobody to defend (add usernames at the top of the file)")
         return
     end
 
@@ -2109,8 +2135,8 @@ local function setupProtection()
     for _, player in ipairs(Players:GetPlayers()) do
         if isProtected(player) then table.insert(online, player.Name) end
     end
-    print("[Protect] " .. #PROTECTED_USERS .. " protected name(s); online now: "
-        .. (#online > 0 and table.concat(online, ", ") or "none"))
+    print("[Protect] " .. #PROTECTED_USERS .. " manual name(s), friends auto-protect: " .. tostring(PROTECT.friends)
+        .. " | online and protected right now: " .. (#online > 0 and table.concat(online, ", ") or "none"))
 
     for _, player in ipairs(Players:GetPlayers()) do watchProtected(player) end
 
@@ -2123,6 +2149,91 @@ end
 
 -- Arm protection at load time, so it does not depend on anything being toggled in the UI.
 setupProtection()
+
+-- ===== protect friends automatically =====
+-- PROTECT.friends protects every Roblox friend of this account, so the feature can be tested without
+-- hand-copying usernames into PROTECTED_USERS. GetFriendsAsync is a web call, so it is fetched once in
+-- the background (never blocking the load), cached in the two sets above, and refreshed now and then
+-- so a friend added mid-session is still picked up. Any failure is logged and leaves the manual list
+-- in charge. Note that GetFriendsOnline() only ever lists ONLINE friends, and it is the fallback here.
+local FRIEND_REFRESH_INTERVAL = 300
+
+local function fillFriendList(items)
+    local added = 0
+    for _, item in ipairs(items) do
+        local id = item.Id or item.UserId
+        local username = item.Username or item.UserName
+        if id then
+            if not protectedFriendIds[id] then added = added + 1 end
+            protectedFriendIds[id] = true
+        end
+        if username then
+            protectedFriendNames[string.lower(username)] = true
+        end
+    end
+    return added
+end
+
+local function refreshFriendList()
+    if not PROTECT.enabled or not PROTECT.friends then return false end
+
+    local ok, err = pcall(function()
+        local pages = LocalPlayer:GetFriendsAsync()
+        local total = 0
+        while true do
+            total = total + fillFriendList(pages:GetCurrentPage())
+            if pages.IsFinished then break end
+            pages:AdvanceToNextPageAsync()
+        end
+        print("[Protect] Friend list loaded from GetFriendsAsync: " .. total .. " friend(s)")
+    end)
+    if ok then return true end
+
+    local ok2 = pcall(function()
+        local total = fillFriendList(LocalPlayer:GetFriendsOnline())
+        print("[Protect] GetFriendsAsync failed, fallback GetFriendsOnline: " .. total .. " online friend(s)")
+    end)
+    if not ok2 then
+        print("[Protect] Could not load the friend list (" .. tostring(err) .. ") - manual list still applies")
+    end
+    return false
+end
+
+-- A friend who was not protected when the hook was armed (the list may not have arrived yet, or they
+-- joined later) starts being watched here.
+local function watchNewlyProtected()
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and isProtected(player) and not protectWatching[player] then
+            watchProtected(player)
+        end
+    end
+end
+
+local function startFriendProtection()
+    if not PROTECT.friends then
+        print("[Protect] PROTECT.friends is off - only PROTECTED_USERS are defended")
+        return
+    end
+
+    task.spawn(function()
+        if refreshFriendList() then
+            watchNewlyProtected()
+            local ids = 0
+            for _ in pairs(protectedFriendIds) do ids = ids + 1 end
+            print("[Protect] Friends protected automatically: " .. ids .. " friend id(s) cached")
+        end
+
+        -- Keep it fresh: somebody who adds us (or whom we add) while we are in game.
+        while true do
+            task.wait(FRIEND_REFRESH_INTERVAL)
+            if PROTECT.enabled and PROTECT.friends then
+                if refreshFriendList() then watchNewlyProtected() end
+            end
+        end
+    end)
+end
+
+startFriendProtection()
 
 local updateCounter = 0
 
