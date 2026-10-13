@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 79267089300389,
-  "jobId": "4c6875c6-bb1f-4505-b974-b1469a1eaf98",
-  "join": "roblox://placeId=79267089300389&gameInstanceId=4c6875c6-bb1f-4505-b974-b1469a1eaf98",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=79267089300389&gameInstanceId=4c6875c6-bb1f-4505-b974-b1469a1eaf98",
-  "location": "[🪓] My Wood Farm ",
-  "updatedAt": 1791857614650
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791858877309
 }
