@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 91034536684382,
-  "jobId": "a0d157a8-5ba4-4d0e-8042-26840994da19",
-  "join": "roblox://placeId=91034536684382&gameInstanceId=a0d157a8-5ba4-4d0e-8042-26840994da19",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=91034536684382&gameInstanceId=a0d157a8-5ba4-4d0e-8042-26840994da19",
-  "location": "[💰] Destroy a Vault",
-  "updatedAt": 1791900201051
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791900291507
 }
