@@ -316,7 +316,8 @@ local AutoPVPState = {
     last_attacker = nil,
     last_damage_time = 0,
     damage_threshold = 0.5,
-    reengage_target = nil,   -- Auto Re-engage: the player to resume on (polled from updateBotState)
+    reengage_target = nil,     -- Auto Re-engage: the player to resume on (polled from updateBotState)
+    reengage_approach = nil,   -- the target we resumed on while still outside the fighting zone
 }
 
 -- ===== HUD STATE =====
@@ -1882,7 +1883,7 @@ local function setupDamageDetection()
                     AutoPVPState.reengage_target = deadTarget
                     print("[Auto PVP] Auto Re-engage ON: holding " .. deadTarget.Name .. " for re-engagement")
                 else
-                    print("[Auto PVP] Auto Re-engage OFF: stopping bot")
+                    print("[Auto PVP] Auto Re-engage OFF: stopping bot (turn on 'Auto Re-engage' to resume the fight)")
                     _G.AdvancedPVPBot.stop()
                     lastHealthValue = health
                     return
@@ -2450,46 +2451,54 @@ local function updateBotState()
     zoneTrackerTick()
 
     -- Auto Re-engage. A name sitting in reengage_target means: we WERE fighting this player and the
-    -- exit was not one of the "do not chase" cases (safe zone, bird morph, left the game) - those
-    -- clear it. A death or a respawn does not, so this resumes the fight instead of idling until
-    -- somebody else happens to hit us, which is all the old auto-reengage ever did.
+    -- exit was not one of the "do not chase" events (fleeing into the safe zone, bird morph, leaving
+    -- the game) - those clear it as they happen. A death or a respawn does not, so this resumes the
+    -- fight instead of idling until somebody else happens to hit us, which is all the old
+    -- auto-reengage ever did. While either side is between characters, dead, or outside the fighting
+    -- zone this now WAITS and holds the name instead of giving up.
     if AutoPVPState.auto_reengage and not BotState.target and AutoPVPState.reengage_target then
         local pending = AutoPVPState.reengage_target
         local myChar = LocalPlayer.Character
+        local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
+        local myHumanoid = myChar and myChar:FindFirstChildOfClass("Humanoid")
+        local weAreAlive = myHumanoid ~= nil and myHumanoid.Health > 0 and myRoot ~= nil
 
-        if not pending.Parent then
+        if pending.Parent == nil then
             print("[Auto PVP] Re-engage dropped: " .. tostring(pending.Name) .. " left the game")
             AutoPVPState.reengage_target = nil
         elseif isBlockedTarget(pending) then
             print("[Auto PVP] Re-engage dropped: " .. pending.Name .. " is protected")
             AutoPVPState.reengage_target = nil
-        elseif myChar and characterInSafeZone(myChar) then
-            -- Hold the name and try again once we are back out of the zone.
-            if updateCounter % 90 == 0 then
-                print("[Auto PVP] Re-engage waiting: we are in the safe zone")
-            end
-        elseif not pending.Character then
-            -- Between characters (respawning): keep waiting.
-            if updateCounter % 90 == 0 then
-                print("[Auto PVP] Re-engage waiting: " .. pending.Name .. " has no character yet")
-            end
         elseif not isTargetLive(pending) then
-            if updateCounter % 90 == 0 then
+            -- Dead / respawning / streamed out. This is a WAIT, never a drop: their death is exactly
+            -- the case auto-reengage exists to cover.
+            if updateCounter % 300 == 0 then
                 print("[Auto PVP] Re-engage waiting: " .. pending.Name .. " is not up yet")
             end
+        elseif not weAreAlive then
+            if updateCounter % 300 == 0 then
+                print("[Auto PVP] Re-engage waiting: we are dead/respawning")
+            end
         elseif characterInSafeZone(pending.Character) then
-            print("[Auto PVP] Re-engage dropped: " .. pending.Name .. " is in the safe zone")
-            AutoPVPState.reengage_target = nil
+            -- They are standing in the safe zone: HOLD and fire the moment they step back into the
+            -- fighting zone. Only the event of fleeing into it (handled by the damage path) gives up
+            -- on them, not the state of being there after a respawn.
+            if updateCounter % 300 == 0 then
+                print("[Auto PVP] Re-engage waiting: " .. pending.Name .. " is in the safe zone")
+            end
         else
             local root = pending.Character:FindFirstChild("HumanoidRootPart")
-            local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
             local distance = (root and myRoot) and getDistance(myRoot.Position, root.Position) or 0
-            print(string.format("[Auto PVP] Re-engage: %s is back up (%.0f studs) - resuming", pending.Name, distance))
+            -- We may be outside the fighting zone ourselves (that is where a respawn usually puts us).
+            -- Approaching from there is allowed: updateMovement walks us in, and reengage_approach keeps
+            -- the tick's own-safe-zone rule from cancelling the engagement during the walk.
+            AutoPVPState.reengage_approach = pending
             AutoPVPState.reengage_target = nil
             _G.AdvancedPVPBot.setTarget(pending)
             if not BotState.enabled then
                 _G.AdvancedPVPBot.start()
             end
+            print(string.format("[Auto PVP] Re-engage: %s is back up (%.0f studs) - resuming", pending.Name, distance))
         end
     end
 
@@ -2508,6 +2517,14 @@ local function updateBotState()
         local myHumanoid = myChar and myChar:FindFirstChildOfClass("Humanoid")
         if not myHumanoid or myHumanoid.Health <= 0 then
             print("[Auto PVP] We are dead or have no character - clearing target " .. BotState.target.Name)
+            if AutoPVPState.auto_reengage then
+                -- Do not lose the fight because WE died: hold the name for the re-engage poll. Without
+                -- this the poll could consume reengage_target while we were dead, and the target was
+                -- then dropped here without being put back - the fight was gone for good.
+                AutoPVPState.reengage_target = BotState.target
+                AutoPVPState.reengage_approach = nil
+                print("[Auto PVP] Auto Re-engage: holding " .. BotState.target.Name .. " through our death")
+            end
             BotState.target = nil
             BotState.target_last_y = nil
         end
@@ -2535,12 +2552,30 @@ local function updateBotState()
     if BotState.target then
         local myChar = LocalPlayer.Character
         local myRoot = myChar and myChar:FindFirstChild("HumanoidRootPart")
-        if myRoot and characterInSafeZone(myChar) then
+        local isApproach = AutoPVPState.reengage_approach == BotState.target
+        local inSafeZone = myRoot ~= nil and characterInSafeZone(myChar)
+
+        if AutoPVPState.reengage_approach and not isApproach then
+            -- Whoever we were walking back to is not the target any more: the marker is stale.
+            AutoPVPState.reengage_approach = nil
+            isApproach = false
+        end
+
+        if inSafeZone and isApproach then
+            -- Re-engage resumed from outside the fighting zone, which is where a respawn puts us:
+            -- let the approach walk us back in instead of cancelling it on the first tick.
+            if updateCounter % 90 == 0 then
+                print("[Auto PVP] Re-engage approach: walking to " .. BotState.target.Name .. " from outside the zone")
+            end
+        elseif inSafeZone then
             print("[Auto PVP] We are in the safe zone - dropping " .. tostring(BotState.target.Name) .. " and disengaging")
             BotState.target = nil
             BotState.target_last_y = nil
             AutoPVPState.reengage_target = nil   -- our own retreat: no chasing from inside the zone
             releaseAllKeys()
+        elseif isApproach then
+            -- Back inside the fighting zone: normal rules apply again.
+            AutoPVPState.reengage_approach = nil
         end
     end
 
