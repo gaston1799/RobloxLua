@@ -118,8 +118,8 @@ local Config = {
     melee_range = 6,
     combat_radius = 25,
     q_cooldown = 0.65,
-    fireball_cooldown = 1.4,
-    eat_cooldown = 1.4,             -- same coded minimum as the fireball (game max-hit sheet)
+    fireball_cooldown = 1.6,        -- measured in game: the coded fireball gate is 1.6s, not 1.4s
+    eat_cooldown = 1.6,             -- same coded minimum as the fireball (game max-hit sheet)
     eat_hp_threshold = 0.8,
     approach_speed = "normal",
     t_spam_interval = 0.125,
@@ -1075,7 +1075,7 @@ local function fireballAttack()
     task.wait(0.1)
     sendIntent("e", "up")
     BotState.last_fireball_time = tick()
-    -- Same rule as Q: 1.4s is the coded minimum, so never deliberately wait past it.
+    -- Same rule as Q: 1.6s is the coded minimum, so never deliberately wait past it.
     BotState.fireball_wait = Config.fireball_cooldown * jitterRange(HUMANISE.cooldown_min, 1.0)
 end
 
@@ -1091,6 +1091,11 @@ local function equipItem(itemName)
     local char = LocalPlayer.Character
     if not char then return false end
 
+    -- Already on the character means already equipped: moving a Tool to the character IS equipping it
+    -- here, so the old backpack-only lookup returned false for an item that was held and every caller
+    -- then did nothing at all (silently).
+    if char:FindFirstChild(itemName) then return true end
+
     local backpack = LocalPlayer:FindFirstChild("Backpack")
     if not backpack then return false end
 
@@ -1099,6 +1104,20 @@ local function equipItem(itemName)
 
     -- Equip by moving to character
     item.Parent = char
+    return true
+end
+
+-- Put an equipped tool back in the Backpack. The game acts on the tool you are HOLDING, so eating
+-- while the fireball is held is what silently did nothing before.
+local function unequipItem(itemName)
+    local char = LocalPlayer.Character
+    local backpack = LocalPlayer:FindFirstChild("Backpack")
+    if not char or not backpack then return false end
+
+    local item = char:FindFirstChild(itemName)
+    if not item then return false end
+
+    item.Parent = backpack
     return true
 end
 
@@ -1115,26 +1134,42 @@ local function useFood()
     local hpPercent = humanoid.Health / humanoid.MaxHealth
     local eatReady = (tick() - BotState.last_eat_time) > Config.eat_cooldown
 
-    if hpPercent < Config.eat_hp_threshold and eatReady then
-        if equipItem("Food") then
-            print("[Auto Eat] Equipped food (HP: " .. string.format("%.0f%%", hpPercent * 100) .. ")")
-            task.wait(0.1)
-            sendIntent("f", "down")
-            task.wait(0.05)
-            sendIntent("f", "up")
-            BotState.last_eat_time = tick()
+    if hpPercent >= Config.eat_hp_threshold or not eatReady then return end
 
-            -- Re-equip fireball after eating
-            task.wait(0.2)
-            if equipItem("Fireball") then
-                print("[Auto Fireball] Re-equipped fireball")
-            end
-        end
+    -- Own the equip slot for the whole eat. ensureFireballEquipped() runs on the same tick and would
+    -- otherwise put the fireball straight back, and the game only acts on the tool being held.
+    BotState.eating_until = tick() + 0.6
+    unequipItem("Fireball")
+
+    if not equipItem("Food") then
+        print("[Auto Eat] HP " .. string.format("%.0f%%", hpPercent * 100)
+            .. " but no 'Food' tool was in the Backpack or on the character - nothing to eat")
+        BotState.eating_until = nil
+        equipItem("Fireball")
+        return
     end
+
+    print("[Auto Eat] Equipped food (HP: " .. string.format("%.0f%%", hpPercent * 100) .. ")")
+    task.wait(0.1)
+    sendIntent("f", "down")
+    task.wait(0.05)
+    sendIntent("f", "up")
+    BotState.last_eat_time = tick()
+
+    -- Hand the fireball back, otherwise auto-fireball is left broken by eating.
+    task.wait(0.2)
+    unequipItem("Food")
+    if equipItem("Fireball") then
+        print("[Auto Fireball] Re-equipped fireball after eating")
+    end
+    BotState.eating_until = nil
 end
 
 local function ensureFireballEquipped()
     if not BotState.auto_fireball_enabled then return end
+
+    -- Do not fight the food: useFood() owns the equip slot while it is eating.
+    if (BotState.eating_until or 0) > tick() then return end
 
     local char = LocalPlayer.Character
     if not char then return end
@@ -2409,7 +2444,8 @@ local function updateHitting()
     -- never used in combat: fireballAttack() only existed inside doubleHit(), which nothing called.
     -- That is roughly a third of the achievable hit rate, so it is wired in here.
     local fireballReady = (tick() - BotState.last_fireball_time) > (BotState.fireball_wait or Config.fireball_cooldown)
-    if fireballReady and dist <= Config.combat_radius then
+    -- Hold the fireball while an eat is in progress: the food is in hand and the game acts on that.
+    if fireballReady and dist <= Config.combat_radius and (BotState.eating_until or 0) <= tick() then
         fireballAttack()
     end
 
