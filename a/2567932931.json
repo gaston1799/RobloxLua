@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 192800,
+  "jobId": "61a9057f-4e15-4ac5-8557-ef2ac4128792",
+  "join": "roblox://placeId=192800&gameInstanceId=61a9057f-4e15-4ac5-8557-ef2ac4128792",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792004816529
+  "web": "https://www.roblox.com/games/start?placeId=192800&gameInstanceId=61a9057f-4e15-4ac5-8557-ef2ac4128792",
+  "location": "🍕Work at a Pizza Place",
+  "updatedAt": 1792004876472
 }
