@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 102512377929284,
+  "jobId": "7298ca6f-8419-4e1c-80b4-4c32ab55a58c",
+  "join": "roblox://placeId=102512377929284&gameInstanceId=7298ca6f-8419-4e1c-80b4-4c32ab55a58c",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792010037571
+  "web": "https://www.roblox.com/games/start?placeId=102512377929284&gameInstanceId=7298ca6f-8419-4e1c-80b4-4c32ab55a58c",
+  "location": "[NEW] Escape the Locust Murder",
+  "updatedAt": 1792010097584
 }
