@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 138572313449154,
+  "jobId": "c5645c79-b0b5-46fa-9ad3-8379fe1e5a68",
+  "join": "roblox://placeId=138572313449154&gameInstanceId=c5645c79-b0b5-46fa-9ad3-8379fe1e5a68",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791943016362
+  "web": "https://www.roblox.com/games/start?placeId=138572313449154&gameInstanceId=c5645c79-b0b5-46fa-9ad3-8379fe1e5a68",
+  "location": "[🎃] Rally Panic! [2 Player Rally]",
+  "updatedAt": 1791945476992
 }
