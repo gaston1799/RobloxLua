@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 75012837977315,
-  "jobId": "298f0832-a980-43fa-8c71-cdf488850315",
-  "join": "roblox://placeId=75012837977315&gameInstanceId=298f0832-a980-43fa-8c71-cdf488850315",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=75012837977315&gameInstanceId=298f0832-a980-43fa-8c71-cdf488850315",
-  "location": "+1 Speed Keyboard Escape | Candy & Chocolate",
-  "updatedAt": 1791955319357
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791955619403
 }
