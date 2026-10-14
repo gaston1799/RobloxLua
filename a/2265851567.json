@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 16480898254,
-  "jobId": "6bff77fe-7b1e-49f5-8bf9-006a0487ff51",
-  "join": "roblox://placeId=16480898254&gameInstanceId=6bff77fe-7b1e-49f5-8bf9-006a0487ff51",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=16480898254&gameInstanceId=6bff77fe-7b1e-49f5-8bf9-006a0487ff51",
-  "location": "[🎃] Eat the World",
-  "updatedAt": 1791994254298
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791994614347
 }
