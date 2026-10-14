@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 119536246491870,
+  "jobId": "18151e8d-6a60-4484-8a75-bfba187cdc0a",
+  "join": "roblox://placeId=119536246491870&gameInstanceId=18151e8d-6a60-4484-8a75-bfba187cdc0a",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791993834213
+  "web": "https://www.roblox.com/games/start?placeId=119536246491870&gameInstanceId=18151e8d-6a60-4484-8a75-bfba187cdc0a",
+  "location": "Fart Obby [2 Player] 💨",
+  "updatedAt": 1791994014480
 }
