@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 121671165541545,
-  "jobId": "69bdf2d0-26f5-43bb-a3a1-f9fcf77b1e84",
-  "join": "roblox://placeId=121671165541545&gameInstanceId=69bdf2d0-26f5-43bb-a3a1-f9fcf77b1e84",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=121671165541545&gameInstanceId=69bdf2d0-26f5-43bb-a3a1-f9fcf77b1e84",
-  "location": "[4 PLAYER RALLY] WRONG WAY! ",
-  "updatedAt": 1791995514507
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1791997074801
 }
