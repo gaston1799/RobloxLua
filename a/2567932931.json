@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 105265196481864,
+  "jobId": "c311ebe0-d592-43e5-8c21-2ca2f8e866d9",
+  "join": "roblox://placeId=105265196481864&gameInstanceId=c311ebe0-d592-43e5-8c21-2ca2f8e866d9",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1791932696529
+  "web": "https://www.roblox.com/games/start?placeId=105265196481864&gameInstanceId=c311ebe0-d592-43e5-8c21-2ca2f8e866d9",
+  "location": "Mow Your Lawn",
+  "updatedAt": 1791990323281
 }
