@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 102392235728099,
+  "jobId": "9ee3b4ff-ae16-4e4f-857e-6cf937d97458",
+  "join": "roblox://placeId=102392235728099&gameInstanceId=9ee3b4ff-ae16-4e4f-857e-6cf937d97458",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792082063984
+  "web": "https://www.roblox.com/games/start?placeId=102392235728099&gameInstanceId=9ee3b4ff-ae16-4e4f-857e-6cf937d97458",
+  "location": "[BOSS] Catch Dragons To Defend",
+  "updatedAt": 1792082094272
 }
