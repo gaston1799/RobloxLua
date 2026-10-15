@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5569431582,
+  "jobId": "bc6a0148-5426-4525-b55e-1e4b0b05d52b",
+  "join": "roblox://placeId=5569431582&gameInstanceId=bc6a0148-5426-4525-b55e-1e4b0b05d52b",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792032041208
+  "web": "https://www.roblox.com/games/start?placeId=5569431582&gameInstanceId=bc6a0148-5426-4525-b55e-1e4b0b05d52b",
+  "location": "Little World 🌎",
+  "updatedAt": 1792032101217
 }
