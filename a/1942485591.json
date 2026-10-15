@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 121671165541545,
+  "jobId": "e8f3a452-aeae-4713-99e3-d0eb6010731b",
+  "join": "roblox://placeId=121671165541545&gameInstanceId=e8f3a452-aeae-4713-99e3-d0eb6010731b",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792105500418
+  "web": "https://www.roblox.com/games/start?placeId=121671165541545&gameInstanceId=e8f3a452-aeae-4713-99e3-d0eb6010731b",
+  "location": "[4 PLAYER RALLY] WRONG WAY! ",
+  "updatedAt": 1792106760697
 }
