@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 17556820024,
-  "jobId": "10fac014-6b0d-4762-a727-95fccf0f620d",
-  "join": "roblox://placeId=17556820024&gameInstanceId=10fac014-6b0d-4762-a727-95fccf0f620d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=17556820024&gameInstanceId=10fac014-6b0d-4762-a727-95fccf0f620d",
-  "location": "Untitled Fling Game",
-  "updatedAt": 1792049119362
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792049149023
 }
