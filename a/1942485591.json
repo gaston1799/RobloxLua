@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 9414511685,
+  "jobId": "9515ef20-6618-4e99-839b-424bb0f639ef",
+  "join": "roblox://placeId=9414511685&gameInstanceId=9515ef20-6618-4e99-839b-424bb0f639ef",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792190782790
+  "web": "https://www.roblox.com/games/start?placeId=9414511685&gameInstanceId=9515ef20-6618-4e99-839b-424bb0f639ef",
+  "location": "🚗 Drive Cars Down A Hill!",
+  "updatedAt": 1792190902840
 }
