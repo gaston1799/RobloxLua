@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 118403583504125,
-  "jobId": "7664a2fa-518c-4040-99a7-fef3da3b303d",
-  "join": "roblox://placeId=118403583504125&gameInstanceId=7664a2fa-518c-4040-99a7-fef3da3b303d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=118403583504125&gameInstanceId=7664a2fa-518c-4040-99a7-fef3da3b303d",
-  "location": "Sell Exotic Animals [🎃]",
-  "updatedAt": 1792266044162
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792270243506
 }
