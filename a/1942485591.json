@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 140179288556757,
+  "jobId": "7f996e5f-abc6-4c01-b143-cb9989255e8a",
+  "join": "roblox://placeId=140179288556757&gameInstanceId=7f996e5f-abc6-4c01-b143-cb9989255e8a",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792252598598
+  "web": "https://www.roblox.com/games/start?placeId=140179288556757&gameInstanceId=7f996e5f-abc6-4c01-b143-cb9989255e8a",
+  "location": "Photo Hunt - Discover Rare Animals",
+  "updatedAt": 1792252658592
 }
