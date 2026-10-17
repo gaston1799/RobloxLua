@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 79546208627805,
+  "jobId": "fe72685b-d880-43dd-af24-07f3fad61901",
+  "join": "roblox://placeId=79546208627805&gameInstanceId=fe72685b-d880-43dd-af24-07f3fad61901",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792270573329
+  "web": "https://www.roblox.com/games/start?placeId=79546208627805&gameInstanceId=fe72685b-d880-43dd-af24-07f3fad61901",
+  "location": "99 Nights in the Forest 🔦",
+  "updatedAt": 1792270603623
 }
