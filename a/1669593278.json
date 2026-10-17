@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 91161211593658,
+  "jobId": "2351132c-6bc6-4ca9-9607-05e1b956e197",
+  "join": "roblox://placeId=91161211593658&gameInstanceId=2351132c-6bc6-4ca9-9607-05e1b956e197",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792219170224
+  "web": "https://www.roblox.com/games/start?placeId=91161211593658&gameInstanceId=2351132c-6bc6-4ca9-9607-05e1b956e197",
+  "location": "[WORLD 2] +1 Anime Evolution",
+  "updatedAt": 1792219230205
 }
