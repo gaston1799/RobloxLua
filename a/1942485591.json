@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 103285166628804,
+  "jobId": "3b092a5e-806d-44bc-9d43-a8bdeaddb930",
+  "join": "roblox://placeId=103285166628804&gameInstanceId=3b092a5e-806d-44bc-9d43-a8bdeaddb930",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792263041765
+  "web": "https://www.roblox.com/games/start?placeId=103285166628804&gameInstanceId=3b092a5e-806d-44bc-9d43-a8bdeaddb930",
+  "location": "Equestria Vale",
+  "updatedAt": 1792263401843
 }
