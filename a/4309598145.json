@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 117090155680637,
+  "jobId": "0d387ec6-17d4-4463-add5-77c172dec35b",
+  "join": "roblox://placeId=117090155680637&gameInstanceId=0d387ec6-17d4-4463-add5-77c172dec35b",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792211550214
+  "web": "https://www.roblox.com/games/start?placeId=117090155680637&gameInstanceId=0d387ec6-17d4-4463-add5-77c172dec35b",
+  "location": "Rusty Rafts",
+  "updatedAt": 1792211668208
 }
