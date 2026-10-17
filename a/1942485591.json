@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 16205713724,
+  "jobId": "5a892080-da78-4bf8-aa06-3534d204567a",
+  "join": "roblox://placeId=16205713724&gameInstanceId=5a892080-da78-4bf8-aa06-3534d204567a",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792254880910
+  "web": "https://www.roblox.com/games/start?placeId=16205713724&gameInstanceId=5a892080-da78-4bf8-aa06-3534d204567a",
+  "location": "Slayers 2",
+  "updatedAt": 1792254940683
 }
