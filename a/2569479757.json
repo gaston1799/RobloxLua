@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 123720558354386,
-  "jobId": "7660a0ef-ce55-40fd-9124-c80fb5fd9b7d",
-  "join": "roblox://placeId=123720558354386&gameInstanceId=7660a0ef-ce55-40fd-9124-c80fb5fd9b7d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=123720558354386&gameInstanceId=7660a0ef-ce55-40fd-9124-c80fb5fd9b7d",
-  "location": "[UPD] Build the Pyramid!",
-  "updatedAt": 1792240688596
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792240719096
 }
