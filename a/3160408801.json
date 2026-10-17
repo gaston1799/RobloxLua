@@ -1,12 +1,12 @@
 {
   "userId": 3160408801,
   "displayName": "ImLxleen",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "2250f02b-d4e9-4fb2-8aaf-3ccec7b8a6fe",
-  "join": "roblox://placeId=7041939546&gameInstanceId=2250f02b-d4e9-4fb2-8aaf-3ccec7b8a6fe",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3160408801",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=2250f02b-d4e9-4fb2-8aaf-3ccec7b8a6fe",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1792272074954
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792272105355
 }
