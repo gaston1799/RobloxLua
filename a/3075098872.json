@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 79754540747359,
-  "jobId": "530db80d-c83d-46cf-99f7-65818bbc905e",
-  "join": "roblox://placeId=79754540747359&gameInstanceId=530db80d-c83d-46cf-99f7-65818bbc905e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=79754540747359&gameInstanceId=530db80d-c83d-46cf-99f7-65818bbc905e",
-  "location": "Vampire Monarchie",
-  "updatedAt": 1792243716448
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792243776503
 }
