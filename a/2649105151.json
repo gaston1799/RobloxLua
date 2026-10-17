@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "in-game",
-  "placeId": 78490532994307,
-  "jobId": "b3c48806-7b26-4c8e-9482-ad07003f8fd0",
-  "join": "roblox://placeId=78490532994307&gameInstanceId=b3c48806-7b26-4c8e-9482-ad07003f8fd0",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2649105151",
-  "web": "https://www.roblox.com/games/start?placeId=78490532994307&gameInstanceId=b3c48806-7b26-4c8e-9482-ad07003f8fd0",
-  "location": "Build An Ant Empire",
-  "updatedAt": 1792272553869
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792272584125
 }
