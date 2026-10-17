@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99679692310083,
+  "jobId": "4579935e-f8d7-4884-a9f3-0bf9174b908f",
+  "join": "roblox://placeId=99679692310083&gameInstanceId=4579935e-f8d7-4884-a9f3-0bf9174b908f",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792187691706
+  "web": "https://www.roblox.com/games/start?placeId=99679692310083&gameInstanceId=4579935e-f8d7-4884-a9f3-0bf9174b908f",
+  "location": "Steal Animal Egg",
+  "updatedAt": 1792241376018
 }
