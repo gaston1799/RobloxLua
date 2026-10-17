@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 87907239343172,
+  "jobId": "2389bc91-9272-449d-86ac-c77c8421f368",
+  "join": "roblox://placeId=87907239343172&gameInstanceId=2389bc91-9272-449d-86ac-c77c8421f368",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792222831119
+  "web": "https://www.roblox.com/games/start?placeId=87907239343172&gameInstanceId=2389bc91-9272-449d-86ac-c77c8421f368",
+  "location": "Zombie Tycoon☢️",
+  "updatedAt": 1792228174793
 }
