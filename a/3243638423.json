@@ -1,12 +1,12 @@
 {
   "userId": 3243638423,
   "displayName": "Seek",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 90148635862803,
+  "jobId": "6dcc4f19-f83a-410f-a4d1-0220e56fb95b",
+  "join": "roblox://placeId=90148635862803&gameInstanceId=6dcc4f19-f83a-410f-a4d1-0220e56fb95b",
   "follow": "roblox://followUserId=3243638423",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792353937629
+  "web": "https://www.roblox.com/games/start?placeId=90148635862803&gameInstanceId=6dcc4f19-f83a-410f-a4d1-0220e56fb95b",
+  "location": "[UPD] 🧟 Survive the Apocalypse",
+  "updatedAt": 1792354055406
 }
