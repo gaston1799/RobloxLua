@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 139523520699805,
-  "jobId": "848db9ca-b383-49ce-ab79-528269866eb9",
-  "join": "roblox://placeId=139523520699805&gameInstanceId=848db9ca-b383-49ce-ab79-528269866eb9",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=139523520699805&gameInstanceId=848db9ca-b383-49ce-ab79-528269866eb9",
-  "location": "Aisles Of The Locust [CHAPTER 2] ",
-  "updatedAt": 1792281586540
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792282606748
 }
