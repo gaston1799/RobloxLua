@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 124216119978534,
-  "jobId": "50fe3972-d57a-4ac5-afd5-3859d3f51095",
-  "join": "roblox://placeId=124216119978534&gameInstanceId=50fe3972-d57a-4ac5-afd5-3859d3f51095",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=124216119978534&gameInstanceId=50fe3972-d57a-4ac5-afd5-3859d3f51095",
-  "location": "[🎃EVENT] Ride A Pet",
-  "updatedAt": 1792288908377
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792288968411
 }
