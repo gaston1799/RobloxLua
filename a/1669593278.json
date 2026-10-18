@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 136431686349723,
-  "jobId": "0d891bcc-b854-45ed-b035-2dafa6d18596",
-  "join": "roblox://placeId=136431686349723&gameInstanceId=0d891bcc-b854-45ed-b035-2dafa6d18596",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=136431686349723&gameInstanceId=0d891bcc-b854-45ed-b035-2dafa6d18596",
-  "location": "HUNTED [HALLOWEEN EVENT]",
-  "updatedAt": 1792288248248
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792288608290
 }
