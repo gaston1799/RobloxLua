@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 74865107636750,
-  "jobId": "2bbcfa79-9607-445d-8c25-5ab5c7cfc4c6",
-  "join": "roblox://placeId=74865107636750&gameInstanceId=2bbcfa79-9607-445d-8c25-5ab5c7cfc4c6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=74865107636750&gameInstanceId=2bbcfa79-9607-445d-8c25-5ab5c7cfc4c6",
-  "location": "Renovate A House",
-  "updatedAt": 1792292089128
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792292689296
 }
