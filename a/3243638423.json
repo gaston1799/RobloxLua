@@ -1,12 +1,12 @@
 {
   "userId": 3243638423,
   "displayName": "Seek",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "2f2071ed-7260-48e4-9123-b04eae18dc1a",
-  "join": "roblox://placeId=7041939546&gameInstanceId=2f2071ed-7260-48e4-9123-b04eae18dc1a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3243638423",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=2f2071ed-7260-48e4-9123-b04eae18dc1a",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1792329718804
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792329838846
 }
