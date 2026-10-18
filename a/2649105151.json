@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 135193469413243,
+  "jobId": "88248afa-70ba-45cb-9311-fc5cf0a1a13a",
+  "join": "roblox://placeId=135193469413243&gameInstanceId=88248afa-70ba-45cb-9311-fc5cf0a1a13a",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792328728218
+  "web": "https://www.roblox.com/games/start?placeId=135193469413243&gameInstanceId=88248afa-70ba-45cb-9311-fc5cf0a1a13a",
+  "location": "MM2 Aim Trainer 2",
+  "updatedAt": 1792328758515
 }
