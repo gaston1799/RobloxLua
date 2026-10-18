@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 103429966174263,
+  "jobId": "a7e3be65-3b40-4411-9d74-58d27e1c7421",
+  "join": "roblox://placeId=103429966174263&gameInstanceId=a7e3be65-3b40-4411-9d74-58d27e1c7421",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792350188384
+  "web": "https://www.roblox.com/games/start?placeId=103429966174263&gameInstanceId=a7e3be65-3b40-4411-9d74-58d27e1c7421",
+  "location": "[🎃] +1 Paint Keyboard Adventure",
+  "updatedAt": 1792350280090
 }
