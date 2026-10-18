@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 77230079015784,
+  "jobId": "fbb15182-f5f9-4506-8942-b0160b8314f8",
+  "join": "roblox://placeId=77230079015784&gameInstanceId=fbb15182-f5f9-4506-8942-b0160b8314f8",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792354029149
+  "web": "https://www.roblox.com/games/start?placeId=77230079015784&gameInstanceId=fbb15182-f5f9-4506-8942-b0160b8314f8",
+  "location": "[WORLD 2] Sticky Hands Evolution",
+  "updatedAt": 1792354061023
 }
