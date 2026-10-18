@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 2616498302,
+  "jobId": "88135090-fa0b-4606-bc98-9e2c6fc7490c",
+  "join": "roblox://placeId=2616498302&gameInstanceId=88135090-fa0b-4606-bc98-9e2c6fc7490c",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792299771174
+  "web": "https://www.roblox.com/games/start?placeId=2616498302&gameInstanceId=88135090-fa0b-4606-bc98-9e2c6fc7490c",
+  "location": "[🐲 DRAGONS] ⚔️ Slaying Simulator",
+  "updatedAt": 1792299831170
 }
