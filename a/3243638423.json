@@ -1,12 +1,12 @@
 {
   "userId": 3243638423,
   "displayName": "Seek",
-  "status": "in-game",
-  "placeId": 72898899003141,
-  "jobId": "649d0793-bc49-4875-9cac-64fb67c5de81",
-  "join": "roblox://placeId=72898899003141&gameInstanceId=649d0793-bc49-4875-9cac-64fb67c5de81",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3243638423",
-  "web": "https://www.roblox.com/games/start?placeId=72898899003141&gameInstanceId=649d0793-bc49-4875-9cac-64fb67c5de81",
-  "location": "[🎃] HALLOWEEN OUTFIT IDEAS SOLO + MATCHING",
-  "updatedAt": 1792336350636
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792336410730
 }
