@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6961824067,
+  "jobId": "11d42298-2786-40e6-a45c-76183bd8ece8",
+  "join": "roblox://placeId=6961824067&gameInstanceId=11d42298-2786-40e6-a45c-76183bd8ece8",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792296830380
+  "web": "https://www.roblox.com/games/start?placeId=6961824067&gameInstanceId=11d42298-2786-40e6-a45c-76183bd8ece8",
+  "location": "Fling Things and People",
+  "updatedAt": 1792296892127
 }
