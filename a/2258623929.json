@@ -1,12 +1,12 @@
 {
   "userId": 2258623929,
   "displayName": "1of1DOLO",
-  "status": "in-game",
-  "placeId": 654732683,
-  "jobId": "fde31af3-3767-442e-84b8-d2be991ff986",
-  "join": "roblox://placeId=654732683&gameInstanceId=fde31af3-3767-442e-84b8-d2be991ff986",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2258623929",
-  "web": "https://www.roblox.com/games/start?placeId=654732683&gameInstanceId=fde31af3-3767-442e-84b8-d2be991ff986",
-  "location": "[🎃] Car Crushers 2 - Physics Simulation",
-  "updatedAt": 1792343132727
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792343672616
 }
