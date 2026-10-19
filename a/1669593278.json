@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 132558889592601,
-  "jobId": "7ad78510-e8c0-466d-bf2e-3b8ce2d5a1e1",
-  "join": "roblox://placeId=132558889592601&gameInstanceId=7ad78510-e8c0-466d-bf2e-3b8ce2d5a1e1",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=132558889592601&gameInstanceId=7ad78510-e8c0-466d-bf2e-3b8ce2d5a1e1",
-  "location": "Bedside Manner [HORROR]",
-  "updatedAt": 1792440267479
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792441407799
 }
