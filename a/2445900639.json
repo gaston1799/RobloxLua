@@ -1,12 +1,12 @@
 {
   "userId": 2445900639,
   "displayName": "ZEN",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "14e58b59-9218-4953-9cdc-a649265d6fb9",
-  "join": "roblox://placeId=5712833750&gameInstanceId=14e58b59-9218-4953-9cdc-a649265d6fb9",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2445900639",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=14e58b59-9218-4953-9cdc-a649265d6fb9",
-  "location": "Animal Simulator",
-  "updatedAt": 1792379742174
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792380822341
 }
