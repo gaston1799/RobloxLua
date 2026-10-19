@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 124216119978534,
+  "jobId": "2dd3de80-c405-429f-bc20-d8aa049ac2df",
+  "join": "roblox://placeId=124216119978534&gameInstanceId=2dd3de80-c405-429f-bc20-d8aa049ac2df",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792451973107
+  "web": "https://www.roblox.com/games/start?placeId=124216119978534&gameInstanceId=2dd3de80-c405-429f-bc20-d8aa049ac2df",
+  "location": "[🎃EVENT] Ride A Pet",
+  "updatedAt": 1792452453239
 }
