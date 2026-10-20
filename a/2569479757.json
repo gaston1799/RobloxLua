@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 100528428926965,
-  "jobId": "33d579bd-3dc1-4681-b9aa-84672c9e976f",
-  "join": "roblox://placeId=100528428926965&gameInstanceId=33d579bd-3dc1-4681-b9aa-84672c9e976f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=100528428926965&gameInstanceId=33d579bd-3dc1-4681-b9aa-84672c9e976f",
-  "location": "[🎃] Build a Pixel Art!",
-  "updatedAt": 1792470281905
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792470314261
 }
