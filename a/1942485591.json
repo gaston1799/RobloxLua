@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 113060096859884,
-  "jobId": "7ab197dd-c011-4230-a4a5-e2d095435cf9",
-  "join": "roblox://placeId=113060096859884&gameInstanceId=7ab197dd-c011-4230-a4a5-e2d095435cf9",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=113060096859884&gameInstanceId=7ab197dd-c011-4230-a4a5-e2d095435cf9",
-  "location": "Electric Dash",
-  "updatedAt": 1792509888353
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792509948344
 }
