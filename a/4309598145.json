@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "in-game",
-  "placeId": 6872265039,
-  "jobId": "3abf41ab-5b69-4e15-ab9f-f174ac27955f",
-  "join": "roblox://placeId=6872265039&gameInstanceId=3abf41ab-5b69-4e15-ab9f-f174ac27955f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=6872265039&gameInstanceId=3abf41ab-5b69-4e15-ab9f-f174ac27955f",
-  "location": "BedWars [🎃HALLOWEEN PT.1]",
-  "updatedAt": 1792470308147
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792470368161
 }
