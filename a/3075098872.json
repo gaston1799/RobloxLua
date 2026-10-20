@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 113890950093491,
+  "jobId": "7941a2a3-e0b7-43ce-a8ae-0db5b1192fce",
+  "join": "roblox://placeId=113890950093491&gameInstanceId=7941a2a3-e0b7-43ce-a8ae-0db5b1192fce",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792512589041
+  "web": "https://www.roblox.com/games/start?placeId=113890950093491&gameInstanceId=7941a2a3-e0b7-43ce-a8ae-0db5b1192fce",
+  "location": "The Supernatural Realm | Vampire RPG",
+  "updatedAt": 1792512769131
 }
