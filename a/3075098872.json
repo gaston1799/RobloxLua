@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 110434609045277,
-  "jobId": "6ab30f24-8c56-4a9b-82df-c6320aa8d485",
-  "join": "roblox://placeId=110434609045277&gameInstanceId=6ab30f24-8c56-4a9b-82df-c6320aa8d485",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=110434609045277&gameInstanceId=6ab30f24-8c56-4a9b-82df-c6320aa8d485",
-  "location": "[Beta] The Creator 🌏",
-  "updatedAt": 1792508928004
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792509528204
 }
