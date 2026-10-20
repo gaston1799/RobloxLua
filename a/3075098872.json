@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 92207505554992,
+  "jobId": "3c488312-b85f-4026-81fe-f0238a9000ee",
+  "join": "roblox://placeId=92207505554992&gameInstanceId=3c488312-b85f-4026-81fe-f0238a9000ee",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792510368482
+  "web": "https://www.roblox.com/games/start?placeId=92207505554992&gameInstanceId=3c488312-b85f-4026-81fe-f0238a9000ee",
+  "location": "[Werewitch/Faction] The Supernatural Legacies 2",
+  "updatedAt": 1792510488549
 }
