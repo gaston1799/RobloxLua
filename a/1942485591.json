@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 70595515410888,
-  "jobId": "b7225f6b-c013-4afa-b932-d77719cc7c0a",
-  "join": "roblox://placeId=70595515410888&gameInstanceId=b7225f6b-c013-4afa-b932-d77719cc7c0a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=70595515410888&gameInstanceId=b7225f6b-c013-4afa-b932-d77719cc7c0a",
-  "location": "Rope An Egg",
-  "updatedAt": 1792455515769
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792455754142
 }
