@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 76943966208523,
+  "jobId": "7ea59539-7e39-4853-9b82-74caa3cae301",
+  "join": "roblox://placeId=76943966208523&gameInstanceId=7ea59539-7e39-4853-9b82-74caa3cae301",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792602466450
+  "web": "https://www.roblox.com/games/start?placeId=76943966208523&gameInstanceId=7ea59539-7e39-4853-9b82-74caa3cae301",
+  "location": "Clone to Steal Eggs",
+  "updatedAt": 1792602498826
 }
