@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "in-game",
-  "placeId": 5771467270,
-  "jobId": "3fa6dbf3-50db-4a6c-9365-2051f76888c6",
-  "join": "roblox://placeId=5771467270&gameInstanceId=3fa6dbf3-50db-4a6c-9365-2051f76888c6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=5771467270&gameInstanceId=3fa6dbf3-50db-4a6c-9365-2051f76888c6",
-  "location": "[HALLOWEEN] 🎃 TTD 3",
-  "updatedAt": 1792590249210
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792590669382
 }
