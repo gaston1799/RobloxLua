@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 4282985734,
-  "jobId": "fb255073-8f72-4af9-9373-83a021d07cc8",
-  "join": "roblox://placeId=4282985734&gameInstanceId=fb255073-8f72-4af9-9373-83a021d07cc8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=4282985734&gameInstanceId=fb255073-8f72-4af9-9373-83a021d07cc8",
-  "location": "Combat Warriors",
-  "updatedAt": 1792554300026
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792555200173
 }
