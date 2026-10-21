@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 110394010715338,
-  "jobId": "a05c9df4-d52e-4ef9-bd43-bafb7ad3e0ca",
-  "join": "roblox://placeId=110394010715338&gameInstanceId=a05c9df4-d52e-4ef9-bd43-bafb7ad3e0ca",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=110394010715338&gameInstanceId=a05c9df4-d52e-4ef9-bd43-bafb7ad3e0ca",
-  "location": "HUNTRESS 🕷️ [NIGHTMARE]",
-  "updatedAt": 1792615875992
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792622178553
 }
