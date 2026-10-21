@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 120656419209274,
-  "jobId": "f85ddeb1-2872-4166-8cff-ab80d2183bed",
-  "join": "roblox://placeId=120656419209274&gameInstanceId=f85ddeb1-2872-4166-8cff-ab80d2183bed",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=120656419209274&gameInstanceId=f85ddeb1-2872-4166-8cff-ab80d2183bed",
-  "location": "(🦑) Drill for Eggs",
-  "updatedAt": 1792602407196
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792602437080
 }
