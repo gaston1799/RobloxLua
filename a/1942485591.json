@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 94278659624110,
-  "jobId": "c2cfda0b-db7a-4900-8223-1a0574fe844c",
-  "join": "roblox://placeId=94278659624110&gameInstanceId=c2cfda0b-db7a-4900-8223-1a0574fe844c",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=94278659624110&gameInstanceId=c2cfda0b-db7a-4900-8223-1a0574fe844c",
-  "location": "Backseat Rally",
-  "updatedAt": 1792661127691
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792663768229
 }
