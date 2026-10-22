@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 111691160476826,
+  "jobId": "44ac523f-9206-403d-8fd1-4e7a69b23226",
+  "join": "roblox://placeId=111691160476826&gameInstanceId=44ac523f-9206-403d-8fd1-4e7a69b23226",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792628419119
+  "web": "https://www.roblox.com/games/start?placeId=111691160476826&gameInstanceId=44ac523f-9206-403d-8fd1-4e7a69b23226",
+  "location": "Cliffbound: Rock Climbing",
+  "updatedAt": 1792629019304
 }
