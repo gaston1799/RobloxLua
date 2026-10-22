@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 115397634048907,
-  "jobId": "7db893f2-a871-4f90-a5a5-ec7b64f2a92a",
-  "join": "roblox://placeId=115397634048907&gameInstanceId=7db893f2-a871-4f90-a5a5-ec7b64f2a92a",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=115397634048907&gameInstanceId=7db893f2-a871-4f90-a5a5-ec7b64f2a92a",
-  "location": "Vampire: Crescent Moon",
-  "updatedAt": 1792688374459
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792688854386
 }
