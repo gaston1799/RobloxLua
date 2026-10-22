@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 126081154158132,
-  "jobId": "a6531e2b-97ab-4614-a1ea-9d8d49e6c204",
-  "join": "roblox://placeId=126081154158132&gameInstanceId=a6531e2b-97ab-4614-a1ea-9d8d49e6c204",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=126081154158132&gameInstanceId=a6531e2b-97ab-4614-a1ea-9d8d49e6c204",
-  "location": "[Kingdom] Become the Strongest",
-  "updatedAt": 1792689814629
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792689874613
 }
