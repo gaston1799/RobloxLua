@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 7171174521,
-  "jobId": "b8400819-92b0-4714-9492-989524dc95ba",
-  "join": "roblox://placeId=7171174521&gameInstanceId=b8400819-92b0-4714-9492-989524dc95ba",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=7171174521&gameInstanceId=b8400819-92b0-4714-9492-989524dc95ba",
-  "location": "[🪦HEARSE🪦] American Plains Mudding",
-  "updatedAt": 1792649304466
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792649484588
 }
