@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 93002338579227,
+  "jobId": "944419da-4926-4823-8551-bc99db6b631a",
+  "join": "roblox://placeId=93002338579227&gameInstanceId=944419da-4926-4823-8551-bc99db6b631a",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792663828211
+  "web": "https://www.roblox.com/games/start?placeId=93002338579227&gameInstanceId=944419da-4926-4823-8551-bc99db6b631a",
+  "location": "Build Your Factory Tycoon [ALPHA]",
+  "updatedAt": 1792664068234
 }
