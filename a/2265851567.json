@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4566572536,
+  "jobId": "4563ca78-a9c9-4462-a74e-28581b673286",
+  "join": "roblox://placeId=4566572536&gameInstanceId=4563ca78-a9c9-4462-a74e-28581b673286",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792695036075
+  "web": "https://www.roblox.com/games/start?placeId=4566572536&gameInstanceId=4563ca78-a9c9-4462-a74e-28581b673286",
+  "location": "Vehicle Legends 🏎️ Cars!",
+  "updatedAt": 1792695096071
 }
