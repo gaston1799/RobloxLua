@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 80554766999488,
-  "jobId": "99e36f03-f769-4bc1-a002-5ad2bd6e2b44",
-  "join": "roblox://placeId=80554766999488&gameInstanceId=99e36f03-f769-4bc1-a002-5ad2bd6e2b44",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=80554766999488&gameInstanceId=99e36f03-f769-4bc1-a002-5ad2bd6e2b44",
-  "location": "Siren's Wake [EARLY ACCESS]",
-  "updatedAt": 1792687894143
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792688074184
 }
