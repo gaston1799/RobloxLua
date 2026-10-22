@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 139510705441326,
-  "jobId": "ad4b5230-bcc9-49f7-93ca-d76d4d15fb8e",
-  "join": "roblox://placeId=139510705441326&gameInstanceId=ad4b5230-bcc9-49f7-93ca-d76d4d15fb8e",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=139510705441326&gameInstanceId=ad4b5230-bcc9-49f7-93ca-d76d4d15fb8e",
-  "location": "💵 1 Stair = $ 1/s",
-  "updatedAt": 1792699570662
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1792699664075
 }
