@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 105265196481864,
-  "jobId": "a8273416-441c-4b94-9d54-8737fca698f9",
-  "join": "roblox://placeId=105265196481864&gameInstanceId=a8273416-441c-4b94-9d54-8737fca698f9",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=105265196481864&gameInstanceId=a8273416-441c-4b94-9d54-8737fca698f9",
-  "location": "Mow Your Lawn",
-  "updatedAt": 1792693510796
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792693543817
 }
