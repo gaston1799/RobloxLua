@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 133040801603256,
+  "jobId": "567d1b8b-b6e1-4025-a121-f17a19590c1a",
+  "join": "roblox://placeId=133040801603256&gameInstanceId=567d1b8b-b6e1-4025-a121-f17a19590c1a",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792740740796
+  "web": "https://www.roblox.com/games/start?placeId=133040801603256&gameInstanceId=567d1b8b-b6e1-4025-a121-f17a19590c1a",
+  "location": "[UPD] Build a PC",
+  "updatedAt": 1792740771350
 }
