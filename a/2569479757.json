@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 124569379724368,
-  "jobId": "c229d45a-dae2-4767-a664-5378a77e7993",
-  "join": "roblox://placeId=124569379724368&gameInstanceId=c229d45a-dae2-4767-a664-5378a77e7993",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=124569379724368&gameInstanceId=c229d45a-dae2-4767-a664-5378a77e7993",
-  "location": "+1 Melt the Ice Adventure",
-  "updatedAt": 1792767689993
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792767719814
 }
