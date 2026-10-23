@@ -1,12 +1,12 @@
 {
   "userId": 3026015790,
   "displayName": "KAOsxAKT_Kitkat",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 7251866503,
+  "jobId": "a347fedb-d78b-4d58-8edf-365b44f10cde",
+  "join": "roblox://placeId=7251866503&gameInstanceId=a347fedb-d78b-4d58-8edf-365b44f10cde",
   "follow": "roblox://followUserId=3026015790",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792723063217
+  "web": "https://www.roblox.com/games/start?placeId=7251866503&gameInstanceId=a347fedb-d78b-4d58-8edf-365b44f10cde",
+  "location": "The Mimic",
+  "updatedAt": 1792723123227
 }
