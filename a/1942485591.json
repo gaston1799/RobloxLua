@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 122446657157717,
+  "jobId": "8cb88353-bb9c-418f-9bf4-b5ea10d00d3d",
+  "join": "roblox://placeId=122446657157717&gameInstanceId=8cb88353-bb9c-418f-9bf4-b5ea10d00d3d",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792745119055
+  "web": "https://www.roblox.com/games/start?placeId=122446657157717&gameInstanceId=8cb88353-bb9c-418f-9bf4-b5ea10d00d3d",
+  "location": "[🎃Battlepass] Sniper Arena",
+  "updatedAt": 1792745239092
 }
