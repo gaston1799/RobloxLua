@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 122093998639862,
+  "jobId": "58de9db7-0757-4669-8e24-d5bec19d28c1",
+  "join": "roblox://placeId=122093998639862&gameInstanceId=58de9db7-0757-4669-8e24-d5bec19d28c1",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792787880155
+  "web": "https://www.roblox.com/games/start?placeId=122093998639862&gameInstanceId=58de9db7-0757-4669-8e24-d5bec19d28c1",
+  "location": "[🎃] The Morgue Shift",
+  "updatedAt": 1792792501472
 }
