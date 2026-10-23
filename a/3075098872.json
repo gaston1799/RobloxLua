@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 107638216730088,
-  "jobId": "063c323d-4f28-4c63-88c4-587f967ed276",
-  "join": "roblox://placeId=107638216730088&gameInstanceId=063c323d-4f28-4c63-88c4-587f967ed276",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=107638216730088&gameInstanceId=063c323d-4f28-4c63-88c4-587f967ed276",
-  "location": "Grinding Masters 2 [BETA]",
-  "updatedAt": 1792716223460
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792716403766
 }
