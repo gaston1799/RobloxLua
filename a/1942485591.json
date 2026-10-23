@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 85024203742894,
-  "jobId": "38cd5cc2-63e0-4f7d-aac9-fc251ef0f894",
-  "join": "roblox://placeId=85024203742894&gameInstanceId=38cd5cc2-63e0-4f7d-aac9-fc251ef0f894",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=85024203742894&gameInstanceId=38cd5cc2-63e0-4f7d-aac9-fc251ef0f894",
-  "location": "[GRAVEYARD] KNIFE DUELS",
-  "updatedAt": 1792717841946
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792717961968
 }
