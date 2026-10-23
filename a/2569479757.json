@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 6463538177,
-  "jobId": "473fee5f-e690-43fa-84d1-6741ffef7918",
-  "join": "roblox://placeId=6463538177&gameInstanceId=473fee5f-e690-43fa-84d1-6741ffef7918",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=6463538177&gameInstanceId=473fee5f-e690-43fa-84d1-6741ffef7918",
-  "location": "Mega Pyramid Tycoon!",
-  "updatedAt": 1792783503704
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792783533229
 }
