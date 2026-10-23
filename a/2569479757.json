@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 9872472334,
-  "jobId": "f67fca19-e097-4c16-bede-2f6a0640dca8",
-  "join": "roblox://placeId=9872472334&gameInstanceId=f67fca19-e097-4c16-bede-2f6a0640dca8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=9872472334&gameInstanceId=f67fca19-e097-4c16-bede-2f6a0640dca8",
-  "location": "[🎃HLWN] Evade ",
-  "updatedAt": 1792743742451
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1792743900781
 }
