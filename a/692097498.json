@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 80490607351513,
+  "jobId": "8bf7d38b-7949-4ceb-86f3-dc909f595d8d",
+  "join": "roblox://placeId=80490607351513&gameInstanceId=8bf7d38b-7949-4ceb-86f3-dc909f595d8d",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792801113754
+  "web": "https://www.roblox.com/games/start?placeId=80490607351513&gameInstanceId=8bf7d38b-7949-4ceb-86f3-dc909f595d8d",
+  "location": "[RELAPSE]Sunset Camp",
+  "updatedAt": 1792801233745
 }
