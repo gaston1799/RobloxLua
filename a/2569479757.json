@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 93523763376122,
+  "jobId": "b0ee3481-572a-4993-bcdf-d12073d7655b",
+  "join": "roblox://placeId=93523763376122&gameInstanceId=b0ee3481-572a-4993-bcdf-d12073d7655b",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792819933212
+  "web": "https://www.roblox.com/games/start?placeId=93523763376122&gameInstanceId=b0ee3481-572a-4993-bcdf-d12073d7655b",
+  "location": "[☄️] Ride a Dino",
+  "updatedAt": 1792819963653
 }
