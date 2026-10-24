@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 77239332768345,
-  "jobId": "3ef1714c-2a53-40db-b27f-4188f2446ee8",
-  "join": "roblox://placeId=77239332768345&gameInstanceId=3ef1714c-2a53-40db-b27f-4188f2446ee8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=77239332768345&gameInstanceId=3ef1714c-2a53-40db-b27f-4188f2446ee8",
-  "location": "[CH2] 🪵 Chop A Forest",
-  "updatedAt": 1792817651910
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792817682139
 }
