@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 11379739543,
-  "jobId": "68acc21d-862b-4aa0-bc66-29d8dcf00b3e",
-  "join": "roblox://placeId=11379739543&gameInstanceId=68acc21d-862b-4aa0-bc66-29d8dcf00b3e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=11379739543&gameInstanceId=68acc21d-862b-4aa0-bc66-29d8dcf00b3e",
-  "location": "Timebomb Duels [Alpha]",
-  "updatedAt": 1792871302194
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792871605506
 }
