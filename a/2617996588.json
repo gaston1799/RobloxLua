@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12355337193,
+  "jobId": "8401d3a3-e173-4fbe-ac2c-cff4e9fd1ba0",
+  "join": "roblox://placeId=12355337193&gameInstanceId=8401d3a3-e173-4fbe-ac2c-cff4e9fd1ba0",
   "follow": "roblox://followUserId=2617996588",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792879824330
+  "web": "https://www.roblox.com/games/start?placeId=12355337193&gameInstanceId=8401d3a3-e173-4fbe-ac2c-cff4e9fd1ba0",
+  "location": "MVSD | Murderers VS Sheriffs Duels",
+  "updatedAt": 1792879887458
 }
