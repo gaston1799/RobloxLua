@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 81864505280935,
-  "jobId": "76ebece0-b6cc-4e3e-b8ff-50ddc14ab0cc",
-  "join": "roblox://placeId=81864505280935&gameInstanceId=76ebece0-b6cc-4e3e-b8ff-50ddc14ab0cc",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=81864505280935&gameInstanceId=76ebece0-b6cc-4e3e-b8ff-50ddc14ab0cc",
-  "location": "[🎃Event] Sniper Arena",
-  "updatedAt": 1792816297674
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792816599724
 }
