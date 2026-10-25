@@ -1,12 +1,12 @@
 {
   "userId": 2445900639,
   "displayName": "ZEN",
-  "status": "in-game",
-  "placeId": 110788131270812,
-  "jobId": "eec9ac9e-6cb3-4891-9d46-35120c81eba4",
-  "join": "roblox://placeId=110788131270812&gameInstanceId=eec9ac9e-6cb3-4891-9d46-35120c81eba4",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2445900639",
-  "web": "https://www.roblox.com/games/start?placeId=110788131270812&gameInstanceId=eec9ac9e-6cb3-4891-9d46-35120c81eba4",
-  "location": "It Hears The Water [DONT SPLASH] 🎃",
-  "updatedAt": 1792892915618
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792893755766
 }
