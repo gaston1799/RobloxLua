@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 88286531172202,
+  "jobId": "b406ff78-7ba1-48ce-9935-8f91419ce043",
+  "join": "roblox://placeId=88286531172202&gameInstanceId=b406ff78-7ba1-48ce-9935-8f91419ce043",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792887814217
+  "web": "https://www.roblox.com/games/start?placeId=88286531172202&gameInstanceId=b406ff78-7ba1-48ce-9935-8f91419ce043",
+  "location": "[🎃] Drive a Cart Downhill!",
+  "updatedAt": 1792887876039
 }
