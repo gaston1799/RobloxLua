@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10449761463,
+  "jobId": "5d4b01c9-da19-428c-bfb6-91e8da4500f5",
+  "join": "roblox://placeId=10449761463&gameInstanceId=5d4b01c9-da19-428c-bfb6-91e8da4500f5",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792888414363
+  "web": "https://www.roblox.com/games/start?placeId=10449761463&gameInstanceId=5d4b01c9-da19-428c-bfb6-91e8da4500f5",
+  "location": "The Strongest Battlegrounds",
+  "updatedAt": 1792888474406
 }
