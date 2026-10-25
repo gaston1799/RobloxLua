@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 101880234193261,
-  "jobId": "33adf528-85fb-4f06-8f3c-dfa73c753ab8",
-  "join": "roblox://placeId=101880234193261&gameInstanceId=33adf528-85fb-4f06-8f3c-dfa73c753ab8",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=101880234193261&gameInstanceId=33adf528-85fb-4f06-8f3c-dfa73c753ab8",
-  "location": "[BETA EVENT!] Turbo Soccer : Beta 1.0",
-  "updatedAt": 1792889014551
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792889076522
 }
