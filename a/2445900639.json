@@ -1,12 +1,12 @@
 {
   "userId": 2445900639,
   "displayName": "ZEN",
-  "status": "in-game",
-  "placeId": 139106820685132,
-  "jobId": "6f824757-0212-452d-b5db-c390d5d5a12e",
-  "join": "roblox://placeId=139106820685132&gameInstanceId=6f824757-0212-452d-b5db-c390d5d5a12e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2445900639",
-  "web": "https://www.roblox.com/games/start?placeId=139106820685132&gameInstanceId=6f824757-0212-452d-b5db-c390d5d5a12e",
-  "location": "[🎃] Demonology🕯️",
-  "updatedAt": 1792894117613
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792894355860
 }
