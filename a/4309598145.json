@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 12355337193,
+  "jobId": "e666bb30-182b-458f-a0e9-056caac20616",
+  "join": "roblox://placeId=12355337193&gameInstanceId=e666bb30-182b-458f-a0e9-056caac20616",
   "follow": "roblox://followUserId=4309598145",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792892615440
+  "web": "https://www.roblox.com/games/start?placeId=12355337193&gameInstanceId=e666bb30-182b-458f-a0e9-056caac20616",
+  "location": "MVSD | Murderers VS Sheriffs Duels",
+  "updatedAt": 1792892677454
 }
