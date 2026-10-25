@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 116463962153167,
+  "jobId": "d5e8e7ec-bd15-4ff9-90ac-5963a752a612",
+  "join": "roblox://placeId=116463962153167&gameInstanceId=d5e8e7ec-bd15-4ff9-90ac-5963a752a612",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792946212155
+  "web": "https://www.roblox.com/games/start?placeId=116463962153167&gameInstanceId=d5e8e7ec-bd15-4ff9-90ac-5963a752a612",
+  "location": "The Hollow",
+  "updatedAt": 1792946364294
 }
