@@ -1,12 +1,12 @@
 {
   "userId": 2445900639,
   "displayName": "ZEN",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "80330674-4233-4e9a-b181-c08042d1b8af",
-  "join": "roblox://placeId=7041939546&gameInstanceId=80330674-4233-4e9a-b181-c08042d1b8af",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2445900639",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=80330674-4233-4e9a-b181-c08042d1b8af",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1792895436196
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1792897416710
 }
