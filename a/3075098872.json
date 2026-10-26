@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 109647360364124,
+  "jobId": "1225c1eb-b8ec-4721-ab05-9fb0f91bfe80",
+  "join": "roblox://placeId=109647360364124&gameInstanceId=1225c1eb-b8ec-4721-ab05-9fb0f91bfe80",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1792987740149
+  "web": "https://www.roblox.com/games/start?placeId=109647360364124&gameInstanceId=1225c1eb-b8ec-4721-ab05-9fb0f91bfe80",
+  "location": "Premire Basketball",
+  "updatedAt": 1792987982193
 }
