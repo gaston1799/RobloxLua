@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 112177392585645,
-  "jobId": "22a05d0c-e4fa-46b7-b7fa-101c112ee93e",
-  "join": "roblox://placeId=112177392585645&gameInstanceId=22a05d0c-e4fa-46b7-b7fa-101c112ee93e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=112177392585645&gameInstanceId=22a05d0c-e4fa-46b7-b7fa-101c112ee93e",
-  "location": "Life in Olympus",
-  "updatedAt": 1793035577798
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793035641149
 }
