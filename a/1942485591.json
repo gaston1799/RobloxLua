@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 128980044812812,
+  "jobId": "45090df8-bd53-4bfa-9ff1-a49865518d26",
+  "join": "roblox://placeId=128980044812812&gameInstanceId=45090df8-bd53-4bfa-9ff1-a49865518d26",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793008625545
+  "web": "https://www.roblox.com/games/start?placeId=128980044812812&gameInstanceId=45090df8-bd53-4bfa-9ff1-a49865518d26",
+  "location": "Smash the Ship",
+  "updatedAt": 1793008927399
 }
