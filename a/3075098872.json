@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 126442835724436,
-  "jobId": "46b3f52b-8444-4498-80a1-e7caf62c0007",
-  "join": "roblox://placeId=126442835724436&gameInstanceId=46b3f52b-8444-4498-80a1-e7caf62c0007",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=126442835724436&gameInstanceId=46b3f52b-8444-4498-80a1-e7caf62c0007",
-  "location": "The Capital of the Several Kingdoms",
-  "updatedAt": 1793035696404
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793035756804
 }
