@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 109151819660231,
-  "jobId": "e9883cd2-3e83-4ef6-a860-ee0ebe7aba57",
-  "join": "roblox://placeId=109151819660231&gameInstanceId=e9883cd2-3e83-4ef6-a860-ee0ebe7aba57",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=109151819660231&gameInstanceId=e9883cd2-3e83-4ef6-a860-ee0ebe7aba57",
-  "location": "Tornado Shenanigans",
-  "updatedAt": 1793080608958
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793080668906
 }
