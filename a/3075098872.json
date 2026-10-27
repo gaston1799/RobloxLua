@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 117077842695064,
+  "jobId": "d82e0735-198a-4ec4-bb9c-48d19e98189a",
+  "join": "roblox://placeId=117077842695064&gameInstanceId=d82e0735-198a-4ec4-bb9c-48d19e98189a",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793063414118
+  "web": "https://www.roblox.com/games/start?placeId=117077842695064&gameInstanceId=d82e0735-198a-4ec4-bb9c-48d19e98189a",
+  "location": "Future Level's",
+  "updatedAt": 1793063774185
 }
