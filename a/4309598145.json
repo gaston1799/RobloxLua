@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "in-game",
-  "placeId": 8560631822,
-  "jobId": "463e9fd7-bde8-4fa8-ae86-957759db1805",
-  "join": "roblox://placeId=8560631822&gameInstanceId=463e9fd7-bde8-4fa8-ae86-957759db1805",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=8560631822&gameInstanceId=463e9fd7-bde8-4fa8-ae86-957759db1805",
-  "location": "[🎃PART 2] BedWars",
-  "updatedAt": 1793107482524
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793107602786
 }
