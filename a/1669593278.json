@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "in-game",
-  "placeId": 128220027114734,
-  "jobId": "749be9ed-263a-4d05-9925-c1d12c22b50c",
-  "join": "roblox://placeId=128220027114734&gameInstanceId=749be9ed-263a-4d05-9925-c1d12c22b50c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1669593278",
-  "web": "https://www.roblox.com/games/start?placeId=128220027114734&gameInstanceId=749be9ed-263a-4d05-9925-c1d12c22b50c",
-  "location": "[🔥ZOMBIES] Hypershot",
-  "updatedAt": 1793076467956
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793076887968
 }
