@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 82696362026935,
+  "jobId": "923ca2d5-7d10-493c-998d-fa235ccf89ae",
+  "join": "roblox://placeId=82696362026935&gameInstanceId=923ca2d5-7d10-493c-998d-fa235ccf89ae",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793064074365
+  "web": "https://www.roblox.com/games/start?placeId=82696362026935&gameInstanceId=923ca2d5-7d10-493c-998d-fa235ccf89ae",
+  "location": "Log Chopper Simulator🪓🔥",
+  "updatedAt": 1793073047331
 }
