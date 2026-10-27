@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 139386728420706,
-  "jobId": "5eef4f65-2a5a-4300-8263-cb0c9d87819d",
-  "join": "roblox://placeId=139386728420706&gameInstanceId=5eef4f65-2a5a-4300-8263-cb0c9d87819d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=139386728420706&gameInstanceId=5eef4f65-2a5a-4300-8263-cb0c9d87819d",
-  "location": "[NEW STAGES]  DONT SPLASH 🎃",
-  "updatedAt": 1793059032871
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793059452959
 }
