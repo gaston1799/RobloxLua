@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 84587267515060,
-  "jobId": "511c70ad-fd13-46ac-86c5-8b1d2dfaa72b",
-  "join": "roblox://placeId=84587267515060&gameInstanceId=511c70ad-fd13-46ac-86c5-8b1d2dfaa72b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=84587267515060&gameInstanceId=511c70ad-fd13-46ac-86c5-8b1d2dfaa72b",
-  "location": "[⛏️] One More Rock",
-  "updatedAt": 1793076647957
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793076707982
 }
