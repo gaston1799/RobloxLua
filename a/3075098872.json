@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 18210452709,
-  "jobId": "f6715578-a344-4c00-a1a2-c2b2bbcf9fb3",
-  "join": "roblox://placeId=18210452709&gameInstanceId=f6715578-a344-4c00-a1a2-c2b2bbcf9fb3",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=18210452709&gameInstanceId=f6715578-a344-4c00-a1a2-c2b2bbcf9fb3",
-  "location": "Level Simulator: Remastered 🔥",
-  "updatedAt": 1793062573862
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793062695786
 }
