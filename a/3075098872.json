@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 77990614586580,
+  "jobId": "7ef20362-070f-4f72-8458-b8c3c2166fe0",
+  "join": "roblox://placeId=77990614586580&gameInstanceId=7ef20362-070f-4f72-8458-b8c3c2166fe0",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793132060270
+  "web": "https://www.roblox.com/games/start?placeId=77990614586580&gameInstanceId=7ef20362-070f-4f72-8458-b8c3c2166fe0",
+  "location": "+1 Swordsman Leveling",
+  "updatedAt": 1793132480134
 }
