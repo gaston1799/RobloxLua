@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 139013964061640,
-  "jobId": "0ecc518c-a440-46af-b8c4-b1c29eeb8fb8",
-  "join": "roblox://placeId=139013964061640&gameInstanceId=0ecc518c-a440-46af-b8c4-b1c29eeb8fb8",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=139013964061640&gameInstanceId=0ecc518c-a440-46af-b8c4-b1c29eeb8fb8",
-  "location": "Million Coins",
-  "updatedAt": 1793132540197
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793132600956
 }
