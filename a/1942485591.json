@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 13772394625,
+  "jobId": "1579b536-5bab-4048-8fc8-5e63f18f21bf",
+  "join": "roblox://placeId=13772394625&gameInstanceId=1579b536-5bab-4048-8fc8-5e63f18f21bf",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793230005031
+  "web": "https://www.roblox.com/games/start?placeId=13772394625&gameInstanceId=1579b536-5bab-4048-8fc8-5e63f18f21bf",
+  "location": "Blade Ball",
+  "updatedAt": 1793230065081
 }
