@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 122774050468023,
+  "jobId": "6b090beb-2365-48ef-9f26-f9b77bdcddbd",
+  "join": "roblox://placeId=122774050468023&gameInstanceId=6b090beb-2365-48ef-9f26-f9b77bdcddbd",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793173350532
+  "web": "https://www.roblox.com/games/start?placeId=122774050468023&gameInstanceId=6b090beb-2365-48ef-9f26-f9b77bdcddbd",
+  "location": "KUNAI DUELS [🎃]",
+  "updatedAt": 1793174130717
 }
