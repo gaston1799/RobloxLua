@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 94227180343187,
+  "jobId": "767dbd03-7458-4e0b-8673-00efc51ea4df",
+  "join": "roblox://placeId=94227180343187&gameInstanceId=767dbd03-7458-4e0b-8673-00efc51ea4df",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793240837881
+  "web": "https://www.roblox.com/games/start?placeId=94227180343187&gameInstanceId=767dbd03-7458-4e0b-8673-00efc51ea4df",
+  "location": "[1-2 PLAYER OBBY] Push the Patient",
+  "updatedAt": 1793240957989
 }
