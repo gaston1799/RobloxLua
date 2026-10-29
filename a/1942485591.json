@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 189707,
-  "jobId": "a7ec814f-e0ac-4aee-9f91-28f2583fefe7",
-  "join": "roblox://placeId=189707&gameInstanceId=a7ec814f-e0ac-4aee-9f91-28f2583fefe7",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=189707&gameInstanceId=a7ec814f-e0ac-4aee-9f91-28f2583fefe7",
-  "location": "Natural Disaster Survival",
-  "updatedAt": 1793243298530
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793243598618
 }
