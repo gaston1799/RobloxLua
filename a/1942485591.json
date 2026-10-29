@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 116463962153167,
+  "jobId": "88483e84-6812-4b78-ad0e-012594a8655f",
+  "join": "roblox://placeId=116463962153167&gameInstanceId=88483e84-6812-4b78-ad0e-012594a8655f",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793244741865
+  "web": "https://www.roblox.com/games/start?placeId=116463962153167&gameInstanceId=88483e84-6812-4b78-ad0e-012594a8655f",
+  "location": "The Hollow",
+  "updatedAt": 1793245159135
 }
