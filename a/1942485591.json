@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99758842280353,
+  "jobId": "eaf49ad5-4001-48c3-99c4-6e477dcf8f5a",
+  "join": "roblox://placeId=99758842280353&gameInstanceId=eaf49ad5-4001-48c3-99c4-6e477dcf8f5a",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793241258027
+  "web": "https://www.roblox.com/games/start?placeId=99758842280353&gameInstanceId=eaf49ad5-4001-48c3-99c4-6e477dcf8f5a",
+  "location": "Dog Walk 🐶 [2 Player Obby]",
+  "updatedAt": 1793241317996
 }
