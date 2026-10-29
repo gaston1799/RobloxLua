@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 445664957,
+  "jobId": "7e1388ba-aecf-4595-8130-2e75569bbcdd",
+  "join": "roblox://placeId=445664957&gameInstanceId=7e1388ba-aecf-4595-8130-2e75569bbcdd",
   "follow": "roblox://followUserId=692097498",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793242338267
+  "web": "https://www.roblox.com/games/start?placeId=445664957&gameInstanceId=7e1388ba-aecf-4595-8130-2e75569bbcdd",
+  "location": "PARKOUR Legacy",
+  "updatedAt": 1793242398291
 }
