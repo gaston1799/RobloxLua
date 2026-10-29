@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 122856741731744,
+  "jobId": "f207ad42-e3ea-47c6-be26-974ac1e5562d",
+  "join": "roblox://placeId=122856741731744&gameInstanceId=f207ad42-e3ea-47c6-be26-974ac1e5562d",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793309422658
+  "web": "https://www.roblox.com/games/start?placeId=122856741731744&gameInstanceId=f207ad42-e3ea-47c6-be26-974ac1e5562d",
+  "location": "Piggy's Wall Hop Obby",
+  "updatedAt": 1793309482661
 }
