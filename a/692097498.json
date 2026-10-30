@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 17204041246,
-  "jobId": "ae1a6912-fcbb-4995-8c8a-b504d4e1e017",
-  "join": "roblox://placeId=17204041246&gameInstanceId=ae1a6912-fcbb-4995-8c8a-b504d4e1e017",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=17204041246&gameInstanceId=ae1a6912-fcbb-4995-8c8a-b504d4e1e017",
-  "location": "Throw Me [2 Player Obby]",
-  "updatedAt": 1793318146716
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793318926845
 }
