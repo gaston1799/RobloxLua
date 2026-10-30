@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 13864667823,
-  "jobId": "fa932767-3db7-4e33-b1f9-d1fe79f7eddb",
-  "join": "roblox://placeId=13864667823&gameInstanceId=fa932767-3db7-4e33-b1f9-d1fe79f7eddb",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=13864667823&gameInstanceId=fa932767-3db7-4e33-b1f9-d1fe79f7eddb",
-  "location": "Break In 2 (Story)",
-  "updatedAt": 1793324028104
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793325828537
 }
