@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 135083482593282,
-  "jobId": "bf5172e4-c7a5-4883-a7a0-b5ced88784b1",
-  "join": "roblox://placeId=135083482593282&gameInstanceId=bf5172e4-c7a5-4883-a7a0-b5ced88784b1",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=135083482593282&gameInstanceId=bf5172e4-c7a5-4883-a7a0-b5ced88784b1",
-  "location": "Make a Planet",
-  "updatedAt": 1793460975389
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793461095444
 }
