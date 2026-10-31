@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 134152376130407,
+  "jobId": "4335b19f-4cef-4072-a70f-cea882639c45",
+  "join": "roblox://placeId=134152376130407&gameInstanceId=4335b19f-4cef-4072-a70f-cea882639c45",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793429524013
+  "web": "https://www.roblox.com/games/start?placeId=134152376130407&gameInstanceId=4335b19f-4cef-4072-a70f-cea882639c45",
+  "location": "Hold Up the Balloon",
+  "updatedAt": 1793429764109
 }
