@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6766156863,
+  "jobId": "a2534701-e7df-4c19-9d7d-4513015e679c",
+  "join": "roblox://placeId=6766156863&gameInstanceId=a2534701-e7df-4c19-9d7d-4513015e679c",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793426763333
+  "web": "https://www.roblox.com/games/start?placeId=6766156863&gameInstanceId=a2534701-e7df-4c19-9d7d-4513015e679c",
+  "location": "[🎃]Strongman Simulator",
+  "updatedAt": 1793426823329
 }
