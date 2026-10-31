@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 135856908115931,
-  "jobId": "1dc2ed5e-2510-4254-afed-c3e29ec3809d",
-  "join": "roblox://placeId=135856908115931&gameInstanceId=1dc2ed5e-2510-4254-afed-c3e29ec3809d",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=135856908115931&gameInstanceId=1dc2ed5e-2510-4254-afed-c3e29ec3809d",
-  "location": "[🎃DUELS] Murderers VS Sheriffs",
-  "updatedAt": 1793465476294
+  "web": null,
+  "location": "Offline",
+  "updatedAt": 1793466940292
 }
