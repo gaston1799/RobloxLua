@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 124345528698541,
-  "jobId": "8bc15a4c-cf57-4968-bf1a-1ed6216a9535",
-  "join": "roblox://placeId=124345528698541&gameInstanceId=8bc15a4c-cf57-4968-bf1a-1ed6216a9535",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=124345528698541&gameInstanceId=8bc15a4c-cf57-4968-bf1a-1ed6216a9535",
-  "location": "KartX Racing [HALLOWEEN!]",
-  "updatedAt": 1793457672928
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793457971012
 }
