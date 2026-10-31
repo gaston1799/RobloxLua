@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 93761797500717,
+  "jobId": "e7862a6a-89e5-48c4-98cf-a42f0610364b",
+  "join": "roblox://placeId=93761797500717&gameInstanceId=e7862a6a-89e5-48c4-98cf-a42f0610364b",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793433244926
+  "web": "https://www.roblox.com/games/start?placeId=93761797500717&gameInstanceId=e7862a6a-89e5-48c4-98cf-a42f0610364b",
+  "location": "Roll Spells to Fight🎃",
+  "updatedAt": 1793433304917
 }
