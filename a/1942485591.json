@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 116189555550783,
-  "jobId": "350dd3c4-6d04-47a8-a424-ac687f7361bd",
-  "join": "roblox://placeId=116189555550783&gameInstanceId=350dd3c4-6d04-47a8-a424-ac687f7361bd",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=116189555550783&gameInstanceId=350dd3c4-6d04-47a8-a424-ac687f7361bd",
-  "location": "[Swan] Broodwing",
-  "updatedAt": 1793572765537
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793577139924
 }
