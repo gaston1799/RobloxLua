@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 112643270710584,
-  "jobId": "07b1c25a-74c5-40dd-8d53-7d49f422ac6b",
-  "join": "roblox://placeId=112643270710584&gameInstanceId=07b1c25a-74c5-40dd-8d53-7d49f422ac6b",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=112643270710584&gameInstanceId=07b1c25a-74c5-40dd-8d53-7d49f422ac6b",
-  "location": "[🌾] Farming Incremental",
-  "updatedAt": 1793647949718
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793647980135
 }
