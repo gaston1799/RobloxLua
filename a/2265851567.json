@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 72858262610964,
+  "jobId": "981c8095-40e0-4ebd-8f42-c86b4d9da840",
+  "join": "roblox://placeId=72858262610964&gameInstanceId=981c8095-40e0-4ebd-8f42-c86b4d9da840",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793608065481
+  "web": "https://www.roblox.com/games/start?placeId=72858262610964&gameInstanceId=981c8095-40e0-4ebd-8f42-c86b4d9da840",
+  "location": "[✨] Tap Simulator REBORN",
+  "updatedAt": 1793611786450
 }
