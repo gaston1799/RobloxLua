@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 3260590327,
-  "jobId": "0e9df620-1e1b-4504-b4f6-806316e3a705",
-  "join": "roblox://placeId=3260590327&gameInstanceId=0e9df620-1e1b-4504-b4f6-806316e3a705",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=3260590327&gameInstanceId=0e9df620-1e1b-4504-b4f6-806316e3a705",
-  "location": "[🌙 NIGHT 4] Tower Defense Simulator",
-  "updatedAt": 1793632851764
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793632971823
 }
