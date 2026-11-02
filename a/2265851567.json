@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 125866884667103,
+  "jobId": "6a353dc3-3b7d-4cf5-9f10-e4d55da5759a",
+  "join": "roblox://placeId=125866884667103&gameInstanceId=6a353dc3-3b7d-4cf5-9f10-e4d55da5759a",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793643355010
+  "web": "https://www.roblox.com/games/start?placeId=125866884667103&gameInstanceId=6a353dc3-3b7d-4cf5-9f10-e4d55da5759a",
+  "location": "Sell a Million Sushi",
+  "updatedAt": 1793643414790
 }
