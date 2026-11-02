@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 104250520250855,
-  "jobId": "8d0878af-e158-4dc2-b773-709fddaf36b7",
-  "join": "roblox://placeId=104250520250855&gameInstanceId=8d0878af-e158-4dc2-b773-709fddaf36b7",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=104250520250855&gameInstanceId=8d0878af-e158-4dc2-b773-709fddaf36b7",
-  "location": "[🎃] Wheelie a Kukirin: Escooter Simulator",
-  "updatedAt": 1793635132613
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793635672772
 }
