@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 139523520699805,
-  "jobId": "7deb0dbc-d848-4676-a5ba-fe992148b1dd",
-  "join": "roblox://placeId=139523520699805&gameInstanceId=7deb0dbc-d848-4676-a5ba-fe992148b1dd",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=139523520699805&gameInstanceId=7deb0dbc-d848-4676-a5ba-fe992148b1dd",
-  "location": "Aisles Of The Locust [🎃]",
-  "updatedAt": 1793612566646
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793613046767
 }
