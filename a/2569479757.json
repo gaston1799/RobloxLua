@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 113132840606249,
+  "jobId": "38ab4c13-119c-4f5d-9379-305aa580df36",
+  "join": "roblox://placeId=113132840606249&gameInstanceId=38ab4c13-119c-4f5d-9379-305aa580df36",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793648010088
+  "web": "https://www.roblox.com/games/start?placeId=113132840606249&gameInstanceId=38ab4c13-119c-4f5d-9379-305aa580df36",
+  "location": "+1 Hamster Smash",
+  "updatedAt": 1793648101419
 }
