@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4639625707,
+  "jobId": "a73c4bcd-1cee-4d45-ac10-27abaf1a9126",
+  "join": "roblox://placeId=4639625707&gameInstanceId=a73c4bcd-1cee-4d45-ac10-27abaf1a9126",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793595282222
+  "web": "https://www.roblox.com/games/start?placeId=4639625707&gameInstanceId=a73c4bcd-1cee-4d45-ac10-27abaf1a9126",
+  "location": "[Blackhawk DAP] War Tycoon",
+  "updatedAt": 1793595524077
 }
