@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 132945794147519,
-  "jobId": "2b481f23-607a-4d7a-9890-a7f3e87624b1",
-  "join": "roblox://placeId=132945794147519&gameInstanceId=2b481f23-607a-4d7a-9890-a7f3e87624b1",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=132945794147519&gameInstanceId=2b481f23-607a-4d7a-9890-a7f3e87624b1",
-  "location": "[🎃] Rodeo For Animals",
-  "updatedAt": 1793663579948
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793670121630
 }
