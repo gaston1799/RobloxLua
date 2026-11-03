@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "in-game",
-  "placeId": 6938803436,
-  "jobId": "64803a70-af4d-45f4-a933-6f5114dad18f",
-  "join": "roblox://placeId=6938803436&gameInstanceId=64803a70-af4d-45f4-a933-6f5114dad18f",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=6938803436&gameInstanceId=64803a70-af4d-45f4-a933-6f5114dad18f",
-  "location": "[🎃] Anime Dimensions Simulator",
-  "updatedAt": 1793684405194
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793684465253
 }
