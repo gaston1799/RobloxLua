@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 3475397644,
+  "jobId": "33f49fad-17de-4508-ad31-6270f55a76d9",
+  "join": "roblox://placeId=3475397644&gameInstanceId=33f49fad-17de-4508-ad31-6270f55a76d9",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793670181626
+  "web": "https://www.roblox.com/games/start?placeId=3475397644&gameInstanceId=33f49fad-17de-4508-ad31-6270f55a76d9",
+  "location": "[🎃] Dragon Adventures 🐉",
+  "updatedAt": 1793670421777
 }
