@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 92207505554992,
-  "jobId": "cbdfa61b-8769-432a-ad39-d1e7f8274802",
-  "join": "roblox://placeId=92207505554992&gameInstanceId=cbdfa61b-8769-432a-ad39-d1e7f8274802",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=92207505554992&gameInstanceId=cbdfa61b-8769-432a-ad39-d1e7f8274802",
-  "location": "[Augustine Vampire] The Supernatural Legacies 2",
-  "updatedAt": 1793664660215
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793664720295
 }
