@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 113933839545183,
-  "jobId": "b53e7dce-ab22-4c1a-85e9-99cd62315ea7",
-  "join": "roblox://placeId=113933839545183&gameInstanceId=b53e7dce-ab22-4c1a-85e9-99cd62315ea7",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=113933839545183&gameInstanceId=b53e7dce-ab22-4c1a-85e9-99cd62315ea7",
-  "location": "GS4 Menu Simulator",
-  "updatedAt": 1793908693715
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793908724404
 }
