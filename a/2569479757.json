@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 83529518120746,
-  "jobId": "a4b9f009-0ef2-480e-b9c0-50a22537c275",
-  "join": "roblox://placeId=83529518120746&gameInstanceId=a4b9f009-0ef2-480e-b9c0-50a22537c275",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=83529518120746&gameInstanceId=a4b9f009-0ef2-480e-b9c0-50a22537c275",
-  "location": "Katana island",
-  "updatedAt": 1793901250628
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793901643392
 }
