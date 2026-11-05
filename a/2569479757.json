@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 100453542816833,
+  "jobId": "3702c223-037d-4e57-a1ca-68ac6bb48a43",
+  "join": "roblox://placeId=100453542816833&gameInstanceId=3702c223-037d-4e57-a1ca-68ac6bb48a43",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793907612453
+  "web": "https://www.roblox.com/games/start?placeId=100453542816833&gameInstanceId=3702c223-037d-4e57-a1ca-68ac6bb48a43",
+  "location": "📸 Say Cheese! [STORY]",
+  "updatedAt": 1793907884116
 }
