@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 100047964036957,
+  "jobId": "0d0c2ed4-e21f-4e1a-ae7b-700a5cce70b6",
+  "join": "roblox://placeId=100047964036957&gameInstanceId=0d0c2ed4-e21f-4e1a-ae7b-700a5cce70b6",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793895635076
+  "web": "https://www.roblox.com/games/start?placeId=100047964036957&gameInstanceId=0d0c2ed4-e21f-4e1a-ae7b-700a5cce70b6",
+  "location": "Fart Together [1-4 PLAYER OBBY] 💨",
+  "updatedAt": 1793895695079
 }
