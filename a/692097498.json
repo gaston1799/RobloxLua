@@ -1,12 +1,12 @@
 {
   "userId": 692097498,
   "displayName": "DA_Zama",
-  "status": "in-game",
-  "placeId": 16825646049,
-  "jobId": "e7d2b8b6-a427-42ef-a0ed-4af6a4a8ebbc",
-  "join": "roblox://placeId=16825646049&gameInstanceId=e7d2b8b6-a427-42ef-a0ed-4af6a4a8ebbc",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=692097498",
-  "web": "https://www.roblox.com/games/start?placeId=16825646049&gameInstanceId=e7d2b8b6-a427-42ef-a0ed-4af6a4a8ebbc",
-  "location": "[CHAPTER 2] CORRIDOR",
-  "updatedAt": 1793851073832
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793852634211
 }
