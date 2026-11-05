@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 116448925875915,
-  "jobId": "112cc190-5db8-46b8-97e2-82a831a36972",
-  "join": "roblox://placeId=116448925875915&gameInstanceId=112cc190-5db8-46b8-97e2-82a831a36972",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=116448925875915&gameInstanceId=112cc190-5db8-46b8-97e2-82a831a36972",
-  "location": "[🎃] +1 Venom Evolution",
-  "updatedAt": 1793913254835
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793913347110
 }
