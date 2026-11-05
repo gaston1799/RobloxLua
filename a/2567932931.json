@@ -1,12 +1,12 @@
 {
   "userId": 2567932931,
   "displayName": "STORMBREAK_T800",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 4924922222,
+  "jobId": "c63f262e-e980-423d-b256-9fb23071dee0",
+  "join": "roblox://placeId=4924922222&gameInstanceId=c63f262e-e980-423d-b256-9fb23071dee0",
   "follow": "roblox://followUserId=2567932931",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793840271111
+  "web": "https://www.roblox.com/games/start?placeId=4924922222&gameInstanceId=c63f262e-e980-423d-b256-9fb23071dee0",
+  "location": "Brookhaven 🏡RP",
+  "updatedAt": 1793840332811
 }
