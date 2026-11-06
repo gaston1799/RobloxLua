@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 88634570359151,
+  "jobId": "d6667042-c069-4ec6-a550-7a8664cfadd8",
+  "join": "roblox://placeId=88634570359151&gameInstanceId=d6667042-c069-4ec6-a550-7a8664cfadd8",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1793985905126
+  "web": "https://www.roblox.com/games/start?placeId=88634570359151&gameInstanceId=d6667042-c069-4ec6-a550-7a8664cfadd8",
+  "location": "[🎃Update] Find a ride",
+  "updatedAt": 1793986356622
 }
