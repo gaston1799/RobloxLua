@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 80884457093967,
-  "jobId": "03bd6840-f855-4003-b1ec-162684240cef",
-  "join": "roblox://placeId=80884457093967&gameInstanceId=03bd6840-f855-4003-b1ec-162684240cef",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=80884457093967&gameInstanceId=03bd6840-f855-4003-b1ec-162684240cef",
-  "location": "[CHAPTER 2] FATHOM",
-  "updatedAt": 1793988607416
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793988638411
 }
