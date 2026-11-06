@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 7041939546,
-  "jobId": "f8c5d69d-9279-47bc-b590-23209c1438d5",
-  "join": "roblox://placeId=7041939546&gameInstanceId=f8c5d69d-9279-47bc-b590-23209c1438d5",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=7041939546&gameInstanceId=f8c5d69d-9279-47bc-b590-23209c1438d5",
-  "location": "Catalog Avatar Creator",
-  "updatedAt": 1793957724037
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793958204222
 }
