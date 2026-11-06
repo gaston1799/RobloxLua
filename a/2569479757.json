@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 117609308261109,
-  "jobId": "af9f48c6-eab2-464e-abf8-dc6d6c5be3c7",
-  "join": "roblox://placeId=117609308261109&gameInstanceId=af9f48c6-eab2-464e-abf8-dc6d6c5be3c7",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=117609308261109&gameInstanceId=af9f48c6-eab2-464e-abf8-dc6d6c5be3c7",
-  "location": "[🎃] Dragon Adventures 🐉",
-  "updatedAt": 1793985845621
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1793985877525
 }
