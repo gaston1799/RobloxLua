@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 137143350975329,
-  "jobId": "d90d282f-3dfc-4d3e-af85-a7a438bb984f",
-  "join": "roblox://placeId=137143350975329&gameInstanceId=d90d282f-3dfc-4d3e-af85-a7a438bb984f",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=137143350975329&gameInstanceId=d90d282f-3dfc-4d3e-af85-a7a438bb984f",
-  "location": "Fairy Hollow",
-  "updatedAt": 1794077756201
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794077814351
 }
