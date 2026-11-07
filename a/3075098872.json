@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 99160620158437,
+  "jobId": "0d63314c-8bad-45f5-b4af-8131ac89e5b3",
+  "join": "roblox://placeId=99160620158437&gameInstanceId=0d63314c-8bad-45f5-b4af-8131ac89e5b3",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794013778326
+  "web": "https://www.roblox.com/games/start?placeId=99160620158437&gameInstanceId=0d63314c-8bad-45f5-b4af-8131ac89e5b3",
+  "location": "WereWolf Life",
+  "updatedAt": 1794013958413
 }
