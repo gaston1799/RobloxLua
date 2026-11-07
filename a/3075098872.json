@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 122287678911982,
-  "jobId": "3db0a18b-7607-4937-8b08-8f2a7876cf5a",
-  "join": "roblox://placeId=122287678911982&gameInstanceId=3db0a18b-7607-4937-8b08-8f2a7876cf5a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=122287678911982&gameInstanceId=3db0a18b-7607-4937-8b08-8f2a7876cf5a",
-  "location": "Vampire life",
-  "updatedAt": 1794092277995
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794092818102
 }
