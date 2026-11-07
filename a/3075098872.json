@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 75084932158874,
+  "jobId": "29650ae4-965d-49e1-8069-704d2dab2213",
+  "join": "roblox://placeId=75084932158874&gameInstanceId=29650ae4-965d-49e1-8069-704d2dab2213",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794067431709
+  "web": "https://www.roblox.com/games/start?placeId=75084932158874&gameInstanceId=29650ae4-965d-49e1-8069-704d2dab2213",
+  "location": "Become the Strongest!",
+  "updatedAt": 1794067671802
 }
