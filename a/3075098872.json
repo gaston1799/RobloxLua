@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 116017790593862,
+  "jobId": "2d39e74b-8f43-47e9-94b1-e9e5a301975d",
+  "join": "roblox://placeId=116017790593862&gameInstanceId=2d39e74b-8f43-47e9-94b1-e9e5a301975d",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794077574283
+  "web": "https://www.roblox.com/games/start?placeId=116017790593862&gameInstanceId=2d39e74b-8f43-47e9-94b1-e9e5a301975d",
+  "location": "Track & field: Horizon",
+  "updatedAt": 1794077634299
 }
