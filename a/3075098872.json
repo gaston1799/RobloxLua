@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 113890950093491,
+  "jobId": "a434ce59-d0fb-4210-b67b-2cbb0d70419a",
+  "join": "roblox://placeId=113890950093491&gameInstanceId=a434ce59-d0fb-4210-b67b-2cbb0d70419a",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794014798595
+  "web": "https://www.roblox.com/games/start?placeId=113890950093491&gameInstanceId=a434ce59-d0fb-4210-b67b-2cbb0d70419a",
+  "location": "Supernatural Realm",
+  "updatedAt": 1794014858615
 }
