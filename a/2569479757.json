@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107778070777162,
+  "jobId": "63093423-4adb-4d4f-85f4-64e60d4ab761",
+  "join": "roblox://placeId=107778070777162&gameInstanceId=63093423-4adb-4d4f-85f4-64e60d4ab761",
   "follow": "roblox://followUserId=2569479757",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794062364798
+  "web": "https://www.roblox.com/games/start?placeId=107778070777162&gameInstanceId=63093423-4adb-4d4f-85f4-64e60d4ab761",
+  "location": "Steal An Egg",
+  "updatedAt": 1794062397084
 }
