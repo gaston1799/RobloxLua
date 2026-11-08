@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 85551297735483,
-  "jobId": "b9642569-6018-42d7-961c-34ec80886c28",
-  "join": "roblox://placeId=85551297735483&gameInstanceId=b9642569-6018-42d7-961c-34ec80886c28",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=85551297735483&gameInstanceId=b9642569-6018-42d7-961c-34ec80886c28",
-  "location": "+1 coin to level simulator",
-  "updatedAt": 1794164296273
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794164476302
 }
