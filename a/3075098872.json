@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 106555948213492,
-  "jobId": "c225ec35-28ff-4cc1-b108-90fc97d96dbb",
-  "join": "roblox://placeId=106555948213492&gameInstanceId=c225ec35-28ff-4cc1-b108-90fc97d96dbb",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=106555948213492&gameInstanceId=c225ec35-28ff-4cc1-b108-90fc97d96dbb",
-  "location": "Vesperfall",
-  "updatedAt": 1794154873925
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794154933911
 }
