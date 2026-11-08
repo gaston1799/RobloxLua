@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 107638216730088,
+  "jobId": "75fc37ef-e67f-40ba-b3d0-a8b791b3df31",
+  "join": "roblox://placeId=107638216730088&gameInstanceId=75fc37ef-e67f-40ba-b3d0-a8b791b3df31",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794154933911
+  "web": "https://www.roblox.com/games/start?placeId=107638216730088&gameInstanceId=75fc37ef-e67f-40ba-b3d0-a8b791b3df31",
+  "location": "UPDATE Grinding Masters",
+  "updatedAt": 1794154993922
 }
