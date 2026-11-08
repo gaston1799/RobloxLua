@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 117307580237269,
+  "jobId": "f0fa57ed-0c7b-43e2-aae4-46792c2f7c4f",
+  "join": "roblox://placeId=117307580237269&gameInstanceId=f0fa57ed-0c7b-43e2-aae4-46792c2f7c4f",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794110882873
+  "web": "https://www.roblox.com/games/start?placeId=117307580237269&gameInstanceId=f0fa57ed-0c7b-43e2-aae4-46792c2f7c4f",
+  "location": "Vampire : Before Five [OPEN BETA]",
+  "updatedAt": 1794110942823
 }
