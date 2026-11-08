@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 5680394665,
+  "jobId": "d8293f8f-56ba-44d5-abd9-c470434092ee",
+  "join": "roblox://placeId=5680394665&gameInstanceId=d8293f8f-56ba-44d5-abd9-c470434092ee",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794096419158
+  "web": "https://www.roblox.com/games/start?placeId=5680394665&gameInstanceId=d8293f8f-56ba-44d5-abd9-c470434092ee",
+  "location": "Trevor's Creatures World [BETA]",
+  "updatedAt": 1794096479233
 }
