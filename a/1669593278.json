@@ -1,12 +1,12 @@
 {
   "userId": 1669593278,
   "displayName": "IAmBored",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 134728380684025,
+  "jobId": "22bb0adb-3e7c-48e5-96c0-5abb4c0b1a84",
+  "join": "roblox://placeId=134728380684025&gameInstanceId=22bb0adb-3e7c-48e5-96c0-5abb4c0b1a84",
   "follow": "roblox://followUserId=1669593278",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794162735857
+  "web": "https://www.roblox.com/games/start?placeId=134728380684025&gameInstanceId=22bb0adb-3e7c-48e5-96c0-5abb4c0b1a84",
+  "location": "Aisles Of The Locust [🎃]",
+  "updatedAt": 1794162975925
 }
