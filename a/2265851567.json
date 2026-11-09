@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 6961824067,
+  "jobId": "f386ac4c-297e-438f-8c87-3f4da83b032e",
+  "join": "roblox://placeId=6961824067&gameInstanceId=f386ac4c-297e-438f-8c87-3f4da83b032e",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794209907801
+  "web": "https://www.roblox.com/games/start?placeId=6961824067&gameInstanceId=f386ac4c-297e-438f-8c87-3f4da83b032e",
+  "location": "Fling Things and People",
+  "updatedAt": 1794210029925
 }
