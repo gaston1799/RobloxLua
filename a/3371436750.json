@@ -1,12 +1,12 @@
 {
   "userId": 3371436750,
   "displayName": "Creek",
-  "status": "in-game",
-  "placeId": 5712833750,
-  "jobId": "96d03781-e7fe-4c83-a675-054bbaa81f0a",
-  "join": "roblox://placeId=5712833750&gameInstanceId=96d03781-e7fe-4c83-a675-054bbaa81f0a",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3371436750",
-  "web": "https://www.roblox.com/games/start?placeId=5712833750&gameInstanceId=96d03781-e7fe-4c83-a675-054bbaa81f0a",
-  "location": "Animal Simulator",
-  "updatedAt": 1794199554947
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794199585223
 }
