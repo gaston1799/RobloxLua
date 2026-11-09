@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 117734411290994,
-  "jobId": "12035410-4dad-4f58-8445-b27874d29f59",
-  "join": "roblox://placeId=117734411290994&gameInstanceId=12035410-4dad-4f58-8445-b27874d29f59",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=117734411290994&gameInstanceId=12035410-4dad-4f58-8445-b27874d29f59",
-  "location": "+1 Spider Arm🕷️",
-  "updatedAt": 1794237216672
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794237334772
 }
