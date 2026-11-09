@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 103927746733781,
+  "jobId": "4b7f0fa0-b948-4b9e-947a-5fb58f0cd85f",
+  "join": "roblox://placeId=103927746733781&gameInstanceId=4b7f0fa0-b948-4b9e-947a-5fb58f0cd85f",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794254378937
+  "web": "https://www.roblox.com/games/start?placeId=103927746733781&gameInstanceId=4b7f0fa0-b948-4b9e-947a-5fb58f0cd85f",
+  "location": "the Vampirism",
+  "updatedAt": 1794254438999
 }
