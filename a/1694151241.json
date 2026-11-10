@@ -1,12 +1,12 @@
 {
   "userId": 1694151241,
   "displayName": "Salvador",
-  "status": "in-game",
-  "placeId": 138501044883253,
-  "jobId": "c7e84e58-dc6b-493c-9fc8-ca651c421e48",
-  "join": "roblox://placeId=138501044883253&gameInstanceId=c7e84e58-dc6b-493c-9fc8-ca651c421e48",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1694151241",
-  "web": "https://www.roblox.com/games/start?placeId=138501044883253&gameInstanceId=c7e84e58-dc6b-493c-9fc8-ca651c421e48",
-  "location": "Burgerz🍔",
-  "updatedAt": 1794280761937
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794280851774
 }
