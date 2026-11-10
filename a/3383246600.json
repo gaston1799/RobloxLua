@@ -1,12 +1,12 @@
 {
   "userId": 3383246600,
   "displayName": "PX_ AssassinCROW",
-  "status": "in-game",
-  "placeId": 891852901,
-  "jobId": "b32ae95f-f76c-406d-a50e-e4d664a860fd",
-  "join": "roblox://placeId=891852901&gameInstanceId=b32ae95f-f76c-406d-a50e-e4d664a860fd",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3383246600",
-  "web": "https://www.roblox.com/games/start?placeId=891852901&gameInstanceId=b32ae95f-f76c-406d-a50e-e4d664a860fd",
-  "location": "Greenville RP",
-  "updatedAt": 1794347464092
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794347884248
 }
