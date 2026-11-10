@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 112270456220062,
-  "jobId": "e8e97f8d-2da0-45ad-b38d-ebaef9fa7123",
-  "join": "roblox://placeId=112270456220062&gameInstanceId=e8e97f8d-2da0-45ad-b38d-ebaef9fa7123",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=112270456220062&gameInstanceId=e8e97f8d-2da0-45ad-b38d-ebaef9fa7123",
-  "location": "[ 🎃 FINAL ] blind but dangerous",
-  "updatedAt": 1794316376103
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794316856569
 }
