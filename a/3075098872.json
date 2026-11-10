@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 71377105869058,
-  "jobId": "b16b5909-bc9f-4136-bd8a-88a77231c91b",
-  "join": "roblox://placeId=71377105869058&gameInstanceId=b16b5909-bc9f-4136-bd8a-88a77231c91b",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=71377105869058&gameInstanceId=b16b5909-bc9f-4136-bd8a-88a77231c91b",
-  "location": "Vampire Legacy",
-  "updatedAt": 1794274904135
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794274964101
 }
