@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 80060632680866,
-  "jobId": "94a9a7ac-9fea-4f05-b16c-49be157408b9",
-  "join": "roblox://placeId=80060632680866&gameInstanceId=94a9a7ac-9fea-4f05-b16c-49be157408b9",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=80060632680866&gameInstanceId=94a9a7ac-9fea-4f05-b16c-49be157408b9",
-  "location": "[ALPHA] Vampire Age",
-  "updatedAt": 1794383833224
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794383893231
 }
