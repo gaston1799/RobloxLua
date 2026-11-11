@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 134631559007106,
+  "jobId": "43560a14-6262-4eb7-a63b-c2c52f0f0370",
+  "join": "roblox://placeId=134631559007106&gameInstanceId=43560a14-6262-4eb7-a63b-c2c52f0f0370",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794379272167
+  "web": "https://www.roblox.com/games/start?placeId=134631559007106&gameInstanceId=43560a14-6262-4eb7-a63b-c2c52f0f0370",
+  "location": "The Sacrificed",
+  "updatedAt": 1794379452210
 }
