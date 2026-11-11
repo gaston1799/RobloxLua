@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 10561456271,
+  "jobId": "1ace62b2-11d7-4a35-b4be-160081e9ef18",
+  "join": "roblox://placeId=10561456271&gameInstanceId=1ace62b2-11d7-4a35-b4be-160081e9ef18",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794436841978
+  "web": "https://www.roblox.com/games/start?placeId=10561456271&gameInstanceId=1ace62b2-11d7-4a35-b4be-160081e9ef18",
+  "location": "The Vampire Legends 2",
+  "updatedAt": 1794436903926
 }
