@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 121868512253414,
+  "jobId": "b4dbc05f-2b1e-429c-a65a-99273d856670",
+  "join": "roblox://placeId=121868512253414&gameInstanceId=b4dbc05f-2b1e-429c-a65a-99273d856670",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794406406802
+  "web": "https://www.roblox.com/games/start?placeId=121868512253414&gameInstanceId=b4dbc05f-2b1e-429c-a65a-99273d856670",
+  "location": "Ragdoll Physics 🩸",
+  "updatedAt": 1794406587030
 }
