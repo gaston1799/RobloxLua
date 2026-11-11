@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 96510596525082,
-  "jobId": "879f8599-4c3f-4689-a59c-c88948bb0a16",
-  "join": "roblox://placeId=96510596525082&gameInstanceId=879f8599-4c3f-4689-a59c-c88948bb0a16",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=96510596525082&gameInstanceId=879f8599-4c3f-4689-a59c-c88948bb0a16",
-  "location": "Ball VS Ball [RANKED]",
-  "updatedAt": 1794406829344
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794407246964
 }
