@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "in-game",
-  "placeId": 127135425701849,
-  "jobId": "046adf7c-5543-482f-9466-34617f9f6886",
-  "join": "roblox://placeId=127135425701849&gameInstanceId=046adf7c-5543-482f-9466-34617f9f6886",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=3075098872",
-  "web": "https://www.roblox.com/games/start?placeId=127135425701849&gameInstanceId=046adf7c-5543-482f-9466-34617f9f6886",
-  "location": "[🌍 2D] Rule The Globe",
-  "updatedAt": 1794373450789
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794374771074
 }
