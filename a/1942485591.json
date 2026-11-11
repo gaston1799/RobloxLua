@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 122093998639862,
+  "jobId": "8908815d-54c6-46e6-bc8c-2d9a4df3e5d1",
+  "join": "roblox://placeId=122093998639862&gameInstanceId=8908815d-54c6-46e6-bc8c-2d9a4df3e5d1",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794421477626
+  "web": "https://www.roblox.com/games/start?placeId=122093998639862&gameInstanceId=8908815d-54c6-46e6-bc8c-2d9a4df3e5d1",
+  "location": "[🎃] The Morgue Shift",
+  "updatedAt": 1794421777703
 }
