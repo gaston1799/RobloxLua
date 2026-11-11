@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 76678170614451,
-  "jobId": "71a923d6-333b-44c7-882d-2c16a634fc3c",
-  "join": "roblox://placeId=76678170614451&gameInstanceId=71a923d6-333b-44c7-882d-2c16a634fc3c",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=76678170614451&gameInstanceId=71a923d6-333b-44c7-882d-2c16a634fc3c",
-  "location": "[MARS] Clean the Moon!",
-  "updatedAt": 1794426219357
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794426399387
 }
