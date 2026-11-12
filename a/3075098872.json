@@ -1,12 +1,12 @@
 {
   "userId": 3075098872,
   "displayName": "llEndll",
-  "status": "offline",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 124979753524404,
+  "jobId": "405f930c-6d4d-4233-be90-c7f898376d1f",
+  "join": "roblox://placeId=124979753524404&gameInstanceId=405f930c-6d4d-4233-be90-c7f898376d1f",
   "follow": "roblox://followUserId=3075098872",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794448965070
+  "web": "https://www.roblox.com/games/start?placeId=124979753524404&gameInstanceId=405f930c-6d4d-4233-be90-c7f898376d1f",
+  "location": "NOOB INVASION [BETA]",
+  "updatedAt": 1794449025094
 }
