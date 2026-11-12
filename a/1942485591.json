@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "in-game",
-  "placeId": 127112779460977,
-  "jobId": "f6bc300a-044d-47b9-9ec2-a8db659b5184",
-  "join": "roblox://placeId=127112779460977&gameInstanceId=f6bc300a-044d-47b9-9ec2-a8db659b5184",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=1942485591",
-  "web": "https://www.roblox.com/games/start?placeId=127112779460977&gameInstanceId=f6bc300a-044d-47b9-9ec2-a8db659b5184",
-  "location": "Into The Hive",
-  "updatedAt": 1794481793639
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1794481853686
 }
