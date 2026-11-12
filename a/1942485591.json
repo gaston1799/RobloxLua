@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 126987974021910,
+  "jobId": "08ae2726-98f8-41ba-8b39-3be601106c9f",
+  "join": "roblox://placeId=126987974021910&gameInstanceId=08ae2726-98f8-41ba-8b39-3be601106c9f",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1794472971794
+  "web": "https://www.roblox.com/games/start?placeId=126987974021910&gameInstanceId=08ae2726-98f8-41ba-8b39-3be601106c9f",
+  "location": "[GAMEMODES!] Illegal Soccer",
+  "updatedAt": 1794473031827
 }
