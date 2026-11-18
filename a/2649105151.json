@@ -1,12 +1,12 @@
 {
   "userId": 2649105151,
   "displayName": "Bl00dromanc3",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 76678170614451,
+  "jobId": "5c70a55a-956a-40dc-a4fb-8e66e46f7c59",
+  "join": "roblox://placeId=76678170614451&gameInstanceId=5c70a55a-956a-40dc-a4fb-8e66e46f7c59",
   "follow": "roblox://followUserId=2649105151",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1795024327963
+  "web": "https://www.roblox.com/games/start?placeId=76678170614451&gameInstanceId=5c70a55a-956a-40dc-a4fb-8e66e46f7c59",
+  "location": "[NEPTUNE] Clean the Moon!",
+  "updatedAt": 1795024515061
 }
