@@ -1,12 +1,12 @@
 {
   "userId": 2617996588,
   "displayName": "WarriorAlt",
-  "status": "in-game",
-  "placeId": 4601778915,
-  "jobId": "42517dc8-97a6-40df-9698-fdaeb22b6cb6",
-  "join": "roblox://placeId=4601778915&gameInstanceId=42517dc8-97a6-40df-9698-fdaeb22b6cb6",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2617996588",
-  "web": "https://www.roblox.com/games/start?placeId=4601778915&gameInstanceId=42517dc8-97a6-40df-9698-fdaeb22b6cb6",
-  "location": "[GUILD WARS] Dragon Adventures 🐉",
-  "updatedAt": 1795209085531
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1795209325522
 }
