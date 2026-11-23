@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 104688616907171,
+  "jobId": "63bf46c4-6678-40b0-afc5-5a13435c2ef2",
+  "join": "roblox://placeId=104688616907171&gameInstanceId=63bf46c4-6678-40b0-afc5-5a13435c2ef2",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1795469574759
+  "web": "https://www.roblox.com/games/start?placeId=104688616907171&gameInstanceId=63bf46c4-6678-40b0-afc5-5a13435c2ef2",
+  "location": "[⛵] Build a Bridge",
+  "updatedAt": 1795469634772
 }
