@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 96510596525082,
-  "jobId": "8f45745a-f8b0-45f1-a124-574f3d17c0ce",
-  "join": "roblox://placeId=96510596525082&gameInstanceId=8f45745a-f8b0-45f1-a124-574f3d17c0ce",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=96510596525082&gameInstanceId=8f45745a-f8b0-45f1-a124-574f3d17c0ce",
-  "location": "Ball VS Ball [Fusion Mode]",
-  "updatedAt": 1795536492114
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1795536732125
 }
