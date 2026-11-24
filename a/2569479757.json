@@ -1,12 +1,12 @@
 {
   "userId": 2569479757,
   "displayName": "LC_betrayed",
-  "status": "in-game",
-  "placeId": 103265940798818,
-  "jobId": "86018492-b5b3-45e9-94e3-084371d472c8",
-  "join": "roblox://placeId=103265940798818&gameInstanceId=86018492-b5b3-45e9-94e3-084371d472c8",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2569479757",
-  "web": "https://www.roblox.com/games/start?placeId=103265940798818&gameInstanceId=86018492-b5b3-45e9-94e3-084371d472c8",
-  "location": "[👽] Cast a Magnet",
-  "updatedAt": 1795542347394
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1795542378139
 }
