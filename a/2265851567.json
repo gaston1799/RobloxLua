@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 91652462379782,
+  "jobId": "21b86e76-162d-4db0-924f-abb50e6ae4db",
+  "join": "roblox://placeId=91652462379782&gameInstanceId=21b86e76-162d-4db0-924f-abb50e6ae4db",
   "follow": "roblox://followUserId=2265851567",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1795617538951
+  "web": "https://www.roblox.com/games/start?placeId=91652462379782&gameInstanceId=21b86e76-162d-4db0-924f-abb50e6ae4db",
+  "location": "Can You Pass A Driving Test?",
+  "updatedAt": 1795617598899
 }
