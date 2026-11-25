@@ -1,12 +1,12 @@
 {
   "userId": 2265851567,
   "displayName": "Spade",
-  "status": "in-game",
-  "placeId": 121011978933862,
-  "jobId": "c820a562-1e01-4d0d-8c40-49141736679e",
-  "join": "roblox://placeId=121011978933862&gameInstanceId=c820a562-1e01-4d0d-8c40-49141736679e",
+  "status": "online",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=2265851567",
-  "web": "https://www.roblox.com/games/start?placeId=121011978933862&gameInstanceId=c820a562-1e01-4d0d-8c40-49141736679e",
-  "location": "Scare Your Favorite Streamer",
-  "updatedAt": 1795600677687
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1795601155500
 }
