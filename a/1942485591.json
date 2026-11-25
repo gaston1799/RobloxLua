@@ -1,12 +1,12 @@
 {
   "userId": 1942485591,
   "displayName": "Levi",
-  "status": "online",
-  "placeId": null,
-  "jobId": null,
-  "join": null,
+  "status": "in-game",
+  "placeId": 83784149502814,
+  "jobId": "c74b7634-7673-45b0-9d51-02961a7235c8",
+  "join": "roblox://placeId=83784149502814&gameInstanceId=c74b7634-7673-45b0-9d51-02961a7235c8",
   "follow": "roblox://followUserId=1942485591",
-  "web": null,
-  "location": "Website",
-  "updatedAt": 1795573759970
+  "web": "https://www.roblox.com/games/start?placeId=83784149502814&gameInstanceId=c74b7634-7673-45b0-9d51-02961a7235c8",
+  "location": "BloxNG [CRASH PHYSICS] 💥",
+  "updatedAt": 1795573819675
 }
