@@ -1,12 +1,12 @@
 {
   "userId": 4309598145,
   "displayName": "PARADOXALONE",
-  "status": "in-game",
-  "placeId": 76870565041704,
-  "jobId": "bce08cca-0003-407d-9722-880ed6b71d54",
-  "join": "roblox://placeId=76870565041704&gameInstanceId=bce08cca-0003-407d-9722-880ed6b71d54",
+  "status": "offline",
+  "placeId": null,
+  "jobId": null,
+  "join": null,
   "follow": "roblox://followUserId=4309598145",
-  "web": "https://www.roblox.com/games/start?placeId=76870565041704&gameInstanceId=bce08cca-0003-407d-9722-880ed6b71d54",
-  "location": " [THROWING DISC!] Unstable SMP FFA",
-  "updatedAt": 1795658635663
+  "web": null,
+  "location": "Website",
+  "updatedAt": 1795658939221
 }
